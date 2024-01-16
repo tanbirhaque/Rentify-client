@@ -2,39 +2,48 @@ import { Link, NavLink } from "react-router-dom";
 import "./Navbar.css";
 
 const Navbar = () => {
+
+  // const navLinks = (
+  //   <>
+  //     <NavLink
+  //       className={({ isActive }) => (isActive ? "active-link" : "link")} 
+  //     >
+  //       Home
+  //     </NavLink>
+  //     <NavLink
+  //       className={({ isActive }) => (isActive ? "active-link" : "link")}
+  //     >
+  //       home 2
+  //     </NavLink>
+
+  //     <NavLink
+  //       className={({ isActive }) => (isActive ? "active-link" : "link")}
+  //     >
+  //       home 3
+  //     </NavLink>
+  //     <NavLink
+  //       to="/login"
+  //       className={({ isActive }) => (isActive ? "active-link" : "link")}
+  //     >
+  //       Login
+  //     </NavLink>
+
+  //     <NavLink
+  //       to="/register"
+  //       className={({ isActive }) => (isActive ? "active-link" : "link")}
+  //     >
+  //       Register
+  //     </NavLink>
+  //   </>
+  // );
+
   const navLinks = (
     <>
-      <NavLink
-        className={({ isActive }) => (isActive ? "active-link" : "link")}
-      >
-        Home
-      </NavLink>
-      <NavLink
-        className={({ isActive }) => (isActive ? "active-link" : "link")}
-      >
-        home 2
-      </NavLink>
-
-      <NavLink
-        className={({ isActive }) => (isActive ? "active-link" : "link")}
-      >
-        home 3
-      </NavLink>
-      <NavLink
-        to="/login"
-        className={({ isActive }) => (isActive ? "active-link" : "link")}
-      >
-        Login
-      </NavLink>
-
-      <NavLink
-        to="/register"
-        className={({ isActive }) => (isActive ? "active-link" : "link")}
-      >
-        Register
-      </NavLink>
+    <NavLink to='/' className='navAfter relative font-medium text-base text-black mx-3'>Home</NavLink>
+    <NavLink to='/login' className='navAfter relative font-medium text-base text-black  mx-3'>Signin</NavLink>
+    <NavLink to='register' className='navAfter relative font-medium text-base  text-black mx-3'>Signup</NavLink>
     </>
-  );
+  )
 
   return (
     <div className="max-w-screen-lg mx-auto">
