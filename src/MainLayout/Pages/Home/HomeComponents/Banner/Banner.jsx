@@ -18,16 +18,16 @@ const Banner = () => {
         <div className=" flex justify-center mx-auto flex-col md:flex-row  gap-10">
           <div className="   w-full lg:w-1/2   ">
 
-           <div className="flex justify-between banner">
+           <div className="flex justify-evenly md:justify-between banner">
            <img className="w-10 " src={img3} alt="" />
            <img className="floating" src="https://i.ibb.co/TYpJMmw/413824751-1821545304957822-2518450752563921897-n.png" alt="" />
            </div>
 
            <div>
-            <h2 className="lg:text-5xl md:text-2xl text-xl my-4 lg:font-bold text-black lg:leading-normal leading-7">Find Your Freedom, <br />Without Leaving <br /> Home</h2>
+            <h2 className="lg:text-5xl md:text-2xl text-xl my-4 lg:font-bold text-black lg:leading-normal leading-7 ml-32 md:ml-0">Find Your Freedom, <br />Without Leaving <br /> Home</h2>
            </div>
 
-           <p className="mb-5 text-gray-700 lg:text-base text-xs lg:font-medium leading-7">Discover seamless living with Rebtify – your premier <br />destination  for hassle-free online rentals. Browse <br />  a curated selection of top-quality homes, apartments, <br />and more. Elevate your living experience  <br />effortlessly with Rebtify.</p>
+           <p className="mb-5 text-gray-700 lg:text-base text-xs lg:font-medium leading-7 ml-16 md:ml-0">Discover seamless living with Rebtify – your premier <br />destination  for hassle-free online rentals. Browse <br />  a curated selection of top-quality homes, apartments, <br />and more. Elevate your living experience  <br />effortlessly with Rebtify.</p>
 
            <div>
             <form  className="lg:w-[470px] md:w-[300px] hidden sm:flex justify-center items-center   text-center ">
@@ -51,7 +51,7 @@ const Banner = () => {
              
             </div>
 
-            <div className="avatar-group -space-x-6 rtl:space-x-reverse my-5">
+            <div className="avatar-group -space-x-6 rtl:space-x-reverse my-5 ml-28 md:ml-0">
   <div className="avatar">
     <div className="w-12">
       <img src={img4} />
@@ -74,7 +74,7 @@ const Banner = () => {
   </div>
 </div>
 
-<p className="ml-2 text-[#e33226] text-base font-medium">29k Positive Review</p>
+<p className="md:ml-2 ml-32 text-[#e33226] text-base font-medium">29k Positive Review</p>
 
 
           </div>
@@ -107,7 +107,7 @@ const Banner = () => {
                           name="rating-5"
                           className="mask mask-star-2 bg-orange-400"
                         />
-                        <p className="ml-2 text-[#002172] font-normal">4.8 (400+ Review)</p>
+                        <p className="ml-2 text-[#002172] font-normal ">4.8 (400+ Review)</p>
                       </div>
 
                     </a>
