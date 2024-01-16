@@ -1,10 +1,19 @@
-import Banner from "./HomeComponents/Banner/Banner";
+
+import About from "./HomeComponents/About/About";
+
+import Journey from "./HomeComponents/Journey/Journey";
+import Listing from "./HomeComponents/Listing/Listing";
+import OurAdvantage from "./HomeComponents/OurAdvantage/OurAdvantage";
 
 
 const Home = () => {
     return (
         <div>
-            <Banner></Banner>
+            
+          <Listing/>
+          <OurAdvantage/>
+          <Journey/>
+          <About/>
         </div>
     );
 };
