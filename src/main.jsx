@@ -1,9 +1,15 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import "./index.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import MainLayout from "./MainLayout/MainLayout.jsx";
-import Home from "./MainLayout/Pages/Home/Home.jsx";
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App.jsx'
+import './index.css'
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import MainLayout from './MainLayout/MainLayout.jsx';
+import Home from './MainLayout/Pages/Home/Home.jsx';
+import Login from './MainLayout/Pages/Login/Login';
+import Register from './MainLayout/Pages/Register/Register';
 
 const router = createBrowserRouter([
   {
@@ -12,9 +18,17 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home></Home>,
+        element: <Home></Home>
       },
-    ],
+      {
+        path: "/login",
+        element: <Login></Login>
+      },
+      {
+        path: "/register",
+        element: <Register></Register>
+      }
+    ]
   },
 ]);
 
