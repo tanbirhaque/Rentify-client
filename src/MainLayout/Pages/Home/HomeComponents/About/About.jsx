@@ -4,7 +4,7 @@ const About = () => {
         <div className='flex  justify-evenly max-w-screen-2xl  mx-auto '>
             <div className='relative '>
                 <img className='w-[450px] h-[500px]' src="https://i.ibb.co/sgQWNHX/download.jpg" alt="" />
-                <div className='absolute -bottom-1/4 left-1/2 h-[600px] w-[600px]'>
+                <div className='absolute -bottom-1/2 left-1/2 h-[600px] w-[600px]'>
                     <img className="" src="https://i.ibb.co/CPXqSN1/download.jpg" alt="" />
 
                 </div>
