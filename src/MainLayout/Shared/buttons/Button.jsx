@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const Button = ({ initialColor, title, padding, fontWeight }) => {
-  const [buttonColor, setButtonColor] = useState(initialColor || "black");
+  const [buttonColor, setButtonColor] = useState(initialColor || "white");
 
   return (
     <button
