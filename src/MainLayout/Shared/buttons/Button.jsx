@@ -1,20 +1,19 @@
 import { useState } from "react";
 
-const Button = ({ initialColor, title, width, height, padding }) => {
-  const [buttonColor, setButtonColor] = useState(initialColor || "red");
+const Button = ({ initialColor, title, padding, fontWeight }) => {
+  const [buttonColor, setButtonColor] = useState(initialColor || "black");
 
   return (
     <button
       style={{
         backgroundColor: buttonColor,
         color: "white",
-        width: width || "100px",
-        height: height || "40px",
-        padding: padding || "10",
-        cursor: "pointer",
+        width: "fit-content",
+        height: "auto",
+        padding: padding || "10px",
         borderRadius: "5px",
         fontSize: "16px",
-        fontWeight: "500",
+        fontWeight: fontWeight || "500",
       }}
     >
       {title}
