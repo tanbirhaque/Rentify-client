@@ -1,12 +1,14 @@
 .banner {
     position: relative;
     overflow: hidden;
+    height: 500px;
+  
  
   
   }
 .floating {
     position: absolute;
-    animation: floatAnimation 5s infinite ease-in-out;
+    animation: floatAnimation 1.5s infinite ease-in-out;
   }
   
   @keyframes floatAnimation {
@@ -14,6 +16,6 @@
       transform: translateY(0);
     }
     50% {
-      transform: translateY(-20px);
+      transform: translateY(-40px);
     }
   }

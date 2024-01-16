@@ -24,13 +24,13 @@ const Banner = () => {
            </div>
 
            <div>
-            <h2 className="lg:text-5xl my-4 lg:font-bold text-black lg:leading-normal leading-7">Find Your Freedom, <br />Without Leaving <br /> Home</h2>
+            <h2 className="lg:text-5xl md:text-2xl text-xl my-4 lg:font-bold text-black lg:leading-normal leading-7">Find Your Freedom, <br />Without Leaving <br /> Home</h2>
            </div>
 
-           <p className="mb-5 text-gray-700 text-base font-medium leading-7">Discover seamless living with Rebtify – your premier destination <br /> for hassle-free online rentals. Browse a curated selection of top-quality <br /> homes, apartments, and more. Elevate your living experience <br /> effortlessly with Rebtify.</p>
+           <p className="mb-5 text-gray-700 lg:text-base text-xs lg:font-medium leading-7">Discover seamless living with Rebtify – your premier <br />destination  for hassle-free online rentals. Browse <br />  a curated selection of top-quality homes, apartments, <br />and more. Elevate your living experience  <br />effortlessly with Rebtify.</p>
 
            <div>
-            <form  className="md:w-[470px] hidden sm:flex justify-center items-center   text-center ">
+            <form  className="lg:w-[470px] md:w-[300px] hidden sm:flex justify-center items-center   text-center ">
             <input
             
             className="py-2.5 px-3 text-black rounded-l-lg md:w-[470px] border-gray-300 border"
