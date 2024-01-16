@@ -93,20 +93,12 @@ const Navbar = () => {
         </div>
         <div className="navbar-end">
           <Link>
-            <button
-              type="button"
-              className="text-white bg-gradient-to-r from-blue-500 via-blue-700 to-[#002172] hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-            >
-              Signin
-            </button>
+          <button type="button" className="text-white bg-gradient-to-r from-blue-500 via-blue-700 to-[#002172] hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Signin</button>
           </Link>
+
           <Link>
-            <button
-              type="button"
-              className="text-[#002172] hover:text-white border border-[#002172] hover:bg-gradient-to-r from-blue-700 to-[#002172] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800"
-            >
-              Signup
-            </button>
+        <button type="button" className="text-[#002172] hover:text-white border border-[#002172] hover:bg-gradient-to-r from-blue-700 to-[#002172] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800">Signup</button>
+
           </Link>
         </div>
       </div>
