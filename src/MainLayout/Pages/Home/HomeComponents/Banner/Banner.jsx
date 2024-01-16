@@ -6,7 +6,7 @@ import img4 from "../../../../../assets/Enuf - Real Estate Angular 17 Template_f
 import img5 from "../../../../../assets/Enuf - Real Estate Angular 17 Template_files/client-2.jpg";
 import img6 from "../../../../../assets/Enuf - Real Estate Angular 17 Template_files/client-3.jpg";
 import img7 from "../../../../../assets/Enuf - Real Estate Angular 17 Template_files/client-4.jpg";
-
+// import './Banner.css'
 
 
 
