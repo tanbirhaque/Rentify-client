@@ -1,0 +1,46 @@
+.popular{
+    position: relative;
+    background: url("../../../../../assets/Template_files/city-1.jpg");
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 8px;
+
+}
+
+.popular .under {
+    width: 100%;
+}
+
+.overlay{
+    width: 100%;
+    height: 100%;
+    /* background-color: black; */
+}
+
+
+
+/* .popular:hover {
+
+} */
+
+.hoverAfter::after {
+    content: "";
+    width: 100%;
+    height: 3px;
+    background-color: #f5f6fa;
+    position: absolute;
+    z-index: 99999;
+    left: 0;
+    /* bottom: 0; */
+    top: 0;
+    transition: all linear 0.3s;
+  }
+
+  /* .hoverfter:hover:after {
+    
+    width: 100%;
+  } */
+
+  

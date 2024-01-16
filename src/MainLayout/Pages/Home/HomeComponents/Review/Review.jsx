@@ -5,7 +5,7 @@ import { Navigation } from "swiper/modules";
 
 const Review = () => {
     return (
-        <div className="mt-">
+        <div className="mt-10 mb-20 max-w-screen-2xl mx-auto">
         
         <p className="lg:text-base md:text-sm text-xs font-medium mt-3 text-[#e33226] text-center">
         See Our Reviews
