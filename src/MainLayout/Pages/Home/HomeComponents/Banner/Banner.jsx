@@ -1,7 +1,15 @@
-import { Link } from "react-router-dom";
+import { IoSearchOutline } from "react-icons/io5";
 import img1 from "../../../../../assets/home-2/hero-bg-1.jpg";
 import img2 from "../../../../../assets/home-2/property-14.jpg";
 import img3 from "../../../../../assets/home-2/house.png";
+import img4 from "../../../../../assets/Enuf - Real Estate Angular 17 Template_files/client-1.jpg";
+import img5 from "../../../../../assets/Enuf - Real Estate Angular 17 Template_files/client-2.jpg";
+import img6 from "../../../../../assets/Enuf - Real Estate Angular 17 Template_files/client-3.jpg";
+import img7 from "../../../../../assets/Enuf - Real Estate Angular 17 Template_files/client-4.jpg";
+
+
+
+
 
 const Banner = () => {
   return (
@@ -10,34 +18,63 @@ const Banner = () => {
         <div className=" flex justify-center mx-auto flex-col md:flex-row  gap-10">
           <div className="   w-full lg:w-1/2   ">
 
-           <div >
+           <div className="flex justify-between banner">
            <img className="w-10 " src={img3} alt="" />
+           <img className="floating" src="https://i.ibb.co/TYpJMmw/413824751-1821545304957822-2518450752563921897-n.png" alt="" />
            </div>
 
            <div>
             <h2 className="lg:text-5xl my-4 lg:font-bold text-black lg:leading-normal leading-7">Find Your Freedom, <br />Without Leaving <br /> Home</h2>
            </div>
 
+           <p className="mb-5 text-gray-700 text-base font-medium leading-7">Discover seamless living with Rebtify – your premier destination <br /> for hassle-free online rentals. Browse a curated selection of top-quality <br /> homes, apartments, and more. Elevate your living experience <br /> effortlessly with Rebtify.</p>
+
            <div>
             <form  className="md:w-[470px] hidden sm:flex justify-center items-center   text-center ">
-          <input
+            <input
             
             className="py-2.5 px-3 text-black rounded-l-lg md:w-[470px] border-gray-300 border"
             type="text"
             name="searchbar"
             
-            placeholder="     Search Jobs Here..."
+            
+            placeholder="     Find your location..."
           />
 
           <button
             type="submit"
-            className="focus:outline-none  text-white    bg-[#1e3c72] hover:bg-blue-600 focus:ring-purple-300  font-medium  text-sm px-5 py-3.5   rounded-r-lg border-none "
+            className="focus:outline-none  text-white    bg-[#002172] hover:bg-[#e33226] focus:ring-purple-300  font-medium  text-sm px-5 py-3.5   rounded-r-lg border-none "
           >
             Search
           </button>
         </form>
              
             </div>
+
+            <div className="avatar-group -space-x-6 rtl:space-x-reverse my-5">
+  <div className="avatar">
+    <div className="w-12">
+      <img src={img4} />
+    </div>
+  </div>
+  <div className="avatar">
+    <div className="w-12">
+      <img src={img5} />
+    </div>
+  </div>
+  <div className="avatar">
+    <div className="w-12">
+      <img src={img6} />
+    </div>
+  </div>
+  <div className="avatar">
+    <div className="w-12">
+      <img src={img7} />
+    </div>
+  </div>
+</div>
+
+<p className="ml-2 text-[#e33226] text-base font-medium">29k Positive Review</p>
 
 
           </div>

@@ -1,0 +1,19 @@
+.banner {
+    position: relative;
+    overflow: hidden;
+ 
+  
+  }
+.floating {
+    position: absolute;
+    animation: floatAnimation 5s infinite ease-in-out;
+  }
+  
+  @keyframes floatAnimation {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
