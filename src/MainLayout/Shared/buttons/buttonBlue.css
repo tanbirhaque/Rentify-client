@@ -1,4 +1,4 @@
-.btn-red {
+.btn-blue {
     background: transparent;
     position: relative;
     padding: 5px 15px;
@@ -6,21 +6,21 @@
     align-items: center;
     font-size: 17px;
     font-weight: 600;
-    border: 1px solid #ec3323;
+    border: 1px solid #002172;
     border-radius: 5px;
     outline: none;
     overflow: hidden;
-    color: #ec3323;
+    color: #002172;
     transition: color 0.3s 0.1s ease-out;
     text-align: center;
     width: fit-content;
   }
   
-  .btn-red {
+  .btn-blue {
     margin: 10px;
   }
   
-  .btn-red::before {
+  .btn-blue::before {
     position: absolute;
     top: 0;
     left: 0;
@@ -38,11 +38,11 @@
     z-index: -1;
   }
   
-  .btn-red:hover {
+  .btn-blue:hover {
     color: #fff;
-    border: 1px solid #ec3323;
+    border: 1px solid #002172;
   }
   
-  .btn-red:hover::before {
-    box-shadow: inset 0 0 0 10em #ec3323;
+  .btn-blue:hover::before {
+    box-shadow: inset 0 0 0 10em #002172;
   }

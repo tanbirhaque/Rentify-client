@@ -1,9 +1,9 @@
 import "./buttonRed.css";
 
-const ButtonRed = ({ title }) => {
+const ButtonRed = ({ titleRed }) => {
   return (
     <>
-      <div className="btn-2">{title}</div>
+      <div className="btn-red">{titleRed}</div>
     </>
   );
 };
