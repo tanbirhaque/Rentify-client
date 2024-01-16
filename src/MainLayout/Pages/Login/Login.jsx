@@ -1,5 +1,4 @@
 import { useForm } from "react-hook-form";
-import Button from "../../Shared/buttons/Button";
 import Lottie from "lottie-react";
 import loginAnimation from "../../../../public/LoginAnimation.json";
 import { Link } from "react-router-dom";
@@ -22,7 +21,7 @@ const Login = () => {
       <h3 className="text-3xl font-semibold text-center">
         Login to Rentify
       </h3>
-      <div className="flex flex-col items-center lg:flex-row gap-10">
+      <div className="flex flex-col items-center md:flex-row gap-10">
         <div className="flex-1">
           <form
             className="max-w-screen-md mx-auto"
@@ -64,7 +63,7 @@ const Login = () => {
                   Register
                 </Link>
               </div>
-              <button className="btn block bg-[#ec3323] hover:bg-[#b93a2f] w-fit lg:w-[558px] text-white ">
+              <button className="btn block bg-[#002172] hover:bg-[#142a9b] w-fit lg:w-[558px] text-white ">
                 Login
               </button>
             </div>
