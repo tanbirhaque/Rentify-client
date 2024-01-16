@@ -34,29 +34,40 @@ const Review = () => {
               </svg>
               <blockquote>
                 <p className="md:text-2xl italic text-sm font-medium text-gray-900 dark:text-white">
-                  "I just wanted to let you know that SurveyNest is a great business tool, helping my organization obtain some really important feedback from key stakeholders. Data we will now be using to refine our customer and volunteer experiences throughout the year. The online survey tools are incredibly user-friendly, and the survey proposition is far more useful than we ever thought it was going to be. SurveyNest has enabled us to obtain important information easily and in a format that is powerful and unambiguous. So thank you!"
+                  ""I absolutely love Rentify! The process of renting items is so smooth, and the variety of products available is impressive. The customer support team is incredibly helpful and responsive. I've used Rentify for multiple occasions, and it's always been a fantastic experience. Highly recommended"
                 </p>
               </blockquote>
               <figcaption className="flex items-center justify-center mt-6 space-x-3 rtl:space-x-reverse">
                 <img
-                  className="w-8 h-8 rounded-full"
+                  className="w-12 h-12 rounded-full"
                   src="https://i.ibb.co/FYTT19c/smiling-young-man-with-crossed-arms-outdoors.jpg"
                   alt="profile picture"
                 />
                 <div className="flex items-center divide-x-2 rtl:divide-x-reverse divide-gray-500 dark:divide-gray-700">
-                  <cite className="pe-3 font-medium text-[#2a5298] dark:text-white">
+                  <cite className="pe-3 font-medium text-[#002172] dark:text-white">
                   Tony Yorke
                   </cite>
-                  
+                  <div className="rating rating-sm    mx-auto">
+                        <input
+                          type="radio"
+                          name="rating-5"
+                          className="mask mask-star-2 bg-orange-400 ml-3 self-center"
+                        />
+                        <p className="mx-auto text-[#e33226] font-normal ml-2">
+                          4.8 ratings
+                        </p>
+                      </div>
                 </div>
+               
               </figcaption>
+              
             </figure>
             </SwiperSlide>
   
             <SwiperSlide>
             <figure className="max-w-screen-md mx-auto text-center">
               <svg
-                className="w-10 h-10 mx-auto mb-3 text-[#2a5298] dark:text-gray-600"
+                className="w-12 h-12 mx-auto mb-3 text-[#002172] dark:text-gray-600"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -66,20 +77,29 @@ const Review = () => {
               </svg>
               <blockquote>
                 <p className="md:text-2xl text-sm italic font-medium text-gray-900 dark:text-white">
-                  "I want to thank you so much for this facility. It is helping me so much with my Masters Degree research. It is easy to set up, to use and to retrieve results. Highly recommended!"
+                "Rentify has made my life so much easier. From party supplies to camping gear, I've found everything I needed without the hassle of buying. The quality of the items is top-notch, and the delivery and pickup process is super convenient. Rentify is now my go-to for all my temporary needs."
                 </p>
               </blockquote>
               <figcaption className="flex items-center justify-center mt-6 space-x-3 rtl:space-x-reverse">
                 <img
-                  className="w-8 h-8 rounded-full"
+                  className="w-10 h-10 rounded-full"
                   src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png"
                   alt="profile picture"
                 />
                 <div className="flex items-center divide-x-2 rtl:divide-x-reverse divide-gray-500 dark:divide-gray-700">
-                  <cite className="pe-3 font-medium text-[#2a5298] dark:text-white">
+                  <cite className="pe-3 font-medium text-[#002172] dark:text-white">
                     Michael Gough
                   </cite>
-                  
+                  <div className="rating rating-sm    mx-auto">
+                        <input
+                          type="radio"
+                          name="rating-5"
+                          className="mask mask-star-2 bg-orange-400 ml-3 self-center"
+                        />
+                        <p className="mx-auto text-[#e33226] font-normal ml-2">
+                          5 ratings
+                        </p>
+                      </div>
                 </div>
               </figcaption>
             </figure>
@@ -88,7 +108,7 @@ const Review = () => {
           <SwiperSlide> 
             <figure className="max-w-screen-md mx-auto text-center">
               <svg
-                className="w-10 h-10 mx-auto mb-3 text-[#2a5298] dark:text-gray-600"
+                className="w-12 h-12 mx-auto mb-3 text-[#002172] dark:text-gray-600"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -98,27 +118,36 @@ const Review = () => {
               </svg>
               <blockquote>
                 <p className="md:text-2xl text-sm italic font-medium text-gray-900 dark:text-white">
-                  "SurveyNest is the perfect tool to generate feedback after group events. Clark Webinar Consulting makes SurveyNest an important part of every webinar we produce. Great functionality and beautiful design!"
+                "As a frequent traveler, Rentify has been a lifesaver. Instead of lugging bulky items, I can easily rent them at my destination. The website is intuitive, and the search feature makes it simple to find what I need. The items are always in great condition, and the renting process is hassle-free. Thank you, Rentify, for making my travels more convenient!"
                 </p>
               </blockquote>
               <figcaption className="flex items-center justify-center mt-6 space-x-3 rtl:space-x-reverse">
                 <img
-                  className="w-8 h-8 rounded-full"
+                  className="w-10 h-10 rounded-full"
                   src="https://i.ibb.co/zGwPwtw/smiling-man-sitting-street-cafe-table-with-his-arms-crossed.jpg"
                   alt="profile picture"
                 />
                 <div className="flex items-center divide-x-2 rtl:divide-x-reverse divide-gray-500 dark:divide-gray-700">
-                  <cite className="pe-3 font-medium text-[#2a5298] dark:text-white">
+                  <cite className="pe-3 font-medium text-[#002172] dark:text-white">
                   Dave Clark
                   </cite>
-                  
+                  <div className="rating rating-sm    mx-auto">
+                        <input
+                          type="radio"
+                          name="rating-5"
+                          className="mask mask-star-2 bg-orange-400 ml-3 self-center"
+                        />
+                        <p className="mx-auto text-[#e33226] font-normal ml-2">
+                          4.2 ratings
+                        </p>
+                      </div>
                 </div>
               </figcaption>
             </figure></SwiperSlide>
           <SwiperSlide> 
             <figure className="max-w-screen-md mx-auto text-center">
               <svg
-                className="w-10 h-10 mx-auto mb-3 text-[#2a5298] dark:text-gray-600"
+                className="w-12 h-12 mx-auto mb-3 text-[#002172] dark:text-gray-600"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -128,20 +157,29 @@ const Review = () => {
               </svg>
               <blockquote>
                 <p className="md:text-2xl text-sm italic font-medium text-gray-900 dark:text-white">
-                  "SurveyPlanet is the best website to create surveys! It is very convenient, and it is possible to do many things even if you just decide to keep the free version. The biggest advantage to SurveyPlanet compared to other platforms is the unlimited number of answers you can get. Thank you!"
+                "Rentify has been a game-changer for our events. We regularly rent audio equipment, projectors, and even furniture for our company functions. The platform is user-friendly, and the pricing is transparent. It saves us time and money compared to buying items we only need occasionally. Highly satisfied with Rentify!"
                 </p>
               </blockquote>
               <figcaption className="flex items-center justify-center mt-6 space-x-3 rtl:space-x-reverse">
                 <img
-                  className="w-8 h-8 rounded-full"
+                  className="w-10 h-10 rounded-full"
                   src="https://i.ibb.co/ZNqfZb3/portrait-smiling-blonde-woman.jpg"
                   alt="profile picture"
                 />
                 <div className="flex items-center divide-x-2 rtl:divide-x-reverse divide-gray-500 dark:divide-gray-700">
-                  <cite className="pe-3 font-medium text-[#2a5298] dark:text-white">
+                  <cite className="pe-3 font-medium text-[#002172] dark:text-white">
                   Adrien Cabon
                   </cite>
-                  
+                  <div className="rating rating-sm    mx-auto">
+                        <input
+                          type="radio"
+                          name="rating-5"
+                          className="mask mask-star-2 bg-orange-400 ml-3 self-center"
+                        />
+                        <p className="mx-auto text-[#e33226] font-normal ml-2">
+                          4.6 ratings
+                        </p>
+                      </div>
                 </div>
               </figcaption>
             </figure></SwiperSlide>
