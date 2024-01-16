@@ -15,6 +15,7 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query'
+import Blogdetails from './MainLayout/Pages/Blog/Blogdetails.jsx';
 const queryClient = new QueryClient()
 
 
@@ -38,6 +39,11 @@ const router = createBrowserRouter([
       {
         path: "/blogs",
         element: <Bloggrind></Bloggrind>
+      },
+      {
+        path: "/blogs/:id",
+        element: <Blogdetails></Blogdetails>,
+        loader: () => fetch('/Blogs.json')
       }
     ]
   },

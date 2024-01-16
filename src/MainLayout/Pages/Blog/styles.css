@@ -51,8 +51,8 @@
 
 .cart {
     position: relative;
-    width: 470px; /* Set the width of your card */
-    height: 490px; /* Set the height of your card */
+    width: 470px; 
+    height: 490px; 
     overflow: hidden;
   }
   
@@ -60,6 +60,7 @@
     position: relative;
     width: 100%;
     height: 288px;
+    overflow: hidden;
   }
   
   .image-container img {
