@@ -1,0 +1,128 @@
+[
+    {
+        "_id": 1,
+        "img": "https://i.ibb.co/pdQJJ7L/blog-4.jpg",
+        "title": "Luxurious Villa with Stunning Views",
+        "date": "2024-january-16",
+        "comment": "4",
+        "details": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus ex sunt exercitationem saepe dolore quasi dolores ut laboriosam obcaecati facilis? Cum voluptas incidunt aliquid eaque modi eius, qui culpa vero.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus ex sunt exercitationem saepe dolore quasi dolores ut laboriosam obcaecati facilis? Cum voluptas incidunt aliquid eaque modi eius, qui culpa vero.",
+        "description": "Experience the epitome of luxury living with this stunning villa that offers breathtaking views of the surrounding landscape.",
+        "commodoviverra": [
+            "Private Swimming Pool for Relaxation",
+            "State-of-the-Art Gymnasium with Personal Trainers",
+            "Beautifully Landscaped Gardens for Leisure Strolls"
+        ],
+        "majorfacility": [
+            "Advanced Smart Home Technology for Convenient Living",
+            "Secure Private Parking Spaces for Residents",
+            "24/7 Security System for Enhanced Safety",
+            "Spa and Wellness Center for Health and Relaxation",
+            "Spacious Outdoor Entertainment Area for Social Gatherings"
+        ]
+    },
+    {
+        "_id": 2,
+        "img": "https://i.ibb.co/rtSvS84/blog-5.jpg",
+        "title": "Modern City Apartment",
+        "date": "2024-Fabruary-16",
+        "comment": "3",
+        "details": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus ex sunt exercitationem saepe dolore quasi dolores ut laboriosam obcaecati facilis? Cum voluptas incidunt aliquid eaque modi eius, qui culpa vero.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus ex sunt exercitationem saepe dolore quasi dolores ut laboriosam obcaecati facilis? Cum voluptas incidunt aliquid eaque modi eius, qui culpa vero.",
+        "description": "Live in the heart of the city with this modern and stylish apartment, featuring sleek design and convenient amenities.",
+        "commodoviverra": [
+            "Well-Equipped Fitness Center for Health Enthusiasts",
+            "Rooftop Terrace with Panoramic City Views",
+            "Concierge Service for Resident Assistance"
+        ],
+        "majorfacility": [
+            "Open Concept Design for a Spacious Feel",
+            "Energy-Efficient Appliances for Sustainable Living",
+            "Breathtaking City Views from Every Window",
+            "High-Speed Internet for Connectivity",
+            "Close Proximity to Public Transportation for Convenience"
+        ]
+    },
+    {
+        "_id": 3,
+        "img": "https://i.ibb.co/41LYCZB/blog-6.jpg",
+        "title": "Charming Countryside Cottage",
+        "date": "2024-March-16",
+        "comment": "3",
+        "details": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus ex sunt exercitationem saepe dolore quasi dolores ut laboriosam obcaecati facilis? Cum voluptas incidunt aliquid eaque modi eius, qui culpa vero.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus ex sunt exercitationem saepe dolore quasi dolores ut laboriosam obcaecati facilis? Cum voluptas incidunt aliquid eaque modi eius, qui culpa vero.",
+        "description": "Escape to the tranquility of the countryside with this charming cottage, surrounded by nature and rustic beauty.",
+        "commodoviverra": [
+            "Cozy Fireplace for Warmth and Ambiance",
+            "Picturesque Garden for Relaxation",
+            "Outdoor Seating Area for Enjoying Nature"
+        ],
+        "majorfacility": [
+            "Scenic Views of the Countryside",
+            "Updated Kitchen for Modern Convenience",
+            "Rustic Wooden Beams Adding Character",
+            "Peaceful Location Away from the City",
+            "Hiking Trails Nearby for Outdoor Enthusiasts"
+        ]
+    },
+    {
+        "_id": 4,
+        "img": "https://i.ibb.co/6ZCV8tL/breadcrumb-2.jpg",
+        "title": "Beachfront Paradise Villa",
+        "date": "2024-April-16",
+        "comment": "6",
+        "details": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus ex sunt exercitationem saepe dolore quasi dolores ut laboriosam obcaecati facilis? Cum voluptas incidunt aliquid eaque modi eius, qui culpa vero.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus ex sunt exercitationem saepe dolore quasi dolores ut laboriosam obcaecati facilis? Cum voluptas incidunt aliquid eaque modi eius, qui culpa vero.",
+        "description": "Indulge in the ultimate beachfront living experience with this luxurious villa offering direct access to pristine sandy shores.",
+        "commodoviverra": [
+            "Private Beach Access for Ultimate Relaxation",
+            "Infinity Pool Overlooking the Ocean",
+            "Outdoor Kitchen for Beachside Dining"
+        ],
+        "majorfacility": [
+            "Panoramic Ocean Views from Every Room",
+            "Master Suite with Balcony for Ocean Breezes",
+            "Smart Lighting System for Modern Living",
+            "Barbecue Area for Entertaining Guests",
+            "Waterfront Living with Direct Access to the Beach"
+        ]
+    },
+    {
+        "_id": 5,
+        "img": "https://i.ibb.co/PhTQxzH/breadcrumb-4.jpg",
+        "title": "Eco-Friendly Urban Loft",
+        "date": "2024-May-16",
+        "comment": "3",
+        "details": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus ex sunt exercitationem saepe dolore quasi dolores ut laboriosam obcaecati facilis? Cum voluptas incidunt aliquid eaque modi eius, qui culpa vero.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus ex sunt exercitationem saepe dolore quasi dolores ut laboriosam obcaecati facilis? Cum voluptas incidunt aliquid eaque modi eius, qui culpa vero.",
+        "description": "Embrace sustainable living in this eco-friendly urban loft, featuring recycled materials and energy-efficient design.",
+        "commodoviverra": [
+            "Green Roof for Energy Efficiency",
+            "Solar Panels for Sustainable Power",
+            "Rainwater Harvesting for Water Conservation"
+        ],
+        "majorfacility": [
+            "LEED Certified for Environmental Responsibility",
+            "Bike Storage for Eco-Friendly Transportation",
+            "Community Garden for Residents' Enjoyment",
+            "Walking Distance to Shops for Convenience",
+            "Accessible Public Transit for Easy Commuting"
+        ]
+    },
+    {
+        "_id": 6,
+        "img": "https://i.ibb.co/gJBpxL3/blog-1.jpg",
+        "title": "Mountain Retreat Cabin",
+        "date": "2024-June-16",
+        "comment": "2",
+        "details": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus ex sunt exercitationem saepe dolore quasi dolores ut laboriosam obcaecati facilis? Cum voluptas incidunt aliquid eaque modi eius, qui culpa vero.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus ex sunt exercitationem saepe dolore quasi dolores ut laboriosam obcaecati facilis? Cum voluptas incidunt aliquid eaque modi eius, qui culpa vero.",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus ex sunt exercitationem saepe dolore quasi dolores ut laboriosam obcaecati facilis? Cum voluptas incidunt aliquid eaque modi eius, qui culpa vero.Lorem, ipsum dolor sit amet consectetur adipisicing elit.Possimus ex sunt exercitationem saepe dolore quasi dolores ut laboriosam obcaecati facilis? Cum voluptas incidunt aliquid eaque modi eius, qui culpa vero.",
+        "commodoviverra": [
+            "Inviting Hot Tub for Relaxation",
+            "Fire Pit for Cozy Evenings",
+            "Forest Views for a Tranquil Atmosphere"
+        ],
+        "majorfacility": [
+            "Wraparound Deck for Panoramic Views",
+            "Vaulted Ceilings Adding a Spacious Feel",
+            "Fully Furnished for Immediate Comfort",
+            "Proximity to Ski Resort for Winter Activities",
+            "Wildlife Watching Opportunities in the Surrounding Area"
+        ]
+    }
+]
