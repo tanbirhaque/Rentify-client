@@ -26,6 +26,8 @@ const Testimonials = () => {
                     </div>
                 </div>
             </div>
+
+            {/* it's cart part */}
             <div className="max-w-screen-2xl mx-auto my-32">
                 <div className=" grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8">
                     {
@@ -34,7 +36,7 @@ const Testimonials = () => {
                                 <div className=" flex flex-col items-center justify-center">
                                     <img className="h-60 rounded-full" src={item.img} alt="Shoes" />
                                 </div>
-                                <div className="p-8 mt-5 bg-base-200 md:h-[250px] h-[260px] rounded">
+                                <div className="p-8 mt-10 bg-base-200 md:h-[250px] h-[260px] rounded">
                                     <p className=" space-y-2 mt-2">{item.description}</p>
                                     <div className=" flex justify-between items-center mt-4">
                                         <h2 className=" text-3xl font-bold">{item.name}</h2>

@@ -22,6 +22,7 @@ import {
 } from '@tanstack/react-query'
 import Blogdetails from './MainLayout/Pages/Blog/Blogdetails.jsx';
 import Testimonials from './MainLayout/Pages/Testimonials/Testimonials.jsx';
+import Privacy from './MainLayout/Pages/PrivacyPolicy/Privacy.jsx';
 const queryClient = new QueryClient()
 
 const router = createBrowserRouter([
@@ -63,8 +64,13 @@ const router = createBrowserRouter([
         path: "/testimonials",
         element: <Testimonials></Testimonials>
       }
+      ,
+      {
+        path: "/privacy",
+        element: <Privacy></Privacy>
+      }
     ],
-  },
+  },  
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
