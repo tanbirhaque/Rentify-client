@@ -6,84 +6,15 @@
     background-size: cover;
     background-repeat: no-repeat;
     border-radius: 8px;
-
 }
-.populartwo{
-    position: relative;
-    background: url("../../../../../assets/Template_files/city-2.jpg");
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    border-radius: 8px;
 
-}
-.popularthree{
-    position: relative;
-    background: url("../../../../../assets/Template_files/city-3.jpg");
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    border-radius: 8px;
 
-}
-.popularfour{
-    position: relative;
-    background: url("../../../../../assets/Template_files/city-4.jpg");
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    border-radius: 8px;
-
-}
-.popularfive{
-    position: relative;
-    background: url("../../../../../assets/Template_files/city-5.jpg");
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    border-radius: 8px;
-
-}
-.popularsix{
-    position: relative;
-    background: url("../../../../../assets/Template_files/city-6.jpg");
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    border-radius: 8px;
-
-}
-.popularseven{
-    position: relative;
-    background: url("../../../../../assets/Template_files/city-7.jpg");
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    border-radius: 8px;
-
-}
-.populareight{
-    position: relative;
-    background: url("../../../../../assets/Template_files/city-8.jpg");
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    border-radius: 8px;
-
-}
 
 .popular .under {
     width: 100%;
 }
 
-.overlay{
+.overlayyy{
     width: 100%;
     height: 100%;
     /* background-color: black; */
