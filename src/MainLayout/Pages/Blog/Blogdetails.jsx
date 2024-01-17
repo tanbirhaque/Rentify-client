@@ -23,7 +23,7 @@ const Blogdetails = () => {
                 </div>
             </div>
             <div className="max-w-screen-2xl mx-auto">
-                <div className=" w-[70%] mx-auto mt-28">
+                <div className=" w-[70%] mx-auto my-28">
                     <img className="w-full md:h-[600px] h-[400px]" src={blog?.img} alt="" />
                     <div>
                         <div className=" flex items-center justify-start gap-7 mt-7">
@@ -75,12 +75,12 @@ const Blogdetails = () => {
                                 <FaTag></FaTag>
                                 <h4><span className=" font-bold">Tags: </span>Apartment,Villa</h4>
                             </div>
-                            <div className=" flex items-center gap-5 font-bold text-xl">
+                            <div className=" flex items-center gap-5 text-xl">
                                 <p>Share:</p>
-                                <li><FaFacebook></FaFacebook></li>
-                                <li><FaTwitter></FaTwitter></li>
-                                <li><FaInstagram></FaInstagram></li>
-                                <li><FaLinkedin></FaLinkedin></li>
+                                <a target="blank" href="https://www.facebook.com/roknujjamansajib" className=" hover:bg-orange-700  rounded-full hover:text-white p-2"><FaFacebook></FaFacebook></a>
+                                <a target="blank" href="https://twitter.com/Roknuzzaman5546" className="hover:bg-orange-700  rounded-full hover:text-white p-2"><FaTwitter></FaTwitter></a>
+                                <a target="blank" href="https://www.instagram.com/roknujjamansajib/" className="hover:bg-orange-700  rounded-full hover:text-white p-2"><FaInstagram></FaInstagram></a>
+                                <a target="blank" href="https://www.linkedin.com/in/roknuzzaman-sojib-b794552a3/" className="hover:bg-orange-700  rounded-full hover:text-white p-2"><FaLinkedin></FaLinkedin></a>
                             </div>
                         </div>
                     </div>
