@@ -73,7 +73,7 @@ const Privacy = () => {
                         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Harum, quod. Ratione ex delectus quis tenetur odio non alias numquam official ipsum dolor sit, amet consectetur adipisicing elit. Accusamus, laborum.
                     </p>
                     <div className="my-6 text-xl space-y-4 text-gray-500">
-                        <p className=" mb-6">1. 
+                        <p className=" mb-6">1.
                             Mauris ut in vestibulum hasellus ultrices fusce nibh justo, venenatis, amet. Lectus quam in lobortis.
                         </p>
                         <p className=" mb-6"> 2.

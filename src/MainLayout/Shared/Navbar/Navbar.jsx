@@ -43,6 +43,7 @@ const Navbar = () => {
       <NavLink to='/blogs' className='navAfter relative font-medium text-base text-black mx-3'>Blogs</NavLink>
       <NavLink to='/testimonials' className='navAfter relative font-medium text-base text-black mx-3'>Testimonials</NavLink>
       <NavLink to='/privacy' className='navAfter relative font-medium text-base text-black mx-3'>Our Privacy</NavLink>
+      <NavLink to='/conditions' className='navAfter relative font-medium text-base text-black mx-3'>Terms & Conditions</NavLink>
       <NavLink to='/login' className='navAfter relative font-medium text-base text-black  mx-3'>Signin</NavLink>
       <NavLink to='register' className='navAfter relative font-medium text-base  text-black mx-3'>Signup</NavLink>
     </>

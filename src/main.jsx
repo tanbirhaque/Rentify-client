@@ -14,7 +14,6 @@ import Bloggrind from './MainLayout/Pages/Blog/Bloggrind.jsx';
 import Faq from "./MainLayout/Pages/Faq/Faq.jsx";
 import ErrorPage from "./MainLayout/Pages/Error/ErrorPage.jsx";
 import HowItWorks from "./MainLayout/Pages/How-It-Works/HowItWorks.jsx";
-
 // Import Tanstack
 import {
   QueryClient,
@@ -23,6 +22,7 @@ import {
 import Blogdetails from './MainLayout/Pages/Blog/Blogdetails.jsx';
 import Testimonials from './MainLayout/Pages/Testimonials/Testimonials.jsx';
 import Privacy from './MainLayout/Pages/PrivacyPolicy/Privacy.jsx';
+import Condition from './MainLayout/Pages/Terms & Conditions/Condition.jsx';
 const queryClient = new QueryClient()
 
 const router = createBrowserRouter([
@@ -68,9 +68,13 @@ const router = createBrowserRouter([
       {
         path: "/privacy",
         element: <Privacy></Privacy>
+      },
+      {
+        path: "/conditions",
+        element: <Condition></Condition>
       }
     ],
-  },  
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
