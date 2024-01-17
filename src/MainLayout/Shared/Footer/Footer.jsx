@@ -131,15 +131,15 @@ const Footer = () => {
         </div>
         <div className="bg-gray-100">
           <div className="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
-            <p className="text-gray-500 text-sm text-center sm:text-left font-semibold">
+            <p className="text-black text-sm text-center sm:text-left font-semibold">
               © 2024 Rentify —
               <a
                 href="https://twitter.com/knyttneve"
                 rel="noopener noreferrer"
-                className="text-gray-600 ml-1"
+                className="text-black ml-1"
                 target="_blank"
               >
-               All rights reserved at <span className="text-[#002172] font-bold">@rentify.com</span>
+               All rights reserved at <span className="text-black font-bold">@rentify.com</span>
               </a>
             </p>
             <span className="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
