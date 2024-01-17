@@ -2,19 +2,63 @@ import { useForm } from "react-hook-form";
 import Lottie from "lottie-react";
 import loginAnimation from "../../../../public/LoginAnimation.json";
 import { Link } from "react-router-dom";
+import useAuth from "../../../Hooks/useAuth";
+import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 
 const Register = () => {
+  const { userRegister, userProfile } = useAuth();
+
   //form data
   const {
     register,
     handleSubmit,
+    // reset,
     // watch,
     formState: { errors },
   } = useForm();
 
+  //
   const onSubmit = (data) => {
-    console.log(data);
+    // console.log(data);
+    userRegister(data.email, data.password)
+      .then((res) => {
+        console.log(res.user);
+
+        // const userInfo = {
+        //   name: data.name,
+        //   email: data.email,
+        //   image: data.image,
+        //   role: "student",
+        // };
+        userProfile(data.name, data.image)
+          .then((res) => {
+            Swal.fire({
+              title: "User created successfully!",
+              showClass: {
+                popup: `
+              animate__animated
+              animate__fadeInUp
+              animate__faster
+            `,
+              },
+              hideClass: {
+                popup: `
+              animate__animated
+              animate__fadeOutDown
+              animate__faster
+            `,
+              },
+            });
+          })
+          .catch();
+      })
+      .catch((err) => {
+        console.log(err.code);
+        toast.error(err.code);
+      });
   };
+  //
 
   return (
     <div className="max-w-screen-lg mx-auto my-10">
@@ -36,6 +80,19 @@ const Register = () => {
             {errors.name && (
               <span className="text-xs text-red-600">
                 Name is required to register.
+              </span>
+            )}
+            <h3 className="mt-8 mb-2 text-xl font-semibold">Image</h3>
+            <input
+              {...register("image", { required: true })}
+              type="url"
+              name="image"
+              placeholder="Enter your Image URL"
+              className="max-w-full md:w-[550px] bg-[#F3F3F3] h-14 pl-5"
+            />
+            {errors.image && (
+              <span className="text-xs text-red-600">
+                Image is required to register.
               </span>
             )}
             <h3 className="mt-8 mb-2 text-xl font-semibold">Email Address</h3>

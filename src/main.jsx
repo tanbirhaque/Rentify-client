@@ -14,6 +14,7 @@ import Bloggrind from './MainLayout/Pages/Blog/Bloggrind.jsx';
 import Faq from "./MainLayout/Pages/Faq/Faq.jsx";
 import ErrorPage from "./MainLayout/Pages/Error/ErrorPage.jsx";
 import HowItWorks from "./MainLayout/Pages/How-It-Works/HowItWorks.jsx";
+import AuthProvider from "./Provider/AuthProvider.jsx";
 
 // Import Tanstack
 import {
@@ -64,8 +65,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
+    <AuthProvider>
       <RouterProvider router={router} />
-    </QueryClientProvider>
-  </React.StrictMode >
+    </AuthProvider>
+  </React.StrictMode>
 );
