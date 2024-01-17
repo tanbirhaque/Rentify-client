@@ -39,14 +39,15 @@ const Navbar = () => {
 
   const navLinks = (
     <>
-    <NavLink to='/' className='navAfter relative font-medium text-base text-black mx-3'>Home</NavLink>
-    <NavLink to='/login' className='navAfter relative font-medium text-base text-black  mx-3'>Signin</NavLink>
-    <NavLink to='register' className='navAfter relative font-medium text-base  text-black mx-3'>Signup</NavLink>
+      <NavLink to='/' className='navAfter relative font-medium text-base text-black mx-3'>Home</NavLink>
+      <NavLink to='/blogs' className='navAfter relative font-medium text-base text-black mx-3'>Blogs</NavLink>
+      <NavLink to='/login' className='navAfter relative font-medium text-base text-black  mx-3'>Signin</NavLink>
+      <NavLink to='register' className='navAfter relative font-medium text-base  text-black mx-3'>Signup</NavLink>
     </>
   )
 
   return (
-    <div className="max-w-screen-lg mx-auto">
+    <div className="max-w-screen-2xl mx-auto">
       <div className="navbar bg-base-100">
         <div className="navbar-start">
           <div className="dropdown">
@@ -92,17 +93,25 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{navLinks}</ul>
         </div>
         <div className="navbar-end">
-          <Link>
-          <button type="button" className="text-white bg-gradient-to-r from-blue-500 via-blue-700 to-[#002172] hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Signin</button>
+          <Link to='/signin'>
+            <button
+              type="button"
+              className="text-white bg-gradient-to-r from-blue-500 via-blue-700 to-[#002172] hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+            >
+              Signin
+            </button>
           </Link>
-
           <Link>
-        <button type="button" className="text-[#002172] hover:text-white border border-[#002172] hover:bg-gradient-to-r from-blue-700 to-[#002172] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800">Signup</button>
-
-          </Link>
-        </div>
-      </div>
-    </div>
+            <button
+              type="button"
+              className="text-[#002172] hover:text-white border border-[#002172] hover:bg-gradient-to-r from-blue-700 to-[#002172] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800"
+            >
+              Signup
+            </button>
+          </Link >
+        </div >
+      </div >
+    </div >
   );
 };
 
