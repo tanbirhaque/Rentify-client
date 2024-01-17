@@ -39,9 +39,10 @@ const Navbar = () => {
 
   const navLinks = (
     <>
-    <NavLink to='/' className='navAfter relative font-medium text-base text-black mx-3'>Home</NavLink>
-    <NavLink to='/login' className='navAfter relative font-medium text-base text-black  mx-3'>Signin</NavLink>
-    <NavLink to='register' className='navAfter relative font-medium text-base  text-black mx-3'>Signup</NavLink>
+      <NavLink to='/' className='navAfter relative font-medium text-base text-black mx-3'>Home</NavLink>
+      <NavLink to='/blogs' className='navAfter relative font-medium text-base text-black mx-3'>Blogs</NavLink>
+      <NavLink to='/login' className='navAfter relative font-medium text-base text-black  mx-3'>Signin</NavLink>
+      <NavLink to='register' className='navAfter relative font-medium text-base  text-black mx-3'>Signup</NavLink>
     </>
   )
 
@@ -107,10 +108,10 @@ const Navbar = () => {
             >
               Signup
             </button>
-          </Link>
-        </div>
-      </div>
-    </div>
+          </Link >
+        </div >
+      </div >
+    </div >
   );
 };
 
