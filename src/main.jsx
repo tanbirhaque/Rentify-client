@@ -8,6 +8,7 @@ import Login from "./MainLayout/Pages/Login/Login.jsx";
 import Register from "./MainLayout/Pages/Register/Register.jsx";
 import Faq from "./MainLayout/Pages/Faq/Faq.jsx";
 import ErrorPage from "./MainLayout/Pages/Error/ErrorPage.jsx";
+import HowItWorks from "./MainLayout/Pages/How-It-Works/HowItWorks.jsx";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "/faq",
         element: <Faq />,
+      },
+      {
+        path: "/how-it-works",
+        element: <HowItWorks />,
       },
     ],
   },
