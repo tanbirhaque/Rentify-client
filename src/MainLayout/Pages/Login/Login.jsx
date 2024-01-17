@@ -2,8 +2,13 @@ import { useForm } from "react-hook-form";
 import Lottie from "lottie-react";
 import loginAnimation from "../../../../public/LoginAnimation.json";
 import { Link } from "react-router-dom";
+import useAuth from "../../../Hooks/useAuth";
+import toast from "react-hot-toast";
+import Swal from "sweetalert2";
 
 const Login = () => {
+  const { loginUser } = useAuth();
+
   //form data
   const {
     register,
@@ -14,13 +19,36 @@ const Login = () => {
 
   const onSubmit = (data) => {
     console.log(data);
+    loginUser(data.email, data.password)
+      .then((res) => {
+        console.log(res.user);
+        Swal.fire({
+          title: "Login successful!",
+          showClass: {
+            popup: `
+            animate__animated
+            animate__fadeInUp
+            animate__faster
+          `,
+          },
+          hideClass: {
+            popup: `
+            animate__animated
+            animate__fadeOutDown
+            animate__faster
+          `,
+          },
+        });
+      })
+      .catch((err) => {
+        console.log(err.message);
+        toast.error(err.code);
+      });
   };
 
   return (
     <div className="max-w-screen-lg mx-auto my-10">
-      <h3 className="text-3xl font-semibold text-center">
-        Login to Rentify
-      </h3>
+      <h3 className="text-3xl font-semibold text-center">Login to Rentify</h3>
       <div className="flex flex-col items-center md:flex-row gap-10">
         <div className="flex-1">
           <form
