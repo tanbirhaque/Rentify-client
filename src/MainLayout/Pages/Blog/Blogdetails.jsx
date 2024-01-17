@@ -1,5 +1,6 @@
-import { FaComment, FaRegCalendarAlt } from "react-icons/fa";
-import { Link, NavLink, useLoaderData, useParams } from "react-router-dom";
+import { FaComment, FaFacebook, FaInstagram, FaLinkedin, FaRegCalendarAlt, FaTag, FaTwitter } from "react-icons/fa";
+import { NavLink, useLoaderData, useParams } from "react-router-dom";
+import { IoIosArrowForward } from "react-icons/io";
 
 const Blogdetails = () => {
     const blogs = useLoaderData();
@@ -23,9 +24,9 @@ const Blogdetails = () => {
             </div>
             <div className="max-w-screen-2xl mx-auto">
                 <div className=" w-[70%] mx-auto mt-28">
-                    <img className=" w-full h-[600px]" src={blog?.img} alt="" />
+                    <img className="w-full md:h-[600px] h-[400px]" src={blog?.img} alt="" />
                     <div>
-                        <div className=" flex items-center justify-start gap-7 mt-3">
+                        <div className=" flex items-center justify-start gap-7 mt-7">
                             <p className=" text-xl flex items-center justify-center gap-2">
                                 <FaRegCalendarAlt className=" text-red-500"></FaRegCalendarAlt>
                                 <span className=" hover:text-red-500">{blog?.date}</span>
@@ -46,15 +47,42 @@ const Blogdetails = () => {
                             </button>
                             <p className="mt-3 space-y-2">{blog.description}</p>
                         </div>
-                        <h2 className=" text-3xl font-extrabold mt-3">Commodo Viverra Manas Accumsan Sit</h2>
+                        <h2 className=" text-3xl font-extrabold my-3">Commodo Viverra Manas Accumsan Sit</h2>
                         <p>
                             {
-                                blog.commodoviverra.map(item => <p key={item}>
-                                    {item}
-                                    <p></p>
+                                blog.commodoviverra.map((item, index) => <p key={index}>
+                                    <div className=" flex items-center space-y-2 gap-2">
+                                        <p className="text-orange-400 mr-2">{index + 1}</p>
+                                        <p>{item}</p>
+                                    </div>
+                                </p>
+                                )
+                            }
+                        </p>
+                        <h2 className=" text-3xl font-extrabold my-3">5 Major Facility That We Offer</h2>
+                        <p>
+                            {
+                                blog.majorfacility.map(item => <p key={item}>
+                                    <div className=" flex items-center gap-2 space-y-2">
+                                        <IoIosArrowForward className=" text-orange-400 mr-2"></IoIosArrowForward>
+                                        <p>{item}</p>
+                                    </div>
                                 </p>)
                             }
                         </p>
+                        <div className=" border flex md:flex-row flex-col justify-between items-center gap-8 py-6 px-5 mt-7">
+                            <div className=" flex items-center gap-1 text-xl">
+                                <FaTag></FaTag>
+                                <h4><span className=" font-bold">Tags: </span>Apartment,Villa</h4>
+                            </div>
+                            <div className=" flex items-center gap-5 font-bold text-xl">
+                                <p>Share:</p>
+                                <li><FaFacebook></FaFacebook></li>
+                                <li><FaTwitter></FaTwitter></li>
+                                <li><FaInstagram></FaInstagram></li>
+                                <li><FaLinkedin></FaLinkedin></li>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

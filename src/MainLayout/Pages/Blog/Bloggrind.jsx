@@ -32,12 +32,12 @@ const Bloggrind = () => {
                 <div className=" grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
                     {
                         blogs.map(item => <div key={item._id}>
-                            <div className="cart bg-base-100 shadow-xl">
+                            <div className="cart bg-base-100 shadow-xl w-full h-[500px]">
                                 <div className="image-container">
                                     <img className="imghover img" src={item.img} alt="Shoes" />
                                 </div>
                                 <div className="pl-5 mt-5">
-                                    <div className=" flex items-center justify-start gap-7">
+                                    <div className="flex items-center justify-start gap-7">
                                         <p className=" text-xl flex items-center justify-center gap-2">
                                             <FaRegCalendarAlt className=" text-red-500"></FaRegCalendarAlt>
                                             <span className=" hover:text-red-500">{item.date}</span>
