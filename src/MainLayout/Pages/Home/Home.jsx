@@ -1,5 +1,4 @@
 import About from "./HomeComponents/About/About";
-
 import Journey from "./HomeComponents/Journey/Journey";
 import Listing from "./HomeComponents/Listing/Listing";
 import OurAdvantage from "./HomeComponents/OurAdvantage/OurAdvantage";
