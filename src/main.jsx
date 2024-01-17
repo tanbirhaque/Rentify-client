@@ -1,34 +1,42 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-import MainLayout from './MainLayout/MainLayout.jsx';
-import Home from './MainLayout/Pages/Home/Home.jsx';
-import Login from './MainLayout/Pages/Login/Login';
-import Register from './MainLayout/Pages/Register/Register';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import MainLayout from "./MainLayout/MainLayout.jsx";
+import Home from "./MainLayout/Pages/Home/Home.jsx";
+import Login from "./MainLayout/Pages/Login/Login.jsx";
+import Register from "./MainLayout/Pages/Register/Register.jsx";
+import Faq from "./MainLayout/Pages/Faq/Faq.jsx";
+import ErrorPage from "./MainLayout/Pages/Error/ErrorPage.jsx";
+import HowItWorks from "./MainLayout/Pages/How-It-Works/HowItWorks.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
-        element: <Home></Home>
+        element: <Home></Home>,
       },
       {
         path: "/login",
-        element: <Login></Login>
+        element: <Login />,
       },
       {
         path: "/register",
-        element: <Register></Register>
-      }
-    ]
+        element: <Register />,
+      },
+      {
+        path: "/faq",
+        element: <Faq />,
+      },
+      {
+        path: "/how-it-works",
+        element: <HowItWorks />,
+      },
+    ],
   },
 ]);
 
