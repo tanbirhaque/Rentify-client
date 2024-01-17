@@ -14,13 +14,16 @@ import Bloggrind from './MainLayout/Pages/Blog/Bloggrind.jsx';
 import Faq from "./MainLayout/Pages/Faq/Faq.jsx";
 import ErrorPage from "./MainLayout/Pages/Error/ErrorPage.jsx";
 import HowItWorks from "./MainLayout/Pages/How-It-Works/HowItWorks.jsx";
-
+import AuthProvider from "./Provider/AuthProvider.jsx";
 // Import Tanstack
 import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query'
 import Blogdetails from './MainLayout/Pages/Blog/Blogdetails.jsx';
+import Testimonials from './MainLayout/Pages/Testimonials/Testimonials.jsx';
+import Privacy from './MainLayout/Pages/PrivacyPolicy/Privacy.jsx';
+import Condition from './MainLayout/Pages/Terms & Conditions/Condition.jsx';
 const queryClient = new QueryClient()
 
 const router = createBrowserRouter([
@@ -58,14 +61,27 @@ const router = createBrowserRouter([
         path: "/how-it-works",
         element: <HowItWorks />,
       },
+      {
+        path: "/testimonials",
+        element: <Testimonials></Testimonials>
+      }
+      ,
+      {
+        path: "/privacy",
+        element: <Privacy></Privacy>
+      },
+      {
+        path: "/conditions",
+        element: <Condition></Condition>
+      }
     ],
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
+    <AuthProvider>
       <RouterProvider router={router} />
-    </QueryClientProvider>
-  </React.StrictMode >
+    </AuthProvider>
+  </React.StrictMode>
 );

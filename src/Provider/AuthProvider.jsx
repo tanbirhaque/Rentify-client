@@ -12,7 +12,6 @@ import {
 } from "firebase/auth";
 import PropTypes from "prop-types";
 
-
 // Don't remove get auth from here. Merge your code according to this
 const auth = getAuth(app);
 export const AuthContext = createContext(null);
