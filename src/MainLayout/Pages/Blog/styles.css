@@ -51,21 +51,19 @@
 
 .cart {
     position: relative;
-    width: 470px; 
-    height: 490px; 
     overflow: hidden;
   }
   
   .image-container {
     position: relative;
     width: 100%;
-    height: 288px;
+    height: 300px;
     overflow: hidden;
   }
   
   .image-container img {
     width: 100%;
-    height: 288px;
+    height: 300px;
     transition: transform 1s ease;
   }
   
