@@ -1,9 +1,10 @@
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import { Autoplay } from "swiper/modules";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
+import "swiper/css/autoplay";
 
 const HowItWorks = () => {
   return (
@@ -92,6 +93,12 @@ const HowItWorks = () => {
       {/* slider */}
       <div className="p-20">
         <Swiper
+          modules={[Autoplay]}
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: false,
+          }}
+          loop={true}
           slidesPerView={4}
           spaceBetween={30}
           pagination={{

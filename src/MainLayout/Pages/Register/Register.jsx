@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
+import SocialLogin from "../../Shared/Social/SocialLogin";
 
 const Register = () => {
   const { userRegister, userProfile } = useAuth();
@@ -35,27 +36,24 @@ const Register = () => {
           .then((res) => {
             Swal.fire({
               title: "User created successfully!",
-              showClass: {
-                popup: `
-              animate__animated
-              animate__fadeInUp
-              animate__faster
-            `,
-              },
-              hideClass: {
-                popup: `
-              animate__animated
-              animate__fadeOutDown
-              animate__faster
-            `,
-              },
+              timer: 2000,
+              color: "#002172",
+              showConfirmButton: false,
+              icon: "success",
             });
           })
           .catch();
       })
       .catch((err) => {
         console.log(err.code);
-        toast.error(err.code);
+        toast(err.code, {
+          icon: "❌",
+          style: {
+            borderRadius: "10px",
+            background: "#002172",
+            color: "#fff",
+          },
+        });
       });
   };
   //
@@ -110,15 +108,29 @@ const Register = () => {
             )}
             <h3 className="text-xl font-semibold my-3">Password</h3>
             <input
-              {...register("password", { required: true })}
+              {...register("password", {
+                required: true,
+                minLength: 6,
+                pattern: /^(?=.*[A-Z]).{6,}$/i,
+              })}
               type="password"
               name="password"
               placeholder="Enter your password"
               className="max-w-full md:w-[550px] bg-[#F3F3F3] h-14 pl-5 mb-7"
             />
-            {errors.password && (
-              <span className="text-xs text-red-600">
+            {errors.password?.type === "minLength" && (
+              <span className="text-red-700">
+                Password length should be 6 characters.
+              </span>
+            )}
+            {errors.password?.type === "required" && (
+              <span className=" text-red-700">
                 Password is required to register.
+              </span>
+            )}
+            {errors.password?.type === "pattern" && (
+              <span className=" text-red-700">
+                Password should contain at least one Capital letter.
               </span>
             )}
             <div className="flex flex-col gap-5">
@@ -128,13 +140,14 @@ const Register = () => {
                   to="/login"
                   className="hover:underline hover:text-blue-700"
                 >
-                  Register
+                  Login
                 </Link>
               </div>
               <button className="btn block bg-[#002172] hover:bg-[#142a9b] w-fit lg:w-[558px] text-white ">
                 Register
               </button>
             </div>
+            <SocialLogin />
           </form>
         </div>
         <div className="flex-1">
