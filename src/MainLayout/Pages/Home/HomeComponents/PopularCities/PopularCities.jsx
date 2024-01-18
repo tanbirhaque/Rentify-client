@@ -17,7 +17,7 @@ import "./Popular.css";
 const PopularCities = () => {
   return (
     <div className="mt-10 mb-20 max-w-screen-2xl mx-auto lg:px-[30px] xl:px-[108px]">
-      <CommonHeading></CommonHeading>
+      <CommonHeading small={'Choose A Popular City'} big={"Our Hottest Nearby Cities"}></CommonHeading>
       <div className="card-container grid md:grid-cols-2 lg:grid-cols-4 justify-items-center lg:gap-x-[25px] gap-y-[25px] mt-[40px]">
         {/* Each cards */}
         <div className="pop-card min-h-[324px] max-w-[306px] rounded-xl relative overflow-hidden">
