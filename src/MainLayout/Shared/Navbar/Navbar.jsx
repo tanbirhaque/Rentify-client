@@ -34,9 +34,13 @@ const Navbar = () => {
 
   const navLinks = (
     <>
-    <NavLink to='/' className='navAfter relative font-medium text-base text-black mx-3'>Home</NavLink>
-    <NavLink to='/login' className='navAfter relative font-medium text-base text-black  mx-3'>Signin</NavLink>
-    <NavLink to='register' className='navAfter relative font-medium text-base  text-black mx-3'>Signup</NavLink>
+      <NavLink to='/' className='navAfter relative font-medium text-base text-black mx-3'>Home</NavLink>
+      <NavLink to='/blogs' className='navAfter relative font-medium text-base text-black mx-3'>Blogs</NavLink>
+      <NavLink to='/testimonials' className='navAfter relative font-medium text-base text-black mx-3'>Testimonials</NavLink>
+      <NavLink to='/privacy' className='navAfter relative font-medium text-base text-black mx-3'>Our Privacy</NavLink>
+      <NavLink to='/conditions' className='navAfter relative font-medium text-base text-black mx-3'>Terms & Conditions</NavLink>
+      <NavLink to='/login' className='navAfter relative font-medium text-base text-black  mx-3'>Signin</NavLink>
+      <NavLink to='register' className='navAfter relative font-medium text-base  text-black mx-3'>Signup</NavLink>
     </>
   )
 
@@ -72,17 +76,12 @@ const Navbar = () => {
               {navLinks}
             </ul>
           </div>
-          <div className="flex  items-center gap-2">
-            {/* <img
-              className="w-[50px] rounded-full hidden md:block h-[50px] "
-              src="https://i.ibb.co/YQkknL0/logo.jpg"
-             
-            /> */}
+          <div className="flex  items-center">
             <img
-              className="w-[60px] h-[60px] rounded-full hidden md:block  "
-              src="https://i.ibb.co/jymRcVn/413339641-1359129788096517-9050509765731491679-n.png"
+              className="w-[50px] h-[60px] hidden md:block  "
+              src="https://i.ibb.co/kXpZ7RD/Rentify-logo-1.png"
             />
-            <h4 className="font-bold md:text-2xl text-base">
+            <h4 className="font-bold md:text-2xl lg:text-[40px] ml-2">
               Renti<span className="text-[#002172]">fy</span>
             </h4>
           </div>
@@ -102,7 +101,7 @@ const Navbar = () => {
           <Link>
             <button
               type="button"
-              className="text-[#002172] hover:text-white border border-[#002172] hover:bg-gradient-to-r from-blue-700 to-[#002172] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800"
+              className="text-[#002172] hover:text-white border border-[#002172] hover:bg-gradient-to-r from-blue-700 to-[#002172] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800"
             >
               Signup
             </button>

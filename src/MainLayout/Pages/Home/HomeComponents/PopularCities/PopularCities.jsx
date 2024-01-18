@@ -1,63 +1,185 @@
-// import img1 from "../../../../../assets/Template_files/city-1.jpg";
+// This section is initially created by Sadia Afrin
+// Fully developed and made responsive by Tanbir
+// Remaining task: Dynamic content
+
+
+import img1 from "../../../../../assets/Template_files/city-1.jpg";
 import img2 from "../../../../../assets/Template_files/city-2.jpg";
-// import img3 from "../../../../../assets/Template_files/city-3.jpg";
-// import img4 from "../../../../../assets/Template_files/city-4.jpg";
-// import img5 from "../../../../../assets/Template_files/city-5.jpg";
-// import img6 from "../../../../../assets/Template_files/city-6.jpg";
-// import img7 from "../../../../../assets/Template_files/city-7.jpg";
-// import img8 from "../../../../../assets/Template_files/city-8.jpg";
+import img3 from "../../../../../assets/Template_files/city-3.jpg";
+import img4 from "../../../../../assets/Template_files/city-4.jpg";
+import img5 from "../../../../../assets/Template_files/city-5.jpg";
+import img6 from "../../../../../assets/Template_files/city-6.jpg";
+import img7 from "../../../../../assets/Template_files/city-7.jpg";
+import img8 from "../../../../../assets/Template_files/city-8.jpg";
+import CommonHeading from "../../../../Shared/CommonHeading/CommonHeading";
 import "./Popular.css";
 
 const PopularCities = () => {
   return (
-    <div className="mt-10 mb-20 max-w-screen-2xl mx-auto">
-      <p className="lg:text-base md:text-sm text-xs font-medium mt-3 text-[#e33226] text-center">
-        Choose A Popular City
-      </p>
-      <h2 className="text-center md:text-3xl text-xl font-bold mt-5 mb-5 text-black">
-        Our Hottest Nearby Cities
-      </h2>
-
-      <div 
-      className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4 px-4"
-      >
-            {/* img1 */}
-        <div className="  popular">
-            <div className="under"></div>
-          <div className="overlayyy  flex items-end rounded-lg transition duration-300 ease-in-out bg-black bg-opacity-50   hover:bg-opacity-60  absolute  ">
-
-            <div className="z-10 p-5 text-white font-medium text-base ">
-              <h2 className="">New York City</h2>
-              <p>+5231 properties</p>
+    <div className="mt-10 mb-20 max-w-screen-2xl mx-auto lg:px-[30px] xl:px-[108px]">
+      <CommonHeading small={'Choose A Popular City'} big={"Our Hottest Nearby Cities"}></CommonHeading>
+      <div className="card-container grid md:grid-cols-2 lg:grid-cols-4 justify-items-center lg:gap-x-[25px] gap-y-[25px] mt-[40px]">
+        {/* Each cards */}
+        <div className="pop-card min-h-[324px] max-w-[306px] rounded-xl relative overflow-hidden">
+          <div
+            className="background-image"
+            style={{
+              backgroundImage: `url(${img1})`,
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+            }}
+          >
+          </div>
+          {/* overlay over the image */}
+          <div className="pop-overlay absolute top-0 left-0 min-w-full min-h-full bg-black bg-opacity-50 hover:bg-opacity-60 transition duration-500 rounded-xl">
+            <div className="pop-text p-5 min-h-full">
+              <div className="relative top-[230px]">
+                <h2 className="pop-h2 text-white poppins-font font-bold text-[22px]">New York City</h2>
+                <p className="text-white font-medium text-[17px] ">+5231 properties</p>
+              </div>
             </div>
           </div>
         </div>
-
-      
-
-        {/* <div>
-          <img className="w-full h-full rounded-lg" src={img2} alt="" />
-        </div> */}
-        {/* <div>
-          <img className="w-full h-full rounded-lg" src={img3} alt="" />
+        <div className="pop-card min-h-[324px] max-w-[306px] rounded-xl relative overflow-hidden">
+          <div
+            className="background-image"
+            style={{
+              backgroundImage: `url(${img2})`,
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+            }}
+          >
+          </div>
+          {/* overlay over the image */}
+          <div className="pop-overlay absolute top-0 left-0 min-w-full min-h-full bg-black bg-opacity-50 hover:bg-opacity-60 transition duration-500 rounded-xl">
+            <div className="pop-text p-5 min-h-full">
+              <div className="relative top-[230px]">
+                <h2 className="pop-h2 text-white poppins-font font-bold text-[22px]">New York City</h2>
+                <p className="text-white font-medium text-[17px] ">+5231 properties</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div>
-          <img className="w-full h-full rounded-lg" src={img4} alt="" />
+        <div className="pop-card min-h-[324px] max-w-[306px] rounded-xl relative overflow-hidden">
+          <div
+            className="background-image"
+            style={{
+              backgroundImage: `url(${img3})`,
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+            }}
+          >
+          </div>
+          {/* overlay over the image */}
+          <div className="pop-overlay absolute top-0 left-0 min-w-full min-h-full bg-black bg-opacity-50 hover:bg-opacity-60 transition duration-500 rounded-xl">
+            <div className="pop-text p-5 min-h-full">
+              <div className="relative top-[230px]">
+                <h2 className="pop-h2 text-white poppins-font font-bold text-[22px]">New York City</h2>
+                <p className="text-white font-medium text-[17px] ">+5231 properties</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div>
-          <img className="w-full h-full rounded-lg" src={img5} alt="" />
+        <div className="pop-card min-h-[324px] max-w-[306px] rounded-xl relative overflow-hidden">
+          <div
+            className="background-image"
+            style={{
+              backgroundImage: `url(${img4})`,
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+            }}
+          >
+          </div>
+          {/* overlay over the image */}
+          <div className="pop-overlay absolute top-0 left-0 min-w-full min-h-full bg-black bg-opacity-50 hover:bg-opacity-60 transition duration-500 rounded-xl">
+            <div className="pop-text p-5 min-h-full">
+              <div className="relative top-[230px]">
+                <h2 className="pop-h2 text-white poppins-font font-bold text-[22px]">New York City</h2>
+                <p className="text-white font-medium text-[17px] ">+5231 properties</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div>
-          <img className="w-full h-full rounded-lg" src={img6} alt="" />
+        <div className="pop-card min-h-[324px] max-w-[306px] rounded-xl relative overflow-hidden">
+          <div
+            className="background-image"
+            style={{
+              backgroundImage: `url(${img5})`,
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+            }}
+          >
+          </div>
+          {/* overlay over the image */}
+          <div className="pop-overlay absolute top-0 left-0 min-w-full min-h-full bg-black bg-opacity-50 hover:bg-opacity-60 transition duration-500 rounded-xl">
+            <div className="pop-text p-5 min-h-full">
+              <div className="relative top-[230px]">
+                <h2 className="pop-h2 text-white poppins-font font-bold text-[22px]">New York City</h2>
+                <p className="text-white font-medium text-[17px] ">+5231 properties</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div>
-          <img className="w-full h-full rounded-lg" src={img7} alt="" />
+        <div className="pop-card min-h-[324px] max-w-[306px] rounded-xl relative overflow-hidden">
+          <div
+            className="background-image"
+            style={{
+              backgroundImage: `url(${img6})`,
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+            }}
+          >
+          </div>
+          {/* overlay over the image */}
+          <div className="pop-overlay absolute top-0 left-0 min-w-full min-h-full bg-black bg-opacity-50 hover:bg-opacity-60 transition duration-500 rounded-xl">
+            <div className="pop-text p-5 min-h-full">
+              <div className="relative top-[230px]">
+                <h2 className="pop-h2 text-white poppins-font font-bold text-[22px]">New York City</h2>
+                <p className="text-white font-medium text-[17px] ">+5231 properties</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div>
-          <img className="w-full h-full rounded-lg" src={img8} alt="" />
-        </div> */}
-
-
+        <div className="pop-card min-h-[324px] max-w-[306px] rounded-xl relative overflow-hidden">
+          <div
+            className="background-image"
+            style={{
+              backgroundImage: `url(${img7})`,
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+            }}
+          >
+          </div>
+          {/* overlay over the image */}
+          <div className="pop-overlay absolute top-0 left-0 min-w-full min-h-full bg-black bg-opacity-50 hover:bg-opacity-60 transition duration-500 rounded-xl">
+            <div className="pop-text p-5 min-h-full">
+              <div className="relative top-[230px]">
+                <h2 className="pop-h2 text-white poppins-font font-bold text-[22px]">New York City</h2>
+                <p className="text-white font-medium text-[17px] ">+5231 properties</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="pop-card min-h-[324px] max-w-[306px] rounded-xl relative overflow-hidden">
+          <div
+            className="background-image"
+            style={{
+              backgroundImage: `url(${img8})`,
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+            }}
+          >
+          </div>
+          {/* overlay over the image */}
+          <div className="pop-overlay absolute top-0 left-0 min-w-full min-h-full bg-black bg-opacity-50 hover:bg-opacity-60 transition duration-500 rounded-xl">
+            <div className="pop-text p-5 min-h-full">
+              <div className="relative top-[230px]">
+                <h2 className="pop-h2 text-white poppins-font font-bold text-[22px]">New York City</h2>
+                <p className="text-white font-medium text-[17px] ">+5231 properties</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
