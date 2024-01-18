@@ -1,42 +1,34 @@
 import { Link, NavLink } from "react-router-dom";
 import "./Navbar.css";
-import Headroom from "react-headroom";
+import { useEffect, useState } from "react";
+import { useWindowScroll } from 'react-use';
+
 
 const Navbar = () => {
 
-  // const navLinks = (
-  //   <>
-  //     <NavLink
-  //       className={({ isActive }) => (isActive ? "active-link" : "link")} 
-  //     >
-  //       Home
-  //     </NavLink>
-  //     <NavLink
-  //       className={({ isActive }) => (isActive ? "active-link" : "link")}
-  //     >
-  //       home 2
-  //     </NavLink>
+  const [isNavbarJumping, setIsNavbarJumping] = useState(false);
 
-  //     <NavLink
-  //       className={({ isActive }) => (isActive ? "active-link" : "link")}
-  //     >
-  //       home 3
-  //     </NavLink>
-  //     <NavLink
-  //       to="/login"
-  //       className={({ isActive }) => (isActive ? "active-link" : "link")}
-  //     >
-  //       Login
-  //     </NavLink>
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
 
-  //     <NavLink
-  //       to="/register"
-  //       className={({ isActive }) => (isActive ? "active-link" : "link")}
-  //     >
-  //       Register
-  //     </NavLink>
-  //   </>
-  // );
+      // You can adjust the scroll threshold as needed
+      const scrollThreshold = 100;
+
+      setIsNavbarJumping(scrollY > scrollThreshold);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+ 
+
+
+
 
   const navLinks = (
     <>
@@ -47,9 +39,11 @@ const Navbar = () => {
   )
 
   return (
-   
-    <div className="max-w-screen-2xl mx-auto pb-[5px] sticky top-0 left-0 z-10">
-      <div className="navbar  bg-opacity-30  bg-base-100">
+
+
+    <div className={`max-w-screen-2xl mx-auto pb-[5px] sticky top-0 left-0 z-10 ${isNavbarJumping ? 'animate-jump' : ''}`}
+    >
+      <div className="navbar    bg-base-100">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
