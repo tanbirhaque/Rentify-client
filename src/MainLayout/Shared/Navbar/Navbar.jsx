@@ -1,7 +1,37 @@
 import { Link, NavLink } from "react-router-dom";
 import "./Navbar.css";
+import { useEffect, useState } from "react";
+
+
 
 const Navbar = () => {
+
+  const [isNavbarJumping, setIsNavbarJumping] = useState(false);
+
+
+  // for jumping effect code
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+
+     
+      const scrollThreshold = 100;
+
+      setIsNavbarJumping(scrollY > scrollThreshold);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+ 
+
+
+
+
   const navLinks = (
     <>
       <NavLink to='/' className='navAfter relative font-medium text-base text-black mx-3'>Home</NavLink>
@@ -15,8 +45,12 @@ const Navbar = () => {
   )
 
   return (
-    <div className="max-w-screen-2xl mx-auto pt-[15px] pb-[5px]">
-      <div className="navbar bg-base-100 p-0">
+
+
+
+      <div className={` bg-base-100  sticky top-0 left-0 z-10 ${isNavbarJumping ? 'animate-jump shadow-md' : ''}`}
+    >
+      <div className="navbar max-w-screen-2xl  mx-auto   bg-base-100">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -71,10 +105,12 @@ const Navbar = () => {
             >
               Signup
             </button>
-          </Link >
-        </div >
-      </div >
-    </div >
+          </Link>
+        </div>
+      </div>
+    </div>
+
+
   );
 };
 
