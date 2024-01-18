@@ -14,7 +14,7 @@ const Navbar = () => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
 
-     
+
       const scrollThreshold = 100;
 
       setIsNavbarJumping(scrollY > scrollThreshold);
@@ -27,7 +27,7 @@ const Navbar = () => {
     };
   }, []);
 
- 
+
 
 
 
@@ -80,7 +80,8 @@ const Navbar = () => {
   );
 
   return (
-      <div className={` bg-base-100  sticky top-0 left-0 z-10 ${isNavbarJumping ? 'animate-jump shadow-md' : ''}`}
+    // Please don't change the z-index, added by -Tanbir
+    <div className={` bg-base-100  sticky top-0 left-0 z-[99999] ${isNavbarJumping ? 'animate-jump shadow-md' : ''}`}
     >
       <div className="navbar max-w-screen-2xl  mx-auto   bg-base-100">
         <div className="navbar-start">
@@ -122,12 +123,14 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{navLinks}</ul>
         </div>
         <div className="navbar-end gap-5">
+          {/* Buttons Added by Fahima-dev */}
           <Link to="/login">
             <ButtonBlue titleBlue={"Log In"} />
           </Link>
           <Link to="/register">
             <ButtonRed titleRed={"Register"} />
           </Link>
+          {/* Buttons added by Sadia-dev */}
           {/* <Link to='/signin'>
             <button
               type="button"
@@ -135,15 +138,15 @@ const Navbar = () => {
             >
               Signin
             </button>
-          </Link> */}
-          {/* <Link>
+          </Link>
+          <Link>
             <button
               type="button"
               className="text-[#002172] hover:text-white border border-[#002172] hover:bg-gradient-to-r from-blue-700 to-[#002172] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800"
             >
               Signup
             </button>
-          </Link>
+          </Link> */}
         </div>
       </div>
     </div>
