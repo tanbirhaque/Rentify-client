@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
 import './index.css'
 import {
   createBrowserRouter,
@@ -52,7 +51,7 @@ const router = createBrowserRouter([
         path: "/blogs/:id",
         element: <Blogdetails></Blogdetails>,
         loader: () => fetch('/Blogs.json')
-      },
+      }, 
       {
         path: "/faq",
         element: <Faq />,
@@ -73,7 +72,7 @@ const router = createBrowserRouter([
       {
         path: "/conditions",
         element: <Condition></Condition>
-      }
+      },
     ],
   },
 ]);

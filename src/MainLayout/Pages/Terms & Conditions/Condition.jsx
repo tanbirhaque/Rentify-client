@@ -1,3 +1,5 @@
+// This page make by Roknuzzaman sajib
+// all fixed & full page created been responsive 
 import { NavLink } from "react-router-dom";
 import './condition.css'
 import { LuCopyCheck } from "react-icons/lu";
@@ -17,7 +19,7 @@ const Condition = () => {
                     </div>
                 </div>
             </div>
-            
+
             {/* Text section */}
 
             <div className="lg:max-w-screen-2xl w-11/12 mx-auto my-32">
