@@ -68,5 +68,5 @@
   }
   
   .image-container:hover img {
-    transform: scale(1.1) rotate(5deg); /* Adjust the scale factor to control the zoom level */
+    transform: scale(1.1) rotate(3deg); /* Adjust the scale factor to control the zoom level */
   }

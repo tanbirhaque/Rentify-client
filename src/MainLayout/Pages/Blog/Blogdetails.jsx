@@ -1,3 +1,6 @@
+// This page make by Roknuzzaman sajib
+// all fixed & full page created been responsive 
+
 import { FaComment, FaFacebook, FaInstagram, FaLinkedin, FaRegCalendarAlt, FaTag, FaTwitter } from "react-icons/fa";
 import { NavLink, useLoaderData, useParams } from "react-router-dom";
 import { IoIosArrowForward } from "react-icons/io";
@@ -10,6 +13,7 @@ const Blogdetails = () => {
 
     return (
         <div>
+            {/* banner section */}
             <div className="gridbgimg">
                 <div className=" bg-[#000000B2]">
                     <div className=" max-w-screen-2xl mx-auto py-24">
@@ -23,7 +27,8 @@ const Blogdetails = () => {
                 </div>
             </div>
             <div className="max-w-screen-2xl mx-auto">
-                <div className=" w-[70%] mx-auto my-28">
+                <div className=" w-[80%] mx-auto my-28">
+                    {/* Detais part */}
                     <img className="w-full md:h-[600px] h-[400px]" src={blog?.img} alt="" />
                     <div>
                         <div className=" flex items-center justify-start gap-7 mt-7">
@@ -79,8 +84,38 @@ const Blogdetails = () => {
                                 <p>Share:</p>
                                 <a target="blank" href="https://www.facebook.com/roknujjamansajib" className=" hover:bg-orange-700  rounded-full hover:text-white p-2"><FaFacebook></FaFacebook></a>
                                 <a target="blank" href="https://twitter.com/Roknuzzaman5546" className="hover:bg-orange-700  rounded-full hover:text-white p-2"><FaTwitter></FaTwitter></a>
-                                <a target="blank" href="https://www.instagram.com/roknujjamansajib/" className="hover:bg-orange-700  rounded-full hover:text-white p-2"><FaInstagram></FaInstagram></a>
                                 <a target="blank" href="https://www.linkedin.com/in/roknuzzaman-sojib-b794552a3/" className="hover:bg-orange-700  rounded-full hover:text-white p-2"><FaLinkedin></FaLinkedin></a>
+                                <a target="blank" href="https://www.instagram.com/roknujjamansajib/" className="hover:bg-orange-700  rounded-full hover:text-white p-2"><FaInstagram></FaInstagram></a>
+                            </div>
+                        </div>
+                    </div>
+                    {/* Comment section */}
+                    {/* this time i creat just desgin so i would used direct picture.after when we work backend then used dynamic and who add the blog we see his details */}
+                    <div className="border flex md:flex-row flex-col justify-start items-center gap-8 py-6 px-5 my-7">
+                        <img className="h-40 w-40 rounded-full" src="https://i.ibb.co/d6bJrVR/client-1.jpg" alt="" />
+                        <div>
+                            <h2 className=" text-3xl font-bold ">Fransis Josef</h2>
+                            <p className=" leading-8 ">Claritas est etiam amet sinicus, qui sequitur lorem ipsum semet coui lectorum. Lorem ipsum dolor voluptatem corporis blanditiis sadipscing elitr sed diam nonumy eirmod amet sit lorem.</p>
+                            <div className=" flex items-center gap-5 text-xl">
+                                <a target="blank" href="https://www.facebook.com/roknujjamansajib" className=" hover:bg-orange-700  rounded-full hover:text-white p-2"><FaFacebook></FaFacebook></a>
+                                <a target="blank" href="https://twitter.com/Roknuzzaman5546" className="hover:bg-orange-700  rounded-full hover:text-white p-2"><FaTwitter></FaTwitter></a>
+                                <a target="blank" href="https://www.linkedin.com/in/roknuzzaman-sojib-b794552a3/" className="hover:bg-orange-700  rounded-full hover:text-white p-2"><FaLinkedin></FaLinkedin></a>
+                            </div>
+                        </div>
+                    </div>
+                    {/* comment part */}
+                    <div className="border items-center gap-8 px-5 my-7">
+                        <h2 className=" text-3xl font-bold">3 comment</h2>
+                        <div className="border flex md:flex-row flex-col justify-start items-center gap-8 py-6 px-5 my-7">
+                            <img className="h-40 w-40 rounded-full" src="https://i.ibb.co/d6bJrVR/client-1.jpg" alt="" />
+                            <div>
+                                <h2 className=" text-3xl font-bold ">Fransis Josef</h2>
+                                <p className=" leading-8 ">Claritas est etiam amet sinicus, qui sequitur lorem ipsum semet coui lectorum. Lorem ipsum dolor voluptatem corporis blanditiis sadipscing elitr sed diam nonumy eirmod amet sit lorem.</p>
+                                <div className=" flex items-center gap-5 text-xl">
+                                    <a target="blank" href="https://www.facebook.com/roknujjamansajib" className=" hover:bg-orange-700  rounded-full hover:text-white p-2"><FaFacebook></FaFacebook></a>
+                                    <a target="blank" href="https://twitter.com/Roknuzzaman5546" className="hover:bg-orange-700  rounded-full hover:text-white p-2"><FaTwitter></FaTwitter></a>
+                                    <a target="blank" href="https://www.linkedin.com/in/roknuzzaman-sojib-b794552a3/" className="hover:bg-orange-700  rounded-full hover:text-white p-2"><FaLinkedin></FaLinkedin></a>
+                                </div>
                             </div>
                         </div>
                     </div>
