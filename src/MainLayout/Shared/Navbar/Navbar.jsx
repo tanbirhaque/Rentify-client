@@ -1,18 +1,20 @@
 import { Link, NavLink } from "react-router-dom";
 import "./Navbar.css";
 import { useEffect, useState } from "react";
-import { useWindowScroll } from 'react-use';
+
 
 
 const Navbar = () => {
 
   const [isNavbarJumping, setIsNavbarJumping] = useState(false);
 
+
+  // for jumping effect code
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
 
-      // You can adjust the scroll threshold as needed
+     
       const scrollThreshold = 100;
 
       setIsNavbarJumping(scrollY > scrollThreshold);
@@ -41,9 +43,10 @@ const Navbar = () => {
   return (
 
 
-    <div className={`max-w-screen-2xl mx-auto pb-[5px] sticky top-0 left-0 z-10 ${isNavbarJumping ? 'animate-jump' : ''}`}
+
+      <div className={` bg-base-100  sticky top-0 left-0 z-10 ${isNavbarJumping ? 'animate-jump shadow-md' : ''}`}
     >
-      <div className="navbar    bg-base-100">
+      <div className="navbar max-w-screen-2xl  mx-auto   bg-base-100">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -99,6 +102,7 @@ const Navbar = () => {
         </div>
       </div>
     </div>
+
 
   );
 };
