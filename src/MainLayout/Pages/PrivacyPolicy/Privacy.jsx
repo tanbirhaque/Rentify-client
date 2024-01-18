@@ -1,3 +1,5 @@
+// This page make by Roknuzzaman sajib
+// all fixed & full page created been responsive 
 import { NavLink } from "react-router-dom";
 import { LuCopyCheck } from "react-icons/lu";
 import './privacy.css'
