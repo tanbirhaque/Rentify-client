@@ -12,11 +12,7 @@ import {
 } from "firebase/auth";
 import PropTypes from "prop-types";
 
-<<<<<<< HEAD
-
-=======
 // Don't remove get auth from here. Merge your code according to this
->>>>>>> e88660c656882feeb4519b2c3fa094ffd627f461
 const auth = getAuth(app);
 export const AuthContext = createContext(null);
 const googleProvider = new GoogleAuthProvider(auth);
