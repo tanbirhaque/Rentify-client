@@ -1,15 +1,15 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
-import { Navigation } from "swiper/modules";
-import './Review.css'
-import Card from "./Card";
+// import { Swiper, SwiperSlide } from "swiper/react";
+// import "swiper/css";
+// import "swiper/css/navigation";
+// import { Navigation } from "swiper/modules";
+// import './Review.css'
+// import Card from "./Card";
 
-const Review = () => {
-    return (
-      <div className="bgtwo">
-        <Card></Card>
-      </div>
+// const Review = () => {
+//     return (
+//       <div className="bgtwo">
+//         <Card></Card>
+//       </div>
 
 
 
@@ -202,7 +202,7 @@ const Review = () => {
          
       //   </Swiper>
       // </div>
-    );
-};
+//     );
+// };
 
-export default Review;
+// export default Review;
