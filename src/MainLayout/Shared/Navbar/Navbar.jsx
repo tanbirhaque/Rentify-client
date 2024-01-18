@@ -3,6 +3,7 @@ import "./Navbar.css";
 import ButtonBlue from "../buttons/Blue/ButtonBlue";
 import ButtonRed from "../buttons/Red/ButtonRed";
 import { useEffect, useState } from "react";
+import logo from "../../../assets/Template_files/logo.png";
 
 const Navbar = () => {
 
