@@ -2,14 +2,23 @@
 // all fixed & full page created been responsive 
 
 import { FaComment, FaFacebook, FaInstagram, FaLinkedin, FaRegCalendarAlt, FaTag, FaTwitter } from "react-icons/fa";
-import { NavLink, useLoaderData, useParams } from "react-router-dom";
+import { Link, NavLink, useLoaderData, useParams } from "react-router-dom";
 import { IoIosArrowForward } from "react-icons/io";
+import { useForm } from "react-hook-form"
+
 
 const Blogdetails = () => {
     const blogs = useLoaderData();
     const { id } = useParams();
     const blog = blogs.find(item => item._id == id)
     console.log(blog)
+    const {
+        register,
+        handleSubmit,
+    } = useForm()
+    const onSubmit = (data) => console.log(data)
+
+
 
     return (
         <div>
@@ -95,7 +104,7 @@ const Blogdetails = () => {
                         <img className="h-40 w-40 rounded-full" src="https://i.ibb.co/d6bJrVR/client-1.jpg" alt="" />
                         <div>
                             <h2 className=" text-3xl font-bold ">Fransis Josef</h2>
-                            <p className=" leading-8 ">Claritas est etiam amet sinicus, qui sequitur lorem ipsum semet coui lectorum. Lorem ipsum dolor voluptatem corporis blanditiis sadipscing elitr sed diam nonumy eirmod amet sit lorem.</p>
+                            <p className=" leading-8 text-xl text-gray-400">Claritas est etiam amet sinicus, qui sequitur lorem ipsum semet coui lectorum. Lorem ipsum dolor voluptatem corporis blanditiis sadipscing elitr sed diam nonumy eirmod amet sit lorem.</p>
                             <div className=" flex items-center gap-5 text-xl">
                                 <a target="blank" href="https://www.facebook.com/roknujjamansajib" className=" hover:bg-orange-700  rounded-full hover:text-white p-2"><FaFacebook></FaFacebook></a>
                                 <a target="blank" href="https://twitter.com/Roknuzzaman5546" className="hover:bg-orange-700  rounded-full hover:text-white p-2"><FaTwitter></FaTwitter></a>
@@ -105,18 +114,79 @@ const Blogdetails = () => {
                     </div>
                     {/* comment part */}
                     <div className="border items-center gap-8 px-5 my-7">
-                        <h2 className=" text-3xl font-bold">3 comment</h2>
-                        <div className="border flex md:flex-row flex-col justify-start items-center gap-8 py-6 px-5 my-7">
-                            <img className="h-40 w-40 rounded-full" src="https://i.ibb.co/d6bJrVR/client-1.jpg" alt="" />
+                        <h2 className=" text-3xl font-bold mt-2">3 comment</h2>
+                        {/* Comment 1 */}
+                        <div className="border-b flex md:flex-row flex-col justify-start items-center gap-8 py-6 px-5 my-7">
+                            <img className="h-28 w-28 rounded-full" src="https://i.ibb.co/S6WvFmr/client-4.jpg" alt="" />
                             <div>
-                                <h2 className=" text-3xl font-bold ">Fransis Josef</h2>
-                                <p className=" leading-8 ">Claritas est etiam amet sinicus, qui sequitur lorem ipsum semet coui lectorum. Lorem ipsum dolor voluptatem corporis blanditiis sadipscing elitr sed diam nonumy eirmod amet sit lorem.</p>
-                                <div className=" flex items-center gap-5 text-xl">
-                                    <a target="blank" href="https://www.facebook.com/roknujjamansajib" className=" hover:bg-orange-700  rounded-full hover:text-white p-2"><FaFacebook></FaFacebook></a>
-                                    <a target="blank" href="https://twitter.com/Roknuzzaman5546" className="hover:bg-orange-700  rounded-full hover:text-white p-2"><FaTwitter></FaTwitter></a>
-                                    <a target="blank" href="https://www.linkedin.com/in/roknuzzaman-sojib-b794552a3/" className="hover:bg-orange-700  rounded-full hover:text-white p-2"><FaLinkedin></FaLinkedin></a>
+                                <div className=" flex justify-between">
+                                    <div>
+                                        <h2 className=" text-3xl font-bold mb-1">David Watson</h2>
+                                        <p className=" text-gray-400 mb-3">Mar 22, 2024</p>
+                                    </div>
+                                    <div>
+                                        <button className=" rounded px-7 py-2 mt-3 bg-[#EC3323] hover:bg-[#002172] text-white">Reply</button>
+                                    </div>
                                 </div>
+                                <p className=" leading-8 text-xl text-gray-400">Creative graphic designer specializing in branding and visual communication.Creative graphic designer specializing in branding and visual communication.</p>
                             </div>
+                        </div>
+                        {/* Comment 1 */}
+                        <div className="border-b flex md:flex-row flex-col justify-start items-center gap-8 py-6 px-5 my-7">
+                            <img className="h-28 w-28 rounded-full" src="https://i.ibb.co/QK3Gsr7/client-2.jpg" alt="" />
+                            <div>
+                                <div className=" flex justify-between">
+                                    <div>
+                                        <h2 className=" text-3xl font-bold mb-1">Mark Owen</h2>
+                                        <p className=" text-gray-400 mb-3">Mar 22, 2024</p>
+                                    </div>
+                                    <div>
+                                        <button className=" rounded px-7 py-2 mt-3 bg-[#EC3323] hover:bg-[#002172] text-white">Reply</button>
+                                    </div>
+                                </div>
+                                <p className=" leading-8 text-xl text-gray-400">Creative graphic designer specializing in branding and visual communication.Creative graphic designer specializing in branding and visual communication.</p>
+                            </div>
+                        </div>
+                        {/* Comment-3 */}
+                        <div className="border-b flex md:flex-row flex-col justify-start items-center gap-8 py-6 px-5 my-7">
+                            <img className="h-28 w-28 rounded-full" src="https://i.ibb.co/68S6G6b/client-3.jpg" alt="" />
+                            <div>
+                                <div className=" flex justify-between">
+                                    <div>
+                                        <h2 className=" text-3xl font-bold mb-1">Alexandar Mason</h2>
+                                        <p className=" text-gray-400 mb-3">Mar 22, 2024</p>
+                                    </div>
+                                    <div>
+                                        <button className=" rounded px-7 py-2 mt-3 bg-[#EC3323] hover:bg-[#002172] text-white">Reply</button>
+                                    </div>
+                                </div>
+                                <p className=" leading-8 text-xl text-gray-400">Creative graphic designer specializing in branding and visual communication.Creative graphic designer specializing in branding and visual communication.</p>
+                            </div>
+                        </div>
+                        {/* From section */}
+                        <div>
+                            <h2 className=" text-3xl font-bold my-3">Leave A Comment</h2>
+                            <p className=" text-xl text-gray-400">Your email address will not be published. Required fields are marked.</p>
+                            <form onSubmit={handleSubmit(onSubmit)}>
+                                {/* register your input into the hook by invoking the "register" function */}
+                                <input {...register("name")}
+                                    placeholder="Name*"
+                                    className=" w-full py-5 bg-[#F9F9F9] rounded-md px-2 my-4" />
+                                {/* include validation with required or other standard HTML validation rules */}
+                                <input {...register("email", { required: true })}
+                                    placeholder="Email Adress*"
+                                    className="py-5 bg-[#F9F9F9] rounded-md px-2 w-full" />
+                                {/* errors will return when field validation fails  */}
+                                <input {...register("subject", { required: true })}
+                                    placeholder="Website*"
+                                    className="py-5 bg-[#F9F9F9] rounded-md px-2 w-full my-3" />
+                                <textarea {...register("message", { required: true })} className="textarea bg-[#F9F9F9] h-40 w-full mt-3 mb-4" placeholder="Please enter your comment"></textarea>
+                                <div className=" my-3 flex justify-start items-center gap-3">
+                                    <input type="checkbox" className="checkbox" />
+                                    <p className=" text-xl text-gray-400"> Save my name,email,website addres in this browser for the next time I commnet. </p>
+                                </div>
+                                <input type="submit" value="Post a comment" className=" rounded px-8 py-4 mt-3 bg-[#EC3323] hover:bg-[#002172] text-white mb-4" />
+                            </form>
                         </div>
                     </div>
                 </div>
