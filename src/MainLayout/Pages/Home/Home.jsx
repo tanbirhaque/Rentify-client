@@ -12,15 +12,15 @@ import Virtual from "./HomeComponents/Virtual Apartments/Virtual";
 const Home = () => {
   return (
     <div>
-      {/* <Banner></Banner>
+      <Banner></Banner>
       <Reach></Reach>
-      <Listing /> */}
+      <Listing />
       <About />
-      {/* <OurAdvantage />
+      <OurAdvantage />
       <Virtual />
       <Journey />
       <PopularCities></PopularCities>
-      <EditReview></EditReview> */}
+      <EditReview></EditReview>
     </div>
   );
 };
