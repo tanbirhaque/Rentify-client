@@ -2,7 +2,7 @@
 // all fixed & full page created been responsive 
 
 import { FaComment, FaFacebook, FaInstagram, FaLinkedin, FaRegCalendarAlt, FaTag, FaTwitter } from "react-icons/fa";
-import { Link, NavLink, useLoaderData, useParams } from "react-router-dom";
+import { NavLink, useLoaderData, useParams } from "react-router-dom";
 import { IoIosArrowForward } from "react-icons/io";
 import { useForm } from "react-hook-form"
 
