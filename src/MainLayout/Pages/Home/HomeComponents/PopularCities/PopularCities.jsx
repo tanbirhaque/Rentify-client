@@ -17,7 +17,7 @@ import "./Popular.css";
 const PopularCities = () => {
   return (
     <div className="mt-10 mb-20 max-w-screen-2xl mx-auto lg:px-[30px] xl:px-[108px]">
-      <CommonHeading></CommonHeading>
+      <CommonHeading small={'Choose A Popular City'} big={"Our Hottest Nearby Cities"}></CommonHeading>
       <div className="card-container grid md:grid-cols-2 lg:grid-cols-4 justify-items-center lg:gap-x-[25px] gap-y-[25px] mt-[40px]">
         {/* Each cards */}
         <div className="pop-card min-h-[324px] max-w-[306px] rounded-xl relative overflow-hidden">
@@ -54,8 +54,8 @@ const PopularCities = () => {
           <div className="pop-overlay absolute top-0 left-0 min-w-full min-h-full bg-black bg-opacity-50 hover:bg-opacity-60 transition duration-500 rounded-xl">
             <div className="pop-text p-5 min-h-full">
               <div className="relative top-[230px]">
-                <h2 className="pop-h2 text-white poppins-font font-bold text-[22px]">New York City</h2>
-                <p className="text-white font-medium text-[17px] ">+5231 properties</p>
+                <h2 className="pop-h2 text-white poppins-font font-bold text-[22px]">Prauge</h2>
+                <p className="text-white font-medium text-[17px] ">+121 properties</p>
               </div>
             </div>
           </div>
@@ -74,8 +74,8 @@ const PopularCities = () => {
           <div className="pop-overlay absolute top-0 left-0 min-w-full min-h-full bg-black bg-opacity-50 hover:bg-opacity-60 transition duration-500 rounded-xl">
             <div className="pop-text p-5 min-h-full">
               <div className="relative top-[230px]">
-                <h2 className="pop-h2 text-white poppins-font font-bold text-[22px]">New York City</h2>
-                <p className="text-white font-medium text-[17px] ">+5231 properties</p>
+                <h2 className="pop-h2 text-white poppins-font font-bold text-[22px]">Florida</h2>
+                <p className="text-white font-medium text-[17px] ">+432 properties</p>
               </div>
             </div>
           </div>
@@ -94,8 +94,8 @@ const PopularCities = () => {
           <div className="pop-overlay absolute top-0 left-0 min-w-full min-h-full bg-black bg-opacity-50 hover:bg-opacity-60 transition duration-500 rounded-xl">
             <div className="pop-text p-5 min-h-full">
               <div className="relative top-[230px]">
-                <h2 className="pop-h2 text-white poppins-font font-bold text-[22px]">New York City</h2>
-                <p className="text-white font-medium text-[17px] ">+5231 properties</p>
+                <h2 className="pop-h2 text-white poppins-font font-bold text-[22px]">San Fransisco</h2>
+                <p className="text-white font-medium text-[17px] ">+231 properties</p>
               </div>
             </div>
           </div>
@@ -114,8 +114,8 @@ const PopularCities = () => {
           <div className="pop-overlay absolute top-0 left-0 min-w-full min-h-full bg-black bg-opacity-50 hover:bg-opacity-60 transition duration-500 rounded-xl">
             <div className="pop-text p-5 min-h-full">
               <div className="relative top-[230px]">
-                <h2 className="pop-h2 text-white poppins-font font-bold text-[22px]">New York City</h2>
-                <p className="text-white font-medium text-[17px] ">+5231 properties</p>
+                <h2 className="pop-h2 text-white poppins-font font-bold text-[22px]">Torento City</h2>
+                <p className="text-white font-medium text-[17px] ">+1222 properties</p>
               </div>
             </div>
           </div>
@@ -134,8 +134,8 @@ const PopularCities = () => {
           <div className="pop-overlay absolute top-0 left-0 min-w-full min-h-full bg-black bg-opacity-50 hover:bg-opacity-60 transition duration-500 rounded-xl">
             <div className="pop-text p-5 min-h-full">
               <div className="relative top-[230px]">
-                <h2 className="pop-h2 text-white poppins-font font-bold text-[22px]">New York City</h2>
-                <p className="text-white font-medium text-[17px] ">+5231 properties</p>
+                <h2 className="pop-h2 text-white poppins-font font-bold text-[22px]">Vancuver City</h2>
+                <p className="text-white font-medium text-[17px] ">+151 properties</p>
               </div>
             </div>
           </div>
@@ -154,8 +154,8 @@ const PopularCities = () => {
           <div className="pop-overlay absolute top-0 left-0 min-w-full min-h-full bg-black bg-opacity-50 hover:bg-opacity-60 transition duration-500 rounded-xl">
             <div className="pop-text p-5 min-h-full">
               <div className="relative top-[230px]">
-                <h2 className="pop-h2 text-white poppins-font font-bold text-[22px]">New York City</h2>
-                <p className="text-white font-medium text-[17px] ">+5231 properties</p>
+                <h2 className="pop-h2 text-white poppins-font font-bold text-[22px]">Montreal City</h2>
+                <p className="text-white font-medium text-[17px] ">+232 properties</p>
               </div>
             </div>
           </div>
@@ -174,8 +174,8 @@ const PopularCities = () => {
           <div className="pop-overlay absolute top-0 left-0 min-w-full min-h-full bg-black bg-opacity-50 hover:bg-opacity-60 transition duration-500 rounded-xl">
             <div className="pop-text p-5 min-h-full">
               <div className="relative top-[230px]">
-                <h2 className="pop-h2 text-white poppins-font font-bold text-[22px]">New York City</h2>
-                <p className="text-white font-medium text-[17px] ">+5231 properties</p>
+                <h2 className="pop-h2 text-white poppins-font font-bold text-[22px]">Los Angeles</h2>
+                <p className="text-white font-medium text-[17px] ">+1211 properties</p>
               </div>
             </div>
           </div>

@@ -3,8 +3,10 @@ import Lottie from "lottie-react";
 import loginAnimation from "../../../../public/LoginAnimation.json";
 import { Link } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
-import toast from "react-hot-toast";
+
 import Swal from "sweetalert2";
+import toast from "react-hot-toast";
+import SocialLogin from "../../Shared/Social/SocialLogin";
 
 const Login = () => {
   const { loginUser } = useAuth();
@@ -42,7 +44,14 @@ const Login = () => {
       })
       .catch((err) => {
         console.log(err.message);
-        toast.error(err.code);
+        toast(err.code, {
+          icon: "❌",
+          style: {
+            borderRadius: "10px",
+            background: "#002172",
+            color: "#fff",
+          },
+        });
       });
   };
 
@@ -82,11 +91,11 @@ const Login = () => {
               </span>
             )}
             <div className="flex flex-col gap-5">
-              <div className="ms-auto text-sm text-red-500">
+              <div className="ms-auto text-sm text-blue-500">
                 Don&#39;t have an account?{" "}
                 <Link
                   to="/register"
-                  className="hover:underline hover:text-red-700"
+                  className="hover:underline hover:text-blue-700"
                 >
                   Register
                 </Link>
@@ -95,6 +104,7 @@ const Login = () => {
                 Login
               </button>
             </div>
+            <SocialLogin />
           </form>
         </div>
         <div className="flex-1">

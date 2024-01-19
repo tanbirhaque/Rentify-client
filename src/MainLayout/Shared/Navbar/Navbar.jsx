@@ -1,57 +1,90 @@
 import { Link, NavLink } from "react-router-dom";
 import "./Navbar.css";
+import ButtonBlue from "../buttons/Blue/ButtonBlue";
+import ButtonRed from "../buttons/Red/ButtonRed";
+import { useEffect, useState } from "react";
+import logo from "../../../assets/Template_files/logo.png";
 
 const Navbar = () => {
 
-  // const navLinks = (
-  //   <>
-  //     <NavLink
-  //       className={({ isActive }) => (isActive ? "active-link" : "link")} 
-  //     >
-  //       Home
-  //     </NavLink>
-  //     <NavLink
-  //       className={({ isActive }) => (isActive ? "active-link" : "link")}
-  //     >
-  //       home 2
-  //     </NavLink>
+  const [isNavbarJumping, setIsNavbarJumping] = useState(false);
 
-  //     <NavLink
-  //       className={({ isActive }) => (isActive ? "active-link" : "link")}
-  //     >
-  //       home 3
-  //     </NavLink>
-  //     <NavLink
-  //       to="/login"
-  //       className={({ isActive }) => (isActive ? "active-link" : "link")}
-  //     >
-  //       Login
-  //     </NavLink>
 
-  //     <NavLink
-  //       to="/register"
-  //       className={({ isActive }) => (isActive ? "active-link" : "link")}
-  //     >
-  //       Register
-  //     </NavLink>
-  //   </>
-  // );
+  // for jumping effect code
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+
+
+      const scrollThreshold = 100;
+
+      setIsNavbarJumping(scrollY > scrollThreshold);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+
+
+
+
 
   const navLinks = (
     <>
-      <NavLink to='/' className='navAfter relative font-medium text-base text-black mx-3'>Home</NavLink>
-      <NavLink to='/blogs' className='navAfter relative font-medium text-base text-black mx-3'>Blogs</NavLink>
-      <NavLink to='/testimonials' className='navAfter relative font-medium text-base text-black mx-3'>Testimonials</NavLink>
-      <NavLink to='/privacy' className='navAfter relative font-medium text-base text-black mx-3'>Our Privacy</NavLink>
-      <NavLink to='/conditions' className='navAfter relative font-medium text-base text-black mx-3'>Terms & Conditions</NavLink>
-      <NavLink to='/login' className='navAfter relative font-medium text-base text-black  mx-3'>Signin</NavLink>
-      <NavLink to='register' className='navAfter relative font-medium text-base  text-black mx-3'>Signup</NavLink>
+      <NavLink
+        to="/"
+        className="navAfter relative font-medium text-base text-black mx-3"
+      >
+        Home
+      </NavLink>
+      <NavLink
+        to="/blogs"
+        className="navAfter relative font-medium text-base text-black mx-3"
+      >
+        Blogs
+      </NavLink>
+      <NavLink
+        to="/testimonials"
+        className="navAfter relative font-medium text-base text-black mx-3"
+      >
+        Testimonials
+      </NavLink>
+      <NavLink
+        to="/privacy"
+        className="navAfter relative font-medium text-base text-black mx-3"
+      >
+        Our Privacy
+      </NavLink>
+      <NavLink
+        to="/conditions"
+        className="navAfter relative font-medium text-base text-black mx-3"
+      >
+        Terms & Conditions
+      </NavLink>
+      <NavLink
+        to="/faq"
+        className="navAfter relative font-medium text-base text-black  mx-3"
+      >
+        FAQ
+      </NavLink>
+      <NavLink
+        to="/how-it-works"
+        className="navAfter relative font-medium text-base  text-black mx-3"
+      >
+        How It Works
+      </NavLink>
     </>
-  )
+  );
 
   return (
-    <div className="max-w-screen-2xl mx-auto">
-      <div className="navbar bg-base-100">
+    // Please don't change the z-index, added by -Tanbir
+    <div className={` bg-base-100  sticky top-0 left-0 z-[99999] ${isNavbarJumping ? 'animate-jump shadow-md' : ''}`}
+    >
+      <div className="navbar max-w-screen-2xl  mx-auto   bg-base-100">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -77,17 +110,12 @@ const Navbar = () => {
               {navLinks}
             </ul>
           </div>
-          <div className="flex  items-center gap-2">
-            {/* <img
-              className="w-[50px] rounded-full hidden md:block h-[50px] "
-              src="https://i.ibb.co/YQkknL0/logo.jpg"
-             
-            /> */}
+          <div className="flex  items-center">
             <img
-              className="w-[60px] h-[60px] rounded-full hidden md:block  "
-              src="https://i.ibb.co/jymRcVn/413339641-1359129788096517-9050509765731491679-n.png"
+              className="w-[50px] h-[60px] hidden md:block  "
+              src="https://i.ibb.co/kXpZ7RD/Rentify-logo-1.png"
             />
-            <h4 className="font-bold md:text-2xl text-base">
+            <h4 className="font-bold md:text-2xl lg:text-[40px] ml-2">
               Renti<span className="text-[#002172]">fy</span>
             </h4>
           </div>
@@ -95,8 +123,16 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navLinks}</ul>
         </div>
-        <div className="navbar-end">
-          <Link to='/signin'>
+        <div className="navbar-end gap-5">
+          {/* Buttons Added by Fahima-dev */}
+          <Link to="/login">
+            <ButtonBlue titleBlue={"Log In"} />
+          </Link>
+          <Link to="/register">
+            <ButtonRed titleRed={"Register"} />
+          </Link>
+          {/* Buttons added by Sadia-dev */}
+          {/* <Link to='/signin'>
             <button
               type="button"
               className="text-white bg-gradient-to-r from-blue-500 via-blue-700 to-[#002172] hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
@@ -107,14 +143,14 @@ const Navbar = () => {
           <Link>
             <button
               type="button"
-              className="text-[#002172] hover:text-white border border-[#002172] hover:bg-gradient-to-r from-blue-700 to-[#002172] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800"
+              className="text-[#002172] hover:text-white border border-[#002172] hover:bg-gradient-to-r from-blue-700 to-[#002172] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800"
             >
               Signup
             </button>
-          </Link >
-        </div >
-      </div >
-    </div >
+          </Link> */}
+        </div>
+      </div>
+    </div>
   );
 };
 
