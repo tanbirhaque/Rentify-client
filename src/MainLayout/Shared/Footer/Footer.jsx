@@ -6,11 +6,11 @@ const Footer = () => {
           <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
             <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
               <img
-                className="w-[60px] h-[60px] rounded-full   "
-                src="https://i.ibb.co/jymRcVn/413339641-1359129788096517-9050509765731491679-n.png"
-                alt=""
+                className="mr-3"
+                src="https://i.ibb.co/GsQpf2D/logo.png"
+                alt="Website Logo Png from imgbb"
               />
-              <span className="font-bold md:text-2xl text-xl">
+              <span className="font-bold poppins-font text-[38px]">
                 Renti<span className="text-[#002172]">fy</span>
               </span>
             </a>

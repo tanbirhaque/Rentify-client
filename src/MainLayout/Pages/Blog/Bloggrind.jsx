@@ -1,3 +1,5 @@
+// This page make by Roknuzzaman sajib
+// all fixed & full page created been responsive 
 import { useEffect, useState } from "react";
 import { FaComment, FaLongArrowAltRight, FaRegCalendarAlt } from "react-icons/fa";
 import './styles.css'
@@ -29,14 +31,16 @@ const Bloggrind = () => {
             </div>
 
             <div className=" max-w-screen-2xl mx-auto my-32">
-                <div className=" grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8">
+                <div className=" grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-7">
                     {
                         blogs.map(item => <div key={item._id}>
-                            <div className="cart bg-base-100 shadow-xl w-full h-[500px]">
+                            {/* animation bg fixed */}
+                            {/* card class, image-container, imghover & img is import by styles.css*/}
+                            <div className="cart bg-base-100 shadow-md md:w-full w-11/12  h-[500px] md:mx-0 mx-auto rounded">
                                 <div className="image-container">
-                                    <img className="imghover img" src={item.img} alt="Shoes" />
+                                    <img className="imghover img hover:shadow-2xl" src={item.img} alt="Shoes" />
                                 </div>
-                                <div className="pl-5 mt-5">
+                                <div className="pl-6 mt-5">
                                     <div className="flex items-center justify-start gap-7">
                                         <p className=" text-xl flex items-center justify-center gap-2">
                                             <FaRegCalendarAlt className=" text-red-500"></FaRegCalendarAlt>

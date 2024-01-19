@@ -17,11 +17,15 @@ const Banner = () => {
                     <div className="   w-full lg:w-1/2 mt-[100px]">
                         <div className="flex justify-evenly md:justify-between banner">
                             <img className="w-10 " src={img3} alt="" />
+                            <div className="floating">
+                            
                             <img
-                                className="floating"
+                                className=""
                                 src="https://i.ibb.co/TYpJMmw/413824751-1821545304957822-2518450752563921897-n.png"
                                 alt=""
                             />
+                           
+                            </div>
                         </div>
 
                         <div>
