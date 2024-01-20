@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import Lottie from "lottie-react";
-import loginAnimation from "../../../../public/LoginAnimation.json";
-import { Link } from "react-router-dom";
+import loginAnimation from "../../../assets/animation/LoginAnimation.json";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
@@ -9,7 +9,8 @@ import SocialLogin from "../../Shared/Social/SocialLogin";
 
 const Register = () => {
   const { userRegister, userProfile } = useAuth();
-
+  const currentLocation = useLocation();
+  const destinedLocation = useNavigate();
   //form data
   const {
     register,
@@ -34,6 +35,9 @@ const Register = () => {
         // };
         userProfile(data.name, data.image)
           .then((res) => {
+            destinedLocation(
+              currentLocation?.state ? currentLocation.state : "/"
+            );
             Swal.fire({
               title: "User created successfully!",
               timer: 2000,

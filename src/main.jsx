@@ -19,6 +19,7 @@ import Testimonials from "./MainLayout/Pages/Testimonials/Testimonials.jsx";
 import Privacy from "./MainLayout/Pages/PrivacyPolicy/Privacy.jsx";
 import Condition from "./MainLayout/Pages/Terms & Conditions/Condition.jsx";
 import { Toaster } from "react-hot-toast";
+import Private from "./Provider/Private.jsx";
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
@@ -54,7 +55,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/how-it-works",
-        element: <HowItWorks />,
+        element: (
+          <Private>
+            <HowItWorks />
+          </Private>
+        ),
       },
       {
         path: "/testimonials",
