@@ -6,12 +6,9 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import swal from "sweetalert";
 
-
-
 const Navbar = () => {
-
   const [isNavbarJumping, setIsNavbarJumping] = useState(false);
-  const {  userSignOut, user, setUser } = useContext(AuthContext);
+  const { userSignOut, user, setUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
   // for logout user -Sadia
@@ -66,36 +63,46 @@ const Navbar = () => {
       >
         Blogs
       </NavLink>
-      <NavLink
-        to="/testimonials"
-        className="navAfter relative font-medium text-base text-black mx-3"
-      >
-        Testimonials
-      </NavLink>
-      <NavLink
-        to="/privacy"
-        className="navAfter relative font-medium text-base text-black mx-3"
-      >
-        Our Privacy
-      </NavLink>
-      <NavLink
-        to="/conditions"
-        className="navAfter relative font-medium text-base text-black mx-3"
-      >
-        Terms & Conditions
-      </NavLink>
-      <NavLink
-        to="/faq"
-        className="navAfter relative font-medium text-base text-black  mx-3"
-      >
-        FAQ
-      </NavLink>
+
       <NavLink
         to="/how-it-works"
         className="navAfter relative font-medium text-base  text-black mx-3"
       >
         How It Works
       </NavLink>
+
+      {/* for others */}
+      <details className="dropdown">
+        <summary className="navAfter relative font-medium text-base  text-black mx-3">
+          Others
+        </summary>
+        <ul className="p-2  menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+          <NavLink
+            to="/testimonials"
+            className="navAfter relative font-medium text-base text-black mx-3 "
+          >
+            Testimonials
+          </NavLink>
+          <NavLink
+            to="/privacy"
+            className="navAfter relative font-medium text-base text-black mx-3"
+          >
+            Our Privacy
+          </NavLink>
+          <NavLink
+            to="/conditions"
+            className="navAfter relative font-medium text-base text-black mx-3"
+          >
+            Terms & Conditions
+          </NavLink>
+          <NavLink
+            to="/faq"
+            className="navAfter relative font-medium text-base text-black  mx-3"
+          >
+            FAQ
+          </NavLink>
+        </ul>
+      </details>
     </>
   );
 
@@ -133,15 +140,15 @@ const Navbar = () => {
             </ul>
           </div>
           <Link to="/">
-          <div className="flex  items-center">
-            <img
-              className="w-[60px] md:w-full"
-              src="https://i.ibb.co/GsQpf2D/logo.png"
-            />
-            <h4 className="font-bold poppins-font text-2xl lg:text-[38px] ml-2">
-              Renti<span className="text-[#002172]">fy</span>
-            </h4>
-          </div>
+            <div className="flex  items-center">
+              <img
+                className="w-[60px] md:w-full"
+                src="https://i.ibb.co/GsQpf2D/logo.png"
+              />
+              <h4 className="font-bold poppins-font text-2xl lg:text-[38px] ml-2">
+                Renti<span className="text-[#002172]">fy</span>
+              </h4>
+            </div>
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -159,7 +166,7 @@ const Navbar = () => {
         
         </div> */}
 
-          {/* for toggle feature for btn -sadia */}
+        {/* for toggle feature for btn -sadia */}
         <div className="navbar-end gap-5">
           {user && (
             <div className="dropdown dropdown-end">
