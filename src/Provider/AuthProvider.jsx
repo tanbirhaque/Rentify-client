@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import app from "../firebase/firebase.config"
+import app from "../firebase/firebase.config";
 import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
@@ -11,6 +11,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import PropTypes from "prop-types";
+import toast from "react-hot-toast";
 
 // Don't remove get auth from here. Merge your code according to this
 const auth = getAuth(app);
@@ -30,7 +31,6 @@ const AuthProvider = ({ children }) => {
   const userRegister = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
-   
   };
 
   //login
@@ -41,14 +41,15 @@ const AuthProvider = ({ children }) => {
 
   //signOut
   const userSignOut = () => {
-    signOut(auth)
+    setLoading(true);
+    return signOut(auth)
       .then((res) => {
         console.log(res);
+        toast.success("Log out successfull!!!");
       })
       .catch((err) => {
         console.log(err.code);
       });
-    setLoading(true);
   };
   //auth state change
   useEffect(() => {

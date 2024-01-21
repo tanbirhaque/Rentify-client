@@ -6,7 +6,13 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import swal from "sweetalert";
 
+
+
 const Navbar = () => {
+
+  
+  
+
   const [isNavbarJumping, setIsNavbarJumping] = useState(false);
   const {  userSignOut, user, setUser } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -45,6 +51,7 @@ const Navbar = () => {
     };
   }, []);
 
+  // when the user dont have a pro pic this pic will be shown
   const defaultImg =
     "https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?w=740&t=st=1696786604~exp=1696787204~hmac=c10645727b8724eecda4984ef1d8fbfba92a9c9072a57b851c28c9b1d8d62b81";
 

@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import Lottie from "lottie-react";
-import loginAnimation from "../../../../public/LoginAnimation.json";
-import { Link } from "react-router-dom";
+import loginAnimation from "../../../assets/animation/LoginAnimation.json";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
 
 import Swal from "sweetalert2";
@@ -10,7 +10,8 @@ import SocialLogin from "../../Shared/Social/SocialLogin";
 
 const Login = () => {
   const { loginUser } = useAuth();
-
+  const currentLocation = useLocation();
+  const destinedLocation = useNavigate();
   //form data
   const {
     register,
@@ -24,22 +25,13 @@ const Login = () => {
     loginUser(data.email, data.password)
       .then((res) => {
         console.log(res.user);
+        destinedLocation(currentLocation?.state ? currentLocation.state : "/");
         Swal.fire({
-          title: "Login successful!",
-          showClass: {
-            popup: `
-            animate__animated
-            animate__fadeInUp
-            animate__faster
-          `,
-          },
-          hideClass: {
-            popup: `
-            animate__animated
-            animate__fadeOutDown
-            animate__faster
-          `,
-          },
+          title: "Login successful!!!",
+          timer: 2000,
+          color: "#002172",
+          showConfirmButton: false,
+          icon: "success",
         });
       })
       .catch((err) => {
