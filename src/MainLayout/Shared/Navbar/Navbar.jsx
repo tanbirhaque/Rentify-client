@@ -112,10 +112,10 @@ const Navbar = () => {
           </div>
           <div className="flex  items-center">
             <img
-              className="w-[50px] h-[60px] hidden md:block  "
-              src="https://i.ibb.co/kXpZ7RD/Rentify-logo-1.png"
+              className="w-[60px] md:w-full"
+              src="https://i.ibb.co/GsQpf2D/logo.png"
             />
-            <h4 className="font-bold md:text-2xl lg:text-[40px] ml-2">
+            <h4 className="font-bold poppins-font text-2xl lg:text-[38px] ml-2">
               Renti<span className="text-[#002172]">fy</span>
             </h4>
           </div>
