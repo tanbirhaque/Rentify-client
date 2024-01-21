@@ -124,5 +124,47 @@
             "Proximity to Ski Resort for Winter Activities",
             "Wildlife Watching Opportunities in the Surrounding Area"
         ]
+    },
+    {
+        "_id": 7,
+        "img": "https://i.ibb.co/gJBpxL3/blog-1.jpg",
+        "title": "Mountain Retreat Cabin",
+        "date": "2024-June-16",
+        "comment": "2",
+        "details": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus ex sunt exercitationem saepe dolore quasi dolores ut laboriosam obcaecati facilis? Cum voluptas incidunt aliquid eaque modi eius, qui culpa vero.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus ex sunt exercitationem saepe dolore quasi dolores ut laboriosam obcaecati facilis? Cum voluptas incidunt aliquid eaque modi eius, qui culpa vero.",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus ex sunt exercitationem saepe dolore quasi dolores ut laboriosam obcaecati facilis? Cum voluptas incidunt aliquid eaque modi eius, qui culpa vero.Lorem, ipsum dolor sit amet consectetur adipisicing elit.Possimus ex sunt exercitationem saepe dolore quasi dolores ut laboriosam obcaecati facilis? Cum voluptas incidunt aliquid eaque modi eius, qui culpa vero.",
+        "commodoviverra": [
+            "Inviting Hot Tub for Relaxation",
+            "Fire Pit for Cozy Evenings",
+            "Forest Views for a Tranquil Atmosphere"
+        ],
+        "majorfacility": [
+            "Wraparound Deck for Panoramic Views",
+            "Vaulted Ceilings Adding a Spacious Feel",
+            "Fully Furnished for Immediate Comfort",
+            "Proximity to Ski Resort for Winter Activities",
+            "Wildlife Watching Opportunities in the Surrounding Area"
+        ]
+    },
+    {
+        "_id": 8,
+        "img": "https://i.ibb.co/gJBpxL3/blog-1.jpg",
+        "title": "Mountain Retreat Cabin",
+        "date": "2024-June-16",
+        "comment": "2",
+        "details": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus ex sunt exercitationem saepe dolore quasi dolores ut laboriosam obcaecati facilis? Cum voluptas incidunt aliquid eaque modi eius, qui culpa vero.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus ex sunt exercitationem saepe dolore quasi dolores ut laboriosam obcaecati facilis? Cum voluptas incidunt aliquid eaque modi eius, qui culpa vero.",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus ex sunt exercitationem saepe dolore quasi dolores ut laboriosam obcaecati facilis? Cum voluptas incidunt aliquid eaque modi eius, qui culpa vero.Lorem, ipsum dolor sit amet consectetur adipisicing elit.Possimus ex sunt exercitationem saepe dolore quasi dolores ut laboriosam obcaecati facilis? Cum voluptas incidunt aliquid eaque modi eius, qui culpa vero.",
+        "commodoviverra": [
+            "Inviting Hot Tub for Relaxation",
+            "Fire Pit for Cozy Evenings",
+            "Forest Views for a Tranquil Atmosphere"
+        ],
+        "majorfacility": [
+            "Wraparound Deck for Panoramic Views",
+            "Vaulted Ceilings Adding a Spacious Feel",
+            "Fully Furnished for Immediate Comfort",
+            "Proximity to Ski Resort for Winter Activities",
+            "Wildlife Watching Opportunities in the Surrounding Area"
+        ]
     }
 ]
