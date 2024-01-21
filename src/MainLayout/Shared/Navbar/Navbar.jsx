@@ -1,37 +1,52 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import ButtonBlue from "../buttons/Blue/ButtonBlue";
 import ButtonRed from "../buttons/Red/ButtonRed";
-import { useEffect, useState } from "react";
-import logo from "../../../assets/Template_files/logo.png";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../../Provider/AuthProvider";
+import swal from "sweetalert";
 
 const Navbar = () => {
-
   const [isNavbarJumping, setIsNavbarJumping] = useState(false);
+  const {  userSignOut, user, setUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
+  // for logout user
+  const handleLogOut = () => {
+    userSignOut()
+      .then(() => {
+        console.log("logged out");
+        swal("Signout", "You are successfully signed out", "success");
+        setUser(null);
+
+        setTimeout(() => {
+          navigate("/");
+        }, 500);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   // for jumping effect code
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
 
-
       const scrollThreshold = 100;
 
       setIsNavbarJumping(scrollY > scrollThreshold);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
-
-
-
-
+  const defaultImg =
+    "https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?w=740&t=st=1696786604~exp=1696787204~hmac=c10645727b8724eecda4984ef1d8fbfba92a9c9072a57b851c28c9b1d8d62b81";
 
   const navLinks = (
     <>
@@ -82,7 +97,10 @@ const Navbar = () => {
 
   return (
     // Please don't change the z-index, added by -Tanbir
-    <div className={` bg-base-100  sticky top-0 left-0 z-[99999] ${isNavbarJumping ? 'animate-jump shadow-md' : ''}`}
+    <div
+      className={` bg-base-100  sticky top-0 left-0 z-[99999] ${
+        isNavbarJumping ? "animate-jump shadow-md" : ""
+      }`}
     >
       <div className="navbar max-w-screen-2xl  mx-auto   bg-base-100">
         <div className="navbar-start">
@@ -123,31 +141,63 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navLinks}</ul>
         </div>
-        <div className="navbar-end gap-5">
-          {/* Buttons Added by Fahima-dev */}
+        {/* <div className="navbar-end gap-5">
+        
           <Link to="/login">
             <ButtonBlue titleBlue={"Log In"} />
           </Link>
           <Link to="/register">
             <ButtonRed titleRed={"Register"} />
           </Link>
-          {/* Buttons added by Sadia-dev */}
-          {/* <Link to='/signin'>
-            <button
-              type="button"
-              className="text-white bg-gradient-to-r from-blue-500 via-blue-700 to-[#002172] hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-            >
-              Signin
-            </button>
-          </Link>
-          <Link>
-            <button
-              type="button"
-              className="text-[#002172] hover:text-white border border-[#002172] hover:bg-gradient-to-r from-blue-700 to-[#002172] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800"
-            >
-              Signup
-            </button>
-          </Link> */}
+        
+        </div> */}
+
+        <div className="navbar-end gap-5">
+          {user && (
+            <div className="dropdown dropdown-end">
+              <div>
+                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                  <div className="w-10 rounded-full">
+                    <img
+                      src={`${user?.photoURL ? user?.photoURL : defaultImg}`}
+                    />
+                  </div>
+                </label>
+
+                <ul
+                  tabIndex={0}
+                  className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+                >
+                  <li>
+                    <a className="justify-between">
+                      {user.displayName ? user.displayName : "anonymous"}
+                    </a>
+                  </li>
+                  <li>
+                    <a>{user.email ? user.email : "anonymous@example.com"}</a>
+                  </li>
+                  {/* {console.log("js diye aslm", user.photoURL)} */}
+                  <li>
+                    <Link onClick={handleLogOut}>Logout</Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          )}
+
+          <div>
+            {user ? (
+              ""
+            ) : (
+              <>
+                <div className="flex items-center">
+                  <Link to="/login">
+                    <ButtonBlue titleBlue={"Log In"} />
+                  </Link>
+                </div>
+              </>
+            )}
+          </div>
         </div>
       </div>
     </div>
