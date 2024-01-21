@@ -1,7 +1,7 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import ButtonBlue from "../buttons/Blue/ButtonBlue";
-import ButtonRed from "../buttons/Red/ButtonRed";
+// import ButtonRed from "../buttons/Red/ButtonRed";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import swal from "sweetalert";
@@ -10,14 +10,11 @@ import swal from "sweetalert";
 
 const Navbar = () => {
 
-  
-  
-
   const [isNavbarJumping, setIsNavbarJumping] = useState(false);
   const {  userSignOut, user, setUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  // for logout user
+  // for logout user -Sadia
   const handleLogOut = () => {
     userSignOut()
       .then(() => {
@@ -34,7 +31,7 @@ const Navbar = () => {
       });
   };
 
-  // for jumping effect code
+  // for jumping effect code -sadia
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
@@ -135,6 +132,7 @@ const Navbar = () => {
               {navLinks}
             </ul>
           </div>
+          <Link to="/">
           <div className="flex  items-center">
             <img
               className="w-[60px] md:w-full"
@@ -144,10 +142,12 @@ const Navbar = () => {
               Renti<span className="text-[#002172]">fy</span>
             </h4>
           </div>
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navLinks}</ul>
         </div>
+        {/* btn created by -fahima */}
         {/* <div className="navbar-end gap-5">
         
           <Link to="/login">
@@ -159,6 +159,7 @@ const Navbar = () => {
         
         </div> */}
 
+          {/* for toggle feature for btn -sadia */}
         <div className="navbar-end gap-5">
           {user && (
             <div className="dropdown dropdown-end">
