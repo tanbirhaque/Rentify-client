@@ -29,6 +29,7 @@
     "react-use": "^17.4.3",
     "react-visibility-sensor": "^5.1.1",
     "sort-by": "^0.0.2",
+    "sweetalert": "^2.1.2",
     "sweetalert2": "^11.6.13",
     "swiper": "^11.0.5",
     "use-count-up": "^3.0.1"
