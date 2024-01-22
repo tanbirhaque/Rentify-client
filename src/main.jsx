@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.jsx";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MainLayout from "./MainLayout/MainLayout.jsx";
@@ -19,13 +18,16 @@ import Testimonials from "./MainLayout/Pages/Testimonials/Testimonials.jsx";
 import Privacy from "./MainLayout/Pages/PrivacyPolicy/Privacy.jsx";
 import Condition from "./MainLayout/Pages/Terms & Conditions/Condition.jsx";
 import Private from "./Provider/Private.jsx";
+import Details from "./MainLayout/Pages/Details/Details.jsx";
+import OwnerList from "./MainLayout/Pages/Owner/OwnerList.jsx";
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
-    errorElement: <ErrorPage />,
+    // Removed this element for error handling purpose, please don't re add this
+    // errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -54,11 +56,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/how-it-works",
-        element: (
-          <Private>
-            <HowItWorks />
-          </Private>
-        ),
+        element: <HowItWorks />,
       },
       {
         path: "/testimonials",
@@ -72,8 +70,28 @@ const router = createBrowserRouter([
         path: "/conditions",
         element: <Condition></Condition>,
       },
+      {
+        path: "/details",
+        element: <Details></Details>,
+      },
+      {
+        path: "/owners",
+        element: (
+          <Private>
+            <OwnerList />
+          </Private>
+        ),
+      },
     ],
   },
+  {
+    path: "*",
+    element: <ErrorPage></ErrorPage>,
+  },
+  // {
+  //   path: "/testlay",
+  //   element: <TestLay></TestLay>
+  // }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

@@ -43,7 +43,7 @@ const Virtual = () => {
                 <FaPlay className="text-[#ec3323] text-3xl text-center"></FaPlay>
               </button>
               {/*  */}
-              <VideoModal />
+              <VideoModal virtualLink={"https://www.youtube.com/embed/HvLWniBQA2o?si=plSRYGZdQ37SwU2x"} />
               {/*  */}
             </div>
           </div>

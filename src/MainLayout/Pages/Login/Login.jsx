@@ -4,7 +4,6 @@ import loginAnimation from "../../../assets/animation/LoginAnimation.json";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
 import Swal from "sweetalert2";
-import toast from "react-hot-toast";
 import SocialLogin from "../../Shared/Social/SocialLogin";
 
 const Login = () => {

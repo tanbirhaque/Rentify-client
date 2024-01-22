@@ -1,0 +1,248 @@
+[{
+    "property_info": {
+
+        "owner_details": {
+            "owner_name": "John Doe",
+            "owner_img": "https://i.ibb.co/FKgWFH2/mngr.jpg",
+            "owner_phone": "123-456-7890",
+            "owner_email": "johndoe@example.com",
+            "owner_profession": "Real Estate Agent",
+            "owner_address": "123 Main Street, Anytown, CA"
+          },
+          "ownership_duration": "annual",
+          "property_for": "sale",
+          "property_status": "available",
+      "property_img": "https://i.ibb.co/4m4sz99/part-time-job-skills.jpg",
+      "property_title": "Spacious 3-Bedroom Apartment in Prime Location",
+      "property_category": "apartment",
+      "property_details": {
+        "property_id": "123456",
+        "property_price": 250000,
+        "property_type": "apartment",
+        "property_status": "available",
+        "bedroom": 3,
+        "bath": 2,
+        "balcony": 1,
+        "garages": 1,
+        "sqf": 1500,
+        "built": "2015-01-01",
+        "floor_plans": "https://example.com/floor_plans.pdf",
+        "property_video": "https://example.com/property_video.mp4",
+        "property_features": ["balcony", "garage", "modern kitchen", "pet-friendly"],
+        "property_tags": ["spacious", "family-friendly", "near park"]
+      },
+     
+      "property_location": {
+        "address": {
+          "street": "123 Main Street",
+          "city": "Anytown",
+          "state": "CA",
+          "country": "USA"
+        },
+       "coordinate":{
+            "latitude": 37.7749,
+              "longitude": -122.4194
+            }
+      },
+     
+      "property_review": [
+        {
+          "reviewer_img": "https://example.com/reviewer1.jpg",
+          "reviewer_name": "Jane Smith",
+          "review": "Great apartment in a fantastic location! The building is well-maintained and the staff is very friendly.",
+          "review_ratings": 4.5
+        },
+        {
+          "reviewer_img": "https://i.ibb.co/4m4sz99/part-time-job-skills.jpg",
+          "reviewer_name": "Bob Johnson",
+          "review": "Love the spacious layout and modern appliances. The balcony is a great bonus!",
+          "review_ratings": 5
+        }
+      ]
+    }
+   },
+
+   {
+    "property_info": {
+      "owner_details": {
+        "owner_name": "Maria Gonzales",
+        "owner_img": "https://i.ibb.co/FKgWFH2/mngr.jpg",
+        "owner_phone": "+8801712345678",
+        "owner_email": "mariag@example.com",
+        "owner_profession": "Architect",
+        "owner_address": "House 25, Road 13/A, Dhanmondi, Dhaka"
+      },
+      "ownership_duration": "monthly",
+      "property_for": "rent",
+      "property_status": "available",
+      "property_img": "https://i.ibb.co/4m4sz99/part-time-job-skills.jpg",
+      "property_title": "Luxurious Penthouse with Panoramic Views",
+      "property_category": "apartment",
+      "property_details": {
+        "property_id": "7891011",
+        "property_price": 55000, 
+        "property_type": "apartment",
+        "property_status": "available",
+        "bedroom": 2,
+        "bath": 2.5,
+        "balcony": 2,
+        "garages": 0,
+        "sqf": 1200,
+        "built": "2022-01-01",
+        "floor_plans": "https://example.com/penthouse_plans.pdf",
+        "property_video": "https://example.com/penthouse_virtual_tour.mp4",
+        "property_features": ["rooftop terrace", "gym", "pool", "security"],
+        "property_tags": ["luxury", "modern", "city views"]
+      },
+      "property_location": {
+        "address": {
+          "street": "House 25, Road 13/A",
+          "city": "Dhaka",
+          "state": "Dhaka",
+          "country": "Bangladesh"
+        },
+        "coordinate": {
+          "latitude": 23.7454,
+          "longitude": 90.3773
+        }
+      },
+      "property_review": [
+        {
+          "reviewer_img": "https://example.com/reviewer3.jpg",
+          "reviewer_name": "Farhana Chowdhury",
+          "review": "The penthouse is absolutely stunning! The views are incredible and the amenities are top-notch.",
+          "review_ratings": 5
+        },
+        {
+          "reviewer_img": "https://i.ibb.co/4m4sz99/part-time-job-skills.jpg",
+          "reviewer_name": "Rahim Khan",
+          "review": "Perfect for those who want to live in style and comfort. The location is also very convenient.",
+          "review_ratings": 4.8
+        }
+      ]
+    }
+  },
+  {
+    "property_info": {
+      "owner_details": {
+        "owner_name": "Emily Chen",
+        "owner_img": "https://i.ibb.co/FKgWFH2/mngr.jpg",
+        "owner_phone": "+442071234567",
+        "owner_email": "emilychen@example.com",
+        "owner_profession": "Web Developer",
+        "owner_address": "Flat 9A, Kensington Gardens, London"
+      },
+      "ownership_duration": "lifetime",
+      "property_for": "holiday rental",
+      "property_status": "available",
+      "property_img": "https://i.ibb.co/4m4sz99/part-time-job-skills.jpg",
+      "property_title": "Cozy Cottage Escape in Picturesque Village",
+      "property_category": "Commercial",
+      "property_details": {
+        "property_id": "2468135",
+        "property_price": 1800,  
+        "property_type": "Commercial",
+        "property_status": "available",
+        "bedroom": 2,
+        "bath": 1,
+        "balcony": 0,
+        "garages": 0,
+        "sqf": 800,
+        "built": "1850",
+        "floor_plans": "https://example.com/cottage_layout.pdf",
+        "property_video": "https://example.com/cottage_drone_tour.mp4",
+        "property_features": ["fireplace", "garden", "pet-friendly", "walking distance to village"],
+        "property_tags": ["charming", "rustic", "countryside", "family-friendly"]
+      },
+      "property_location": {
+        "address": {
+          "street": "Rose Lane, Little Elmhurst",
+          "city": "Bath",
+          "state": "Somerset",
+          "country": "UK"
+        },
+        "coordinate": {
+          "latitude": 51.3800,
+          "longitude": -2.3500
+        }
+      },
+      "property_review": [
+        {
+          "reviewer_img": "https://i.ibb.co/4m4sz99/part-time-job-skills.jpg",
+          "reviewer_name": "Michael Johnson",
+          "review": "The cottage was perfect for a relaxing getaway. We loved the fireplace and the beautiful garden.",
+          "review_ratings": 5
+        },
+        {
+          "reviewer_img": "https://i.ibb.co/4m4sz99/part-time-job-skills.jpg",
+          "reviewer_name": "Sarah Miller",
+          "review": "The village is so charming and there are plenty of walks and activities nearby. We had a wonderful time!",
+          "review_ratings": 4.7
+        }
+      ]
+    }
+  },
+  {
+    "property_info": {
+      "owner_details": {
+        "owner_name": "Antonio Rossi",
+        "owner_img": "https://i.ibb.co/FKgWFH2/mngr.jpg",
+        "owner_phone": "+393357891234",
+        "owner_email": "antonio.rossi@example.com",
+        "owner_profession": "Restaurateur",
+        "owner_address": "Via Cavour 12, Siena, Italy"
+      },
+      "ownership_duration": "3 years",
+      "property_for": "sale",
+      "property_status": "available",
+      "property_img": "https://i.ibb.co/4m4sz99/part-time-job-skills.jpg",
+      "property_title": "Sun-Kissed Vineyard Estate with Breathtaking Views",
+      "property_category": "Rrecedential-",
+      "property_details": {
+        "property_id": "9531702",
+        "property_price": 1800000,
+        "property_type": "Rrecedential-",
+        "property_status": "available",
+        "bedroom": 5,
+        "bath": 4,
+        "balcony": 5,
+        "garages": 2,
+        "sqf": 3500,
+        "built": "1780",
+        "floor_plans": "https://example.com/vineyard_estate_plans.pdf",
+        "property_video": "https://example.com/vineyard_estate_aerial_tour.mp4",
+        "property_features": ["swimming pool", "wine cellar", "olive grove", "panoramic views"],
+        "property_tags": ["historic", "luxury", "tranquil", "wine lover's dream"]
+      },
+      "property_location": {
+        "address": {
+          "street": "Strada Provinciale 142",
+          "city": "Siena",
+          "state": "Tuscany",
+          "country": "Italy"
+        },
+        "coordinate": {
+          "latitude": 43.1031,
+          "longitude": 11.3296
+        }
+      },
+      "property_review": [
+        {
+          "reviewer_img": "https://i.ibb.co/4m4sz99/part-time-job-skills.jpg",
+          "reviewer_name": "Sofia Bianchi",
+          "review": "This estate is truly magical! The views of the vineyards are breathtaking and the house is full of character. We had the most amazing time.",
+          "review_ratings": 5
+        },
+        {
+          "reviewer_img": "https://i.ibb.co/4m4sz99/part-time-job-skills.jpg",
+          "reviewer_name": "Marco Ferrari",
+          "review": "The wine cellar is a dream come true for any wine enthusiast. We enjoyed many delicious evenings sampling the estate's own wines.",
+          "review_ratings": 4.9
+        }
+      ]
+    }
+  }
+  
+  
+  
+   ]
