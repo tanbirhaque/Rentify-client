@@ -20,6 +20,7 @@ import Condition from "./MainLayout/Pages/Terms & Conditions/Condition.jsx";
 import Private from "./Provider/Private.jsx";
 import Details from "./MainLayout/Pages/Details/Details.jsx";
 import OwnerList from "./MainLayout/Pages/Owner/OwnerList.jsx";
+import OwnerDetail from "./MainLayout/Pages/Owner/OwnerDetail.jsx";
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
@@ -79,6 +80,14 @@ const router = createBrowserRouter([
         element: (
           <Private>
             <OwnerList />
+          </Private>
+        ),
+      },
+      {
+        path: "/owner-details",
+        element: (
+          <Private>
+            <OwnerDetail />
           </Private>
         ),
       },
