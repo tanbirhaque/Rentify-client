@@ -80,7 +80,7 @@ const router = createBrowserRouter([
   {
     path: "*",
     element: <ErrorPage></ErrorPage>
-  }
+  },
   // {
   //   path: "/testlay",
   //   element: <TestLay></TestLay>
