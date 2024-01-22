@@ -1,5 +1,5 @@
 // Listing section initially created and structured by "Konika khan"
-// Final tuchup, add responsive design for all devices and pixel perfection by Tanbir
+// Final touchup, add responsive design for all devices and pixel perfection by Tanbir
 
 import PropertyCard from "../../../../Shared/PropertyCards/PropertyCard";
 import ButtonBlue from "../../../../Shared/buttons/Blue/ButtonBlue";
@@ -18,13 +18,30 @@ const Listing = () => {
                     </div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-3 xl:px-0">
-                    <PropertyCard img={"https://angular.hibootstrap.com/enuf/assets/img/property/property-10.jpg"} />
-                    <PropertyCard img={"https://angular.hibootstrap.com/enuf/assets/img/property/property-2.jpg"} />
-                    <PropertyCard img={"https://angular.hibootstrap.com/enuf/assets/img/property/property-3.jpg"} />
-
-                    <PropertyCard img={"https://angular.hibootstrap.com/enuf/assets/img/property/property-3.jpg"} />
-                    <PropertyCard img={"https://angular.hibootstrap.com/enuf/assets/img/property/property-2.jpg"} />
-                    <PropertyCard img={"https://angular.hibootstrap.com/enuf/assets/img/property/property-10.jpg"} />
+                    <PropertyCard
+                        img={"https://angular.hibootstrap.com/enuf/assets/img/property/property-10.jpg"}
+                        details_path={'/details'}
+                    />
+                    <PropertyCard
+                        img={"https://angular.hibootstrap.com/enuf/assets/img/property/property-2.jpg"}
+                        details_path={'/details'}
+                    />
+                    <PropertyCard
+                        img={"https://angular.hibootstrap.com/enuf/assets/img/property/property-3.jpg"}
+                        details_path={'/details'}
+                    />
+                    <PropertyCard
+                        img={"https://angular.hibootstrap.com/enuf/assets/img/property/property-3.jpg"}
+                        details_path={'/details'}
+                    />
+                    <PropertyCard
+                        img={"https://angular.hibootstrap.com/enuf/assets/img/property/property-2.jpg"}
+                        details_path={'/details'}
+                    />
+                    <PropertyCard
+                        img={"https://angular.hibootstrap.com/enuf/assets/img/property/property-10.jpg"}
+                        details_path={'/details'}
+                    />
                 </div>
                 <div className="w-[180px] mx-auto mt-7 flex md:hidden">
                     <ButtonBlue titleBlue={"View All Property"} padX={'px-8'} padY={'py-4'}></ButtonBlue>

@@ -5,6 +5,7 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
+import { Link } from "react-router-dom";
 
 const Faq = () => {
   return (
@@ -15,10 +16,16 @@ const Faq = () => {
           backgroundImage: "url(https://i.ibb.co/sgWv0Bd/breadcrumb-1.jpg)",
         }}
       >
-        <div className="hero-overlay bg-[#000000c2]">
-          <h2 className="mb-10 text-[40px] font-bold text-white p-28">
+        <div className="hero-overlay bg-[#000000c2] p-28">
+          <h2 className="mb-5 text-[40px] font-bold text-white">
             Frequently Asked Questions
           </h2>
+          <p className="text-white">
+            <Link to="/" className="hover:text-[#ec3323] cursor-pointer">
+              Home{" "}
+            </Link>
+            / <span className="text-[#ec3323]"> FAQ</span>
+          </p>
         </div>
       </div>
       <div className="flex p-28 bg-[#f9f9f9] flex-col md:flex-row">

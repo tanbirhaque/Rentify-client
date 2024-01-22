@@ -16,7 +16,7 @@ const Navbar = () => {
     userSignOut()
       .then(() => {
         console.log("logged out");
-        swal("Signout", "You are successfully signed out", "success");
+         swal("Signout", "You are successfully signed out", "success");
         setUser(null);
 
         setTimeout(() => {
