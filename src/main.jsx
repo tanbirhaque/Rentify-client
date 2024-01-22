@@ -19,13 +19,16 @@ import Testimonials from "./MainLayout/Pages/Testimonials/Testimonials.jsx";
 import Privacy from "./MainLayout/Pages/PrivacyPolicy/Privacy.jsx";
 import Condition from "./MainLayout/Pages/Terms & Conditions/Condition.jsx";
 import { Toaster } from "react-hot-toast";
+import Details from "./MainLayout/Pages/Details/Details.jsx";
+import TestLay from "./TestLay/TestLay.jsx";
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
-    errorElement: <ErrorPage />,
+    // Removed this element for error handling purpose, please don't re add this
+    // errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -68,8 +71,20 @@ const router = createBrowserRouter([
         path: "/conditions",
         element: <Condition></Condition>,
       },
+      {
+        path: "/details",
+        element: <Details></Details>
+      },
     ],
   },
+  {
+    path: "*",
+    element: <ErrorPage></ErrorPage>
+  }
+  // {
+  //   path: "/testlay",
+  //   element: <TestLay></TestLay>
+  // }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

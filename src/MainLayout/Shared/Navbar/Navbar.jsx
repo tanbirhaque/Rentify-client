@@ -128,9 +128,9 @@ const Navbar = () => {
           <Link to="/login">
             <ButtonBlue titleBlue={"Log In"} />
           </Link>
-          <Link to="/register">
+          {/* <Link to="/register">
             <ButtonRed titleRed={"Register"} />
-          </Link>
+          </Link> */}
           {/* Buttons added by Sadia-dev */}
           {/* <Link to='/signin'>
             <button
