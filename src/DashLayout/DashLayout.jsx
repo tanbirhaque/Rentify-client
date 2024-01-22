@@ -40,6 +40,8 @@ const DashLayout = () => {
                 <li>
                   <NavLink to="/dashboard/profile"><CgProfile className="text-lg"></CgProfile>Profile</NavLink>
                 </li>
+
+                {/* guys jeye route ta last a thakbe only se li a clasname my-3 diben exp seetings.. tar uporer kono li a margin deya lagbena -Sadia */}
                 <li className="my-3">
                   <NavLink to="/dashboard/settings"><IoIosSettings className="text-lg"></IoIosSettings> Settings</NavLink>
                 </li>
