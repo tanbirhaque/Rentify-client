@@ -18,7 +18,6 @@ import Blogdetails from "./MainLayout/Pages/Blog/Blogdetails.jsx";
 import Testimonials from "./MainLayout/Pages/Testimonials/Testimonials.jsx";
 import Privacy from "./MainLayout/Pages/PrivacyPolicy/Privacy.jsx";
 import Condition from "./MainLayout/Pages/Terms & Conditions/Condition.jsx";
-import { Toaster } from "react-hot-toast";
 import Private from "./Provider/Private.jsx";
 const queryClient = new QueryClient();
 
@@ -80,7 +79,6 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthProvider>
-      <Toaster />
       <RouterProvider router={router} />
     </AuthProvider>
   </React.StrictMode>

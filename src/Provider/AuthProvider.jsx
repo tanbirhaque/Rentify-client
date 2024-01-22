@@ -11,7 +11,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import PropTypes from "prop-types";
-import toast from "react-hot-toast";
+import Swal from "sweetalert2";
 
 // Don't remove get auth from here. Merge your code according to this
 const auth = getAuth(app);
@@ -23,9 +23,9 @@ const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   //google signup
-  const googleLogin = () => {
-    signInWithPopup(auth, googleProvider);
-    setLoading(true);
+  const googleLogin = () => { setLoading(true);
+   return signInWithPopup(auth, googleProvider);
+   
   };
   //email signup
   const userRegister = (email, password) => {
@@ -45,10 +45,16 @@ const AuthProvider = ({ children }) => {
     return signOut(auth)
       .then((res) => {
         console.log(res);
-        toast.success("Log out successfull!!!");
       })
       .catch((err) => {
         console.log(err.code);
+        Swal.fire({
+          title: err.code,
+          timer: 2000,
+          color: "#ec3323",
+          showConfirmButton: false,
+          icon: "error",
+        });
       });
   };
   //auth state change
