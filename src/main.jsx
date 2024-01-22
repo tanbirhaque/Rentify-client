@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.jsx";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MainLayout from "./MainLayout/MainLayout.jsx";
@@ -18,10 +17,10 @@ import Blogdetails from "./MainLayout/Pages/Blog/Blogdetails.jsx";
 import Testimonials from "./MainLayout/Pages/Testimonials/Testimonials.jsx";
 import Privacy from "./MainLayout/Pages/PrivacyPolicy/Privacy.jsx";
 import Condition from "./MainLayout/Pages/Terms & Conditions/Condition.jsx";
-import { Toaster } from "react-hot-toast";
-import Details from "./MainLayout/Pages/Details/Details.jsx";
-import TestLay from "./TestLay/TestLay.jsx";
 import Private from "./Provider/Private.jsx";
+import Details from "./MainLayout/Pages/Details/Details.jsx";
+import OwnerList from "./MainLayout/Pages/Owner/OwnerList.jsx";
+import OwnerDetail from "./MainLayout/Pages/Owner/OwnerDetail.jsx";
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
@@ -58,11 +57,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/how-it-works",
-        element: (
-          <Private>
-            <HowItWorks />
-          </Private>
-        ),
+        element: <HowItWorks />,
       },
       {
         path: "/testimonials",
@@ -78,14 +73,30 @@ const router = createBrowserRouter([
       },
       {
         path: "/details",
-        element: <Details></Details>
+        element: <Details></Details>,
+      },
+      {
+        path: "/owners",
+        element: (
+          <Private>
+            <OwnerList />
+          </Private>
+        ),
+      },
+      {
+        path: "/owner-details",
+        element: (
+          <Private>
+            <OwnerDetail />
+          </Private>
+        ),
       },
     ],
   },
   {
     path: "*",
-    element: <ErrorPage></ErrorPage>
-  }
+    element: <ErrorPage></ErrorPage>,
+  },
   // {
   //   path: "/testlay",
   //   element: <TestLay></TestLay>
@@ -95,7 +106,6 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthProvider>
-      <Toaster />
       <RouterProvider router={router} />
     </AuthProvider>
   </React.StrictMode>
