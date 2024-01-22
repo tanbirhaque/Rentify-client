@@ -76,10 +76,10 @@ const Navbar = () => {
         <summary className="navAfter relative font-medium text-base  text-black mx-3">
           Others
         </summary>
-        <ul className="p-2  menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+        <ul className="p-2  menu dropdown-content z-[1] bg-base-100 rounded-box w-52 border-[#e33226] border-l-[3px]">
           <NavLink
             to="/testimonials"
-            className="navAfter relative font-medium text-base text-black mx-3 "
+            className="navAfter relative font-medium text-base text-black mx-3"
           >
             Testimonials
           </NavLink>
