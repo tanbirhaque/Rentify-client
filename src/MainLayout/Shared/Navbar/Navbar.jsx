@@ -3,35 +3,34 @@ import "./Navbar.css";
 import ButtonBlue from "../buttons/Blue/ButtonBlue";
 import ButtonRed from "../buttons/Red/ButtonRed";
 import { useEffect, useState } from "react";
-import logo from "../../../assets/Template_files/logo.png";
+import useAuth from "../../../Hooks/useAuth";
+// import logo from "../../../assets/Template_files/logo.png";
 
 const Navbar = () => {
+  const { user, userSignOut } = useAuth();
+  //function for log out
+  const handleLogOut = () => {
+    userSignOut();
+  };
 
   const [isNavbarJumping, setIsNavbarJumping] = useState(false);
-
 
   // for jumping effect code
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
 
-
       const scrollThreshold = 100;
 
       setIsNavbarJumping(scrollY > scrollThreshold);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
-
-
-
-
 
   const navLinks = (
     <>
@@ -82,7 +81,10 @@ const Navbar = () => {
 
   return (
     // Please don't change the z-index, added by -Tanbir
-    <div className={` bg-base-100  sticky top-0 left-0 z-[99999] ${isNavbarJumping ? 'animate-jump shadow-md' : ''}`}
+    <div
+      className={` bg-base-100  sticky top-0 left-0 z-[99999] ${
+        isNavbarJumping ? "animate-jump shadow-md" : ""
+      }`}
     >
       <div className="navbar max-w-screen-2xl  mx-auto   bg-base-100">
         <div className="navbar-start">
@@ -125,12 +127,22 @@ const Navbar = () => {
         </div>
         <div className="navbar-end gap-5">
           {/* Buttons Added by Fahima-dev */}
-          <Link to="/login">
-            <ButtonBlue titleBlue={"Log In"} />
-          </Link>
-          <Link to="/register">
-            <ButtonRed titleRed={"Register"} />
-          </Link>
+          {user ? (
+            <>
+              <button onClick={handleLogOut}>
+                <ButtonBlue titleBlue={"Log Out"} />
+              </button>
+            </>
+          ) : (
+            <>
+              <Link to="/login">
+                <ButtonBlue titleBlue={"Log In"} />
+              </Link>
+              <Link to="/register">
+                <ButtonRed titleRed={"Register"} />
+              </Link>
+            </>
+          )}
           {/* Buttons added by Sadia-dev */}
           {/* <Link to='/signin'>
             <button
