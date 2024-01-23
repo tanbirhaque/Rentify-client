@@ -1,10 +1,10 @@
 import { useForm } from "react-hook-form";
 import Lottie from "lottie-react";
-import loginAnimation from "../../../assets/animation/LoginAnimation.json";
+import loginAnimation from "../../../../assets/animation/LoginAnimation.json";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import useAuth from "../../../Hooks/useAuth";
 import Swal from "sweetalert2";
-import SocialLogin from "../../Shared/Social/SocialLogin";
+import SocialLogin from "../Social/SocialLogin";
+import useAuth from "../../../../Hooks/useAuth";
 
 const Register = () => {
   const { userRegister, userProfile } = useAuth();
@@ -96,6 +96,7 @@ const Register = () => {
                 Image is required to register.
               </span>
             )}
+
             <h3 className="mt-8 mb-2 text-xl font-semibold">Email Address</h3>
             <input
               {...register("email", { required: true })}
@@ -136,20 +137,30 @@ const Register = () => {
                 Password should contain at least one Capital letter.
               </span>
             )}
-            <div className="flex flex-col gap-5">
-              <div className="ms-auto text-lg text-blue-500 font-semibold">
+            <button className="btn block bg-[#002172] hover:bg-[#142a9b] w-fit lg:w-[558px] text-white ">
+              Register
+            </button>
+            {/*  */}
+            <div className="md:flex md:justify-between mt-4">
+              <div className="mb-2 mb-md-0">
                 Already have an account?{" "}
                 <Link
                   to="/login"
-                  className="hover:underline hover:text-blue-700 font-bold"
+                  className="hover:underline text-[#002172] hover:text-blue-700 font-bold"
                 >
                   Login
                 </Link>
               </div>
-              <button className="btn block bg-[#002172] hover:bg-[#142a9b] w-fit lg:w-[558px] text-white ">
-                Register
-              </button>
+              <div>
+                <Link
+                  to="/reset"
+                  className="text-[#002172] hover:text-[#ec3323]"
+                >
+                  Forgot your password?
+                </Link>
+              </div>
             </div>
+            {/*  */}
             <SocialLogin />
           </form>
         </div>

@@ -1,5 +1,5 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import useAuth from "../../../Hooks/useAuth";
+import useAuth from "../../../../Hooks/useAuth";
 import Swal from "sweetalert2";
 const SocialLogin = () => {
   const currentLocation = useLocation();
@@ -21,9 +21,7 @@ const SocialLogin = () => {
         // go to the route after login
         destinedLocation(currentLocation?.state ? currentLocation.state : "/");
       })
-      .catch((error) => {
-        
-      });
+      .catch((error) => {});
   };
   return (
     <div>
@@ -31,7 +29,7 @@ const SocialLogin = () => {
       {/* google button */}
       <button
         onClick={() => handleLogin(googleLogin)}
-        className="btn bg-[#ec3323] text-white w-full"
+        className="btn bg-[#ec3323] text-white w-full hover:bg-[#002172]"
       >
         <div className="flex gap-3">
           <img
