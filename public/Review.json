@@ -1,0 +1,18 @@
+[
+    {
+        "property_review": [
+            {
+                "reviewer_img": "https://example.com/reviewer1.jpg",
+                "reviewer_name": "Jane Smith",
+                "review": "Great apartment in a fantastic location! The building is well-maintained and the staff is very friendly.",
+                "review_ratings": 4.5
+            },
+            {
+                "reviewer_img": "https://i.ibb.co/4m4sz99/part-time-job-skills.jpg",
+                "reviewer_name": "Bob Johnson",
+                "review": "Love the spacious layout and modern appliances. The balcony is a great bonus!",
+                "review_ratings": 5
+            }
+        ]
+    }
+]

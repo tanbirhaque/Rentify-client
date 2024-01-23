@@ -1,20 +1,21 @@
-[{
+[
+  {
+    "_id": 1,
     "property_info": {
-
-        "owner_details": {
-            "owner_name": "John Doe",
-            "owner_img": "https://i.ibb.co/FKgWFH2/mngr.jpg",
-            "owner_phone": "123-456-7890",
-            "owner_email": "johndoe@example.com",
-            "owner_profession": "Real Estate Agent",
-            "owner_address": "123 Main Street, Anytown, CA"
-          },
-          "ownership_duration": "annual",
-          "property_for": "sale",
-          "property_status": "available",
-      "property_img": "https://i.ibb.co/4m4sz99/part-time-job-skills.jpg",
+      "owner_details": {
+        "owner_name": "John Doe",
+        "owner_img": "https://i.ibb.co/FKgWFH2/mngr.jpg",
+        "owner_phone": "123-456-7890",
+        "owner_email": "johndoe@example.com",
+        "owner_profession": "Real Estate Agent",
+        "owner_address": "123 Main Street, Anytown, CA"
+      },
+      "ownership_duration": "annual",
+      "property_for": "sale",
+      "property_status": "available",
+      "property_img": "https://i.ibb.co/SPFF7v3/property-3.jpg",
       "property_title": "Spacious 3-Bedroom Apartment in Prime Location",
-      "property_category": "apartment",
+      "property_category": "Apartment",
       "property_details": {
         "property_id": "123456",
         "property_price": 250000,
@@ -28,10 +29,18 @@
         "built": "2015-01-01",
         "floor_plans": "https://example.com/floor_plans.pdf",
         "property_video": "https://example.com/property_video.mp4",
-        "property_features": ["balcony", "garage", "modern kitchen", "pet-friendly"],
-        "property_tags": ["spacious", "family-friendly", "near park"]
+        "property_features": [
+          "balcony",
+          "garage",
+          "modern kitchen",
+          "pet-friendly"
+        ],
+        "property_tags": [
+          "spacious",
+          "family-friendly",
+          "near park"
+        ]
       },
-     
       "property_location": {
         "address": {
           "street": "123 Main Street",
@@ -39,12 +48,11 @@
           "state": "CA",
           "country": "USA"
         },
-       "coordinate":{
-            "latitude": 37.7749,
-              "longitude": -122.4194
-            }
+        "coordinate": {
+          "latitude": 37.7749,
+          "longitude": -122.4194
+        }
       },
-     
       "property_review": [
         {
           "reviewer_img": "https://example.com/reviewer1.jpg",
@@ -60,9 +68,9 @@
         }
       ]
     }
-   },
-
-   {
+  },
+  {
+    "_id": 2,
     "property_info": {
       "owner_details": {
         "owner_name": "Maria Gonzales",
@@ -75,12 +83,12 @@
       "ownership_duration": "monthly",
       "property_for": "rent",
       "property_status": "available",
-      "property_img": "https://i.ibb.co/4m4sz99/part-time-job-skills.jpg",
+      "property_img": "https://i.ibb.co/f299pz6/property-4.jpg",
       "property_title": "Luxurious Penthouse with Panoramic Views",
-      "property_category": "apartment",
+      "property_category": "Apartment",
       "property_details": {
         "property_id": "7891011",
-        "property_price": 55000, 
+        "property_price": 55000,
         "property_type": "apartment",
         "property_status": "available",
         "bedroom": 2,
@@ -91,8 +99,17 @@
         "built": "2022-01-01",
         "floor_plans": "https://example.com/penthouse_plans.pdf",
         "property_video": "https://example.com/penthouse_virtual_tour.mp4",
-        "property_features": ["rooftop terrace", "gym", "pool", "security"],
-        "property_tags": ["luxury", "modern", "city views"]
+        "property_features": [
+          "rooftop terrace",
+          "gym",
+          "pool",
+          "security"
+        ],
+        "property_tags": [
+          "luxury",
+          "modern",
+          "city views"
+        ]
       },
       "property_location": {
         "address": {
@@ -123,6 +140,7 @@
     }
   },
   {
+    "_id": 3,
     "property_info": {
       "owner_details": {
         "owner_name": "Emily Chen",
@@ -135,12 +153,12 @@
       "ownership_duration": "lifetime",
       "property_for": "holiday rental",
       "property_status": "available",
-      "property_img": "https://i.ibb.co/4m4sz99/part-time-job-skills.jpg",
+      "property_img": "https://i.ibb.co/R4dVyMq/property-5.jpg",
       "property_title": "Cozy Cottage Escape in Picturesque Village",
       "property_category": "Commercial",
       "property_details": {
         "property_id": "2468135",
-        "property_price": 1800,  
+        "property_price": 1800,
         "property_type": "Commercial",
         "property_status": "available",
         "bedroom": 2,
@@ -151,8 +169,18 @@
         "built": "1850",
         "floor_plans": "https://example.com/cottage_layout.pdf",
         "property_video": "https://example.com/cottage_drone_tour.mp4",
-        "property_features": ["fireplace", "garden", "pet-friendly", "walking distance to village"],
-        "property_tags": ["charming", "rustic", "countryside", "family-friendly"]
+        "property_features": [
+          "fireplace",
+          "garden",
+          "pet-friendly",
+          "walking distance to village"
+        ],
+        "property_tags": [
+          "charming",
+          "rustic",
+          "countryside",
+          "family-friendly"
+        ]
       },
       "property_location": {
         "address": {
@@ -183,6 +211,7 @@
     }
   },
   {
+    "_id": 4,
     "property_info": {
       "owner_details": {
         "owner_name": "Antonio Rossi",
@@ -195,13 +224,13 @@
       "ownership_duration": "3 years",
       "property_for": "sale",
       "property_status": "available",
-      "property_img": "https://i.ibb.co/4m4sz99/part-time-job-skills.jpg",
+      "property_img": "https://i.ibb.co/Xpyp57D/property-6.jpg",
       "property_title": "Sun-Kissed Vineyard Estate with Breathtaking Views",
-      "property_category": "Rrecedential-",
+      "property_category": "Commercial",
       "property_details": {
         "property_id": "9531702",
         "property_price": 1800000,
-        "property_type": "Rrecedential-",
+        "property_type": "Commercial",
         "property_status": "available",
         "bedroom": 5,
         "bath": 4,
@@ -211,8 +240,18 @@
         "built": "1780",
         "floor_plans": "https://example.com/vineyard_estate_plans.pdf",
         "property_video": "https://example.com/vineyard_estate_aerial_tour.mp4",
-        "property_features": ["swimming pool", "wine cellar", "olive grove", "panoramic views"],
-        "property_tags": ["historic", "luxury", "tranquil", "wine lover's dream"]
+        "property_features": [
+          "swimming pool",
+          "wine cellar",
+          "olive grove",
+          "panoramic views"
+        ],
+        "property_tags": [
+          "historic",
+          "luxury",
+          "tranquil",
+          "wine lover's dream"
+        ]
       },
       "property_location": {
         "address": {
@@ -241,8 +280,785 @@
         }
       ]
     }
+  },
+  {
+    "_id": 5,
+    "property_info": {
+      "owner_details": {
+        "owner_name": "Isabella Martinez",
+        "owner_img": "https://i.ibb.co/QpDhRrp/property-owner.jpg",
+        "owner_phone": "+441234567890",
+        "owner_email": "isabella.martinez@example.com",
+        "owner_profession": "Architect",
+        "owner_address": "123 Design Lane, Barcelona, Spain"
+      },
+      "ownership_duration": "2 years",
+      "property_for": "rent",
+      "property_status": "available",
+      "property_img": "https://i.ibb.co/mRHPsfW/property-7.jpg",
+      "property_title": "Modern City Living - Stylish Apartment with Stunning Views",
+      "property_category": "Commercial",
+      "property_details": {
+        "property_id": "7845931",
+        "property_price": 2500,
+        "property_type": "Commercial",
+        "property_status": "available",
+        "bedroom": 2,
+        "bath": 2,
+        "balcony": 1,
+        "garages": 1,
+        "sqf": 1200,
+        "built": "2019",
+        "floor_plans": "https://example.com/modern_apartment_plans.pdf",
+        "property_video": "https://example.com/modern_apartment_virtual_tour.mp4",
+        "property_features": [
+          "modern design",
+          "city views",
+          "smart home technology",
+          "fitness center"
+        ],
+        "property_tags": [
+          "contemporary",
+          "urban",
+          "luxurious",
+          "prime location"
+        ]
+      },
+      "property_location": {
+        "address": {
+          "street": "Carrer de Mallorca",
+          "city": "Barcelona",
+          "state": "Catalonia",
+          "country": "Spain"
+        },
+        "coordinate": {
+          "latitude": 41.3914,
+          "longitude": 2.1626
+        }
+      },
+      "property_review": [
+        {
+          "reviewer_img": "https://i.ibb.co/3RyL0R1/modern-apartment.jpg",
+          "reviewer_name": "Eduardo Rodriguez",
+          "review": "Absolutely love the modern aesthetic of this apartment! The views of the city are breathtaking, and the location is perfect for urban living.",
+          "review_ratings": 4.8
+        },
+        {
+          "reviewer_img": "https://i.ibb.co/3RyL0R1/modern-apartment.jpg",
+          "reviewer_name": "Luisa Garcia",
+          "review": "The smart home features make life convenient, and the building amenities are fantastic. Highly recommend this stylish apartment.",
+          "review_ratings": 4.9
+        }
+      ]
+    }
+  },
+  {
+    "_id": 6,
+    "property_info": {
+      "owner_details": {
+        "owner_name": "Jonathan Williams",
+        "owner_img": "https://i.ibb.co/6yQZW7S/property-owner-jonathan.jpg",
+        "owner_phone": "+15551234567",
+        "owner_email": "jonathan.williams@example.com",
+        "owner_profession": "Real Estate Developer",
+        "owner_address": "123 Luxe Lane, Beverly Hills, USA"
+      },
+      "ownership_duration": "5 years",
+      "property_for": "sale",
+      "property_status": "available",
+      "property_img": "https://i.ibb.co/60BKPrQ/property-9.jpg",
+      "property_title": "Luxurious Mansion with Private Pool and Spectacular Gardens",
+      "property_category": "Apartment",
+      "property_details": {
+        "property_id": "6543210",
+        "property_price": 12000000,
+        "property_type": "Apartment",
+        "property_status": "available",
+        "bedroom": 8,
+        "bath": 10,
+        "balcony": 3,
+        "garages": 4,
+        "sqf": 15000,
+        "built": "2010",
+        "floor_plans": "https://example.com/luxury_mansion_plans.pdf",
+        "property_video": "https://example.com/luxury_mansion_virtual_tour.mp4",
+        "property_features": [
+          "private pool",
+          "home theater",
+          "sauna",
+          "beautiful gardens"
+        ],
+        "property_tags": [
+          "opulent",
+          "exclusive",
+          "private retreat",
+          "luxury living"
+        ]
+      },
+      "property_location": {
+        "address": {
+          "street": "Sunset Boulevard",
+          "city": "Beverly Hills",
+          "state": "California",
+          "country": "USA"
+        },
+        "coordinate": {
+          "latitude": 34.0952,
+          "longitude": -118.4074
+        }
+      },
+      "property_review": [
+        {
+          "reviewer_img": "https://i.ibb.co/X5n5J6W/luxury-mansion.jpg",
+          "reviewer_name": "Victoria Smith",
+          "review": "This mansion is a dream come true! The attention to detail in every room is remarkable, and the gardens create a serene atmosphere. Absolutely stunning.",
+          "review_ratings": 5
+        },
+        {
+          "reviewer_img": "https://i.ibb.co/X5n5J6W/luxury-mansion.jpg",
+          "reviewer_name": "Michael Johnson",
+          "review": "The private pool and home theater make this mansion an entertainer's paradise. Truly a masterpiece in luxury real estate.",
+          "review_ratings": 4.9
+        }
+      ]
+    }
+  },
+  {
+    "_id": 7,
+    "property_info": {
+      "owner_details": {
+        "owner_name": "Olivia Chen",
+        "owner_img": "https://i.ibb.co/fYwR9WZ/property-owner-olivia.jpg",
+        "owner_phone": "+861234567890",
+        "owner_email": "olivia.chen@example.com",
+        "owner_profession": "Tech Entrepreneur",
+        "owner_address": "456 Tech Boulevard, Beijing, China"
+      },
+      "ownership_duration": "3 years",
+      "property_for": "sale",
+      "property_status": "available",
+      "property_img": "https://i.ibb.co/6s0Z9bx/property-10.jpg",
+      "property_title": "Modern Urban Residence with Smart Home Features",
+      "property_category": "Residential",
+      "property_details": {
+        "property_id": "8765432",
+        "property_price": 2800000,
+        "property_type": "House",
+        "property_status": "available",
+        "bedroom": 4,
+        "bath": 3,
+        "balcony": 2,
+        "garages": 2,
+        "sqf": 3000,
+        "built": "2017",
+        "floor_plans": "https://example.com/urban_residence_plans.pdf",
+        "property_video": "https://example.com/urban_residence_virtual_tour.mp4",
+        "property_features": [
+          "smart home technology",
+          "minimalist design",
+          "private garden"
+        ],
+        "property_tags": [
+          "tech-savvy",
+          "modern",
+          "urban oasis",
+          "high-tech living"
+        ]
+      },
+      "property_location": {
+        "address": {
+          "street": "Silicon Street",
+          "city": "Beijing",
+          "state": "Beijing",
+          "country": "China"
+        },
+        "coordinate": {
+          "latitude": 39.9042,
+          "longitude": 116.4074
+        }
+      },
+      "property_review": [
+        {
+          "reviewer_img": "https://i.ibb.co/YddpW1J/modern-residence.jpg",
+          "reviewer_name": "David Wu",
+          "review": "The smart home features make life convenient, and the minimalist design creates a calming atmosphere. A perfect blend of technology and style!",
+          "review_ratings": 4.8
+        },
+        {
+          "reviewer_img": "https://i.ibb.co/YddpW1J/modern-residence.jpg",
+          "reviewer_name": "Sophie Li",
+          "review": "This urban residence exceeded my expectations. The private garden is a lovely touch, and the location is ideal for city living.",
+          "review_ratings": 4.9
+        }
+      ]
+    }
+  },
+  {
+    "_id": 8,
+    "property_info": {
+      "owner_details": {
+        "owner_name": "Sebastian Müller",
+        "owner_img": "https://i.ibb.co/YjrxZzB/property-owner-sebastian.jpg",
+        "owner_phone": "+491234567890",
+        "owner_email": "sebastian.mueller@example.com",
+        "owner_profession": "Travel Blogger",
+        "owner_address": "789 Adventure Lane, Cape Town, South Africa"
+      },
+      "ownership_duration": "2 years",
+      "property_for": "rent",
+      "property_status": "available",
+      "property_img": "https://i.ibb.co/h22V0qx/property-12.jpg",
+      "property_title": "Beachfront Villa with Private Access to the Ocean",
+      "property_category": "Residential",
+      "property_details": {
+        "property_id": "7654321",
+        "property_price": 4500,
+        "property_type": "Villa",
+        "property_status": "available",
+        "bedroom": 6,
+        "bath": 5,
+        "balcony": 3,
+        "garages": 2,
+        "sqf": 4000,
+        "built": "2015",
+        "floor_plans": "https://example.com/beachfront_villa_plans.pdf",
+        "property_video": "https://example.com/beachfront_villa_virtual_tour.mp4",
+        "property_features": [
+          "private beach access",
+          "oceanfront views",
+          "infinity pool",
+          "sun deck"
+        ],
+        "property_tags": [
+          "luxurious",
+          "beachfront",
+          "tropical paradise",
+          "seaside living"
+        ]
+      },
+      "property_location": {
+        "address": {
+          "street": "Ocean Drive",
+          "city": "Cape Town",
+          "state": "Western Cape",
+          "country": "South Africa"
+        },
+        "coordinate": {
+          "latitude": -33.918861,
+          "longitude": 18.423300
+        }
+      },
+      "property_review": [
+        {
+          "reviewer_img": "https://i.ibb.co/7J1DjxC/beachfront-villa.jpg",
+          "reviewer_name": "Isabella Santos",
+          "review": "Staying at this beachfront villa was like living in a dream. The private beach access and ocean views are unparalleled. A perfect getaway!",
+          "review_ratings": 5
+        },
+        {
+          "reviewer_img": "https://i.ibb.co/7J1DjxC/beachfront-villa.jpg",
+          "reviewer_name": "Carlos Fernandez",
+          "review": "The infinity pool and sun deck create a resort-like experience. This villa is a true gem on the Cape Town coast. Highly recommended!",
+          "review_ratings": 4.9
+        }
+      ]
+    }
+  },
+  {
+    "_id": 9,
+    "property_info": {
+      "owner_details": {
+        "owner_name": "Ava Thompson",
+        "owner_img": "https://i.ibb.co/w0KBQ4w/property-owner-ava.jpg",
+        "owner_phone": "+12015551234",
+        "owner_email": "ava.thompson@example.com",
+        "owner_profession": "Event Planner",
+        "owner_address": "567 Garden Avenue, Sydney, Australia"
+      },
+      "ownership_duration": "3 years",
+      "property_for": "sale",
+      "property_status": "available",
+      "property_img": "https://i.ibb.co/NW9gs87/property-13.jpg",
+      "property_title": "Modern Penthouse with Sweeping City Views",
+      "property_category": "Residential",
+      "property_details": {
+        "property_id": "5432109",
+        "property_price": 3000000,
+        "property_type": "Penthouse",
+        "property_status": "available",
+        "bedroom": 3,
+        "bath": 3,
+        "balcony": 2,
+        "garages": 2,
+        "sqf": 2500,
+        "built": "2018",
+        "floor_plans": "https://example.com/modern_penthouse_plans.pdf",
+        "property_video": "https://example.com/modern_penthouse_virtual_tour.mp4",
+        "property_features": [
+          "floor-to-ceiling windows",
+          "private terrace",
+          "modern kitchen",
+          "skyline views"
+        ],
+        "property_tags": [
+          "luxury living",
+          "urban escape",
+          "contemporary",
+          "city lights"
+        ]
+      },
+      "property_location": {
+        "address": {
+          "street": "Skyrise Boulevard",
+          "city": "Sydney",
+          "state": "New South Wales",
+          "country": "Australia"
+        },
+        "coordinate": {
+          "latitude": -33.8688,
+          "longitude": 151.2093
+        }
+      },
+      "property_review": [
+        {
+          "reviewer_img": "https://i.ibb.co/3Wzfw6j/modern-penthouse.jpg",
+          "reviewer_name": "James Foster",
+          "review": "This penthouse offers a luxurious escape in the heart of the city. The skyline views from the private terrace are simply breathtaking.",
+          "review_ratings": 4.8
+        },
+        {
+          "reviewer_img": "https://i.ibb.co/3Wzfw6j/modern-penthouse.jpg",
+          "reviewer_name": "Emma Turner",
+          "review": "The floor-to-ceiling windows flood the space with natural light. An elegant and modern home that truly stands out in the cityscape.",
+          "review_ratings": 4.9
+        }
+      ]
+    }
+  },
+  {
+    "_id": 10,
+    "property_info": {
+      "owner_details": {
+        "owner_name": "Miguel Fernandez",
+        "owner_img": "https://i.ibb.co/xFMdQYC/property-owner-miguel.jpg",
+        "owner_phone": "+525512345678",
+        "owner_email": "miguel.fernandez@example.com",
+        "owner_profession": "Fashion Designer",
+        "owner_address": "789 Chic Avenue, Mexico City, Mexico"
+      },
+      "ownership_duration": "4 years",
+      "property_for": "rent",
+      "property_status": "available",
+      "property_img": "https://i.ibb.co/NW9gs87/property-13.jpg",
+      "property_title": "Stylish Urban Loft with Industrial Chic Vibes",
+      "property_category": "Residential",
+      "property_details": {
+        "property_id": "4321098",
+        "property_price": 2000,
+        "property_type": "Loft",
+        "property_status": "available",
+        "bedroom": 1,
+        "bath": 1,
+        "balcony": 0,
+        "garages": 1,
+        "sqf": 1000,
+        "built": "2016",
+        "floor_plans": "https://example.com/urban_loft_plans.pdf",
+        "property_video": "https://example.com/urban_loft_virtual_tour.mp4",
+        "property_features": [
+          "open-concept design",
+          "exposed brick walls",
+          "industrial lighting",
+          "modern amenities"
+        ],
+        "property_tags": [
+          "chic living",
+          "urban style",
+          "industrial vibes",
+          "creative space"
+        ]
+      },
+      "property_location": {
+        "address": {
+          "street": "Artsy Avenue",
+          "city": "Mexico City",
+          "state": "Federal District",
+          "country": "Mexico"
+        },
+        "coordinate": {
+          "latitude": 19.4326,
+          "longitude": -99.1332
+        }
+      },
+      "property_review": [
+        {
+          "reviewer_img": "https://i.ibb.co/LNBYTsN/modern-loft.jpg",
+          "reviewer_name": "Sofia Ramirez",
+          "review": "This urban loft is a creative haven! The industrial design elements add so much character, and the",
+          "review_ratings": 4.7
+        },
+        {
+          "reviewer_img": "https://i.ibb.co/LNBYTsN/modern-loft.jpg",
+          "reviewer_name": "Diego Herrera",
+          "review": "The open-concept design and exposed brick walls give this loft a unique and trendy feel. A perfect blend of modern amenities with industrial chic vibes.",
+          "review_ratings": 4.9
+        }
+      ]
+    }
+  },
+  {
+    "_id": 11,
+    "property_info": {
+      "owner_details": {
+        "owner_name": "Sophie Anderson",
+        "owner_img": "https://i.ibb.co/vH1dXk8/property-owner-sophie.jpg",
+        "owner_phone": "+441234567890",
+        "owner_email": "sophie.anderson@example.com",
+        "owner_profession": "Art Curator",
+        "owner_address": "456 Artistic Avenue, Florence, Italy"
+      },
+      "ownership_duration": "5 years",
+      "property_for": "sale",
+      "property_status": "available",
+      "property_img": "https://i.ibb.co/ZSVdCjK/property-14.jpg",
+      "property_title": "Artistic Residence with Studio and Gallery Space",
+      "property_category": "Residential",
+      "property_details": {
+        "property_id": "3210987",
+        "property_price": 2800000,
+        "property_type": "Residence",
+        "property_status": "available",
+        "bedroom": 3,
+        "bath": 2,
+        "balcony": 1,
+        "garages": 2,
+        "sqf": 2000,
+        "built": "1920",
+        "floor_plans": "https://example.com/artistic_residence_plans.pdf",
+        "property_video": "https://example.com/artistic_residence_virtual_tour.mp4",
+        "property_features": [
+          "artist's studio",
+          "gallery space",
+          "vaulted ceilings",
+          "art-inspired decor"
+        ],
+        "property_tags": [
+          "creative living",
+          "artistic ambiance",
+          "historical",
+          "cultural retreat"
+        ]
+      },
+      "property_location": {
+        "address": {
+          "street": "Artistry Street",
+          "city": "Florence",
+          "state": "Tuscany",
+          "country": "Italy"
+        },
+        "coordinate": {
+          "latitude": 43.7696,
+          "longitude": 11.2558
+        }
+      },
+      "property_review": [
+        {
+          "reviewer_img": "https://i.ibb.co/VpCbhV1/artistic-residence.jpg",
+          "reviewer_name": "Leonardo Rossi",
+          "review": "This artistic residence is a masterpiece in itself. The studio and gallery space provide the perfect environment for creative expression. Truly inspiring!",
+          "review_ratings": 4.8
+        },
+        {
+          "reviewer_img": "https://i.ibb.co/VpCbhV1/artistic-residence.jpg",
+          "reviewer_name": "Isabella Conti",
+          "review": "Living here feels like being surrounded by art at every turn. The vaulted ceilings add a touch of grandeur. A dream home for art lovers.",
+          "review_ratings": 4.9
+        }
+      ]
+    }
+  },
+  {
+    "_id": 12,
+    "property_info": {
+      "owner_details": {
+        "owner_name": "William Johnson",
+        "owner_img": "https://i.ibb.co/gygVwP1/property-owner-william.jpg",
+        "owner_phone": "+12025551234",
+        "owner_email": "william.johnson@example.com",
+        "owner_profession": "Tech Executive",
+        "owner_address": "789 Tech Lane, San Francisco, USA"
+      },
+      "ownership_duration": "3 years",
+      "property_for": "rent",
+      "property_status": "available",
+      "property_img": "https://i.ibb.co/VtrFsM7/property-17.jpg",
+      "property_title": "Modern Townhouse with Rooftop Terrace and Smart Home Integration",
+      "property_category": "Residential",
+      "property_details": {
+        "property_id": "8765432",
+        "property_price": 4500,
+        "property_type": "Townhouse",
+        "property_status": "available",
+        "bedroom": 4,
+        "bath": 3,
+        "balcony": 1,
+        "garages": 2,
+        "sqf": 2800,
+        "built": "2016",
+        "floor_plans": "https://example.com/modern_townhouse_plans.pdf",
+        "property_video": "https://example.com/modern_townhouse_virtual_tour.mp4",
+        "property_features": [
+          "rooftop terrace",
+          "smart home integration",
+          "modern kitchen",
+          "spacious living areas"
+        ],
+        "property_tags": [
+          "tech-friendly",
+          "urban chic",
+          "contemporary",
+          "city living"
+        ]
+      },
+      "property_location": {
+        "address": {
+          "street": "Innovation Street",
+          "city": "San Francisco",
+          "state": "California",
+          "country": "USA"
+        },
+        "coordinate": {
+          "latitude": 37.7749,
+          "longitude": -122.4194
+        }
+      },
+      "property_review": [
+        {
+          "reviewer_img": "https://i.ibb.co/qW9K1bj/modern-townhouse.jpg",
+          "reviewer_name": "Emma Thompson",
+          "review": "This modern townhouse is a tech-lover's dream. The rooftop terrace and smart home features make it a comfortable and stylish urban retreat.",
+          "review_ratings": 4.8
+        },
+        {
+          "reviewer_img": "https://i.ibb.co/qW9K1bj/modern-townhouse.jpg",
+          "reviewer_name": "Nathan Miller",
+          "review": "The spacious living areas and modern kitchen are perfect for entertaining. A fantastic blend of technology and contemporary design.",
+          "review_ratings": 4.9
+        }
+      ]
+    }
+  },
+  {
+    "_id": 13,
+    "property_info": {
+      "owner_details": {
+        "owner_name": "Maria Hernandez",
+        "owner_img": "https://i.ibb.co/9tghWzV/property-owner-maria.jpg",
+        "owner_phone": "+341234567890",
+        "owner_email": "maria.hernandez@example.com",
+        "owner_profession": "Chef",
+        "owner_address": "123 Gourmet Street, Barcelona, Spain"
+      },
+      "ownership_duration": "2 years",
+      "property_for": "sale",
+      "property_status": "available",
+      "property_img": "https://i.ibb.co/VMBL82G/property-18.jpg",
+      "property_title": "Culinary Home with Professional Kitchen and Vineyard Views",
+      "property_category": "Residential",
+      "property_details": {
+        "property_id": "5678901",
+        "property_price": 3200000,
+        "property_type": "House",
+        "property_status": "available",
+        "bedroom": 5,
+        "bath": 4,
+        "balcony": 2,
+        "garages": 3,
+        "sqf": 3500,
+        "built": "2014",
+        "floor_plans": "https://example.com/culinary_home_plans.pdf",
+        "property_video": "https://example.com/culinary_home_virtual_tour.mp4",
+        "property_features": [
+          "professional kitchen",
+          "vineyard views",
+          "gourmet dining space",
+          "outdoor kitchen"
+        ],
+        "property_tags": [
+          "culinary haven",
+          "luxurious",
+          "vineyard living",
+          "chef's dream"
+        ]
+      },
+      "property_location": {
+        "address": {
+          "street": "Gastronomy Lane",
+          "city": "Barcelona",
+          "state": "Catalonia",
+          "country": "Spain"
+        },
+        "coordinate": {
+          "latitude": 41.3851,
+          "longitude": 2.1734
+        }
+      },
+      "property_review": [
+        {
+          "reviewer_img": "https://i.ibb.co/syq44bB/culinary-home.jpg",
+          "reviewer_name": "Antonio Morales",
+          "review": "As a chef, this home is a dream come true. The professional kitchen is top-notch, and the vineyard views add a touch of serenity. A culinary masterpiece!",
+          "review_ratings": 4.9
+        },
+        {
+          "reviewer_img": "https://i.ibb.co/syq44bB/culinary-home.jpg",
+          "reviewer_name": "Elena Gomez",
+          "review": "The outdoor kitchen is perfect for entertaining, and the gourmet dining space is ideal for hosting family and friends. A luxurious culinary escape.",
+          "review_ratings": 4.8
+        }
+      ]
+    }
+  },
+  {
+    "_id": 14,
+    "property_info": {
+      "owner_details": {
+        "owner_name": "Ryan Turner",
+        "owner_img": "https://i.ibb.co/JcZmqNp/property-owner-ryan.jpg",
+        "owner_phone": "+12025551234",
+        "owner_email": "ryan.turner@example.com",
+        "owner_profession": "Financial Analyst",
+        "owner_address": "789 Financial Avenue, New York, USA"
+      },
+      "ownership_duration": "4 years",
+      "property_for": "rent",
+      "property_status": "available",
+      "property_img": "https://i.ibb.co/BP75wPF/property-19.jpg",
+      "property_title": "Luxury Apartment with Skyline Views and Private Spa",
+      "property_category": "Residential",
+      "property_details": {
+        "property_id": "6789012",
+        "property_price": 6000,
+        "property_type": "Apartment",
+        "property_status": "available",
+        "bedroom": 3,
+        "bath": 3,
+        "balcony": 1,
+        "garages": 2,
+        "sqf": 2800,
+        "built": "2015",
+        "floor_plans": "https://example.com/luxury_apartment_plans.pdf",
+        "property_video": "https://example.com/luxury_apartment_virtual_tour.mp4",
+        "property_features": [
+          "private spa",
+          "floor-to-ceiling windows",
+          "modern furnishings",
+          "concierge services"
+        ],
+        "property_tags": [
+          "high-end living",
+          "urban luxury",
+          "cityscape views",
+          "modern elegance"
+        ]
+      },
+      "property_location": {
+        "address": {
+          "street": "Skyscraper Street",
+          "city": "New York",
+          "state": "New York",
+          "country": "USA"
+        },
+        "coordinate": {
+          "latitude": 40.7128,
+          "longitude": -74.0060
+        }
+      },
+      "property_review": [
+        {
+          "reviewer_img": "https://i.ibb.co/dtbXJZ8/luxury-apartment.jpg",
+          "reviewer_name": "Victoria Reynolds",
+          "review": "This luxury apartment offers a premium living experience. The private spa and skyline views make it a standout choice for those seeking upscale urban living.",
+          "review_ratings": 4.9
+        },
+        {
+          "reviewer_img": "https://i.ibb.co/dtbXJZ8/luxury-apartment.jpg",
+          "reviewer_name": "Alex Mitchell",
+          "review": "The concierge services and modern furnishings create a lifestyle of comfort and convenience. A truly luxurious retreat in the heart of the city.",
+          "review_ratings": 4.8
+        }
+      ]
+    }
+  },
+  {
+    "_id": 15,
+    "property_info": {
+      "owner_details": {
+        "owner_name": "Isabel Rodriguez",
+        "owner_img": "https://i.ibb.co/PhdXwwy/property-owner-isabel.jpg",
+        "owner_phone": "+341234567890",
+        "owner_email": "isabel.rodriguez@example.com",
+        "owner_profession": "Event Planner",
+        "owner_address": "456 Celebration Lane, Rio de Janeiro, Brazil"
+      },
+      "ownership_duration": "3 years",
+      "property_for": "sale",
+      "property_status": "available",
+      "property_img": "https://i.ibb.co/WfGQH3W/property-23.jpg",
+      "property_title": "Tropical Villa with Private Beachfront and Infinity Pool",
+      "property_category": "Apartment",
+      "property_details": {
+        "property_id": "7890123",
+        "property_price": 4000000,
+        "property_type": "Apartment",
+        "property_status": "available",
+        "bedroom": 4,
+        "bath": 5,
+        "balcony": 2,
+        "garages": 2,
+        "sqf": 4500,
+        "built": "2016",
+        "floor_plans": "https://example.com/tropical_villa_plans.pdf",
+        "property_video": "https://example.com/tropical_villa_virtual_tour.mp4",
+        "property_features": [
+          "private beachfront",
+          "infinity pool",
+          "tropical gardens",
+          "outdoor lounge"
+        ],
+        "property_tags": [
+          "tropical paradise",
+          "beachfront living",
+          "luxurious retreat",
+          "seaside escape"
+        ]
+      },
+      "property_location": {
+        "address": {
+          "street": "Palms Boulevard",
+          "city": "Rio de Janeiro",
+          "state": "Rio de Janeiro",
+          "country": "Brazil"
+        },
+        "coordinate": {
+          "latitude": -22.9068,
+          "longitude": -43.1729
+        }
+      },
+      "property_review": [
+        {
+          "reviewer_img": "https://i.ibb.co/N6v6wQX/tropical-villa.jpg",
+          "reviewer_name": "Gabriel Silva",
+          "review": "This tropical villa is a true gem. The private beachfront and infinity pool create a paradise right at home. An exceptional property with breathtaking views.",
+          "review_ratings": 5
+        },
+        {
+          "reviewer_img": "https://i.ibb.co/N6v6wQX/tropical-villa.jpg",
+          "reviewer_name": "Ana Oliveira",
+          "review": "The outdoor lounge amidst tropical gardens provides a serene escape. Living here feels like being on a perpetual vacation. A luxurious tropical haven!",
+          "review_ratings": 4.9
+        }
+      ]
+    }
   }
-  
-  
-  
-   ]
+]
