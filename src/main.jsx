@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.jsx";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MainLayout from "./MainLayout/MainLayout.jsx";
@@ -18,14 +17,18 @@ import Blogdetails from "./MainLayout/Pages/Blog/Blogdetails.jsx";
 import Testimonials from "./MainLayout/Pages/Testimonials/Testimonials.jsx";
 import Privacy from "./MainLayout/Pages/PrivacyPolicy/Privacy.jsx";
 import Condition from "./MainLayout/Pages/Terms & Conditions/Condition.jsx";
-import { Toaster } from "react-hot-toast";
+import Private from "./Provider/Private.jsx";
+import Details from "./MainLayout/Pages/Details/Details.jsx";
+import OwnerList from "./MainLayout/Pages/Owner/OwnerList.jsx";
+import OwnerDetail from "./MainLayout/Pages/Owner/OwnerDetail.jsx";
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
-    errorElement: <ErrorPage />,
+    // Removed this element for error handling purpose, please don't re add this
+    // errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -68,14 +71,41 @@ const router = createBrowserRouter([
         path: "/conditions",
         element: <Condition></Condition>,
       },
+      {
+        path: "/details",
+        element: <Details></Details>,
+      },
+      {
+        path: "/owners",
+        element: (
+          <Private>
+            <OwnerList />
+          </Private>
+        ),
+      },
+      {
+        path: "/owner-details",
+        element: (
+          <Private>
+            <OwnerDetail />
+          </Private>
+        ),
+      },
     ],
   },
+  {
+    path: "*",
+    element: <ErrorPage></ErrorPage>,
+  },
+  // {
+  //   path: "/testlay",
+  //   element: <TestLay></TestLay>
+  // }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthProvider>
-      <Toaster />
       <RouterProvider router={router} />
     </AuthProvider>
   </React.StrictMode>

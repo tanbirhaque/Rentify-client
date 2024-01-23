@@ -1,8 +1,6 @@
 import { useLocation, useNavigate } from "react-router-dom";
-
-import toast from "react-hot-toast";
 import useAuth from "../../../Hooks/useAuth";
-
+import Swal from "sweetalert2";
 const SocialLogin = () => {
   const currentLocation = useLocation();
   const destinedLocation = useNavigate();
@@ -12,13 +10,19 @@ const SocialLogin = () => {
   const handleLogin = (data) => {
     data()
       .then((response) => {
-        toast.success("User created successfully!!!");
         console.log(response.user);
+        Swal.fire({
+          title: "User logged in with Google successfully!!!",
+          timer: 2000,
+          color: "#002172",
+          showConfirmButton: false,
+          icon: "success",
+        });
         // go to the route after login
         destinedLocation(currentLocation?.state ? currentLocation.state : "/");
       })
       .catch((error) => {
-        toast.error(error.code);
+        
       });
   };
   return (

@@ -1,15 +1,15 @@
 import { useForm } from "react-hook-form";
 import Lottie from "lottie-react";
-import loginAnimation from "../../../../public/LoginAnimation.json";
-import { Link } from "react-router-dom";
+import loginAnimation from "../../../assets/animation/LoginAnimation.json";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
 import Swal from "sweetalert2";
-import toast from "react-hot-toast";
 import SocialLogin from "../../Shared/Social/SocialLogin";
 
 const Register = () => {
   const { userRegister, userProfile } = useAuth();
-
+  const currentLocation = useLocation();
+  const destinedLocation = useNavigate();
   //form data
   const {
     register,
@@ -34,6 +34,9 @@ const Register = () => {
         // };
         userProfile(data.name, data.image)
           .then((res) => {
+            destinedLocation(
+              currentLocation?.state ? currentLocation.state : "/"
+            );
             Swal.fire({
               title: "User created successfully!",
               timer: 2000,
@@ -46,13 +49,13 @@ const Register = () => {
       })
       .catch((err) => {
         console.log(err.code);
-        toast(err.code, {
-          icon: "❌",
-          style: {
-            borderRadius: "10px",
-            background: "#002172",
-            color: "#fff",
-          },
+        console.log(err.message);
+        Swal.fire({
+          title: err.code,
+          timer: 2000,
+          color: "#002172",
+          showConfirmButton: false,
+          icon: "error",
         });
       });
   };
@@ -134,11 +137,11 @@ const Register = () => {
               </span>
             )}
             <div className="flex flex-col gap-5">
-              <div className="ms-auto text-sm text-blue-500">
+              <div className="ms-auto text-lg text-blue-500 font-semibold">
                 Already have an account?{" "}
                 <Link
                   to="/login"
-                  className="hover:underline hover:text-blue-700"
+                  className="hover:underline hover:text-blue-700 font-bold"
                 >
                   Login
                 </Link>

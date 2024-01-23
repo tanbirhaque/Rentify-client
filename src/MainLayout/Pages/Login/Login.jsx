@@ -1,16 +1,15 @@
 import { useForm } from "react-hook-form";
 import Lottie from "lottie-react";
-import loginAnimation from "../../../../public/LoginAnimation.json";
-import { Link } from "react-router-dom";
+import loginAnimation from "../../../assets/animation/LoginAnimation.json";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
-
 import Swal from "sweetalert2";
-import toast from "react-hot-toast";
 import SocialLogin from "../../Shared/Social/SocialLogin";
 
 const Login = () => {
   const { loginUser } = useAuth();
-
+  const currentLocation = useLocation();
+  const destinedLocation = useNavigate();
   //form data
   const {
     register,
@@ -24,33 +23,23 @@ const Login = () => {
     loginUser(data.email, data.password)
       .then((res) => {
         console.log(res.user);
+        destinedLocation(currentLocation?.state ? currentLocation.state : "/");
         Swal.fire({
-          title: "Login successful!",
-          showClass: {
-            popup: `
-            animate__animated
-            animate__fadeInUp
-            animate__faster
-          `,
-          },
-          hideClass: {
-            popup: `
-            animate__animated
-            animate__fadeOutDown
-            animate__faster
-          `,
-          },
+          title: "Login successful!!!",
+          timer: 2000,
+          color: "#002172",
+          showConfirmButton: false,
+          icon: "success",
         });
       })
       .catch((err) => {
         console.log(err.message);
-        toast(err.code, {
-          icon: "❌",
-          style: {
-            borderRadius: "10px",
-            background: "#002172",
-            color: "#fff",
-          },
+        Swal.fire({
+          title: err.code,
+          timer: 2000,
+          color: "#002172",
+          showConfirmButton: false,
+          icon: "error",
         });
       });
   };
@@ -91,11 +80,11 @@ const Login = () => {
               </span>
             )}
             <div className="flex flex-col gap-5">
-              <div className="ms-auto text-sm text-blue-500">
+              <div className="ms-auto text-sm text-blue-500 font-semibold">
                 Don&#39;t have an account?{" "}
                 <Link
                   to="/register"
-                  className="hover:underline hover:text-blue-700"
+                  className="hover:underline hover:text-blue-700 font-bold"
                 >
                   Register
                 </Link>

@@ -5,6 +5,7 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
+import { Link } from "react-router-dom";
 
 const HowItWorks = () => {
   return (
@@ -15,13 +16,19 @@ const HowItWorks = () => {
           backgroundImage: "url(https://i.ibb.co/sgWv0Bd/breadcrumb-1.jpg)",
         }}
       >
-        <div className="hero-overlay bg-[#000000c2]">
-          <h2 className="mb-10 text-[40px] font-bold text-white p-28">
+        <div className="hero-overlay bg-[#000000c2] p-28">
+          <h2 className="mb-5 text-xl md:text-[40px] font-bold text-white">
             How It Works
           </h2>
+          <p className="text-white">
+            <Link to="/" className="hover:text-[#ec3323] cursor-pointer">
+              Home{" "}
+            </Link>
+            / <span className="text-[#ec3323]">How It Works</span>
+          </p>
         </div>
       </div>
-      <div className="p-28 bg-[#f9f9f9] flex-col md:flex-row text-center items-center justify-center space-y-7 h-[680px]">
+      <div className="p-28 bg-[#f9f9f9] flex-col md:flex-row text-center items-center justify-center space-y-7">
         <h1 className="text-[40px] font-bold">3 Steps To Book Your Home</h1>
         <p className="text-[17px] text-[#666666] text-center">
           Secure your dream home effortlessly in just 3 simple steps. Explore
@@ -29,7 +36,7 @@ const HowItWorks = () => {
           take virtual tours, and book with ease. Your new home journey starts
           here!
         </p>
-        <div className="grid grid-rows-3 md:grid-cols-3 gap-20 ">
+        <div className="flex flex-col md:flex-row gap-20 ">
           {/* 1st */}
           <div className="flex flex-col items-center">
             <div
@@ -88,7 +95,6 @@ const HowItWorks = () => {
             </p>
           </div>
         </div>
-        <div className="flex-1">{/* empty */}</div>
       </div>
       {/* slider */}
       <div className="p-20">

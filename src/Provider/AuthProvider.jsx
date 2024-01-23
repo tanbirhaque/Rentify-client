@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import app from "../firebase/firebase.config"
+import app from "../firebase/firebase.config";
 import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
@@ -11,6 +11,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import PropTypes from "prop-types";
+import Swal from "sweetalert2";
 
 // Don't remove get auth from here. Merge your code according to this
 const auth = getAuth(app);
@@ -22,15 +23,14 @@ const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   //google signup
-  const googleLogin = () => {
-    signInWithPopup(auth, googleProvider);
-    setLoading(true);
+  const googleLogin = () => { setLoading(true);
+   return signInWithPopup(auth, googleProvider);
+   
   };
   //email signup
   const userRegister = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
-   
   };
 
   //login
@@ -41,14 +41,21 @@ const AuthProvider = ({ children }) => {
 
   //signOut
   const userSignOut = () => {
-    signOut(auth)
+    setLoading(true);
+    return signOut(auth)
       .then((res) => {
         console.log(res);
       })
       .catch((err) => {
         console.log(err.code);
+        Swal.fire({
+          title: err.code,
+          timer: 2000,
+          color: "#ec3323",
+          showConfirmButton: false,
+          icon: "error",
+        });
       });
-    setLoading(true);
   };
   //auth state change
   useEffect(() => {
@@ -74,6 +81,7 @@ const AuthProvider = ({ children }) => {
     user,
     userSignOut,
     userProfile,
+    
   };
 
   return (
