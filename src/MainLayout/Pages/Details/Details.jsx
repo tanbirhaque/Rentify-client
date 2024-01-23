@@ -5,15 +5,21 @@ import { RiCheckboxMultipleLine } from "react-icons/ri";
 import { IoMdPlay } from "react-icons/io";
 import VideoModal from '../Home/HomeComponents/Virtual Apartments/VideoModal';
 import { Rating } from '@smastrom/react-rating'
+import useAxiospublic from '../../../Hooks/useAxiospublic.jsx'
 import '@smastrom/react-rating/style.css'
 import PropertyCard from '../../Shared/PropertyCards/PropertyCard';
 import { useForm } from 'react-hook-form';
+import { useContext } from 'react';
+import { AuthContext } from '../../../Provider/AuthProvider.jsx';
+import Swal from 'sweetalert2';
 
 const Details = () => {
+    const axiospublic = useAxiospublic();
+    const { user } = useContext(AuthContext)
     const propertys = useLoaderData();
     const { id } = useParams();
     const item = propertys.find(item => item._id == id)
-    console.log(item)
+
 
     const {
         register,
@@ -23,9 +29,30 @@ const Details = () => {
 
     const {
         register: register2,
+        reset,
         handleSubmit: handleSubmit2,
     } = useForm()
-    const onSubmit2 = (data) => console.log(data)
+    const onSubmit2 = (data) => {
+        const propertyrequest = {
+            property: item.property_info,
+            requesterName: data.name,
+            requesternumber: data.number,
+            requesteremail: data.email,
+            requesterphoto: user.photoURL,
+            requestermessage: data.message,
+            family: data.family,
+            children: data.children,
+
+        }
+        axiospublic.post('/propertyrequest', propertyrequest)
+            .then(res => {
+                console.log(res.data)
+                Swal.fire(`Hey ${data.name} Your Request Successfully Sent`)
+            })
+        console.log(propertyrequest)
+        reset();
+    }
+
 
 
     return (
@@ -206,16 +233,16 @@ const Details = () => {
                             <select {...register2("family", { required: true })}
                                 className="select h-16 rounded-md px-2 w-full my-4">
                                 <option defaultValue={"family members"}>Family Members</option>
-                                <option value="two">2</option>
-                                <option value="four">4</option>
-                                <option value="six">6</option>
+                                <option value="2">2</option>
+                                <option value="4">4</option>
+                                <option value="6">6</option>
                             </select>
                             <select {...register2("children", { required: true })}
                                 className="select h-16 rounded-md px-2 w-full mb-4">
                                 <option defaultValue={"family members"}>Children</option>
-                                <option value="one">1</option>
-                                <option value="twos">2</option>
-                                <option value="threes">3</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
                             </select>
                             <textarea {...register2("message", { required: true })} className="textarea bg-[#F9F9F9] h-40 w-full mt-3 mb-4" placeholder="Enter you message"></textarea>
                             <input type="submit" value="Request Booknig" className=" rounded px-8 py-4 mt-3 bg-[#EC3323] hover:bg-[#002172] text-white mb-4" />
