@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
 const Profile = () => {
-    return (
+  return (
     //     <div className="holder  ">
     //   <div  className="card border w-[1350px] hover:shadow-none relative flex flex-col mx-auto shadow-lg m-5 h-[400px]">
     //     <img
@@ -31,66 +31,75 @@ const Profile = () => {
     //   </div>
     // </div>
 
- 
     <div className="holder w-[1350px]  mx-auto">
-    <div className="card border h-[400px]  hover:shadow-none relative flex flex-col mx-auto m-5">
-     <div className='w-full '>
-     <img
-        className=" w-full  h-[200px]  opacity-80"
-        style={{ zIndex: -1 }}
-        src="https://i.ibb.co/SvDkgSC/03.png"
-        alt=""
-      />
-     </div>
-      <div className="profile w-full flex m-3 ml-4 text-white">
-        <img
-          className="w-36 h-36 p-1 bg-white rounded-full  absolute -mt-20"
-          src="https://images.pexels.com/photos/61100/pexels-photo-61100.jpeg?crop=faces&fit=crop&h=200&w=200&auto=compress&cs=tinysrgb"
-          alt=""
-        />
-       
-      </div>
-      
-      <div className="buttons flex absolute bottom-0 font-bold right-0 text-xs text-gray-500 space-x-0 my-3.5 mr-3">
-        <div className="add border rounded-2xl rounded-r-sm border-gray-300 p-1 px-4 cursor-pointer hover:bg-gray-700 hover:text-white">
-          Contact
+      <div className="card border h-[400px]  hover:shadow-none relative flex flex-col mx-auto m-5">
+        <div className="w-full ">
+          <img
+            className=" w-full  h-[200px]  opacity-80"
+            style={{ zIndex: -1 }}
+            src="https://i.ibb.co/SvDkgSC/03.png"
+            alt=""
+          />
         </div>
-        
+        <div className="profile w-full flex m-3 ml-4 text-white">
+          <img
+            className="w-36 h-36 p-1 bg-white rounded-full  absolute -mt-20 avatar online"
+            src="https://images.pexels.com/photos/61100/pexels-photo-61100.jpeg?crop=faces&fit=crop&h=200&w=200&auto=compress&cs=tinysrgb"
+            alt=""
+          />
+          <span className="ml-8 left-28  absolute  w-5 h-5 bg-green-400 border-2 border-white dark:border-gray-800 rounded-full" />
+        </div>
+
+        <div>
+          <div>
+            <h2 className="text-3xl ml-44 font-bold">Sarah Afrin</h2>
+            <h2 className="text-gray-600 ml-44 font-normal">
+              sarah@rentify.com
+            </h2>
+            <div className="text-end -mt-16">
+              <button
+                type="button"
+                className="text-gray-800 hover:text-white hover:bg-gray-800 hover:border-gray-800 border border-gray-800 text-base  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg  px-5 py-2.5 text-center me-2 mb-2 "
+              >
+                Edit Profile
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
+
       <div>
-        <h2 className='text-3xl ml-44 font-bold'>Sarah Afrin</h2>
-        <h2 className='text-gray-600 ml-44 font-normal'>sarah@rentify.com</h2>
+        <nav className="flex" aria-label="Navigation">
+          <ul className="flex space-x-4">
+            <li className="list-none">
+              <a href="/#" className="text-blue-500" aria-current="page">
+                Active
+              </a>
+            </li>
+            <li className="list-none">
+              <a href="/#" className="text-blue-500">
+                Link
+              </a>
+            </li>
+            <li className="list-none">
+              <a href="/#" className="text-blue-500">
+                Link
+              </a>
+            </li>
+            <li className="list-none">
+              <a
+                href="/#"
+                className="text-gray-400 cursor-not-allowed"
+                aria-disabled="true"
+              >
+                Disabled
+              </a>
+            </li>
+          </ul>
+        </nav>
       </div>
     </div>
-   
-    <div>
-    <nav className="flex" aria-label="Navigation">
-      <ul className="flex space-x-4">
-        <li className="list-none">
-          <a href="/#" className="text-blue-500" aria-current="page">
-            Active
-          </a>
-        </li>
-        <li className="list-none">
-          <a href="/#" className="text-blue-500">
-            Link
-          </a>
-        </li>
-        <li className="list-none">
-          <a href="/#" className="text-blue-500">
-            Link
-          </a>
-        </li>
-        <li className="list-none">
-          <a href="/#" className="text-gray-400 cursor-not-allowed" aria-disabled="true">
-            Disabled
-          </a>
-        </li>
-      </ul>
-    </nav>
-    </div>
-  </div>
-    );
+  );
 };
 
 export default Profile;
