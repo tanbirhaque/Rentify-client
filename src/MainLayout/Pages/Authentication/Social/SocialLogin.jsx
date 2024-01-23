@@ -21,7 +21,7 @@ const SocialLogin = () => {
         // go to the route after login
         destinedLocation(currentLocation?.state ? currentLocation.state : "/");
       })
-      .catch((error) => {});
+      .catch(() => {});
   };
   return (
     <div>

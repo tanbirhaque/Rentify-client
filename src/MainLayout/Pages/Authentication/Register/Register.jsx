@@ -1,4 +1,4 @@
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import Lottie from "lottie-react";
 import loginAnimation from "../../../../assets/animation/LoginAnimation.json";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -14,8 +14,8 @@ const Register = () => {
   const {
     register,
     handleSubmit,
+    control,
     // reset,
-    // watch,
     formState: { errors },
   } = useForm();
 
@@ -33,7 +33,7 @@ const Register = () => {
         //   role: "student",
         // };
         userProfile(data.name, data.image)
-          .then((res) => {
+          .then(() => {
             destinedLocation(
               currentLocation?.state ? currentLocation.state : "/"
             );
@@ -84,13 +84,25 @@ const Register = () => {
               </span>
             )}
             <h3 className="mt-8 mb-2 text-xl font-semibold">Image</h3>
-            <input
-              {...register("image", { required: true })}
-              type="url"
+            {/*  */}
+            <Controller
               name="image"
-              placeholder="Enter your Image URL"
-              className="max-w-full md:w-[550px] bg-[#F3F3F3] h-14 pl-5"
+              control={control}
+              render={({ field }) => (
+                <>
+                  <input
+                    type="file"
+                    onChange={(e) => {
+                      // Convert the selected image to URL and set it in the field
+                      const url = URL.createObjectURL(e.target.files[0]);
+                      field.onChange(url);
+                    }}
+                  />
+                    <img src={field.value} alt="Preview" style={{ maxWidth: '100%' }} />
+                </>
+              )}
             />
+            {/*  */}
             {errors.image && (
               <span className="text-xs text-red-600">
                 Image is required to register.
