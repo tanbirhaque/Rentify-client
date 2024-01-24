@@ -10,7 +10,7 @@ import img7 from "../../../../../assets/Template_files/client-4.jpg";
 
 const Banner = () => {
   return (
-    <div className="max-w-screen-xl mx-auto">
+    <div className="max-w-screen-2xl mx-auto">
       <div className=" mb-10 md:mb-20  mt-10">
         <div className=" flex justify-center mx-auto flex-col md:flex-row  gap-10">
           <div className="   w-full lg:w-1/2   ">
