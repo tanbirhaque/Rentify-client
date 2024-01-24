@@ -30,7 +30,7 @@ const OwnerDetail = () => {
       </div>
       <div className="p-24">
         <div className="shadow-2xl p-14 ">
-          <div className="flex">
+          <div className="flex flex-col md:flex-row">
             <figure className="flex-1">
               <img
                 className="rounded-lg"

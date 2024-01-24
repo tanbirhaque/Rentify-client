@@ -4,8 +4,7 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MainLayout from "./MainLayout/MainLayout.jsx";
 import Home from "./MainLayout/Pages/Home/Home.jsx";
-import Login from "./MainLayout/Pages/Login/Login";
-import Register from "./MainLayout/Pages/Register/Register";
+import Register from "./MainLayout/Pages/Authentication/Register/Register.jsx";
 import Bloggrind from "./MainLayout/Pages/Blog/Bloggrind.jsx";
 import Faq from "./MainLayout/Pages/Faq/Faq.jsx";
 import ErrorPage from "./MainLayout/Pages/Error/ErrorPage.jsx";
@@ -25,7 +24,8 @@ import TestLay from "./TestLay/TestLay.jsx";
 import DashLayout from "./DashLayout/DashLayout.jsx";
 import Profile from "./DashboardRoutes/Profile/Profile.jsx";
 import Settings from "./DashboardRoutes/Settings/Settings.jsx";
-
+import Login from "./MainLayout/Pages/Authentication/Login/Login.jsx";
+import Reset from "./MainLayout/Pages/Authentication/Reset/Reset.jsx";
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
@@ -46,6 +46,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/reset",
+        element: <Reset />,
       },
       {
         path: "/blogs",
