@@ -1,20 +1,54 @@
 // This page make by Roknuzzaman sajib
 // all fixed & full page created been responsive 
 import { useEffect, useState } from "react";
-import { FaComment, FaLongArrowAltRight, FaRegCalendarAlt } from "react-icons/fa";
+import { FaArrowLeft, FaArrowRight, FaComment, FaLongArrowAltRight, FaRegCalendarAlt } from "react-icons/fa";
 import './styles.css'
 import { Link, NavLink } from "react-router-dom";
 
 const Bloggrind = () => {
-
     const [blogs, setBlogs] = useState([]);
+    const [currentpage, Setcurrentpage] = useState(0);
     console.assert(blogs)
+    // TODO: blogs data pagination on page 
+    const count = blogs?.length;
+    // now this time itemper page static.after when we will do backed in then we will do it's daynamic
+    const itemsperPage = 6;
+    const numberofPages = Math.ceil(count / itemsperPage)
+    console.log(numberofPages)
+
+    const pages = [];
+    for (let i = 0; i < numberofPages; i++) {
+        pages.push(i);
+    }
+ 
+    //DO: CurentpageITems..If you want currentpagesdata be able to bring backedin by pass through by currentpage and itemsperPages after implement backedin 
+    // Calculate the index range for the current page
+    const startIndex = (currentpage) * itemsperPage;
+    const endIndex = startIndex + itemsperPage;
+    // Slice the data to get the items for the current page
+    const currentItems = blogs.slice(startIndex, endIndex);
 
     useEffect(() => {
         fetch('/Blogs.json')
             .then(res => res.json())
             .then(data => setBlogs(data))
     }, [])
+
+    const handlechangepage = (page) => {
+        Setcurrentpage(page)
+    }
+
+    const handlePrev = () => {
+        if (currentpage > 0) {
+            Setcurrentpage(currentpage - 1)
+        }
+    }
+
+    const handleNext = () => {
+        if (currentpage < pages.length - 1) {
+            Setcurrentpage(currentpage + 1)
+        }
+    }
 
     return (
         <div>
@@ -33,7 +67,7 @@ const Bloggrind = () => {
             <div className=" max-w-screen-2xl mx-auto my-32">
                 <div className=" grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-7">
                     {
-                        blogs.map(item => <div key={item._id}>
+                        currentItems.map(item => <div key={item._id}>
                             {/* animation bg fixed */}
                             {/* card class, image-container, imghover & img is import by styles.css*/}
                             <div className="cart bg-base-100 shadow-md md:w-full w-11/12  h-[500px] md:mx-0 mx-auto rounded">
@@ -62,6 +96,21 @@ const Bloggrind = () => {
                             </div>
                         </div>)
                     }
+                </div>
+                <div className="flex flex-col justify-center items-center mt-10">
+                    <div className="join">
+                        <div className=" flex items-center">
+                            <button className="mr-5 items-center flex justify-center btn-circle text-gray-400 hover:bg-[#EC3323]" onClick={handlePrev}><FaArrowLeft></FaArrowLeft></button>
+                            {
+                                pages.map(page => <button
+                                    key={page}
+                                    onClick={() => handlechangepage(page)}
+                                    className={currentpage == page ? " btn btn-circle bg-[#EC3323] mr-5" : "btn btn-circle hover:bg-[#EC3323] mr-5"}>{page}
+                                </button>)
+                            }
+                            <button className="ml-5 btn-circle items-center flex justify-center hover:bg-[#EC3323] text-gray-400" onClick={handleNext}><FaArrowRight></FaArrowRight></button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,0 +1,242 @@
+[
+    {
+        "property_review": [
+            {
+                "reviewer_img": "https://example.com/reviewer1.jpg",
+                "reviewer_name": "Jane Smith",
+                "review": "Great apartment in a fantastic location! The building is well-maintained and the staff is very friendly.",
+                "review_ratings": 4.5
+            },
+            {
+                "reviewer_img": "https://i.ibb.co/4m4sz99/part-time-job-skills.jpg",
+                "reviewer_name": "Bob Johnson",
+                "review": "Love the spacious layout and modern appliances. The balcony is a great bonus!",
+                "review_ratings": 5
+            }
+        ]
+    },
+    {
+        "property_review": [
+            {
+                "reviewer_img": "https://example.com/reviewer3.jpg",
+                "reviewer_name": "Farhana Chowdhury",
+                "review": "The penthouse is absolutely stunning! The views are incredible and the amenities are top-notch.",
+                "review_ratings": 5
+            },
+            {
+                "reviewer_img": "https://i.ibb.co/4m4sz99/part-time-job-skills.jpg",
+                "reviewer_name": "Rahim Khan",
+                "review": "Perfect for those who want to live in style and comfort. The location is also very convenient.",
+                "review_ratings": 4.8
+            }
+        ]
+    },
+    {
+        "property_review": [
+            {
+                "reviewer_img": "https://i.ibb.co/4m4sz99/part-time-job-skills.jpg",
+                "reviewer_name": "Michael Johnson",
+                "review": "The cottage was perfect for a relaxing getaway. We loved the fireplace and the beautiful garden.",
+                "review_ratings": 5
+            },
+            {
+                "reviewer_img": "https://i.ibb.co/4m4sz99/part-time-job-skills.jpg",
+                "reviewer_name": "Sarah Miller",
+                "review": "The village is so charming and there are plenty of walks and activities nearby. We had a wonderful time!",
+                "review_ratings": 4.7
+            }
+        ]
+    },
+    {
+        "property_review": [
+            {
+                "reviewer_img": "https://i.ibb.co/4m4sz99/part-time-job-skills.jpg",
+                "reviewer_name": "Sofia Bianchi",
+                "review": "This estate is truly magical! The views of the vineyards are breathtaking and the house is full of character. We had the most amazing time.",
+                "review_ratings": 5
+            },
+            {
+                "reviewer_img": "https://i.ibb.co/4m4sz99/part-time-job-skills.jpg",
+                "reviewer_name": "Marco Ferrari",
+                "review": "The wine cellar is a dream come true for any wine enthusiast. We enjoyed many delicious evenings sampling the estate's own wines.",
+                "review_ratings": 4.9
+            }
+        ]
+    },
+    {
+        "property_review": [
+            {
+                "reviewer_img": "https://i.ibb.co/3RyL0R1/modern-apartment.jpg",
+                "reviewer_name": "Eduardo Rodriguez",
+                "review": "Absolutely love the modern aesthetic of this apartment! The views of the city are breathtaking, and the location is perfect for urban living.",
+                "review_ratings": 4.8
+            },
+            {
+                "reviewer_img": "https://i.ibb.co/3RyL0R1/modern-apartment.jpg",
+                "reviewer_name": "Luisa Garcia",
+                "review": "The smart home features make life convenient, and the building amenities are fantastic. Highly recommend this stylish apartment.",
+                "review_ratings": 4.9
+            }
+        ]
+    },
+    {
+        "property_review": [
+            {
+                "reviewer_img": "https://i.ibb.co/X5n5J6W/luxury-mansion.jpg",
+                "reviewer_name": "Victoria Smith",
+                "review": "This mansion is a dream come true! The attention to detail in every room is remarkable, and the gardens create a serene atmosphere. Absolutely stunning.",
+                "review_ratings": 5
+            },
+            {
+                "reviewer_img": "https://i.ibb.co/X5n5J6W/luxury-mansion.jpg",
+                "reviewer_name": "Michael Johnson",
+                "review": "The private pool and home theater make this mansion an entertainer's paradise. Truly a masterpiece in luxury real estate.",
+                "review_ratings": 4.9
+            }
+        ]
+    },
+    {
+        "property_review": [
+            {
+                "reviewer_img": "https://i.ibb.co/YddpW1J/modern-residence.jpg",
+                "reviewer_name": "David Wu",
+                "review": "The smart home features make life convenient, and the minimalist design creates a calming atmosphere. A perfect blend of technology and style!",
+                "review_ratings": 4.8
+            },
+            {
+                "reviewer_img": "https://i.ibb.co/YddpW1J/modern-residence.jpg",
+                "reviewer_name": "Sophie Li",
+                "review": "This urban residence exceeded my expectations. The private garden is a lovely touch, and the location is ideal for city living.",
+                "review_ratings": 4.9
+            }
+        ]
+    },
+    {
+        "property_review": [
+            {
+                "reviewer_img": "https://i.ibb.co/7J1DjxC/beachfront-villa.jpg",
+                "reviewer_name": "Isabella Santos",
+                "review": "Staying at this beachfront villa was like living in a dream. The private beach access and ocean views are unparalleled. A perfect getaway!",
+                "review_ratings": 5
+            },
+            {
+                "reviewer_img": "https://i.ibb.co/7J1DjxC/beachfront-villa.jpg",
+                "reviewer_name": "Carlos Fernandez",
+                "review": "The infinity pool and sun deck create a resort-like experience. This villa is a true gem on the Cape Town coast. Highly recommended!",
+                "review_ratings": 4.9
+            }
+        ]
+    },
+    {
+        "property_review": [
+            {
+                "reviewer_img": "https://i.ibb.co/3Wzfw6j/modern-penthouse.jpg",
+                "reviewer_name": "James Foster",
+                "review": "This penthouse offers a luxurious escape in the heart of the city. The skyline views from the private terrace are simply breathtaking.",
+                "review_ratings": 4.8
+            },
+            {
+                "reviewer_img": "https://i.ibb.co/3Wzfw6j/modern-penthouse.jpg",
+                "reviewer_name": "Emma Turner",
+                "review": "The floor-to-ceiling windows flood the space with natural light. An elegant and modern home that truly stands out in the cityscape.",
+                "review_ratings": 4.9
+            }
+        ]
+    },
+    {
+        "property_review": [
+            {
+                "reviewer_img": "https://i.ibb.co/LNBYTsN/modern-loft.jpg",
+                "reviewer_name": "Sofia Ramirez",
+                "review": "This urban loft is a creative haven! The industrial design elements add so much character, and the",
+                "review_ratings": 4.7
+            },
+            {
+                "reviewer_img": "https://i.ibb.co/LNBYTsN/modern-loft.jpg",
+                "reviewer_name": "Diego Herrera",
+                "review": "The open-concept design and exposed brick walls give this loft a unique and trendy feel. A perfect blend of modern amenities with industrial chic vibes.",
+                "review_ratings": 4.9
+            }
+        ]
+    },
+    {
+        "property_review": [
+            {
+                "reviewer_img": "https://i.ibb.co/VpCbhV1/artistic-residence.jpg",
+                "reviewer_name": "Leonardo Rossi",
+                "review": "This artistic residence is a masterpiece in itself. The studio and gallery space provide the perfect environment for creative expression. Truly inspiring!",
+                "review_ratings": 4.8
+            },
+            {
+                "reviewer_img": "https://i.ibb.co/VpCbhV1/artistic-residence.jpg",
+                "reviewer_name": "Isabella Conti",
+                "review": "Living here feels like being surrounded by art at every turn. The vaulted ceilings add a touch of grandeur. A dream home for art lovers.",
+                "review_ratings": 4.9
+            }
+        ]
+    },
+    {
+        "property_review": [
+            {
+                "reviewer_img": "https://i.ibb.co/qW9K1bj/modern-townhouse.jpg",
+                "reviewer_name": "Emma Thompson",
+                "review": "This modern townhouse is a tech-lover's dream. The rooftop terrace and smart home features make it a comfortable and stylish urban retreat.",
+                "review_ratings": 4.8
+            },
+            {
+                "reviewer_img": "https://i.ibb.co/qW9K1bj/modern-townhouse.jpg",
+                "reviewer_name": "Nathan Miller",
+                "review": "The spacious living areas and modern kitchen are perfect for entertaining. A fantastic blend of technology and contemporary design.",
+                "review_ratings": 4.9
+            }
+        ]
+    },
+    {
+        "property_review": [
+            {
+                "reviewer_img": "https://i.ibb.co/syq44bB/culinary-home.jpg",
+                "reviewer_name": "Antonio Morales",
+                "review": "As a chef, this home is a dream come true. The professional kitchen is top-notch, and the vineyard views add a touch of serenity. A culinary masterpiece!",
+                "review_ratings": 4.9
+            },
+            {
+                "reviewer_img": "https://i.ibb.co/syq44bB/culinary-home.jpg",
+                "reviewer_name": "Elena Gomez",
+                "review": "The outdoor kitchen is perfect for entertaining, and the gourmet dining space is ideal for hosting family and friends. A luxurious culinary escape.",
+                "review_ratings": 4.8
+            }
+        ]
+    },
+    {
+        "property_review": [
+            {
+                "reviewer_img": "https://i.ibb.co/dtbXJZ8/luxury-apartment.jpg",
+                "reviewer_name": "Victoria Reynolds",
+                "review": "This luxury apartment offers a premium living experience. The private spa and skyline views make it a standout choice for those seeking upscale urban living.",
+                "review_ratings": 4.9
+            },
+            {
+                "reviewer_img": "https://i.ibb.co/dtbXJZ8/luxury-apartment.jpg",
+                "reviewer_name": "Alex Mitchell",
+                "review": "The concierge services and modern furnishings create a lifestyle of comfort and convenience. A truly luxurious retreat in the heart of the city.",
+                "review_ratings": 4.8
+            }
+        ]
+    },
+    {
+        "property_review": [
+            {
+                "reviewer_img": "https://i.ibb.co/N6v6wQX/tropical-villa.jpg",
+                "reviewer_name": "Gabriel Silva",
+                "review": "This tropical villa is a true gem. The private beachfront and infinity pool create a paradise right at home. An exceptional property with breathtaking views.",
+                "review_ratings": 5
+            },
+            {
+                "reviewer_img": "https://i.ibb.co/N6v6wQX/tropical-villa.jpg",
+                "reviewer_name": "Ana Oliveira",
+                "review": "The outdoor lounge amidst tropical gardens provides a serene escape. Living here feels like being on a perpetual vacation. A luxurious tropical haven!",
+                "review_ratings": 4.9
+            }
+        ]
+    }
+]
