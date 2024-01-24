@@ -1,4 +1,3 @@
-import React from 'react';
 import { NavLink } from 'react-router-dom';
 import CommonHeading from '../../Shared/CommonHeading/CommonHeading';
 import { CiLocationOn } from 'react-icons/ci';

@@ -1,12 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.jsx";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MainLayout from "./MainLayout/MainLayout.jsx";
 import Home from "./MainLayout/Pages/Home/Home.jsx";
-import Login from "./MainLayout/Pages/Login/Login";
-import Register from "./MainLayout/Pages/Register/Register";
+import Register from "./MainLayout/Pages/Authentication/Register/Register.jsx";
 import Bloggrind from "./MainLayout/Pages/Blog/Bloggrind.jsx";
 import Faq from "./MainLayout/Pages/Faq/Faq.jsx";
 import ErrorPage from "./MainLayout/Pages/Error/ErrorPage.jsx";
@@ -18,10 +16,16 @@ import Blogdetails from "./MainLayout/Pages/Blog/Blogdetails.jsx";
 import Testimonials from "./MainLayout/Pages/Testimonials/Testimonials.jsx";
 import Privacy from "./MainLayout/Pages/PrivacyPolicy/Privacy.jsx";
 import Condition from "./MainLayout/Pages/Terms & Conditions/Condition.jsx";
-import { Toaster } from "react-hot-toast";
-import Details from "./MainLayout/Pages/Details/Details.jsx";
-import TestLay from "./TestLay/TestLay.jsx";
 import Private from "./Provider/Private.jsx";
+import Details from "./MainLayout/Pages/Details/Details.jsx";
+import OwnerList from "./MainLayout/Pages/Owner/OwnerList.jsx";
+import OwnerDetail from "./MainLayout/Pages/Owner/OwnerDetail.jsx";
+import TestLay from "./TestLay/TestLay.jsx";
+import DashLayout from "./DashLayout/DashLayout.jsx";
+import Profile from "./DashboardRoutes/Profile/Profile.jsx";
+import Settings from "./DashboardRoutes/Settings/Settings.jsx";
+import Login from "./MainLayout/Pages/Authentication/Login/Login.jsx";
+import Reset from "./MainLayout/Pages/Authentication/Reset/Reset.jsx";
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
@@ -44,6 +48,10 @@ const router = createBrowserRouter([
         element: <Register></Register>,
       },
       {
+        path: "/reset",
+        element: <Reset />,
+      },
+      {
         path: "/blogs",
         element: <Bloggrind></Bloggrind>,
       },
@@ -58,11 +66,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/how-it-works",
-        element: (
-          <Private>
-            <HowItWorks />
-          </Private>
-        ),
+        element: <HowItWorks />,
       },
       {
         path: "/testimonials",
@@ -78,7 +82,23 @@ const router = createBrowserRouter([
       },
       {
         path: "/details",
-        element: <Details></Details>
+        element: <Details></Details>,
+      },
+      {
+        path: "/owners",
+        element: (
+          <Private>
+            <OwnerList />
+          </Private>
+        ),
+      },
+      {
+        path: "/owner-details",
+        element: (
+          <Private>
+            <OwnerDetail />
+          </Private>
+        ),
       },
     ],
   },
@@ -90,12 +110,26 @@ const router = createBrowserRouter([
   //   path: "/testlay",
   //   element: <TestLay></TestLay>
   // }
+  {
+    path: 'dashboard',
+    element: <DashLayout></DashLayout>,
+    children: [
+      {
+        path: 'profile',
+        element: <Profile></Profile>
+      },
+      {
+        path: 'settings',
+        element: <Settings></Settings>
+      }
+    ]
+
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthProvider>
-      <Toaster />
       <RouterProvider router={router} />
     </AuthProvider>
   </React.StrictMode>

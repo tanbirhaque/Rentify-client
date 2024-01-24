@@ -1,12 +1,10 @@
 import { useForm } from "react-hook-form";
 import Lottie from "lottie-react";
-import loginAnimation from "../../../assets/animation/LoginAnimation.json";
+import loginAnimation from "../../../../assets/animation/LoginAnimation.json";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import useAuth from "../../../Hooks/useAuth";
-
+import useAuth from "../../../../Hooks/useAuth";
 import Swal from "sweetalert2";
-import toast from "react-hot-toast";
-import SocialLogin from "../../Shared/Social/SocialLogin";
+import SocialLogin from "../Social/SocialLogin";
 
 const Login = () => {
   const { loginUser } = useAuth();
@@ -36,13 +34,12 @@ const Login = () => {
       })
       .catch((err) => {
         console.log(err.message);
-        toast(err.code, {
-          icon: "❌",
-          style: {
-            borderRadius: "10px",
-            background: "#002172",
-            color: "#fff",
-          },
+        Swal.fire({
+          title: err.code,
+          timer: 2000,
+          color: "#002172",
+          showConfirmButton: false,
+          icon: "error",
         });
       });
   };
@@ -82,20 +79,31 @@ const Login = () => {
                 Password is required to login.
               </span>
             )}
-            <div className="flex flex-col gap-5">
-              <div className="ms-auto text-sm text-blue-500">
+
+            <button className="btn block bg-[#002172] hover:bg-[#142a9b] w-fit lg:w-[558px] text-white ">
+              Login
+            </button>
+            {/*  */}
+            <div className="md:flex md:justify-between mt-4">
+              <div className="mb-2 mb-md-0">
                 Don&#39;t have an account?{" "}
                 <Link
                   to="/register"
-                  className="hover:underline hover:text-blue-700"
+                  className="hover:underline text-[#002172] hover:text-blue-700 font-bold"
                 >
                   Register
                 </Link>
               </div>
-              <button className="btn block bg-[#002172] hover:bg-[#142a9b] w-fit lg:w-[558px] text-white ">
-                Login
-              </button>
+              <div>
+                <Link
+                  to="/reset"
+                  className="text-[#002172] hover:text-[#ec3323]"
+                >
+                  Forgot your password?
+                </Link>
+              </div>
             </div>
+            {/*  */}
             <SocialLogin />
           </form>
         </div>

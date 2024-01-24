@@ -14,7 +14,7 @@ const Private = ({ children }) => {
   if (user) {
     return children;
   }
-  return <Navigate to="/login" redirect/>;
+  return <Navigate state={location.pathname} to="/login" redirect/>;
 };
 
 export default Private;

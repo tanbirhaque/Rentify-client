@@ -1,5 +1,5 @@
 // Listing section initially created and structured by "Konika khan"
-// Final tuchup, add responsive design for all devices and pixel perfection by Tanbir
+// Final touchup, add responsive design for all devices and pixel perfection by Tanbir
 
 import PropertyCard from "../../../../Shared/PropertyCards/PropertyCard";
 import ButtonBlue from "../../../../Shared/buttons/Blue/ButtonBlue";
