@@ -61,11 +61,14 @@ const Login = () => {
               placeholder="Enter your email address"
               className="max-w-full md:w-[558px] bg-[#F3F3F3] h-14 pl-5 focus:ring-red-500 focus:border-red-500"
             />
+            
             {errors.email && (
               <span className="text-xs text-red-600">
                 Email is required to login.
+              
               </span>
             )}
+          
             <h3 className="text-xl font-semibold my-3">Password</h3>
             <input
               {...register("password", { required: true })}

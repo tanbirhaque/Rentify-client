@@ -22,6 +22,7 @@ import OwnerList from "./MainLayout/Pages/Owner/OwnerList.jsx";
 import OwnerDetail from "./MainLayout/Pages/Owner/OwnerDetail.jsx";
 import Login from "./MainLayout/Pages/Authentication/Login/Login.jsx";
 import Reset from "./MainLayout/Pages/Authentication/Reset/Reset.jsx";
+import { Toaster } from "react-hot-toast";
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
@@ -77,8 +78,10 @@ const router = createBrowserRouter([
         element: <Condition></Condition>,
       },
       {
-        path: "/details",
+        path: "/property/:id",
         element: <Details></Details>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/property/${params.id}`),
       },
       {
         path: "/owners",
@@ -110,8 +113,11 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <AuthProvider>
-      <RouterProvider router={router} />
-    </AuthProvider>
+    <QueryClientProvider client={queryClient}>
+      <AuthProvider>
+        <Toaster />
+        <RouterProvider router={router} />
+      </AuthProvider>
+    </QueryClientProvider>
   </React.StrictMode>
 );
