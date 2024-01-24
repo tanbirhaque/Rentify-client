@@ -8,11 +8,17 @@ import { useState } from "react";
 import PropertyCard from "../../../../Shared/PropertyCards/PropertyCard";
 import ButtonBlue from "../../../../Shared/buttons/Blue/ButtonBlue";
 import useProperty from "../../../../../Hooks/useProperty";
+import useRentRequest from "../../../../../Hooks/useRentRequest";
+import useSaleRequest from "../../../../../Hooks/useSaleRequest";
 
 const Listing = () => {
     // propertys data get from database
     const [propertys] = useProperty();
     console.log(propertys)
+    const [rentrequest] = useRentRequest();
+    const [salerequest] = useSaleRequest();
+    console.log(rentrequest)
+    console.log(salerequest)
     // const [propertys, Setpropertys] = useState([]);
     const [tabIndex, setTabIndex] = useState(0);
 
@@ -26,7 +32,7 @@ const Listing = () => {
     const apartment = propertys.filter(item => item.property_info.property_category === 'Apartment')
     const Commercial = propertys.filter(item => item.property_info.property_category === 'Commercial')
     const Residential = propertys.filter(item => item.property_info.property_category === 'Residential')
-    console.log(apartment)
+    // console.log(apartment)
 
     return (
         <>
@@ -63,7 +69,7 @@ const Listing = () => {
                         <TabPanel>
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-3 xl:px-0">
                                 {
-                                    apartment.slice(0, 6).map((item, index) => <div key={index}>
+                                    Commercial.slice(0, 6).map((item, index) => <div key={index}>
                                         <PropertyCard
                                             item={item}
                                             details_path={'/details'}
@@ -75,7 +81,7 @@ const Listing = () => {
                         <TabPanel>
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-3 xl:px-0">
                                 {
-                                    Commercial.slice(0, 6).map((item, index) => <div key={index}>
+                                    apartment.slice(0, 6).map((item, index) => <div key={index}>
                                         <PropertyCard
                                             item={item}
                                             details_path={'/details'}
