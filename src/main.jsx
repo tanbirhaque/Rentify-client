@@ -104,7 +104,7 @@ const router = createBrowserRouter([
   },
   {
     path: "*",
-    element: <ErrorPage></ErrorPage>,
+    element: <ErrorPage></ErrorPage>
   },
   // {
   //   path: "/testlay",
