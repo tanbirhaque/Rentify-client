@@ -5,6 +5,7 @@ import {
   createUserWithEmailAndPassword,
   getAuth,
   onAuthStateChanged,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
@@ -23,9 +24,9 @@ const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   //google signup
-  const googleLogin = () => { setLoading(true);
-   return signInWithPopup(auth, googleProvider);
-   
+  const googleLogin = () => {
+    setLoading(true);
+    return signInWithPopup(auth, googleProvider);
   };
   //email signup
   const userRegister = (email, password) => {
@@ -72,6 +73,11 @@ const AuthProvider = ({ children }) => {
       photoURL: image,
     });
   };
+  //pasword reset
+  const resetPass = (email) => {
+    setLoading(true);
+    return sendPasswordResetEmail(auth, email);
+  };
 
   const authInfo = {
     loading,
@@ -81,7 +87,7 @@ const AuthProvider = ({ children }) => {
     user,
     userSignOut,
     userProfile,
-    
+    resetPass,
   };
 
   return (
