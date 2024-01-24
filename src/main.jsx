@@ -20,6 +20,10 @@ import Private from "./Provider/Private.jsx";
 import Details from "./MainLayout/Pages/Details/Details.jsx";
 import OwnerList from "./MainLayout/Pages/Owner/OwnerList.jsx";
 import OwnerDetail from "./MainLayout/Pages/Owner/OwnerDetail.jsx";
+import TestLay from "./TestLay/TestLay.jsx";
+import DashLayout from "./DashLayout/DashLayout.jsx";
+import Profile from "./DashboardRoutes/Profile/Profile.jsx";
+import Settings from "./DashboardRoutes/Settings/Settings.jsx";
 import Login from "./MainLayout/Pages/Authentication/Login/Login.jsx";
 import Reset from "./MainLayout/Pages/Authentication/Reset/Reset.jsx";
 const queryClient = new QueryClient();
@@ -106,6 +110,21 @@ const router = createBrowserRouter([
   //   path: "/testlay",
   //   element: <TestLay></TestLay>
   // }
+  {
+    path: 'dashboard',
+    element: <DashLayout></DashLayout>,
+    children: [
+      {
+        path: 'profile',
+        element: <Profile></Profile>
+      },
+      {
+        path: 'settings',
+        element: <Settings></Settings>
+      }
+    ]
+
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

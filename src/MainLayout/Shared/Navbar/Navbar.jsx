@@ -16,7 +16,7 @@ const Navbar = () => {
     userSignOut()
       .then(() => {
         console.log("logged out");
-         swal("Signout", "You are successfully signed out", "success");
+        swal("Signout", "You are successfully signed out", "success");
         setUser(null);
 
         setTimeout(() => {
@@ -63,6 +63,12 @@ const Navbar = () => {
       >
         Blogs
       </NavLink>
+      <NavLink
+        to="/dashboard"
+        className="navAfter relative font-medium text-base  text-black mx-3"
+      >
+        Dashboard
+      </NavLink>
 
       <NavLink
         to="/how-it-works"
@@ -76,10 +82,10 @@ const Navbar = () => {
         <summary className="navAfter relative font-medium text-base  text-black mx-3">
           Others
         </summary>
-        <ul className="p-2  menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+        <ul className="p-2  menu dropdown-content z-[1] bg-base-100 rounded-box w-52 border-[#e33226] border-l-[3px]">
           <NavLink
             to="/testimonials"
-            className="navAfter relative font-medium text-base text-black mx-3 "
+            className="navAfter relative font-medium text-base text-black mx-3"
           >
             Testimonials
           </NavLink>
