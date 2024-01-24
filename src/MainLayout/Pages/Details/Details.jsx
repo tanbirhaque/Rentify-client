@@ -44,10 +44,10 @@ const Details = () => {
             children: data.children,
 
         }
-        axiospublic.post('/propertyrequest', propertyrequest)
+        axiospublic.post('/requested-properties', propertyrequest)
             .then(res => {
                 console.log(res.data)
-                Swal.fire(`Hey ${data.name} Your Request Successfully Sent`)
+                Swal.fire(`Hey ${data.name} Your Request Successfully Send`)
             })
         console.log(propertyrequest)
         reset();
