@@ -1,25 +1,84 @@
-import { NavLink, useLoaderData } from "react-router-dom";
+import { Link, NavLink, useLoaderData, useParams } from "react-router-dom";
 import CommonHeading from "../../Shared/CommonHeading/CommonHeading";
 import { CiLocationOn } from "react-icons/ci";
 import { RiCheckboxMultipleLine } from "react-icons/ri";
 import { IoMdPlay } from "react-icons/io";
 import VideoModal from "../Home/HomeComponents/Virtual Apartments/VideoModal";
 import { Rating } from "@smastrom/react-rating";
+import useAxiosPublic from "../../../Hooks/useAxiosPublic.jsx";
 import "@smastrom/react-rating/style.css";
 import PropertyCard from "../../Shared/PropertyCards/PropertyCard";
 import { useForm } from "react-hook-form";
-import { FaRegBookmark } from "react-icons/fa";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../../Provider/AuthProvider.jsx";
+import Swal from "sweetalert2";
+import { FaRegBookmark, FaBookmark } from "react-icons/fa";
 
 const Details = () => {
+  const axiosPublic = useAxiosPublic();
+  const { user } = useContext(AuthContext);
+  const properties = useLoaderData();
+  const { id } = useParams();
+  const item = properties.find((item) => item._id == id);
+
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => console.log(data);
-  //saved property
-  const propertyDetails = useLoaderData();
-  console.log(propertyDetails[0].property_info);
-  const { property_info } = propertyDetails || {};
-  console.log(property_info);
 
-  const handleSave = () => {};
+  const { register: register2, reset, handleSubmit: handleSubmit2 } = useForm();
+  const onSubmit2 = (data) => {
+    const propertyRequest = {
+      property: item.property_info,
+      requesterName: data.name,
+      requesterNumber: data.number,
+      requesterEmail: data.email,
+      requesterPhoto: user.photoURL,
+      requesterMessage: data.message,
+      family: data.family,
+      children: data.children,
+    };
+    axiosPublic.post("/requested-properties", propertyRequest).then((res) => {
+      console.log(res.data);
+      Swal.fire(`Hey ${data.name} Your Request is Successfully Send`);
+    });
+    console.log(propertyRequest);
+    reset();
+  };
+
+  //save property feature added by Fahima
+
+  const handleSaveProperty = () => {
+    if (user) {
+      //for saving property data to backend
+      const savedProperties = {
+        property: item,
+        savedUserEmail: user.email,
+      };
+      axiosPublic.post("/saved-properties", savedProperties).then((res) => {
+        console.log(res.data);
+        Swal.fire({
+          title: `Added to saved properties.`,
+          timer: 2000,
+          color: "#002172",
+          showConfirmButton: false,
+          icon: "success",
+        });
+      });
+      console.log(savedProperties);
+      // reset();
+      //for saving property data to backend
+    } else {
+      // this login will allow user to save their desired property only if the are user
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Looks like you're not logged in!",
+        footer: `<a href='/login' className='font-bold underline'>Please Log In</a>`,
+        showConfirmButton: false,
+      });
+    }
+  };
+// const 
+
   return (
     <div>
       <div className="gridbgimg">
@@ -47,30 +106,33 @@ const Details = () => {
         </div>
       </div>
       {/* details sections starts */}
-      <div className="max-w-[1296px] mx-auto">
+      <div className="max-w-7xl mx-auto mt-16 p-10">
         <div className="flex gap-6">
-          <div className="main_details w-2/3 p-20">
-            <div className="mb-[30px]">
-              <div className="flex justify-between">
-                <h2 className="text-[32px] poppins-font mb-[12px] font-semibold text-black">
-                  Luxury & Modern Apartment
-                </h2>
-                
-                {/* wishlist icon  */}
-                <button onClick={handleSave}>
-                  <FaRegBookmark className="text-4xl" />
+          <div className="main_details w-2/3">
+            <div className="mb-7">
+              <h2 className="text-3xl poppins-font mb-[12px] font-semibold text-black">
+                {item?.property_info.property_title}
+              </h2>
+              <div className="flex justify-between text-[#666666]">
+                <p className="flex text-base items-center gap-2 ">
+                  <CiLocationOn className="text-[#e33226]" />
+                  {
+                    item?.property_info?.property_location?.address?.street
+                  }, {item?.property_info?.property_location?.address?.city},{" "}
+                  {item?.property_info?.property_location?.address?.state},{" "}
+                  {item?.property_info?.property_location?.address?.country}
+                </p>
+                {/* wishlist icon */}
+                <button onClick={handleSaveProperty}>
+                  <FaRegBookmark className="text-xl" />
                 </button>
               </div>
-              <p className="flex text-[16px] text-[#666666] items-center gap-2 ">
-                <CiLocationOn className="text-[#e33226]" />
-                4890 Grey Fox Fam Road, Houston
-              </p>
             </div>
             <div>
               <img
-                className="rounded-md"
-                src="https://angular.hibootstrap.com/enuf/assets/img/property/single-property-1.jpg"
-                alt=""
+                className="rounded-md w-full h-auto"
+                src={item?.property_info.property_img}
+                alt={item?.property_info.property_title}
               />
             </div>
             {/* Description section */}
@@ -147,6 +209,7 @@ const Details = () => {
               <div className="p-[50px] bg-[#f9f9f9]">
                 <img
                   src="https://angular.hibootstrap.com/enuf/assets/img/property/floor-plan.png"
+                  // src={item?.property_info.floor_plans}
                   alt="Floor plan image"
                 />
               </div>
@@ -367,7 +430,58 @@ const Details = () => {
             </div>
           </div>
           <div className="details_aside bg-slate-300 w-1/3">
-            <div>this is details</div>
+            <form
+              onSubmit={handleSubmit2(onSubmit2)}
+              className=" w-[90%] mx-auto"
+            >
+              <h2 className=" text-3xl font-bold my-5">Book This Apartment</h2>
+              {/* register your input into the hook by invoking the "register" function */}
+              <input
+                {...register2("name")}
+                placeholder="Full Name*"
+                className=" w-full py-5 bg-[#F9F9F9] rounded-md px-2 my-4"
+              />
+              {/* include validation with required or other standard HTML validation rules */}
+              <input
+                {...register2("number", { required: true })}
+                placeholder="Phone number*"
+                className="py-5 bg-[#F9F9F9] rounded-md px-2 mb-4 w-full"
+              />
+              <input
+                {...register2("email", { required: true })}
+                placeholder="Email Adress*"
+                className="py-5 bg-[#F9F9F9] rounded-md px-2 w-full"
+              />
+              {/* errors will return when field validation fails  */}
+              <select
+                {...register2("family", { required: true })}
+                className="select h-16 rounded-md px-2 w-full my-4"
+              >
+                <option defaultValue={"family members"}>Family Members</option>
+                <option value="2">2</option>
+                <option value="4">4</option>
+                <option value="6">6</option>
+              </select>
+              <select
+                {...register2("children", { required: true })}
+                className="select h-16 rounded-md px-2 w-full mb-4"
+              >
+                <option defaultValue={"family members"}>Children</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+              </select>
+              <textarea
+                {...register2("message", { required: true })}
+                className="textarea bg-[#F9F9F9] h-40 w-full mt-3 mb-4"
+                placeholder="Enter you message"
+              ></textarea>
+              <input
+                type="submit"
+                value="Request Booknig"
+                className=" rounded px-8 py-4 mt-3 bg-[#EC3323] hover:bg-[#002172] text-white mb-4"
+              />
+            </form>
           </div>
         </div>
       </div>
