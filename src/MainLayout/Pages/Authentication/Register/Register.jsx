@@ -86,23 +86,22 @@ const Register = () => {
             <h3 className="mt-8 mb-2 text-xl font-semibold">Image</h3>
             {/*  */}
             <Controller
-              name="image"
-              control={control}
-              render={({ field }) => (
-                <>
-                  <input
-                    type="file"
-                    onChange={(e) => {
-                      // Convert the selected image to URL and set it in the field
-                      const url = URL.createObjectURL(e.target.files[0]);
-                      field.onChange(url);
-                    }}
-                  />
-                    <img src={field.value} alt="Preview" style={{ maxWidth: '100%' }} />
-                </>
-              )}
-            />
-            {/*  */}
+                  name="image"
+                  control={control}
+                  render={({ field }) => (
+                    <>
+                      <input
+                        type="file"
+                        onChange={(e) => {
+                          // Convert the selected image to URL and set it in the field
+                          const url = URL.createObjectURL(e.target.files[0]);
+                          field.onChange(url);
+                        }}
+                      />
+                    </>
+                  )}
+                />
+                {/*  */}
             {errors.image && (
               <span className="text-xs text-red-600">
                 Image is required to register.

@@ -8,7 +8,6 @@ import "./PropertyCards.css";
 
 const PropertyCard = ({ property }) => {
   const { property_info, _id } = property || {};
-
   const { property_img, property_title, property_location, property_details, property_for } =
     property_info || {};
 
