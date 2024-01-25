@@ -1,5 +1,4 @@
-import { Link, NavLink, useLoaderData, useParams } from "react-router-dom";
-import CommonHeading from "../../Shared/CommonHeading/CommonHeading";
+import {  NavLink, useLoaderData, useParams } from "react-router-dom";
 import { CiLocationOn } from "react-icons/ci";
 import { RiCheckboxMultipleLine } from "react-icons/ri";
 import { IoMdPlay } from "react-icons/io";
@@ -9,10 +8,11 @@ import useAxiosPublic from "../../../Hooks/useAxiosPublic.jsx";
 import "@smastrom/react-rating/style.css";
 import PropertyCard from "../../Shared/PropertyCards/PropertyCard";
 import { useForm } from "react-hook-form";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider.jsx";
 import Swal from "sweetalert2";
 import { FaRegBookmark, FaBookmark } from "react-icons/fa";
+
 
 const Details = () => {
   const axiosPublic = useAxiosPublic();

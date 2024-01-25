@@ -11,12 +11,13 @@ const Navbar = () => {
   const { userSignOut, user, setUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
+
   // for logout user -Sadia
   const handleLogOut = () => {
     userSignOut()
       .then(() => {
         console.log("logged out");
-         swal("Signout", "You are successfully signed out", "success");
+        swal("Signout", "You are successfully signed out", "success");
         setUser(null);
 
         setTimeout(() => {
@@ -174,7 +175,8 @@ const Navbar = () => {
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                   <div className="w-10 rounded-full">
                     <img
-                      src={`${user?.photoURL ? user?.photoURL : defaultImg}`}
+                      src={user?.photoURL}
+                      // src={`${user?.photoURL ? user?.photoURL : defaultImg}`}
                     />
                   </div>
                 </label>
