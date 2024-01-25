@@ -44,10 +44,10 @@ const Profile = () => {
         <div className="text-sm font-medium text-center text-gray-500 border-b border-t border-gray-200 dark:text-gray-400 dark:border-gray-700">
           <ul className="flex flex-wrap mb-5 mt-5 ">
             <NavLink
-              to="/"
+              to="/overview"
               className="navAfter relative font-medium text-base text-black mx-3"
             >
-              Home
+              My Profile Overview
             </NavLink>
             <NavLink
               to="/blogs"
@@ -58,10 +58,10 @@ const Profile = () => {
            
 
             <NavLink
-         
+              to="/"
               className="navAfter relative font-medium text-base  text-black mx-3"
             >
-              How It Works
+              Home
             </NavLink>
           </ul>
         </div>

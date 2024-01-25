@@ -28,6 +28,7 @@ import SavedProperties from "./DashboardRoutes/SavedProperties/SavedProperties.j
 
 import Login from "./MainLayout/Pages/Authentication/Login/Login.jsx";
 import Reset from "./MainLayout/Pages/Authentication/Reset/Reset.jsx";
+import Overview from "./DashboardRoutes/Profile/Overview.jsx";
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
@@ -65,6 +66,10 @@ const router = createBrowserRouter([
       {
         path: "/faq",
         element: <Faq />,
+      },
+      {
+        path: "/overview",
+        element: <Overview></Overview>,
       },
       {
         path: "/how-it-works",
