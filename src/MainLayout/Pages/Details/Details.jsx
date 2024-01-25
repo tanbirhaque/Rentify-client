@@ -55,6 +55,7 @@ const Details = () => {
                 <h2 className="text-[32px] poppins-font mb-[12px] font-semibold text-black">
                   Luxury & Modern Apartment
                 </h2>
+                
                 {/* wishlist icon  */}
                 <button onClick={handleSave}>
                   <FaRegBookmark className="text-4xl" />
