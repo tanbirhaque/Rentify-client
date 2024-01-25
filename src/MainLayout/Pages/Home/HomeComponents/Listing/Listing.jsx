@@ -14,20 +14,13 @@ import useSaleRequest from "../../../../../Hooks/useSaleRequest";
 const Listing = () => {
     // properties data get from database
     const [properties] = useProperty();
-    console.log(properties)
     const [rentrequest] = useRentRequest();
     const [salerequest] = useSaleRequest();
+    console.log(properties)
     console.log(rentrequest)
     console.log(salerequest)
     // const [properties, Setproperties] = useState([]);
     const [tabIndex, setTabIndex] = useState(0);
-
-    // DO: Now data is fetched from public file. But if the backed-in works, it will be done only after getting the data from the database.
-    // useEffect(() => {
-    //     fetch('/Info.json')
-    //         .then(res => res.json())
-    //         .then(data => Setproperties(data))
-    // }, [])
 
     const apartment = properties.filter(item => item.property_info.property_category === 'Apartment')
     const Commercial = properties.filter(item => item.property_info.property_category === 'Commercial')
