@@ -9,7 +9,7 @@ import "./PropertyCards.css";
 const PropertyCard = ({ property }) => {
   const { property_info, _id } = property || {};
 
-  const { property_img, property_title, property_location, property_details } =
+  const { property_img, property_title, property_location, property_details, property_for} =
     property_info || {};
 
 
@@ -22,14 +22,14 @@ const PropertyCard = ({ property }) => {
         <div className="card-body">
           <div className="flex justify-between items-center mb-2">
             <button className="bg-[#e33226] rounded-md btn-one py-[8px] px-[12px] text-white text-[16px]">
-              For Sale
+              {property_for}
             </button>
             <p className="text-right text-[#666666]">
               <span className="text-[#002172] text-[16px] font-bold ">$78</span>
               /month
             </p>
           </div>
-          <Link to={`/property/${_id}`}>
+          <Link to={`/details/${_id}`}>
             <h2 className="card-title hover:text-[#e33226] text-[22px] poppins-font  ">
               {property_title}
             </h2>
