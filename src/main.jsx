@@ -26,6 +26,7 @@ import Profile from "./DashboardRoutes/Profile/Profile.jsx";
 import Settings from "./DashboardRoutes/Settings/Settings.jsx";
 import Login from "./MainLayout/Pages/Authentication/Login/Login.jsx";
 import Reset from "./MainLayout/Pages/Authentication/Reset/Reset.jsx";
+import { Toaster } from "react-hot-toast";
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
@@ -83,7 +84,7 @@ const router = createBrowserRouter([
       {
         path: "/details/:id",
         element: <Details></Details>,
-        loader: () => fetch(`http://localhost:5000/property`) 
+        loader: () => fetch(`http://localhost:5000/properties`),
       },
       {
         path: "/owners",
@@ -105,33 +106,33 @@ const router = createBrowserRouter([
   },
   {
     path: "*",
-    element: <ErrorPage></ErrorPage>
+    element: <ErrorPage></ErrorPage>,
   },
   // {
   //   path: "/testlay",
   //   element: <TestLay></TestLay>
   // }
   {
-    path: 'dashboard',
+    path: "dashboard",
     element: <DashLayout></DashLayout>,
     children: [
       {
-        path: 'profile',
-        element: <Profile></Profile>
+        path: "profile",
+        element: <Profile></Profile>,
       },
       {
-        path: 'settings',
-        element: <Settings></Settings>
-      }
-    ]
-
-  }
+        path: "settings",
+        element: <Settings></Settings>,
+      },
+    ],
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
+        <Toaster />
         <RouterProvider router={router} />
       </AuthProvider>
     </QueryClientProvider>

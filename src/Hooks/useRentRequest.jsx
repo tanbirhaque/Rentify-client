@@ -1,11 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
-import useAxiospublic from "./useAxiospublic";
+import useAxiosPublic from "./useAxiosPublic";
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const useRentRequest = () => {
     const { user } = useContext(AuthContext)
-    const axiospublic = useAxiospublic();
+    const axiospublic = useAxiosPublic();
     const { data: rentrequest = [], refetch } = useQuery({
         queryKey: ['rentrequest'],
         queryFn: async () => {
