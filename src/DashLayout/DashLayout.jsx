@@ -46,6 +46,9 @@ const DashLayout = () => {
                 <li className="my-3">
                   <NavLink to="/dashboard/saved"><FaBookmark className="text-base"></FaBookmark> Saved Properties</NavLink>
                 </li>
+                <li className="my-3">
+                  <NavLink to="/dashboard/add"><FaBookmark className="text-base"></FaBookmark> Add Properties</NavLink>
+                </li>
               </>
 
               <hr />

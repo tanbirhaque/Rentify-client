@@ -30,6 +30,7 @@ import Login from "./MainLayout/Pages/Authentication/Login/Login.jsx";
 import Reset from "./MainLayout/Pages/Authentication/Reset/Reset.jsx";
 import Overview from './DashboardRoutes/Profile/Overview';
 import { Toaster } from "react-hot-toast";
+import AddProperties from "./DashboardRoutes/AddProperties/AddProperties.jsx";
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
@@ -135,6 +136,10 @@ const router = createBrowserRouter([
       {
         path: "overview",
         element: <Overview></Overview>,
+      },
+      {
+        path: "add",
+        element: <AddProperties></AddProperties>,
       },
     ]
 
