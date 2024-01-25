@@ -44,7 +44,7 @@ const Profile = () => {
         <div className="text-sm font-medium text-center text-gray-500 border-b border-t border-gray-200 dark:text-gray-400 dark:border-gray-700">
           <ul className="flex flex-wrap mb-5 mt-5 ">
             <NavLink
-              to="/overview"
+              to="/dashboard/overview"
               className="navAfter relative font-medium text-base text-black mx-3"
             >
               My Profile Overview

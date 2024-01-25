@@ -67,10 +67,7 @@ const router = createBrowserRouter([
         path: "/faq",
         element: <Faq />,
       },
-      {
-        path: "/overview",
-        element: <Overview></Overview>,
-      },
+      
       {
         path: "/how-it-works",
         element: <HowItWorks />,
@@ -133,7 +130,11 @@ const router = createBrowserRouter([
       {
         path: 'saved',
         element: <SavedProperties></SavedProperties>
-      }
+      },
+      {
+        path: "overview",
+        element: <Overview></Overview>,
+      },
     ]
 
   }
