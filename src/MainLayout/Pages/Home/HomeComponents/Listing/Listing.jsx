@@ -12,26 +12,26 @@ import useRentRequest from "../../../../../Hooks/useRentRequest";
 import useSaleRequest from "../../../../../Hooks/useSaleRequest";
 
 const Listing = () => {
-    // propertys data get from database
-    const [propertys] = useProperty();
-    console.log(propertys)
+    // properties data get from database
+    const [properties] = useProperty();
+    console.log(properties)
     const [rentrequest] = useRentRequest();
     const [salerequest] = useSaleRequest();
     console.log(rentrequest)
     console.log(salerequest)
-    // const [propertys, Setpropertys] = useState([]);
+    // const [properties, Setproperties] = useState([]);
     const [tabIndex, setTabIndex] = useState(0);
 
     // DO: Now data is fetched from public file. But if the backed-in works, it will be done only after getting the data from the database.
     // useEffect(() => {
     //     fetch('/Info.json')
     //         .then(res => res.json())
-    //         .then(data => Setpropertys(data))
+    //         .then(data => Setproperties(data))
     // }, [])
 
-    const apartment = propertys.filter(item => item.property_info.property_category === 'Apartment')
-    const Commercial = propertys.filter(item => item.property_info.property_category === 'Commercial')
-    const Residential = propertys.filter(item => item.property_info.property_category === 'Residential')
+    const apartment = properties.filter(item => item.property_info.property_category === 'Apartment')
+    const Commercial = properties.filter(item => item.property_info.property_category === 'Commercial')
+    const Residential = properties.filter(item => item.property_info.property_category === 'Residential')
     // console.log(apartment)
 
     return (
@@ -57,9 +57,9 @@ const Listing = () => {
                         <TabPanel>
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-3 xl:px-0">
                                 {
-                                    Residential.slice(0, 6).map((item, index) => <div key={index}>
+                                    Residential.slice(0, 6).map((property, index) => <div key={index}>
                                         <PropertyCard
-                                            item={item}
+                                            property={property}
                                             details_path={'/details'}
                                         />
                                     </div>)
@@ -69,9 +69,9 @@ const Listing = () => {
                         <TabPanel>
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-3 xl:px-0">
                                 {
-                                    Commercial.slice(0, 6).map((item, index) => <div key={index}>
+                                    Commercial.slice(0, 6).map((property, index) => <div key={index}>
                                         <PropertyCard
-                                            item={item}
+                                            property={property}
                                             details_path={'/details'}
                                         />
                                     </div>)
@@ -81,9 +81,9 @@ const Listing = () => {
                         <TabPanel>
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-3 xl:px-0">
                                 {
-                                    apartment.slice(0, 6).map((item, index) => <div key={index}>
+                                    apartment.slice(0, 6).map((property, index) => <div key={index}>
                                         <PropertyCard
-                                            item={item}
+                                            property={property}
                                             details_path={'/details'}
                                         />
                                     </div>)

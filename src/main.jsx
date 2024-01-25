@@ -26,6 +26,7 @@ import Profile from "./DashboardRoutes/Profile/Profile.jsx";
 import Settings from "./DashboardRoutes/Settings/Settings.jsx";
 import Login from "./MainLayout/Pages/Authentication/Login/Login.jsx";
 import Reset from "./MainLayout/Pages/Authentication/Reset/Reset.jsx";
+import { Toaster } from "react-hot-toast";
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
@@ -132,6 +133,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
+        <Toaster />
         <RouterProvider router={router} />
       </AuthProvider>
     </QueryClientProvider>

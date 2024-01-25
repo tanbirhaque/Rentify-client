@@ -1,11 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
-import useAxiospublic from "./useAxiospublic";
+import useAxiosPublic from "./useAxiosPublic";
 
 const useSaleRequest = () => {
     const { user } = useContext(AuthContext)
-    const axiospublic = useAxiospublic();
+    const axiospublic = useAxiosPublic();
     const { data: salerequest = [], refetch } = useQuery({
         queryKey: ['salerequest'],
         queryFn: async () => {
