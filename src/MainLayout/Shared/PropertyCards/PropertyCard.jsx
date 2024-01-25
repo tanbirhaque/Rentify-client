@@ -29,7 +29,7 @@ const PropertyCard = ({ property }) => {
               /month
             </p>
           </div>
-          <Link to={`/property/${_id}`}>
+          <Link to={`/details/${_id}`}>
             <h2 className="card-title hover:text-[#e33226] text-[22px] poppins-font  ">
               {property_title}
             </h2>

@@ -45,7 +45,6 @@ const Details = () => {
   };
 
   //save property feature added by Fahima
-
   const handleSaveProperty = () => {
     if (user) {
       //for saving property data to backend

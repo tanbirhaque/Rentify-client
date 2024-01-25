@@ -1,12 +1,13 @@
 // Listing section initially created and structured by "Konika khan"
 // Final touchup, add responsive design for all devices and pixel perfection by Tanbir
 
-import useProperty from "../../../../../Hooks/useProperty";
+
+import useProperties from "../../../../../Hooks/useProperties";
 import PropertyCard from "../../../../Shared/PropertyCards/PropertyCard";
 import ButtonBlue from "../../../../Shared/buttons/Blue/ButtonBlue";
 
 const Listing = () => {
-  const [property] = useProperty();
+  const [properties] = useProperties();
 //   console.log(property);
 
   return (
@@ -32,8 +33,8 @@ const Listing = () => {
        
         {/* individual property card */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-3 xl:px-0">
-          {property.slice(0,6).map((data) => (
-            <PropertyCard property={data} key={property._id} />
+          {properties.slice(0,6).map((data) => (
+            <PropertyCard property={data} key={properties._id} />
           ))}
         </div>
         {/* individual property card */}
