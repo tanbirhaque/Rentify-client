@@ -25,6 +25,7 @@ import TestLay from "./TestLay/TestLay.jsx";
 import DashLayout from "./DashLayout/DashLayout.jsx";
 import Profile from "./DashboardRoutes/Profile/Profile.jsx";
 import Settings from "./DashboardRoutes/Settings/Settings.jsx";
+import SavedProperties from "./DashboardRoutes/SavedProperties/SavedProperties.jsx";
 
 const queryClient = new QueryClient();
 
@@ -114,9 +115,13 @@ const router = createBrowserRouter([
         path: 'profile',
         element: <Profile></Profile>
       },
+      // {
+      //   path: 'settings',
+      //   element: <Settings></Settings>
+      // }
       {
-        path: 'settings',
-        element: <Settings></Settings>
+        path: 'saved',
+        element: <SavedProperties></SavedProperties>
       }
     ]
 

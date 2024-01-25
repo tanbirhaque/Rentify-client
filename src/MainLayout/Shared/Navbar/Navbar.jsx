@@ -160,17 +160,7 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navLinks}</ul>
         </div>
-        {/* btn created by -fahima */}
-        {/* <div className="navbar-end gap-5">
-        
-          <Link to="/login">
-            <ButtonBlue titleBlue={"Log In"} />
-          </Link>
-          <Link to="/register">
-            <ButtonRed titleRed={"Register"} />
-          </Link>
-        
-        </div> */}
+       
 
         {/* for toggle feature for btn -sadia */}
         <div className="navbar-end gap-5">
@@ -198,6 +188,9 @@ const Navbar = () => {
                     <a>{user.email ? user.email : "anonymous@example.com"}</a>
                   </li>
                   {/* {console.log("js diye aslm", user.photoURL)} */}
+                  <li>
+                    <Link to='/dashboard/profile'>Dashbaord</Link>
+                  </li>
                   <li>
                     <Link onClick={handleLogOut}>Logout</Link>
                   </li>

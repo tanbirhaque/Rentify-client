@@ -43,36 +43,23 @@ const Profile = () => {
       <div>
         <div className="text-sm font-medium text-center text-gray-500 border-b border-t border-gray-200 dark:text-gray-400 dark:border-gray-700">
           <ul className="flex flex-wrap mb-5 mt-5 ">
-            {/* <li className="me-2">
-      <a href="#" className="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Profile</a>
-    </li>
-    <li className="me-2">
-      <a  className="inline-block p-4 text-blue-600 border-b-2 border-blue-600 rounded-t-lg active " aria-current="page">Dashboard</a>
-    </li>
-    <li className="me-2">
-      <a href="#" className="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Settings</a>
-    </li>
-    <li className="me-2">
-      <a href="#" className="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Contacts</a>
-    </li>
-    <li>
-      <a className="inline-block p-4 text-gray-400 rounded-t-lg cursor-not-allowed dark:text-gray-500">Disabled</a>
-    </li> */}
             <NavLink
-              to=""
-              className="picAfter relative font-medium text-base text-black mx-3"
-            >
-              Blogs
-            </NavLink>
-            <NavLink
-              to=""
-              className="picAfter relative font-medium text-base text-black mx-3"
+              to="/"
+              className="navAfter relative font-medium text-base text-black mx-3"
             >
               Home
             </NavLink>
             <NavLink
-              to=""
-              className="picAfter relative font-medium text-base  text-black mx-3"
+              to="/blogs"
+              className="navAfter relative font-medium text-base text-black mx-3"
+            >
+              Blogs
+            </NavLink>
+           
+
+            <NavLink
+         
+              className="navAfter relative font-medium text-base  text-black mx-3"
             >
               How It Works
             </NavLink>
