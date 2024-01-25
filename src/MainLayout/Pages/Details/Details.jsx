@@ -1,4 +1,4 @@
-import {  NavLink, useLoaderData, useParams } from "react-router-dom";
+import { NavLink, useLoaderData, useParams } from "react-router-dom";
 import { CiLocationOn } from "react-icons/ci";
 import { RiCheckboxMultipleLine } from "react-icons/ri";
 import { IoMdPlay } from "react-icons/io";
@@ -12,7 +12,6 @@ import { useContext } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider.jsx";
 import Swal from "sweetalert2";
 import { FaRegBookmark, FaBookmark } from "react-icons/fa";
-
 
 const Details = () => {
   const axiosPublic = useAxiosPublic();
@@ -76,7 +75,7 @@ const Details = () => {
       });
     }
   };
-// const 
+  // const
 
   return (
     <div>
