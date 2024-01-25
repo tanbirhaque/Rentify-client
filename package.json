@@ -10,9 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.12.1",
     "@smastrom/react-rating": "^1.4.0",
     "@tanstack/react-query": "^5.17.12",
     "axios": "^1.6.5",
+    "emailjs": "^4.0.3",
     "firebase": "^10.7.1",
     "localforage": "^1.10.0",
     "lottie-react": "^2.4.0",

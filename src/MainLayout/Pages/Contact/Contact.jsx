@@ -6,18 +6,25 @@ import { CiLocationOn } from "react-icons/ci";
 import { MdOutlineEmail } from "react-icons/md";
 import { LuPhoneCall } from "react-icons/lu";
 import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
-import { useForm } from "react-hook-form"
+
+import emailjs from '@emailjs/browser';
+import { useRef } from "react";
 
 
 const Contact = () => {
 
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-    } = useForm()
+    const form = useRef();
 
-    const onSubmit = (data) => console.log(data)
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm('service_b5s07ta', 'template_pfdvuie', form.current, 'ht4xLetclo88VWKhg')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+  };
 
     return (
         <div>
@@ -78,22 +85,22 @@ const Contact = () => {
                         </div>
                         <div className=" w-1/2">
                             {/* "handleSubmit" will validate your inputs before invoking "onSubmit" */}
-                            <form onSubmit={handleSubmit(onSubmit)}>
+                            <form ref={form} onSubmit={sendEmail}>
                                 {/* register your input into the hook by invoking the "register" function */}
                                 <div className=" flex items-center gap-4 my-4">
-                                    <input {...register("name")}
+                                    <input name="user_name"
                                         placeholder="Name*"
                                         className=" w-full py-5 border-2 rounded-md px-2" />
                                     {/* include validation with required or other standard HTML validation rules */}
-                                    <input {...register("email", { required: true })}
+                                    <input name="user_email"
                                         placeholder="Email*"
                                         className="py-5 border-2 rounded-md px-2 w-full" />
                                     {/* errors will return when field validation fails  */}
                                 </div>
-                                <input {...register("subject", { required: true })}
+                                <input 
                                     placeholder="Subject*"
                                     className="py-5 border-2 rounded-md px-2 w-full my-3" />
-                                <textarea {...register("message", { required: true })} className="textarea textarea-bordered h-40 w-full mt-3 mb-4" placeholder="Your messages"></textarea>
+                                <textarea name="message" className="textarea textarea-bordered h-40 w-full mt-3 mb-4" placeholder="Your messages"></textarea>
                                 <div className=" my-2 flex justify-start items-center gap-3">
                                     <input type="checkbox" className="checkbox" />
                                     <p className=" text-xl">I agree to the <Link to="/conditions"><span className=" text-orange-600">terms & conditions</span></Link> and <Link to="privacy"><span className="text-orange-600">privacy policy</span></Link></p>
