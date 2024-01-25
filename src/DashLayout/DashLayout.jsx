@@ -43,7 +43,7 @@ const DashLayout = () => {
                   <NavLink to="/dashboard/profile"><FaUserCircle  className="text-lg"></FaUserCircle >Profile</NavLink>
                 </li>
 
-                {/* guys jeye route ta last a thakbe only se li a clasname my-3 diben exp seetings.. tar uporer kono li a margin deya lagbena -Sadia */}
+               
                 <li className="mt-3">
                   <NavLink to="/dashboard/saved"><FaBookmark className="text-base"></FaBookmark> Saved Properties</NavLink>
                 </li>
