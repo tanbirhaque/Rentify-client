@@ -64,7 +64,7 @@ const Navbar = () => {
         Blogs
       </NavLink>
       <NavLink
-        to="/dashboard"
+        to="/dashboard/profile"
         className="navAfter relative font-medium text-base  text-black mx-3"
       >
         Dashboard
