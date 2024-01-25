@@ -4,8 +4,7 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MainLayout from "./MainLayout/MainLayout.jsx";
 import Home from "./MainLayout/Pages/Home/Home.jsx";
-import Login from "./MainLayout/Pages/Login/Login";
-import Register from "./MainLayout/Pages/Register/Register";
+import Register from "./MainLayout/Pages/Authentication/Register/Register.jsx";
 import Bloggrind from "./MainLayout/Pages/Blog/Bloggrind.jsx";
 import Faq from "./MainLayout/Pages/Faq/Faq.jsx";
 import ErrorPage from "./MainLayout/Pages/Error/ErrorPage.jsx";
@@ -27,6 +26,8 @@ import Profile from "./DashboardRoutes/Profile/Profile.jsx";
 import Settings from "./DashboardRoutes/Settings/Settings.jsx";
 import SavedProperties from "./DashboardRoutes/SavedProperties/SavedProperties.jsx";
 
+import Login from "./MainLayout/Pages/Authentication/Login/Login.jsx";
+import Reset from "./MainLayout/Pages/Authentication/Reset/Reset.jsx";
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/reset",
+        element: <Reset />,
       },
       {
         path: "/blogs",
@@ -78,8 +83,9 @@ const router = createBrowserRouter([
         element: <Condition></Condition>,
       },
       {
-        path: "/details",
+        path: "/details/:id",
         element: <Details></Details>,
+        loader: () => fetch(`http://localhost:5000/property`) 
       },
       {
         path: "/owners",
@@ -101,7 +107,7 @@ const router = createBrowserRouter([
   },
   {
     path: "*",
-    element: <ErrorPage></ErrorPage>,
+    element: <ErrorPage></ErrorPage>
   },
   // {
   //   path: "/testlay",
@@ -130,8 +136,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <AuthProvider>
-      <RouterProvider router={router} />
-    </AuthProvider>
+    <QueryClientProvider client={queryClient}>
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
+    </QueryClientProvider>
   </React.StrictMode>
 );

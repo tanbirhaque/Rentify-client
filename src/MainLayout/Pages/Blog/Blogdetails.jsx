@@ -171,7 +171,7 @@ const Blogdetails = () => {
                                 {/* register your input into the hook by invoking the "register" function */}
                                 <input {...register("name")}
                                     placeholder="Name*"
-                                    className=" w-full py-5 bg-[#F9F9F9] rounded-md px-2 my-4" />
+                                    className=" w-full py-5 bg-[#F9F9F9] rounded-md px-2 my-5" />
                                 {/* include validation with required or other standard HTML validation rules */}
                                 <input {...register("email", { required: true })}
                                     placeholder="Email Adress*"
@@ -179,9 +179,9 @@ const Blogdetails = () => {
                                 {/* errors will return when field validation fails  */}
                                 <input {...register("subject", { required: true })}
                                     placeholder="Website*"
-                                    className="py-5 bg-[#F9F9F9] rounded-md px-2 w-full my-3" />
+                                    className="py-5 bg-[#F9F9F9] rounded-md px-2 w-full my-4" />
                                 <textarea {...register("message", { required: true })} className="textarea bg-[#F9F9F9] h-40 w-full mt-3 mb-4" placeholder="Please enter your comment"></textarea>
-                                <div className=" my-3 flex justify-start items-center gap-3">
+                                <div className=" my-4 flex justify-start items-center gap-3">
                                     <input type="checkbox" className="checkbox" />
                                     <p className=" text-xl text-gray-400"> Save my name,email,website addres in this browser for the next time I commnet. </p>
                                 </div>

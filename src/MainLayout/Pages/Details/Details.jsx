@@ -1,20 +1,59 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLoaderData, useParams } from 'react-router-dom';
 import CommonHeading from '../../Shared/CommonHeading/CommonHeading';
 import { CiLocationOn } from 'react-icons/ci';
 import { RiCheckboxMultipleLine } from "react-icons/ri";
 import { IoMdPlay } from "react-icons/io";
 import VideoModal from '../Home/HomeComponents/Virtual Apartments/VideoModal';
 import { Rating } from '@smastrom/react-rating'
+import useAxiospublic from '../../../Hooks/useAxiospublic.jsx'
 import '@smastrom/react-rating/style.css'
 import PropertyCard from '../../Shared/PropertyCards/PropertyCard';
 import { useForm } from 'react-hook-form';
+import { useContext } from 'react';
+import { AuthContext } from '../../../Provider/AuthProvider.jsx';
+import Swal from 'sweetalert2';
 
 const Details = () => {
+    const axiospublic = useAxiospublic();
+    const { user } = useContext(AuthContext)
+    const propertys = useLoaderData();
+    const { id } = useParams();
+    const item = propertys.find(item => item._id == id)
+
+
     const {
         register,
         handleSubmit,
     } = useForm()
     const onSubmit = (data) => console.log(data)
+
+    const {
+        register: register2,
+        reset,
+        handleSubmit: handleSubmit2,
+    } = useForm()
+    const onSubmit2 = (data) => {
+        const propertyrequest = {
+            property: item.property_info,
+            requesterName: data.name,
+            requesternumber: data.number,
+            requesteremail: data.email,
+            requesterphoto: user.photoURL,
+            requestermessage: data.message,
+            family: data.family,
+            children: data.children,
+
+        }
+        axiospublic.post('/requested-properties', propertyrequest)
+            .then(res => {
+                console.log(res.data)
+                Swal.fire(`Hey ${data.name} Your Request Successfully Send`)
+            })
+        console.log(propertyrequest)
+        reset();
+    }
+
+
 
     return (
         <div>
@@ -31,7 +70,7 @@ const Details = () => {
                 </div>
             </div>
             {/* details sections starts */}
-            <div className='max-w-[1296px] mx-auto'>
+            <div className='max-w-[1296px] mx-auto mt-16'>
                 <div className='flex gap-6'>
                     <div className="main_details w-2/3">
                         <div className='mb-[30px]'>
@@ -39,7 +78,7 @@ const Details = () => {
                             <p className="flex text-[16px] text-[#666666] items-center gap-2 "><CiLocationOn className="text-[#e33226]" />4890 Grey Fox Fam Road, Houston</p>
                         </div>
                         <div>
-                            <img className='rounded-md' src="https://angular.hibootstrap.com/enuf/assets/img/property/single-property-1.jpg" alt="" />
+                            <img className='rounded-md' src={item?.property_info.property_img} alt="" />
                         </div>
                         {/* Description section */}
                         <div>
@@ -177,7 +216,37 @@ const Details = () => {
                         </div>
                     </div>
                     <div className="details_aside bg-slate-300 w-1/3">
-                        <div>this is details</div>
+                        <form onSubmit={handleSubmit2(onSubmit2)} className=' w-[90%] mx-auto'>
+                            <h2 className=' text-3xl font-bold my-5'>Book This Apartment</h2>
+                            {/* register your input into the hook by invoking the "register" function */}
+                            <input {...register2("name")}
+                                placeholder="Full Name*"
+                                className=" w-full py-5 bg-[#F9F9F9] rounded-md px-2 my-4" />
+                            {/* include validation with required or other standard HTML validation rules */}
+                            <input {...register2("number", { required: true })}
+                                placeholder="Phone number*"
+                                className="py-5 bg-[#F9F9F9] rounded-md px-2 mb-4 w-full" />
+                            <input {...register2("email", { required: true })}
+                                placeholder="Email Adress*"
+                                className="py-5 bg-[#F9F9F9] rounded-md px-2 w-full" />
+                            {/* errors will return when field validation fails  */}
+                            <select {...register2("family", { required: true })}
+                                className="select h-16 rounded-md px-2 w-full my-4">
+                                <option defaultValue={"family members"}>Family Members</option>
+                                <option value="2">2</option>
+                                <option value="4">4</option>
+                                <option value="6">6</option>
+                            </select>
+                            <select {...register2("children", { required: true })}
+                                className="select h-16 rounded-md px-2 w-full mb-4">
+                                <option defaultValue={"family members"}>Children</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                            <textarea {...register2("message", { required: true })} className="textarea bg-[#F9F9F9] h-40 w-full mt-3 mb-4" placeholder="Enter you message"></textarea>
+                            <input type="submit" value="Request Booknig" className=" rounded px-8 py-4 mt-3 bg-[#EC3323] hover:bg-[#002172] text-white mb-4" />
+                        </form>
                     </div>
                 </div>
             </div>
