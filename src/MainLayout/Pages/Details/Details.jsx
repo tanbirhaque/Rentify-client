@@ -14,11 +14,12 @@ import { AuthContext } from '../../../Provider/AuthProvider.jsx';
 import Swal from 'sweetalert2';
 
 const Details = () => {
-  const axiospublic = useAxiosPublic();
+  const axiosPublic = useAxiosPublic();
   const { user } = useContext(AuthContext)
-  const propertys = useLoaderData();
+  const properties = useLoaderData();
   const { id } = useParams();
-  const item = propertys.find(item => item._id == id)
+  const item = properties.find(item => item._id == id)
+  console.log(item);
 
 
   const {
@@ -32,6 +33,7 @@ const Details = () => {
     reset,
     handleSubmit: handleSubmit2,
   } = useForm()
+  
   const onSubmit2 = (data) => {
     const propertyrequest = {
       property: item.property_info,
@@ -44,7 +46,7 @@ const Details = () => {
       children: data.children,
 
     }
-    axiospublic.post('/requested-properties', propertyrequest)
+    axiosPublic.post('/requested-properties', propertyrequest)
       .then(res => {
         console.log(res.data)
         Swal.fire(`Hey ${data.name} Your Request Successfully Send`)
@@ -74,7 +76,7 @@ const Details = () => {
         <div className='flex gap-6'>
           <div className="main_details w-2/3">
             <div className='mb-[30px]'>
-              <h2 className='text-[32px] poppins-font mb-[12px] font-semibold text-black'>Luxury & Modern Apartment</h2>
+              <h2 className='text-[32px] poppins-font mb-[12px] font-semibold text-black'>{item.property_info.property_title}</h2>
               <p className="flex text-[16px] text-[#666666] items-center gap-2 "><CiLocationOn className="text-[#e33226]" />4890 Grey Fox Fam Road, Houston</p>
             </div>
             <div>

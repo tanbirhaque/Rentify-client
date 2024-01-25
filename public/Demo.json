@@ -1,0 +1,56 @@
+[
+    {
+        "property_info": {
+            "owner_details": {
+                "owner_name": "John Doe",
+                "owner_img": "https://i.ibb.co/FKgWFH2/mngr.jpg",
+                "owner_phone": "123-456-7890",
+                "owner_email": "johndoe@example.com",
+                "owner_profession": "Real Estate Agent",
+                "owner_address": "123 Main Street, Anytown, CA"
+            },
+            "property_details": {
+                "property_id": "123456",
+                "property_title": "Spacious 3-Bedroom Apartment in Prime Location",
+                "property_description": "Cras ultricies ligula sed magna dictum porta. Nulla quis lorem ut libero malesuada feugiat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in ipsum id orci porta dapibus. Curabitur arcu erat accumsan id imperdiet et, porttitor at sem. Curabitur arcu erat accumsan id imperdiet et porttitor. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Donec sollicitudin molestie malesuada. Nulla porttitor accumsan tincidunt. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Proin eget tortor risus. Donec rutrum congue leo eget malesuada. Pellentesque in ipsum id orci porta dapibus.",
+                "property_price": 250000,
+                "ownership_duration": "annual",
+                "property_img": "https://i.ibb.co/SPFF7v3/property-3.jpg",
+                "property_type": "apartment",
+                "property_for": "sale",
+                "property_status": "available",
+                "bedroom": 3,
+                "bath": 2,
+                "balcony": 1,
+                "garages": 1,
+                "sqf": 1500,
+                "built": "2015-01-01",
+                "floor_plans": "https://example.com/floor_plans.pdf",
+                "property_video": "https://example.com/property_video.mp4",
+                "property_features": [
+                    "balcony",
+                    "garage",
+                    "modern kitchen",
+                    "pet-friendly"
+                ],
+                "property_tags": [
+                    "spacious",
+                    "family-friendly",
+                    "near park"
+                ],
+                "property_location": {
+                    "address": {
+                        "street": "123 Main Street",
+                        "city": "Anytown",
+                        "state": "CA",
+                        "country": "USA"
+                    },
+                    "coordinate": {
+                        "latitude": 37.7749,
+                        "longitude": -122.4194
+                    }
+                }
+            }
+        }
+    }
+]
