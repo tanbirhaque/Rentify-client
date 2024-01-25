@@ -47,7 +47,7 @@ const Profile = () => {
               to="/dashboard/overview"
               className="navAfter relative font-medium text-base text-black mx-3"
             >
-              My Profile Overview
+              My Profile Overvieww
             </NavLink>
             <NavLink
               to="/blogs"
