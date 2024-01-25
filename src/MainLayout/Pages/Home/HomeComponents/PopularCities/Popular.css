@@ -1,0 +1,70 @@
+/* Code Added by Tanbir */
+
+/* Each card classes */
+.card-container .pop-card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* Optional: Other styling for the card */
+
+    /* Optional: Center the background image */
+    /* background-position: center; */
+}
+
+.card-container .pop-card .background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* background: url('../../../../../assets/Template_files/city-1.jpg'); */
+    /* background-size: cover;
+    background-repeat: no-repeat; */
+    transition: transform 0.3s linear;
+    -webkit-transition: transform 0.3s linear;
+    -moz-transition: transform 0.3s linear;
+    -ms-transition: transform 0.3s linear;
+    -o-transition: transform 0.3s linear;
+}
+
+.card-container .pop-card:hover .background-image {
+    transform: scale(1.1);
+    /* Adjust the scale factor as needed */
+}
+
+
+
+.card-container .pop-card .pop-overlay .pop-text .pop-h2 {
+    position: relative !important;
+}
+
+.card-container .pop-card .pop-overlay .pop-text .pop-h2::after {
+    content: '';
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 9999;
+}
+
+.card-container .pop-card .pop-overlay .pop-text .pop-h2::after {
+    content: '';
+    width: 0;
+    height: 2px;
+    background-color: white;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 9999;
+    transition: all linear 0.3s;
+    -webkit-transition: all linear 0.3s;
+    -moz-transition: all linear 0.3s;
+    -ms-transition: all linear 0.3s;
+    -o-transition: all linear 0.3s;
+}
+
+.card-container .pop-card .pop-overlay:hover .pop-text .pop-h2::after {
+    width: 200px;
+}

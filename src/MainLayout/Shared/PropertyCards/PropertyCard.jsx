@@ -1,30 +1,59 @@
+// List card is developed by "Konika khan" & Design Improvement by "Tanbir"
 import { Link } from "react-router-dom";
 import { IoBedOutline } from "react-icons/io5";
 import { PiBathtub } from "react-icons/pi";
 import { LuTriangleRight } from "react-icons/lu";
 import { CiLocationOn } from "react-icons/ci";
+import "./PropertyCards.css";
 
-const PropertyCard = ({ img, title, location, price }) => {
-    return (
-        <>
-            <div className="card card-compact w-96 bg-base-100 shadow-xl mx-auto">
-                <figure><img src="https://i.ibb.co/PcrrNTV/pexels-photo-1029599.jpg" alt="Shoes" /></figure>
-                <div className="card-body p-5">
-                    <div className="flex justify-between ">
-                        <button className="bg-[#e33226] rounded-md btn-one p-2 text-white">For Sale</button>
-                        <p className="text-right"><span className="text-[#002172] text-md font-semibold ">$78</span>/month</p>
-                    </div>
-                    <h2 className="card-title hover:text-[#e33226]">{title}Dreamy Penthouse</h2>
-                    <p className="flex text-lg items-center gap-2 "><CiLocationOn className="text-[#e33226]" />{location}4890 Grey Fox Fam Road, Houston</p>
-                    <div className="card-actions text-md border-gray-400  border-2 mb-5 text-md">
-                        <p className="flex items-center gap-2 border-r-2 p-2 border-gray-400"><IoBedOutline className="text-[#002172]" />60</p>
-                        <p className="flex items-center gap-2 border-r-2 p-2  border-gray-400"><PiBathtub className="text-[#002172]" />608</p>
-                        <p className="flex items-center gap-2 p-2"> <LuTriangleRight className="text-[#002172]" />608</p>
-                    </div>
-                </div>
-            </div>
-        </>
-    );
+const PropertyCard = ({ item }) => {
+  // const { property_info } = item;
+  // console.log(property_info)
+
+  return (
+    <>
+      <div className="card card-compact max-w-[414px] rounded-none bg-base-100 shadow-md mx-auto mb-1">
+        <figure className="w-full h-[294px]">
+          <img className="w-full h-full" src={item?.property_info.property_img} alt="Shoes" />
+        </figure>
+        <div className="card-body">
+          <div className="flex justify-between items-center mb-2">
+            <button className="bg-[#e33226] rounded-md btn-one py-[8px] px-[12px] text-white text-[16px]">
+              {item?.property_info.property_for}
+            </button>
+            <p className="text-right text-[#666666]">
+              <span className="text-[#002172] text-[16px] font-bold ">$78</span>
+              /month
+            </p>
+          </div>
+          <Link to={`/details/${item?._id}`}>
+            <h2 className="card-title hover:text-[#e33226] text-[22px] poppins-font  ">
+              {item?.property_info.property_title}
+            </h2>
+          </Link>
+          <p className="flex text-[16px] text-[#666666] items-center gap-2 ">
+            <CiLocationOn className="text-[#e33226]" />
+            {item?.property_info.property_location.address.street},{item?.property_info.property_location.address.city},{item?.property_info.property_location.address.country}
+          </p>
+          <div className="card-actions text-md border-[#00000016]  border mt-5 text-md">
+            <p className="flex items-center justify-center gap-2 border-r-2 p-2 border-[#00000016]">
+              <IoBedOutline className="text-[#666666]" />
+              60
+            </p>
+            <p className="flex items-center justify-center gap-2 border-r-2 p-2  border-[#00000016]">
+              <PiBathtub className="text-[#666666]" />
+              608
+            </p>
+            <p className="flex items-center justify-center gap-2 p-2">
+              {" "}
+              <LuTriangleRight className="text-[#666666]" />
+              608 sqft
+            </p>
+          </div>
+        </div>
+      </div>
+    </>
+  );
 };
 
 export default PropertyCard;

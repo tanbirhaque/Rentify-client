@@ -1,0 +1,854 @@
+[
+  {
+    "_id": 1,
+    "property_info": {
+      "owner_details": {
+        "owner_name": "John Doe",
+        "owner_img": "https://i.ibb.co/FKgWFH2/mngr.jpg",
+        "owner_phone": "123-456-7890",
+        "owner_email": "johndoe@example.com",
+        "owner_profession": "Real Estate Agent",
+        "owner_address": "123 Main Street, Anytown, CA"
+      },
+      "ownership_duration": "annual",
+      "property_for": "sale",
+      "property_status": "available",
+      "property_img": "https://i.ibb.co/SPFF7v3/property-3.jpg",
+      "property_title": "Spacious 3-Bedroom Apartment in Prime Location",
+      "property_category": "Apartment",
+      "property_details": {
+        "property_id": "123456",
+        "property_price": 250000,
+        "property_type": "apartment",
+        "property_status": "available",
+        "bedroom": 3,
+        "bath": 2,
+        "balcony": 1,
+        "garages": 1,
+        "sqf": 1500,
+        "built": "2015-01-01",
+        "floor_plans": "https://example.com/floor_plans.pdf",
+        "property_video": "https://example.com/property_video.mp4",
+        "property_features": [
+          "balcony",
+          "garage",
+          "modern kitchen",
+          "pet-friendly"
+        ],
+        "property_tags": [
+          "spacious",
+          "family-friendly",
+          "near park"
+        ]
+      },
+      "property_location": {
+        "address": {
+          "street": "123 Main Street",
+          "city": "Anytown",
+          "state": "CA",
+          "country": "USA"
+        },
+        "coordinate": {
+          "latitude": 37.7749,
+          "longitude": -122.4194
+        }
+      }
+    }
+  },
+  {
+    "_id": 2,
+    "property_info": {
+      "owner_details": {
+        "owner_name": "Maria Gonzales",
+        "owner_img": "https://i.ibb.co/FKgWFH2/mngr.jpg",
+        "owner_phone": "+8801712345678",
+        "owner_email": "mariag@example.com",
+        "owner_profession": "Architect",
+        "owner_address": "House 25, Road 13/A, Dhanmondi, Dhaka"
+      },
+      "ownership_duration": "monthly",
+      "property_for": "rent",
+      "property_status": "available",
+      "property_img": "https://i.ibb.co/f299pz6/property-4.jpg",
+      "property_title": "Luxurious Penthouse with Panoramic Views",
+      "property_category": "Apartment",
+      "property_details": {
+        "property_id": "7891011",
+        "property_price": 55000,
+        "property_type": "apartment",
+        "property_status": "available",
+        "bedroom": 2,
+        "bath": 2.5,
+        "balcony": 2,
+        "garages": 0,
+        "sqf": 1200,
+        "built": "2022-01-01",
+        "floor_plans": "https://example.com/penthouse_plans.pdf",
+        "property_video": "https://example.com/penthouse_virtual_tour.mp4",
+        "property_features": [
+          "rooftop terrace",
+          "gym",
+          "pool",
+          "security"
+        ],
+        "property_tags": [
+          "luxury",
+          "modern",
+          "city views"
+        ]
+      },
+      "property_location": {
+        "address": {
+          "street": "House 25, Road 13/A",
+          "city": "Dhaka",
+          "state": "Dhaka",
+          "country": "Bangladesh"
+        },
+        "coordinate": {
+          "latitude": 23.7454,
+          "longitude": 90.3773
+        }
+      }
+    }
+  },
+  {
+    "_id": 3,
+    "property_info": {
+      "owner_details": {
+        "owner_name": "Emily Chen",
+        "owner_img": "https://i.ibb.co/FKgWFH2/mngr.jpg",
+        "owner_phone": "+442071234567",
+        "owner_email": "emilychen@example.com",
+        "owner_profession": "Web Developer",
+        "owner_address": "Flat 9A, Kensington Gardens, London"
+      },
+      "ownership_duration": "lifetime",
+      "property_for": "holiday rental",
+      "property_status": "available",
+      "property_img": "https://i.ibb.co/R4dVyMq/property-5.jpg",
+      "property_title": "Cozy Cottage Escape in Picturesque Village",
+      "property_category": "Commercial",
+      "property_details": {
+        "property_id": "2468135",
+        "property_price": 1800,
+        "property_type": "Commercial",
+        "property_status": "available",
+        "bedroom": 2,
+        "bath": 1,
+        "balcony": 0,
+        "garages": 0,
+        "sqf": 800,
+        "built": "1850",
+        "floor_plans": "https://example.com/cottage_layout.pdf",
+        "property_video": "https://example.com/cottage_drone_tour.mp4",
+        "property_features": [
+          "fireplace",
+          "garden",
+          "pet-friendly",
+          "walking distance to village"
+        ],
+        "property_tags": [
+          "charming",
+          "rustic",
+          "countryside",
+          "family-friendly"
+        ]
+      },
+      "property_location": {
+        "address": {
+          "street": "Rose Lane, Little Elmhurst",
+          "city": "Bath",
+          "state": "Somerset",
+          "country": "UK"
+        },
+        "coordinate": {
+          "latitude": 51.3800,
+          "longitude": -2.3500
+        }
+      }
+    }
+  },
+  {
+    "_id": 4,
+    "property_info": {
+      "owner_details": {
+        "owner_name": "Antonio Rossi",
+        "owner_img": "https://i.ibb.co/FKgWFH2/mngr.jpg",
+        "owner_phone": "+393357891234",
+        "owner_email": "antonio.rossi@example.com",
+        "owner_profession": "Restaurateur",
+        "owner_address": "Via Cavour 12, Siena, Italy"
+      },
+      "ownership_duration": "3 years",
+      "property_for": "sale",
+      "property_status": "available",
+      "property_img": "https://i.ibb.co/Xpyp57D/property-6.jpg",
+      "property_title": "Sun-Kissed Vineyard Estate with Breathtaking Views",
+      "property_category": "Commercial",
+      "property_details": {
+        "property_id": "9531702",
+        "property_price": 1800000,
+        "property_type": "Commercial",
+        "property_status": "available",
+        "bedroom": 5,
+        "bath": 4,
+        "balcony": 5,
+        "garages": 2,
+        "sqf": 3500,
+        "built": "1780",
+        "floor_plans": "https://example.com/vineyard_estate_plans.pdf",
+        "property_video": "https://example.com/vineyard_estate_aerial_tour.mp4",
+        "property_features": [
+          "swimming pool",
+          "wine cellar",
+          "olive grove",
+          "panoramic views"
+        ],
+        "property_tags": [
+          "historic",
+          "luxury",
+          "tranquil",
+          "wine lover's dream"
+        ]
+      },
+      "property_location": {
+        "address": {
+          "street": "Strada Provinciale 142",
+          "city": "Siena",
+          "state": "Tuscany",
+          "country": "Italy"
+        },
+        "coordinate": {
+          "latitude": 43.1031,
+          "longitude": 11.3296
+        }
+      }
+    }
+  },
+  {
+    "_id": 5,
+    "property_info": {
+      "owner_details": {
+        "owner_name": "Ryan Turner",
+        "owner_img": "https://i.ibb.co/QK62M4R/2534640005-0180.jpg",
+        "owner_phone": "+12025551234",
+        "owner_email": "ryan.turner@example.com",
+        "owner_profession": "Financial Analyst",
+        "owner_address": "789 Financial Avenue, New York, USA"
+      },
+      "ownership_duration": "2 years",
+      "property_for": "rent",
+      "property_status": "available",
+      "property_img": "https://i.ibb.co/mRHPsfW/property-7.jpg",
+      "property_title": "Modern City Living - Stylish Apartment with Stunning Views",
+      "property_category": "Commercial",
+      "property_details": {
+        "property_id": "7845931",
+        "property_price": 2500,
+        "property_type": "Commercial",
+        "property_status": "available",
+        "bedroom": 2,
+        "bath": 2,
+        "balcony": 1,
+        "garages": 1,
+        "sqf": 1200,
+        "built": "2019",
+        "floor_plans": "https://example.com/modern_apartment_plans.pdf",
+        "property_video": "https://example.com/modern_apartment_virtual_tour.mp4",
+        "property_features": [
+          "modern design",
+          "city views",
+          "smart home technology",
+          "fitness center"
+        ],
+        "property_tags": [
+          "contemporary",
+          "urban",
+          "luxurious",
+          "prime location"
+        ]
+      },
+      "property_location": {
+        "address": {
+          "street": "Carrer de Mallorca",
+          "city": "Barcelona",
+          "state": "Catalonia",
+          "country": "Spain"
+        },
+        "coordinate": {
+          "latitude": 41.3914,
+          "longitude": 2.1626
+        }
+      }
+    }
+  },
+  {
+    "_id": 6,
+    "property_info": {
+      "owner_details": {
+        "owner_name": "Jonathan Williams",
+        "owner_img": "https://i.ibb.co/sq9tPxG/354532614-767002068457249-6958184937120843382-n.jpg",
+        "owner_phone": "+15551234567",
+        "owner_email": "jonathan.williams@example.com",
+        "owner_profession": "Real Estate Developer",
+        "owner_address": "123 Luxe Lane, Beverly Hills, USA"
+      },
+      "ownership_duration": "5 years",
+      "property_for": "sale",
+      "property_status": "available",
+      "property_img": "https://i.ibb.co/60BKPrQ/property-9.jpg",
+      "property_title": "Luxurious Mansion with Private Pool and Spectacular Gardens",
+      "property_category": "Apartment",
+      "property_details": {
+        "property_id": "6543210",
+        "property_price": 12000000,
+        "property_type": "Apartment",
+        "property_status": "available",
+        "bedroom": 8,
+        "bath": 10,
+        "balcony": 3,
+        "garages": 4,
+        "sqf": 15000,
+        "built": "2010",
+        "floor_plans": "https://example.com/luxury_mansion_plans.pdf",
+        "property_video": "https://example.com/luxury_mansion_virtual_tour.mp4",
+        "property_features": [
+          "private pool",
+          "home theater",
+          "sauna",
+          "beautiful gardens"
+        ],
+        "property_tags": [
+          "opulent",
+          "exclusive",
+          "private retreat",
+          "luxury living"
+        ]
+      },
+      "property_location": {
+        "address": {
+          "street": "Sunset Boulevard",
+          "city": "Beverly Hills",
+          "state": "California",
+          "country": "USA"
+        },
+        "coordinate": {
+          "latitude": 34.0952,
+          "longitude": -118.4074
+        }
+      }
+    }
+  },
+  {
+    "_id": 7,
+    "property_info": {
+      "owner_details": {
+        "owner_name": "Olivia Chen",
+        "owner_img": "https://i.ibb.co/SJ1MbTZ/nathan-fertig-5-EIW3-DDX6dw-unsplash.jpg",
+        "owner_phone": "+861234567890",
+        "owner_email": "olivia.chen@example.com",
+        "owner_profession": "Tech Entrepreneur",
+        "owner_address": "456 Tech Boulevard, Beijing, China"
+      },
+      "ownership_duration": "3 years",
+      "property_for": "sale",
+      "property_status": "available",
+      "property_img": "https://i.ibb.co/6s0Z9bx/property-10.jpg",
+      "property_title": "Modern Urban Residence with Smart Home Features",
+      "property_category": "Residential",
+      "property_details": {
+        "property_id": "8765432",
+        "property_price": 2800000,
+        "property_type": "House",
+        "property_status": "available",
+        "bedroom": 4,
+        "bath": 3,
+        "balcony": 2,
+        "garages": 2,
+        "sqf": 3000,
+        "built": "2017",
+        "floor_plans": "https://example.com/urban_residence_plans.pdf",
+        "property_video": "https://example.com/urban_residence_virtual_tour.mp4",
+        "property_features": [
+          "smart home technology",
+          "minimalist design",
+          "private garden"
+        ],
+        "property_tags": [
+          "tech-savvy",
+          "modern",
+          "urban oasis",
+          "high-tech living"
+        ]
+      },
+      "property_location": {
+        "address": {
+          "street": "Silicon Street",
+          "city": "Beijing",
+          "state": "Beijing",
+          "country": "China"
+        },
+        "coordinate": {
+          "latitude": 39.9042,
+          "longitude": 116.4074
+        }
+      }
+    }
+  },
+  {
+    "_id": 8,
+    "property_info": {
+      "owner_details": {
+        "owner_name": "Jonathan Williams",
+        "owner_img": "https://i.ibb.co/sq9tPxG/354532614-767002068457249-6958184937120843382-n.jpg",
+        "owner_phone": "+15551234567",
+        "owner_email": "jonathan.williams@example.com",
+        "owner_profession": "Real Estate Developer",
+        "owner_address": "123 Luxe Lane, Beverly Hills, USA"
+      },
+      "ownership_duration": "2 years",
+      "property_for": "rent",
+      "property_status": "available",
+      "property_img": "https://i.ibb.co/h22V0qx/property-12.jpg",
+      "property_title": "Beachfront Villa with Private Access to the Ocean",
+      "property_category": "Residential",
+      "property_details": {
+        "property_id": "7654321",
+        "property_price": 4500,
+        "property_type": "Villa",
+        "property_status": "available",
+        "bedroom": 6,
+        "bath": 5,
+        "balcony": 3,
+        "garages": 2,
+        "sqf": 4000,
+        "built": "2015",
+        "floor_plans": "https://example.com/beachfront_villa_plans.pdf",
+        "property_video": "https://example.com/beachfront_villa_virtual_tour.mp4",
+        "property_features": [
+          "private beach access",
+          "oceanfront views",
+          "infinity pool",
+          "sun deck"
+        ],
+        "property_tags": [
+          "luxurious",
+          "beachfront",
+          "tropical paradise",
+          "seaside living"
+        ]
+      },
+      "property_location": {
+        "address": {
+          "street": "Ocean Drive",
+          "city": "Cape Town",
+          "state": "Western Cape",
+          "country": "South Africa"
+        },
+        "coordinate": {
+          "latitude": -33.918861,
+          "longitude": 18.423300
+        }
+      }
+    }
+  },
+  {
+    "_id": 9,
+    "property_info": {
+      "owner_details": {
+        "owner_name": "Ava Thompson",
+        "owner_img": "https://i.ibb.co/dD802Xh/albert-dera-ILip77-Sbm-OE-unsplash.jpg",
+        "owner_phone": "+12015551234",
+        "owner_email": "ava.thompson@example.com",
+        "owner_profession": "Event Planner",
+        "owner_address": "567 Garden Avenue, Sydney, Australia"
+      },
+      "ownership_duration": "3 years",
+      "property_for": "sale",
+      "property_status": "available",
+      "property_img": "https://i.ibb.co/NW9gs87/property-13.jpg",
+      "property_title": "Modern Penthouse with Sweeping City Views",
+      "property_category": "Residential",
+      "property_details": {
+        "property_id": "5432109",
+        "property_price": 3000000,
+        "property_type": "Penthouse",
+        "property_status": "available",
+        "bedroom": 3,
+        "bath": 3,
+        "balcony": 2,
+        "garages": 2,
+        "sqf": 2500,
+        "built": "2018",
+        "floor_plans": "https://example.com/modern_penthouse_plans.pdf",
+        "property_video": "https://example.com/modern_penthouse_virtual_tour.mp4",
+        "property_features": [
+          "floor-to-ceiling windows",
+          "private terrace",
+          "modern kitchen",
+          "skyline views"
+        ],
+        "property_tags": [
+          "luxury living",
+          "urban escape",
+          "contemporary",
+          "city lights"
+        ]
+      },
+      "property_location": {
+        "address": {
+          "street": "Skyrise Boulevard",
+          "city": "Sydney",
+          "state": "New South Wales",
+          "country": "Australia"
+        },
+        "coordinate": {
+          "latitude": -33.8688,
+          "longitude": 151.2093
+        }
+      }
+    }
+  },
+  {
+    "_id": 10,
+    "property_info": {
+      "owner_details": {
+        "owner_name": "Jonathan Williams",
+        "owner_img": "https://i.ibb.co/sq9tPxG/354532614-767002068457249-6958184937120843382-n.jpg",
+        "owner_phone": "+15551234567",
+        "owner_email": "jonathan.williams@example.com",
+        "owner_profession": "Real Estate Developer",
+        "owner_address": "123 Luxe Lane, Beverly Hills, USA"
+      },
+      "ownership_duration": "4 years",
+      "property_for": "rent",
+      "property_status": "available",
+      "property_img": "https://i.ibb.co/NW9gs87/property-13.jpg",
+      "property_title": "Stylish Urban Loft with Industrial Chic Vibes",
+      "property_category": "Residential",
+      "property_details": {
+        "property_id": "4321098",
+        "property_price": 2000,
+        "property_type": "Loft",
+        "property_status": "available",
+        "bedroom": 1,
+        "bath": 1,
+        "balcony": 0,
+        "garages": 1,
+        "sqf": 1000,
+        "built": "2016",
+        "floor_plans": "https://example.com/urban_loft_plans.pdf",
+        "property_video": "https://example.com/urban_loft_virtual_tour.mp4",
+        "property_features": [
+          "open-concept design",
+          "exposed brick walls",
+          "industrial lighting",
+          "modern amenities"
+        ],
+        "property_tags": [
+          "chic living",
+          "urban style",
+          "industrial vibes",
+          "creative space"
+        ]
+      },
+      "property_location": {
+        "address": {
+          "street": "Artsy Avenue",
+          "city": "Mexico City",
+          "state": "Federal District",
+          "country": "Mexico"
+        },
+        "coordinate": {
+          "latitude": 19.4326,
+          "longitude": -99.1332
+        }
+      }
+    }
+  },
+  {
+    "_id": 11,
+    "property_info": {
+      "owner_details": {
+        "owner_name": "Ava Thompson",
+        "owner_img": "https://i.ibb.co/dD802Xh/albert-dera-ILip77-Sbm-OE-unsplash.jpg",
+        "owner_phone": "+12015551234",
+        "owner_email": "ava.thompson@example.com",
+        "owner_profession": "Event Planner",
+        "owner_address": "567 Garden Avenue, Sydney, Australia"
+      },
+      "ownership_duration": "5 years",
+      "property_for": "sale",
+      "property_status": "available",
+      "property_img": "https://i.ibb.co/ZSVdCjK/property-14.jpg",
+      "property_title": "Artistic Residence with Studio and Gallery Space",
+      "property_category": "Residential",
+      "property_details": {
+        "property_id": "3210987",
+        "property_price": 2800000,
+        "property_type": "Residence",
+        "property_status": "available",
+        "bedroom": 3,
+        "bath": 2,
+        "balcony": 1,
+        "garages": 2,
+        "sqf": 2000,
+        "built": "1920",
+        "floor_plans": "https://example.com/artistic_residence_plans.pdf",
+        "property_video": "https://example.com/artistic_residence_virtual_tour.mp4",
+        "property_features": [
+          "artist's studio",
+          "gallery space",
+          "vaulted ceilings",
+          "art-inspired decor"
+        ],
+        "property_tags": [
+          "creative living",
+          "artistic ambiance",
+          "historical",
+          "cultural retreat"
+        ]
+      },
+      "property_location": {
+        "address": {
+          "street": "Artistry Street",
+          "city": "Florence",
+          "state": "Tuscany",
+          "country": "Italy"
+        },
+        "coordinate": {
+          "latitude": 43.7696,
+          "longitude": 11.2558
+        }
+      }
+    }
+  },
+  {
+    "_id": 12,
+    "property_info": {
+      "owner_details": {
+        "owner_name": "Ryan Turner",
+        "owner_img": "https://i.ibb.co/QK62M4R/2534640005-0180.jpg",
+        "owner_phone": "+12025551234",
+        "owner_email": "ryan.turner@example.com",
+        "owner_profession": "Financial Analyst",
+        "owner_address": "789 Financial Avenue, New York, USA"
+      },
+      "ownership_duration": "3 years",
+      "property_for": "rent",
+      "property_status": "available",
+      "property_img": "https://i.ibb.co/VtrFsM7/property-17.jpg",
+      "property_title": "Modern Townhouse with Rooftop Terrace and Smart Home Integration",
+      "property_category": "Residential",
+      "property_details": {
+        "property_id": "8765432",
+        "property_price": 4500,
+        "property_type": "Townhouse",
+        "property_status": "available",
+        "bedroom": 4,
+        "bath": 3,
+        "balcony": 1,
+        "garages": 2,
+        "sqf": 2800,
+        "built": "2016",
+        "floor_plans": "https://example.com/modern_townhouse_plans.pdf",
+        "property_video": "https://example.com/modern_townhouse_virtual_tour.mp4",
+        "property_features": [
+          "rooftop terrace",
+          "smart home integration",
+          "modern kitchen",
+          "spacious living areas"
+        ],
+        "property_tags": [
+          "tech-friendly",
+          "urban chic",
+          "contemporary",
+          "city living"
+        ]
+      },
+      "property_location": {
+        "address": {
+          "street": "Innovation Street",
+          "city": "San Francisco",
+          "state": "California",
+          "country": "USA"
+        },
+        "coordinate": {
+          "latitude": 37.7749,
+          "longitude": -122.4194
+        }
+      }
+    }
+  },
+  {
+    "_id": 13,
+    "property_info": {
+      "owner_details": {
+        "owner_name": "Jonathan Williams",
+        "owner_img": "https://i.ibb.co/sq9tPxG/354532614-767002068457249-6958184937120843382-n.jpg",
+        "owner_phone": "+15551234567",
+        "owner_email": "jonathan.williams@example.com",
+        "owner_profession": "Real Estate Developer",
+        "owner_address": "123 Luxe Lane, Beverly Hills, USA"
+      },
+      "ownership_duration": "2 years",
+      "property_for": "sale",
+      "property_status": "available",
+      "property_img": "https://i.ibb.co/VMBL82G/property-18.jpg",
+      "property_title": "Culinary Home with Professional Kitchen and Vineyard Views",
+      "property_category": "Residential",
+      "property_details": {
+        "property_id": "5678901",
+        "property_price": 3200000,
+        "property_type": "House",
+        "property_status": "available",
+        "bedroom": 5,
+        "bath": 4,
+        "balcony": 2,
+        "garages": 3,
+        "sqf": 3500,
+        "built": "2014",
+        "floor_plans": "https://example.com/culinary_home_plans.pdf",
+        "property_video": "https://example.com/culinary_home_virtual_tour.mp4",
+        "property_features": [
+          "professional kitchen",
+          "vineyard views",
+          "gourmet dining space",
+          "outdoor kitchen"
+        ],
+        "property_tags": [
+          "culinary haven",
+          "luxurious",
+          "vineyard living",
+          "chef's dream"
+        ]
+      },
+      "property_location": {
+        "address": {
+          "street": "Gastronomy Lane",
+          "city": "Barcelona",
+          "state": "Catalonia",
+          "country": "Spain"
+        },
+        "coordinate": {
+          "latitude": 41.3851,
+          "longitude": 2.1734
+        }
+      }
+    }
+  },
+  {
+    "_id": 14,
+    "property_info": {
+      "owner_details": {
+        "owner_name": "Ryan Turner",
+        "owner_img": "https://i.ibb.co/QK62M4R/2534640005-0180.jpg",
+        "owner_phone": "+12025551234",
+        "owner_email": "ryan.turner@example.com",
+        "owner_profession": "Financial Analyst",
+        "owner_address": "789 Financial Avenue, New York, USA"
+      },
+      "ownership_duration": "4 years",
+      "property_for": "rent",
+      "property_status": "available",
+      "property_img": "https://i.ibb.co/BP75wPF/property-19.jpg",
+      "property_title": "Luxury Apartment with Skyline Views and Private Spa",
+      "property_category": "Residential",
+      "property_details": {
+        "property_id": "6789012",
+        "property_price": 6000,
+        "property_type": "Apartment",
+        "property_status": "available",
+        "bedroom": 3,
+        "bath": 3,
+        "balcony": 1,
+        "garages": 2,
+        "sqf": 2800,
+        "built": "2015",
+        "floor_plans": "https://example.com/luxury_apartment_plans.pdf",
+        "property_video": "https://example.com/luxury_apartment_virtual_tour.mp4",
+        "property_features": [
+          "private spa",
+          "floor-to-ceiling windows",
+          "modern furnishings",
+          "concierge services"
+        ],
+        "property_tags": [
+          "high-end living",
+          "urban luxury",
+          "cityscape views",
+          "modern elegance"
+        ]
+      },
+      "property_location": {
+        "address": {
+          "street": "Skyscraper Street",
+          "city": "New York",
+          "state": "New York",
+          "country": "USA"
+        },
+        "coordinate": {
+          "latitude": 40.7128,
+          "longitude": -74.0060
+        }
+      }
+    }
+  },
+  {
+    "_id": 15,
+    "property_info": {
+      "owner_details": {
+        "owner_name": "Ryan Turner",
+        "owner_img": "https://i.ibb.co/QK62M4R/2534640005-0180.jpg",
+        "owner_phone": "+12025551234",
+        "owner_email": "ryan.turner@example.com",
+        "owner_profession": "Financial Analyst",
+        "owner_address": "789 Financial Avenue, New York, USA"
+      },
+      "ownership_duration": "3 years",
+      "property_for": "sale",
+      "property_status": "available",
+      "property_img": "https://i.ibb.co/WfGQH3W/property-23.jpg",
+      "property_title": "Tropical Villa with Private Beachfront and Infinity Pool",
+      "property_category": "Apartment",
+      "property_details": {
+        "property_id": "7890123",
+        "property_price": 4000000,
+        "property_type": "Apartment",
+        "property_status": "available",
+        "bedroom": 4,
+        "bath": 5,
+        "balcony": 2,
+        "garages": 2,
+        "sqf": 4500,
+        "built": "2016",
+        "floor_plans": "https://example.com/tropical_villa_plans.pdf",
+        "property_video": "https://example.com/tropical_villa_virtual_tour.mp4",
+        "property_features": [
+          "private beachfront",
+          "infinity pool",
+          "tropical gardens",
+          "outdoor lounge"
+        ],
+        "property_tags": [
+          "tropical paradise",
+          "beachfront living",
+          "luxurious retreat",
+          "seaside escape"
+        ]
+      },
+      "property_location": {
+        "address": {
+          "street": "Palms Boulevard",
+          "city": "Rio de Janeiro",
+          "state": "Rio de Janeiro",
+          "country": "Brazil"
+        },
+        "coordinate": {
+          "latitude": -22.9068,
+          "longitude": -43.1729
+        }
+      }
+    }
+  }
+]

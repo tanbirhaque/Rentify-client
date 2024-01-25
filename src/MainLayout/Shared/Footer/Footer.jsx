@@ -6,11 +6,11 @@ const Footer = () => {
           <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
             <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
               <img
-                className="w-[60px] h-[60px] rounded-full   "
-                src="https://i.ibb.co/jymRcVn/413339641-1359129788096517-9050509765731491679-n.png"
-                alt=""
+                className="mr-3"
+                src="https://i.ibb.co/GsQpf2D/logo.png"
+                alt="Website Logo Png from imgbb"
               />
-              <span className="font-bold md:text-2xl text-xl">
+              <span className="font-bold poppins-font text-[38px]">
                 Renti<span className="text-[#002172]">fy</span>
               </span>
             </a>
@@ -131,15 +131,15 @@ const Footer = () => {
         </div>
         <div className="bg-gray-100">
           <div className="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
-            <p className="text-gray-500 text-sm text-center sm:text-left font-semibold">
+            <p className="text-black text-sm text-center sm:text-left font-semibold">
               © 2024 Rentify —
               <a
                 href="https://twitter.com/knyttneve"
                 rel="noopener noreferrer"
-                className="text-gray-600 ml-1"
+                className="text-black ml-1"
                 target="_blank"
               >
-               All rights reserved at <span className="text-[#002172] font-bold">@rentify.com</span>
+               All rights reserved at <span className="text-black font-bold">@rentify.com</span>
               </a>
             </p>
             <span className="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">

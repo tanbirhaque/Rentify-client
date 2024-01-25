@@ -1,0 +1,98 @@
+[
+  {
+    "_id": "1",
+    "img": "https://i.ibb.co/d6bJrVR/client-1.jpg",
+    "name": "Robert Muller",
+    "title": "Software Engineer",
+    "description": "Experienced software engineer with a passion for creating innovative solutions.Experienced software engineer with a passion for creating innovative solutions.",
+    "rating": 4.5
+  },
+  {
+    "_id": "2",
+    "img": "https://i.ibb.co/QK3Gsr7/client-2.jpg",
+    "name": "Mark Owen",
+    "title": "Graphic Designer",
+    "description": "Creative graphic designer specializing in branding and visual communication.Creative graphic designer specializing in branding and visual communication.",
+    "rating": 4.2
+  },
+  {
+    "_id": "3",
+    "img": "https://i.ibb.co/68S6G6b/client-3.jpg",
+    "name": "Alexandar Mason",
+    "title": "Marketing Specialist",
+    "description": "Results-driven marketing specialist with expertise in digital and social media marketing.Results-driven marketing specialist with expertise in digital and social media marketing.",
+    "rating": 4.8
+  },
+  {
+    "_id": "4",
+    "img": "https://i.ibb.co/S6WvFmr/client-4.jpg",
+    "name": "David Watson",
+    "title": "Data Scientist",
+    "description": "Data scientist with a strong background in machine learning and predictive analytics.Data scientist with a strong background in machine learning and predictive analytics.",
+    "rating": 4.6
+  },
+  {
+    "_id": "5",
+    "img": "https://i.ibb.co/m6by4Dm/client-5.jpg",
+    "name": "Tom Haris",
+    "title": "Financial Analyst",
+    "description": "Detail-oriented financial analyst with expertise in budgeting and financial modeling.Detail-oriented financial analyst with expertise in budgeting and financial modeling.",
+    "rating": 4.4
+  },
+  {
+    "_id": "6",
+    "img": "https://i.ibb.co/kcYYHWV/client-6.jpg",
+    "name": "Chris Jackson",
+    "title": "UX/UI Designer",
+    "description": "Passionate UX/UI designer focused on creating seamless and user-friendly digital experiences.Passionate UX/UI designer focused on creating seamless and user-friendly digital experiences.",
+    "rating": 4.7
+  },
+  {
+    "_id": "2",
+    "img": "https://i.ibb.co/QK3Gsr7/client-2.jpg",
+    "name": "Mark Owen",
+    "title": "Graphic Designer",
+    "description": "Creative graphic designer specializing in branding and visual communication.Creative graphic designer specializing in branding and visual communication.",
+    "rating": 4.2
+  },
+  {
+    "_id": "1",
+    "img": "https://i.ibb.co/d6bJrVR/client-1.jpg",
+    "name": "Robert Muller",
+    "title": "Software Engineer",
+    "description": "Experienced software engineer with a passion for creating innovative solutions.Experienced software engineer with a passion for creating innovative solutions.",
+    "rating": 4.5
+  },
+  {
+    "_id": "4",
+    "img": "https://i.ibb.co/S6WvFmr/client-4.jpg",
+    "name": "David Watson",
+    "title": "Data Scientist",
+    "description": "Data scientist with a strong background in machine learning and predictive analytics.Data scientist with a strong background in machine learning and predictive analytics.",
+    "rating": 4.6
+  },
+  {
+    "_id": "3",
+    "img": "https://i.ibb.co/68S6G6b/client-3.jpg",
+    "name": "Alexandar Mason",
+    "title": "Marketing Specialist",
+    "description": "Results-driven marketing specialist with expertise in digital and social media marketing.Results-driven marketing specialist with expertise in digital and social media marketing.",
+    "rating": 4.8
+  },
+  {
+    "_id": "6",
+    "img": "https://i.ibb.co/kcYYHWV/client-6.jpg",
+    "name": "Chris Jackson",
+    "title": "UX/UI Designer",
+    "description": "Passionate UX/UI designer focused on creating seamless and user-friendly digital experiences.Passionate UX/UI designer focused on creating seamless and user-friendly digital experiences.",
+    "rating": 4.7
+  },
+  {
+    "_id": "5",
+    "img": "https://i.ibb.co/m6by4Dm/client-5.jpg",
+    "name": "Tom Haris",
+    "title": "Financial Analyst",
+    "description": "Detail-oriented financial analyst with expertise in budgeting and financial modeling.Detail-oriented financial analyst with expertise in budgeting and financial modeling.",
+    "rating": 4.4
+  }
+]
