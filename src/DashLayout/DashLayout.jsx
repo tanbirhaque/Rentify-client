@@ -6,6 +6,7 @@ import { RiHomeOfficeFill } from "react-icons/ri";
 import { CgProfile } from "react-icons/cg";
 import { IoIosSettings } from "react-icons/io";
 import { FaBookmark, FaUserCircle } from "react-icons/fa";
+import { IoAddCircleSharp } from "react-icons/io5";
 
 const DashLayout = () => {
   // const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -30,7 +31,7 @@ const DashLayout = () => {
         >
           <div className="w-64  min-h-screen ">
             <ul className="menu p-4">
-              <>
+              <> 9
                 <div className="flex justify-center items-center ">
                   <span className="mr-2 text-xl">
                     {" "}
@@ -47,7 +48,7 @@ const DashLayout = () => {
                   <NavLink to="/dashboard/saved"><FaBookmark className="text-base"></FaBookmark> Saved Properties</NavLink>
                 </li>
                 <li className="my-3">
-                  <NavLink to="/dashboard/add"><FaBookmark className="text-base"></FaBookmark> Add Properties</NavLink>
+                  <NavLink to="/dashboard/add"><IoAddCircleSharp className="text-xl"></IoAddCircleSharp> Add Properties</NavLink>
                 </li>
               </>
 
