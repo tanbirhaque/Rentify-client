@@ -5,17 +5,27 @@ import { AuthContext } from "../../Provider/AuthProvider";
 const AddProperties = () => {
 
     const {user} = useContext(AuthContext)
-    const handleAddJob = (e) => {
+    const handleAddProperty = (e) => {
         e.preventDefault();
         const form = e.target;
-        const email = form.email.value;
-        const job = form.job.value;
-        const deadline = form.deadline.value;
-        const description = form.description.value;
-        const maxprice = form.maxprice.value;
-        const minprice = form.minprice.value;
-        const category = form.category.value;
+        const property = form.property.value;
+        const rooms = form.rooms.value;
+        const beds = form.beds.value;
+        const baths = form.baths.value;
+        const price = form.price.value;
+        // const minprice = form.minprice.value;
+        const status = form.status.value;
     
+        const newProperty = {
+           property,
+           status,
+           price,
+           rooms,
+           beds,
+           baths
+          };
+
+          console.log(newProperty)
         
         };
 
@@ -33,20 +43,20 @@ const AddProperties = () => {
             </div>
           </div>
           <hr className="mb-5"></hr>
-          <form className="px-4" onSubmit={handleAddJob}>
-          {/* form email and job row */}
+          <form className="px-4" onSubmit={handleAddProperty}>
+      
           <div className="md:grid grid-cols-3 gap-4 mb-8">
             <div className="form-control    ">
               <label className="label ">
-                <span className="label-text ">Email</span>
+                <span className="label-text text-lg font-semibold">Property Type</span>
               </label>
               <label className="input-group ">
                 <input
-                  defaultValue={user?.email}
-                  readOnly
-                  type="email"
-                  placeholder="Place Your Email"
-                  name="email"
+                 
+                
+                  type="text"
+                  placeholder="Office,Villa,Apartment"
+                  name="property"
                   className="input form-border input-bordered w-full"
                 />
               </label>
@@ -54,45 +64,104 @@ const AddProperties = () => {
 
             <div className="form-control w-full  ">
               <label className="label">
-                <span className="label-text">Category</span>
+                <span className="label-text text-lg font-semibold">Property Status</span>
               </label>
               <label className="">
                 <select
-                  name="category"
+                  name="status"
                   required
                   className="select select-bordered w-full"
                 >
-                  <option value="" disabled selected>
-                    Select a category
-                  </option>
-                  <option value="Web Development">Web Development</option>
-                  <option value="Graphics Design"> Graphics Design</option>
-                  <option value="Digital Marketing">Digital Marketing</option>
+                  
+                  <option value="For Rent">For Rent</option>
+                  <option value="For Sale">For Sale</option>
+                  
                 </select>
               </label>
             </div>
          
-            <div className="form-control w-full  ">
-              <label className="label">
-                <span className="label-text">Category</span>
+            <div className="form-control    ">
+              <label className="label ">
+                <span className="label-text text-lg font-semibold">Property Price</span>
               </label>
-              <label className="">
-                <select
-                  name="category"
-                  required
-                  className="select select-bordered w-full"
-                >
-                  <option value="" disabled selected>
-                    Select a category
-                  </option>
-                  <option value="Web Development">Web Development</option>
-                  <option value="Graphics Design"> Graphics Design</option>
-                  <option value="Digital Marketing">Digital Marketing</option>
-                </select>
+              <label className="input-group ">
+                <input
+                 
+                
+                  type="number"
+                  placeholder="$2800"
+                  name="price"
+                  className="input form-border input-bordered w-full"
+                />
               </label>
             </div>
           </div>
+     <div className="md:grid grid-cols-3 gap-4 mb-8">
+     <div className="form-control w-full  ">
+              <label className="label">
+                <span className="label-text text-lg font-semibold">Max Rooms</span>
+              </label>
+              <label className="">
+                <select
+                  name="rooms"
+                  required
+                  className="select select-bordered w-full"
+                >
+                  
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  
+                </select>
+              </label>
+            </div>
+     <div className="form-control w-full  ">
+              <label className="label">
+                <span className="label-text text-lg font-semibold">Beds</span>
+              </label>
+              <label className="">
+                <select
+                  name="beds"
+                  required
+                  className="select select-bordered w-full"
+                >
+                  
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  
+                </select>
+              </label>
+            </div>
+     <div className="form-control w-full  ">
+              <label className="label">
+                <span className="label-text text-lg font-semibold">Baths</span>
+              </label>
+              <label className="">
+                <select
+                  name="baths"
+                  required
+                  className="select select-bordered w-full"
+                >
+                  
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  
+                </select>
+              </label>
+            </div>
      
+     </div>
 
          
          
