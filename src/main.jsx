@@ -84,7 +84,7 @@ const router = createBrowserRouter([
       {
         path: "/details/:id",
         element: <Details></Details>,
-        loader: () => fetch(`http://localhost:5000/property`) 
+        loader: () => fetch(`http://localhost:5000/properties`),
       },
       {
         path: "/owners",
@@ -106,27 +106,26 @@ const router = createBrowserRouter([
   },
   {
     path: "*",
-    element: <ErrorPage></ErrorPage>
+    element: <ErrorPage></ErrorPage>,
   },
   // {
   //   path: "/testlay",
   //   element: <TestLay></TestLay>
   // }
   {
-    path: 'dashboard',
+    path: "dashboard",
     element: <DashLayout></DashLayout>,
     children: [
       {
-        path: 'profile',
-        element: <Profile></Profile>
+        path: "profile",
+        element: <Profile></Profile>,
       },
       {
-        path: 'settings',
-        element: <Settings></Settings>
-      }
-    ]
-
-  }
+        path: "settings",
+        element: <Settings></Settings>,
+      },
+    ],
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
