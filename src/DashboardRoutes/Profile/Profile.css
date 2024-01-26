@@ -1,29 +1,30 @@
-.activepic {
+
+
+  .active {
     font-size: 18px;
     /* margin-left: 24px;
     transition: color ease-in-out 300ms; */
     color: #002172;
     font-weight: 600;
-    border-top: #002172 2px solid;
   }
 
-  .picAfter::after {
+  .navAfter::after {
     content: "";
     width: 0%;
     height: 1px;
     background-color: #002172;
     position: absolute;
     left: 0;
-    top: 0;
+    bottom: 0;
     font-size: 16px;
     transition: all linear 0.3s;
   }
 
-  picAfter:hover:after {
+  .navAfter:hover:after {
     width: 100%;
   }
 
-  .picAfter:hover {
+  .navAfter:hover {
     color: #83a3e7;
   }
 
@@ -43,3 +44,7 @@
   .animate-jump {
     animation: jump 1s ease ;
   }
+  
+
+ 
+  
