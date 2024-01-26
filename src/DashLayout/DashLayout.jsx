@@ -25,9 +25,8 @@ const DashLayout = () => {
     <>
       <div className="flex">
         <div
-          className={`side_bar bg-gray-800 h-screen w-64 text-white transition-all duration-300 ${
-            isSidebarOpen ? "" : "-ml-64"
-          }`}
+          className={`side_bar bg-gray-800 min-h-screen fixed w-64  text-white transition-all duration-300 ${isSidebarOpen ? "" : "-ml-64"
+            }`}
         >
           <div className="w-64  min-h-screen ">
             <ul className="menu p-4">
@@ -40,10 +39,10 @@ const DashLayout = () => {
                   <span className="text-center text-xl font-bold py-4"> Dashboard</span>
                 </div>
                 <li>
-                  <NavLink to="/dashboard/profile"><FaUserCircle  className="text-lg"></FaUserCircle >Profile</NavLink>
+                  <NavLink to="/dashboard/profile"><FaUserCircle className="text-lg"></FaUserCircle >Profile</NavLink>
                 </li>
 
-               
+
                 <li className="mt-3">
                   <NavLink to="/dashboard/saved"><FaBookmark className="text-base"></FaBookmark> Saved Properties</NavLink>
                 </li>
@@ -62,7 +61,7 @@ const DashLayout = () => {
             </ul>
           </div>
         </div>
-        <div className="main_content">
+        <div className={`main_content transition-all duration-300 ${isSidebarOpen ? "ml-64" : ""}`}>
           <button className="btn" onClick={toggleSidebar}>
             {/* {isSidebarOpen ? <FaTimes></FaTimes> : <FaBars></FaBars>} */}
             <FaBars></FaBars>
