@@ -23,7 +23,7 @@ const BookingForm = ({ item }) => {
         property: item.property_info,
         requesterName: data.name,
         requesterNumber: data.number,
-        requesterEmail: data.email,
+        requesterEmail: user.email,
         requesterPhoto: user.photoURL,
         requesterMessage: data.message,
         family: data.family,

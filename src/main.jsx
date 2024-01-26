@@ -133,6 +133,7 @@ const router = createBrowserRouter([
       {
         path: "saved",
         element: <SavedProperties></SavedProperties>,
+        loader: () => fetch(`http://localhost:5000/saved-properties`),
       },
       {
         path: "overview",
