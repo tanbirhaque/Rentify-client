@@ -101,7 +101,7 @@ const Details = () => {
                 to="/blogs"
                 className="navAfter relative font-medium text-base text-white mx-3"
               >
-                Blogs
+                Property Details
               </NavLink>
               {/* <NavLink to={`/blogs/${blog._id}`} className='navAfter relative font-medium text-base text-white mx-3 '>Blogs details no slider</NavLink> */}
             </div>
