@@ -6,13 +6,12 @@ import VideoModal from "../Home/HomeComponents/Virtual Apartments/VideoModal";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import Swal from "sweetalert2";
-import { FaRegBookmark } from "react-icons/fa";
+import { FaRegBookmark, } from "react-icons/fa";
 import BookingForm from "./BookingForm.jsx";
 import useAuth from "../../../Hooks/useAuth.jsx";
 import ReviewForm from "./ReviewForm.jsx";
 import OwnerInfo from "./OwnerInfo.jsx";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic.jsx";
-
 
 
 const Details = () => {
@@ -102,7 +101,7 @@ const Details = () => {
                 to="/blogs"
                 className="navAfter relative font-medium text-base text-white mx-3"
               >
-                Blogs
+                Property Details
               </NavLink>
               {/* <NavLink to={`/blogs/${blog._id}`} className='navAfter relative font-medium text-base text-white mx-3 '>Blogs details no slider</NavLink> */}
             </div>

@@ -59,7 +59,7 @@ const OwnerInfo = ({ owner }) => {
             className="py-5 bg-[#F9F9F9] rounded-md px-2 mb-4 w-full"
           />
           <input
-            placeholder="Email Adress"
+            placeholder="Email Address"
             className="py-5 bg-[#F9F9F9] rounded-md px-2 w-full"
           />
           <textarea
@@ -67,7 +67,6 @@ const OwnerInfo = ({ owner }) => {
             placeholder="Enter you message"
           ></textarea>
           <button
-            type="submit"
             className="rounded p-4 bg-[#002172] hover:bg-[#EC3323] text-white mb-4 w-full"
           >
             Submit Request

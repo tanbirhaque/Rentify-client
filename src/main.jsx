@@ -24,9 +24,14 @@ import TestLay from "./TestLay/TestLay.jsx";
 import DashLayout from "./DashLayout/DashLayout.jsx";
 import Profile from "./DashboardRoutes/Profile/Profile.jsx";
 import Settings from "./DashboardRoutes/Settings/Settings.jsx";
+import SavedProperties from "./DashboardRoutes/SavedProperties/SavedProperties.jsx";
+
 import Login from "./MainLayout/Pages/Authentication/Login/Login.jsx";
 import Reset from "./MainLayout/Pages/Authentication/Reset/Reset.jsx";
+import Overview from "./DashboardRoutes/Profile/Overview";
 import { Toaster } from "react-hot-toast";
+import AddProperties from "./DashboardRoutes/AddProperties/AddProperties.jsx";
+import RequestedProperty from "./DashboardRoutes/Requested Property/RequestedProperty.jsx";
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
@@ -65,6 +70,7 @@ const router = createBrowserRouter([
         path: "/faq",
         element: <Faq />,
       },
+
       {
         path: "/how-it-works",
         element: <HowItWorks />,
@@ -120,9 +126,26 @@ const router = createBrowserRouter([
         path: "profile",
         element: <Profile></Profile>,
       },
+      // {
+      //   path: 'settings',
+      //   element: <Settings></Settings>
+      // }
       {
-        path: "settings",
-        element: <Settings></Settings>,
+        path: "saved",
+        element: <SavedProperties></SavedProperties>,
+      },
+      {
+        path: "overview",
+        element: <Overview></Overview>,
+      },
+      {
+        path: "add",
+        element: <AddProperties></AddProperties>,
+      },
+      {
+        path: "requests",
+        element: <RequestedProperty />,
+        loader: () => fetch(`http://localhost:5000/requested-properties`),
       },
     ],
   },
