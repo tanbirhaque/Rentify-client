@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { FaBars } from "react-icons/fa6";
 import { FaHome, FaTimes } from "react-icons/fa";
-import { NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import { RiHomeOfficeFill } from "react-icons/ri";
 import { CgProfile } from "react-icons/cg";
 import { IoIosSettings } from "react-icons/io";
 import { FaBookmark, FaUserCircle } from "react-icons/fa";
 import { IoAddCircleSharp } from "react-icons/io5";
+import DashNav from "./DashShared/DashNav/DashNav";
 import { MdOutlinePendingActions } from "react-icons/md";
 
 const DashLayout = () => {
@@ -26,30 +27,35 @@ const DashLayout = () => {
     <>
       <div className="flex">
         <div
-          className={`side_bar bg-gray-800 h-screen w-64 text-white transition-all duration-300 ${
-            isSidebarOpen ? "" : "-ml-64"
-          }`}
+          className={`side_bar bg-gray-800 min-h-screen fixed w-64  text-white transition-all duration-300 ${isSidebarOpen ? "" : "-ml-64"
+            }`}
         >
           <div className="w-64 min-h-screen">
             <ul className="menu p-4">
               <>
-                {" "}
-                9
-                <div className="flex justify-center items-center ">
-                  <span className="mr-2 text-xl">
+                <div className="flex justify-center items-center mb-6">
+                  <Link to="/">
+                    <div className="flex  items-center">
+                      <img
+                        className="max-w-[65px] md:w-full"
+                        src="https://i.ibb.co/3kqdMYy/logo-white.png"
+                      />
+                      <h4 className="font-bold poppins-font text-2xl lg:text-[34px] ml-2">
+                        Renti<span className="text-[#e33226]">fy</span>
+                      </h4>
+                    </div>
+                  </Link>
+                  {/* <span className="mr-2 text-xl">
                     {" "}
                     <RiHomeOfficeFill></RiHomeOfficeFill>
                   </span>
-                  <span className="text-center text-xl font-bold py-4">
-                    {" "}
-                    Dashboard
-                  </span>
+                  <span className="text-center text-xl font-bold py-4"> Dashboard</span> */}
                 </div>
                 <li>
-                  <NavLink to="/dashboard/profile">
-                    <FaUserCircle className="text-lg"></FaUserCircle>Profile
-                  </NavLink>
+                  <NavLink to="/dashboard/profile"><FaUserCircle className="text-lg"></FaUserCircle >Profile</NavLink>
                 </li>
+
+
                 <li className="mt-3">
                   <NavLink to="/dashboard/requests">
                     <MdOutlinePendingActions className="text-lg"/>
@@ -80,11 +86,8 @@ const DashLayout = () => {
             </ul>
           </div>
         </div>
-        <div className="main_content">
-          <button className="btn" onClick={toggleSidebar}>
-            {/* {isSidebarOpen ? <FaTimes></FaTimes> : <FaBars></FaBars>} */}
-            <FaBars></FaBars>
-          </button>
+        <div className={`main_content w-svw transition-all duration-300 ${isSidebarOpen ? "ml-64" : ""}`}>
+          <DashNav toggleSidebar={toggleSidebar} ></DashNav>
           <div className="flex-1">
             <Outlet></Outlet>
           </div>
