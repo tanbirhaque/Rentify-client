@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "./useAxiosPublic";
 
-const useProperty = () => {
+const useProperties = () => {
   const axiosPublic = useAxiosPublic();
   const { data: properties = [], refetch } = useQuery({
     queryKey: ["properties"],
@@ -13,4 +13,4 @@ const useProperty = () => {
   return [properties, refetch];
 };
 
-export default useProperty;
+export default useProperties;
