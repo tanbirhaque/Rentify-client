@@ -75,7 +75,7 @@ const DashLayout = () => {
         </div>
         <div className={`main_content w-svw transition-all duration-300 ${isSidebarOpen ? "ml-64" : ""}`}>
           <DashNav toggleSidebar={toggleSidebar} ></DashNav>
-          <div className="p-8 flex-1">
+          <div className="flex-1">
             <Outlet></Outlet>
           </div>
         </div>
