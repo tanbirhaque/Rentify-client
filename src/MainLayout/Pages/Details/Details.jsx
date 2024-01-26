@@ -4,14 +4,16 @@ import { RiCheckboxMultipleLine } from "react-icons/ri";
 import { IoMdPlay } from "react-icons/io";
 import VideoModal from "../Home/HomeComponents/Virtual Apartments/VideoModal";
 import { Rating } from "@smastrom/react-rating";
-import useAxiosPublic from "../../../Hooks/useAxiosPublic.jsx";
 import "@smastrom/react-rating/style.css";
 import Swal from "sweetalert2";
-import { FaRegBookmark, FaBookmark } from "react-icons/fa";
+import { FaRegBookmark } from "react-icons/fa";
 import BookingForm from "./BookingForm.jsx";
 import useAuth from "../../../Hooks/useAuth.jsx";
 import ReviewForm from "./ReviewForm.jsx";
 import OwnerInfo from "./OwnerInfo.jsx";
+import useAxiosPublic from "../../../Hooks/useAxiosPublic.jsx";
+
+
 
 const Details = () => {
   const axiosPublic = useAxiosPublic();
@@ -384,7 +386,7 @@ const Details = () => {
                 {property_tags.map((tag) => (
                   <button
                     key={tag}
-                    className="text-[#666666] btn btn-square p-3 mx-2 w-fit h-auto bg-transparent hover:bg-[#ec3323] hover:text-white"
+                    className="text-[#666666] btn btn-square p-3 mx-2 w-fit h-fit bg-transparent hover:bg-[#ec3323] hover:text-white"
                   >
                     {tag}
                   </button>
