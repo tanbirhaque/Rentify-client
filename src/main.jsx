@@ -31,6 +31,7 @@ import Reset from "./MainLayout/Pages/Authentication/Reset/Reset.jsx";
 import Overview from './DashboardRoutes/Profile/Overview';
 import { Toaster } from "react-hot-toast";
 import AddProperties from "./DashboardRoutes/AddProperties/AddProperties.jsx";
+import OwnerProperties from "./DashboardRoutes/OwnerProperties/OwnerProperties.jsx";
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
@@ -141,6 +142,10 @@ const router = createBrowserRouter([
         path: "add",
         element: <AddProperties></AddProperties>,
       },
+      {
+        path: "ownerproperties",
+        element: <OwnerProperties></OwnerProperties>
+      }
     ]
 
   }

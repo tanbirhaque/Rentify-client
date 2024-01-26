@@ -50,6 +50,9 @@ const DashLayout = () => {
                 <li className="my-3">
                   <NavLink to="/dashboard/add"><IoAddCircleSharp className="text-xl"></IoAddCircleSharp> Add Properties</NavLink>
                 </li>
+                <li className="my-3">
+                  <NavLink to="/dashboard/ownerproperties"><IoAddCircleSharp className="text-xl"></IoAddCircleSharp>Owner Properties</NavLink>
+                </li>
               </>
 
               <hr />

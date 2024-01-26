@@ -149,9 +149,9 @@ const AddProperties = () => {
                       required
                       className="select select-bordered w-full"
                     >
-                      <option value=" Apartment"> Apartment</option>
-                      <option value="Commercial "> Commercial</option>
-                      <option value="Residential "> Residential</option>
+                      <option value="Apartment"> Apartment</option>
+                      <option value="Commercial"> Commercial</option>
+                      <option value="Residential"> Residential</option>
                     </select>
                   </label>
                 </div>
@@ -168,8 +168,8 @@ const AddProperties = () => {
                       required
                       className="select select-bordered w-full"
                     >
-                      <option value=" rent"> Rent</option>
-                      <option value=" sale"> Sale</option>
+                      <option value="rent"> Rent</option>
+                      <option value="sale"> Sale</option>
                     </select>
                   </label>
                 </div>
