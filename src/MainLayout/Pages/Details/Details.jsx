@@ -385,7 +385,7 @@ const Details = () => {
                 {property_tags.map((tag) => (
                   <button
                     key={tag}
-                    className="text-[#666666] btn btn-square p-3 mx-2 w-fit h-auto bg-transparent hover:bg-[#ec3323] hover:text-white"
+                    className="text-[#666666] btn btn-square p-3 mx-2 w-fit h-fit bg-transparent hover:bg-[#ec3323] hover:text-white"
                   >
                     {tag}
                   </button>
