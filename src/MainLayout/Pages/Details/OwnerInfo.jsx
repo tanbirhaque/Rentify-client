@@ -48,7 +48,7 @@ const OwnerInfo = ({ owner }) => {
       {/* form */}
       <div className="my-3">
         <form
-          className="w-72 mx-auto"
+          className="mx-auto"
         >
           <input
             placeholder="Full Name"
@@ -70,7 +70,7 @@ const OwnerInfo = ({ owner }) => {
             type="submit"
             className="rounded p-4 bg-[#002172] hover:bg-[#EC3323] text-white mb-4 w-full"
           >
-            Submit Request
+            Contact Request
           </button>
         </form>
       </div>

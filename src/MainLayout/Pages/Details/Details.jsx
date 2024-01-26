@@ -110,7 +110,7 @@ const Details = () => {
       </div>
       {/* details sections starts */}
       <div className="max-w-7xl mx-auto mt-16 p-10">
-        <div className="flex gap-5">
+        <div className="flex gap-6">
           <div className="main_details w-3/4">
             <div className="mb-16">
               <div className="flex justify-between">
@@ -303,7 +303,7 @@ const Details = () => {
                         <Rating
                           style={{ maxWidth: 80 }}
                           value={5}
-                          // onChange={setRating}
+                        // onChange={setRating}
                         />
                       </div>
                     </div>
@@ -371,21 +371,36 @@ const Details = () => {
           {/* div for right side */}
           <div className="flex flex-col gap-3">
             {/* booking form designed by Sojib modified by Fahima */}
-            <div className="shadow-xl w-fit h-fit p-5">
+            <div
+              className="w-[416px] max-w-[416px] h-fit p-5"
+              style={{
+                boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.09)'
+              }}
+            >
               <BookingForm item={item} />
             </div>
             {/* owner information */}
-            <div className="shadow-xl h-auto p-5 w-[328px]">
+            <div
+              className="h-auto p-5 w-[416px] max-w-[416px] mt-3"
+              style={{
+                boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.09)'
+              }}
+            >
               <OwnerInfo owner={owner_details} />
             </div>
             {/* popular tags */}
-            <div className="shadow-xl h-auto p-5 w-[328px]">
+            <div
+              className="h-auto p-5 w-[416px] max-w-[416px] mt-3"
+              style={{
+                boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.09)'
+              }}
+            >
               <h2 className="text-3xl font-bold my-5">Popular Tags</h2>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap">
                 {property_tags.map((tag) => (
                   <button
                     key={tag}
-                    className="text-[#666666] btn btn-square p-3 mx-2 w-fit h-auto bg-transparent hover:bg-[#ec3323] hover:text-white"
+                    className="text-[#666666] p-2 mx-2 mb-3 w-fit h-auto bg-transparent hover:bg-[#ec3323] hover:text-white transition-all duration-500 border capitalize"
                   >
                     {tag}
                   </button>
