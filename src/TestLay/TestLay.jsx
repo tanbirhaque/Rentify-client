@@ -27,8 +27,8 @@ const TestLay = () => {
                         className='btn'
                         onClick={toggleSidebar}
                     >
-                        {/* {isSidebarOpen ? <FaTimes></FaTimes> : <FaBars></FaBars>} */}
-                        <FaBars></FaBars>
+                        {isSidebarOpen ? <FaTimes></FaTimes> : <FaBars></FaBars>}
+                        {/* <FaBars></FaBars> */}
                     </button>
                 </div>
             </div>

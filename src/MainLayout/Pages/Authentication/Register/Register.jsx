@@ -1,11 +1,10 @@
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import Lottie from "lottie-react";
-import loginAnimation from "../../../assets/animation/LoginAnimation.json";
+import loginAnimation from "../../../../assets/animation/LoginAnimation.json";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import useAuth from "../../../Hooks/useAuth";
 import Swal from "sweetalert2";
-import toast from "react-hot-toast";
-import SocialLogin from "../../Shared/Social/SocialLogin";
+import SocialLogin from "../Social/SocialLogin";
+import useAuth from "../../../../Hooks/useAuth";
 
 const Register = () => {
   const { userRegister, userProfile } = useAuth();
@@ -15,8 +14,8 @@ const Register = () => {
   const {
     register,
     handleSubmit,
+    control,
     // reset,
-    // watch,
     formState: { errors },
   } = useForm();
 
@@ -34,7 +33,7 @@ const Register = () => {
         //   role: "student",
         // };
         userProfile(data.name, data.image)
-          .then((res) => {
+          .then(() => {
             destinedLocation(
               currentLocation?.state ? currentLocation.state : "/"
             );
@@ -50,13 +49,13 @@ const Register = () => {
       })
       .catch((err) => {
         console.log(err.code);
-        toast(err.code, {
-          icon: "❌",
-          style: {
-            borderRadius: "10px",
-            background: "#002172",
-            color: "#fff",
-          },
+        console.log(err.message);
+        Swal.fire({
+          title: err.code,
+          timer: 2000,
+          color: "#002172",
+          showConfirmButton: false,
+          icon: "error",
         });
       });
   };
@@ -85,18 +84,30 @@ const Register = () => {
               </span>
             )}
             <h3 className="mt-8 mb-2 text-xl font-semibold">Image</h3>
-            <input
-              {...register("image", { required: true })}
-              type="url"
-              name="image"
-              placeholder="Enter your Image URL"
-              className="max-w-full md:w-[550px] bg-[#F3F3F3] h-14 pl-5"
-            />
+            {/*  */}
+            <Controller
+                  name="image"
+                  control={control}
+                  render={({ field }) => (
+                    <>
+                      <input
+                        type="file"
+                        onChange={(e) => {
+                          // Convert the selected image to URL and set it in the field
+                          const url = URL.createObjectURL(e.target.files[0]);
+                          field.onChange(url);
+                        }}
+                      />
+                    </>
+                  )}
+                />
+                {/*  */}
             {errors.image && (
               <span className="text-xs text-red-600">
                 Image is required to register.
               </span>
             )}
+
             <h3 className="mt-8 mb-2 text-xl font-semibold">Email Address</h3>
             <input
               {...register("email", { required: true })}
@@ -137,20 +148,30 @@ const Register = () => {
                 Password should contain at least one Capital letter.
               </span>
             )}
-            <div className="flex flex-col gap-5">
-              <div className="ms-auto text-sm text-blue-500">
+            <button className="btn block bg-[#002172] hover:bg-[#142a9b] w-fit lg:w-[558px] text-white ">
+              Register
+            </button>
+            {/*  */}
+            <div className="md:flex md:justify-between mt-4">
+              <div className="mb-2 mb-md-0">
                 Already have an account?{" "}
                 <Link
                   to="/login"
-                  className="hover:underline hover:text-blue-700"
+                  className="hover:underline text-[#002172] hover:text-blue-700 font-bold"
                 >
                   Login
                 </Link>
               </div>
-              <button className="btn block bg-[#002172] hover:bg-[#142a9b] w-fit lg:w-[558px] text-white ">
-                Register
-              </button>
+              <div>
+                <Link
+                  to="/reset"
+                  className="text-[#002172] hover:text-[#ec3323]"
+                >
+                  Forgot your password?
+                </Link>
+              </div>
             </div>
+            {/*  */}
             <SocialLogin />
           </form>
         </div>

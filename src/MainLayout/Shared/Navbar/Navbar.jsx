@@ -1,21 +1,35 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import ButtonBlue from "../buttons/Blue/ButtonBlue";
-import ButtonRed from "../buttons/Red/ButtonRed";
-import { useEffect, useState } from "react";
-import useAuth from "../../../Hooks/useAuth";
-// import logo from "../../../assets/Template_files/logo.png";
+// import ButtonRed from "../buttons/Red/ButtonRed";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../../Provider/AuthProvider";
+import swal from "sweetalert";
 
 const Navbar = () => {
-  const { user, userSignOut } = useAuth();
-  //function for log out
+  const [isNavbarJumping, setIsNavbarJumping] = useState(false);
+  const { userSignOut, user, setUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+
+  // for logout user -Sadia
   const handleLogOut = () => {
-    userSignOut();
+    userSignOut()
+      .then(() => {
+        console.log("logged out");
+        swal("Signout", "You are successfully signed out", "success");
+        setUser(null);
+
+        setTimeout(() => {
+          navigate("/");
+        }, 500);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
-  const [isNavbarJumping, setIsNavbarJumping] = useState(false);
-
-  // for jumping effect code
+  // for jumping effect code -sadia
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
@@ -32,6 +46,10 @@ const Navbar = () => {
     };
   }, []);
 
+  // when the user dont have a pro pic this pic will be shown
+  const defaultImg =
+    "https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?w=740&t=st=1696786604~exp=1696787204~hmac=c10645727b8724eecda4984ef1d8fbfba92a9c9072a57b851c28c9b1d8d62b81";
+
   const navLinks = (
     <>
       <NavLink
@@ -47,35 +65,51 @@ const Navbar = () => {
         Blogs
       </NavLink>
       <NavLink
-        to="/testimonials"
-        className="navAfter relative font-medium text-base text-black mx-3"
+        to="/dashboard"
+        className="navAfter relative font-medium text-base  text-black mx-3"
       >
-        Testimonials
+        Dashboard
       </NavLink>
-      <NavLink
-        to="/privacy"
-        className="navAfter relative font-medium text-base text-black mx-3"
-      >
-        Our Privacy
-      </NavLink>
-      <NavLink
-        to="/conditions"
-        className="navAfter relative font-medium text-base text-black mx-3"
-      >
-        Terms & Conditions
-      </NavLink>
-      <NavLink
-        to="/faq"
-        className="navAfter relative font-medium text-base text-black  mx-3"
-      >
-        FAQ
-      </NavLink>
+
       <NavLink
         to="/how-it-works"
         className="navAfter relative font-medium text-base  text-black mx-3"
       >
         How It Works
       </NavLink>
+
+      {/* for others */}
+      <details className="dropdown">
+        <summary className="navAfter relative font-medium text-base  text-black mx-3">
+          Others
+        </summary>
+        <ul className="p-2  menu dropdown-content z-[1] bg-base-100 rounded-box w-52 border-[#e33226] border-l-[3px]">
+          <NavLink
+            to="/testimonials"
+            className="navAfter relative font-medium text-base text-black mx-3"
+          >
+            Testimonials
+          </NavLink>
+          <NavLink
+            to="/privacy"
+            className="navAfter relative font-medium text-base text-black mx-3"
+          >
+            Our Privacy
+          </NavLink>
+          <NavLink
+            to="/conditions"
+            className="navAfter relative font-medium text-base text-black mx-3"
+          >
+            Terms & Conditions
+          </NavLink>
+          <NavLink
+            to="/faq"
+            className="navAfter relative font-medium text-base text-black  mx-3"
+          >
+            FAQ
+          </NavLink>
+        </ul>
+      </details>
     </>
   );
 
@@ -112,54 +146,81 @@ const Navbar = () => {
               {navLinks}
             </ul>
           </div>
-          <div className="flex  items-center">
-            <img
-              className="w-[60px] md:w-full"
-              src="https://i.ibb.co/GsQpf2D/logo.png"
-            />
-            <h4 className="font-bold poppins-font text-2xl lg:text-[38px] ml-2">
-              Renti<span className="text-[#002172]">fy</span>
-            </h4>
-          </div>
+          <Link to="/">
+            <div className="flex  items-center">
+              <img
+                className="w-[60px] md:w-full"
+                src="https://i.ibb.co/GsQpf2D/logo.png"
+              />
+              <h4 className="font-bold poppins-font text-2xl lg:text-[38px] ml-2">
+                Renti<span className="text-[#002172]">fy</span>
+              </h4>
+            </div>
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navLinks}</ul>
         </div>
-        <div className="navbar-end gap-5">
-          {/* Buttons Added by Fahima-dev */}
-          {user ? (
-            <>
-              <button onClick={handleLogOut}>
-                <ButtonBlue titleBlue={"Log Out"} />
-              </button>
-            </>
-          ) : (
-            <>
-              <Link to="/login">
-                <ButtonBlue titleBlue={"Log In"} />
-              </Link>
-              <Link to="/register">
-                <ButtonRed titleRed={"Register"} />
-              </Link>
-            </>
-          )}
-          {/* Buttons added by Sadia-dev */}
-          {/* <Link to='/signin'>
-            <button
-              type="button"
-              className="text-white bg-gradient-to-r from-blue-500 via-blue-700 to-[#002172] hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-            >
-              Signin
-            </button>
+        {/* btn created by -fahima */}
+        {/* <div className="navbar-end gap-5">
+        
+          <Link to="/login">
+            <ButtonBlue titleBlue={"Log In"} />
           </Link>
-          <Link>
-            <button
-              type="button"
-              className="text-[#002172] hover:text-white border border-[#002172] hover:bg-gradient-to-r from-blue-700 to-[#002172] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800"
-            >
-              Signup
-            </button>
-          </Link> */}
+          <Link to="/register">
+            <ButtonRed titleRed={"Register"} />
+          </Link>
+        
+        </div> */}
+
+        {/* for toggle feature for btn -sadia */}
+        <div className="navbar-end gap-5">
+          {user && (
+            <div className="dropdown dropdown-end">
+              <div>
+                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                  <div className="w-10 rounded-full">
+                    <img
+                      src={user?.photoURL}
+                      // src={`${user?.photoURL ? user?.photoURL : defaultImg}`}
+                    />
+                  </div>
+                </label>
+
+                <ul
+                  tabIndex={0}
+                  className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+                >
+                  <li>
+                    <a className="justify-between">
+                      {user.displayName ? user.displayName : "anonymous"}
+                    </a>
+                  </li>
+                  <li>
+                    <a>{user.email ? user.email : "anonymous@example.com"}</a>
+                  </li>
+                  {/* {console.log("js diye aslm", user.photoURL)} */}
+                  <li>
+                    <Link onClick={handleLogOut}>Logout</Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          )}
+
+          <div>
+            {user ? (
+              ""
+            ) : (
+              <>
+                <div className="flex items-center">
+                  <Link to="/login">
+                    <ButtonBlue titleBlue={"Log In"} />
+                  </Link>
+                </div>
+              </>
+            )}
+          </div>
         </div>
       </div>
     </div>
