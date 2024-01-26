@@ -16,9 +16,9 @@ import Swal from 'sweetalert2';
 const Details = () => {
   const axiospublic = useAxiosPublic();
   const { user } = useContext(AuthContext)
-  const propertys = useLoaderData();
+  const properties = useLoaderData();
   const { id } = useParams();
-  const item = propertys.find(item => item._id == id)
+  const item = properties.find(item => item._id == id)
 
 
   const {

@@ -8,17 +8,11 @@ import { useState } from "react";
 import PropertyCard from "../../../../Shared/PropertyCards/PropertyCard";
 import ButtonBlue from "../../../../Shared/buttons/Blue/ButtonBlue";
 import useProperty from "../../../../../Hooks/useProperty";
-import useRentRequest from "../../../../../Hooks/useRentRequest";
-import useSaleRequest from "../../../../../Hooks/useSaleRequest";
 
 const Listing = () => {
     // properties data get from database
     const [properties] = useProperty();
     console.log(properties)
-    const [rentrequest] = useRentRequest();
-    const [salerequest] = useSaleRequest();
-    console.log(rentrequest)
-    console.log(salerequest)
     // const [properties, Setproperties] = useState([]);
     const [tabIndex, setTabIndex] = useState(0);
 

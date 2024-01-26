@@ -27,6 +27,7 @@ import Settings from "./DashboardRoutes/Settings/Settings.jsx";
 import Login from "./MainLayout/Pages/Authentication/Login/Login.jsx";
 import Reset from "./MainLayout/Pages/Authentication/Reset/Reset.jsx";
 import { Toaster } from "react-hot-toast";
+import AddProperties from "./OwnerRoutes/AddProperties.jsx";
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
@@ -84,7 +85,7 @@ const router = createBrowserRouter([
       {
         path: "/details/:id",
         element: <Details></Details>,
-        loader: () => fetch(`http://localhost:5000/property`) 
+        loader: () => fetch(`http://localhost:5000/properties`) 
       },
       {
         path: "/owners",
@@ -123,6 +124,10 @@ const router = createBrowserRouter([
       {
         path: 'settings',
         element: <Settings></Settings>
+      },
+      {
+        path: 'addproperties',
+        element: <AddProperties></AddProperties>
       }
     ]
 
