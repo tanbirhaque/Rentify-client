@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { FaBars } from "react-icons/fa6";
 import { FaHome, FaTimes } from "react-icons/fa";
 import { Link, NavLink, Outlet } from "react-router-dom";
@@ -8,6 +8,7 @@ import { IoIosSettings } from "react-icons/io";
 import { FaBookmark, FaUserCircle } from "react-icons/fa";
 import { IoAddCircleSharp } from "react-icons/io5";
 import DashNav from "./DashShared/DashNav/DashNav";
+import { MdOutlinePendingActions } from "react-icons/md";
 
 const DashLayout = () => {
   // const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -29,7 +30,7 @@ const DashLayout = () => {
           className={`side_bar bg-gray-800 min-h-screen fixed w-64  text-white transition-all duration-300 ${isSidebarOpen ? "" : "-ml-64"
             }`}
         >
-          <div className="w-64  min-h-screen ">
+          <div className="w-64 min-h-screen">
             <ul className="menu p-4">
               <>
                 <div className="flex justify-center items-center mb-6">
@@ -56,10 +57,22 @@ const DashLayout = () => {
 
 
                 <li className="mt-3">
-                  <NavLink to="/dashboard/saved"><FaBookmark className="text-base"></FaBookmark> Saved Properties</NavLink>
+                  <NavLink to="/dashboard/requests">
+                    <MdOutlinePendingActions className="text-lg"/>
+                    Requested Properties
+                  </NavLink>
+                </li>
+                <li className="mt-3">
+                  <NavLink to="/dashboard/saved">
+                    <FaBookmark className="text-base"></FaBookmark> Saved
+                    Properties
+                  </NavLink>
                 </li>
                 <li className="my-3">
-                  <NavLink to="/dashboard/add"><IoAddCircleSharp className="text-xl"></IoAddCircleSharp> Add Properties</NavLink>
+                  <NavLink to="/dashboard/add">
+                    <IoAddCircleSharp className="text-xl"></IoAddCircleSharp>{" "}
+                    Add Properties
+                  </NavLink>
                 </li>
               </>
 
