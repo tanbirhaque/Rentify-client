@@ -144,7 +144,7 @@ const router = createBrowserRouter([
         element: <AddProperties></AddProperties>,
       },
       {
-        path: "requests",
+        path: "my-requests",
         element: <RequestedProperty />,
         loader: () => fetch(`http://localhost:5000/requested-properties`),
       },
