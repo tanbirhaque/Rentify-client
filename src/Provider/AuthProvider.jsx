@@ -62,6 +62,8 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+      // Don't remove the console log, it has been added for development purposes by Tanbir
+      console.log('currrent usesr: ', currentUser);
       setLoading(false);
     });
   }, []);
