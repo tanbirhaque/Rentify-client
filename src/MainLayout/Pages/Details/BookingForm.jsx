@@ -23,7 +23,7 @@ const BookingForm = ({ item }) => {
         property: item.property_info,
         requesterName: data.name,
         requesterNumber: data.number,
-        requesterEmail: data.email,
+        requesterEmail: user.email,
         requesterPhoto: user.photoURL,
         requesterMessage: data.message,
         family: data.family,
@@ -67,9 +67,10 @@ const BookingForm = ({ item }) => {
         />
         <input
           {...register("email", { required: true })}
-          placeholder="Email Adress*"
-         defaultValue={user?.email}
-          className="py-5 bg-[#F9F9F9] rounded-md px-2 w-full"
+          placeholder="Email Address*"
+          defaultValue={user?.email}
+          readOnly
+          className="py-5 bg-[#F9F9F9] rounded-md px-2 w-full text-gray-400"
         />
         {/* errors will return when field validation fails  */}
         <select
