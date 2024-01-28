@@ -12,14 +12,10 @@ const BuyReqCard = ({ items }) => {
             
             <div className="card card-compact max-w-[414px] rounded-none bg-base-100 shadow-md mx-auto mb-1">
                 <figure className="w-full h-[294px]">
-                    <img className="w-full h-full" src={property.owner_details.owner_img}  />
+                    <img className="w-full h-full" src={property?.owner_details.owner_img}  />
 
                 </figure>
-<<<<<<< HEAD
-                
-=======
-                <h1>{property.owner_details.owner_name}</h1>
->>>>>>> main
+                <h1>{property?.owner_details.owner_name}</h1>
                 <div className="card-body">
                     <div className="flex justify-between items-center mb-2">
                         <button className="bg-[#e33226] rounded-md btn-one py-[8px] px-[12px] text-white text-[16px] capitalize">

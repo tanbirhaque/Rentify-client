@@ -30,15 +30,12 @@ import Login from "./MainLayout/Pages/Authentication/Login/Login.jsx";
 import Reset from "./MainLayout/Pages/Authentication/Reset/Reset.jsx";
 import Overview from "./DashLayout/DashboardRoutes/Profile/Overview";
 import { Toaster } from "react-hot-toast";
-<<<<<<< HEAD
 import Contact from "./MainLayout/Pages/Contact/Contact.jsx";
-=======
 import AddProperties from "./DashLayout/DashboardRoutes/AddProperties/AddProperties.jsx";
 import RequestedProperty from "./DashLayout/DashboardRoutes/Requested Property/RequestedProperty.jsx";
 import ManageProperties from "./DashLayout/DashboardRoutes/ManageProperties/ManageProperties.jsx";
 import RentRequest from "./DashLayout/DashboardRoutes/RentRequest/RentRequest.jsx";
 import BuyRequest from "./DashLayout/DashboardRoutes/BuyRequest/BuyRequest.jsx";
->>>>>>> main
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
