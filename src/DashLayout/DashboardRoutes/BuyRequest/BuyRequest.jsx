@@ -8,7 +8,11 @@ const BuyRequest = () => {
         <>
         {
                 ownerSale.map(item => ( 
+<<<<<<< HEAD
                     <BuyReqCard key={item._id} item={item}></BuyReqCard>
+=======
+                    <BuyReqCard key={item._id} items={item}></BuyReqCard>
+>>>>>>> main
                 ))
             }
         </>

@@ -15,7 +15,11 @@ const BuyReqCard = ({ items }) => {
                     <img className="w-full h-full" src={property.owner_details.owner_img}  />
 
                 </figure>
+<<<<<<< HEAD
                 
+=======
+                <h1>{property.owner_details.owner_name}</h1>
+>>>>>>> main
                 <div className="card-body">
                     <div className="flex justify-between items-center mb-2">
                         <button className="bg-[#e33226] rounded-md btn-one py-[8px] px-[12px] text-white text-[16px] capitalize">

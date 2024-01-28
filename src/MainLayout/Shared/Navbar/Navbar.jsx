@@ -65,7 +65,7 @@ const Navbar = () => {
         Blogs
       </NavLink>
       <NavLink
-        to="/dashboard"
+        to="/dashboard/profile"
         className="navAfter relative font-medium text-base  text-black mx-3"
       >
         Dashboard
@@ -83,7 +83,7 @@ const Navbar = () => {
         <summary className="navAfter relative font-medium text-base  text-black mx-3">
           Others
         </summary>
-        <ul className="p-2  menu dropdown-content z-[1] bg-base-100 rounded-box w-52 border-[#e33226] border-l-[3px]">
+        <ul className=" p-2  menu dropdown-content z-[1] bg-base-100 rounded-box w-52 border-[#e33226] border-l-[3px]">
           <NavLink
             to="/testimonials"
             className="navAfter relative font-medium text-base text-black mx-3"
@@ -141,7 +141,7 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="main-nav menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
               {navLinks}
             </ul>
@@ -161,17 +161,7 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navLinks}</ul>
         </div>
-        {/* btn created by -fahima */}
-        {/* <div className="navbar-end gap-5">
-        
-          <Link to="/login">
-            <ButtonBlue titleBlue={"Log In"} />
-          </Link>
-          <Link to="/register">
-            <ButtonRed titleRed={"Register"} />
-          </Link>
-        
-        </div> */}
+       
 
         {/* for toggle feature for btn -sadia */}
         <div className="navbar-end gap-5">
@@ -200,6 +190,9 @@ const Navbar = () => {
                     <a>{user.email ? user.email : "anonymous@example.com"}</a>
                   </li>
                   {/* {console.log("js diye aslm", user.photoURL)} */}
+                  <li>
+                    <Link to='/dashboard/profile'>Dashbaord</Link>
+                  </li>
                   <li>
                     <Link onClick={handleLogOut}>Logout</Link>
                   </li>

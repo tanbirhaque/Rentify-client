@@ -1,5 +1,5 @@
-.gridbgimg {
-    background-image: url('../../../assets/blog grid/breadcrumb-4.jpg');
+.savedbgimg {
+    background-image: url('../../assets/home-1/property-1.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -33,7 +33,7 @@
     content: "";
     width: 0%;
     height: 1px;
-    background-color: #ec3323;
+    background-color: #002172;
     position: absolute;
     left: 0;
     bottom: 0;
@@ -46,7 +46,7 @@
 }
 
 .navAfter:hover {
-    color: #cf4a3e;
+    color: #83a3e7;
 }
 
 .cart {

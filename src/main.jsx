@@ -20,14 +20,25 @@ import Private from "./Provider/Private.jsx";
 import Details from "./MainLayout/Pages/Details/Details.jsx";
 import OwnerList from "./MainLayout/Pages/Owner/OwnerList.jsx";
 import OwnerDetail from "./MainLayout/Pages/Owner/OwnerDetail.jsx";
-import TestLay from "./TestLay/TestLay.jsx";
+// import TestLay from "./TestLay/TestLay.jsx";
 import DashLayout from "./DashLayout/DashLayout.jsx";
-import Profile from "./DashboardRoutes/Profile/Profile.jsx";
-import Settings from "./DashboardRoutes/Settings/Settings.jsx";
+import Profile from "./DashLayout/DashboardRoutes/Profile/Profile.jsx";
+// import Settings from "./DashLayout/DashboardRoutes/Settings/Settings.jsx";
+import SavedProperties from "./DashLayout/DashboardRoutes/SavedProperties/SavedProperties.jsx";
+
 import Login from "./MainLayout/Pages/Authentication/Login/Login.jsx";
 import Reset from "./MainLayout/Pages/Authentication/Reset/Reset.jsx";
+import Overview from "./DashLayout/DashboardRoutes/Profile/Overview";
 import { Toaster } from "react-hot-toast";
+<<<<<<< HEAD
 import Contact from "./MainLayout/Pages/Contact/Contact.jsx";
+=======
+import AddProperties from "./DashLayout/DashboardRoutes/AddProperties/AddProperties.jsx";
+import RequestedProperty from "./DashLayout/DashboardRoutes/Requested Property/RequestedProperty.jsx";
+import ManageProperties from "./DashLayout/DashboardRoutes/ManageProperties/ManageProperties.jsx";
+import RentRequest from "./DashLayout/DashboardRoutes/RentRequest/RentRequest.jsx";
+import BuyRequest from "./DashLayout/DashboardRoutes/BuyRequest/BuyRequest.jsx";
+>>>>>>> main
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
@@ -66,6 +77,7 @@ const router = createBrowserRouter([
         path: "/faq",
         element: <Faq />,
       },
+
       {
         path: "/how-it-works",
         element: <HowItWorks />,
@@ -117,6 +129,9 @@ const router = createBrowserRouter([
   //   path: "/testlay",
   //   element: <TestLay></TestLay>
   // }
+
+
+  // Dashboard routes here
   {
     path: "dashboard",
     element: <DashLayout></DashLayout>,
@@ -125,10 +140,39 @@ const router = createBrowserRouter([
         path: "profile",
         element: <Profile></Profile>,
       },
+      // {
+      //   path: 'settings',
+      //   element: <Settings></Settings>
+      // }
       {
-        path: "settings",
-        element: <Settings></Settings>,
+        path: "saved",
+        element: <SavedProperties></SavedProperties>,
       },
+      {
+        path: "overview",
+        element: <Overview></Overview>,
+      },
+      {
+        path: "add",
+        element: <AddProperties></AddProperties>,
+      },
+      {
+        path: "manage",
+        element: <ManageProperties />
+      },
+      {
+        path: "my-requests",
+        element: <RequestedProperty />,
+        loader: () => fetch(`http://localhost:5000/requested-properties`),
+      },
+      {
+        path:"rentReq",
+        element:<RentRequest/>
+      },
+      {
+        path:"buyReq",
+        element:<BuyRequest/>
+      }
     ],
   },
 ]);
