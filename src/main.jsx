@@ -23,7 +23,7 @@ import OwnerDetail from "./MainLayout/Pages/Owner/OwnerDetail.jsx";
 // import TestLay from "./TestLay/TestLay.jsx";
 import DashLayout from "./DashLayout/DashLayout.jsx";
 import Profile from "./DashLayout/DashboardRoutes/Profile/Profile.jsx";
-import Settings from "./DashLayout/DashboardRoutes/Settings/Settings.jsx";
+// import Settings from "./DashLayout/DashboardRoutes/Settings/Settings.jsx";
 import SavedProperties from "./DashLayout/DashboardRoutes/SavedProperties/SavedProperties.jsx";
 
 import Login from "./MainLayout/Pages/Authentication/Login/Login.jsx";
@@ -32,6 +32,7 @@ import Overview from "./DashLayout/DashboardRoutes/Profile/Overview";
 import { Toaster } from "react-hot-toast";
 import AddProperties from "./DashLayout/DashboardRoutes/AddProperties/AddProperties.jsx";
 import RequestedProperty from "./DashLayout/DashboardRoutes/Requested Property/RequestedProperty.jsx";
+import ManageProperties from "./DashLayout/DashboardRoutes/ManageProperties/ManageProperties.jsx";
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
@@ -144,6 +145,10 @@ const router = createBrowserRouter([
       {
         path: "add",
         element: <AddProperties></AddProperties>,
+      },
+      {
+        path: "manage",
+        element: <ManageProperties />
       },
       {
         path: "my-requests",
