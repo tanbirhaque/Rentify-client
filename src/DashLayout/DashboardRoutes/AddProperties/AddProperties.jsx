@@ -44,7 +44,7 @@ const AddProperties = () => {
         },
         ownership_duration: ownership,
         property_for: status,
-        property_status: prostatus,
+        verify_status: false,  // This object property is added for managing the verification feature from the owner dashboard as [verified or 'Non Verified'] >>> Changed 'property_status' to 'verify_status' status. -by Tanbir
         property_img: img,
         property_title: title,
         property_category: property,
