@@ -10,7 +10,7 @@ const useRentRequest = () => {
         queryKey: ['rentrequest'],
         queryFn: async () => {
             // when data import from database then chage the url & use axios public 
-            const res = await axiospublic.get(`/requested-rent?requesteremail=${user.email}`)
+            const res = await axiospublic.get(`/requested-rent?email=${user.email}`)
             console.log(res.data)
             return res.data;
         }
