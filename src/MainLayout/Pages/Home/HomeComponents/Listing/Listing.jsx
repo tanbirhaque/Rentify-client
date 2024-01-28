@@ -12,7 +12,7 @@ import useProperties from "../../../../../Hooks/useProperties";
 const Listing = () => {
     // properties data get from database
     const [properties] = useProperties();
-    // console.log(properties)
+    console.log(properties)
     // const [properties, Setproperties] = useState([]);
     const [tabIndex, setTabIndex] = useState(0);
 
