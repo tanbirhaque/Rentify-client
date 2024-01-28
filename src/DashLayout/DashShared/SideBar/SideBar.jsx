@@ -1,10 +1,10 @@
-import React from 'react';
 import './SideBar.css'
 import { Link, NavLink } from 'react-router-dom';
 import { FaBookmark, FaHome, FaUserCircle } from "react-icons/fa";
 import { IoAddCircleSharp } from "react-icons/io5";
 import { MdOutlinePendingActions } from "react-icons/md";
 import { MdOutlineDashboardCustomize } from "react-icons/md";
+import { MdManageHistory } from "react-icons/md";
 
 const SideBar = () => {
     const sideLinks = <>
@@ -47,6 +47,15 @@ const SideBar = () => {
             >
                 <IoAddCircleSharp className="dashIcon text-[#64707d]"></IoAddCircleSharp >
                 Add Properties
+            </NavLink>
+        </li>
+        <li className="dashLi pt-2">
+            <NavLink
+                to="/dashboard/manage"
+                className="dashNav flex items-center gap-2"
+            >
+                <MdManageHistory className="dashIcon text-[#64707d]"></MdManageHistory>
+                Manage Properties
             </NavLink>
         </li>
     </>
