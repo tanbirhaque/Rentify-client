@@ -118,6 +118,9 @@ const router = createBrowserRouter([
   //   path: "/testlay",
   //   element: <TestLay></TestLay>
   // }
+
+
+  // Dashboard routes here
   {
     path: "dashboard",
     element: <DashLayout></DashLayout>,
