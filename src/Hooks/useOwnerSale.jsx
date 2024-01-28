@@ -2,20 +2,19 @@ import { useQuery } from "@tanstack/react-query";
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import useAxiosPublic from "./useAxiosPublic";
-
-const useSaleRequest = () => {
+const useOwnerSale = () => {
     const { user } = useContext(AuthContext)
     const axiospublic = useAxiosPublic();
-    const { data: salerequest = [], refetch } = useQuery({
-        queryKey: ['salerequest'],
+    const { data: ownerSale = [], refetch } = useQuery({
+        queryKey: ['ownerSale', user],
         queryFn: async () => {
             // when data import from database then change the url & use axios public 
-            const res = await axiospublic.get(`/requested-sale?email=${user.email}`)
+            const res = await axiospublic.get(`/ownerSaleReq?email=${user.email}`)
             console.log(res.data)
             return res.data;
         }
     })
-    return [salerequest, refetch]
+    return [ownerSale, refetch]
 };
 
-export default useSaleRequest;
+export default useOwnerSale;

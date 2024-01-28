@@ -33,6 +33,8 @@ import { Toaster } from "react-hot-toast";
 import AddProperties from "./DashLayout/DashboardRoutes/AddProperties/AddProperties.jsx";
 import RequestedProperty from "./DashLayout/DashboardRoutes/Requested Property/RequestedProperty.jsx";
 import ManageProperties from "./DashLayout/DashboardRoutes/ManageProperties/ManageProperties.jsx";
+import RentRequest from "./DashLayout/DashboardRoutes/RentRequest/RentRequest.jsx";
+import BuyRequest from "./DashLayout/DashboardRoutes/BuyRequest/BuyRequest.jsx";
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
@@ -155,6 +157,14 @@ const router = createBrowserRouter([
         element: <RequestedProperty />,
         loader: () => fetch(`http://localhost:5000/requested-properties`),
       },
+      {
+        path:"rentReq",
+        element:<RentRequest/>
+      },
+      {
+        path:"buyReq",
+        element:<BuyRequest/>
+      }
     ],
   },
 ]);

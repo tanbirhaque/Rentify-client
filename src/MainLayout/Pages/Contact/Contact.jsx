@@ -1,5 +1,5 @@
-// This page creat by kanika
-// creat ful page and creat also responsive full page
+// This page create by konika
+// create ful page and create also responsive full page
 import { Link, NavLink } from "react-router-dom";
 import './contact.css'
 import { CiLocationOn } from "react-icons/ci";
