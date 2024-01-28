@@ -2,11 +2,12 @@
 
 import { useLoaderData } from "react-router-dom";
 import RequestCard from "./RequestCard";
+import useRequested from "../../../Hooks/useRequested";
 
 const RequestedProperty = () => {
   //data fetch
-  const requestedProperties = useLoaderData();
-  console.log(requestedProperties);
+  const  [requested, refetch] = useRequested()
+  console.log(requested);
 
   return (
     <div>
@@ -19,8 +20,8 @@ const RequestedProperty = () => {
         }}
       >
         <div className=" bg-[#000000B2] rounded-lg">
-          <div className=" max-w-screen-2xl mx-auto py-24 w-[1350px] ">
-            <h2 className="text-6xl font-bold text-white font-serif pl-4">
+          <div className="w-full lg:max-w-screen-2xl lg:mx-auto py-24 xl:w-[1350px] ">
+            <h2 className="text-[36px] lg:text-6xl font-bold text-white font-serif pl-4">
               Requested Properties
             </h2>
             <p className="text-lg font-normal text-gray-200 font-serif pl-4 pt-4">
@@ -31,7 +32,7 @@ const RequestedProperty = () => {
       </div>
       {/* infos */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 p-5">
-        {requestedProperties.map((requestedProperty) => (
+        {requested.map((requestedProperty) => (
           <RequestCard
             key={requestedProperty._id}
             requestedProperties={requestedProperty}
