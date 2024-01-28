@@ -1,13 +1,50 @@
 //coded by Fahima
-
-import { useLoaderData } from "react-router-dom";
+// Tabs by rent & sale and property status filter accepted,pending & rejectted add by sojib 
+import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
+import "react-tabs/style/react-tabs.css";
 import RequestCard from "./RequestCard";
+import { useEffect, useState } from "react";
 import useRequested from "../../../Hooks/useRequested";
+import useAuth from "../../../Hooks/useAuth";
 
 const RequestedProperty = () => {
-  //data fetch
-  const  [requested, refetch] = useRequested()
-  console.log(requested);
+  const [requested] = useRequested();
+  const { user } = useAuth();
+  const [properties, setProperties] = useState([]);
+  const [tabIndex, setTabIndex] = useState(0);
+
+  // Requested data fetched by useffect becouse usestate data direct not defiend
+  const url = `http://localhost:5000/all_requested?email=${user?.email}`;
+  useEffect(() => {
+    fetch(url)
+      .then(res => res.json())
+      .then(data => setProperties(data))
+  }, [url])
+
+  // filter part
+  // filter dropdoen for accepted,pending and Rejected
+  const handleAccepted = () => {
+    const acchepted = requested.filter(item => item.requestStatus == "accepted")
+    // console.log(acchepted)
+    setProperties(acchepted)
+  }
+
+  const handlePending = () => {
+    const pending = requested.filter(item => item.requestStatus == "pending")
+    console.log(pending)
+    setProperties(pending)
+  }
+
+  const handleRejected = () => {
+    const rejected = requested.filter(item => item.requestStatus == "rejected")
+    console.log(rejected)
+    setProperties(rejected)
+  }
+
+
+  // filter rent and sales for tabs
+  const rentsProperties = properties.filter((item) => item.property.property_for == "rent");
+  const salesProperties = properties.filter((item) => item.property.property_for === "sale");
 
   return (
     <div>
@@ -30,15 +67,51 @@ const RequestedProperty = () => {
           </div>
         </div>
       </div>
-      {/* infos */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 p-5">
-        {requested.map((requestedProperty) => (
-          <RequestCard
-            key={requestedProperty._id}
-            requestedProperties={requestedProperty}
-          />
-        ))}
+      <div className=" mx-8 mt-10">
+        {/* Tabs and filter dropdown flex */}
+        <div className=" flex justify-end my-5 mr-5">
+          <div className="dropdown dropdown-hover">
+            <div tabIndex={0} role="button" className="btn btn-neutral mr-10 font-bold">Propery Status</div>
+            <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+              <li className=" btn font-bold" onClick={handleAccepted}><a>Accepted</a></li>
+              <li className=" btn font-bold" onClick={handlePending}><a>Pending</a></li>
+              <li className=" btn font-bold" onClick={handleRejected}><a>Rejected</a></li>
+            </ul>
+          </div>
+        </div>
+        <div className="">
+          <Tabs
+            defaultIndex={tabIndex}
+            onSelect={(index) => setTabIndex(index)}
+          >
+            <TabList>
+              <Tab>Rent</Tab>
+              <Tab>Sale</Tab>
+            </TabList>
+            <TabPanel>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 p-5">
+                {rentsProperties?.map((requestedProperty) => (
+                  <RequestCard
+                    key={requestedProperty._id}
+                    requestedProperties={requestedProperty}
+                  />
+                ))}
+              </div>
+            </TabPanel>
+            <TabPanel>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 p-5">
+                {salesProperties?.map((requestedProperty) => (
+                  <RequestCard
+                    key={requestedProperty._id}
+                    requestedProperties={requestedProperty}
+                  />
+                ))}
+              </div>
+            </TabPanel>
+          </Tabs>
+        </div>
       </div>
+      {/* infos */}
     </div>
   );
 };
