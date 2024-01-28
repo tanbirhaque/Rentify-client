@@ -11,7 +11,7 @@ const BookingForm = ({ item }) => {
   const {
     register,
     handleSubmit,
-    //  reset,
+     reset,
     // formState: { errors },
   } = useForm();
 
@@ -33,6 +33,7 @@ const BookingForm = ({ item }) => {
       axiosPublic.post("/requested-properties", propertyRequest).then((res) => {
         console.log(res.data);
         Swal.fire(`Hey ${data.name} Your Request is Successfully Send`);
+        reset();
       });
       console.log(propertyRequest);
       // reset();
