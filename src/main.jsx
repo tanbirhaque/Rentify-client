@@ -20,18 +20,18 @@ import Private from "./Provider/Private.jsx";
 import Details from "./MainLayout/Pages/Details/Details.jsx";
 import OwnerList from "./MainLayout/Pages/Owner/OwnerList.jsx";
 import OwnerDetail from "./MainLayout/Pages/Owner/OwnerDetail.jsx";
-import TestLay from "./TestLay/TestLay.jsx";
+// import TestLay from "./TestLay/TestLay.jsx";
 import DashLayout from "./DashLayout/DashLayout.jsx";
-import Profile from "./DashboardRoutes/Profile/Profile.jsx";
-import Settings from "./DashboardRoutes/Settings/Settings.jsx";
-import SavedProperties from "./DashboardRoutes/SavedProperties/SavedProperties.jsx";
+import Profile from "./DashLayout/DashboardRoutes/Profile/Profile.jsx";
+import Settings from "./DashLayout/DashboardRoutes/Settings/Settings.jsx";
+import SavedProperties from "./DashLayout/DashboardRoutes/SavedProperties/SavedProperties.jsx";
 
 import Login from "./MainLayout/Pages/Authentication/Login/Login.jsx";
 import Reset from "./MainLayout/Pages/Authentication/Reset/Reset.jsx";
-import Overview from "./DashboardRoutes/Profile/Overview";
+import Overview from "./DashLayout/DashboardRoutes/Profile/Overview";
 import { Toaster } from "react-hot-toast";
-import AddProperties from "./DashboardRoutes/AddProperties/AddProperties.jsx";
-import RequestedProperty from "./DashboardRoutes/Requested Property/RequestedProperty.jsx";
+import AddProperties from "./DashLayout/DashboardRoutes/AddProperties/AddProperties.jsx";
+import RequestedProperty from "./DashLayout/DashboardRoutes/Requested Property/RequestedProperty.jsx";
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
