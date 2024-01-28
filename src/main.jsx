@@ -28,9 +28,10 @@ import SavedProperties from "./DashboardRoutes/SavedProperties/SavedProperties.j
 
 import Login from "./MainLayout/Pages/Authentication/Login/Login.jsx";
 import Reset from "./MainLayout/Pages/Authentication/Reset/Reset.jsx";
-import Overview from './DashboardRoutes/Profile/Overview';
+import Overview from "./DashboardRoutes/Profile/Overview";
 import { Toaster } from "react-hot-toast";
 import AddProperties from "./DashboardRoutes/AddProperties/AddProperties.jsx";
+import Dynamic from "./MainLayout/Pages/Home/HomeComponents/PopularCities/Dynamic.jsx";
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
@@ -69,7 +70,7 @@ const router = createBrowserRouter([
         path: "/faq",
         element: <Faq />,
       },
-      
+
       {
         path: "/how-it-works",
         element: <HowItWorks />,
@@ -85,6 +86,10 @@ const router = createBrowserRouter([
       {
         path: "/conditions",
         element: <Condition></Condition>,
+      },
+      {
+        path: "/dynamic/:city",
+        element: <Dynamic></Dynamic>,
       },
       {
         path: "/details/:id",
@@ -130,8 +135,8 @@ const router = createBrowserRouter([
       //   element: <Settings></Settings>
       // }
       {
-        path: 'saved',
-        element: <SavedProperties></SavedProperties>
+        path: "saved",
+        element: <SavedProperties></SavedProperties>,
       },
       {
         path: "overview",
@@ -141,12 +146,9 @@ const router = createBrowserRouter([
         path: "add",
         element: <AddProperties></AddProperties>,
       },
-    ]
-
-  }
-     
+    ],
+  },
 ]);
-   
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
