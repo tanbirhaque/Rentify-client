@@ -1,9 +1,9 @@
 import { NavLink, useLoaderData } from "react-router-dom";
 import './Saved.css'
 import SavedCards from "./SavedCards";
-import useSavedProperties from "../../Hooks/useSavedProperties";
+import useSavedProperties from "../../../Hooks/useSavedProperties";
 import { useContext } from "react";
-import { AuthContext } from "../../Provider/AuthProvider";
+import { AuthContext } from "../../../Provider/AuthProvider";
 
 
 const SavedProperties = () => {

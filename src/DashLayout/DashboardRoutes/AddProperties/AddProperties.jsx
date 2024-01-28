@@ -1,8 +1,8 @@
 // This AddProperties page desgin by Sadia
 // And AddProperties crud oparetion added by sojib
 import { useContext } from "react";
-import { AuthContext } from "../../Provider/AuthProvider";
-import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import { AuthContext } from "../../../Provider/AuthProvider";
+import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 
 const AddProperties = () => {

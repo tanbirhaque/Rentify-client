@@ -2,7 +2,7 @@
 
 import { useLoaderData } from "react-router-dom";
 import RequestCard from "./RequestCard";
-import useRequested from "../../Hooks/useRequested";
+import useRequested from "../../../Hooks/useRequested";
 
 const RequestedProperty = () => {
   //data fetch
