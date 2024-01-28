@@ -1,4 +1,5 @@
 //coded by Fahima
+// Tabs by rent & sale and property status filter accepted,pending & rejectted add by sojib 
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import RequestCard from "./RequestCard";
@@ -12,7 +13,7 @@ const RequestedProperty = () => {
   const [properties, setProperties] = useState([]);
   const [tabIndex, setTabIndex] = useState(0);
 
-  // Request data fetched by useffect becouse usehook usestate data direct not defiend
+  // Requested data fetched by useffect becouse usestate data direct not defiend
   const url = `http://localhost:5000/all_requested?email=${user?.email}`;
   useEffect(() => {
     fetch(url)
@@ -23,7 +24,7 @@ const RequestedProperty = () => {
   // filter part
   // filter dropdoen for accepted,pending and Rejected
   const handleAccepted = () => {
-    const acchepted = requested.filter(item => item.requestStatus == "accept")
+    const acchepted = requested.filter(item => item.requestStatus == "accepted")
     // console.log(acchepted)
     setProperties(acchepted)
   }
@@ -35,7 +36,7 @@ const RequestedProperty = () => {
   }
 
   const handleRejected = () => {
-    const rejected = requested.filter(item => item.requestStatus == "reject")
+    const rejected = requested.filter(item => item.requestStatus == "rejected")
     console.log(rejected)
     setProperties(rejected)
   }
@@ -66,9 +67,19 @@ const RequestedProperty = () => {
           </div>
         </div>
       </div>
-      <div className=" mx-10 mt-10">
+      <div className=" mx-8 mt-10">
         {/* Tabs and filter dropdown flex */}
-        <div className="flex justify-between items-start">
+        <div className=" flex justify-end my-5 mr-5">
+          <div className="dropdown dropdown-hover">
+            <div tabIndex={0} role="button" className="btn btn-neutral mr-10 font-bold">Propery Status</div>
+            <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+              <li className=" btn font-bold" onClick={handleAccepted}><a>Accepted</a></li>
+              <li className=" btn font-bold" onClick={handlePending}><a>Pending</a></li>
+              <li className=" btn font-bold" onClick={handleRejected}><a>Rejected</a></li>
+            </ul>
+          </div>
+        </div>
+        <div className="">
           <Tabs
             defaultIndex={tabIndex}
             onSelect={(index) => setTabIndex(index)}
@@ -79,7 +90,7 @@ const RequestedProperty = () => {
             </TabList>
             <TabPanel>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 p-5">
-                {rentsProperties.map((requestedProperty) => (
+                {rentsProperties?.map((requestedProperty) => (
                   <RequestCard
                     key={requestedProperty._id}
                     requestedProperties={requestedProperty}
@@ -89,7 +100,7 @@ const RequestedProperty = () => {
             </TabPanel>
             <TabPanel>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 p-5">
-                {salesProperties.map((requestedProperty) => (
+                {salesProperties?.map((requestedProperty) => (
                   <RequestCard
                     key={requestedProperty._id}
                     requestedProperties={requestedProperty}
@@ -98,16 +109,6 @@ const RequestedProperty = () => {
               </div>
             </TabPanel>
           </Tabs>
-          <div>
-            <div className="dropdown dropdown-hover">
-              <div tabIndex={0} role="button" className="btn btn-neutral mr-10">Propery Status</div>
-              <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-                <li onClick={handleAccepted}><a>Accepted</a></li>
-                <li onClick={handlePending}><a>Pending</a></li>
-                <li onClick={handleRejected}><a>Rejected</a></li>
-              </ul>
-            </div>
-          </div>
         </div>
       </div>
       {/* infos */}
