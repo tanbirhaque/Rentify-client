@@ -37,6 +37,7 @@ import Prauge from "./MainLayout/Pages/Home/HomeComponents/PopularCities/Prauge/
 import Florida from "./MainLayout/Pages/Home/HomeComponents/PopularCities/Florida/Florida.jsx";
 import SanFransisco from "./MainLayout/Pages/Home/HomeComponents/PopularCities/SanFransisco/SanFransisco.jsx";
 import TorentoCity from "./MainLayout/Pages/Home/HomeComponents/PopularCities/TorentoCity/TorentoCity.jsx";
+import VancuverCity from "./MainLayout/Pages/Home/HomeComponents/PopularCities/VancuverCity/VancuverCity.jsx";
 
 const queryClient = new QueryClient();
 
@@ -112,6 +113,10 @@ const router = createBrowserRouter([
       {
         path: "/TorentoCity/:city",
         element: <TorentoCity></TorentoCity>
+      },
+      {
+        path: "/VancuverCity/:city",
+        element: <VancuverCity></VancuverCity>
       },
       {
         path: "/details/:id",
