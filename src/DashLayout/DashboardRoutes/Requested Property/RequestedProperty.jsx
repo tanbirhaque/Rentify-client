@@ -88,7 +88,25 @@ const RequestedProperty = () => {
             </ul>
           </div>
         </div> */}
-        <div className="">
+
+        <div className=" mt-5">
+          {/* Here are used to menu class & Navlink for uniq desgin and filter by property status in Accepted, Pending & Rejected..[codded by Sojib] */}
+          <div className=" menu  menu-horizontal flex flex-row justify-center items-center mb-3">
+            <NavLink onClick={handleAll}
+              className="navAfter relative font-medium text-base text-black mx-3"
+            >
+              All
+            </NavLink>
+            <NavLink onClick={handleAccepted} className="navAfter relative font-medium text-base text-black mx-3" >
+              Accepted
+            </NavLink>
+            <NavLink onClick={handlePending} className="navAfter relative font-medium text-base text-black mx-3" >
+              Pending
+            </NavLink>
+            <NavLink onClick={handleRejected} className="navAfter relative font-medium text-base text-black mx-3" >
+              Rejected
+            </NavLink>
+          </div>
           <Tabs
             defaultIndex={tabIndex}
             onSelect={(index) => setTabIndex(index)}
@@ -97,23 +115,6 @@ const RequestedProperty = () => {
               <Tab>Rent</Tab>
               <Tab>Sale</Tab>
             </TabList>
-            {/* Here are used to menu class & Navlink for uniq desgin and filter by property status in Accepted, Pending & Rejected..[codded by Sojib] */}
-            <div className=" menu  menu-horizontal flex flex-row justify-center items-center mt-5">
-              <NavLink onClick={handleAll}
-              className="navAfter relative font-medium text-base text-black mx-3"
-              >
-                ALL
-              </NavLink>
-              <NavLink onClick={handleAccepted} className="navAfter relative font-medium text-base text-black mx-3" >
-                Accepted
-              </NavLink>
-              <NavLink onClick={handlePending} className="navAfter relative font-medium text-base text-black mx-3" >
-                Pending
-              </NavLink>
-              <NavLink onClick={handleRejected} className="navAfter relative font-medium text-base text-black mx-3" >
-                Rejected
-              </NavLink>
-            </div>
             <TabPanel>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 p-5">
                 {rentsProperties?.map((requestedProperty) => (
