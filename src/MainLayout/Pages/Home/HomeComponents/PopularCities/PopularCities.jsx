@@ -63,7 +63,7 @@ const PopularCities = () => {
           >
           </div>
           {/* overlay over the image */}
-          <Link to={`/dynamic/${city}`}>
+          <Link to={`/Prauge/${city}`}>
           <div className="pop-overlay absolute top-0 left-0 min-w-full min-h-full bg-black bg-opacity-50 hover:bg-opacity-60 transition duration-500 rounded-xl">
             <div className="pop-text p-5 min-h-full">
               <div className="relative top-[230px]">
@@ -86,7 +86,7 @@ const PopularCities = () => {
           >
           </div>
           {/* overlay over the image */}
-          <Link to={`/dynamic/${city}`}>
+          <Link to={`/Florida/${city}`}>
           <div className="pop-overlay absolute top-0 left-0 min-w-full min-h-full bg-black bg-opacity-50 hover:bg-opacity-60 transition duration-500 rounded-xl">
             <div className="pop-text p-5 min-h-full">
               <div className="relative top-[230px]">

@@ -31,8 +31,11 @@ import Reset from "./MainLayout/Pages/Authentication/Reset/Reset.jsx";
 import Overview from "./DashboardRoutes/Profile/Overview";
 import { Toaster } from "react-hot-toast";
 import AddProperties from "./DashboardRoutes/AddProperties/AddProperties.jsx";
-import Dynamic from "./MainLayout/Pages/Home/HomeComponents/PopularCities/Dynamic.jsx";
-import NewYork from './MainLayout/Pages/Home/HomeComponents/PopularCities/NewYork.jsx/NewYork';
+
+import NewYork from './MainLayout/Pages/Home/HomeComponents/PopularCities/NewYork/NewYork.jsx';
+import Prauge from "./MainLayout/Pages/Home/HomeComponents/PopularCities/Prauge/Prauge.jsx";
+import Florida from "./MainLayout/Pages/Home/HomeComponents/PopularCities/Florida/Florida.jsx";
+
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
@@ -90,7 +93,15 @@ const router = createBrowserRouter([
       },
       {
         path: "/newyork/:city",
-        element: <NewYork></NewYork>,
+        element: <NewYork></NewYork>
+      },
+      {
+        path: "/Prauge/:city",
+        element: <Prauge></Prauge>
+      },
+      {
+        path: "/Florida/:city",
+        element: <Florida></Florida>
       },
       {
         path: "/details/:id",
