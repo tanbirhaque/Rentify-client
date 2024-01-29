@@ -11,7 +11,7 @@ const TorentoCity = () => {
     return (
         <div>
         {/* banner section */}
-        <div className="dynamicbgimg">
+        <div className="img5">
                 <div className=" bg-[#000000B2]">
                     <div className=" max-w-screen-2xl mx-auto py-24">
                         <h2 className="text-6xl font-bold text-white font-serif">All Properties in Torento City</h2>

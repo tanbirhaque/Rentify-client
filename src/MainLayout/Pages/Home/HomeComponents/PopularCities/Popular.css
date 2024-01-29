@@ -11,8 +11,50 @@
     /* background-position: center; */
 }
 
-.dynamicbgimg {
-    background-image: url('../../../../../assets/home-2/city-8.jpg');
+.img1 {
+    background-image: url('../../../../../assets/Template_files/city-1.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.img2 {
+    background-image: url('../../../../../assets/Template_files/city-2.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.img3 {
+    background-image: url('../../../../../assets/Template_files/city-3.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.img4 {
+    background-image: url('../../../../../assets/Template_files/city-4.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.img5 {
+    background-image: url('../../../../../assets/Template_files/city-5.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.img6 {
+    background-image: url('../../../../../assets/Template_files/city-6.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.img7 {
+    background-image: url('../../../../../assets/Template_files/city-7.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.img8 {
+    background-image: url('../../../../../assets/Template_files/city-8.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
