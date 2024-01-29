@@ -1,3 +1,4 @@
+//component added by "Fahima"
 import { Controller, useForm } from "react-hook-form";
 import Lottie from "lottie-react";
 import loginAnimation from "../../../../assets/animation/LoginAnimation.json";
@@ -5,11 +6,13 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import SocialLogin from "../Social/SocialLogin";
 import useAuth from "../../../../Hooks/useAuth";
+import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
 
 const Register = () => {
   const { userRegister, userProfile } = useAuth();
   const currentLocation = useLocation();
   const destinedLocation = useNavigate();
+  const axiosPublic = useAxiosPublic();
   //form data
   const {
     register,
@@ -25,24 +28,26 @@ const Register = () => {
     userRegister(data.email, data.password)
       .then((res) => {
         console.log(res.user);
-
-        // const userInfo = {
-        //   name: data.name,
-        //   email: data.email,
-        //   image: data.image,
-        //   role: "student",
-        // };
+        const userInfo = {
+          name: data.name,
+          email: data.email,
+          image: data.image,
+          role: "user",
+        };
         userProfile(data.name, data.image)
           .then(() => {
-            destinedLocation(
-              currentLocation?.state ? currentLocation.state : "/"
-            );
             Swal.fire({
               title: "User created successfully!",
               timer: 2000,
               color: "#002172",
               showConfirmButton: false,
               icon: "success",
+            });
+            destinedLocation(
+              currentLocation?.state ? currentLocation.state : "/"
+            );
+            axiosPublic.post("/users", userInfo).then((res) => {
+              reset();
             });
           })
           .catch();
@@ -86,22 +91,22 @@ const Register = () => {
             <h3 className="mt-8 mb-2 text-xl font-semibold">Image</h3>
             {/*  */}
             <Controller
-                  name="image"
-                  control={control}
-                  render={({ field }) => (
-                    <>
-                      <input
-                        type="file"
-                        onChange={(e) => {
-                          // Convert the selected image to URL and set it in the field
-                          const url = URL.createObjectURL(e.target.files[0]);
-                          field.onChange(url);
-                        }}
-                      />
-                    </>
-                  )}
-                />
-                {/*  */}
+              name="image"
+              control={control}
+              render={({ field }) => (
+                <>
+                  <input
+                    type="file"
+                    onChange={(e) => {
+                      // Convert the selected image to URL and set it in the field
+                      const url = URL.createObjectURL(e.target.files[0]);
+                      field.onChange(url);
+                    }}
+                  />
+                </>
+              )}
+            />
+            {/*  */}
             {errors.image && (
               <span className="text-xs text-red-600">
                 Image is required to register.
