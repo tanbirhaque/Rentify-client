@@ -11,7 +11,7 @@ const BookingForm = ({ item }) => {
   const {
     register,
     handleSubmit,
-     reset,
+    reset,
     // formState: { errors },
   } = useForm();
 
@@ -21,7 +21,8 @@ const BookingForm = ({ item }) => {
     if (user) {
       const propertyRequest = {
         property: item.property_info,
-        requestStatus: 'pending', // Added this object property to manage requested property status as ['pending' || 'accepted' || 'rejected'] -by Tanbir
+        requestStatus: 'rejected', // Added this object property to manage requested property status as ['pending' || 'accepted' || 'rejected'] -by Tanbir
+        request_id: item._id,
         requesterName: data.name,
         requesterNumber: data.number,
         requesterEmail: user.email,
