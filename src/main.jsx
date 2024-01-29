@@ -35,6 +35,7 @@ import AddProperties from "./DashboardRoutes/AddProperties/AddProperties.jsx";
 import NewYork from './MainLayout/Pages/Home/HomeComponents/PopularCities/NewYork/NewYork.jsx';
 import Prauge from "./MainLayout/Pages/Home/HomeComponents/PopularCities/Prauge/Prauge.jsx";
 import Florida from "./MainLayout/Pages/Home/HomeComponents/PopularCities/Florida/Florida.jsx";
+import SanFransisco from "./MainLayout/Pages/Home/HomeComponents/PopularCities/SanFransisco/SanFransisco.jsx";
 
 const queryClient = new QueryClient();
 
@@ -102,6 +103,10 @@ const router = createBrowserRouter([
       {
         path: "/Florida/:city",
         element: <Florida></Florida>
+      },
+      {
+        path: "/SanFransisco/:city",
+        element: <SanFransisco></SanFransisco>
       },
       {
         path: "/details/:id",
