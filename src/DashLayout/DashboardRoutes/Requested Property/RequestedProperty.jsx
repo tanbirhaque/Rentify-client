@@ -6,6 +6,7 @@ import RequestCard from "./RequestCard";
 import { useEffect, useState } from "react";
 import useRequested from "../../../Hooks/useRequested";
 import useAuth from "../../../Hooks/useAuth";
+import { NavLink } from "react-router-dom";
 
 const RequestedProperty = () => {
   const [requested] = useRequested();
@@ -52,6 +53,7 @@ const RequestedProperty = () => {
 
   return (
     <div>
+      {/* Background section*/}
       <div
         className="w-full"
         style={{
@@ -71,9 +73,11 @@ const RequestedProperty = () => {
           </div>
         </div>
       </div>
+
+      {/* Requested properties section */}
       <div className=" mx-8 mt-10">
-        {/* Tabs and filter dropdown flex */}
-        <div className=" flex justify-end my-5 mr-5">
+        {/*TODO:Dropdown filter by property status in Accepted, Pending & Rejected.. [now it's commented,, just created desgin.. If you need this you uncomment it] */}
+        {/* <div className=" flex justify-end my-5 mr-5">
           <div className="dropdown dropdown-hover">
             <div tabIndex={0} role="button" className="btn btn-neutral mr-10 font-bold">Propery Status</div>
             <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
@@ -83,8 +87,26 @@ const RequestedProperty = () => {
               <li className=" btn font-bold" onClick={handleRejected}><a>Rejected</a></li>
             </ul>
           </div>
-        </div>
-        <div className="">
+        </div> */}
+
+        <div className=" mt-5">
+          {/* Here are used to menu class & Navlink for uniq desgin and filter by property status in Accepted, Pending & Rejected..[codded by Sojib] */}
+          <div className=" menu  menu-horizontal flex flex-row justify-center items-center mb-3">
+            <NavLink onClick={handleAll}
+              className="navAfter relative font-medium text-base text-black mx-3"
+            >
+              All
+            </NavLink>
+            <NavLink onClick={handleAccepted} className="navAfter relative font-medium text-base text-black mx-3" >
+              Accepted
+            </NavLink>
+            <NavLink onClick={handlePending} className="navAfter relative font-medium text-base text-black mx-3" >
+              Pending
+            </NavLink>
+            <NavLink onClick={handleRejected} className="navAfter relative font-medium text-base text-black mx-3" >
+              Rejected
+            </NavLink>
+          </div>
           <Tabs
             defaultIndex={tabIndex}
             onSelect={(index) => setTabIndex(index)}
