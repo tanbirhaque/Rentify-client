@@ -1,15 +1,25 @@
+//component added by "Fahima"
 import { useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../../../Hooks/useAuth";
 import Swal from "sweetalert2";
+import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
 const SocialLogin = () => {
   const currentLocation = useLocation();
   const destinedLocation = useNavigate();
   // console.log(currentLocation);
 
   const { googleLogin } = useAuth();
+  const axiosPublic = useAxiosPublic();
   const handleLogin = (data) => {
     data()
       .then((response) => {
+        // console.log(response.user);
+        const userInfo = {
+          name: response.user.displayname,
+          email: response.user.email,
+          image: response.user.photoURL,
+          role: "user",
+        };
         console.log(response.user);
         Swal.fire({
           title: "User logged in with Google successfully!!!",
@@ -20,6 +30,7 @@ const SocialLogin = () => {
         });
         // go to the route after login
         destinedLocation(currentLocation?.state ? currentLocation.state : "/");
+        axiosPublic.post("/users", userInfo).then(() => {});
       })
       .catch(() => {});
   };

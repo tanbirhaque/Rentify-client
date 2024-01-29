@@ -5,19 +5,27 @@ import ButtonBlue from "../buttons/Blue/ButtonBlue";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import swal from "sweetalert";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
   const [isNavbarJumping, setIsNavbarJumping] = useState(false);
   const { userSignOut, user, setUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
-
   // for logout user -Sadia
   const handleLogOut = () => {
     userSignOut()
       .then(() => {
         console.log("logged out");
-        swal("Signout", "You are successfully signed out", "success");
+        // swal("Signout", "You are successfully signed out", "success");
+        //sweet alert 2 added by Fahima
+        Swal.fire({
+          title: "You are successfully signed out",
+          timer: 2000,
+          color: "#002172",
+          showConfirmButton: false,
+          icon: "success",
+        });
         setUser(null);
 
         setTimeout(() => {
@@ -161,7 +169,6 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navLinks}</ul>
         </div>
-       
 
         {/* for toggle feature for btn -sadia */}
         <div className="navbar-end gap-5">
@@ -191,7 +198,7 @@ const Navbar = () => {
                   </li>
                   {/* {console.log("js diye aslm", user.photoURL)} */}
                   <li>
-                    <Link to='/dashboard/profile'>Dashbaord</Link>
+                    <Link to="/dashboard/profile">Dashbaord</Link>
                   </li>
                   <li>
                     <Link onClick={handleLogOut}>Logout</Link>
