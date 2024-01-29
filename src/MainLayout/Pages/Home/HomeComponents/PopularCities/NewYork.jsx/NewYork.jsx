@@ -1,17 +1,14 @@
 import { NavLink } from "react-router-dom";
-import useProperties from "../../../../../Hooks/useProperties";
-import './Popular.css'
-import DynamicCards from "./DynamicCards";
+import useProperties from "../../../../../../Hooks/useProperties";
+import DynamicCards from "../DynamicCards";
 
 
-const Dynamic = () => {
+const NewYork = () => {
 
     const [properties] = useProperties();
-   const cityProperties = properties.filter(property => property?.property_info.property_location.address.city === 'New York City')
-   
-   console.log(cityProperties)
-
-    // console.log(properties)
+    const cityProperties = properties.filter(property => property?.property_info.property_location.address.city === 'New York City')
+    
+    console.log(cityProperties)
 
     return (
         <div>
@@ -37,6 +34,4 @@ const Dynamic = () => {
     );
 };
 
-export default Dynamic;
-
- 
+export default NewYork;

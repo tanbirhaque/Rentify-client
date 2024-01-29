@@ -32,6 +32,7 @@ import Overview from "./DashboardRoutes/Profile/Overview";
 import { Toaster } from "react-hot-toast";
 import AddProperties from "./DashboardRoutes/AddProperties/AddProperties.jsx";
 import Dynamic from "./MainLayout/Pages/Home/HomeComponents/PopularCities/Dynamic.jsx";
+import NewYork from './MainLayout/Pages/Home/HomeComponents/PopularCities/NewYork.jsx/NewYork';
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
@@ -88,8 +89,8 @@ const router = createBrowserRouter([
         element: <Condition></Condition>,
       },
       {
-        path: "/dynamic/:city",
-        element: <Dynamic></Dynamic>,
+        path: "/newyork/:city",
+        element: <NewYork></NewYork>,
       },
       {
         path: "/details/:id",

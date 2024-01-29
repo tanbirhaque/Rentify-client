@@ -11,6 +11,13 @@
     /* background-position: center; */
 }
 
+.dynamicbgimg {
+    background-image: url('../../../../../assets/home-2/city-8.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .card-container .pop-card .background-image {
     position: absolute;
     top: 0;

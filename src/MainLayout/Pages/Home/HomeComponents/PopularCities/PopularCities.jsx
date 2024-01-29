@@ -20,7 +20,9 @@ const PopularCities = () => {
 
   const [properties] = useProperties();
   // console.log(properties.city);
-  const { city } = properties;
+  const {  city } = properties;
+  
+
   return (
     <div className="mt-10 mb-20 max-w-screen-2xl mx-auto lg:px-[30px] xl:px-[108px]">
       <CommonHeading small={'Choose A Popular City'} big={"Our Hottest Nearby Cities"}></CommonHeading>
@@ -38,7 +40,7 @@ const PopularCities = () => {
           >
           </div>
           {/* overlay over the image */}
-         <Link to={`/dynamic/${city}`}>
+         <Link to={`/newyork/${city}`}>
          <div className="pop-overlay absolute top-0 left-0 min-w-full min-h-full bg-black bg-opacity-50 hover:bg-opacity-60 transition duration-500 rounded-xl">
             <div className="pop-text p-5 min-h-full">
               <div className="relative top-[230px]">
