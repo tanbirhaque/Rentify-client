@@ -38,6 +38,8 @@ import Florida from "./MainLayout/Pages/Home/HomeComponents/PopularCities/Florid
 import SanFransisco from "./MainLayout/Pages/Home/HomeComponents/PopularCities/SanFransisco/SanFransisco.jsx";
 import TorentoCity from "./MainLayout/Pages/Home/HomeComponents/PopularCities/TorentoCity/TorentoCity.jsx";
 import VancuverCity from "./MainLayout/Pages/Home/HomeComponents/PopularCities/VancuverCity/VancuverCity.jsx";
+import MontrealCity from "./MainLayout/Pages/Home/HomeComponents/PopularCities/MontrealCity/MontrealCity.jsx";
+import LosAngeles from "./MainLayout/Pages/Home/HomeComponents/PopularCities/LosAngeles/LosAngeles.jsx";
 
 const queryClient = new QueryClient();
 
@@ -117,6 +119,14 @@ const router = createBrowserRouter([
       {
         path: "/VancuverCity/:city",
         element: <VancuverCity></VancuverCity>
+      },
+      {
+        path: "/MontrealCity/:city",
+        element: <MontrealCity></MontrealCity>
+      },
+      {
+        path: "/LosAngeles/:city",
+        element: <LosAngeles></LosAngeles>
       },
       {
         path: "/details/:id",
