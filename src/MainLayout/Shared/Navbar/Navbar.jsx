@@ -91,7 +91,7 @@ const Navbar = () => {
         <summary className="navAfter relative font-medium text-base  text-black mx-3">
           Others
         </summary>
-        <ul className="p-2  menu dropdown-content z-[1] bg-base-100 rounded-box w-52 border-[#e33226] border-l-[3px]">
+        <ul className=" p-2  menu dropdown-content z-[1] bg-base-100 rounded-box w-52 border-[#e33226] border-l-[3px]">
           <NavLink
             to="/testimonials"
             className="navAfter relative font-medium text-base text-black mx-3"
@@ -149,7 +149,7 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="main-nav menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
               {navLinks}
             </ul>

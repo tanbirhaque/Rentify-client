@@ -5,7 +5,7 @@ import { PiBathtub } from "react-icons/pi";
 import { Link } from "react-router-dom";
 
 const RequestCard = ({ requestedProperties }) => {
-  const { _id, property } = requestedProperties || {};
+  const { _id, property, requestStatus } = requestedProperties || {};
   const {
     property_img,
     property_title,
@@ -75,8 +75,14 @@ const RequestCard = ({ requestedProperties }) => {
             className="rounded p-4 bg-[#002172] text-white w-full mt-3"
             disabled
           >
-            Request Pending
+            Request <span className=" uppercase">{requestStatus}</span>
           </button>
+          {requestStatus == "accepted" ?
+            <button
+              className="rounded p-4 bg-[#2797a1] text-white w-1/3 mx-auto mt-3 font-bold"
+              disabled
+            >Pay</button>
+            : ""}
         </div>
       </div>
     </div>

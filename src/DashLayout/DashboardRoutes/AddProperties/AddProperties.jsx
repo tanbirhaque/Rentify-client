@@ -1,11 +1,13 @@
 // This AddProperties page desgin by Sadia
-// And AddProperties crud oparetion added by sojib
+// And AddProperties post crud oparetion added by sojib
 import { useContext } from "react";
-import { AuthContext } from "../../Provider/AuthProvider";
-import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import { AuthContext } from "../../../Provider/AuthProvider";
+import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
+import useProperties from "../../../Hooks/useProperties";
 
 const AddProperties = () => {
+  const [, refetch] = useProperties();
   const axiosPublic = useAxiosPublic();
   const { user } = useContext(AuthContext);
   const handleAddProperty = (e) => {
@@ -44,7 +46,7 @@ const AddProperties = () => {
         },
         ownership_duration: ownership,
         property_for: status,
-        property_status: prostatus,
+        verify_status: false,  // This object property is added for managing the verification feature from the owner dashboard as [verified or 'Non Verified'] >>> Changed 'property_status' to 'verify_status' status. -by Tanbir
         property_img: img,
         property_title: title,
         property_category: property,
@@ -79,15 +81,16 @@ const AddProperties = () => {
         }
       }
     };
-    
+
     axiosPublic.post("/properties", newProperty)
-    .then(res =>{
-      console.log(res.data)
-      if (res.data) {
-        Swal.fire(`Hey ${user.displayName}, Your property aded successfully`)
-      }
-    })
-    console.log(newProperty);
+      .then(res => {
+        // console.log(res.data)
+        if (res.data) {
+          Swal.fire(`Hey ${user.displayName}, Your property aded successfully`)
+          refetch();
+        }
+      })
+    // console.log(newProperty);
   };
 
   return (
@@ -149,9 +152,9 @@ const AddProperties = () => {
                       required
                       className="select select-bordered w-full"
                     >
-                      <option value=" Apartment"> Apartment</option>
-                      <option value="Commercial "> Commercial</option>
-                      <option value="Residential "> Residential</option>
+                      <option value="Apartment"> Apartment</option>
+                      <option value="Commercial"> Commercial</option>
+                      <option value="Residential"> Residential</option>
                     </select>
                   </label>
                 </div>
@@ -168,8 +171,8 @@ const AddProperties = () => {
                       required
                       className="select select-bordered w-full"
                     >
-                      <option value=" rent"> Rent</option>
-                      <option value=" sale"> Sale</option>
+                      <option value="rent"> Rent</option>
+                      <option value="sale"> Sale</option>
                     </select>
                   </label>
                 </div>

@@ -11,7 +11,7 @@ const BookingForm = ({ item }) => {
   const {
     register,
     handleSubmit,
-    //  reset,
+    reset,
     // formState: { errors },
   } = useForm();
 
@@ -21,9 +21,11 @@ const BookingForm = ({ item }) => {
     if (user) {
       const propertyRequest = {
         property: item.property_info,
+        requestStatus: 'rejected', // Added this object property to manage requested property status as ['pending' || 'accepted' || 'rejected'] -by Tanbir
+        request_id: item._id,
         requesterName: data.name,
         requesterNumber: data.number,
-        requesterEmail: data.email,
+        requesterEmail: user.email,
         requesterPhoto: user.photoURL,
         requesterMessage: data.message,
         family: data.family,
@@ -32,6 +34,7 @@ const BookingForm = ({ item }) => {
       axiosPublic.post("/requested-properties", propertyRequest).then((res) => {
         console.log(res.data);
         Swal.fire(`Hey ${data.name} Your Request is Successfully Send`);
+        reset();
       });
       console.log(propertyRequest);
       // reset();
@@ -50,8 +53,8 @@ const BookingForm = ({ item }) => {
   return (
     <>
       {/* form */}
-      <form onSubmit={handleSubmit(onSubmit)} className="w-72 mx-auto">
-        <h2 className=" text-3xl font-bold my-5">Book This Apartment</h2>
+      <form onSubmit={handleSubmit(onSubmit)} className="mx-auto">
+        <h2 className=" text-3xl font-bold pt-5">Book This Apartment</h2>
         {/* register your input into the hook by invoking the "register" function */}
         <input
           {...register("name")}
@@ -67,9 +70,10 @@ const BookingForm = ({ item }) => {
         />
         <input
           {...register("email", { required: true })}
-          placeholder="Email Adress*"
-         defaultValue={user?.email}
-          className="py-5 bg-[#F9F9F9] rounded-md px-2 w-full"
+          placeholder="Email Address*"
+          defaultValue={user?.email}
+          readOnly
+          className="py-5 bg-[#F9F9F9] rounded-md px-2 w-full text-gray-400"
         />
         {/* errors will return when field validation fails  */}
         <select

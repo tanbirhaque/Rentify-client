@@ -12,6 +12,7 @@ import useProperties from "../../../../../Hooks/useProperties";
 const Listing = () => {
     // properties data get from database
     const [properties] = useProperties();
+    console.log(properties)
     // const [properties, Setproperties] = useState([]);
     const [tabIndex, setTabIndex] = useState(0);
 
@@ -59,7 +60,7 @@ const Listing = () => {
                         </TabList>
                         <TabPanel>
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-3 xl:px-0">
-                                {Residential.slice(0, 6).map((property, index) => (
+                                {Residential.map((property, index) => (
                                     <div key={index}>
                                         <PropertyCard
                                             property={property}
