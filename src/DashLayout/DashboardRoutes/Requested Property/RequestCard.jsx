@@ -77,6 +77,12 @@ const RequestCard = ({ requestedProperties }) => {
           >
             Request <span className=" uppercase">{requestStatus}</span>
           </button>
+          {requestStatus == "accepted" ?
+            <button
+              className="rounded p-4 bg-[#2797a1] text-white w-1/3 mx-auto mt-3 font-bold"
+              disabled
+            >Pay</button>
+            : ""}
         </div>
       </div>
     </div>

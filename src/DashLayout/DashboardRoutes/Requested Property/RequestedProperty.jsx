@@ -23,6 +23,10 @@ const RequestedProperty = () => {
 
   // filter part
   // filter dropdoen for accepted,pending and Rejected
+  const handleAll = () => {
+    setProperties(requested)
+  }
+
   const handleAccepted = () => {
     const acchepted = requested.filter(item => item.requestStatus == "accepted")
     // console.log(acchepted)
@@ -73,6 +77,7 @@ const RequestedProperty = () => {
           <div className="dropdown dropdown-hover">
             <div tabIndex={0} role="button" className="btn btn-neutral mr-10 font-bold">Propery Status</div>
             <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+              <li className=" btn font-bold" onClick={handleAll}><a>All</a></li>
               <li className=" btn font-bold" onClick={handleAccepted}><a>Accepted</a></li>
               <li className=" btn font-bold" onClick={handlePending}><a>Pending</a></li>
               <li className=" btn font-bold" onClick={handleRejected}><a>Rejected</a></li>
