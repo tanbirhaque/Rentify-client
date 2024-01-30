@@ -4,13 +4,15 @@ import { RiCheckboxMultipleLine } from "react-icons/ri";
 import { IoMdPlay } from "react-icons/io";
 import VideoModal from "../Home/HomeComponents/Virtual Apartments/VideoModal";
 import { Rating } from "@smastrom/react-rating";
-import useAxiosPublic from "../../../Hooks/useAxiosPublic.jsx";
 import "@smastrom/react-rating/style.css";
 import Swal from "sweetalert2";
-import { FaRegBookmark, FaBookmark } from "react-icons/fa";
+import { FaRegBookmark, } from "react-icons/fa";
 import BookingForm from "./BookingForm.jsx";
 import useAuth from "../../../Hooks/useAuth.jsx";
 import ReviewForm from "./ReviewForm.jsx";
+import OwnerInfo from "./OwnerInfo.jsx";
+import useAxiosPublic from "../../../Hooks/useAxiosPublic.jsx";
+
 
 const Details = () => {
   const axiosPublic = useAxiosPublic();
@@ -28,6 +30,7 @@ const Details = () => {
     property_title,
     property_location,
     property_category,
+    owner_details,
   } = property_info;
   const {
     property_tags,
@@ -36,6 +39,7 @@ const Details = () => {
     property_price,
     property_type,
     property_status,
+    property_description,
     built,
     bedroom,
     bath,
@@ -66,7 +70,7 @@ const Details = () => {
       // reset();
       //for saving property data to backend
     } else {
-      // this login will allow user to save their desired property only if the are user
+      // this login will allow user to save their desired property only if they are user
       Swal.fire({
         icon: "error",
         title: "Oops...",
@@ -97,7 +101,7 @@ const Details = () => {
                 to="/blogs"
                 className="navAfter relative font-medium text-base text-white mx-3"
               >
-                Blogs
+                Property Details
               </NavLink>
               {/* <NavLink to={`/blogs/${blog._id}`} className='navAfter relative font-medium text-base text-white mx-3 '>Blogs details no slider</NavLink> */}
             </div>
@@ -107,13 +111,13 @@ const Details = () => {
       {/* details sections starts */}
       <div className="max-w-7xl mx-auto mt-16 p-10">
         <div className="flex gap-6">
-          <div className="main_details w-2/3">
+          <div className="main_details w-3/4">
             <div className="mb-16">
               <div className="flex justify-between">
                 <h2 className="text-3xl poppins-font mb-[12px] font-semibold text-black">
                   {property_title}
                 </h2>
-                <p className="text-[#ec3323] inline-block text-lg font-bold">
+                <p className="text-[#ec3323] inline-block text-lg font-bold mt-1">
                   ${property_price}
                 </p>
               </div>
@@ -146,27 +150,35 @@ const Details = () => {
               <h3 className="poppins-font text-[24px] font-semibold my-6">
                 Description
               </h3>
+              {/* description added by fahima */}
               <p className="text-[#666666] text-[16px]">
-                Cras ultricies ligula sed magna dictum porta. Nulla quis lorem
-                ut libero malesuada feugiat. Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit. Quisque velit nisi, pretium ut
-                lacinia in, elementum id enim. Vestibulum ante ipsum primis in
-                faucibus orci luctus et ultrices posuere cubilia Curae; Donec
-                velit neque, auctor sit amet aliquam vel, ullamcorper sit amet
-                ligula. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Pellentesque in ipsum id orci porta dapibus. Curabitur arcu erat
-                accumsan id imperdiet et, porttitor at sem. Curabitur arcu erat
-                accumsan id imperdiet et porttitor.
-                <br />
-                <br />
-                Curabitur non nulla sit amet nisl tempus convallis quis ac
-                lectus. Donec sollicitudin molestie malesuada. Nulla porttitor
-                accumsan tincidunt. Praesent sapien massa, convallis a
-                pellentesque nec, egestas non nisi. Curabitur arcu erat,
-                accumsan id imperdiet et, porttitor at sem. Curabitur non nulla
-                sit amet nisl tempus convallis quis ac lectus. Proin eget tortor
-                risus. Donec rutrum congue leo eget malesuada. Pellentesque in
-                ipsum id orci porta dapibus.
+                {property_description ? (
+                  property_description
+                ) : (
+                  <span>
+                    Indulge in the epitome of urban sophistication with our
+                    Stylish Urban Loft, a captivating space meticulously curated
+                    to embody the essence of Industrial Chic Vibes. This loft is
+                    a harmonious fusion of contemporary allure and industrial
+                    aesthetics, where every element is carefully chosen to
+                    create an environment that is not only stylish but also
+                    exceptionally comfortable. As you enter, be greeted by the
+                    alluring play of textures - exposed brick walls that tell a
+                    story of the building&#39;s history, polished concrete
+                    floors providing a sleek foundation, and strategically
+                    placed metal accents that add an industrial edge to the
+                    overall design. The open layout enhances the loft&#39;s
+                    spacious feel, inviting you to explore each carefully
+                    appointed corner. The carefully selected furnishings and
+                    decor seamlessly integrate modern elegance with industrial
+                    elements. Statement pieces, such as artisanal light fixtures
+                    and bespoke furniture, elevate the space, offering both
+                    functionality and aesthetic appeal. The color palette, a
+                    blend of muted tones and bold contrasts, complements the
+                    loft&#39;s overall ambiance, creating a cozy yet stylish
+                    retreat.
+                  </span>
+                )}
               </p>
             </div>
             {/* Property specification/details section */}
@@ -291,7 +303,7 @@ const Details = () => {
                         <Rating
                           style={{ maxWidth: 80 }}
                           value={5}
-                          // onChange={setRating}
+                        // onChange={setRating}
                         />
                       </div>
                     </div>
@@ -356,24 +368,44 @@ const Details = () => {
               </div>
             </div> */}
           </div>
-          <div className="shadow-2xl w-1/3 h-fit p-5">
-          {/* booking form designed by Sojib modified by Fahima */}
-            <BookingForm item={item} />
-          </div>
-        </div>
-        {/* popular tags */}
-        <div className="shadow-2xl w-fit h-fit p-5">
-          <div>
-            <h2 className="text-3xl font-bold my-5">Popular Tags</h2>
-            <div className="grid grid-cols-3 gap-2">
-              {property_tags.map((tag) => (
-                <button
-                  key={tag}
-                  className="btn btn-square p-3 mx-2 w-fit h-fit bg-transparent hover:bg-[#ec3323] hover:text-white"
-                >
-                  {tag}
-                </button>
-              ))}
+          {/* div for right side */}
+          <div className="flex flex-col gap-3">
+            {/* booking form designed by Sojib modified by Fahima */}
+            <div
+              className="w-[416px] max-w-[416px] h-fit p-5"
+              style={{
+                boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.09)'
+              }}
+            >
+              <BookingForm item={item} />
+            </div>
+            {/* owner information */}
+            <div
+              className="h-auto p-5 w-[416px] max-w-[416px] mt-3"
+              style={{
+                boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.09)'
+              }}
+            >
+              <OwnerInfo owner={owner_details} />
+            </div>
+            {/* popular tags */}
+            <div
+              className="h-auto p-5 w-[416px] max-w-[416px] mt-3"
+              style={{
+                boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.09)'
+              }}
+            >
+              <h2 className="text-3xl font-bold my-5">Popular Tags</h2>
+              <div className="flex flex-wrap">
+                {property_tags.map((tag) => (
+                  <button
+                    key={tag}
+                    className="text-[#666666] p-2 mx-2 mb-3 w-fit h-auto bg-transparent hover:bg-[#ec3323] hover:text-white transition-all duration-500 border capitalize"
+                  >
+                    {tag}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
         </div>

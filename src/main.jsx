@@ -20,18 +20,22 @@ import Private from "./Provider/Private.jsx";
 import Details from "./MainLayout/Pages/Details/Details.jsx";
 import OwnerList from "./MainLayout/Pages/Owner/OwnerList.jsx";
 import OwnerDetail from "./MainLayout/Pages/Owner/OwnerDetail.jsx";
-import TestLay from "./TestLay/TestLay.jsx";
+// import TestLay from "./TestLay/TestLay.jsx";
 import DashLayout from "./DashLayout/DashLayout.jsx";
-import Profile from "./DashboardRoutes/Profile/Profile.jsx";
-import Settings from "./DashboardRoutes/Settings/Settings.jsx";
-import SavedProperties from "./DashboardRoutes/SavedProperties/SavedProperties.jsx";
+import Profile from "./DashLayout/DashboardRoutes/Profile/Profile.jsx";
+// import Settings from "./DashLayout/DashboardRoutes/Settings/Settings.jsx";
+import SavedProperties from "./DashLayout/DashboardRoutes/SavedProperties/SavedProperties.jsx";
 
 import Login from "./MainLayout/Pages/Authentication/Login/Login.jsx";
 import Reset from "./MainLayout/Pages/Authentication/Reset/Reset.jsx";
-import Overview from "./DashboardRoutes/Profile/Overview";
+// Merged from Development updated code by Rana
+import Overview from "./DashLayout/DashboardRoutes/Profile/Overview";
 import { Toaster } from "react-hot-toast";
-import AddProperties from "./DashboardRoutes/AddProperties/AddProperties.jsx";
-
+import AddProperties from "./DashLayout/DashboardRoutes/AddProperties/AddProperties.jsx";
+import RequestedProperty from "./DashLayout/DashboardRoutes/Requested Property/RequestedProperty.jsx";
+import ManageProperties from "./DashLayout/DashboardRoutes/ManageProperties/ManageProperties.jsx";
+import Payment from "./DashLayout/DashboardRoutes/Payment/Payment.jsx";
+// Import links below by Sadia-dev
 import NewYork from './MainLayout/Pages/Home/HomeComponents/PopularCities/NewYork/NewYork.jsx';
 import Prauge from "./MainLayout/Pages/Home/HomeComponents/PopularCities/Prauge/Prauge.jsx";
 import Florida from "./MainLayout/Pages/Home/HomeComponents/PopularCities/Florida/Florida.jsx";
@@ -159,6 +163,9 @@ const router = createBrowserRouter([
   //   path: "/testlay",
   //   element: <TestLay></TestLay>
   // }
+
+
+  // Dashboard routes here
   {
     path: "dashboard",
     element: <DashLayout></DashLayout>,
@@ -182,6 +189,19 @@ const router = createBrowserRouter([
       {
         path: "add",
         element: <AddProperties></AddProperties>,
+      },
+      {
+        path: "manage",
+        element: <ManageProperties />
+      },
+      {
+        path: "my-requests",
+        element: <RequestedProperty />,
+        loader: () => fetch(`http://localhost:5000/requested-properties`),
+      },
+      {
+        path: "payment",
+        element: <Payment />,
       },
     ],
   },

@@ -1,22 +1,26 @@
+// This AddProperties page desgin by Sadia
+// And AddProperties post crud oparetion added by sojib
 import { useContext } from "react";
-import { AuthContext } from "../../Provider/AuthProvider";
+import { AuthContext } from "../../../Provider/AuthProvider";
+import useAxiosPublic from "../../../Hooks/useAxiosPublic";
+import Swal from "sweetalert2";
+import useProperties from "../../../Hooks/useProperties";
 
 const AddProperties = () => {
+  const [, refetch] = useProperties();
+  const axiosPublic = useAxiosPublic();
   const { user } = useContext(AuthContext);
   const handleAddProperty = (e) => {
     e.preventDefault();
     const form = e.target;
     const property = form.property.value;
     const rooms = form.rooms.value;
-
     const baths = form.baths.value;
     const price = form.price.value;
     const area = form.area.value;
     const status = form.status.value;
     const sqprice = form.sqprice.value;
-
     const description = form.description.value;
-
     const balcony = form.balcony.value;
     const garage = form.garage.value;
     const prostatus = form.prostatus.value;
@@ -32,37 +36,60 @@ const AddProperties = () => {
     const video = form.video.value;
     const floor = form.floor.value;
     const id = form.id.value;
-
     const newProperty = {
-      property,
-      status,
-      price,
-      rooms,
-
-      baths,
-      area,
-      sqprice,
-
-      description,
-
-      balcony,
-      garage,
-      prostatus,
-      ownership,
-      date,
-      tags,
-      city,
-      state,
-      country,
-      feature,
-      title,
-      img,
-      video,
-      floor,
-      id,
+      property_info: {
+        owner_details: {
+          owner_name: user.displayName,
+          owner_img: user.photoURL,
+          owner_email: user.email,
+        },
+        ownership_duration: ownership,
+        property_for: status,
+        verify_status: false,  // This object property is added for managing the verification feature from the owner dashboard as [verified or 'Non Verified'] >>> Changed 'property_status' to 'verify_status' status. -by Tanbir
+        property_img: img,
+        property_title: title,
+        property_category: property,
+        property_description: description,
+        property_details: {
+          property_id: id,
+          property_price: price,
+          property_type: property,
+          property_status: prostatus,
+          bedroom: rooms,
+          bath: baths,
+          balcony: balcony,
+          garages: garage,
+          sqf: sqprice,
+          built: date,
+          floor_plans: floor,
+          property_video: video,
+          property_features: [
+            feature
+          ],
+          property_tags: [
+            tags
+          ]
+        },
+        property_location: {
+          address: {
+            street: area,
+            city: city,
+            state: state,
+            country: country
+          }
+        }
+      }
     };
 
-    console.log(newProperty);
+    axiosPublic.post("/properties", newProperty)
+      .then(res => {
+        // console.log(res.data)
+        if (res.data) {
+          Swal.fire(`Hey ${user.displayName}, Your property aded successfully`)
+          refetch();
+        }
+      })
+    // console.log(newProperty);
   };
 
   return (
@@ -115,7 +142,7 @@ const AddProperties = () => {
                 <div className="form-control w-full  ">
                   <label className="label">
                     <span className="label-text text-lg font-semibold">
-                      Property Type
+                      Property category
                     </span>
                   </label>
                   <label className="">
@@ -124,9 +151,9 @@ const AddProperties = () => {
                       required
                       className="select select-bordered w-full"
                     >
-                      <option value=" Apartment"> Apartment</option>
-                      <option value="Commercial "> Commercial</option>
-                      <option value="Residential "> Residential</option>
+                      <option value="Apartment"> Apartment</option>
+                      <option value="Commercial"> Commercial</option>
+                      <option value="Residential"> Residential</option>
                     </select>
                   </label>
                 </div>
@@ -143,8 +170,8 @@ const AddProperties = () => {
                       required
                       className="select select-bordered w-full"
                     >
-                      <option value=" Rent"> Rent</option>
-                      <option value=" Sale"> Sale</option>
+                      <option value="rent"> Rent</option>
+                      <option value="sale"> Sale</option>
                     </select>
                   </label>
                 </div>
@@ -158,7 +185,7 @@ const AddProperties = () => {
                   <label className="input-group ">
                     <input
                       type="number"
-                      placeholder="$2800"
+                      placeholder="$"
                       name="price"
                       className="input form-border input-bordered w-full"
                     />
@@ -278,6 +305,7 @@ const AddProperties = () => {
                       <option value="Weekly">Weekly</option>
                       <option value="Monthly">Monthly</option>
                       <option value="Annualy">Annualy</option>
+                      <option value="Permanent">Permanent</option>
                     </select>
                   </label>
                 </div>
@@ -372,7 +400,7 @@ const AddProperties = () => {
                     <input
                       type="number"
                       placeholder="Enter Zip Code"
-                      name="price"
+                      // name="price"
                       className="input form-border input-bordered w-full"
                     />
                   </label>

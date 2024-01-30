@@ -16,7 +16,7 @@ const PropertyCard = ({ property }) => {
     <>
       <div className="card card-compact max-w-[414px] rounded-none bg-base-100 shadow-md mx-auto mb-1">
         <figure className="w-full h-[294px]">
-          <img className="w-full h-full" src={property_img} alt="Shoes" />
+          <img className="w-full h-full" src={property_img} alt={property_title} />
         </figure>
         <div className="card-body">
           <div className="flex justify-between items-center mb-2">
@@ -49,7 +49,7 @@ const PropertyCard = ({ property }) => {
             </p>
             <p className="flex items-center justify-center gap-2 border-r-2 p-2  border-[#00000016]">
               <PiBathtub className="text-[#666666]" />
-              {property_details?.bathroom}
+              {property_details?.bath}
             </p>
             <p className="flex items-center justify-center gap-2 p-2">
               <LuTriangleRight className="text-[#666666]" />

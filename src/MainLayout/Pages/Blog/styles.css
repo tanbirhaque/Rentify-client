@@ -33,7 +33,7 @@
     content: "";
     width: 0%;
     height: 1px;
-    background-color: #002172;
+    background-color: #ec3323;
     position: absolute;
     left: 0;
     bottom: 0;
@@ -46,7 +46,7 @@
 }
 
 .navAfter:hover {
-    color: #83a3e7;
+    color: #cf4a3e;
 }
 
 .cart {

@@ -1,15 +1,13 @@
-//coded by "Fahima"
-
+//component made by "Fahima"
 import { useForm } from "react-hook-form";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 import useAuth from "../../../Hooks/useAuth";
-import ButtonRed from "../../Shared/buttons/Red/ButtonRed";
 
 const BookingForm = ({ item }) => {
   const axiosPublic = useAxiosPublic();
   const { user } = useAuth();
-  //form
+  //form added by Sojib
   const {
     register,
     handleSubmit,
@@ -17,35 +15,51 @@ const BookingForm = ({ item }) => {
     // formState: { errors },
   } = useForm();
 
+  //
   const onSubmit = (data) => {
-    const propertyRequest = {
-      property: item.property_info,
-      requesterName: data.name,
-      requesterNumber: data.number,
-      requesterEmail: data.email,
-      requesterPhoto: user.photoURL,
-      requesterMessage: data.message,
-      family: data.family,
-      children: data.children,
-    };
-    axiosPublic.post("/requested-properties", propertyRequest).then((res) => {
-      console.log(res.data);
-      Swal.fire(`Hey ${data.name} Your Request is Successfully Send`);
-    });
-    console.log(propertyRequest);
-    reset();
+    //condition for checking user
+    if (user) {
+      const propertyRequest = {
+        property: item.property_info,
+        propertyID: item._id,
+        requestStatus: 'pending', // Added this object property to manage requested property status as ['pending' || 'accepted' || 'rejected'] -by Tanbir
+        requesterName: data.name,
+        requesterNumber: data.number,
+        requesterEmail: user.email,
+        requesterPhoto: user.photoURL,
+        requesterMessage: data.message,
+        family: data.family,
+        children: data.children,
+      };
+      axiosPublic.post("/requested-properties", propertyRequest).then((res) => {
+        console.log(res.data);
+        Swal.fire(`Hey ${data.name} Your Request is Successfully Send`);
+        reset();
+      });
+      console.log(propertyRequest);
+      // reset();
+    } else {
+      // this login will allow user to add booking for their desired property only if they are user.
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Looks like you're not logged in!",
+        footer: `<a href='/login' className='font-bold underline'>Please Log In</a>`,
+        showConfirmButton: false,
+      });
+    }
   };
   //
   return (
     <>
       {/* form */}
-
-      <form onSubmit={handleSubmit(onSubmit)} className=" w-[90%] mx-auto">
-        <h2 className=" text-3xl font-bold my-5">Book This Apartment</h2>
+      <form onSubmit={handleSubmit(onSubmit)} className="mx-auto">
+        <h2 className=" text-3xl font-bold pt-5">Book This Apartment</h2>
         {/* register your input into the hook by invoking the "register" function */}
         <input
           {...register("name")}
           placeholder="Full Name*"
+          defaultValue={user?.displayName}
           className=" w-full py-5 bg-[#F9F9F9] rounded-md px-2 my-4"
         />
         {/* include validation with required or other standard HTML validation rules */}
@@ -56,8 +70,10 @@ const BookingForm = ({ item }) => {
         />
         <input
           {...register("email", { required: true })}
-          placeholder="Email Adress*"
-          className="py-5 bg-[#F9F9F9] rounded-md px-2 w-full"
+          placeholder="Email Address*"
+          defaultValue={user?.email}
+          readOnly
+          className="py-5 bg-[#F9F9F9] rounded-md px-2 w-full text-gray-400"
         />
         {/* errors will return when field validation fails  */}
         <select
@@ -86,11 +102,12 @@ const BookingForm = ({ item }) => {
         {/* <button>
           <ButtonRed titleRed={"Request Booking"} />
         </button> */}
-        <input
+        <button
           type="submit"
-          value="Request Booking"
           className=" rounded px-8 py-4 mt-3 bg-[#EC3323] hover:bg-[#002172] text-white mb-4"
-        ></input>
+        >
+          Request Booking
+        </button>
       </form>
     </>
   );
