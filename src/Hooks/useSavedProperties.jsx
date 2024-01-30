@@ -10,7 +10,7 @@ const useSavedProperties = () => {
   const { data: saved = [], refetch, isLoading } = useQuery({
     queryKey: ["saved", user],
     queryFn: async () => {
-      const res = await axiosPublic.get("/all-saved", {
+      const res = await axiosPublic.get("/saved-properties", {
         params: { email: currentUserEmail },
       });
       return res.data;
