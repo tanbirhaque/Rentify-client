@@ -21,6 +21,7 @@ const BookingForm = ({ item }) => {
     if (user) {
       const propertyRequest = {
         property: item.property_info,
+        propertyID: item._id,
         requestStatus: 'pending', // Added this object property to manage requested property status as ['pending' || 'accepted' || 'rejected'] -by Tanbir
         requesterName: data.name,
         requesterNumber: data.number,
