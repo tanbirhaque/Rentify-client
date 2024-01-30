@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@smastrom/react-rating": "^1.4.0",
+    "@stripe/react-stripe-js": "^2.4.0",
+    "@stripe/stripe-js": "^2.4.0",
     "@tanstack/react-query": "^5.17.12",
     "axios": "^1.6.5",
     "firebase": "^10.7.1",
@@ -19,6 +21,7 @@
     "match-sorter": "^6.3.1",
     "react": "^18.2.0",
     "react-countup": "^6.5.0",
+    "react-custom-scrollbars": "^4.2.1",
     "react-dom": "^18.2.0",
     "react-headroom": "^3.2.1",
     "react-hook-form": "^7.49.3",

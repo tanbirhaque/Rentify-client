@@ -1,22 +1,22 @@
-// List card is developed by "Konika khan", Design Improvement by "Tanbir" & data fetch and adding using tanStack query by "Fahima"
-import { Link } from "react-router-dom";
-import { IoBedOutline } from "react-icons/io5";
-import { PiBathtub } from "react-icons/pi";
-import { LuTriangleRight } from "react-icons/lu";
 import { CiLocationOn } from "react-icons/ci";
-import "./PropertyCards.css";
-
-const PropertyCard = ({ property }) => {
-  const { property_info, _id } = property || {};
-  const { property_img, property_title, property_location, property_details, property_for } =
-    property_info || {};
+import { IoBedOutline } from "react-icons/io5";
+import { LuTriangleRight } from "react-icons/lu";
+import { PiBathtub } from "react-icons/pi";
+import { Link } from "react-router-dom";
 
 
-  return (
-    <>
-      <div className="card card-compact max-w-[414px] rounded-none bg-base-100 shadow-md mx-auto mb-1">
+const DynamicCards = ({property}) => {
+
+    const { property_info, _id } = property || {};
+    const { property_img, property_title, property_location, property_details, property_for } =
+      property_info || {};
+// console.log(properties)
+
+    return (
+        <>
+        <div className="card card-compact max-w-[414px] rounded-none bg-base-100 shadow-md mx-auto mb-1">
         <figure className="w-full h-[294px]">
-          <img className="w-full h-full" src={property_img} alt={property_title} />
+          <img className="w-full h-full" src={property_img} alt="Shoes" />
         </figure>
         <div className="card-body">
           <div className="flex justify-between items-center mb-2">
@@ -49,7 +49,7 @@ const PropertyCard = ({ property }) => {
             </p>
             <p className="flex items-center justify-center gap-2 border-r-2 p-2  border-[#00000016]">
               <PiBathtub className="text-[#666666]" />
-              {property_details?.bath}
+              {property_details?.bathroom}
             </p>
             <p className="flex items-center justify-center gap-2 p-2">
               <LuTriangleRight className="text-[#666666]" />
@@ -58,8 +58,8 @@ const PropertyCard = ({ property }) => {
           </div>
         </div>
       </div>
-    </>
-  );
+      </>
+    );
 };
 
-export default PropertyCard;
+export default DynamicCards;

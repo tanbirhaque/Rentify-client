@@ -28,11 +28,23 @@ import SavedProperties from "./DashLayout/DashboardRoutes/SavedProperties/SavedP
 
 import Login from "./MainLayout/Pages/Authentication/Login/Login.jsx";
 import Reset from "./MainLayout/Pages/Authentication/Reset/Reset.jsx";
+// Merged from Development updated code by Rana
 import Overview from "./DashLayout/DashboardRoutes/Profile/Overview";
 import { Toaster } from "react-hot-toast";
 import AddProperties from "./DashLayout/DashboardRoutes/AddProperties/AddProperties.jsx";
 import RequestedProperty from "./DashLayout/DashboardRoutes/Requested Property/RequestedProperty.jsx";
 import ManageProperties from "./DashLayout/DashboardRoutes/ManageProperties/ManageProperties.jsx";
+import Payment from "./DashLayout/DashboardRoutes/Payment/Payment.jsx";
+// Import links below by Sadia-dev
+import NewYork from './MainLayout/Pages/Home/HomeComponents/PopularCities/NewYork/NewYork.jsx';
+import Prauge from "./MainLayout/Pages/Home/HomeComponents/PopularCities/Prauge/Prauge.jsx";
+import Florida from "./MainLayout/Pages/Home/HomeComponents/PopularCities/Florida/Florida.jsx";
+import SanFransisco from "./MainLayout/Pages/Home/HomeComponents/PopularCities/SanFransisco/SanFransisco.jsx";
+import TorentoCity from "./MainLayout/Pages/Home/HomeComponents/PopularCities/TorentoCity/TorentoCity.jsx";
+import VancuverCity from "./MainLayout/Pages/Home/HomeComponents/PopularCities/VancuverCity/VancuverCity.jsx";
+import MontrealCity from "./MainLayout/Pages/Home/HomeComponents/PopularCities/MontrealCity/MontrealCity.jsx";
+import LosAngeles from "./MainLayout/Pages/Home/HomeComponents/PopularCities/LosAngeles/LosAngeles.jsx";
+
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
@@ -87,6 +99,38 @@ const router = createBrowserRouter([
       {
         path: "/conditions",
         element: <Condition></Condition>,
+      },
+      {
+        path: "/newyork/:city",
+        element: <NewYork></NewYork>
+      },
+      {
+        path: "/Prauge/:city",
+        element: <Prauge></Prauge>
+      },
+      {
+        path: "/Florida/:city",
+        element: <Florida></Florida>
+      },
+      {
+        path: "/SanFransisco/:city",
+        element: <SanFransisco></SanFransisco>
+      },
+      {
+        path: "/TorentoCity/:city",
+        element: <TorentoCity></TorentoCity>
+      },
+      {
+        path: "/VancuverCity/:city",
+        element: <VancuverCity></VancuverCity>
+      },
+      {
+        path: "/MontrealCity/:city",
+        element: <MontrealCity></MontrealCity>
+      },
+      {
+        path: "/LosAngeles/:city",
+        element: <LosAngeles></LosAngeles>
       },
       {
         path: "/details/:id",
@@ -154,6 +198,10 @@ const router = createBrowserRouter([
         path: "my-requests",
         element: <RequestedProperty />,
         loader: () => fetch(`http://localhost:5000/requested-properties`),
+      },
+      {
+        path: "payment",
+        element: <Payment />,
       },
     ],
   },
