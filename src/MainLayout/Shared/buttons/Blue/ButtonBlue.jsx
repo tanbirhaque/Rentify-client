@@ -1,5 +1,5 @@
 // =============== Tanbir-Dev ===========================
-const ButtonBlue = ({ titleBlue, padX='px-5', padY='py-2.5' }) => {
+const ButtonBlue = ({ titleBlue, padX='px-5', padY='py-2.5', }) => {
   return (
     <>
       {/* dynamic button component to use anywhere. Do not change any class */}
