@@ -49,7 +49,7 @@ const PropertyCard = ({ property }) => {
             </p>
             <p className="flex items-center justify-center gap-2 border-r-2 p-2  border-[#00000016]">
               <PiBathtub className="text-[#666666]" />
-              {property_details?.bathroom}
+              {property_details?.bath}
             </p>
             <p className="flex items-center justify-center gap-2 p-2">
               <LuTriangleRight className="text-[#666666]" />

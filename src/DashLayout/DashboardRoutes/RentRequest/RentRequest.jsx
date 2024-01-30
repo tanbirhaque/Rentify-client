@@ -10,7 +10,7 @@ const RentRequest = () => {
             {
                 ownerRent.map(item => (
 
-                    <RentRequestCard key={item._id}></RentRequestCard>
+                    <RentRequestCard key={item._id} items={item}></RentRequestCard>
                 ))
             }
         </>

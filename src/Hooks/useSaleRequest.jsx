@@ -9,7 +9,7 @@ const useSaleRequest = () => {
     const { data: salerequest = [], refetch } = useQuery({
         queryKey: ['salerequest'],
         queryFn: async () => {
-            // when data import from database then change the url & use axios public 
+            // when data import from database then chage the url & use axios public 
             const res = await axiospublic.get(`/requested-sale?email=${user.email}`)
             console.log(res.data)
             return res.data;
