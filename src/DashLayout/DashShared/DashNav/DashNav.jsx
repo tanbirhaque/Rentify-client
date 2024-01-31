@@ -7,7 +7,6 @@ const DashNav = ({ toggleSidebar }) => {
 
     const {user} = useContext(AuthContext)
 
-
     return (
         <div className="min-w-full h-14 bg-white shadow-md flex items-center justify-between px-3">
             <div>
