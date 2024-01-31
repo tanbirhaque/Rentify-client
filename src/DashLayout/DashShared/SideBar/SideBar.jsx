@@ -5,6 +5,8 @@ import { IoAddCircleSharp } from "react-icons/io5";
 import { MdOutlinePendingActions } from "react-icons/md";
 import { MdOutlineDashboardCustomize } from "react-icons/md";
 import { MdManageHistory } from "react-icons/md";
+import { HiCubeTransparent } from 'react-icons/hi2';
+import { CiShoppingTag } from 'react-icons/ci';
 
 const SideBar = () => {
     const sideLinks = <>
@@ -56,6 +58,24 @@ const SideBar = () => {
             >
                 <MdManageHistory className="dashIcon text-[#64707d]"></MdManageHistory>
                 Manage Properties
+            </NavLink>
+        </li>
+        <li className="dashLi pt-2">
+            <NavLink
+                to="/dashboard/rentReq"
+                className="dashNav flex items-center gap-2"
+            >
+                <HiCubeTransparent className="dashIcon text-[#64707d]"> </HiCubeTransparent>
+                Rent Request
+            </NavLink>
+        </li>
+        <li className="dashLi pt-2">
+            <NavLink
+                to="/dashboard/buyReq"
+                className="dashNav flex items-center gap-2"
+            >
+                <CiShoppingTag className="dashIcon text-[#64707d]"></CiShoppingTag>
+                Buy Request
             </NavLink>
         </li>
     </>
