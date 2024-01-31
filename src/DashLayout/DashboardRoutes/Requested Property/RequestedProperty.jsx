@@ -94,7 +94,7 @@ const RequestedProperty = () => {
 
         <div className=" w-[1200px] mx-auto mt-5">
           {/* Here are used to menu class & Navlink for uniq desgin and filter by property status in Accepted, Pending & Rejected..[codded by Sojib] */}
-          <div className="flex flex-row justify-center items-center mb-3 gap-4">
+          <div className="flex flex-row justify-center items-center mb-7 gap-4">
             <button
               onClick={handleAll}
             >
@@ -142,18 +142,20 @@ const RequestedProperty = () => {
             defaultIndex={tabIndex}
             onSelect={(index) => setTabIndex(index)}
           >
-            <TabList>
-              <Tab>
-                <ButtonRed
-                  titleRed={`Rent`}
-                ></ButtonRed>
-              </Tab>
-              <Tab>
-                <ButtonBlue
-                  titleBlue={`Sale`}
-                ></ButtonBlue>
-              </Tab>
-            </TabList>
+            <div className="">
+              <TabList>
+                <Tab>
+                  <ButtonRed
+                    titleRed={`Rent`}
+                  ></ButtonRed>
+                </Tab>
+                <Tab>
+                  <ButtonBlue
+                    titleBlue={`Sale`}
+                  ></ButtonBlue>
+                </Tab>
+              </TabList>
+            </div>
             <TabPanel>
               {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 p-5"> */}
               <div>

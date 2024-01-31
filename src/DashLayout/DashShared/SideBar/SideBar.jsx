@@ -93,12 +93,21 @@ const SideBar = () => {
                     <ul className="flex flex-col gap-2">
                         {sideLinks}
                     </ul>
-
                     <h3 className="poppins-font font-semibold text-xl mt-5 text-gray-400">Owner Routes</h3>
                     <hr className="mb-3" />
                     <ul>
                         {ownerRoutes}
                     </ul>
+                    {/* dropdown impleament by sojib */}
+                    <h2 className='poppins-font font-semibold text-xl mt-5 text-gray-400' >Dropdown Demo</h2>
+                    <hr className="mb-3" />
+                    <div className="dropdown dropdown-bottom text-center">
+                        <div tabIndex={0} role="button" className=" ml-3 dashIcon text-[#64707d]">Dropdown demo</div>
+                        <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 dashIcon text-[#ffffff] rounded-box w-52 bg-[#000]">
+                            <li><a>Item 1</a></li>
+                            <li><a>Item 2</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
