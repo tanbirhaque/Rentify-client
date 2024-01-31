@@ -1,4 +1,4 @@
-
+//this code by konika
 import useOwnerSale from "../../../Hooks/useOwnerSale";
 import BuyReqCard from "./BuyReqCard";
 const BuyRequest = () => {
@@ -23,7 +23,7 @@ const BuyRequest = () => {
                     <tbody>
                         {
                             ownerSale.map(item => (
-                                <BuyReqCard key={item._id} items={item}></BuyReqCard>
+                                <BuyReqCard key={item._id} refetch={refetch} items={item}></BuyReqCard>
                             ))
                         }
 

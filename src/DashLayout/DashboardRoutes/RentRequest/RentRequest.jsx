@@ -1,3 +1,4 @@
+//this code by konika
 import useOwnerRent from "../../../Hooks/useOwnerRent";
 import RentRequestCard from "./RentRequestCard";
 
@@ -22,7 +23,7 @@ const RentRequest = () => {
                 {
                 ownerRent.map(item => (
 
-                    <RentRequestCard key={item._id} items={item}></RentRequestCard>
+                    <RentRequestCard key={item._id} refetch={refetch} items={item}></RentRequestCard>
                 ))
             }
 

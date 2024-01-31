@@ -1,7 +1,8 @@
+//this code by konika
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 
-const RentRequestCard = ({ items }) => {
+const RentRequestCard = ({ items,refetch}) => {
     const { _id,property, requestStatus, requesterNumber, requesterEmail,  requesterName } = items
     const axiosSecure = useAxiosSecure();
 
@@ -10,6 +11,7 @@ const RentRequestCard = ({ items }) => {
             .then((res) => {
                 console.log(res);
                 // updateRequestStatus(id, "Verify");
+                refetch()
             })
             .catch((error) => console.error("Error updating verification status:", error));
     };
@@ -18,6 +20,7 @@ const RentRequestCard = ({ items }) => {
             .then((res) => {
                 console.log(res);
                 // updateRequestStatus(id, "Rejected");
+                refetch()
             })
             .catch((error) => console.error("Error updating verification status:", error));
     };
@@ -48,10 +51,7 @@ const RentRequestCard = ({ items }) => {
                 </td>
                 <td>{requesterEmail}</td>
                 <td>{requestStatus}</td>
-                {/* <th>
-                    <button onClick={() => setVerify(_id)}  className="btn btn-ghost btn-xs">Accpet</button>
-                    <button onClick={() => setReject(_id)} className="btn btn-ghost btn-xs">Reject</button>
-                </th> */}
+               
                <td>
                                     {
                                         requestStatus === 'accepted' ?

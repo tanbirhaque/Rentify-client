@@ -1,23 +1,27 @@
+//this code by konika
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 
-const BuyReqCard = ({ items }) => {
+const BuyReqCard = ({ items,refetch }) => {
 
     const { _id, property, requestStatus, requesterNumber, requesterEmail, requesterName } = items
     const axiosSecure = useAxiosSecure();
 
-    const setVerify = (id) => {
-        axiosSecure.put(`/verify/${id}`)
+    const setAccept = (id,) => {
+        axiosSecure.put(`/accept/${id}`)
             .then((res) => {
-                console.log(res);
+                console.log("hi",res);
+                refetch()
                 // updateRequestStatus(id, "Verify");
             })
+            
             .catch((error) => console.error("Error updating verification status:", error));
     };
     const setReject = (id) => {
         axiosSecure.put(`/reject/${id}`)
             .then((res) => {
                 console.log(res);
+                refetch()
                 // updateRequestStatus(id, "Rejected");
             })
             .catch((error) => console.error("Error updating verification status:", error));
@@ -48,10 +52,7 @@ const BuyReqCard = ({ items }) => {
                 </td>
                 <td>{requesterEmail}</td>
                 <td>{requestStatus}</td>
-                {/* <th>
-                    <button onClick={() => setVerify(_id)} className="btn btn-ghost btn-xs">Accpet</button>
-                    <button onClick={() => setReject(_id)} className="btn btn-ghost btn-xs">Reject</button>
-                </th> */}
+               
                 <td>
                                     {
                                         requestStatus === 'accepted' ?
@@ -65,7 +66,7 @@ const BuyReqCard = ({ items }) => {
                                                         <>{requestStatus}</>
                                                         :
                                                         <>
-                                                            <button  onClick={() => setVerify(_id)} className="btn-one">Accept</button>
+                                                            <button  onClick={() => setAccept(_id)} className="btn-one">Accept</button>
                                                         </>
                                                 }
                                             </>
