@@ -8,7 +8,7 @@ import ButtonBlue from "../../../MainLayout/Shared/buttons/Blue/ButtonBlue";
 
 const ReqCard_mod = ({ requestedProperties }) => {
     console.log(requestedProperties);
-    const { _id, property, requestStatus } = requestedProperties || {};
+    const { _id, property, } = requestedProperties || {};
     const { owner_img, owner_name, owner_email, owner_phone } = property.owner_details || {}
     const { address } = property.property_location || {}
     const { property_img, property_title, property_for, property_details, ownership_duration } = property || {}
