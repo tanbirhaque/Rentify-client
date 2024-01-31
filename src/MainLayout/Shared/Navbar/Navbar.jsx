@@ -198,7 +198,7 @@ const Navbar = () => {
                   </li>
                   {/* {console.log("js diye aslm", user.photoURL)} */}
                   <li>
-                    <Link to="/dashboard/profile">Dashbaord</Link>
+                    <Link to="/dashboard/profile">Dashboard</Link>
                   </li>
                   <li>
                     <Link onClick={handleLogOut}>Logout</Link>
