@@ -18,7 +18,7 @@ const Navbar = () => {
       .then(() => {
         console.log("logged out");
         // swal("Signout", "You are successfully signed out", "success");
-        //sweet alert 2 added by Fahima
+//sweet alert 2 added by Fahima
         Swal.fire({
           title: "You are successfully signed out",
           timer: 2000,
@@ -169,7 +169,7 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navLinks}</ul>
         </div>
-
+       
         {/* for toggle feature for btn -sadia */}
         <div className="navbar-end gap-5">
           {user && (
@@ -198,7 +198,7 @@ const Navbar = () => {
                   </li>
                   {/* {console.log("js diye aslm", user.photoURL)} */}
                   <li>
-                    <Link to="/dashboard/profile">Dashbaord</Link>
+                    <Link to="/dashboard/profile">Dashboard</Link>
                   </li>
                   <li>
                     <Link onClick={handleLogOut}>Logout</Link>

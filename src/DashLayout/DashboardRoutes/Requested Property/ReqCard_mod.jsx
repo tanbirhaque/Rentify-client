@@ -1,3 +1,5 @@
+// Requested Property card designed and implemented by Tanbir
+
 import { CiLocationOn } from "react-icons/ci";
 import { IoBedOutline } from "react-icons/io5";
 import { LuTriangleRight } from "react-icons/lu";
@@ -8,17 +10,19 @@ import ButtonBlue from "../../../MainLayout/Shared/buttons/Blue/ButtonBlue";
 
 const ReqCard_mod = ({ requestedProperties }) => {
     console.log(requestedProperties);
-    const { _id, property, requestStatus } = requestedProperties || {};
+    const { _id, property, requestStatus, propertyID } = requestedProperties || {};
     const { owner_img, owner_name, owner_email, owner_phone } = property.owner_details || {}
     const { address } = property.property_location || {}
     const { property_img, property_title, property_for, property_details, ownership_duration } = property || {}
     console.log(requestedProperties);
 
+    const defaultImg =
+        "https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?w=740&t=st=1696786604~exp=1696787204~hmac=c10645727b8724eecda4984ef1d8fbfba92a9c9072a57b851c28c9b1d8d62b81";
 
 
     return (
         <>
-            <div className="bg-white mb-5 rounded-lg border">
+            <div className="bg-white mb-6 rounded-lg border">
                 <div className="hover:shadow-md mx-auto flex rounded-lg">
                     {/* Property details */}
                     <div className="rounded-l-lg w-3/4 flex h-80">
@@ -83,16 +87,18 @@ const ReqCard_mod = ({ requestedProperties }) => {
                             </Scrollbars>
                         </div>
                     </div>
-                    {/* <div className="divider divider-horizontal ml-0 mr-0"></div> */}
+                    <div className="min-h-full min-w-[1px] max-w-[1px] bg-gray-300"></div>
                     {/* Owner details */}
                     <div className="min-w-1/4 flex-grow pt-3">
                         <div className="flex flex-col justify-center">
-                            <div className="relative h-16 min-w-16">
-                                <img
-                                    className="rounded-full h-16 min-w-16 mx-auto "
-                                    src={owner_img}
-                                    alt="requester-image"
-                                />
+                            <div className="relative flex justify-center">
+                                <div className="min-h-16 min-w-16 max-w-16 border rounded-full mb-2">
+                                    <img
+                                        className="rounded-full h-16 min-w-16 mx-auto "
+                                        src={owner_img ? owner_img : defaultImg}
+                                        alt="requester-image"
+                                    />
+                                </div>
                                 <div className="badge badge-primary badge-outline absolute top-0 right-2">Owner</div>
                             </div>
                             <div className="text-center">
@@ -109,45 +115,34 @@ const ReqCard_mod = ({ requestedProperties }) => {
                             ></ButtonBlue>
                         </div>
                         <hr />
-                        <div className="">
-                            <div className="flex justify-between">
-                                <p>Request Status:</p>
-                                <span>Accepted</span>
+                        <div className="mt-[6px]">
+                            <div className="flex justify-between px-2">
+                                <p className="text-[18px] font-semibold">Request Status:</p>
+                                <span className={`capitalize text-[18px] font-semibold 
+                                ${requestStatus == 'pending' ? 'text-purple-600' : ''}
+                                ${requestStatus == 'accepted' ? 'text-green-600' : ''}
+                                ${requestStatus == 'rejected' ? 'text-red-500' : ''}
+                                `}
+                                >
+                                    {requestStatus}
+                                </span>
                             </div>
                             <div className="flex justify-center">
                                 {/* <button className="w-full text-center bg-[#002172] text-white py-3 mt-[23px] rounded-br-md">
                                     Pay Now
                                 </button> */}
-                                <button className="w-full text-center bg-gray-400 text-white py-3 mt-[23px] rounded-br-md" disabled>
-                                    Pay Now
-                                </button>
-                                {/* <ButtonBlue
-                                    titleBlue={"Contact with owner"}
-                                    padX={"px-8"}
-                                    padY={"py-3"}
-                                ></ButtonBlue> */}
+                                <Link to={`/dashboard/payment?price=${property_details?.property_price}&requestId=${_id}&propertyId=${propertyID}&owner=${owner_email}`}
+                                    className={`w-full text-center text-white py-3 mt-[24px] rounded-br-md hover:text-green-500 transition-all duration-300 font-bold
+                                ${requestStatus == 'pending' ? 'bg-gray-400 btn-disabled' : 'bg-[#002172]'} 
+                                ${requestStatus == 'rejected' ? 'bg-gray-400 btn-disabled' : 'bg-[#002172]'} 
+                                `}
+                                >
+                                    <button>
+                                        Pay Now
+                                    </button>
+                                </Link>
                             </div>
                         </div>
-                        {/* <div className="flex justify-center mt-3">
-                            <ButtonBlue
-                                titleBlue={"Pay Now"}
-                                padX={"px-16"}
-                                padY={"py-3"}
-                                disabled={'disabled'}
-                            ></ButtonBlue>
-                        </div> */}
-                        {/* <button
-                            className="rounded p-4 bg-[#002172] text-white w-full mt-3"
-                            disabled
-                        >
-                            Request <span className=" uppercase">{requestStatus}</span>
-                        </button>
-                        {requestStatus == "accepted" ?
-                            <button
-                                className="rounded p-4 bg-[#2797a1] text-white w-1/3 mx-auto mt-3 font-bold"
-                                disabled
-                            >Pay</button>
-                            : ""} */}
                     </div>
                 </div>
             </div>

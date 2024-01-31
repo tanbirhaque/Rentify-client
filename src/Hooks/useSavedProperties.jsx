@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const useSavedProperties = () => {
-  const { user, loading } = useContext(AuthContext)
+  const { user } = useContext(AuthContext)
   const currentUserEmail = user?.email
   const axiosPublic = useAxiosPublic();
   const { data: saved = [], refetch, isLoading } = useQuery({

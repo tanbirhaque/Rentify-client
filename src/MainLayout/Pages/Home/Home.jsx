@@ -15,9 +15,9 @@ const Home = () => {
       <Banner></Banner>
       <Reach></Reach>
       <Listing />
-      <About />
-      <OurAdvantage />
-      <Virtual />
+      {/* <About /> */}
+      {/* <OurAdvantage /> */}
+      {/* <Virtual /> */}
       <Journey />
       <PopularCities></PopularCities>
       <EditReview></EditReview>
