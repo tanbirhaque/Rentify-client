@@ -5,7 +5,7 @@ import ButtonBlue from '../../../../Shared/buttons/Blue/ButtonBlue';
 const OurAdvantage = () => {
     return (
         <>
-            <div className='text-center max-w-screen-xl mx-auto my-[100px]'>
+            <div className='text-center max-w-screen-xl mx-auto my-[80px]'>
                 <CommonHeading small={'Advantages'} big={"Our Best Advantages"}></CommonHeading>
                 <div className='flex self-center justify-center items-center py-8'>
                     <div className=' text-center px-3 '>
