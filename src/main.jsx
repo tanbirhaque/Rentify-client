@@ -10,6 +10,7 @@ import Faq from "./MainLayout/Pages/Faq/Faq.jsx";
 import ErrorPage from "./MainLayout/Pages/Error/ErrorPage.jsx";
 import HowItWorks from "./MainLayout/Pages/How-It-Works/HowItWorks.jsx";
 import AuthProvider from "./Provider/AuthProvider.jsx";
+
 // Import Tanstack
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Blogdetails from "./MainLayout/Pages/Blog/Blogdetails.jsx";
@@ -44,6 +45,11 @@ import TorentoCity from "./MainLayout/Pages/Home/HomeComponents/PopularCities/To
 import VancuverCity from "./MainLayout/Pages/Home/HomeComponents/PopularCities/VancuverCity/VancuverCity.jsx";
 import MontrealCity from "./MainLayout/Pages/Home/HomeComponents/PopularCities/MontrealCity/MontrealCity.jsx";
 import LosAngeles from "./MainLayout/Pages/Home/HomeComponents/PopularCities/LosAngeles/LosAngeles.jsx";
+//Import links below by konika
+import BuyRequest from "./DashLayout/DashboardRoutes/BuyRequest/BuyRequest.jsx";
+import RentRequest from "./DashLayout/DashboardRoutes/RentRequest/RentRequest.jsx";
+import SoldProperties from "./DashLayout/DashboardRoutes/SoldProperties/SoldProperties.jsx";
+import BookedProperties from "./DashLayout/DashboardRoutes/BookedProperties/BookedProperties.jsx";
 
 const queryClient = new QueryClient();
 
@@ -202,6 +208,23 @@ const router = createBrowserRouter([
       {
         path: "payment",
         element: <Payment />,
+      },
+      {
+        path: "rentReq",
+        element:<RentRequest/>,
+        
+      },
+      {
+        path: "buyReq",
+        element:<BuyRequest/>
+      },
+      {
+        path: "soldProperties",
+        element:<SoldProperties/>
+      },
+      {
+        path: "bookedProperties",
+        element:<BookedProperties/>
       },
     ],
   },
