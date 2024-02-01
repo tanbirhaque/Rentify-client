@@ -1,4 +1,6 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
+import { FaAffiliatetheme, FaCcAmazonPay, FaMoneyCheck } from "react-icons/fa";
+import { SiKlarna } from "react-icons/si";
 import { useEffect, useState } from "react";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import useAuth from '../../../Hooks/useAuth';
@@ -12,7 +14,7 @@ const PaymentForm = ({ queryParams, }) => {
   const stripe = useStripe();
   const elements = useElements();
   const axiosSecure = useAxiosSecure();
-  const { price, requestId, propertyId, owner } = queryParams;
+  const { price, requestId, propertyId, owner, property_img, property_title } = queryParams;
 
   useEffect(() => {
     axiosSecure.post('/create-payment-intent', { price, requestId, propertyId, owner })
@@ -86,37 +88,107 @@ const PaymentForm = ({ queryParams, }) => {
   };
 
   return (
-    <div className="p-32">
+    <div className="px-10">
       {/* new from added and desgin by sojib */}
-      <form className="card-body" onSubmit={handleSubmit}>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Email</span>
-          </label>
-          <input type="email" placeholder="email" className="input input-bordered" required />
+      <div>
+        <div className=" flex justify-center items-center my-10">
+          <div className=" bg-gray-800 w-[440px] h-[720px] rounded-l-lg">
+            <div className=" ml-10 mt-10">
+              <h2 className=" text-white font-bold mb-3"><span className=" text-3xl text-white font-bold">P</span>roperty</h2>
+              <p className=" my-4 text-white">{property_title}</p>
+              <p className=" text-2xl font-bold text-white">{price} $</p>
+              <div>
+                <img className=" w-[75%] rounded mt-2 h-[260px]" src={property_img} alt="" />
+              </div>
+              <p className=" text-sm mt-20 text-gray-50">Powred by stripe   <span>terms & conditions</span></p>
+            </div>
+          </div>
+          <div className=" bg-gray-100 rounded-r-lg w-[580px] h-[720px]">
+            <form className="card-body" onSubmit={handleSubmit}>
+              <div className="form-control w-[80%] mx-auto">
+                <label className="label">
+                  <span className="label-text">Email</span>
+                </label>
+                <input type="email" placeholder="email" className="input input-bordered" required />
+              </div>
+              <div className="form-control w-[80%] mx-auto">
+                <label className="label">
+                  <span className="label-text">Phone Number</span>
+                </label>
+                <input type="number" placeholder="password" className="input input-bordered" required />
+                <label className="label">
+                  <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                </label>
+              </div>
+              <div className="">
+                <label className="label w-[80%] mx-auto">
+                  <span className=" text-xl font-bold">Payment method</span>
+                </label>
+                <div className=" flex justify-evenly items-center w-[80%] mx-auto">
+                  <div className=" border-2 p-2 rounded-lg w-[100px]">
+                    <FaMoneyCheck className=" text-xl font-bold"></FaMoneyCheck>
+                    <span className=" mt-1">Card</span>
+                  </div>
+                  <div className=" border-2 p-2 rounded-lg w-[100px]">
+                    <FaCcAmazonPay className=" text-xl font-bold"></FaCcAmazonPay>
+                    <span className=" mt-1">Apple Pay</span>
+                  </div>
+                  <div className=" border-2 p-2 rounded-lg w-[100px]">
+                    <SiKlarna className=" text-xl font-bold"></SiKlarna>
+                    <span className=" mt-1">Klarna</span>
+                  </div>
+                  <div className=" border-2 p-2 rounded-lg w-[100px]">
+                    <FaAffiliatetheme className=" text-xl font-bold"></FaAffiliatetheme>
+                    <span className=" mt-1">Affirm</span>
+                  </div>
+                </div>
+                <div className=" w-[80%] mx-auto my-5">
+                  <label className="label">
+                    <span className="label-text font-bold">Card Information</span>
+                  </label>
+                  <CardElement
+                    className=" w-[98%] h-5 mx-auto"
+                    options={{
+                      style: {
+                        base: {
+                          fontSize: '28px',
+                          color: 'black',
+                          '::placeholder': {
+                            color: 'gray',
+                          },
+                        },
+                        invalid: {
+                          color: '#9e2146',
+                        },
+                      },
+                    }}
+                  />
+                </div>
+                <div className="form-control w-[80%] mx-auto mt-5">
+                  <label className="label">
+                    <span className="label-text">Number of card</span>
+                  </label>
+                  <input type="text" placeholder="Card number" className="input input-bordered" required />
+                </div>
+                <div className="form-control w-[80%] mx-auto mt-3">
+                  <label className="label">
+                    <span className="label-text">Country of region</span>
+                  </label>
+                  <input type="text" placeholder="City" className="input input-bordered" required />
+                </div>
+              </div>
+              <div className="form-control mt-3 w-[80%] mx-auto">
+                <button className="btn bg-[#002172] my-3 text-white" type="submit"
+                  disabled={!stripe || !clientSecret}>
+                  Pay for: $ {price} {owner}
+                </button>
+                <p className="text-red-600">{error}</p>
+                {transactionId && <p className="text-green-800"> Your transaction id: {transactionId}</p>}
+              </div>
+            </form>
+          </div>
         </div>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Password</span>
-          </label>
-          <input type="password" placeholder="password" className="input input-bordered" required />
-          <label className="label">
-            <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-          </label>
-        </div>
-        <div>
-          <CardElement className="" />
-        </div>
-        <div className="form-control mt-6">
-          <button className="btn btn-info my-3" type="submit"
-            disabled={!stripe || !clientSecret}>
-            Pay for: $ {price} {owner}
-          </button>
-          <p className="text-red-600">{error}</p>
-          {transactionId && <p className="text-green-800"> Your transaction id: {transactionId}</p>}
-        </div>
-      </form>
-
+      </div>
       {/* <form onSubmit={handleSubmit}>
         <button className="btn btn-info my-3" type="submit"
           disabled={!stripe || !clientSecret}>

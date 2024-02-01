@@ -13,8 +13,11 @@ const Payment = () => {
         price: params.get("price"),
         owner: params.get('owner'),
         requestId: params.get("requestId"),
-        propertyId: params.get('propertyId')
+        propertyId: params.get('propertyId'),
+        property_img: params.get("property_img"),
+        property_title: params.get("property_title")
     }
+    console.log(queryParams)
     return (
         <div>
             <div className="paybgimg">
