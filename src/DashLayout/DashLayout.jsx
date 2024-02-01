@@ -11,7 +11,7 @@ const DashLayout = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
-    console.log(isSidebarOpen);
+    // console.log(isSidebarOpen);
   };
   return (
     <>

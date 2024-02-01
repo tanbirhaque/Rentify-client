@@ -49,7 +49,7 @@ import LosAngeles from "./MainLayout/Pages/Home/HomeComponents/PopularCities/Los
 import BuyRequest from "./DashLayout/DashboardRoutes/BuyRequest/BuyRequest.jsx";
 import RentRequest from "./DashLayout/DashboardRoutes/RentRequest/RentRequest.jsx";
 import SoldProperties from "./DashLayout/DashboardRoutes/SoldProperties/SoldProperties.jsx";
-import BookedProperties from "./DashLayout/DashboardRoutes/BookedProperties/BookedProperties.jsx";
+import RentOutProperties from "./DashLayout/DashboardRoutes/RentOutProperties/RentOutProperties.jsx";
 
 const queryClient = new QueryClient();
 
@@ -223,8 +223,8 @@ const router = createBrowserRouter([
         element:<SoldProperties/>
       },
       {
-        path: "bookedProperties",
-        element:<BookedProperties/>
+        path: "rentOutProperties",
+        element:<RentOutProperties/>
       },
     ],
   },

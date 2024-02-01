@@ -10,8 +10,7 @@ import { CiShoppingTag } from 'react-icons/ci';
 import { FaChevronDown } from "react-icons/fa6";
 
 const SideBar = () => {
-  const sideLinks = (
-    <>
+  const sideLinks = <>
       <li className="dashLi">
         <NavLink
           to="/dashboard/profile"
@@ -42,7 +41,7 @@ const SideBar = () => {
         </NavLink>
       </li>
     </>
-  );
+
 
     const ownerRoutes = <>
         <li className="dashLi">
@@ -87,20 +86,19 @@ const SideBar = () => {
                 className="dashNav flex items-center gap-2"
             >
                 <MdOutlineRemoveShoppingCart className="dashIcon text-[#64707d]"></MdOutlineRemoveShoppingCart>
-               Sold Properties
+               Sold Out Properties
             </NavLink>
         </li>
         <li className="dashLi pt-2">
             <NavLink
-                to="/dashboard/bookedProperties"
+                to="/dashboard/rentOutProperties"
                 className="dashNav flex items-center gap-2"
             >
                 <IoBookmarksSharp className="dashIcon text-[#64707d]"></IoBookmarksSharp>
-                Booked Properties
+                Rent Out Properties
             </NavLink>
         </li>
     </>
-  );
 
   return (
     <div>

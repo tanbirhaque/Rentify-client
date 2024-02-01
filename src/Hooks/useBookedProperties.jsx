@@ -3,7 +3,7 @@ import { AuthContext } from '../Provider/AuthProvider';
 import useAxiosPublic from './useAxiosPublic';
 import { useQuery } from '@tanstack/react-query';
 
-const useBookedProperties = () => {
+const useRentOutProperties = () => {
     const { user } = useContext(AuthContext)
     const axiospublic = useAxiosPublic();
     const { data: ownerRent = [], refetch } = useQuery({
@@ -18,4 +18,4 @@ const useBookedProperties = () => {
     return [ownerRent, refetch]
 };
 
-export default useBookedProperties;
+export default useRentOutProperties;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const BookedProperties = () => {
+const RentOutProperties = () => {
     return (
         <div>
             <h2>hiiiiiiiiiiii</h2>
@@ -8,4 +8,4 @@ const BookedProperties = () => {
     );
 };
 
-export default BookedProperties;
+export default RentOutProperties;
