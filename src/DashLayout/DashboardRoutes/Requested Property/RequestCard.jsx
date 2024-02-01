@@ -1,11 +1,11 @@
 import { CiLocationOn } from "react-icons/ci";
-import { IoBedOutline } from "react-icons/io5";
-import { LuTriangleRight } from "react-icons/lu";
-import { PiBathtub } from "react-icons/pi";
+// import { IoBedOutline } from "react-icons/io5";
+// import { LuTriangleRight } from "react-icons/lu";
+// import { PiBathtub } from "react-icons/pi";
 import { Link } from "react-router-dom";
 
 const RequestCard = ({ requestedProperties }) => {
-  const { _id, property, requestStatus } = requestedProperties || {};
+  const { _id, property, requestStatus, propertyID } = requestedProperties || {};
   const {
     property_img,
     property_title,
@@ -15,8 +15,15 @@ const RequestCard = ({ requestedProperties }) => {
     owner_details,
   } = property || {};
 
+  const price = property_details.property_price;
+  
+  const requestId = _id;
+  const propertyId = propertyID;
+  // console.log(requestId, propertyId);
+
   const { owner_name, owner_img, owner_phone, owner_email } =
     owner_details || {};
+    const owner = owner_email;
 
   return (
     <div>
@@ -78,10 +85,11 @@ const RequestCard = ({ requestedProperties }) => {
             Request <span className=" uppercase">{requestStatus}</span>
           </button>
           {requestStatus == "accepted" ?
-            <button
+            <Link to={`/dashboard/payment?price=${price}&requestId=${requestId}&propertyId=${propertyId}&owner=${owner}`}>
+              <button
               className="rounded p-4 bg-[#2797a1] text-white w-1/3 mx-auto mt-3 font-bold"
-              disabled
             >Pay</button>
+            </Link>
             : ""}
         </div>
       </div>

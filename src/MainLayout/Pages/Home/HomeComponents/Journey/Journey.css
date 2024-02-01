@@ -1,0 +1,13 @@
+/* .contain{
+    position: relative;
+    transition: all linear 0.6s;
+    -webkit-transition: all linear 0.6s;
+    -moz-transition: all linear 0.6s;
+    -ms-transition: all linear 0.6s;
+    -o-transition: all linear 0.6s;
+}
+.advance_card:hover{
+    position: absolute;
+    bottom: 10px;
+
+} */

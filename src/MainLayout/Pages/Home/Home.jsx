@@ -17,7 +17,7 @@ const Home = () => {
       <Listing />
       <About />
       <OurAdvantage />
-      <Virtual />
+      {/* <Virtual /> */}
       <Journey />
       <PopularCities></PopularCities>
       <EditReview></EditReview>
