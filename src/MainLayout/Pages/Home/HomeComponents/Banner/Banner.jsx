@@ -12,10 +12,10 @@ import img7 from "../../../../../assets/Template_files/client-4.jpg";
 const Banner = () => {
     return (
         <div className="max-w-screen-2xl mx-auto">
-            <div className=" mb-10 md:mb-20">
+            <div className="mb-10 md:mb-20">
                 <div className="flex justify-center mx-auto flex-col md:flex-row  gap-10 px-8 xl:px-0">
-                    <div className="   w-full lg:w-1/2 mt-[100px]">
-                        <div className="flex justify-evenly md:justify-between banner">
+                    <div className="   w-full lg:w-1/2 mt-[20px] md:mt-[100px]">
+                        <div className="md:flex justify-evenly md:justify-between banner hidden">
                             <img className="w-10 " src={img3} alt="" />
                             <div className="floating">
                                 <img
@@ -27,12 +27,12 @@ const Banner = () => {
                         </div>
 
                         <div>
-                            <h2 className="poppins-font font-bold xl:text-[55px] lg:text-5xl md:text-2xl text-xl my-4 lg:font-bold text-black lg:leading-normal leading-7 ml-32 md:ml-0 ">
+                            <h2 className="poppins-font font-bold xl:text-[55px] lg:text-5xl md:text-2xl text-xl my-4 lg:font-bold text-black lg:leading-normal leading-7 md:ml-0 ">
                                 Find Your Freedom Without Leaving Home
                             </h2>
                         </div>
 
-                        <p className="mb-5 text-[#666666] lg:text-base text-xs lg:font-medium leading-7 ml-16 md:ml-0">
+                        <p className="mb-5 text-[#666666] lg:text-base text-xs lg:font-medium leading-7  md:ml-0">
                             Discover seamless living with Rebtify – your premier destination for hassle-free online rentals. Browse a
                             curated selection of top-quality homes, apartments,and more. Elevate your living experience
                             effortlessly with Rebtify.
@@ -84,14 +84,15 @@ const Banner = () => {
                         </p>
                     </div>
 
+                    {/* Right side div */}
                     <div className="lg:w-1/2 w-full ">
-                        <div className="relative mx-auto flex justify-end">
+                        <div className="relative mx-auto flex justify-end mt-12 lg:mt-0">
                             <img
                                 className="rounded-lg lg:w-[650px] lg:h-[550px] xl:h-[650px] md:w-[400px]"
                                 src={img1}
                             />
-                            <div className="absolute   top-36 xl:top-[250px]   w-full h-[370px] overflow-hidden bg-fixed flex gap-6">
-                                <div className="max-w-[300px] max-h-[350px] bg-white border-[2px] border-white rounded-[5px] dark:bg-gray-800 dark:border-gray-700 md:w-[300px] lg:w-[400px] shadow">
+                            <div className="absolute top-24 md:top-12 xl:top-[250px] w-full h-[370px] overflow-hidden bg-fixed flex px-3 gap-3 lg:gap-6 lg:px-0 shadow-md">
+                                <div className="max-w-[300px] max-h-[380px] bg-white border-[2px] border-white rounded-[5px] dark:bg-gray-800 dark:border-gray-700 md:w-[300px] lg:w-[400px]">
                                     <a href="#">
                                         <img className="rounded-t-[5px]" src={img2} alt />
                                     </a>
@@ -119,7 +120,7 @@ const Banner = () => {
                                         </a>
                                     </div>
                                 </div>
-                                <div className="max-w-[300px] max-h-[350px] bg-white border-[2px] border-white rounded-[5px] dark:bg-gray-800 dark:border-gray-700 md:w-[300px] lg:w-[400px] shadow">
+                                <div className="max-w-[300px] max-h-[380px] bg-white border-[2px] border-white rounded-[5px] dark:bg-gray-800 dark:border-gray-700 md:w-[300px] lg:w-[400px] shadow">
                                     <a href="#">
                                         <img className="rounded-t-[5px]" src={img2} alt />
                                     </a>

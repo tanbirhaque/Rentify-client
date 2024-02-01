@@ -6,13 +6,13 @@ import DashNav from "./DashShared/DashNav/DashNav";
 import './DashShared/SideBar/SideBar.css'
 import SideBar from "./DashShared/SideBar/SideBar";
 
+
 const DashLayout = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
     console.log(isSidebarOpen);
   };
-
   return (
     <>
       <div className="flex">
@@ -23,7 +23,6 @@ const DashLayout = () => {
         >
           <SideBar></SideBar>
         </div>
-
         {/* Main content of Dashboard starts here */}
         <div className={`main_content w-svw transition-all duration-300 ${isSidebarOpen ? "ml-64" : ""}`}>
           <DashNav toggleSidebar={toggleSidebar} ></DashNav>
