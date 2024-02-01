@@ -8,7 +8,7 @@ import { useState } from "react";
 import PropertyCard from "../../../../Shared/PropertyCards/PropertyCard";
 import ButtonBlue from "../../../../Shared/buttons/Blue/ButtonBlue";
 import useProperties from "../../../../../Hooks/useProperties";
-
+import "./Listing.css"
 const Listing = () => {
     // properties data get from database
     const [properties] = useProperties();

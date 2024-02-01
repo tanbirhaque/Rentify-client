@@ -4,24 +4,25 @@
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import CommonHeading from "../../../../Shared/CommonHeading/CommonHeading";
 import "./About.css"
+import ButtonBlue from "../../../../Shared/buttons/Blue/ButtonBlue";
 const About = () => {
     return (
-        <div className="bg-[#f9f9f9] pt-[100px] pb-[250px]">
-            <div className='max-w-[1296px] mx-auto flex justify-between gap-[170px]'>
-                <div className='relative '>
-                    <img className='min-w-[504px] min-h-[504px] rounded-[5px] z-10' src="https://i.ibb.co/sgQWNHX/download.jpg" alt="" />
-                    <div className='absolute left-[225px] top-[305px] min-w-[400px] min-h-[350px]'>
+        <div className="bg-[#f9f9f9] pt-[100px] pb-[100px] lg:pb-[150px] xl:pb-[250px] px-8 xl:px-0">
+            <div className='max-w-[1296px] mx-auto flex flex-col lg:flex-row lg:justify-center xl:justify-between gap-[170px]'>
+                <div className='relative px-3 md:px-8 lg:px-0'>
+                    <img className='max-w-[361px] min-h-[361px] md:min-w-[574px] lg:min-w-[324px] xl:min-w-[504px] xl:min-h-[504px] rounded-[5px] z-10' src="https://i.ibb.co/sgQWNHX/download.jpg" alt="" />
+                    <div className='absolute left-[180px] top-[250px] md:left-[325px] md:top-[380px] lg:left-[200px] lg:top-[250px] xl:left-[225px]  xl:top-[305px] min-w-[210px] lg:min-w-[300px] xl:min-w-[400px] min-h-[350px]'>
                         <img className="min-w-full min-h-full rounded-[5px]" src="https://i.ibb.co/CPXqSN1/download.jpg" alt="" />
                     </div>
                     {/* Added by Tanbir */}
                     <div className="absolute left-16 -bottom-38">
                         <img className="rotate-anim" src="https://i.ibb.co/THwCWwB/shape-1-1.png" alt="Red cube png for rotating animation" />
                     </div>
-                    <div className="absolute top-12 -right-16 z-0">
+                    {/* <div className="absolute top-12 -right-16 z-0">
                         <img className="upnd-anim" src="https://i.ibb.co/VN6ZhGC/shape-2.png" alt="Red cube png for rotating animation" />
-                    </div>
+                    </div> */}
                 </div>
-                <div className="pt-[80px]">
+                <div className="xl:pt-[80px]">
                     <CommonHeading
                         small={'About Us'}
                         big={'Enjoy Our Property For A Weekend Longer Stay'}
@@ -35,6 +36,13 @@ const About = () => {
                         <li className="flex items-center gap-2 text-[16px]"><IoMdCheckmarkCircleOutline className="text-[#e33226]" />Private balconies with stunning views</li>
                         <li className="flex items-center gap-2 text-[16px]"><IoMdCheckmarkCircleOutline className="text-[#e33226]" />Smart Home Design & Beautiful Scene Around</li>
                     </ul>
+                    <div className="mt-8">
+                        <ButtonBlue
+                            titleBlue={"Know more"}
+                            padX={"px-16"}
+                            padY={"py-5"}
+                        ></ButtonBlue>
+                    </div>
                 </div>
             </div>
         </div>
