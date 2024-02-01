@@ -1,13 +1,14 @@
 import { FaHeart, FaStar, FaDollarSign, FaWifi, FaBed, FaTv, FaFire, FaPlus } from 'react-icons/fa';
 
 
-const SavedCards = () => {
+const SavedCards = ({items}) => {
+  const {property} = items
   return (
     <div>
       <div className="w-full max-w-[26rem] shadow-lg">
         <div className="bg-blue-gray relative rounded-xl">
           <img
-            src="https://images.unsplash.com/photo-1499696010180-025ef6e1a8f9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+            src={property.property_info.property_img }
             alt="ui/ux review check"
             className="w-full h-full object-cover"
           />
@@ -18,14 +19,14 @@ const SavedCards = () => {
         </div>
         <div className="p-6">
           <div className="mb-3 flex items-center justify-between">
-            <h5 className="text-blue-gray font-medium">Wooden House, Florida</h5>
+            <h5 className="text-[#002172] font-semibold ">{property.property_info. property_title}</h5>
             <div className="flex items-center gap-1.5 text-blue-gray">
               <FaStar className="-mt-0.5 h-5 w-5 text-yellow-700" />
-              5.0
+              3
             </div>
           </div>
           <p className="text-gray-500">
-            Enter a freshly updated and thoughtfully furnished peaceful home surrounded by ancient trees, stone walls, and open meadows.
+          Indulge in the epitome of urban sophistication with our Stylish Urban Loft, a captivating space meticulously curated to embody the essence of Industrial Chic Vibes.
           </p>
           <div className="group mt-8 inline-flex flex-wrap items-center gap-3">
             <span className="cursor-pointer rounded-full border border-gray-900/5 bg-gray-900/5 p-3 text-gray-900 hover:text-[#e33226] transition-colors hover:border-gray-900/10 hover:bg-gray-900/10 hover:!opacity-100 group-hover:opacity-70">
