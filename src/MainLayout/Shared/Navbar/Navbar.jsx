@@ -178,8 +178,8 @@ const Navbar = () => {
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                   <div className="w-10 rounded-full">
                     <img
-                      src={user?.photoURL}
-                      // src={`${user?.photoURL ? user?.photoURL : defaultImg}`}
+                      // src={user?.photoURL}
+                      src={`${user?.photoURL ? user?.photoURL : defaultImg}`}
                     />
                   </div>
                 </label>
