@@ -4,6 +4,7 @@
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import CommonHeading from "../../../../Shared/CommonHeading/CommonHeading";
 import "./About.css"
+import ButtonBlue from "../../../../Shared/buttons/Blue/ButtonBlue";
 const About = () => {
     return (
         <div className="bg-[#f9f9f9] pt-[100px] pb-[100px] lg:pb-[150px] xl:pb-[250px] px-8 xl:px-0">
@@ -35,6 +36,13 @@ const About = () => {
                         <li className="flex items-center gap-2 text-[16px]"><IoMdCheckmarkCircleOutline className="text-[#e33226]" />Private balconies with stunning views</li>
                         <li className="flex items-center gap-2 text-[16px]"><IoMdCheckmarkCircleOutline className="text-[#e33226]" />Smart Home Design & Beautiful Scene Around</li>
                     </ul>
+                    <div className="mt-8">
+                        <ButtonBlue
+                            titleBlue={"Know more"}
+                            padX={"px-16"}
+                            padY={"py-5"}
+                        ></ButtonBlue>
+                    </div>
                 </div>
             </div>
         </div>
