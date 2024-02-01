@@ -1,0 +1,31 @@
+/* .react-tabs__tab-list{
+    border-bottom: 1px solid #002172 !important;
+}
+.react-tabs__tab--selected{
+    color: white !important;
+    border-color: #002172;
+    background-color: #002172 !important;
+}
+
+.react-tabs__tab{
+    border-radius: 5px 5px 0 0;
+    -webkit-border-radius: 5px 5px 0 0;
+    -moz-border-radius: 5px 5px 0 0;
+    -ms-border-radius: 5px 5px 0 0;
+    -o-border-radius: 5px 5px 0 0;
+} */
+
+.react-tabs__tab-list{
+    border-bottom: 1px solid #002172 !important;
+}
+.react-tabs__tab--selected{
+    border-color: #002172;
+    color: #002172 !important;
+    font-weight: 700;
+    border: 1px solid #002172 !important;
+    border-bottom: 0px !important;
+}
+
+.react-tabs__tab{
+    color: #e33226;
+}
