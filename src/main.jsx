@@ -48,6 +48,8 @@ import LosAngeles from "./MainLayout/Pages/Home/HomeComponents/PopularCities/Los
 //Import links below by konika
 import BuyRequest from "./DashLayout/DashboardRoutes/BuyRequest/BuyRequest.jsx";
 import RentRequest from "./DashLayout/DashboardRoutes/RentRequest/RentRequest.jsx";
+import SoldProperties from "./DashLayout/DashboardRoutes/SoldProperties/SoldProperties.jsx";
+import BookedProperties from "./DashLayout/DashboardRoutes/BookedProperties/BookedProperties.jsx";
 
 const queryClient = new QueryClient();
 
@@ -215,6 +217,14 @@ const router = createBrowserRouter([
       {
         path: "buyReq",
         element:<BuyRequest/>
+      },
+      {
+        path: "soldProperties",
+        element:<SoldProperties/>
+      },
+      {
+        path: "bookedProperties",
+        element:<BookedProperties/>
       },
     ],
   },

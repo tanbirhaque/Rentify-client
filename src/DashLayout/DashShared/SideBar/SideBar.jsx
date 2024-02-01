@@ -1,8 +1,8 @@
 import './SideBar.css'
 import { Link, NavLink } from 'react-router-dom';
 import { FaBookmark, FaHome, FaUserCircle } from "react-icons/fa";
-import { IoAddCircleSharp } from "react-icons/io5";
-import { MdOutlinePendingActions } from "react-icons/md";
+import { IoAddCircleSharp, IoBookmarksSharp } from "react-icons/io5";
+import { MdOutlinePendingActions, MdOutlineRemoveShoppingCart } from "react-icons/md";
 import { MdOutlineDashboardCustomize } from "react-icons/md";
 import { MdManageHistory } from "react-icons/md";
 import { HiCubeTransparent } from 'react-icons/hi2';
@@ -76,6 +76,24 @@ const SideBar = () => {
             >
                 <CiShoppingTag className="dashIcon text-[#64707d]"></CiShoppingTag>
                 Buy Request
+            </NavLink>
+        </li>
+        <li className="dashLi pt-2">
+            <NavLink
+                to="/dashboard/soldProperties"
+                className="dashNav flex items-center gap-2"
+            >
+                <MdOutlineRemoveShoppingCart className="dashIcon text-[#64707d]"></MdOutlineRemoveShoppingCart>
+               Sold Properties
+            </NavLink>
+        </li>
+        <li className="dashLi pt-2">
+            <NavLink
+                to="/dashboard/bookedProperties"
+                className="dashNav flex items-center gap-2"
+            >
+                <IoBookmarksSharp className="dashIcon text-[#64707d]"></IoBookmarksSharp>
+                Booked Properties
             </NavLink>
         </li>
     </>
