@@ -7,7 +7,7 @@ const OurAdvantage = () => {
         <>
             <div className='text-center max-w-screen-xl mx-auto my-[80px]'>
                 <CommonHeading small={'Advantages'} big={"Our Best Advantages"}></CommonHeading>
-                <div className='flex self-center justify-center items-center py-8'>
+                <div className='flex flex-col md:flex-row self-center justify-center items-center py-8 md:px-4 xl:px-0'>
                     <div className=' text-center px-3 '>
                         <img className='mx-auto h-[233px]' src="https://i.ibb.co/3WSGgxP/download-1-removebg-preview-1.png" alt="" />
                         <h1 className='text-[22px] poppins-font font-semibold text-black mt-5 mb-3'>Smart Home Design</h1>

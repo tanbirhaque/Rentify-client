@@ -5,11 +5,11 @@ import "./Journey.css"
 const Journey = () => {
     return (
         <>
-            <div className="max-w-screen-xl mx-auto">
-                <div className="px-80">
+            <div className="max-w-screen-xl mx-auto mb-[80px]">
+                <div className="md:px-44 xl:px-80">
                     <CommonHeading small={'Your Journey with us'} big={"What Kind Of Place You Are Looking For?"}></CommonHeading>
                 </div>
-                <div className="grid justify-center lg:grid-cols-3 gap-4 xl:gap-6 mt-9 px-6  xl:px-0">
+                <div className="grid justify-center md:grid-cols-2 lg:grid-cols-3 gap-4 xl:gap-6 mt-9 px-6  xl:px-0">
                     <div className="max-w-96 xl:min-w-[416px] bg-base-100 shadow-xl mb-10 advance_card relative transition-transform duration-300 ease-linear transform translate-y-0 hover:-translate-y-2">
                         <img src="https://angular.hibootstrap.com/enuf/assets/img/about/simple-1.jpg" alt="" />
                         <div className="p-5">
