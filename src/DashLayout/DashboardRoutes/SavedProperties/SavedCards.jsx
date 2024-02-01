@@ -28,6 +28,10 @@ const SavedCards = ({items}) => {
           <p className="text-gray-500">
           Indulge in the epitome of urban sophistication with our Stylish Urban Loft, a captivating space meticulously curated to embody the essence of Industrial Chic Vibes.
           </p>
+          <div className='flex justify-between mt-2'>
+            <h1><span className='text-[#e33226] font-bold'>Price:</span> {property.property_info.property_details.property_price}</h1>
+            <h1><span className='text-[#e33226] font-bold'>Duration:</span> {property.property_info.ownership_duration}</h1>
+          </div>
           <div className="group mt-8 inline-flex flex-wrap items-center gap-3">
             <span className="cursor-pointer rounded-full border border-gray-900/5 bg-gray-900/5 p-3 text-gray-900 hover:text-[#e33226] transition-colors hover:border-gray-900/10 hover:bg-gray-900/10 hover:!opacity-100 group-hover:opacity-70">
               <FaDollarSign className="h-5 w-5" />
@@ -49,8 +53,17 @@ const SavedCards = ({items}) => {
             </span>
           </div>
         </div>
-        <div className="pt-3">
-          <button className=" bg-[#002172]  hover:bg-[#e33226] text-white py-3 px-6 w-full">Buy Now</button>
+        <div className=" ">
+        {
+             property?.property_info?.property_for === 'rent' ?<>
+            
+            <button className=" bg-[#002172] py-3 px-6  hover:bg-[#e33226] text-white  w-full">Booked Now</button>
+             
+           
+            </>
+          :<button className=" bg-[#002172] py-3 px-6 hover:bg-[#e33226] text-white  w-full">Buy Now</button>
+          }
+        
         </div>
       </div>
     </div>
