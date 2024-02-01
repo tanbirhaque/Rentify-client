@@ -19,7 +19,6 @@ const RequestCard = ({ requestedProperties }) => {
   
   const requestId = _id;
   const propertyId = propertyID;
-  // console.log(requestId, propertyId);
 
   const { owner_name, owner_img, owner_phone, owner_email } =
     owner_details || {};
