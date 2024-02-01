@@ -13,18 +13,16 @@ const Banner = () => {
     return (
         <div className="max-w-screen-2xl mx-auto">
             <div className=" mb-10 md:mb-20">
-                <div className=" flex justify-center mx-auto flex-col md:flex-row  gap-10">
+                <div className="flex justify-center mx-auto flex-col md:flex-row  gap-10 px-8 xl:px-0">
                     <div className="   w-full lg:w-1/2 mt-[100px]">
                         <div className="flex justify-evenly md:justify-between banner">
                             <img className="w-10 " src={img3} alt="" />
                             <div className="floating">
-                            
-                            <img
-                                className=""
-                                src="https://i.ibb.co/TYpJMmw/413824751-1821545304957822-2518450752563921897-n.png"
-                                alt=""
-                            />
-                           
+                                <img
+                                    className=""
+                                    src="https://i.ibb.co/TYpJMmw/413824751-1821545304957822-2518450752563921897-n.png"
+                                    alt=""
+                                />
                             </div>
                         </div>
 

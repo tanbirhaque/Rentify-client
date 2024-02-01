@@ -42,7 +42,6 @@ const AddProperties = () => {
           owner_name: user.displayName,
           owner_img: user.photoURL,
           owner_email: user.email,
-
         },
         ownership_duration: ownership,
         property_for: status,
@@ -186,7 +185,7 @@ const AddProperties = () => {
                   <label className="input-group ">
                     <input
                       type="number"
-                      placeholder="$2800"
+                      placeholder="$"
                       name="price"
                       className="input form-border input-bordered w-full"
                     />
@@ -306,6 +305,7 @@ const AddProperties = () => {
                       <option value="Weekly">Weekly</option>
                       <option value="Monthly">Monthly</option>
                       <option value="Annualy">Annualy</option>
+                      <option value="Permanent">Permanent</option>
                     </select>
                   </label>
                 </div>
@@ -400,7 +400,7 @@ const AddProperties = () => {
                     <input
                       type="number"
                       placeholder="Enter Zip Code"
-                      name="price"
+                      // name="price"
                       className="input form-border input-bordered w-full"
                     />
                   </label>

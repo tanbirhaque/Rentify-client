@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import useRequested from "../../../Hooks/useRequested";
 import useAuth from "../../../Hooks/useAuth";
 import { NavLink } from "react-router-dom";
+import ReqCard_mod from "./ReqCard_mod";
 
 const RequestedProperty = () => {
   const [requested] = useRequested();
@@ -52,7 +53,7 @@ const RequestedProperty = () => {
   const salesProperties = properties.filter((item) => item.property.property_for === "sale");
 
   return (
-    <div>
+    <div className="">
       {/* Background section*/}
       <div
         className="w-full"
@@ -89,7 +90,7 @@ const RequestedProperty = () => {
           </div>
         </div> */}
 
-        <div className=" mt-5">
+        <div className=" w-[1200px] mx-auto mt-5">
           {/* Here are used to menu class & Navlink for uniq desgin and filter by property status in Accepted, Pending & Rejected..[codded by Sojib] */}
           <div className=" menu  menu-horizontal flex flex-row justify-center items-center mb-3">
             <NavLink onClick={handleAll}
@@ -116,14 +117,20 @@ const RequestedProperty = () => {
               <Tab>Sale</Tab>
             </TabList>
             <TabPanel>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 p-5">
-                {rentsProperties?.map((requestedProperty) => (
-                  <RequestCard
-                    key={requestedProperty._id}
-                    requestedProperties={requestedProperty}
-                  />
-                ))}
-              </div>
+              {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 p-5"> */}
+                <div>
+                  {rentsProperties?.map((requestedProperty) => (
+                    <ReqCard_mod
+                      key={requestedProperty._id}
+                      requestedProperties={requestedProperty}
+                    />
+                    // <RequestCard
+                    //   key={requestedProperty._id}
+                    //   requestedProperties={requestedProperty}
+                    // />
+                  ))}
+                </div>
+              {/* </div> */}
             </TabPanel>
             <TabPanel>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 p-5">
