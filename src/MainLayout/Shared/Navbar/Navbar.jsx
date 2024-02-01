@@ -128,7 +128,7 @@ const Navbar = () => {
         isNavbarJumping ? "animate-jump shadow-md" : ""
       }`}
     >
-      <div className="navbar max-w-screen-2xl  mx-auto   bg-base-100">
+      <div className="navbar max-w-screen-2xl mx-auto bg-base-100 px-0">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -171,7 +171,7 @@ const Navbar = () => {
         </div>
 
         {/* for toggle feature for btn -sadia */}
-        <div className="navbar-end gap-5">
+        <div className="navbar-end gap-5 lg:gap-0">
           {user && (
             <div className="dropdown dropdown-end">
               <div>
@@ -198,7 +198,7 @@ const Navbar = () => {
                   </li>
                   {/* {console.log("js diye aslm", user.photoURL)} */}
                   <li>
-                    <Link to="/dashboard/profile">Dashbaord</Link>
+                    <Link to="/dashboard/profile">Dashboard</Link>
                   </li>
                   <li>
                     <Link onClick={handleLogOut}>Logout</Link>

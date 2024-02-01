@@ -11,7 +11,7 @@ const Reach = () => {
 
     return (
         <div className="bg-[#f9f9f9] my-20 mt-28 poppins-font py-[60px]">
-            <div className="max-w-screen-2xl mx-auto grid justify-items-center md:grid-cols-4  grid-cols-1 gap-16 py-6 px-3">
+            <div className="max-w-screen-2xl mx-auto grid justify-items-center md:grid-cols-2 lg:grid-cols-4  grid-cols-1 gap-16 py-6 px-3">
                 <div className="flex items-center justify-center gap-4 min-w-1/4">
                     <img className="w-20 h-20" src="https://cdn.discordapp.com/attachments/1195470404463108217/1197440796870316182/authenticity.png?ex=65bb46a5&is=65a8d1a5&hm=95b6dd0cf4a6abff057af39dadc79c71d603ea3bbe79585a05c49916a82e8c97&" alt="" />
                     <div>

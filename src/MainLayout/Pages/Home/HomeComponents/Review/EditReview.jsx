@@ -21,7 +21,7 @@ const EditReview = () => {
   };
 
   return (
-    <div className="bgtwo mt-10 mb-20 max-w-screen-2xl mx-auto py-10 px-5">
+    <div className="bgtwo max-w-screen-2xl mx-auto py-20 px-5">
       <p className="lg:text-base md:text-sm text-xs font-medium mt-3 text-[#e33226] text-center">
         See Our Reviews
       </p>
