@@ -8,14 +8,15 @@ const BuyRequest = () => {
     return (
         <>
             <div className="overflow-x-auto">
-                <table className="table">
+                <table className="table table-zebra">
                     {/* head */}
-                    <thead>
-                        <tr>
+                    <thead className="font-semibold text-lg text-[#002172]">
+                        <tr >
                             
                             <th>Property Info.</th>
                             <th>Requester Name</th>
                             <th>Requester E-mail</th>
+                            <th>Requester Number</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>

@@ -2,8 +2,8 @@
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 
-const RentRequestCard = ({ items,refetch}) => {
-    const { _id,property, requestStatus, requesterNumber, requesterEmail,  requesterName } = items
+const RentRequestCard = ({ items, refetch }) => {
+    const { _id, property, requestStatus, requesterNumber, requesterEmail, requesterName } = items
     const axiosSecure = useAxiosSecure();
 
     const setAccept = (id) => {
@@ -24,7 +24,7 @@ const RentRequestCard = ({ items,refetch}) => {
             })
             .catch((error) => console.error("Error updating verification status:", error));
     };
-      
+
     return (
         <>
             <tr>
@@ -42,57 +42,56 @@ const RentRequestCard = ({ items,refetch}) => {
                         </div>
                     </div>
                 </td>
-                <td>
-                    <div>
-                        <div className="font-bold">{requesterName}</div>
+                <td>{requesterName} </td>
+                <td>{requesterEmail}</td>
+                <td>{requesterNumber}</td>
+                <td >{requestStatus}</td>
 
-                        <div className="text-sm opacity-50">{requesterNumber}</div>
+                <td >
+                    <div className="flex gap-2 items-center justify-center">
+                        <div>
+                            {
+                                requestStatus === 'accepted' ?
+                                    <>
+                                        {requestStatus}
+                                    </>
+                                    :
+                                    <>
+                                        {
+                                            requestStatus === 'rejected' ?
+                                                <>{requestStatus}</>
+                                                :
+                                                <>
+                                                    <button onClick={() => setAccept(_id)} className="btn text-white hover:bg-[#002172] bg-[#e33226]">Accept</button>
+                                                </>
+                                        }
+                                    </>
+                            }
+                        </div>
+                        <div>
+                            {
+                                requestStatus === 'accepted' ?
+                                    <>
+                                        {requestStatus}
+                                    </>
+                                    :
+                                    <>
+                                        {
+                                            requestStatus === 'rejected' ?
+                                                <>{requestStatus}</>
+                                                :
+                                                <>
+                                                    <button onClick={() => setReject(_id)} className="btn text-white hover:bg-[#002172] bg-[#e33226] ">Reject</button>
+                                                </>
+                                        }
+                                    </>
+                            }
+                        </div>
                     </div>
                 </td>
-                <td>{requesterEmail}</td>
-                <td>{requestStatus}</td>
-               
-               <td>
-                                    {
-                                        requestStatus === 'accepted' ?
-                                            <>
-                                                {requestStatus}
-                                            </>
-                                            :
-                                            <>
-                                                {
-                                                    requestStatus === 'rejected' ?
-                                                        <>{requestStatus}</>
-                                                        :
-                                                        <>
-                                                            <button  onClick={() => setAccept(_id)} className="btn-one">Accept</button>
-                                                        </>
-                                                }
-                                            </>
-                                    }
-                                </td>
-                                <td>
-                                    {
-                                        requestStatus === 'accepted' ?
-                                            <>
-                                                {requestStatus}
-                                            </>
-                                            :
-                                            <>
-                                                {
-                                                    requestStatus === 'rejected' ?
-                                                        <>{requestStatus}</>
-                                                        :
-                                                        <>
-                                                            <button onClick={() => setReject(_id)} className="btn-one">Reject</button>
-                                                        </>
-                                                }
-                                            </>
-                                    }
-
-                                </td>
+                
             </tr>
-          
+
         </>
     );
 };
