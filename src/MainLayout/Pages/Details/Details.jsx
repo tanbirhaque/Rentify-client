@@ -87,7 +87,7 @@ const Details = () => {
     <div>
       <div className="gridbgimg">
         <div className=" bg-[#000000B2]">
-          <div className=" max-w-screen-2xl mx-auto p-24">
+          <div className=" md:max-w-screen-2xl mx-auto p-24">
             <h2 className="text-6xl font-bold text-white font-serif">
               Property Details
             </h2>
@@ -110,9 +110,9 @@ const Details = () => {
         </div>
       </div>
       {/* details sections starts */}
-      <div className="max-w-7xl mx-auto mt-16 p-10">
-        <div className="flex gap-6">
-          <div className="main_details w-3/4">
+      <div className="max-w-7xl mx-auto mt-16 md:p-10">
+        <div className="flex flex-col md:flex-row gap-6">
+          <div className="main_details px-5 md:px-0 md:w-3/4">
             <div className="mb-16">
               <div className="flex justify-between">
                 <h2 className="text-3xl poppins-font mb-[12px] font-semibold text-black">
@@ -373,7 +373,7 @@ const Details = () => {
           <div className="flex flex-col gap-3">
             {/* booking form designed by Sojib modified by Fahima */}
             <div
-              className="w-[416px] max-w-[416px] h-fit p-5"
+              className="md:w-[416px] max-w-[416px] h-fit p-5"
               style={{
                 boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.09)'
               }}
@@ -382,7 +382,7 @@ const Details = () => {
             </div>
             {/* owner information */}
             <div
-              className="h-auto p-5 w-[416px] max-w-[416px] mt-3"
+              className="h-auto p-5 md:w-[416px] max-w-[416px] mt-3"
               style={{
                 boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.09)'
               }}
@@ -391,7 +391,7 @@ const Details = () => {
             </div>
             {/* popular tags */}
             <div
-              className="h-auto p-5 w-[416px] max-w-[416px] mt-3"
+              className="h-auto p-5 md:w-[416px] max-w-[416px] mt-3"
               style={{
                 boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.09)'
               }}

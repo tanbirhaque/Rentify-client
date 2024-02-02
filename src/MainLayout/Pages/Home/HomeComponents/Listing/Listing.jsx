@@ -57,20 +57,13 @@ const Listing = () => {
                     >
                         <TabList>
                             <Tab>
-                                <ButtonBlue
-                                    titleBlue={`Residential`}
-                                >
-                                </ButtonBlue>
+                                Residential
                             </Tab>
                             <Tab>
-                                <ButtonRed
-                                    titleRed={`Commercial`}
-                                ></ButtonRed>
+                                Commercial
                             </Tab>
                             <Tab>
-                                <ButtonBlue
-                                    titleBlue={`Apartment`}
-                                ></ButtonBlue>
+                                Apartment
                             </Tab>
                         </TabList>
                         <TabPanel>
