@@ -118,8 +118,24 @@ const RequestedProperty = () => {
             </TabList>
             <TabPanel>
               {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 p-5"> */}
+              <div>
+                {rentsProperties?.map((requestedProperty) => (
+                  <ReqCard_mod
+                    key={requestedProperty._id}
+                    requestedProperties={requestedProperty}
+                  />
+                  // <RequestCard
+                  //   key={requestedProperty._id}
+                  //   requestedProperties={requestedProperty}
+                  // />
+                ))}
+              </div>
+              {/* </div> */}
+            </TabPanel>
+            <TabPanel>
+              {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 p-5"> */}
                 <div>
-                  {rentsProperties?.map((requestedProperty) => (
+                  {salesProperties?.map((requestedProperty) => (
                     <ReqCard_mod
                       key={requestedProperty._id}
                       requestedProperties={requestedProperty}
@@ -131,16 +147,6 @@ const RequestedProperty = () => {
                   ))}
                 </div>
               {/* </div> */}
-            </TabPanel>
-            <TabPanel>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 p-5">
-                {salesProperties?.map((requestedProperty) => (
-                  <RequestCard
-                    key={requestedProperty._id}
-                    requestedProperties={requestedProperty}
-                  />
-                ))}
-              </div>
             </TabPanel>
           </Tabs>
         </div>

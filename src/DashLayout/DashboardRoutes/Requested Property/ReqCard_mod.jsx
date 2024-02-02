@@ -14,7 +14,9 @@ const ReqCard_mod = ({ requestedProperties }) => {
     const { owner_img, owner_name, owner_email, owner_phone } = property.owner_details || {}
     const { address } = property.property_location || {}
     const { property_img, property_title, property_for, property_details, ownership_duration } = property || {}
-    console.log(requestedProperties);
+    // console.log(requestedProperties);
+    const {property_status} = property_details || {}
+    console.log('This prop',property_status);
 
     const defaultImg =
         "https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?w=740&t=st=1696786604~exp=1696787204~hmac=c10645727b8724eecda4984ef1d8fbfba92a9c9072a57b851c28c9b1d8d62b81";
@@ -131,7 +133,7 @@ const ReqCard_mod = ({ requestedProperties }) => {
                                 {/* <button className="w-full text-center bg-[#002172] text-white py-3 mt-[23px] rounded-br-md">
                                     Pay Now
                                 </button> */}
-                                <Link to={`/dashboard/payment?price=${property_details?.property_price}&requestId=${_id}&propertyId=${propertyID}&owner=${owner_email}`}
+                                <Link to={`/dashboard/payment?price=${property_details?.property_price}&requestId=${_id}&propertyId=${propertyID}&owner=${owner_email}&property_status=${property_for == 'sale' ? 'Sold' : 'Rented'}`}
                                     className={`w-full text-center text-white py-3 mt-[24px] rounded-br-md hover:text-green-500 transition-all duration-300 font-bold
                                 ${requestStatus == 'pending' ? 'bg-gray-400 btn-disabled' : 'bg-[#002172]'} 
                                 ${requestStatus == 'rejected' ? 'bg-gray-400 btn-disabled' : 'bg-[#002172]'} 
