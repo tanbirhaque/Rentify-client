@@ -92,9 +92,18 @@ const PaymentForm = ({ queryParams, }) => {
       {/* new from added and desgin by sojib */}
       <div>
         <div className=" flex justify-center items-center my-10">
-          <div className=" bg-gray-800 w-[440px] h-[720px] rounded-l-lg">
+          <div className=" bg-gray-800 w-[440px] h-[780px] rounded-l-lg">
             <div className=" ml-10 mt-10">
-              <h2 className=" text-white font-bold mb-3"><span className=" text-3xl text-white font-bold">P</span>roperty</h2>
+              <div className="flex mb-2 items-center">
+                <img
+                  className="max-w-[60px] md:w-full"
+                  src="https://i.ibb.co/3kqdMYy/logo-white.png"
+                />
+                <h4 className="font-bold poppins-font text-2xl lg:text-[34px] text-white ml-2">
+                  Renti<span className="text-[#e33226]">fy</span>
+                </h4>
+              </div>
+              <h2 className=" text-white font-bold mb-1"><span className=" text-3xl text-white font-bold">P</span>roperty</h2>
               <p className=" my-4 text-white">{property_title}</p>
               <p className=" text-2xl font-bold text-white">{price} $</p>
               <div>
@@ -103,8 +112,11 @@ const PaymentForm = ({ queryParams, }) => {
               <p className=" text-sm mt-20 text-gray-50">Powred by stripe   <span>terms & conditions</span></p>
             </div>
           </div>
-          <div className=" bg-gray-100 rounded-r-lg w-[580px] h-[720px]">
+          <div className=" bg-gray-100 rounded-r-lg w-[580px] h-[780px]">
             <form className="card-body" onSubmit={handleSubmit}>
+              <div className="w-[80%] mx-auto">
+                <h2 className=" text-3xl font-bold">Pay For properties</h2>
+              </div>
               <div className="form-control w-[80%] mx-auto">
                 <label className="label">
                   <span className="label-text">Email</span>
