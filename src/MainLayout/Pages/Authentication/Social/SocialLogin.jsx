@@ -15,10 +15,10 @@ const SocialLogin = () => {
       .then((response) => {
         // console.log(response.user);
         const userInfo = {
-          name: response.user.displayname,
+          name: response.user.displayName,
           email: response.user.email,
           image: response.user.photoURL,
-          role: "user",
+          role: "User",
         };
         console.log(response.user);
         Swal.fire({
