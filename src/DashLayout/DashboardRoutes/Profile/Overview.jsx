@@ -4,7 +4,7 @@ import Profile from "./Profile";
 const Overview = () => {
     return (
         <div>
-            <Profile></Profile>
+            {/* <Profile></Profile> */}
             <div className="col-span-4 sm:col-span-9">
             <div className="bg-white shadow rounded-lg p-6">
               <h2 className="text-xl font-bold mb-4">About Me</h2>

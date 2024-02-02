@@ -179,6 +179,12 @@ const router = createBrowserRouter([
       {
         path: "profile",
         element: <Profile></Profile>,
+        // children: [
+        //   {
+        //     path: "dashboard/profile",
+        //     element: <Overview></Overview>,
+        //   }
+        // ]
       },
       // {
       //   path: 'settings',
@@ -188,10 +194,10 @@ const router = createBrowserRouter([
         path: "saved",
         element: <SavedProperties></SavedProperties>,
       },
-      {
-        path: "overview",
-        element: <Overview></Overview>,
-      },
+      // {
+      //   path: "dashboard",
+      //   element: <Overview></Overview>,
+      // },
       {
         path: "add",
         element: <AddProperties></AddProperties>,
