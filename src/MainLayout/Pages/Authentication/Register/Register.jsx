@@ -75,8 +75,6 @@ const Register = () => {
       });
     // console.log(data);
   };
-  //
-
   return (
     <div className="max-w-screen-lg mx-auto my-10">
       <h3 className="text-3xl font-semibold text-center mb-5">Register</h3>

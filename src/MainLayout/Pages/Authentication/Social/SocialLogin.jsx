@@ -23,7 +23,7 @@ const SocialLogin = () => {
         console.log(response.user);
         Swal.fire({
           title: "User logged in with Google successfully!!!",
-          timer: 2000,
+          timer: 3500,
           color: "#002172",
           showConfirmButton: false,
           icon: "success",
