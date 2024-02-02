@@ -34,8 +34,6 @@ const RentRequest = () => {
 
                 </table>
             </div>
-
-
         </>
     );
 };
