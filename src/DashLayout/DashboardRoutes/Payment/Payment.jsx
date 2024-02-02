@@ -15,7 +15,8 @@ const Payment = () => {
         requestId: params.get("requestId"),
         propertyId: params.get('propertyId'),
         property_img: params.get("property_img"),
-        property_title: params.get("property_title")
+        property_title: params.get("property_title"),
+        property_status: params.get('property_status')
     }
     console.log(queryParams)
     return (
