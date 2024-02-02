@@ -20,9 +20,10 @@ const Details = () => {
   const properties = useLoaderData();
   const { id } = useParams();
   const item = properties.find((item) => item._id == id);
+  console.log(item)
 
   //destructure
-  const { property_info } = item;
+  const { property_info } = item || {};
   const {
     property_details,
     property_for,
@@ -31,7 +32,7 @@ const Details = () => {
     property_location,
     property_category,
     owner_details,
-  } = property_info;
+  } = property_info || {};
   const {
     property_tags,
     property_features,
@@ -141,7 +142,7 @@ const Details = () => {
               </span>
               <img
                 className="rounded-md w-full h-auto static -mt-20"
-                src={property_img}
+                src={property_img} 
                 alt={property_title}
               />
             </div>
@@ -239,7 +240,7 @@ const Details = () => {
                 Property Features
               </h3>
               <ul className="grid grid-cols-3 gap-3">
-                {property_features.map((feature) => (
+                {property_features?.map((feature) => (
                   <li
                     key={feature}
                     className="text-[#666666] flex items-center gap-2"
@@ -397,7 +398,7 @@ const Details = () => {
             >
               <h2 className="text-3xl font-bold my-5">Popular Tags</h2>
               <div className="flex flex-wrap">
-                {property_tags.map((tag) => (
+                {property_tags?.map((tag) => (
                   <button
                     key={tag}
                     className="text-[#666666] p-2 mx-2 mb-3 w-fit h-auto bg-transparent hover:bg-[#ec3323] hover:text-white transition-all duration-500 border capitalize"
