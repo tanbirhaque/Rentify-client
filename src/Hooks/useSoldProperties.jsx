@@ -6,16 +6,16 @@ import useAxiosPublic from './useAxiosPublic';
 const useSoldProperties = () => {
     const { user } = useContext(AuthContext)
     const axiospublic = useAxiosPublic();
-    const { data: ownerRent = [], refetch } = useQuery({
-        queryKey: ['ownerRent',user],
+    const { data: soldOutProperties = [], refetch } = useQuery({
+        queryKey: ['soldOutProperties',user],
         queryFn: async () => {
             // when data import from database then change the url & use axios public 
-            const res = await axiospublic.get(`/ownerRentReq?email=${user.email}`)
+            const res = await axiospublic.get(`/soldOut?email=${user.email}`)
             console.log(res.data)
             return res.data;
         }
     })
-    return [ownerRent, refetch]
+    return [soldOutProperties, refetch]
 };
 
 export default useSoldProperties;

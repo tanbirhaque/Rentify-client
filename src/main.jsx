@@ -37,7 +37,7 @@ import RequestedProperty from "./DashLayout/DashboardRoutes/Requested Property/R
 import ManageProperties from "./DashLayout/DashboardRoutes/ManageProperties/ManageProperties.jsx";
 import Payment from "./DashLayout/DashboardRoutes/Payment/Payment.jsx";
 // Import links below by Sadia-dev
-import NewYork from './MainLayout/Pages/Home/HomeComponents/PopularCities/NewYork/NewYork.jsx';
+import NewYork from "./MainLayout/Pages/Home/HomeComponents/PopularCities/NewYork/NewYork.jsx";
 import Prauge from "./MainLayout/Pages/Home/HomeComponents/PopularCities/Prauge/Prauge.jsx";
 import Florida from "./MainLayout/Pages/Home/HomeComponents/PopularCities/Florida/Florida.jsx";
 import SanFransisco from "./MainLayout/Pages/Home/HomeComponents/PopularCities/SanFransisco/SanFransisco.jsx";
@@ -108,35 +108,35 @@ const router = createBrowserRouter([
       },
       {
         path: "/newyork/:city",
-        element: <NewYork></NewYork>
+        element: <NewYork></NewYork>,
       },
       {
         path: "/Prauge/:city",
-        element: <Prauge></Prauge>
+        element: <Prauge></Prauge>,
       },
       {
         path: "/Florida/:city",
-        element: <Florida></Florida>
+        element: <Florida></Florida>,
       },
       {
         path: "/SanFransisco/:city",
-        element: <SanFransisco></SanFransisco>
+        element: <SanFransisco></SanFransisco>,
       },
       {
         path: "/TorentoCity/:city",
-        element: <TorentoCity></TorentoCity>
+        element: <TorentoCity></TorentoCity>,
       },
       {
         path: "/VancuverCity/:city",
-        element: <VancuverCity></VancuverCity>
+        element: <VancuverCity></VancuverCity>,
       },
       {
         path: "/MontrealCity/:city",
-        element: <MontrealCity></MontrealCity>
+        element: <MontrealCity></MontrealCity>,
       },
       {
         path: "/LosAngeles/:city",
-        element: <LosAngeles></LosAngeles>
+        element: <LosAngeles></LosAngeles>,
       },
       {
         path: "/details/:id",
@@ -169,7 +169,6 @@ const router = createBrowserRouter([
   //   path: "/testlay",
   //   element: <TestLay></TestLay>
   // }
-
 
   // Dashboard routes here
   {
@@ -204,7 +203,7 @@ const router = createBrowserRouter([
       },
       {
         path: "manage",
-        element: <ManageProperties />
+        element: <ManageProperties />,
       },
       {
         path: "my-requests",

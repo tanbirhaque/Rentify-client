@@ -15,15 +15,15 @@ const SocialLogin = () => {
       .then((response) => {
         // console.log(response.user);
         const userInfo = {
-          name: response.user.displayname,
+          name: response.user.displayName,
           email: response.user.email,
           image: response.user.photoURL,
-          role: "user",
+          role: "User",
         };
         console.log(response.user);
         Swal.fire({
           title: "User logged in with Google successfully!!!",
-          timer: 2000,
+          timer: 3500,
           color: "#002172",
           showConfirmButton: false,
           icon: "success",

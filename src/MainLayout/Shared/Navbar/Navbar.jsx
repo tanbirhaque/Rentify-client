@@ -4,7 +4,6 @@ import ButtonBlue from "../buttons/Blue/ButtonBlue";
 // import ButtonRed from "../buttons/Red/ButtonRed";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
-import swal from "sweetalert";
 import Swal from "sweetalert2";
 
 const Navbar = () => {
