@@ -11,7 +11,6 @@ const RentRequest = () => {
             {/* head */}
             <thead className="font-semibold text-lg text-[#002172]">
                 <tr>
-                    
                     <th>Property Info.</th>
                     <th>Requester Name</th>
                     <th>Requester E-mail</th>
