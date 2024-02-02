@@ -4,7 +4,7 @@ import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import useAuth from '../../../Hooks/useAuth';
 import Swal from "sweetalert2";
 
-const PaymentForm = ({queryParams,}) => {
+const PaymentForm = ({queryParams}) => {
   const [error, setError] = useState();
   const { user } = useAuth();
   const [clientSecret, setClientSecret] = useState('');
@@ -12,7 +12,8 @@ const PaymentForm = ({queryParams,}) => {
   const stripe = useStripe();
   const elements = useElements();
   const axiosSecure = useAxiosSecure();
-  const { price, requestId, propertyId, owner } = queryParams;
+  const { price, requestId, propertyId, owner, property_status } = queryParams;
+  console.log('Property Status' , queryParams);
 
   useEffect( () =>{
     axiosSecure.post('/create-payment-intent',{ price, requestId, propertyId, owner })
@@ -68,6 +69,7 @@ const PaymentForm = ({queryParams,}) => {
                 requestId,
                 price,
                 owner,
+                property_status,
                 date: new Date().toLocaleDateString("en-GB"),
                 transactionId: paymentIntent.id,
             };

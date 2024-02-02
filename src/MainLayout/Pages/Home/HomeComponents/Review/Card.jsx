@@ -18,7 +18,7 @@ const Card = () => {
           />
         </div>
         <div className="p-5 mt-5 bg-base-200">
-          <p className="mb-3 font-medium text-gray-600 dark:text-gray-400 ">
+          <p className="mb-3 font-medium text-gray-600 dark:text-gray-400">
             "I absolutely love Rentify! The process of renting items is so
             smooth, and the variety of products available is impressive. The
             customer support team is incredibly helpful and responsive. I've

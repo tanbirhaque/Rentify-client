@@ -11,7 +11,8 @@ const Payment = () => {
         price: params.get("price"),
         owner: params.get('owner'),
         requestId: params.get("requestId"),
-        propertyId: params.get('propertyId')
+        propertyId: params.get('propertyId'),
+        property_status: params.get('property_status')
     }
     return (
         <div>
