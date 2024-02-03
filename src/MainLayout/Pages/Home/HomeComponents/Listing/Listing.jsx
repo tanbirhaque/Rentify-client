@@ -1,5 +1,5 @@
 // Listing section initially created and structured by "Konika khan"
-// data get from database it's worked by sojib
+// data get from database it's worked And tabs impleamented by sojib
 // Final touchup, add responsive design for all devices and pixel perfection by Tanbir
 
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
@@ -7,8 +7,10 @@ import "react-tabs/style/react-tabs.css";
 import { useState } from "react";
 import PropertyCard from "../../../../Shared/PropertyCards/PropertyCard";
 import ButtonBlue from "../../../../Shared/buttons/Blue/ButtonBlue";
+import ButtonRed from "../../../../Shared/buttons/Red/ButtonRed";
 import useProperties from "../../../../../Hooks/useProperties";
 import "./Listing.css"
+
 const Listing = () => {
     // properties data get from database
     const [properties] = useProperties();
@@ -54,9 +56,15 @@ const Listing = () => {
                         onSelect={(index) => setTabIndex(index)}
                     >
                         <TabList>
-                            <Tab>Residential</Tab>
-                            <Tab>Commercial</Tab>
-                            <Tab>Apartment</Tab>
+                            <Tab>
+                                Residential
+                            </Tab>
+                            <Tab>
+                                Commercial
+                            </Tab>
+                            <Tab>
+                                Apartment
+                            </Tab>
                         </TabList>
                         <TabPanel>
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-3 xl:px-0">
