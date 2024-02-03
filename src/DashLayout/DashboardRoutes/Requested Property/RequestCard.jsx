@@ -8,7 +8,7 @@ const RequestCard = ({ requestedProperties }) => {
   const { _id, property, requestStatus, propertyID } = requestedProperties || {};
   const {
     property_img,
-    property_title,
+    property_title, 
     property_location,
     property_details,
     property_for,

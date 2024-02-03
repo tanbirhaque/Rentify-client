@@ -6,16 +6,16 @@ import { useQuery } from '@tanstack/react-query';
 const useRentOutProperties = () => {
     const { user } = useContext(AuthContext)
     const axiospublic = useAxiosPublic();
-    const { data: ownerRent = [], refetch } = useQuery({
-        queryKey: ['ownerRent',user],
+    const { data: rentOutProperties = [], refetch } = useQuery({
+        queryKey: ['rentOutProperties',user],
         queryFn: async () => {
             // when data import from database then change the url & use axios public 
-            const res = await axiospublic.get(`/ownerRentReq?email=${user.email}`)
+            const res = await axiospublic.get(`/rentOut?email=${user.email}`)
             console.log(res.data)
             return res.data;
         }
     })
-    return [ownerRent, refetch]
+    return [rentOutProperties, refetch]
 };
 
 export default useRentOutProperties;
