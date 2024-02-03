@@ -138,7 +138,7 @@ const SideBar = () => {
           <hr className="mb-3" />
           <ul>{ownerRoutes}</ul>
           {/* drop-down -1*/}
-          <div className="collapse ">
+          {/* <div className="collapse ">
             <input type="checkbox" />
             <div className="text-[919EAB] hover:text-white collapse-title font-medium flex gap-1.5 items-center">
               <FaRegClone />
@@ -159,9 +159,9 @@ const SideBar = () => {
                 <Link>Four</Link>
               </p>
             </div>
-          </div>
+          </div> */}
           {/* drop-down -2*/}
-          <div className="collapse ">
+          {/* <div className="collapse ">
             <input type="checkbox" />
             <div className="text-[919EAB] hover:text-white collapse-title font-medium flex gap-1.5 items-center">
               <FaRegClone />
@@ -182,7 +182,7 @@ const SideBar = () => {
                 <Link>Four</Link>
               </p>
             </div>
-          </div>
+          </div> */}
           {/* drop-down*/}
         </div>
       </div>

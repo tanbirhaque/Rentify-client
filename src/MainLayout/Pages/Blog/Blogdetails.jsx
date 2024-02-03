@@ -18,8 +18,6 @@ const Blogdetails = () => {
     } = useForm()
     const onSubmit = (data) => console.log(data)
 
-
-
     return (
         <div>
             {/* banner section */}

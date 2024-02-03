@@ -22,7 +22,7 @@ const BookingForm = ({ item }) => {
       const propertyRequest = {
         property: item.property_info,
         propertyID: item._id,
-        requestStatus: 'accepted', // Added this object property to manage requested property status as ['pending' || 'accepted' || 'rejected'] -by Tanbir
+        requestStatus: 'pending', // Added this object property to manage requested property status as ['pending' || 'accepted' || 'rejected'] -by Tanbir
         requesterName: data.name,
         requesterNumber: data.number,
         requesterEmail: user.email,
