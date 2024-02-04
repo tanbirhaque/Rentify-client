@@ -9,9 +9,10 @@ import { useForm } from "react-hook-form"
 
 const Blogdetails = () => {
     const blogs = useLoaderData();
+    console.log(blogs)
     const { id } = useParams();
-    const blog = blogs.find(item => item._id == id)
-    console.log(blog)
+    console.log(id)
+    const blog = blogs.find((item) => item._id == id)
     const {
         register,
         handleSubmit,
@@ -48,7 +49,7 @@ const Blogdetails = () => {
                                 <span className=" hover:text-red-500">{blog?.comment} Comment</span>
                             </p>
                         </div>
-                        <h2 className=" text-3xl font-extrabold mt-4">{blog.title}</h2>
+                        <h2 className=" text-3xl font-extrabold mt-4">{blog?.title}</h2>
                         <p className="my-3 space-y-2">{blog.details}</p>
                         <div className=" border flex md:flex-row flex-col items-center gap-8 py-10 px-7">
                             <button>
@@ -57,12 +58,12 @@ const Blogdetails = () => {
                                     <path d="M96.6366 49.5191C94.3936 47.2762 91.6692 46.1542 88.4637 46.1542L75.0022 46.1542C73.4004 46.1542 72.0366 45.5935 70.9166 44.4716C69.7942 43.3497 69.2339 41.9876 69.2339 40.3845V38.4623C69.2339 34.2152 70.7366 30.5897 73.7403 27.5846C76.7442 24.5805 80.3701 23.0778 84.6189 23.0778H88.4639C89.5056 23.0778 90.4074 22.697 91.1683 21.9361C91.9288 21.1747 92.3108 20.2736 92.3108 19.2319V11.5389C92.3108 10.4974 91.929 9.59543 91.1683 8.83408C90.4076 8.07379 89.5058 7.69238 88.4639 7.69238L84.6189 7.69238C80.4495 7.69238 76.4748 8.50446 72.6872 10.1263C68.9018 11.7492 65.628 13.9429 62.8632 16.7077C60.0984 19.4712 57.9043 22.7462 56.2822 26.5328C54.66 30.3188 53.8475 34.2954 53.8475 38.4621V80.7688C53.8475 83.9756 54.9698 86.6985 57.2128 88.9429C59.456 91.1861 62.1804 92.3076 65.3857 92.3076H88.4624C91.668 92.3076 94.3921 91.1861 96.6351 88.9429C98.8798 86.6985 99.9998 83.9756 99.9998 80.7688V57.6929C100 54.4865 98.8798 51.7638 96.6366 49.5191Z" fill="#151515" />
                                 </svg>
                             </button>
-                            <p className="mt-3 space-y-2">{blog.description}</p>
+                            <p className="mt-3 space-y-2">{blog?.description}</p>
                         </div>
                         <h2 className=" text-3xl font-extrabold my-3">Commodo Viverra Manas Accumsan Sit</h2>
                         <p>
                             {
-                                blog.commodoviverra.map((item, index) => <p key={index}>
+                                blog?.commodoviverra.map((item, index) => <p key={index}>
                                     <div className=" flex items-center space-y-2 gap-2">
                                         <p className="text-orange-400 mr-2">{index + 1}</p>
                                         <p>{item}</p>
@@ -74,7 +75,7 @@ const Blogdetails = () => {
                         <h2 className=" text-3xl font-extrabold my-3">5 Major Facility That We Offer</h2>
                         <p>
                             {
-                                blog.majorfacility.map(item => <p key={item}>
+                                blog?.majorfacility.map(item => <p key={item}>
                                     <div className=" flex items-center gap-2 space-y-2">
                                         <IoIosArrowForward className=" text-orange-400 mr-2"></IoIosArrowForward>
                                         <p>{item}</p>

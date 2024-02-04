@@ -1,12 +1,13 @@
 // This page make by Roknuzzaman sajib
 // all fixed & full page created been responsive 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FaArrowLeft, FaArrowRight, FaComment, FaLongArrowAltRight, FaRegCalendarAlt } from "react-icons/fa";
 import './styles.css'
 import { Link, NavLink } from "react-router-dom";
+import useBlogs from "../../../Hooks/useBlogs";
 
-const Bloggrind = () => {
-    const [blogs, setBlogs] = useState([]);
+const Bloggrid = () => {
+    const [blogs] = useBlogs() 
     const [currentpage, Setcurrentpage] = useState(0);
     console.assert(blogs)
     // TODO: blogs data pagination on page 
@@ -14,7 +15,7 @@ const Bloggrind = () => {
     // now this time itemper page static.after when we will do backed in then we will do it's daynamic
     const itemsperPage = 6;
     const numberofPages = Math.ceil(count / itemsperPage)
-    console.log(numberofPages)
+    // console.log(numberofPages)
 
     const pages = [];
     for (let i = 0; i < numberofPages; i++) {
@@ -27,12 +28,6 @@ const Bloggrind = () => {
     const endIndex = startIndex + itemsperPage;
     // Slice the data to get the items for the current page
     const currentItems = blogs.slice(startIndex, endIndex);
-
-    useEffect(() => {
-        fetch('/Blogs.json')
-            .then(res => res.json())
-            .then(data => setBlogs(data))
-    }, [])
 
     const handlechangepage = (page) => {
         Setcurrentpage(page)
@@ -117,4 +112,4 @@ const Bloggrind = () => {
     );
 };
 
-export default Bloggrind;
+export default Bloggrid;
