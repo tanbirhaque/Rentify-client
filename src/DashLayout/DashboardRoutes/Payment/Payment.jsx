@@ -19,6 +19,7 @@ const Payment = () => {
         property_status: params.get('property_status')
     }
     console.log(queryParams)
+    console.log(queryParams)
     return (
         <div>
             <div className="paybgimg">

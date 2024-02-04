@@ -15,6 +15,7 @@ const PaymentForm = ({ queryParams, }) => {
   const elements = useElements();
   const axiosSecure = useAxiosSecure();
   const { price, requestId, propertyId, owner, property_img, property_title } = queryParams;
+  console.log(property_img, property_title)
 
   useEffect(() => {
     axiosSecure.post('/create-payment-intent', { price, requestId, propertyId, owner })
