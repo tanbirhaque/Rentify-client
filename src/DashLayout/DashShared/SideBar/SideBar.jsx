@@ -1,6 +1,6 @@
 import './SideBar.css'
 import { Link, NavLink } from 'react-router-dom';
-import { FaBookmark, FaHome, FaUserCircle, FaRegClone } from "react-icons/fa";
+import { FaBookmark, FaHome, FaUserCircle, FaRegClone, FaBlogger } from "react-icons/fa";
 import { IoAddCircleSharp, IoBookmarksSharp } from "react-icons/io5";
 import { MdOutlinePendingActions, MdOutlineRemoveShoppingCart } from "react-icons/md";
 import { MdOutlineDashboardCustomize } from "react-icons/md";
@@ -38,6 +38,15 @@ const SideBar = () => {
         >
           <FaBookmark className="dashIcon text-[#64707d]"></FaBookmark>
           Saved Properties
+        </NavLink>
+      </li>
+      <li className="dashLi">
+        <NavLink
+          to="/dashboard/writeBlogs"
+          className="dashNav flex items-center gap-2"
+        >
+          <FaBlogger className="dashIcon text-[#64707d]"></FaBlogger>
+          Write Blogs
         </NavLink>
       </li>
     </>

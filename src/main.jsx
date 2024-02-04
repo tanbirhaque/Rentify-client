@@ -5,7 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MainLayout from "./MainLayout/MainLayout.jsx";
 import Home from "./MainLayout/Pages/Home/Home.jsx";
 import Register from "./MainLayout/Pages/Authentication/Register/Register.jsx";
-import Bloggrind from "./MainLayout/Pages/Blog/Bloggrind.jsx";
+import Bloggrid from "./MainLayout/Pages/Blog/Bloggrid.jsx";
 import Faq from "./MainLayout/Pages/Faq/Faq.jsx";
 import ErrorPage from "./MainLayout/Pages/Error/ErrorPage.jsx";
 import HowItWorks from "./MainLayout/Pages/How-It-Works/HowItWorks.jsx";
@@ -50,6 +50,7 @@ import BuyRequest from "./DashLayout/DashboardRoutes/BuyRequest/BuyRequest.jsx";
 import RentRequest from "./DashLayout/DashboardRoutes/RentRequest/RentRequest.jsx";
 import SoldProperties from "./DashLayout/DashboardRoutes/SoldProperties/SoldProperties.jsx";
 import RentOutProperties from "./DashLayout/DashboardRoutes/RentOutProperties/RentOutProperties.jsx";
+import WriteBlogs from "./DashLayout/DashboardRoutes/WriteBlogs/WriteBlogs.jsx";
 
 const queryClient = new QueryClient();
 
@@ -78,12 +79,12 @@ const router = createBrowserRouter([
       },
       {
         path: "/blogs",
-        element: <Bloggrind></Bloggrind>,
+        element: <Bloggrid></Bloggrid>,
       },
       {
         path: "/blogs/:id",
         element: <Blogdetails></Blogdetails>,
-        loader: () => fetch("/Blogs.json"),
+        loader: () => fetch("http://localhost:5000/blogs"),
       },
       {
         path: "/faq",
@@ -230,6 +231,10 @@ const router = createBrowserRouter([
       {
         path: "rentOutProperties",
         element:<RentOutProperties/>
+      },
+      {
+        path: "writeBlogs",
+        element: <WriteBlogs></WriteBlogs>
       },
     ],
   },
