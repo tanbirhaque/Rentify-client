@@ -5,19 +5,46 @@ import { FaComment, FaFacebook, FaInstagram, FaLinkedin, FaRegCalendarAlt, FaTag
 import { NavLink, useLoaderData, useParams } from "react-router-dom";
 import { IoIosArrowForward } from "react-icons/io";
 import { useForm } from "react-hook-form"
+import useAuth from "../../../Hooks/useAuth";
+import useAxiosPublic from "../../../Hooks/useAxiosPublic";
+import Swal from "sweetalert2";
+import useBlogsComment from "../../../Hooks/useBlogsComment";
 
 
 const Blogdetails = () => {
+    const { user } = useAuth();
+    const axiosPublic = useAxiosPublic();
     const blogs = useLoaderData();
-    console.log(blogs)
+    const [comments] = useBlogsComment();
     const { id } = useParams();
-    console.log(id)
     const blog = blogs.find((item) => item._id == id)
+    const newComments = comments.filter(item => item.blogId == blog._id)
+
     const {
         register,
         handleSubmit,
+        reset,
     } = useForm()
-    const onSubmit = (data) => console.log(data)
+    const onSubmit = (data) => {
+        const newComment = {
+            name: data.name,
+            email: data.email,
+            img: user?.photoURL,
+            subject: data.subject,
+            message: data.message,
+            blogId: blog._id,
+            date: new Date().toLocaleDateString("en-GB")
+        }
+        console.log(newComment)
+        axiosPublic.post("/comments", newComment)
+            .then(res => {
+                console.log(res.data)
+                if (res.data) {
+                    Swal.fire(`Hey ${user?.displayName} your comment Successfully send`)
+                    reset()
+                }
+            })
+    }
 
     return (
         <div>
@@ -97,13 +124,14 @@ const Blogdetails = () => {
                             </div>
                         </div>
                     </div>
-                    {/* Comment section */}
-                    {/* this time i creat just desgin so i would used direct picture.after when we work backend then used dynamic and who add the blog we see his details */}
+                    {/* Bloger & Comment section */}
+                    {/* DO: this time i creat just desgin so i would used direct picture.after when we work backend then used dynamic and who add the blog we see his details */}
+                    {/* bloger section */}
                     <div className="border flex md:flex-row flex-col justify-start items-center gap-8 py-6 px-5 my-7">
-                        <img className="h-40 w-40 rounded-full" src="https://i.ibb.co/d6bJrVR/client-1.jpg" alt="" />
+                        <img className="h-40 w-40 rounded-full" src={blog?.blogerInfo.blogerImg} alt="" />
                         <div>
-                            <h2 className=" text-3xl font-bold ">Fransis Josef</h2>
-                            <p className=" leading-8 text-xl text-gray-400">Claritas est etiam amet sinicus, qui sequitur lorem ipsum semet coui lectorum. Lorem ipsum dolor voluptatem corporis blanditiis sadipscing elitr sed diam nonumy eirmod amet sit lorem.</p>
+                            <h2 className=" text-3xl font-bold ">{blog?.blogerInfo.blogerName}</h2>
+                            <p className=" leading-8 text-xl text-gray-400">{blog?.blogerInfo.blogerDetails}</p>
                             <div className=" flex items-center gap-5 text-xl">
                                 <a target="blank" href="https://www.facebook.com/roknujjamansajib" className=" hover:bg-orange-700  rounded-full hover:text-white p-2"><FaFacebook></FaFacebook></a>
                                 <a target="blank" href="https://twitter.com/Roknuzzaman5546" className="hover:bg-orange-700  rounded-full hover:text-white p-2"><FaTwitter></FaTwitter></a>
@@ -113,55 +141,27 @@ const Blogdetails = () => {
                     </div>
                     {/* comment part */}
                     <div className="border items-center gap-8 px-5 my-7">
-                        <h2 className=" text-3xl font-bold mt-2">3 comment</h2>
+                        <h2 className=" text-3xl font-bold mt-2">{newComments.length} comment</h2>
                         {/* Comment 1 */}
-                        <div className="border-b flex md:flex-row flex-col justify-start items-center gap-8 py-6 px-5 my-7">
-                            <img className="h-28 w-28 rounded-full" src="https://i.ibb.co/S6WvFmr/client-4.jpg" alt="" />
-                            <div>
-                                <div className=" flex justify-between">
+                        {
+                            newComments.map(comment =>
+                                <div key={comment._id} className="border-b flex md:flex-row flex-col justify-start items-center gap-8 py-6 px-5 my-7">
+                                    <img className="h-28 w-28 rounded-full" src={comment?.img} alt="" />
                                     <div>
-                                        <h2 className=" text-3xl font-bold mb-1">David Watson</h2>
-                                        <p className=" text-gray-400 mb-3">Mar 22, 2024</p>
-                                    </div>
-                                    <div>
-                                        <button className=" rounded px-7 py-2 mt-3 bg-[#EC3323] hover:bg-[#002172] text-white">Reply</button>
-                                    </div>
-                                </div>
-                                <p className=" leading-8 text-xl text-gray-400">Creative graphic designer specializing in branding and visual communication.Creative graphic designer specializing in branding and visual communication.</p>
-                            </div>
-                        </div>
-                        {/* Comment 1 */}
-                        <div className="border-b flex md:flex-row flex-col justify-start items-center gap-8 py-6 px-5 my-7">
-                            <img className="h-28 w-28 rounded-full" src="https://i.ibb.co/QK3Gsr7/client-2.jpg" alt="" />
-                            <div>
-                                <div className=" flex justify-between">
-                                    <div>
-                                        <h2 className=" text-3xl font-bold mb-1">Mark Owen</h2>
-                                        <p className=" text-gray-400 mb-3">Mar 22, 2024</p>
-                                    </div>
-                                    <div>
-                                        <button className=" rounded px-7 py-2 mt-3 bg-[#EC3323] hover:bg-[#002172] text-white">Reply</button>
+                                        <div className=" flex justify-between">
+                                            <div>
+                                                <h2 className=" text-3xl font-bold mb-1">{comment?.name}</h2>
+                                                <p className=" text-gray-400 mb-3">{comment?.date}</p>
+                                            </div>
+                                            <div>
+                                                <button className=" rounded px-7 py-2 mt-3 bg-[#EC3323] hover:bg-[#002172] text-white">Reply</button>
+                                            </div>
+                                        </div>
+                                        <p className=" leading-8 text-xl text-gray-400">{comment?.message}</p>
                                     </div>
                                 </div>
-                                <p className=" leading-8 text-xl text-gray-400">Creative graphic designer specializing in branding and visual communication.Creative graphic designer specializing in branding and visual communication.</p>
-                            </div>
-                        </div>
-                        {/* Comment-3 */}
-                        <div className="border-b flex md:flex-row flex-col justify-start items-center gap-8 py-6 px-5 my-7">
-                            <img className="h-28 w-28 rounded-full" src="https://i.ibb.co/68S6G6b/client-3.jpg" alt="" />
-                            <div>
-                                <div className=" flex justify-between">
-                                    <div>
-                                        <h2 className=" text-3xl font-bold mb-1">Alexandar Mason</h2>
-                                        <p className=" text-gray-400 mb-3">Mar 22, 2024</p>
-                                    </div>
-                                    <div>
-                                        <button className=" rounded px-7 py-2 mt-3 bg-[#EC3323] hover:bg-[#002172] text-white">Reply</button>
-                                    </div>
-                                </div>
-                                <p className=" leading-8 text-xl text-gray-400">Creative graphic designer specializing in branding and visual communication.Creative graphic designer specializing in branding and visual communication.</p>
-                            </div>
-                        </div>
+                            )
+                        }
                         {/* From section */}
                         <div>
                             <h2 className=" text-3xl font-bold my-3">Leave A Comment</h2>

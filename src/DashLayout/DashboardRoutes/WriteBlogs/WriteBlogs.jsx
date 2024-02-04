@@ -7,6 +7,7 @@ import Swal from 'sweetalert2';
 const WriteBlogs = () => {
     const { user } = useAuth();
     const axiosSecure = useAxiosSecure();
+
     const {
         register,
         handleSubmit,
@@ -25,11 +26,11 @@ const WriteBlogs = () => {
             majorfacility: [
                 data.facility
             ],
-            blogerDetails: {
-                blogername: user?.displayName,
-                blogeremail: user?.email,
-                blogerimg: user?.photoURL,
-                blogerdetails: data.blogerdetails
+            blogerInfo: {
+                blogerName: user?.displayName,
+                blogerEmail: user?.email,
+                blogerImg: user?.photoURL,
+                blogerDetails: data.blogerdetails
             }
         }
         console.log(newBlog)
