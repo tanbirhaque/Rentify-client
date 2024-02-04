@@ -145,14 +145,10 @@ const RequestedProperty = () => {
             <div className="">
               <TabList>
                 <Tab>
-                  <ButtonRed
-                    titleRed={`Rent`}
-                  ></ButtonRed>
+                    Rent
                 </Tab>
                 <Tab>
-                  <ButtonBlue
-                    titleBlue={`Sale`}
-                  ></ButtonBlue>
+                  Sale
                 </Tab>
               </TabList>
             </div>

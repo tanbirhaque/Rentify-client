@@ -19,7 +19,7 @@ const SavedCards = ({items}) => {
         </div>
         <div className="p-6">
           <div className="mb-3 flex items-center justify-between">
-            <h5 className="text-[#002172] font-semibold ">{property.property_info. property_title}</h5>
+            <h5 className="text-[#002172] font-semibold truncate">{property.property_info. property_title}</h5>
             <div className="flex items-center gap-1.5 text-blue-gray">
               <FaStar className="-mt-0.5 h-5 w-5 text-yellow-700" />
               3

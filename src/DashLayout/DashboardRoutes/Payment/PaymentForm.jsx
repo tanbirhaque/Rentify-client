@@ -14,8 +14,7 @@ const PaymentForm = ({ queryParams, }) => {
   const stripe = useStripe();
   const elements = useElements();
   const axiosSecure = useAxiosSecure();
-  const { price, requestId, propertyId, owner, property_img, property_title } = queryParams;
-  console.log(property_img, property_title)
+  const { price, requestId, propertyId, owner, property_status, property_img, property_title } = queryParams;
 
   useEffect(() => {
     axiosSecure.post('/create-payment-intent', { price, requestId, propertyId, owner })
@@ -71,6 +70,7 @@ const PaymentForm = ({ queryParams, }) => {
           requestId,
           price,
           owner,
+          property_status,
           date: new Date().toLocaleDateString("en-GB"),
           transactionId: paymentIntent.id,
         };
@@ -114,7 +114,7 @@ const PaymentForm = ({ queryParams, }) => {
             </div>
           </div>
           <div className=" bg-gray-100 rounded-r-lg w-[580px] h-[780px]">
-            <form className="card-body" onSubmit={handleSubmit}>
+            <form className="card-body mt-8" onSubmit={handleSubmit}>
               <div className="w-[80%] mx-auto">
                 <h2 className=" text-3xl font-bold">Pay For properties</h2>
               </div>
@@ -122,16 +122,19 @@ const PaymentForm = ({ queryParams, }) => {
                 <label className="label">
                   <span className="label-text">Email</span>
                 </label>
-                <input type="email" placeholder="email" className="input input-bordered" required />
+                <input type="email" placeholder={user.email} className="input input-bordered " readOnly />
               </div>
               <div className="form-control w-[80%] mx-auto">
                 <label className="label">
                   <span className="label-text">Phone Number</span>
                 </label>
-                <input type="number" placeholder="password" className="input input-bordered" required />
+                <input type="number" placeholder="Phone Number" className="input input-bordered" />
+              </div>
+              <div className="form-control w-[80%] mx-auto mt-5">
                 <label className="label">
-                  <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                  <span className="label-text">Additional Number</span>
                 </label>
+                <input type="text" placeholder="Number" className="input input-bordered" />
               </div>
               <div className="">
                 <label className="label w-[80%] mx-auto">
@@ -177,18 +180,8 @@ const PaymentForm = ({ queryParams, }) => {
                     }}
                   />
                 </div>
-                <div className="form-control w-[80%] mx-auto mt-5">
-                  <label className="label">
-                    <span className="label-text">Number of card</span>
-                  </label>
-                  <input type="text" placeholder="Card number" className="input input-bordered" required />
-                </div>
-                <div className="form-control w-[80%] mx-auto mt-3">
-                  <label className="label">
-                    <span className="label-text">Country of region</span>
-                  </label>
-                  <input type="text" placeholder="City" className="input input-bordered" required />
-                </div>
+
+
               </div>
               <div className="form-control mt-3 w-[80%] mx-auto">
                 <button className="btn bg-[#002172] my-3 text-white" type="submit"
