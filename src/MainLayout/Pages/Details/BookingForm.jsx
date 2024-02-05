@@ -9,7 +9,7 @@ const BookingForm = ({ item }) => {
   const axiosPublic = useAxiosPublic();
   const [requested, refetch] = useRequested();
   const { user } = useAuth();
-  console.log(requested)
+  // console.log(requested)
   //form added by Sojib
   const {
     register,
