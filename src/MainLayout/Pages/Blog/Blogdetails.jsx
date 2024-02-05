@@ -142,7 +142,7 @@ const Blogdetails = () => {
                     {/* comment part */}
                     <div className="border items-center gap-8 px-5 my-7">
                         <h2 className=" text-3xl font-bold mt-2">{newComments.length} comment</h2>
-                        {/* Comment 1 */}
+                        {/* Comment */}
                         {
                             newComments.map(comment =>
                                 <div key={comment._id} className="border-b flex md:flex-row flex-col justify-start items-center gap-8 py-6 px-5 my-7">

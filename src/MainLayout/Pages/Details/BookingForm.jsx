@@ -3,10 +3,13 @@ import { useForm } from "react-hook-form";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 import useAuth from "../../../Hooks/useAuth";
+import useRequested from "../../../Hooks/useRequested";
 
 const BookingForm = ({ item }) => {
   const axiosPublic = useAxiosPublic();
+  const [requested, refetch] = useRequested();
   const { user } = useAuth();
+  console.log(requested)
   //form added by Sojib
   const {
     register,
@@ -31,11 +34,24 @@ const BookingForm = ({ item }) => {
         family: data.family,
         children: data.children,
       };
-      axiosPublic.post("/requested-properties", propertyRequest).then((res) => {
-        console.log(res.data);
-        Swal.fire(`Hey ${data.name} Your Request is Successfully Send`);
-        reset();
-      });
+      const title = requested.find((request) => request.propertyID == propertyRequest.propertyID)
+      if (title) {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Your already have this property requested!",
+          footer: `<a href='/login' className='font-bold underline'>Please Log In</a>`,
+          showConfirmButton: false,
+        })
+      }
+      else {
+        axiosPublic.post("/requested-properties", propertyRequest).then((res) => {
+          console.log(res.data);
+          Swal.fire(`Hey ${data.name} Your Request is Successfully Send`);
+          refetch();
+          reset();
+        });
+      }
       console.log(propertyRequest);
       // reset();
     } else {
