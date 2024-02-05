@@ -1,10 +1,11 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 import "./Profile.css";
+import Overview from "./Overview";
 
 const Profile = () => {
   return (
-    <div className="holder w-[1350px]  mx-auto">
-      <div className="card  h-[400px] border-t  hover:shadow-none relative flex flex-col mx-auto m-5">
+    <div className="holder w-full  mx-auto">
+      <div className="card  h-[300px] border-t  hover:shadow-none relative flex flex-col mx-auto">
         <div className="w-full ">
           <img
             className=" w-full rounded-t-lg h-[200px]  opacity-80"
@@ -44,7 +45,7 @@ const Profile = () => {
         <div className="text-sm font-medium text-center text-gray-500 border-b border-t border-gray-200 dark:text-gray-400 dark:border-gray-700">
           <ul className="flex flex-wrap mb-5 mt-5 ">
             <NavLink
-              to="/dashboard/overview"
+              to=""
               className="navAfter relative font-medium text-base text-black mx-3"
             >
               My Profile Overvieww
@@ -66,6 +67,8 @@ const Profile = () => {
           </ul>
         </div>
       </div>
+      {/* <Outlet></Outlet> */}
+      <Overview></Overview>
     </div>
   );
 };

@@ -10,6 +10,7 @@ import Faq from "./MainLayout/Pages/Faq/Faq.jsx";
 import ErrorPage from "./MainLayout/Pages/Error/ErrorPage.jsx";
 import HowItWorks from "./MainLayout/Pages/How-It-Works/HowItWorks.jsx";
 import AuthProvider from "./Provider/AuthProvider.jsx";
+
 // Import Tanstack
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Blogdetails from "./MainLayout/Pages/Blog/Blogdetails.jsx";
@@ -36,7 +37,7 @@ import RequestedProperty from "./DashLayout/DashboardRoutes/Requested Property/R
 import ManageProperties from "./DashLayout/DashboardRoutes/ManageProperties/ManageProperties.jsx";
 import Payment from "./DashLayout/DashboardRoutes/Payment/Payment.jsx";
 // Import links below by Sadia-dev
-import NewYork from './MainLayout/Pages/Home/HomeComponents/PopularCities/NewYork/NewYork.jsx';
+import NewYork from "./MainLayout/Pages/Home/HomeComponents/PopularCities/NewYork/NewYork.jsx";
 import Prauge from "./MainLayout/Pages/Home/HomeComponents/PopularCities/Prauge/Prauge.jsx";
 import Florida from "./MainLayout/Pages/Home/HomeComponents/PopularCities/Florida/Florida.jsx";
 import SanFransisco from "./MainLayout/Pages/Home/HomeComponents/PopularCities/SanFransisco/SanFransisco.jsx";
@@ -44,6 +45,11 @@ import TorentoCity from "./MainLayout/Pages/Home/HomeComponents/PopularCities/To
 import VancuverCity from "./MainLayout/Pages/Home/HomeComponents/PopularCities/VancuverCity/VancuverCity.jsx";
 import MontrealCity from "./MainLayout/Pages/Home/HomeComponents/PopularCities/MontrealCity/MontrealCity.jsx";
 import LosAngeles from "./MainLayout/Pages/Home/HomeComponents/PopularCities/LosAngeles/LosAngeles.jsx";
+//Import links below by konika
+import BuyRequest from "./DashLayout/DashboardRoutes/BuyRequest/BuyRequest.jsx";
+import RentRequest from "./DashLayout/DashboardRoutes/RentRequest/RentRequest.jsx";
+import SoldProperties from "./DashLayout/DashboardRoutes/SoldProperties/SoldProperties.jsx";
+import RentOutProperties from "./DashLayout/DashboardRoutes/RentOutProperties/RentOutProperties.jsx";
 
 const queryClient = new QueryClient();
 
@@ -102,35 +108,35 @@ const router = createBrowserRouter([
       },
       {
         path: "/newyork/:city",
-        element: <NewYork></NewYork>
+        element: <NewYork></NewYork>,
       },
       {
         path: "/Prauge/:city",
-        element: <Prauge></Prauge>
+        element: <Prauge></Prauge>,
       },
       {
         path: "/Florida/:city",
-        element: <Florida></Florida>
+        element: <Florida></Florida>,
       },
       {
         path: "/SanFransisco/:city",
-        element: <SanFransisco></SanFransisco>
+        element: <SanFransisco></SanFransisco>,
       },
       {
         path: "/TorentoCity/:city",
-        element: <TorentoCity></TorentoCity>
+        element: <TorentoCity></TorentoCity>,
       },
       {
         path: "/VancuverCity/:city",
-        element: <VancuverCity></VancuverCity>
+        element: <VancuverCity></VancuverCity>,
       },
       {
         path: "/MontrealCity/:city",
-        element: <MontrealCity></MontrealCity>
+        element: <MontrealCity></MontrealCity>,
       },
       {
         path: "/LosAngeles/:city",
-        element: <LosAngeles></LosAngeles>
+        element: <LosAngeles></LosAngeles>,
       },
       {
         path: "/details/:id",
@@ -164,7 +170,6 @@ const router = createBrowserRouter([
   //   element: <TestLay></TestLay>
   // }
 
-
   // Dashboard routes here
   {
     path: "dashboard",
@@ -173,6 +178,12 @@ const router = createBrowserRouter([
       {
         path: "profile",
         element: <Profile></Profile>,
+        // children: [
+        //   {
+        //     path: "dashboard/profile",
+        //     element: <Overview></Overview>,
+        //   }
+        // ]
       },
       // {
       //   path: 'settings',
@@ -182,17 +193,17 @@ const router = createBrowserRouter([
         path: "saved",
         element: <SavedProperties></SavedProperties>,
       },
-      {
-        path: "overview",
-        element: <Overview></Overview>,
-      },
+      // {
+      //   path: "dashboard",
+      //   element: <Overview></Overview>,
+      // },
       {
         path: "add",
         element: <AddProperties></AddProperties>,
       },
       {
         path: "manage",
-        element: <ManageProperties />
+        element: <ManageProperties />,
       },
       {
         path: "my-requests",
@@ -202,6 +213,23 @@ const router = createBrowserRouter([
       {
         path: "payment",
         element: <Payment />,
+      },
+      {
+        path: "rentReq",
+        element:<RentRequest/>,
+        
+      },
+      {
+        path: "buyReq",
+        element:<BuyRequest/>
+      },
+      {
+        path: "soldProperties",
+        element:<SoldProperties/>
+      },
+      {
+        path: "rentOutProperties",
+        element:<RentOutProperties/>
       },
     ],
   },

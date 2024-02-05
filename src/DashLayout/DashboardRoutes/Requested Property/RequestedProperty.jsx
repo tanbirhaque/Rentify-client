@@ -6,8 +6,9 @@ import RequestCard from "./RequestCard";
 import { useEffect, useState } from "react";
 import useRequested from "../../../Hooks/useRequested";
 import useAuth from "../../../Hooks/useAuth";
-import { NavLink } from "react-router-dom";
 import ReqCard_mod from "./ReqCard_mod";
+import ButtonBlue from "../../../MainLayout/Shared/buttons/Blue/ButtonBlue";
+import ButtonRed from "../../../MainLayout/Shared/buttons/Red/ButtonRed";
 
 const RequestedProperty = () => {
   const [requested] = useRequested();
@@ -26,6 +27,7 @@ const RequestedProperty = () => {
   // filter part
   // filter dropdoen for accepted,pending and Rejected
   const handleAll = () => {
+    // console.log(`This is accepted`)
     setProperties(requested)
   }
 
@@ -92,34 +94,84 @@ const RequestedProperty = () => {
 
         <div className=" w-[1200px] mx-auto mt-5">
           {/* Here are used to menu class & Navlink for uniq desgin and filter by property status in Accepted, Pending & Rejected..[codded by Sojib] */}
-          <div className=" menu  menu-horizontal flex flex-row justify-center items-center mb-3">
-            <NavLink onClick={handleAll}
-              className="navAfter relative font-medium text-base text-black mx-3"
+          <div className="flex flex-row justify-center items-center mb-7 gap-4">
+            <button
+              onClick={handleAll}
             >
-              All
-            </NavLink>
-            <NavLink onClick={handleAccepted} className="navAfter relative font-medium text-base text-black mx-3" >
-              Accepted
-            </NavLink>
-            <NavLink onClick={handlePending} className="navAfter relative font-medium text-base text-black mx-3" >
-              Pending
-            </NavLink>
-            <NavLink onClick={handleRejected} className="navAfter relative font-medium text-base text-black mx-3" >
-              Rejected
-            </NavLink>
+              <ButtonBlue
+                titleBlue={`All`}
+                padX={"px-5"}
+                padY={"py-3"}
+              >
+              </ButtonBlue>
+            </button>
+
+            <button
+              onClick={handleAccepted}
+            >
+              <ButtonBlue
+                titleBlue={`Accepted`}
+                padX={"px-5"}
+                padY={"py-3"}
+              >
+              </ButtonBlue>
+            </button>
+
+            <button
+              onClick={handlePending}
+            >
+              <ButtonBlue
+                titleBlue={`Pending`}
+                padX={"px-5"}
+                padY={"py-3"}
+              >
+              </ButtonBlue>
+            </button>
+            <button
+              onClick={handleRejected}
+            >
+              <ButtonBlue
+                titleBlue={`Rejected`}
+                padX={"px-5"}
+                padY={"py-3"}
+              >
+              </ButtonBlue>
+            </button>
           </div>
           <Tabs
             defaultIndex={tabIndex}
             onSelect={(index) => setTabIndex(index)}
           >
-            <TabList>
-              <Tab>Rent</Tab>
-              <Tab>Sale</Tab>
-            </TabList>
+            <div className="">
+              <TabList>
+                <Tab>
+                    Rent
+                </Tab>
+                <Tab>
+                  Sale
+                </Tab>
+              </TabList>
+            </div>
+            <TabPanel>
+              {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 p-5"> */}
+              <div>
+                {rentsProperties?.map((requestedProperty) => (
+                  <ReqCard_mod
+                    key={requestedProperty._id}
+                    requestedProperties={requestedProperty}
+                  />
+                  // <RequestCard
+                  //   key={requestedProperty._id}
+                  //   requestedProperties={requestedProperty}
+                  // />
+                ))}
+              </div>
+              {/* </div> */}
+            </TabPanel>
             <TabPanel>
               {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 p-5"> */}
                 <div>
-                  {rentsProperties?.map((requestedProperty) => (
+                  {salesProperties?.map((requestedProperty) => (
                     <ReqCard_mod
                       key={requestedProperty._id}
                       requestedProperties={requestedProperty}
@@ -132,21 +184,11 @@ const RequestedProperty = () => {
                 </div>
               {/* </div> */}
             </TabPanel>
-            <TabPanel>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 p-5">
-                {salesProperties?.map((requestedProperty) => (
-                  <RequestCard
-                    key={requestedProperty._id}
-                    requestedProperties={requestedProperty}
-                  />
-                ))}
-              </div>
-            </TabPanel>
           </Tabs>
         </div>
       </div>
       {/* infos */}
-    </div>
+    </div >
   );
 };
 

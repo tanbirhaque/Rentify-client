@@ -1,5 +1,5 @@
 //component added by "Fahima"
-import { Controller, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import Lottie from "lottie-react";
 import loginAnimation from "../../../../assets/animation/LoginAnimation.json";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -13,28 +13,38 @@ const Register = () => {
   const currentLocation = useLocation();
   const destinedLocation = useNavigate();
   const axiosPublic = useAxiosPublic();
+
+  //images hosting to imgbb
+  const image_hosting_api =
+    "https://api.imgbb.com/1/upload?key=bd58c2cacfaf8bbacf4ee63a9bafe25c";
+
   //form data
   const {
     register,
     handleSubmit,
-    control,
-    // reset,
+    reset,
     formState: { errors },
   } = useForm();
 
   //
-  const onSubmit = (data) => {
-    // console.log(data);
+  const onSubmit = async (data) => {
+    //image upload and getting url
+    const imageFile = { image: data.image[0] };
+    const res = await axiosPublic.post(image_hosting_api, imageFile, {
+      headers: { "Content-Type": "multipart/form-data" },
+    });
+    console.log(res.data);
+    //now send the image link
     userRegister(data.email, data.password)
-      .then((res) => {
-        console.log(res.user);
+      .then(() => {
+        const imageUrl = res.data.data.display_url;
         const userInfo = {
           name: data.name,
           email: data.email,
-          image: data.image,
-          role: "user",
+          image: imageUrl,
+          role: "User",
         };
-        userProfile(data.name, data.image)
+        userProfile(data.name, imageUrl)
           .then(() => {
             Swal.fire({
               title: "User created successfully!",
@@ -46,7 +56,7 @@ const Register = () => {
             destinedLocation(
               currentLocation?.state ? currentLocation.state : "/"
             );
-            axiosPublic.post("/users", userInfo).then((res) => {
+            axiosPublic.post("/users", userInfo).then(() => {
               reset();
             });
           })
@@ -63,9 +73,8 @@ const Register = () => {
           icon: "error",
         });
       });
+    // console.log(data);
   };
-  //
-
   return (
     <div className="max-w-screen-lg mx-auto my-10">
       <h3 className="text-3xl font-semibold text-center mb-5">Register</h3>
@@ -89,30 +98,17 @@ const Register = () => {
               </span>
             )}
             <h3 className="mt-8 mb-2 text-xl font-semibold">Image</h3>
-            {/*  */}
-            <Controller
-              name="image"
-              control={control}
-              render={({ field }) => (
-                <>
-                  <input
-                    type="file"
-                    onChange={(e) => {
-                      // Convert the selected image to URL and set it in the field
-                      const url = URL.createObjectURL(e.target.files[0]);
-                      field.onChange(url);
-                    }}
-                  />
-                </>
-              )}
+            <input
+              {...register("image", { required: true })}
+              type="file"
+              className="file-input max-w-full md:w-[550px] bg-[#F3F3F3] h-14"
             />
-            {/*  */}
+
             {errors.image && (
               <span className="text-xs text-red-600">
                 Image is required to register.
               </span>
             )}
-
             <h3 className="mt-8 mb-2 text-xl font-semibold">Email Address</h3>
             <input
               {...register("email", { required: true })}
@@ -159,7 +155,7 @@ const Register = () => {
             {/*  */}
             <div className="md:flex md:justify-between mt-4">
               <div className="mb-2 mb-md-0">
-                Already have an account?{" "}
+                Already have an account?
                 <Link
                   to="/login"
                   className="hover:underline text-[#002172] hover:text-blue-700 font-bold"

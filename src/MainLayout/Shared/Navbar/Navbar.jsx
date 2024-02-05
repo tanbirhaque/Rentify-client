@@ -4,7 +4,6 @@ import ButtonBlue from "../buttons/Blue/ButtonBlue";
 // import ButtonRed from "../buttons/Red/ButtonRed";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
-import swal from "sweetalert";
 import Swal from "sweetalert2";
 
 const Navbar = () => {
@@ -18,7 +17,7 @@ const Navbar = () => {
       .then(() => {
         console.log("logged out");
         // swal("Signout", "You are successfully signed out", "success");
-//sweet alert 2 added by Fahima
+        //sweet alert 2 added by Fahima
         Swal.fire({
           title: "You are successfully signed out",
           timer: 2000,
@@ -128,7 +127,7 @@ const Navbar = () => {
         isNavbarJumping ? "animate-jump shadow-md" : ""
       }`}
     >
-      <div className="navbar max-w-screen-2xl  mx-auto   bg-base-100">
+      <div className="navbar max-w-screen-2xl mx-auto bg-base-100 px-0">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -169,9 +168,9 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navLinks}</ul>
         </div>
-       
+
         {/* for toggle feature for btn -sadia */}
-        <div className="navbar-end gap-5">
+        <div className="navbar-end gap-5 lg:gap-0">
           {user && (
             <div className="dropdown dropdown-end">
               <div>
