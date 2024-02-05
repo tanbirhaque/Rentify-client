@@ -3,6 +3,7 @@ import './Writeblogs.css'
 import useAuth from '../../../Hooks/useAuth';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
+import ButtonRed from '../../../MainLayout/Shared/buttons/Red/ButtonRed'
 
 const WriteBlogs = () => {
     const { user } = useAuth();
@@ -54,7 +55,7 @@ const WriteBlogs = () => {
             </div>
             <div className=' w-11/12 mx-auto'>
                 <h2 className=' text-4xl font-bold my-5'>Write your blog</h2>
-                <div className=' bg-slate-200 p-8 rounded'>
+                <div className=' bg-gray-200 p-8 rounded'>
                     <form onSubmit={handleSubmit(onSubmit)} className="mx-auto">
                         <div className=' flex justify-between items-center gap-3'>
                             <div className=' w-full'>
@@ -148,9 +149,11 @@ const WriteBlogs = () => {
                         </div>
                         <button
                             type="submit"
-                            className=" rounded px-8 py-4 mt-3 bg-[#EC3323] hover:bg-[#002172] text-white mb-4"
                         >
-                            Submit blog
+                            <ButtonRed
+                            titleRed={`Submit blog`}
+                            padY={"py-16"}
+                            ></ButtonRed>
                         </button>
                     </form>
                 </div>
