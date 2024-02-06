@@ -1,9 +1,9 @@
 // Requested Property card designed and implemented by Tanbir
 
 import { CiLocationOn } from "react-icons/ci";
-import { IoBedOutline } from "react-icons/io5";
-import { LuTriangleRight } from "react-icons/lu";
-import { PiBathtub } from "react-icons/pi";
+// import { IoBedOutline } from "react-icons/io5";
+// import { LuTriangleRight } from "react-icons/lu";
+// import { PiBathtub } from "react-icons/pi";
 import { Link } from "react-router-dom";
 import { Scrollbars } from 'react-custom-scrollbars';
 import ButtonBlue from "../../../MainLayout/Shared/buttons/Blue/ButtonBlue";
@@ -18,8 +18,7 @@ const ReqCard_mod = ({ requestedProperties }) => {
     const {property_status} = property_details || {}
     console.log('This prop',property_status);
 
-    const defaultImg =
-        "https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?w=740&t=st=1696786604~exp=1696787204~hmac=c10645727b8724eecda4984ef1d8fbfba92a9c9072a57b851c28c9b1d8d62b81";
+    const defaultImg ="https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?w=740&t=st=1696786604~exp=1696787204~hmac=c10645727b8724eecda4984ef1d8fbfba92a9c9072a57b851c28c9b1d8d62b81";
 
 
     return (

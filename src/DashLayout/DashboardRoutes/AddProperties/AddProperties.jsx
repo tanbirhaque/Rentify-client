@@ -107,7 +107,7 @@ const AddProperties = () => {
             <hr className="mb-5"></hr>
             <form className="px-4" onSubmit={handleAddProperty}>
               <div className="md:grid grid-cols-2 gap-4  mb-8">
-                <div className="form-control    ">
+                <div className="form-control">
                   <label className="label ">
                     <span className="label-text text-lg font-semibold">
                       Property Title

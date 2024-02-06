@@ -103,7 +103,6 @@ const Register = () => {
               type="file"
               className="file-input max-w-full md:w-[550px] bg-[#F3F3F3] h-14"
             />
-
             {errors.image && (
               <span className="text-xs text-red-600">
                 Image is required to register.
