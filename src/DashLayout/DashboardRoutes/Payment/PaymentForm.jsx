@@ -28,7 +28,7 @@ const PaymentForm = ({ queryParams }) => {
     axiosSecure
       .post("/create-payment-intent", { price, requestId, propertyId, owner })
       .then((res) => {
-        console.log(res.data.clientSecret);
+        // console.log(res.data.clientSecret);
         setClientSecret(res.data.clientSecret);
       });
   }, [axiosSecure, price, requestId, propertyId, owner]);
@@ -39,19 +39,16 @@ const PaymentForm = ({ queryParams }) => {
     if (!stripe || !elements) {
       return;
     }
-
-    const cardElement = elements.getElement(CardNumberElement);
-
-    if (cardElement == null) {
+    const card = elements.getElement(CardElement);
+    if (card == null) {
       return;
     }
-
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: "card",
-      card: cardElement,
+      card,
     });
-
     if (error) {
+      console.log("payment error", error);
       setError(error.message);
     } else {
       console.log("payment method", paymentMethod);
