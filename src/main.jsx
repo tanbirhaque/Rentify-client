@@ -51,6 +51,7 @@ import RentRequest from "./DashLayout/DashboardRoutes/RentRequest/RentRequest.js
 import SoldProperties from "./DashLayout/DashboardRoutes/SoldProperties/SoldProperties.jsx";
 import RentOutProperties from "./DashLayout/DashboardRoutes/RentOutProperties/RentOutProperties.jsx";
 import WriteBlogs from "./DashLayout/DashboardRoutes/WriteBlogs/WriteBlogs.jsx";
+import OwnerRequestForm from "./DashLayout/DashboardRoutes/Owner Request/OwnerRequestForm.jsx";
 
 const queryClient = new QueryClient();
 
@@ -217,24 +218,27 @@ const router = createBrowserRouter([
       },
       {
         path: "rentReq",
-        element:<RentRequest/>,
-        
+        element: <RentRequest />,
       },
       {
         path: "buyReq",
-        element:<BuyRequest/>
+        element: <BuyRequest />,
       },
       {
         path: "soldProperties",
-        element:<SoldProperties/>
+        element: <SoldProperties />,
       },
       {
         path: "rentOutProperties",
-        element:<RentOutProperties/>
+        element: <RentOutProperties />,
       },
       {
         path: "writeBlogs",
-        element: <WriteBlogs></WriteBlogs>
+        element: <WriteBlogs></WriteBlogs>,
+      },
+      {
+        path: "ownerRequest",
+        element: <OwnerRequestForm />,
       },
     ],
   },
