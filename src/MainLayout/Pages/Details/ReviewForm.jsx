@@ -4,6 +4,7 @@ import useAuth from "../../../Hooks/useAuth";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
+import { useState } from "react";
 
 const ReviewForm = ({ property }) => {
   const { user } = useAuth();
@@ -17,6 +18,35 @@ const ReviewForm = ({ property }) => {
   //images hosting to imgbb
   const image_hosting_api =
     "https://api.imgbb.com/1/upload?key=bd58c2cacfaf8bbacf4ee63a9bafe25c";
+
+  //
+  // multiple images //
+  // const [uploadedImages, setUploadedImages] = useState([]);
+  // console.log(uploadedImages);
+  // const handleFileChange = async (event) => {
+  //   const files = event.target.files;
+
+  //   const formData = new FormData();
+
+  //   for (let i = 0; i < files.length; i++) {
+  //     formData.append("image", files[i]);
+  //   }
+
+  //   try {
+  //     const response = await axiosPublic.post(image_hosting_api, formData);
+
+  //     // Extract the uploaded image URLs from the response
+  //     const dataNew = response.data.data;
+  //     const newUploadedImages = dataNew.map((image) => image.url);
+
+  //     // Update state with the new uploaded images
+  //     setUploadedImages((prevImages) => [...prevImages, ...newUploadedImages]);
+  //   } catch (error) {
+  //     console.error("Error uploading images:", error);
+  //   }
+  // };
+  //
+  //
 
   //review form
   const { register, handleSubmit } = useForm();
@@ -35,6 +65,7 @@ const ReviewForm = ({ property }) => {
         reviewerName: displayName,
         reviewerImage: photoURL,
         reviewerText: data.message,
+        // reviewImage: uploadedImages,
         reviewImage: imageUrl,
         reviewRating: data.rating,
       };
@@ -80,8 +111,29 @@ const ReviewForm = ({ property }) => {
             <div className="mt-4">
               <label className=" rounded px-8 py-4 mt-3 bg-[#EC3323] hover:bg-[#002172] text-white mb-4">
                 Upload Image
-                <input type="file" className="hidden" {...register("image")} />
+                <input
+                  type="file"
+                  className="hidden"
+                  {...register("image")}
+                  // multiple
+                  // onChange={handleFileChange}
+                />
               </label>
+              {/* <div className="my-3">
+                <p>Selected Images:</p>
+                {uploadedImages.map((imageUrl, index) => (
+                  <img
+                    key={index}
+                    src={imageUrl}
+                    alt={`Uploaded Image ${index + 1}`}
+                    style={{
+                      maxWidth: "100%",
+                      maxHeight: "200px",
+                      marginRight: "10px",
+                    }}
+                  />
+                ))}
+              </div> */}
             </div>
           </div>
           {/* div for rating and image upload */}
@@ -132,5 +184,4 @@ const ReviewForm = ({ property }) => {
     </>
   );
 };
-
 export default ReviewForm;
