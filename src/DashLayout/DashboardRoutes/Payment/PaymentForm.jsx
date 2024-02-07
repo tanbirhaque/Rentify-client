@@ -33,6 +33,7 @@ const PaymentForm = ({ queryParams }) => {
       return;
     }
     const card = elements.getElement(CardNumberElement, CardExpiryElement, CardCvcElement);
+
     if (card == null) {
       return;
     }

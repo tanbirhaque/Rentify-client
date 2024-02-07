@@ -200,6 +200,9 @@ const Navbar = () => {
                     <Link to="/dashboard/profile">Dashboard</Link>
                   </li>
                   <li>
+                    <a href="http://localhost:5174/">Admin Panel</a>
+                  </li>
+                  <li>
                     <Link onClick={handleLogOut}>Logout</Link>
                   </li>
                 </ul>
