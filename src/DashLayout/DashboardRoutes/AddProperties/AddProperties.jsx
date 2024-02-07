@@ -15,6 +15,7 @@ const AddProperties = () => {
   const { user } = useContext(AuthContext);
 
   
+  // This code from line 19 to line 21 is done by sojib for react select the option and value of the select field for property tags and property featuries.
   const [tagValue, setTagValue] = useState([]);
   const newTags = [];
   for (let i = 0; i < tagValue.length; i++) {
@@ -28,19 +29,37 @@ const AddProperties = () => {
   }
   // console.log(newFeaturs)
   const featureOptions = [
-    { value: 'balcony', label: 'Balcony' },
-    { value: 'Modern kitchen', label: 'Modern kitchen' },
-    { value: 'pet-friendly', label: 'Pet-friendly' },
-    { value: 'rooftop terrace', label: 'Rooftop terrace' },
-    { value: 'Security', label: 'Security' },
-    { value: 'gym', label: 'Gym' },
-    { value: 'Pool', label: 'Pool' },
+    { value: "balcony", label: "Balcony" },
+    { value: "Modern kitchen", label: "Modern kitchen" },
+    { value: "pet-friendly", label: "Pet-friendly" },
+    { value: "rooftop terrace", label: "Rooftop terrace" },
+    { value: "Security", label: "Security" },
+    { value: "gym", label: "Gym" },
+    { value: "Pool", label: "Pool" },
+    { value: "Fireplace", label: "Fireplace" },
+    { value: "Garden", label: "Garden" },
+    { value: "Walking distance to village", label: "Walking distance to village" },
+    { value: "olive grove", label: "Olive grove" },
+    { value: "Swimming pool", label: "Swimming pool" },
   ]
 
   const tagsOptions = [
-    { value: 'chocolate', label: 'Chocolate' },
-    { value: 'strawberry', label: 'Strawberry' },
-    { value: 'vanilla', label: 'Vanilla' }
+    { value: "Historic", label: "Historic" },
+    { value: "Luxury", label: "Luxury" },
+    { value: "Tranquil", label: "Tranquil" },
+    { value: "wine lover's dream", label: "wine lover's dream" },
+    { value: "contemporary", label: "contemporary" },
+    { value: "urban", label: "urban" },
+    { value: "luxurious", label: "luxurious" },
+    { value: "prime location", label: "prime location" },
+    { value: "opulent", label: "opulent" },
+    { value: "exclusive", label: "exclusive" },
+    { value: "private retreat", label: "private retreat" },
+    { value: "luxury living", label: "luxury living" },
+    { value: "tech-savvy", label: "tech-savvy" },
+    { value: "modern", label: "modern" },
+    { value: "urban oasis", label: "urban oasis" },
+    { value: "high-tech living", label: "high-tech living" }
   ]
 
   const handlevaluetags = (tagValue) => {
@@ -118,14 +137,14 @@ const AddProperties = () => {
       }
     };
 
-    // axiosPublic.post("/properties", newProperty)
-    //   .then(res => {
-    //     // console.log(res.data)
-    //     if (res.data) {
-    //       Swal.fire(`Hey ${user.displayName}, Your property aded successfully`)
-    //       refetch();
-    //     }
-    //   })
+    axiosPublic.post("/properties", newProperty)
+      .then(res => {
+        // console.log(res.data)
+        if (res.data) {
+          Swal.fire(`Hey ${user.displayName}, Your property aded successfully`)
+          refetch();
+        }
+      })
     console.log(newProperty);
   };
 
@@ -385,12 +404,7 @@ const AddProperties = () => {
                     </span>
                   </label>
                   <label className="input-group ">
-                    {/* <input
-                      type="text"
-                      placeholder="ex. Family-fiendly"
-                      name="tags"
-                      className="input form-border input-bordered w-full"
-                    /> */}
+                    {/* This select field impleamented by sojib*/}
                     <Select
                       value={tagValue}
                       onChange={handlevaluetags}
@@ -398,6 +412,10 @@ const AddProperties = () => {
                       isMulti
                       name="tags"
                       options={tagsOptions}
+                      classNames={{
+                        control: (state) =>
+                          state.isFocused ? 'border-red-600' : 'border-grey-300',
+                      }}
                       className="basic-multi-select w-full"
                     />
                   </label>
@@ -492,6 +510,7 @@ const AddProperties = () => {
                     </span>
                   </label>
                   <label className="input-group ">
+                  {/* This select field impleamented by sojib */}
                     <Select
                       value={featureValue}
                       onChange={handleValueFeature}
