@@ -18,8 +18,14 @@ import { HiCubeTransparent } from "react-icons/hi2";
 import { CiShoppingTag } from "react-icons/ci";
 import { FaChevronDown } from "react-icons/fa6";
 import { VscRequestChanges } from "react-icons/vsc";
+import useGetRole from "../../../Hooks/useGetRole";
 
 const SideBar = () => {
+  //roles
+  const [userRole] = useGetRole();
+  const { role } = userRole || {};
+  //roles
+
   const sideLinks = (
     <>
       <li className="dashLi">
@@ -31,7 +37,6 @@ const SideBar = () => {
           Profile
         </NavLink>
       </li>
-
       <li className="dashLi">
         <NavLink
           to="/dashboard/my-requests"
@@ -41,7 +46,6 @@ const SideBar = () => {
           Requested Properties
         </NavLink>
       </li>
-
       <li className="dashLi">
         <NavLink
           to="/dashboard/saved"
@@ -71,7 +75,6 @@ const SideBar = () => {
       </li>
     </>
   );
-
   const ownerRoutes = (
     <>
       <li className="dashLi">
@@ -132,7 +135,6 @@ const SideBar = () => {
       </li>
     </>
   );
-
   return (
     <div>
       <div className="w-64 min-h-screen">
@@ -163,13 +165,24 @@ const SideBar = () => {
             </h3>
           </span>
           <hr className="mb-3" />
-          <ul className="flex flex-col gap-2">{sideLinks}</ul>
-
-          <h3 className="poppins-font font-semibold text-xl mt-5 text-gray-400">
-            Owner Routes
-          </h3>
-          <hr className="mb-3" />
-          <ul>{ownerRoutes}</ul>
+          {/* user routes */}
+          {role === "User" && (
+            <ul className="flex flex-col gap-2">{sideLinks}</ul>
+          )}
+          {role === "Owner" && (
+            <ul className="flex flex-col gap-2">{sideLinks}</ul>
+          )}
+          {/* owner routes */}
+          {role === "Owner" && (
+            <>
+              <h3 className="poppins-font font-semibold text-xl mt-5 text-gray-400">
+                Owner Routes
+              </h3>
+              <hr className="mb-3" />
+              <ul>{ownerRoutes}</ul>
+            </>
+          )}
+          {/* <ul>{ownerRoutes}</ul> */}
           {/* drop-down -1*/}
           {/* <div className="collapse ">
             <input type="checkbox" />
