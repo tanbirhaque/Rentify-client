@@ -2,8 +2,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import PaymentForm from "./PaymentForm";
 import { NavLink, useSearchParams } from "react-router-dom";
-import './Payment.css'
-
+import './Payment.css';
 
 const stripePromise = loadStripe("pk_test_51OHt7bH9TPzhm8dEdB9Q2V4YQQQbICLKTHpGYotiazevmSOH7MkDT1izKsWqAG2gD2Ktw1jO4vdQ4MUMfjDjZF5P00AVkDm1EA");
 
