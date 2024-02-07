@@ -1,15 +1,75 @@
 // This AddProperties page desgin by Sadia
 // And AddProperties post crud oparetion added by sojib
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 import useProperties from "../../../Hooks/useProperties";
+import Select from 'react-select';
+// import { colourOptions } from '../data';
+
 
 const AddProperties = () => {
   const [, refetch] = useProperties();
   const axiosPublic = useAxiosPublic();
   const { user } = useContext(AuthContext);
+
+  
+  // This code from line 19 to line 21 is done by sojib for react select the option and value of the select field for property tags and property featuries.
+  const [tagValue, setTagValue] = useState([]);
+  const newTags = [];
+  for (let i = 0; i < tagValue.length; i++) {
+    newTags.push(tagValue[i].value)
+  }
+  // console.log(newTags)
+  const [featureValue, setFeatureValue] = useState([])
+  const newFeaturs = [];
+  for (let i = 0; i < featureValue.length; i++) {
+    newFeaturs.push(featureValue[i].value);
+  }
+  // console.log(newFeaturs)
+  const featureOptions = [
+    { value: "balcony", label: "Balcony" },
+    { value: "Modern kitchen", label: "Modern kitchen" },
+    { value: "pet-friendly", label: "Pet-friendly" },
+    { value: "rooftop terrace", label: "Rooftop terrace" },
+    { value: "Security", label: "Security" },
+    { value: "gym", label: "Gym" },
+    { value: "Pool", label: "Pool" },
+    { value: "Fireplace", label: "Fireplace" },
+    { value: "Garden", label: "Garden" },
+    { value: "Walking distance to village", label: "Walking distance to village" },
+    { value: "olive grove", label: "Olive grove" },
+    { value: "Swimming pool", label: "Swimming pool" },
+  ]
+
+  const tagsOptions = [
+    { value: "Historic", label: "Historic" },
+    { value: "Luxury", label: "Luxury" },
+    { value: "Tranquil", label: "Tranquil" },
+    { value: "wine lover's dream", label: "wine lover's dream" },
+    { value: "contemporary", label: "contemporary" },
+    { value: "urban", label: "urban" },
+    { value: "luxurious", label: "luxurious" },
+    { value: "prime location", label: "prime location" },
+    { value: "opulent", label: "opulent" },
+    { value: "exclusive", label: "exclusive" },
+    { value: "private retreat", label: "private retreat" },
+    { value: "luxury living", label: "luxury living" },
+    { value: "tech-savvy", label: "tech-savvy" },
+    { value: "modern", label: "modern" },
+    { value: "urban oasis", label: "urban oasis" },
+    { value: "high-tech living", label: "high-tech living" }
+  ]
+
+  const handlevaluetags = (tagValue) => {
+    setTagValue(tagValue)
+  }
+
+  const handleValueFeature = (featureValue) => {
+    setFeatureValue(featureValue)
+  }
+
   const handleAddProperty = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -26,11 +86,11 @@ const AddProperties = () => {
     const prostatus = form.prostatus.value;
     const ownership = form.ownership.value;
     const date = form.date.value;
-    const tags = form.tags.value;
+    const tags = newTags;
     const city = form.city.value;
     const state = form.state.value;
     const country = form.country.value;
-    const feature = form.feature.value;
+    const feature = newFeaturs;
     const title = form.title.value;
     const img = form.img.value;
     const video = form.video.value;
@@ -63,12 +123,8 @@ const AddProperties = () => {
           built: date,
           floor_plans: floor,
           property_video: video,
-          property_features: [
-            feature
-          ],
-          property_tags: [
-            tags
-          ]
+          property_features: feature,
+          property_tags: tags
         },
         property_location: {
           address: {
@@ -89,7 +145,7 @@ const AddProperties = () => {
           refetch();
         }
       })
-    // console.log(newProperty);
+    console.log(newProperty);
   };
 
   return (
@@ -176,7 +232,7 @@ const AddProperties = () => {
                   </label>
                 </div>
 
-                <div className="form-control    ">
+                <div className="form-control">
                   <label className="label ">
                     <span className="label-text text-lg font-semibold">
                       Property Price
@@ -348,11 +404,19 @@ const AddProperties = () => {
                     </span>
                   </label>
                   <label className="input-group ">
-                    <input
-                      type="text"
-                      placeholder="ex. Family-fiendly"
+                    {/* This select field impleamented by sojib*/}
+                    <Select
+                      value={tagValue}
+                      onChange={handlevaluetags}
+                      placeholder={`Select your property tags`}
+                      isMulti
                       name="tags"
-                      className="input form-border input-bordered w-full"
+                      options={tagsOptions}
+                      classNames={{
+                        control: (state) =>
+                          state.isFocused ? 'border-red-600' : 'border-grey-300',
+                      }}
+                      className="basic-multi-select w-full"
                     />
                   </label>
                 </div>
@@ -446,11 +510,15 @@ const AddProperties = () => {
                     </span>
                   </label>
                   <label className="input-group ">
-                    <input
-                      type="text"
-                      placeholder="ex. Swimming Pool"
-                      name="feature"
-                      className="input form-border input-bordered w-full"
+                  {/* This select field impleamented by sojib */}
+                    <Select
+                      value={featureValue}
+                      onChange={handleValueFeature}
+                      placeholder={`Select your property tags`}
+                      isMulti
+                      name="tags"
+                      options={featureOptions}
+                      className="basic-multi-select w-full"
                     />
                   </label>
                 </div>
