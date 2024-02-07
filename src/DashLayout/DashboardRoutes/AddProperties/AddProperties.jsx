@@ -1,15 +1,56 @@
 // This AddProperties page desgin by Sadia
 // And AddProperties post crud oparetion added by sojib
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 import useProperties from "../../../Hooks/useProperties";
+import Select from 'react-select';
+// import { colourOptions } from '../data';
+
 
 const AddProperties = () => {
   const [, refetch] = useProperties();
   const axiosPublic = useAxiosPublic();
   const { user } = useContext(AuthContext);
+
+  
+  const [tagValue, setTagValue] = useState([]);
+  const newTags = [];
+  for (let i = 0; i < tagValue.length; i++) {
+    newTags.push(tagValue[i].value)
+  }
+  // console.log(newTags)
+  const [featureValue, setFeatureValue] = useState([])
+  const newFeaturs = [];
+  for (let i = 0; i < featureValue.length; i++) {
+    newFeaturs.push(featureValue[i].value);
+  }
+  // console.log(newFeaturs)
+  const featureOptions = [
+    { value: 'balcony', label: 'Balcony' },
+    { value: 'Modern kitchen', label: 'Modern kitchen' },
+    { value: 'pet-friendly', label: 'Pet-friendly' },
+    { value: 'rooftop terrace', label: 'Rooftop terrace' },
+    { value: 'Security', label: 'Security' },
+    { value: 'gym', label: 'Gym' },
+    { value: 'Pool', label: 'Pool' },
+  ]
+
+  const tagsOptions = [
+    { value: 'chocolate', label: 'Chocolate' },
+    { value: 'strawberry', label: 'Strawberry' },
+    { value: 'vanilla', label: 'Vanilla' }
+  ]
+
+  const handlevaluetags = (tagValue) => {
+    setTagValue(tagValue)
+  }
+
+  const handleValueFeature = (featureValue) => {
+    setFeatureValue(featureValue)
+  }
+
   const handleAddProperty = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -26,11 +67,11 @@ const AddProperties = () => {
     const prostatus = form.prostatus.value;
     const ownership = form.ownership.value;
     const date = form.date.value;
-    const tags = form.tags.value;
+    const tags = newTags;
     const city = form.city.value;
     const state = form.state.value;
     const country = form.country.value;
-    const feature = form.feature.value;
+    const feature = newFeaturs;
     const title = form.title.value;
     const img = form.img.value;
     const video = form.video.value;
@@ -63,12 +104,8 @@ const AddProperties = () => {
           built: date,
           floor_plans: floor,
           property_video: video,
-          property_features: [
-            feature
-          ],
-          property_tags: [
-            tags
-          ]
+          property_features: feature,
+          property_tags: tags
         },
         property_location: {
           address: {
@@ -81,15 +118,15 @@ const AddProperties = () => {
       }
     };
 
-    axiosPublic.post("/properties", newProperty)
-      .then(res => {
-        // console.log(res.data)
-        if (res.data) {
-          Swal.fire(`Hey ${user.displayName}, Your property aded successfully`)
-          refetch();
-        }
-      })
-    // console.log(newProperty);
+    // axiosPublic.post("/properties", newProperty)
+    //   .then(res => {
+    //     // console.log(res.data)
+    //     if (res.data) {
+    //       Swal.fire(`Hey ${user.displayName}, Your property aded successfully`)
+    //       refetch();
+    //     }
+    //   })
+    console.log(newProperty);
   };
 
   return (
@@ -176,7 +213,7 @@ const AddProperties = () => {
                   </label>
                 </div>
 
-                <div className="form-control    ">
+                <div className="form-control">
                   <label className="label ">
                     <span className="label-text text-lg font-semibold">
                       Property Price
@@ -348,11 +385,20 @@ const AddProperties = () => {
                     </span>
                   </label>
                   <label className="input-group ">
-                    <input
+                    {/* <input
                       type="text"
                       placeholder="ex. Family-fiendly"
                       name="tags"
                       className="input form-border input-bordered w-full"
+                    /> */}
+                    <Select
+                      value={tagValue}
+                      onChange={handlevaluetags}
+                      placeholder={`Select your property tags`}
+                      isMulti
+                      name="tags"
+                      options={tagsOptions}
+                      className="basic-multi-select w-full"
                     />
                   </label>
                 </div>
@@ -446,11 +492,14 @@ const AddProperties = () => {
                     </span>
                   </label>
                   <label className="input-group ">
-                    <input
-                      type="text"
-                      placeholder="ex. Swimming Pool"
-                      name="feature"
-                      className="input form-border input-bordered w-full"
+                    <Select
+                      value={featureValue}
+                      onChange={handleValueFeature}
+                      placeholder={`Select your property tags`}
+                      isMulti
+                      name="tags"
+                      options={featureOptions}
+                      className="basic-multi-select w-full"
                     />
                   </label>
                 </div>
