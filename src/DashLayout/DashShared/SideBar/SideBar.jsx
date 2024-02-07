@@ -24,6 +24,7 @@ const SideBar = () => {
   //roles
   const [userRole] = useGetRole();
   const { role } = userRole || {};
+  console.log(role);
   //roles
 
   const sideLinks = (
@@ -135,6 +136,7 @@ const SideBar = () => {
       </li>
     </>
   );
+
   return (
     <div>
       <div className="w-64 min-h-screen">
@@ -169,12 +171,10 @@ const SideBar = () => {
           {role === "User" && (
             <ul className="flex flex-col gap-2">{sideLinks}</ul>
           )}
-          {role === "Owner" && (
-            <ul className="flex flex-col gap-2">{sideLinks}</ul>
-          )}
           {/* owner routes */}
           {role === "Owner" && (
             <>
+              <ul className="flex flex-col gap-2">{sideLinks}</ul>
               <h3 className="poppins-font font-semibold text-xl mt-5 text-gray-400">
                 Owner Routes
               </h3>
