@@ -10,6 +10,7 @@ import ButtonBlue from "../../../../Shared/buttons/Blue/ButtonBlue";
 import ButtonRed from "../../../../Shared/buttons/Red/ButtonRed";
 import useProperties from "../../../../../Hooks/useProperties";
 import "./Listing.css"
+import { Link } from 'react-router-dom';
 
 const Listing = () => {
     // properties data get from database
@@ -42,11 +43,13 @@ const Listing = () => {
                         </p>
                     </div>
                     <div className="w-[180px] hidden md:flex">
+                        <Link to='/all'>
                         <ButtonBlue
                             titleBlue={"View All Property"}
                             padX={"px-8"}
                             padY={"py-4"}
                         ></ButtonBlue>
+                        </Link>
                     </div>
                 </div>
                 <div>
@@ -104,13 +107,18 @@ const Listing = () => {
                         </TabPanel>
                     </Tabs>
                 </div>
+                
                 <div className="w-[180px] mx-auto mt-7 flex md:hidden">
+           
                     <ButtonBlue
                         titleBlue={"View All Property"}
                         padX={"px-8"}
                         padY={"py-4"}
                     ></ButtonBlue>
+                 
+        
                 </div>
+                
             </div>
         </>
     );
