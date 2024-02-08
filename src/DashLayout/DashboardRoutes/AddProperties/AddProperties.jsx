@@ -1,6 +1,6 @@
 // This AddProperties page desgin by Sadia
 // And AddProperties post crud oparetion added by sojib
-import { useContext, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
@@ -13,9 +13,10 @@ const AddProperties = () => {
   const [, refetch] = useProperties();
   const axiosPublic = useAxiosPublic();
   const { user } = useContext(AuthContext);
+  const image_hosting_api =
+    "https://api.imgbb.com/1/upload?key=041c88632a7cf1ed57bab64c7c558177";
 
-  
-  // This code from line 19 to line 21 is done by sojib for react select the option and value of the select field for property tags and property featuries.
+  // This code from line 19 to line 21 is done by [ sojib ] for react select the option and value of the select field for property tags and property featuries.
   const [tagValue, setTagValue] = useState([]);
   const newTags = [];
   for (let i = 0; i < tagValue.length; i++) {
@@ -70,7 +71,65 @@ const AddProperties = () => {
     setFeatureValue(featureValue)
   }
 
-  const handleAddProperty = (e) => {
+  const [images, setImages] = useState([])
+  const [isDraging, setisDreaging] = useState(false)
+  const fileInputRef = useRef(null)
+  console.log(typeof images)
+
+  const onFileSelect = (event) => {
+    event.preventDefault();
+    const files = event.target.files;
+    setImages(files[0])
+    // console.log(files)
+    // if (files.length === 0) return;
+    // for (let i = 0; i < files.length; i++) {
+    //   if (files[i].type.split('/')[0] !== 'image') continue;
+    //   if (!images.some((e) => e.name === files[i].name)) {
+    //     setImages((prevImages) => [
+    //       ...prevImages,
+    //       {
+    //         name: files[i].name,
+    //         url: URL.createObjectURL(files[i])
+    //       }
+    //     ])
+    //   }
+    // }
+  }
+
+  function selectFiles() {
+    fileInputRef.current.click();
+  }
+  const onDragOver = (event) => {
+    event.preventDefault();
+    setisDreaging(true)
+    event.dataTransfer.dropEffect = "copy"
+  }
+  const onDragLeave = (event) => {
+    event.preventDefault();
+    setisDreaging(false)
+  }
+
+  const onDrop = async (event) => {
+    event.preventDefault();
+    setisDreaging(false)
+    const files = event.dataTransfer.files;
+    setImages(files[0])
+    // TODO: This comment by sojib for doing multiple drag and drop  image hosting please dont uncomment it
+    // for (let i = 0; i < files.length; i++) {
+    //   if (files[i].type.split('/')[0] !== 'image') continue;
+    //   if (!images.some((e) => e.name === files[i].name)) {
+    //     setImages((prevImages) => [
+    //       ...prevImages,
+    //       {
+    //         name: files[i].name,
+    //         url: URL.createObjectURL(files[i])
+    //       }
+    //     ])
+    //   }
+    // }
+  }
+
+  const handleAddProperty = async (e) => {
     e.preventDefault();
     const form = e.target;
     const property = form.property.value;
@@ -92,10 +151,19 @@ const AddProperties = () => {
     const country = form.country.value;
     const feature = newFeaturs;
     const title = form.title.value;
-    const img = form.img.value;
     const video = form.video.value;
     const floor = form.floor.value;
     const id = form.id.value;
+    const imageFile = { image: images };
+    const res = await axiosPublic.post(image_hosting_api, imageFile, {
+      headers: { "Content-Type": "multipart/form-data" },
+    });
+    const img = res.data.data.url;
+    if (res.data) {
+      console.log(res.data.data)
+      setImages(img)
+    }
+    console.log(res.data, img)
     const newProperty = {
       property_info: {
         owner_details: {
@@ -136,7 +204,6 @@ const AddProperties = () => {
         }
       }
     };
-
     axiosPublic.post("/properties", newProperty)
       .then(res => {
         // console.log(res.data)
@@ -510,7 +577,7 @@ const AddProperties = () => {
                     </span>
                   </label>
                   <label className="input-group ">
-                  {/* This select field impleamented by sojib */}
+                    {/* This select field impleamented by sojib */}
                     <Select
                       value={featureValue}
                       onChange={handleValueFeature}
@@ -524,52 +591,71 @@ const AddProperties = () => {
                 </div>
               </div>
 
-              <div className="md:grid grid-cols-3 gap-4 mb-8">
-                <div className="form-control    ">
+              <div className=" flex justify-between items-start mb-8 gap-5">
+                <div className="form-control w-1/2">
                   <label className="label ">
                     <span className="label-text text-lg font-semibold">
                       Property Image
                     </span>
                   </label>
-                  <label className="input-group ">
-                    <input
-                      type="text"
-                      placeholder="Add your image url"
-                      name="img"
-                      className="input form-border input-bordered w-full"
-                    />
-                  </label>
+                  {/* this feild updated to drag and drop option by sojib */}
+                  <div className=" border-2 rounded-md p-3">
+                    <label className="drag-area" onDragOver={onDragOver} onDragLeave={onDragLeave} onDrop={onDrop}>
+                      {isDraging ? (<span>Drop imag here</span>) : (<>
+                        Drag & Drop image here or {""}
+                        <span role="button" onClick={selectFiles}>
+                          Browser
+                        </span>
+                      </>)}
+                      <input
+                        type="file"
+                        placeholder="Drag and drop your image or url"
+                        name="files"
+                        className="input w-full"
+                        multiple
+                        ref={fileInputRef}
+                        onChange={onFileSelect}
+                      />
+                    </label>
+                    {
+                      images ?
+                        <div>
+                          <img className=" w-[100px] h-[100px]" src={images} alt="Drop img" />
+                        </div> : ""
+                    }
+                  </div>
                 </div>
-                <div className="form-control    ">
-                  <label className="label ">
-                    <span className="label-text text-lg font-semibold">
-                      Property Video
-                    </span>
-                  </label>
-                  <label className="input-group ">
-                    <input
-                      type="text"
-                      placeholder="Add your video url"
-                      name="video"
-                      className="input form-border input-bordered w-full"
-                    />
-                  </label>
-                </div>
-
-                <div className="form-control    ">
-                  <label className="label ">
-                    <span className="label-text text-lg font-semibold">
-                      Property Floor Plan
-                    </span>
-                  </label>
-                  <label className="input-group ">
-                    <input
-                      type="text"
-                      placeholder="Add your floor plan url"
-                      name="floor"
-                      className="input form-border input-bordered w-full"
-                    />
-                  </label>
+                <div className=" w-1/2">
+                  <div className="form-control w-full mb-8">
+                    <label className="label ">
+                      <span className="label-text text-lg font-semibold">
+                        Property Video
+                      </span>
+                    </label>
+                    <label className="input-group ">
+                      <input
+                        type="text"
+                        placeholder="Add your video url"
+                        name="video"
+                        className="input form-border input-bordered w-full"
+                      />
+                    </label>
+                  </div>
+                  <div className="form-control w-full">
+                    <label className="label ">
+                      <span className="label-text text-lg font-semibold">
+                        Property Floor Plan
+                      </span>
+                    </label>
+                    <label className="input-group ">
+                      <input
+                        type="text"
+                        placeholder="Add your floor plan url"
+                        name="floor"
+                        className="input form-border input-bordered w-full"
+                      />
+                    </label>
+                  </div>
                 </div>
               </div>
 
@@ -589,7 +675,6 @@ const AddProperties = () => {
                   </label>
                 </div>
               </div>
-
               <button
                 type="submit"
                 className="btn btn-block bg-gray-800 form-border text-white mb-7"
