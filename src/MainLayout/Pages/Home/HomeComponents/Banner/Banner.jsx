@@ -1,5 +1,10 @@
 // The banner is made by "Sadia Afrin" and updated with more responsive design by Tanbir
-
+// swiper featuries impleamented by sojib
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
+import 'swiper/css/navigation';
+import 'swiper/css';
+import 'swiper/css/pagination';
 import img1 from "../../../../../assets/home-2/hero-bg-1.jpg";
 import img2 from "../../../../../assets/home-2/property-14.jpg";
 import img3 from "../../../../../assets/home-2/house.png";
@@ -7,9 +12,18 @@ import img4 from "../../../../../assets/Template_files/client-1.jpg";
 import img5 from "../../../../../assets/Template_files/client-2.jpg";
 import img6 from "../../../../../assets/Template_files/client-3.jpg";
 import img7 from "../../../../../assets/Template_files/client-4.jpg";
+import { useRef } from 'react';
 // import './Banner.css'
 
 const Banner = () => {
+
+    const progressCircle = useRef(null);
+    const progressContent = useRef(null);
+    const onAutoplayTimeLeft = (s, time, progress) => {
+        progressCircle.current.style.setProperty('--progress', 1 - progress);
+        progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
+    };
+
     return (
         <div className="max-w-screen-2xl mx-auto">
             <div className="mb-10 md:mb-20">
@@ -88,66 +102,147 @@ const Banner = () => {
                     <div className="lg:w-1/2 w-full ">
                         <div className="relative mx-auto flex justify-end mt-12 lg:mt-0">
                             <img
-                                className="rounded-lg lg:w-[650px] lg:h-[550px] xl:h-[650px] md:w-[400px]"
+                                className="rounded-lg lg:w-[650px] lg:h-[560px] xl:h-[650px] md:w-[400px]"
                                 src={img1}
                             />
-                            <div className="absolute top-24 md:top-12 xl:top-[250px] w-full h-[370px] overflow-hidden bg-fixed flex px-3 gap-3 lg:gap-6 lg:px-0 shadow-md">
-                                <div className="max-w-[300px] max-h-[380px] bg-white border-[2px] border-white rounded-[5px] dark:bg-gray-800 dark:border-gray-700 md:w-[300px] lg:w-[400px]">
-                                    <a href="#">
-                                        <img className="rounded-t-[5px]" src={img2} alt />
-                                    </a>
-                                    <div className="p-5">
-                                        <a href="#">
-                                            <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                                Manhatton Villa
-                                            </h5>
+                            <div className="absolute top-24 md:top-12 xl:top-[250px] w-full h-[325px] overflow-hidden bg-fixed px-3 gap-3 lg:gap-6 lg:px-0 shadow-md">
+                                {/* This swiper code added by sojib */}
+                                <Swiper
+                                    slidesPerView={2}
+                                    autoplay={{
+                                        delay: 2500,
+                                        disableOnInteraction: false,
+                                    }}
+                                    onAutoplayTimeLeft={onAutoplayTimeLeft}
+                                    modules={[Autoplay]}
+                                >
+                                    <SwiperSlide>
+                                        <div className="max-w-[300px] max-h-[380px] bg-white border-[2px] border-white rounded-[5px] dark:bg-gray-800 dark:border-gray-700 md:w-[300px] lg:w-[400px]">
+                                            <a href="#">
+                                                <img className="rounded-t-[5px]" src={img2} alt />
+                                            </a>
+                                            <div className="p-5">
+                                                <a href="#">
+                                                    <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                                        Manhatton Villa
+                                                    </h5>
 
-                                            <p className="text-sm text-gray-700 font-normal">
-                                                This villa is located in Manhattan New York.It is so
-                                                Beautiful and Luxurious.{" "}
-                                            </p>
+                                                    <p className="text-sm text-gray-700 font-normal">
+                                                        This villa is located in Manhattan New York.It is so
+                                                        Beautiful and Luxurious.{" "}
+                                                    </p>
 
-                                            <div className="rating rating-sm mt-3 flex  items-center">
-                                                <input
-                                                    type="radio"
-                                                    name="rating-5"
-                                                    className="mask mask-star-2 bg-orange-400"
-                                                />
-                                                <p className="ml-2 text-[#002172] font-normal ">
-                                                    4.8 (400+ Review)
-                                                </p>
+                                                    <div className="rating rating-sm mt-3 flex  items-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="rating-5"
+                                                            className="mask mask-star-2 bg-orange-400"
+                                                        />
+                                                        <p className="ml-2 text-[#002172] font-normal ">
+                                                            4.8 (400+ Review)
+                                                        </p>
+                                                    </div>
+                                                </a>
                                             </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div className="max-w-[300px] max-h-[380px] bg-white border-[2px] border-white rounded-[5px] dark:bg-gray-800 dark:border-gray-700 md:w-[300px] lg:w-[400px] shadow">
-                                    <a href="#">
-                                        <img className="rounded-t-[5px]" src={img2} alt />
-                                    </a>
-                                    <div className="p-5">
-                                        <a href="#">
-                                            <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                                Manhatton Villa
-                                            </h5>
+                                        </div>
+                                    </SwiperSlide>
+                                    <SwiperSlide>
+                                        <div className="max-w-[300px] max-h-[380px] bg-white border-[2px] border-white rounded-[5px] dark:bg-gray-800 dark:border-gray-700 md:w-[300px] lg:w-[400px] shadow">
+                                            <a href="#">
+                                                <img className="rounded-t-[5px]" src={img2} alt />
+                                            </a>
+                                            <div className="p-5">
+                                                <a href="#">
+                                                    <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                                        Manhatton Villa
+                                                    </h5>
 
-                                            <p className="text-sm text-gray-700 font-normal">
-                                                This villa is located in Manhattan New York.It is so
-                                                Beautiful and Luxurious.{" "}
-                                            </p>
+                                                    <p className="text-sm text-gray-700 font-normal">
+                                                        This villa is located in Manhattan New York.It is so
+                                                        Beautiful and Luxurious.{" "}
+                                                    </p>
 
-                                            <div className="rating rating-sm mt-3 flex  items-center">
-                                                <input
-                                                    type="radio"
-                                                    name="rating-5"
-                                                    className="mask mask-star-2 bg-orange-400"
-                                                />
-                                                <p className="ml-2 text-[#002172] font-normal ">
-                                                    4.8 (400+ Review)
-                                                </p>
+                                                    <div className="rating rating-sm mt-3 flex  items-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="rating-5"
+                                                            className="mask mask-star-2 bg-orange-400"
+                                                        />
+                                                        <p className="ml-2 text-[#002172] font-normal ">
+                                                            4.8 (400+ Review)
+                                                        </p>
+                                                    </div>
+                                                </a>
                                             </div>
-                                        </a>
+                                        </div>
+                                    </SwiperSlide>
+                                    <SwiperSlide>
+                                        <div className="max-w-[300px] max-h-[380px] bg-white border-[2px] border-white rounded-[5px] dark:bg-gray-800 dark:border-gray-700 md:w-[300px] lg:w-[400px]">
+                                            <a href="#">
+                                                <img className="rounded-t-[5px]" src={img2} alt />
+                                            </a>
+                                            <div className="p-5">
+                                                <a href="#">
+                                                    <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                                        Manhatton Villa
+                                                    </h5>
+
+                                                    <p className="text-sm text-gray-700 font-normal">
+                                                        This villa is located in Manhattan New York.It is so
+                                                        Beautiful and Luxurious.{" "}
+                                                    </p>
+
+                                                    <div className="rating rating-sm mt-3 flex  items-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="rating-5"
+                                                            className="mask mask-star-2 bg-orange-400"
+                                                        />
+                                                        <p className="ml-2 text-[#002172] font-normal ">
+                                                            4.8 (400+ Review)
+                                                        </p>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </SwiperSlide>
+                                    <SwiperSlide>
+                                        <div className="max-w-[300px] max-h-[380px] bg-white border-[2px] border-white rounded-[5px] dark:bg-gray-800 dark:border-gray-700 md:w-[300px] lg:w-[400px] shadow">
+                                            <a href="#">
+                                                <img className="rounded-t-[5px]" src={img2} alt />
+                                            </a>
+                                            <div className="p-5">
+                                                <a href="#">
+                                                    <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                                        Manhatton Villa
+                                                    </h5>
+
+                                                    <p className="text-sm text-gray-700 font-normal">
+                                                        This villa is located in Manhattan New York.It is so
+                                                        Beautiful and Luxurious.{" "}
+                                                    </p>
+
+                                                    <div className="rating rating-sm mt-3 flex  items-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="rating-5"
+                                                            className="mask mask-star-2 bg-orange-400"
+                                                        />
+                                                        <p className="ml-2 text-[#002172] font-normal ">
+                                                            4.8 (400+ Review)
+                                                        </p>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </SwiperSlide>
+                                    <div className="autoplay-progress" slot="container-end">
+                                        <svg viewBox="0 0 48 48" ref={progressCircle}>
+                                            <circle cx="24" cy="24" r="20"></circle>
+                                        </svg>
+                                        <span ref={progressContent}></span>
                                     </div>
-                                </div>
+                                </Swiper>
                             </div>
                         </div>
                     </div>
