@@ -180,7 +180,7 @@ const router = createBrowserRouter([
   // Dashboard routes here
   {
     path: "dashboard",
-    element: <DashLayout></DashLayout>,
+    element: <Private><DashLayout></DashLayout></Private>,
     children: [
       {
         path: "profile",

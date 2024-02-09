@@ -43,17 +43,27 @@
 
 .active {
   font-size: 18px;
-  /* margin-left: 24px;
-    transition: color ease-in-out 300ms; */
-  color: #002172;
+  color: #002172 !important;
   font-weight: 600;
+}
+
+.active::before {
+  content: "";
+  width: 100%;
+  height: 1px;
+  background-color: #002172;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  font-size: 16px;
+  transition: all linear 0.3s;
 }
 
 .navAfter::after {
   content: "";
   width: 0%;
   height: 1px;
-  background-color: #002172;
+  background-color: #e33226;
   position: absolute;
   left: 0;
   bottom: 0;
@@ -65,8 +75,12 @@
   width: 100%;
 }
 
+.active:hover:after {
+  width: 0%;
+}
+
 .navAfter:hover {
-  color: #83a3e7;
+  color: #e33226;
 }
 
 
@@ -97,3 +111,9 @@
 /* .jumping {
     transform: translateY(-20px);
   } */
+
+.dropdown .menu {
+  box-shadow: 0px -1px 17px -3px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px -1px 17px -3px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px -1px 17px -3px rgba(0, 0, 0, 0.75);
+}
