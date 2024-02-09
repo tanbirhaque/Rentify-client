@@ -52,6 +52,7 @@ import SoldProperties from "./DashLayout/DashboardRoutes/SoldProperties/SoldProp
 import RentOutProperties from "./DashLayout/DashboardRoutes/RentOutProperties/RentOutProperties.jsx";
 import WriteBlogs from "./DashLayout/DashboardRoutes/WriteBlogs/WriteBlogs.jsx";
 import OwnerRequestForm from "./DashLayout/DashboardRoutes/Owner Request/OwnerRequestForm.jsx";
+import AllProperties from "./MainLayout/Pages/Home/HomeComponents/AllProperties/AllProperties.jsx";
 
 const queryClient = new QueryClient();
 
@@ -77,6 +78,10 @@ const router = createBrowserRouter([
       {
         path: "/reset",
         element: <Reset />,
+      },
+      {
+        path: "/all",
+        element: <AllProperties></AllProperties>
       },
       {
         path: "/blogs",
