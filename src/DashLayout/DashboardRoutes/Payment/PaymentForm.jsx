@@ -1,10 +1,12 @@
-import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
+import { CardNumberElement, CardExpiryElement, CardCvcElement, useElements, useStripe, } from "@stripe/react-stripe-js";
 import { FaAffiliatetheme, FaCcAmazonPay, FaMoneyCheck } from "react-icons/fa";
 import { SiKlarna } from "react-icons/si";
 import { useEffect, useState } from "react";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import useAuth from "../../../Hooks/useAuth";
 import Swal from "sweetalert2";
+import animation from "./Animation.json";
+import Lottie from "lottie-react";
 
 const PaymentForm = ({ queryParams }) => {
   const [error, setError] = useState();
@@ -14,21 +16,12 @@ const PaymentForm = ({ queryParams }) => {
   const stripe = useStripe();
   const elements = useElements();
   const axiosSecure = useAxiosSecure();
-  const {
-    price,
-    requestId,
-    propertyId,
-    owner,
-    property_status,
-    property_img,
-    property_title,
-  } = queryParams;
+  const { price, requestId, propertyId, owner, property_status, property_img, property_title, } = queryParams;
 
   useEffect(() => {
     axiosSecure
       .post("/create-payment-intent", { price, requestId, propertyId, owner })
       .then((res) => {
-        // console.log(res.data.clientSecret);
         setClientSecret(res.data.clientSecret);
       });
   }, [axiosSecure, price, requestId, propertyId, owner]);
@@ -39,7 +32,8 @@ const PaymentForm = ({ queryParams }) => {
     if (!stripe || !elements) {
       return;
     }
-    const card = elements.getElement(CardElement);
+    const card = elements.getElement(CardNumberElement, CardExpiryElement, CardCvcElement);
+
     if (card == null) {
       return;
     }
@@ -99,7 +93,8 @@ const PaymentForm = ({ queryParams }) => {
 
   return (
     <div className="px-4 md:px-10">
-      {/* new from added and desgin by sojib */}
+      {/* new from added and design by sojib */}
+      {/* redesign and make responsive by Rana */}
       <div>
         <div className=" flex flex-col md:flex-row justify-center items-center my-10">
           <div className="bg-gray-800 w-full md:w-[440px] h-auto md:h-[780px] rounded-t-lg md:rounded-r-none md:rounded-l-lg">
@@ -128,14 +123,17 @@ const PaymentForm = ({ queryParams }) => {
                   alt="Property"
                 />
               </div>
-              <p className="text-sm text-center mt-5 pb-4 text-gray-50">
+              <p className="text-sm text-center mt-5 text-gray-50">
                 Powered by stripe <span className="text-white">|</span>{" "}
                 <span className="text-white">Terms & Conditions</span>
               </p>
+              <div className="lg:-mt-20">
+                <Lottie animationData={animation} />
+              </div>
             </div>
           </div>
           <div className="bg-gray-100 rounded-b-lg md:rounded-l-none md:rounded-r-lg w-full md:w-[580px] h-auto md:h-[780px]">
-            <form className="card-body mt-8" onSubmit={handleSubmit}>
+            <form className="card-body xl:mt-6" onSubmit={handleSubmit}>
               <div className="w-[80%] mx-auto">
                 <h2 className="text-3xl font-bold">Pay For Properties</h2>
               </div>
@@ -156,6 +154,7 @@ const PaymentForm = ({ queryParams }) => {
                 </label>
                 <input
                   type="number"
+                  min="0"
                   placeholder="Phone Number"
                   className="input input-bordered"
                 />
@@ -164,7 +163,7 @@ const PaymentForm = ({ queryParams }) => {
                 <label className="label w-[80%] mx-auto">
                   <span className="text-xl font-bold">Payment Method</span>
                 </label>
-                <div className="flex flex-wrap justify-evenly items-center w-[80%] mx-auto">
+                <div className="flex flex-wrap gap-1 justify-evenly items-center w-[80%] mx-auto">
                   <div className="border-2 p-2 rounded-lg w-[100px]">
                     <FaMoneyCheck className="text-xl font-bold"></FaMoneyCheck>
                     <span className="mt-1">Card</span>
@@ -182,35 +181,81 @@ const PaymentForm = ({ queryParams }) => {
                     <span className="mt-1">Affirm</span>
                   </div>
                 </div>
-                <div className="w-[80%] mx-auto my-5">
+                <div className="form-control w-[80%] mx-auto">
                   <label className="label">
-                    <span className="label-text font-bold">
+                    <span className="text-xl font-bold pt-3">
                       Card Information
                     </span>
                   </label>
-                  {/* CardElement component */}
-                  <CardElement
-                    className="w-full h-5 mx-auto"
-                    options={{
-                      style: {
-                        base: {
-                          fontSize: "28px",
-                          color: "black",
-                          "::placeholder": {
-                            color: "gray",
+                  <div className="grid grid-cols gap-2 border p-3 bg-white rounded">
+                    <div>
+                      <label className="label">
+                        <span className="text-black font-semibold italic">
+                          Card Number
+                        </span>
+                      </label>
+                      <CardNumberElement
+                        options={{
+                          style: {
+                            base: {
+                              fontSize: "16px",
+                              color: "black",
+                              "::placeholder": {
+                                color: "gray",
+                              },
+                            },
                           },
-                        },
-                        invalid: {
-                          color: "#9e2146",
-                        },
-                      },
-                    }}
-                  />
+                          placeholder: "Input your card number",
+                        }}
+                      />
+                    </div>
+                    <div>
+                      <label className="label">
+                        <span className="text-black font-semibold italic">
+                          Expire Date
+                        </span>
+                      </label>
+                      <CardExpiryElement
+                        options={{
+                          style: {
+                            base: {
+                              fontSize: "16px",
+                              color: "black",
+                              "::placeholder": {
+                                color: "gray",
+                              },
+                            },
+                          },
+                        }}
+                      />
+                    </div>
+                    <div>
+                      <label className="label">
+                        <span className="text-black font-semibold italic">
+                          CVC
+                        </span>
+                      </label>
+                      <CardCvcElement
+                        options={{
+                          style: {
+                            base: {
+                              fontSize: "16px",
+                              color: "black",
+                              "::placeholder": {
+                                color: "gray",
+                              },
+                            },
+                          },
+                          placeholder: "Input card cvc",
+                        }}
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div className="form-control mt-3 w-[80%] mx-auto">
+              <div className="form-control mt-2 xl:mt-6 w-[80%] mx-auto">
                 <button
-                  className="btn bg-[#002172] my-3 text-white w-full"
+                  className="btn bg-[#002172] text-white w-full"
                   type="submit"
                   disabled={!stripe || !clientSecret}
                 >
