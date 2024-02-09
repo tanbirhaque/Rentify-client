@@ -1,16 +1,34 @@
-import './SideBar.css'
-import { Link, NavLink } from 'react-router-dom';
-import { FaBookmark, FaHome, FaUserCircle, FaRegClone, FaBlogger } from "react-icons/fa";
+import "./SideBar.css";
+import { Link, NavLink } from "react-router-dom";
+import {
+  FaBookmark,
+  FaHome,
+  FaUserCircle,
+  FaRegClone,
+  FaBlogger,
+} from "react-icons/fa";
 import { IoAddCircleSharp, IoBookmarksSharp } from "react-icons/io5";
-import { MdOutlinePendingActions, MdOutlineRemoveShoppingCart } from "react-icons/md";
+import {
+  MdOutlinePendingActions,
+  MdOutlineRemoveShoppingCart,
+} from "react-icons/md";
 import { MdOutlineDashboardCustomize } from "react-icons/md";
 import { MdManageHistory } from "react-icons/md";
-import { HiCubeTransparent } from 'react-icons/hi2';
-import { CiShoppingTag } from 'react-icons/ci';
+import { HiCubeTransparent } from "react-icons/hi2";
+import { CiShoppingTag } from "react-icons/ci";
 import { FaChevronDown } from "react-icons/fa6";
+import { VscRequestChanges } from "react-icons/vsc";
+import useGetRole from "../../../Hooks/useGetRole";
 
 const SideBar = () => {
-  const sideLinks = <>
+  //roles
+  const [userRole] = useGetRole();
+  const { role } = userRole || {};
+  console.log(role);
+  //roles
+
+  const sideLinks = (
+    <>
       <li className="dashLi">
         <NavLink
           to="/dashboard/userProfile"
@@ -29,7 +47,6 @@ const SideBar = () => {
           Profile
         </NavLink>
       </li>
-
       <li className="dashLi">
         <NavLink
           to="/dashboard/my-requests"
@@ -39,7 +56,6 @@ const SideBar = () => {
           Requested Properties
         </NavLink>
       </li>
-
       <li className="dashLi">
         <NavLink
           to="/dashboard/saved"
@@ -58,65 +74,79 @@ const SideBar = () => {
           Write Blogs
         </NavLink>
       </li>
-    </>
-
-
-    const ownerRoutes = <>
+      {role === "User" && (
         <li className="dashLi">
-            <NavLink
-                to="/dashboard/add"
-                className="dashNav flex items-center gap-2"
-            >
-                <IoAddCircleSharp className="dashIcon text-[#64707d]"></IoAddCircleSharp >
-                Add Properties
-            </NavLink>
+          <NavLink
+            to="/dashboard/ownerRequest"
+            className="dashNav flex items-center gap-2"
+          >
+            <VscRequestChanges className="dashIcon text-[#64707d]" />
+            Owner Request
+          </NavLink>
         </li>
-        <li className="dashLi pt-2">
-            <NavLink
-                to="/dashboard/manage"
-                className="dashNav flex items-center gap-2"
-            >
-                <MdManageHistory className="dashIcon text-[#64707d]"></MdManageHistory>
-                Manage Properties
-            </NavLink>
-        </li>
-        <li className="dashLi pt-2">
-            <NavLink
-                to="/dashboard/rentReq"
-                className="dashNav flex items-center gap-2"
-            >
-                <HiCubeTransparent className="dashIcon text-[#64707d]"> </HiCubeTransparent>
-                Rent Request
-            </NavLink>
-        </li>
-        <li className="dashLi pt-2">
-            <NavLink
-                to="/dashboard/buyReq"
-                className="dashNav flex items-center gap-2"
-            >
-                <CiShoppingTag className="dashIcon text-[#64707d]"></CiShoppingTag>
-                Buy Request
-            </NavLink>
-        </li>
-        <li className="dashLi pt-2">
-            <NavLink
-                to="/dashboard/soldProperties"
-                className="dashNav flex items-center gap-2"
-            >
-                <MdOutlineRemoveShoppingCart className="dashIcon text-[#64707d]"></MdOutlineRemoveShoppingCart>
-               Sold Out Properties
-            </NavLink>
-        </li>
-        <li className="dashLi pt-2">
-            <NavLink
-                to="/dashboard/rentOutProperties"
-                className="dashNav flex items-center gap-2"
-            >
-                <IoBookmarksSharp className="dashIcon text-[#64707d]"></IoBookmarksSharp>
-                Rent Out Properties
-            </NavLink>
-        </li>
+      )}
     </>
+  );
+  const ownerRoutes = (
+    <>
+      <li className="dashLi">
+        <NavLink
+          to="/dashboard/add"
+          className="dashNav flex items-center gap-2"
+        >
+          <IoAddCircleSharp className="dashIcon text-[#64707d]"></IoAddCircleSharp>
+          Add Properties
+        </NavLink>
+      </li>
+      <li className="dashLi pt-2">
+        <NavLink
+          to="/dashboard/manage"
+          className="dashNav flex items-center gap-2"
+        >
+          <MdManageHistory className="dashIcon text-[#64707d]"></MdManageHistory>
+          Manage Properties
+        </NavLink>
+      </li>
+      <li className="dashLi pt-2">
+        <NavLink
+          to="/dashboard/rentReq"
+          className="dashNav flex items-center gap-2"
+        >
+          <HiCubeTransparent className="dashIcon text-[#64707d]">
+            {" "}
+          </HiCubeTransparent>
+          Rent Request
+        </NavLink>
+      </li>
+      <li className="dashLi pt-2">
+        <NavLink
+          to="/dashboard/buyReq"
+          className="dashNav flex items-center gap-2"
+        >
+          <CiShoppingTag className="dashIcon text-[#64707d]"></CiShoppingTag>
+          Buy Request
+        </NavLink>
+      </li>
+      <li className="dashLi pt-2">
+        <NavLink
+          to="/dashboard/soldProperties"
+          className="dashNav flex items-center gap-2"
+        >
+          <MdOutlineRemoveShoppingCart className="dashIcon text-[#64707d]"></MdOutlineRemoveShoppingCart>
+          Sold Out Properties
+        </NavLink>
+      </li>
+      <li className="dashLi pt-2">
+        <NavLink
+          to="/dashboard/rentOutProperties"
+          className="dashNav flex items-center gap-2"
+        >
+          <IoBookmarksSharp className="dashIcon text-[#64707d]"></IoBookmarksSharp>
+          Rent Out Properties
+        </NavLink>
+      </li>
+    </>
+  );
 
   return (
     <div>
@@ -148,13 +178,22 @@ const SideBar = () => {
             </h3>
           </span>
           <hr className="mb-3" />
-          <ul className="flex flex-col gap-2">{sideLinks}</ul>
-
-          <h3 className="poppins-font font-semibold text-xl mt-5 text-gray-400">
-            Owner Routes
-          </h3>
-          <hr className="mb-3" />
-          <ul>{ownerRoutes}</ul>
+          {/* user routes */}
+          {role === "User" && (
+            <ul className="flex flex-col gap-2">{sideLinks}</ul>
+          )}
+          {/* owner routes */}
+          {role === "Owner" && (
+            <>
+              <ul className="flex flex-col gap-2">{sideLinks}</ul>
+              <h3 className="poppins-font font-semibold text-xl mt-5 text-gray-400">
+                Owner Routes
+              </h3>
+              <hr className="mb-3" />
+              <ul>{ownerRoutes}</ul>
+            </>
+          )}
+          {/* <ul>{ownerRoutes}</ul> */}
           {/* drop-down -1*/}
           {/* <div className="collapse ">
             <input type="checkbox" />
