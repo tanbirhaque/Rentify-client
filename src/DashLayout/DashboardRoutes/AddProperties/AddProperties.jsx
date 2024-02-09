@@ -16,7 +16,7 @@ const AddProperties = () => {
   const image_hosting_api =
     "https://api.imgbb.com/1/upload?key=041c88632a7cf1ed57bab64c7c558177";
 
-  // This code from line 19 to line 21 is done by [ sojib ] for react select the option and value of the select field for property tags and property featuries.
+  // This code from line 19 to line 130 is done by [ sojib ] for react select the option and value of the select field for property tags, property featuries and image drag drop.
   const [tagValue, setTagValue] = useState([]);
   const newTags = [];
   for (let i = 0; i < tagValue.length; i++) {
