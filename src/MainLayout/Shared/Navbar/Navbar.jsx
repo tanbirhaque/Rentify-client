@@ -73,7 +73,7 @@ const Navbar = () => {
       </NavLink>
       {user && (
         <NavLink
-          to="/dashboard/profile"
+          to="/dashboard/userProfile"
           className="navAfter relative font-medium text-base  text-black mx-3"
         >
           Dashboard
@@ -226,7 +226,7 @@ const Navbar = () => {
                   </li>
                   {/* {console.log("js diye aslm", user.photoURL)} */}
                   <li>
-                    <Link to="/dashboard/profile">Dashboard</Link>
+                    <Link to="/dashboard/userProfile">Dashboard</Link>
                   </li>
                   <li>
                     <a href="http://localhost:5174/" target="blank">Admin Panel</a>
