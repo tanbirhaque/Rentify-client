@@ -50,7 +50,7 @@ const AllProperties = () => {
       <div className="allimg">
         <div className=" bg-[#000000B2]">
           <div className=" max-w-screen-2xl mx-auto py-24">
-            <h2 className="text-6xl font-bold text-white font-serif">
+            <h2 className="md:text-6xl text-2xl font-bold text-white font-serif">
               All Properties
             </h2>
             <div className="mt-2">
