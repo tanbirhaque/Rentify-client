@@ -370,7 +370,7 @@ const Details = () => {
                 Add your review
               </h3>
               {/* review form designed by Sojib modified by Fahima */}
-              <ReviewForm />
+              <ReviewForm property={item}/>
             </div>
             {/* similar property section starts */}
             {/* <div>

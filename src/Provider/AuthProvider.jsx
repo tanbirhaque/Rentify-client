@@ -44,19 +44,6 @@ const AuthProvider = ({ children }) => {
   const userSignOut = () => {
     setLoading(true);
     return signOut(auth)
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err.code);
-        Swal.fire({
-          title: err.code,
-          timer: 2000,
-          color: "#ec3323",
-          showConfirmButton: false,
-          icon: "error",
-        });
-      });
   };
   //auth state change
   useEffect(() => {
