@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import useOwnerRent from "../../../Hooks/useOwnerRent";
 import RentRequestCard from "./RentRequestCard";
+import { FaUser } from "react-icons/fa";
 
 const RentRequest = () => {
     const [ownerRent, refetch] = useOwnerRent();
@@ -33,19 +34,17 @@ const RentRequest = () => {
 
     return (
         <>
-             <div className="flex items-center justify-end">
-                <h1>Sort by:</h1>
-                <div className="dropdown">
-                    {/* Click button */}
-                    <div tabIndex={0} role="button" className="border-2 rounded-lg px-4 py-2 m-1" onClick={toggleDropdown}>Status</div>
-                    {/* Dropdown content */}
-                    <ul tabIndex={0} className={`dropdown-content ${dropdownVisible ? 'show' : ''} z-[1] menu p-2 shadow bg-base-100 rounded-box w-52`}>
-                        <li><a onClick={() => handleSortBy("Pending")}>Pending</a></li>
-                        <li><a onClick={() => handleSortBy("Accept")}>Accept</a></li>
-                        <li><a onClick={() => handleSortBy("Reject")}>Reject</a></li>
-                    </ul>
+            {/* <div className="ml-10 mt-10">
+                <div className="flex bg-slate-300 py-10 px-5 items-center gap-6 w-56">
+                    <div>
+                        <h1>245</h1>
+                        <h1>Total Customers</h1>
+                    </div>
+                    <div className="bg-red-100 rounded-xl p-4">
+                    <FaUser/>
+                    </div>
                 </div>
-            </div>
+            </div> */}
 
             <div className="overflow-x-auto">
                 <table className="table table-zebra">
