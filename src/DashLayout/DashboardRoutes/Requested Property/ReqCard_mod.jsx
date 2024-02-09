@@ -15,18 +15,18 @@ const ReqCard_mod = ({ requestedProperties }) => {
     const { address } = property.property_location || {}
     const { property_img, property_title, property_for, property_details, ownership_duration } = property || {}
     // console.log(requestedProperties);
-    const {property_status} = property_details || {}
-    console.log('This prop',property_status);
+    const { property_status } = property_details || {}
+    console.log('This prop', property_status);
 
-    const defaultImg ="https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?w=740&t=st=1696786604~exp=1696787204~hmac=c10645727b8724eecda4984ef1d8fbfba92a9c9072a57b851c28c9b1d8d62b81";
+    const defaultImg = "https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?w=740&t=st=1696786604~exp=1696787204~hmac=c10645727b8724eecda4984ef1d8fbfba92a9c9072a57b851c28c9b1d8d62b81";
 
 
     return (
         <>
             <div className="bg-white mb-6 rounded-lg border">
-                <div className="hover:shadow-md mx-auto flex rounded-lg">
+                <div className="flex flex-col lg:flex-row mx-auto rounded-lg hover:shadow-md ">
                     {/* Property details */}
-                    <div className="rounded-l-lg w-3/4 flex h-80">
+                    <div className="flex flex-col lg:flex-row lg:w-3/4 lg:h-80 rounded-l-lg ">
                         <figure className="min-w-1/2 h-full rounded-l-lg">
                             <img
                                 className="w-full h-full rounded-l-lg"
@@ -35,7 +35,10 @@ const ReqCard_mod = ({ requestedProperties }) => {
                             />
                         </figure>
                         <div className="h-80 py-5 pl-5">
-                            <Scrollbars style={{ width: 470 }}>
+                            <Scrollbars
+                                className="min-w-full lg:min-w-[400px] xl:min-w-[470px]"
+                                // style={{ width: 470 }}
+                            >
                                 <div className="mr-5">
                                     <div className="flex justify-between items-center mb-2">
                                         <button className="bg-[#e33226] rounded-md btn-one py-[8px] px-[12px] text-white text-[16px] capitalize">
