@@ -154,7 +154,7 @@ const UserProfile = () => {
                                                     <div className="mt-3">
                                                         <div className=" overflow-hidden">
                                                             <Link to={`/blogs/${item._id}`}>
-                                                                <div className="hover:text-green-600 after:bg-green-600 duration-500 ease-in-out flex items-center navAfter">
+                                                                <div className="hover:text-green-600 after:bg-green-600 duration-500 ease-in-out flex items-center profileanm">
                                                                     <p>Read more
                                                                     </p>
                                                                     <p><IoIosArrowForward /></p>

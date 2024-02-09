@@ -4,7 +4,7 @@
     padding: 94px .75rem 1.5rem !important;
 }
 
-.navAfter::after {
+.profileanm::after {
     content: "";
     width: 0%;
     height: 1px;
@@ -16,10 +16,10 @@
     transition: all linear 0.3s;
 }
 
-.navAfter:hover:after {
+.profileanm:hover:after {
     width: 100%;
 }
 
-.navAfter:hover {
+.profileanm:hover {
     color: #10A34A80;
 }
