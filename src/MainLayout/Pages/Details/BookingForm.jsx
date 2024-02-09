@@ -40,7 +40,7 @@ const BookingForm = ({ item }) => {
           icon: "error",
           title: "Oops...",
           text: "Your already have this property requested!",
-          footer: `<a href='/login' className='font-bold underline'>Please Log In</a>`,
+          footer: `<a href='/login' className='font-bold underline'>Please requsted more onther property</a>`,
           showConfirmButton: false,
         })
       }

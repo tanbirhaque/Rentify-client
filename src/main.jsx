@@ -51,7 +51,9 @@ import RentRequest from "./DashLayout/DashboardRoutes/RentRequest/RentRequest.js
 import SoldProperties from "./DashLayout/DashboardRoutes/SoldProperties/SoldProperties.jsx";
 import RentOutProperties from "./DashLayout/DashboardRoutes/RentOutProperties/RentOutProperties.jsx";
 import WriteBlogs from "./DashLayout/DashboardRoutes/WriteBlogs/WriteBlogs.jsx";
+import UserProfile from "./DashLayout/DashboardRoutes/UserProfile/UserProfile.jsx";
 import OwnerRequestForm from "./DashLayout/DashboardRoutes/Owner Request/OwnerRequestForm.jsx";
+import AllProperties from "./MainLayout/Pages/Home/HomeComponents/AllProperties/AllProperties.jsx";
 
 const queryClient = new QueryClient();
 
@@ -77,6 +79,10 @@ const router = createBrowserRouter([
       {
         path: "/reset",
         element: <Reset />,
+      },
+      {
+        path: "/all",
+        element: <AllProperties></AllProperties>
       },
       {
         path: "/blogs",
@@ -175,7 +181,7 @@ const router = createBrowserRouter([
   // Dashboard routes here
   {
     path: "dashboard",
-    element: <DashLayout></DashLayout>,
+    element: <Private><DashLayout></DashLayout></Private>,
     children: [
       {
         path: "profile",
@@ -186,6 +192,10 @@ const router = createBrowserRouter([
         //     element: <Overview></Overview>,
         //   }
         // ]
+      },
+      {
+        path: "userProfile",
+        element: <UserProfile></UserProfile>
       },
       // {
       //   path: 'settings',

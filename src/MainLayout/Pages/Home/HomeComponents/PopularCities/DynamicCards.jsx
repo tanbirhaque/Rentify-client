@@ -10,6 +10,8 @@ const DynamicCards = ({property}) => {
     const { property_info, _id } = property || {};
     const { property_img, property_title, property_location, property_details, property_for } =
       property_info || {};
+
+      const {property_price} = property_details || {}
 // console.log(properties)
 
     return (
@@ -24,7 +26,7 @@ const DynamicCards = ({property}) => {
               {property_for}
             </button>
             <p className="text-right text-[#666666]">
-              <span className="text-[#002172] text-[16px] font-bold ">$78</span>
+              <span className="text-[#002172] text-[16px] font-bold ">${property_price}</span>
               /month
             </p>
           </div>

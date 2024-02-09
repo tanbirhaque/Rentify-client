@@ -1,0 +1,25 @@
+.layout-specing {
+    min-height: calc(100vh - 71px) !important;
+    position: relative !important;
+    padding: 94px .75rem 1.5rem !important;
+}
+
+.blogAfter::after {
+    content: "";
+    width: 0%;
+    height: 1px;
+    background-color: #002172;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    font-size: 16px;
+    transition: all linear 0.3s;
+}
+
+.blogAfter:hover:after {
+    width: 100%;
+}
+
+.blogAfter:hover {
+    color: #002172;
+}

@@ -71,13 +71,14 @@ const Navbar = () => {
       >
         Blogs
       </NavLink>
-      <NavLink
-        to="/dashboard/profile"
-        className="navAfter relative font-medium text-base  text-black mx-3"
-      >
-        Dashboard
-      </NavLink>
-
+      {user && (
+        <NavLink
+          to="/dashboard/userProfile"
+          className="navAfter relative font-medium text-base  text-black mx-3"
+        >
+          Dashboard
+        </NavLink>
+      )}
       <NavLink
         to="/how-it-works"
         className="navAfter relative font-medium text-base  text-black mx-3"
@@ -86,7 +87,36 @@ const Navbar = () => {
       </NavLink>
 
       {/* for others */}
-      <details className="dropdown">
+      <div className="dropdown dropdown-hover relative">
+        <div tabIndex={0} role="button" className="navAfter relative font-medium text-base  text-black mx-3">Others</div>
+        <ul className="menu dropdown-content z-[1] bg-white pl-5  w-[250px] border-[#e33226] border-l-[2px] rounded-[5px] py-0 absolute top-8">
+          <NavLink
+            to="/testimonials"
+            className="navAfter relative font-medium text-base text-black my-2"
+          >
+            Testimonials
+          </NavLink>
+          <NavLink
+            to="/privacy"
+            className="navAfter relative font-medium text-base text-black my-2"
+          >
+            Our Privacy
+          </NavLink>
+          <NavLink
+            to="/conditions"
+            className="navAfter relative font-medium text-base text-black my-2"
+          >
+            Terms & Conditions
+          </NavLink>
+          <NavLink
+            to="/faq"
+            className="navAfter relative font-medium text-base text-black  my-2"
+          >
+            FAQ
+          </NavLink>
+        </ul>
+      </div>
+      {/* <details className="dropdown">
         <summary className="navAfter relative font-medium text-base  text-black mx-3">
           Others
         </summary>
@@ -116,16 +146,15 @@ const Navbar = () => {
             FAQ
           </NavLink>
         </ul>
-      </details>
+      </details> */}
     </>
   );
 
   return (
     // Please don't change the z-index, added by -Tanbir
     <div
-      className={` bg-base-100  sticky top-0 left-0 z-[99999] ${
-        isNavbarJumping ? "animate-jump shadow-md" : ""
-      }`}
+      className={` bg-base-100  sticky top-0 left-0 z-[99999] ${isNavbarJumping ? "animate-jump shadow-md" : ""
+        }`}
     >
       <div className="navbar max-w-screen-2xl mx-auto bg-base-100 px-0">
         <div className="navbar-start">
@@ -159,8 +188,8 @@ const Navbar = () => {
                 className="w-[60px] md:w-full"
                 src="https://i.ibb.co/GsQpf2D/logo.png"
               />
-              <h4 className="font-bold poppins-font text-2xl lg:text-[38px] ml-2">
-                Renti<span className="text-[#002172]">fy</span>
+              <h4 className="font-bold poppins-font text-2xl lg:text-[38px] ml-2 text-[#002172]">
+                Renti<span className="text-[#e33226]">fy</span>
               </h4>
             </div>
           </Link>
@@ -197,10 +226,10 @@ const Navbar = () => {
                   </li>
                   {/* {console.log("js diye aslm", user.photoURL)} */}
                   <li>
-                    <Link to="/dashboard/profile">Dashboard</Link>
+                    <Link to="/dashboard/userProfile">Dashboard</Link>
                   </li>
                   <li>
-                    <a href="http://localhost:5174/">Admin Panel</a>
+                    <a href="http://localhost:5174/" target="blank">Admin Panel</a>
                   </li>
                   <li>
                     <Link onClick={handleLogOut}>Logout</Link>
@@ -230,3 +259,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+// comment for checking

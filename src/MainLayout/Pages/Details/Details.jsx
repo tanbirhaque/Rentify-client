@@ -22,8 +22,10 @@ const Details = () => {
   const { id } = useParams();
   const item = properties.find((item) => item._id == id);
   const [saved, refetch] = useSavedProperties();
+  console.log(saved)
   // saved properties find for bookmark desgin and So that the user cannot add a property more than once this function added by sojib
   const findSaved = saved.find(save => save.property._id == item._id)
+  console.log(findSaved)
 
   //destructure
   const { property_info } = item || {};
@@ -65,7 +67,7 @@ const Details = () => {
           icon: "error",
           title: "Oops...",
           text: "Your already have this property Saved done!",
-          footer: `<a href='/login' className='font-bold underline'>Please Log In</a>`,
+          footer: `<a href='/login' className='font-bold underline'>Please saved onther property</a>`,
           showConfirmButton: false,
         })
       }
