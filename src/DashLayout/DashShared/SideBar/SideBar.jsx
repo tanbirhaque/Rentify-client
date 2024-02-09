@@ -13,6 +13,15 @@ const SideBar = () => {
   const sideLinks = <>
       <li className="dashLi">
         <NavLink
+          to="/dashboard/userProfile"
+          className="dashNav flex items-center gap-2"
+        >
+          <FaUserCircle className="dashIcon text-[#64707d]"></FaUserCircle>
+          User Profile
+        </NavLink>
+      </li>
+      <li className="dashLi">
+        <NavLink
           to="/dashboard/profile"
           className="dashNav flex items-center gap-2"
         >

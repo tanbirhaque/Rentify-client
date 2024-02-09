@@ -1,8 +1,11 @@
 import { NavLink, Outlet } from "react-router-dom";
 import "./Profile.css";
 import Overview from "./Overview";
+import { useContext } from "react";
+import { AuthContext } from "../../../Provider/AuthProvider";
 
 const Profile = () => {
+  const {user} = useContext(AuthContext)
   return (
     <div className="holder w-full  mx-auto">
       <div className="card  h-[300px] border-t  hover:shadow-none relative flex flex-col mx-auto">
@@ -15,9 +18,10 @@ const Profile = () => {
           />
         </div>
         <div className="profile w-full flex m-3 ml-4 text-white">
+          {/* profile photo daynamic by sojib */}
           <img
             className="w-36 h-36 p-1 bg-white rounded-full  absolute -mt-20 avatar online"
-            src="https://images.pexels.com/photos/61100/pexels-photo-61100.jpeg?crop=faces&fit=crop&h=200&w=200&auto=compress&cs=tinysrgb"
+            src={user?.photoURL}
             alt=""
           />
           <span className="ml-8 left-28  absolute  w-5 h-5 bg-green-400 border-2 border-white dark:border-gray-800 rounded-full" />

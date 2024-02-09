@@ -51,6 +51,7 @@ import RentRequest from "./DashLayout/DashboardRoutes/RentRequest/RentRequest.js
 import SoldProperties from "./DashLayout/DashboardRoutes/SoldProperties/SoldProperties.jsx";
 import RentOutProperties from "./DashLayout/DashboardRoutes/RentOutProperties/RentOutProperties.jsx";
 import WriteBlogs from "./DashLayout/DashboardRoutes/WriteBlogs/WriteBlogs.jsx";
+import UserProfile from "./DashLayout/DashboardRoutes/UserProfile/UserProfile.jsx";
 
 const queryClient = new QueryClient();
 
@@ -185,6 +186,10 @@ const router = createBrowserRouter([
         //     element: <Overview></Overview>,
         //   }
         // ]
+      },
+      {
+        path: "userProfile",
+        element: <UserProfile></UserProfile>
       },
       // {
       //   path: 'settings',
