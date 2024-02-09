@@ -15,7 +15,6 @@ const RequestedProperty = () => {
   const { user } = useAuth();
   const [properties, setProperties] = useState([]);
   const [tabIndex, setTabIndex] = useState(0);
-
   // Requested data fetched by useffect becouse usestate data direct not defiend
   const url = `http://localhost:5000/all_requested?email=${user?.email}`;
   useEffect(() => {
@@ -92,9 +91,9 @@ const RequestedProperty = () => {
           </div>
         </div> */}
 
-        <div className=" w-[1200px] mx-auto mt-5">
+        <div className=" xl:w-[1200px] mx-auto mt-5">
           {/* Here are used to menu class & Navlink for uniq desgin and filter by property status in Accepted, Pending & Rejected..[codded by Sojib] */}
-          <div className="flex flex-row justify-center items-center mb-7 gap-4">
+          <div className="flex flex-row justify-center items-center mb-7 gap-4 hidden">
             <button
               onClick={handleAll}
             >
@@ -154,7 +153,7 @@ const RequestedProperty = () => {
             </div>
             <TabPanel>
               {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 p-5"> */}
-              <div>
+              <div className="">
                 {rentsProperties?.map((requestedProperty) => (
                   <ReqCard_mod
                     key={requestedProperty._id}
