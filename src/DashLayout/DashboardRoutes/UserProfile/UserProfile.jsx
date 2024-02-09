@@ -1,4 +1,4 @@
-// This user profile routs ful desgined and functionality made by [sojib]
+// These routes are fully designed and functional featuries  worked by [ sojib ]
 import { useContext } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import './UserProfile.css'
@@ -13,6 +13,7 @@ const UserProfile = () => {
     const [blogs] = useBlogs();
     return (
         <div className="">
+            {/* Profile banner section */}
             <div className=" grid grid-cols-1 w-[97%] mx-auto mt-5">
                 <div className=" relative text-transparent rounded-md shadow dark:shadow-gray-700 overflow-hidden">
                     <div className="">
@@ -24,20 +25,12 @@ const UserProfile = () => {
                         />
                         <div className="absolute inset-0 bg-black/70"></div>
                     </div>
-                    {/* <div
-                        className="hero h-80"
-                        style={{
-                            backgroundImage: "url(https://i.ibb.co/S5vvBYj/download.webp)",
-                        }}
-                    >
-                        <div className="hero-overlay bg-black/80 inset-0 opacity-100 p-28">
-
-                        </div>
-                    </div> */}
                 </div>
             </div>
+            {/* Profile main layouts */}
             <div className=" grid md:grid-cols-12 grid-cols-1 w-[97%] mx-auto mt-5">
                 <div className="xl:col-span-3 lg:col-span-4 md:col-span-4 mx-6">
+                    {/* Profile card details */}
                     <div className="p-6 relative rounded-md shadow dark:shadow-gray-700 bg-white dark:bg-slate-900 -mt-48">
                         <div className=" flex flex-col justify-center items-center">
                             <div className="relative mx-auto">
@@ -48,7 +41,6 @@ const UserProfile = () => {
                                 <p className="text-slate-400">{user?.email}</p>
                             </div>
                         </div>
-                        {/* <div className="divider"></div> */}
                         <div className=" border-t-2 mt-5 border-gray-100 dark:border-gray-700">
                             <h5 className="text-xl font-semibold mt-4">
                                 Personal Details :</h5>
@@ -119,6 +111,7 @@ const UserProfile = () => {
                     </div>
                 </div>
                 <div className="xl:col-span-9 lg:col-span-8 md:col-span-8 my-6">
+                    {/* Description area */}
                     <div className="grid grid-cols-1 gap-6">
                         <div className="p-6 border-2 relative rounded-md dark:shadow-gray-700 bg-white dark:bg-slate-900">
                             <h5 className="text-xl font-semibold">{user?.displayName}</h5><p className="text-slate-400 mt-3">I have started my career as a trainee and prove my self and achieve all the milestone with good guidance and reach up to the project manager. In this journey, I understand all the procedure which make me a good developer, team leader, and a project manager.</p>
