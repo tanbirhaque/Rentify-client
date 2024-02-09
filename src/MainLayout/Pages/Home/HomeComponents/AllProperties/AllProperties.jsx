@@ -9,6 +9,19 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 const AllProperties = () => {
   const [properties] = useProperties();
   const [property, setProperty] = useState([]);
+  // const [sortedProperties, setSortedProperties] = useState(properties);
+
+
+  const sortByPriceLowToHigh = () => {
+    const sorted = [...properties].sort((a, b) => a.property_info.property_details.property_price - b.property_info.property_details.property_price);
+    setProperty(sorted);
+  };
+
+ 
+  const sortByPriceHighToLow = () => {
+    const sorted = [...properties].sort((a, b) => b.property_info.property_details.property_price - a.property_info.property_details.property_price);
+    setProperty(sorted);
+  };
 
 
 
@@ -129,10 +142,10 @@ const AllProperties = () => {
           <summary className="m-1 btn bg-[#002172] text-white hover:bg-[#e33226]">Sort By Price <MdKeyboardArrowDown className="text-xl"></MdKeyboardArrowDown></summary>
           <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
             <li>
-              <a className="font-bold">High to Low</a>
+              <a className="font-bold"  onClick={sortByPriceHighToLow}>High to Low</a>
             </li>
             <li>
-              <a className="font-bold">Low to High</a>
+              <a className="font-bold"  onClick={sortByPriceLowToHigh}>Low to High</a>
             </li>
           </ul>
         </details>
