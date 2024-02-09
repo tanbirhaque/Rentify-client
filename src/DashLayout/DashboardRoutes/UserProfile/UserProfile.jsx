@@ -44,8 +44,8 @@ const UserProfile = () => {
                                 <img className="h-24 w-24 rounded-full" src={user?.photoURL} alt="" />
                             </div>
                             <div className="mt-4 text-center">
-                                <h5 className="text-lg font-semibold">Calvin Carlo</h5>
-                                <p className="text-slate-400">calvin@hotmail.com</p>
+                                <h5 className="text-lg font-semibold">{user?.displayName}</h5>
+                                <p className="text-slate-400">{user?.email}</p>
                             </div>
                         </div>
                         {/* <div className="divider"></div> */}
@@ -60,7 +60,7 @@ const UserProfile = () => {
                                     <div className="flex-1">
                                         <h6 className="text-green-600 dark:text-white font-medium mb-0">Email :
                                         </h6>
-                                        <a className="text-slate-400" href="">calvin@hotmail.com</a>
+                                        <a className="text-slate-400" href="">{user?.email}</a>
                                     </div>
                                 </div>
                                 <div className="flex items-center mt-3">
@@ -121,7 +121,7 @@ const UserProfile = () => {
                 <div className="xl:col-span-9 lg:col-span-8 md:col-span-8 my-6">
                     <div className="grid grid-cols-1 gap-6">
                         <div className="p-6 border-2 relative rounded-md dark:shadow-gray-700 bg-white dark:bg-slate-900">
-                            <h5 className="text-xl font-semibold">Calvin Carlo</h5><p className="text-slate-400 mt-3">I have started my career as a trainee and prove my self and achieve all the milestone with good guidance and reach up to the project manager. In this journey, I understand all the procedure which make me a good developer, team leader, and a project manager.</p>
+                            <h5 className="text-xl font-semibold">{user?.displayName}</h5><p className="text-slate-400 mt-3">I have started my career as a trainee and prove my self and achieve all the milestone with good guidance and reach up to the project manager. In this journey, I understand all the procedure which make me a good developer, team leader, and a project manager.</p>
                         </div>
                         <div className="p-6 relative border-2 rounded-md dark:shadow-gray-700 bg-white dark:bg-slate-900">
                             <h5 className="text-xl font-semibold">All Blogs :</h5>
