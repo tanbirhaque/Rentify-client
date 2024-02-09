@@ -5,10 +5,14 @@ import "./all.css";
 import useProperties from "../../../../../Hooks/useProperties";
 import DynamicCards from "../PopularCities/DynamicCards";
 import { useState } from "react";
-
+import { MdKeyboardArrowDown } from "react-icons/md";
 const AllProperties = () => {
   const [properties] = useProperties();
   const [property, setProperty] = useState([]);
+
+
+
+
 
   // const handleSearch = e => {
   //   e.preventDefault();
@@ -38,8 +42,8 @@ const AllProperties = () => {
       return;
     }
 
-    const filterProperty = properties.filter(
-      (item) => item.property_info.property_title.toLowerCase().includes(searchbar)
+    const filterProperty = properties.filter((item) =>
+      item.property_info.property_title.toLowerCase().includes(searchbar)
     );
 
     setProperty(filterProperty);
@@ -47,6 +51,7 @@ const AllProperties = () => {
 
   return (
     <div>
+      {/* banner section */}
       <div className="allimg">
         <div className=" bg-[#000000B2]">
           <div className=" max-w-screen-2xl mx-auto py-24">
@@ -71,6 +76,7 @@ const AllProperties = () => {
         </div>
       </div>
 
+      {/* search field */}
       <div className="max-w-screen-xl mx-auto gap-4 mt-16">
         <form onSubmit={handleSearch}>
           <label
@@ -116,6 +122,23 @@ const AllProperties = () => {
         </form>
       </div>
 
+      {/* sort  */}
+
+      <div className="max-w-screen-xl flex justify-center mx-auto gap-4 mt-16">
+        <details className="dropdown mb-10 ">
+          <summary className="m-1 btn bg-[#002172] text-white hover:bg-[#e33226]">Sort By Price <MdKeyboardArrowDown className="text-xl"></MdKeyboardArrowDown></summary>
+          <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+            <li>
+              <a className="font-bold">High to Low</a>
+            </li>
+            <li>
+              <a className="font-bold">Low to High</a>
+            </li>
+          </ul>
+        </details>
+      </div>
+
+      {/* cards section */}
       <div className="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-16">
         {/* {properties.map((property) => (
           <DynamicCards key={property._id} property={property}></DynamicCards>
