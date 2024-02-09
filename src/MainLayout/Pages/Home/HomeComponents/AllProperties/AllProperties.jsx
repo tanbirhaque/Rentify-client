@@ -1,18 +1,52 @@
 // This section is created by Sadia
- 
+
 import { NavLink } from "react-router-dom";
 import "./all.css";
 import useProperties from "../../../../../Hooks/useProperties";
 import DynamicCards from "../PopularCities/DynamicCards";
+import { useState } from "react";
 
 const AllProperties = () => {
   const [properties] = useProperties();
+  const [property, setProperty] = useState([]);
 
-  
+  // const handleSearch = e => {
+  //   e.preventDefault();
+
+  //   const searchbar = e.target.searchbar.value
+  //   console.log(searchbar)
+
+  //   const filterProperty = properties.filter(item => {
+  //   return  item.property_info.property_title.toLowerCase() == searchbar.toLowerCase();} )
+
+  //   if(filterProperty.length === 0) {
+  //     return setProperty([]);
+  //   }
+  //   else{
+  //     return setProperty(filterProperty);
+  //   }
+
+  // }
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+
+    const searchbar = e.target.searchbar.value.trim().toLowerCase();
+
+    if (!searchbar) {
+      setProperty([]);
+      return;
+    }
+
+    const filterProperty = properties.filter(
+      (item) => item.property_info.property_title.toLowerCase().includes(searchbar)
+    );
+
+    setProperty(filterProperty);
+  };
 
   return (
     <div>
-        {/* for bannner */}
       <div className="allimg">
         <div className=" bg-[#000000B2]">
           <div className=" max-w-screen-2xl mx-auto py-24">
@@ -37,9 +71,8 @@ const AllProperties = () => {
         </div>
       </div>
 
-       {/* for search field */}
       <div className="max-w-screen-xl mx-auto gap-4 mt-16">
-        <form>
+        <form onSubmit={handleSearch}>
           <label
             htmlFor="default-search"
             className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
@@ -65,8 +98,10 @@ const AllProperties = () => {
               </svg>
             </div>
             <input
-              type="search"
+              type="text"
               id="default-search"
+              name="searchbar"
+              // onChange={() => handleSearch()}
               className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="Please search by property title"
               required
@@ -81,12 +116,24 @@ const AllProperties = () => {
         </form>
       </div>
 
-        {/* for cards */}
       <div className="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-16">
-         
-        {properties.map((property) => (
+        {/* {properties.map((property) => (
           <DynamicCards key={property._id} property={property}></DynamicCards>
-        ))}
+        ))} */}
+
+        {property.length > 0
+          ? property.map((property) => (
+              <DynamicCards
+                key={property._id}
+                property={property}
+              ></DynamicCards>
+            ))
+          : properties.map((property) => (
+              <DynamicCards
+                key={property._id}
+                property={property}
+              ></DynamicCards>
+            ))}
       </div>
     </div>
   );
