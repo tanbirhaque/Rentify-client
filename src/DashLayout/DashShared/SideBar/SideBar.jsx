@@ -65,15 +65,17 @@ const SideBar = () => {
           Write Blogs
         </NavLink>
       </li>
-      <li className="dashLi">
-        <NavLink
-          to="/dashboard/ownerRequest"
-          className="dashNav flex items-center gap-2"
-        >
-          <VscRequestChanges className="dashIcon text-[#64707d]" />
-          Owner Request
-        </NavLink>
-      </li>
+      {role === "User" && (
+        <li className="dashLi">
+          <NavLink
+            to="/dashboard/ownerRequest"
+            className="dashNav flex items-center gap-2"
+          >
+            <VscRequestChanges className="dashIcon text-[#64707d]" />
+            Owner Request
+          </NavLink>
+        </li>
+      )}
     </>
   );
   const ownerRoutes = (

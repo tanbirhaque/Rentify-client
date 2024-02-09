@@ -12,7 +12,7 @@ const ReviewForm = ({ property }) => {
   const axiosPublic = useAxiosPublic();
 
   //destructuring
-  const { _id } = property || {};
+  const { _id, property_info } = property || {};
   const { displayName, email, photoURL } = user || {};
 
   //images hosting to imgbb
@@ -61,13 +61,14 @@ const ReviewForm = ({ property }) => {
       //for saving property data to backend
       const review = {
         propertyId: _id,
+        propertyTitle: property_info.property_title,
         reviewerEmail: email,
         reviewerName: displayName,
         reviewerImage: photoURL,
-        reviewerText: data.message,
-        // reviewImage: uploadedImages,
+        reviewText: data.message,
         reviewImage: imageUrl,
         reviewRating: data.rating,
+        date: new Date().toLocaleDateString("en-GB"),
       };
       axiosSecure.post("/reviews", review).then((response) => {
         Swal.fire({

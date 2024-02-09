@@ -71,13 +71,14 @@ const Navbar = () => {
       >
         Blogs
       </NavLink>
-      <NavLink
-        to="/dashboard/profile"
-        className="navAfter relative font-medium text-base  text-black mx-3"
-      >
-        Dashboard
-      </NavLink>
-
+      {user && (
+        <NavLink
+          to="/dashboard/profile"
+          className="navAfter relative font-medium text-base  text-black mx-3"
+        >
+          Dashboard
+        </NavLink>
+      )}
       <NavLink
         to="/how-it-works"
         className="navAfter relative font-medium text-base  text-black mx-3"
