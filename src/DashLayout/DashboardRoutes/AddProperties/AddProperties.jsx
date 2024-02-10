@@ -81,26 +81,32 @@ const AddProperties = () => {
   const [showImages, setShowImages] = useState([])
   const [isDraging, setisDreaging] = useState(false)
   const fileInputRef = useRef(null)
+  console.log(images)
+  const formData = new FormData();
+  console.log(formData)
+  for (let i = 0; i < images.length; i++) {
+    formData.append(`image${i}`, images[i]);
+  }
   // console.log(images, showImages)
   const onFileSelect = (event) => {
     event.preventDefault();
     const files = event.target.files;
-    setImages(files[0])
+    setImages(files)
     console.log(files)
 
-    if (files.length === 0) return;
-    for (let i = 0; i < files.length; i++) {
-      if (files[i].type.split('/')[0] !== 'image') continue;
-      if (!showImages.some((e) => e.name === files[i].name)) {
-        setShowImages((prevImages) => [
-          ...prevImages,
-          {
-            name: files[i].name,
-            url: URL.createObjectURL(files[i])
-          }
-        ])
-      }
-    }
+    // if (files.length === 0) return;
+    // for (let i = 0; i < files.length; i++) {
+    //   if (files[i].type.split('/')[0] !== 'image') continue;
+    //   if (!showImages.some((e) => e.name === files[i].name)) {
+    //     setShowImages((prevImages) => [
+    //       ...prevImages,
+    //       {
+    //         name: files[i].name,
+    //         url: URL.createObjectURL(files[i])
+    //       }
+    //     ])
+    //   }
+    // }
   }
   function selectFiles() {
     fileInputRef.current.click();
@@ -713,7 +719,7 @@ const AddProperties = () => {
                         <div className="">
                           <p className=" font-bold">Drop here files or click to upload Properties images</p>
                           <input
-                            {...register("file")}
+                            {...register("files")}
                             type="file"
                             placeholder="Drag and drop your image or url"
                             name="files"
@@ -754,7 +760,7 @@ const AddProperties = () => {
                         <div className="">
                           <p className=" font-bold">Drop here files or click to upload Floor plan images</p>
                           <input
-                            {...register("file")}
+                            {...register("filesfloor")}
                             type="file"
                             placeholder="Drag and drop your image or url"
                             name="files"
