@@ -15,6 +15,7 @@ import useAxiosPublic from "../../../Hooks/useAxiosPublic.jsx";
 import useSavedProperties from "../../../Hooks/useSavedProperties.jsx";
 
 
+
 const Details = () => {
   const axiosPublic = useAxiosPublic();
   const { user } = useAuth();
@@ -23,7 +24,7 @@ const Details = () => {
   const item = properties.find((item) => item._id == id);
   const [saved, refetch] = useSavedProperties();
   console.log(saved)
-  // saved properties find for bookmark desgin and So that the user cannot add a property more than once this function added by sojib
+  // saved properties find for bookmark design and So that the user cannot add a property more than once this function added by sojib
   const findSaved = saved.find(save => save.property._id == item._id)
   console.log(findSaved)
 
@@ -364,7 +365,8 @@ const Details = () => {
                 <hr className="mt-5" />
               </div>
             </div>
-            {/* Review submition form starts */}
+            {/* <Reviews/> */}
+            {/* Review submission form starts */}
             <div>
               <h3 className="poppins-font text-[24px] font-semibold my-6">
                 Add your review
