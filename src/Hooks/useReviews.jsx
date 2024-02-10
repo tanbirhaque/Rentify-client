@@ -1,11 +1,12 @@
-import { useQuery } from "@tanstack/react-query";
-import useAxiosSecure from "./UseAxiosSecure";
+//component added by "Fahima"
 
+import { useQuery } from "@tanstack/react-query";
+import useAxiosSecure from "./useAxiosSecure";
 
 const useReviews = () => {
   const axiosSecure = useAxiosSecure();
   const { data: reviews = [], refetch } = useQuery({
-    queryKey: ["reviews", reviews],
+    queryKey: ["reviews"],
     queryFn: async () => {
       const res = await axiosSecure.get(`/reviews`);
       return res.data;
