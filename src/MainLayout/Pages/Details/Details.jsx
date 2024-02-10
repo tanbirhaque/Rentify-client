@@ -6,13 +6,14 @@ import VideoModal from "../Home/HomeComponents/Virtual Apartments/VideoModal";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import Swal from "sweetalert2";
-import { FaRegBookmark, } from "react-icons/fa";
+import { FaBookmark, FaRegBookmark, } from "react-icons/fa";
 import BookingForm from "./BookingForm.jsx";
 import useAuth from "../../../Hooks/useAuth.jsx";
 import ReviewForm from "./ReviewForm.jsx";
 import OwnerInfo from "./OwnerInfo.jsx";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic.jsx";
-import Reviews from "./Reviews.jsx";
+import useSavedProperties from "../../../Hooks/useSavedProperties.jsx";
+
 
 
 const Details = () => {
@@ -21,7 +22,11 @@ const Details = () => {
   const properties = useLoaderData();
   const { id } = useParams();
   const item = properties.find((item) => item._id == id);
-  console.log(item)
+  const [saved, refetch] = useSavedProperties();
+  console.log(saved)
+  // saved properties find for bookmark design and So that the user cannot add a property more than once this function added by sojib
+  const findSaved = saved.find(save => save.property._id == item._id)
+  console.log(findSaved)
 
   //destructure
   const { property_info } = item || {};
@@ -58,17 +63,29 @@ const Details = () => {
         property: item,
         savedUserEmail: user.email,
       };
-      axiosPublic.post("/saved-properties", savedProperties).then((res) => {
-        console.log(res.data);
+      if (findSaved) {
         Swal.fire({
-          title: `Added to saved properties.`,
-          timer: 2000,
-          color: "#002172",
+          icon: "error",
+          title: "Oops...",
+          text: "Your already have this property Saved done!",
+          footer: `<a href='/login' className='font-bold underline'>Please saved onther property</a>`,
           showConfirmButton: false,
-          icon: "success",
+        })
+      }
+      else {
+        axiosPublic.post("/saved-properties", savedProperties).then((res) => {
+          console.log(res.data);
+          Swal.fire({
+            title: `Added to saved properties.`,
+            timer: 2000,
+            color: "#002172",
+            showConfirmButton: false,
+            icon: "success",
+          });
+          refetch();
         });
-      });
-      console.log(savedProperties);
+        console.log(savedProperties);
+      }
       // reset();
       //for saving property data to backend
     } else {
@@ -133,7 +150,12 @@ const Details = () => {
                 </p>
                 {/* wishlist icon */}
                 <button onClick={handleSaveProperty}>
-                  <FaRegBookmark className="text-xl" />
+                  {/* this conditon added sojib */}
+                  {findSaved ?
+                    <FaBookmark className="text-xl text-[#ec3323]" />
+                    :
+                    <FaRegBookmark className="text-xl" />
+                  }
                 </button>
               </div>
             </div>
@@ -143,7 +165,7 @@ const Details = () => {
               </span>
               <img
                 className="rounded-md w-full h-auto static -mt-20"
-                src={property_img} 
+                src={property_img}
                 alt={property_title}
               />
             </div>
