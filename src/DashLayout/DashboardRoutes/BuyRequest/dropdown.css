@@ -1,17 +1,14 @@
 /* dropdown.css */
-.dropbtn {
+/* .dropbtn {
 
     color: gray;
-    /* padding: 20px; */
+    
     font-size: 20px;
     border: none;
     cursor: pointer;
-}
+} */
 
-/* .dropbtn:hover, .dropbtn:focus {
-    background-color: #2980B9;
-  } */
-
+/* 
 .dropdown {
     position: relative;
     display: inline-block;
@@ -41,4 +38,4 @@
 
 .show {
     display: block;
-}
+} */
