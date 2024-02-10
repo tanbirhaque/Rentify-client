@@ -12,6 +12,7 @@ import useAuth from "../../../Hooks/useAuth.jsx";
 import ReviewForm from "./ReviewForm.jsx";
 import OwnerInfo from "./OwnerInfo.jsx";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic.jsx";
+import Reviews from "./Reviews.jsx";
 
 
 const Details = () => {
@@ -342,7 +343,8 @@ const Details = () => {
                 <hr className="mt-5" />
               </div>
             </div>
-            {/* Review submition form starts */}
+            {/* <Reviews/> */}
+            {/* Review submission form starts */}
             <div>
               <h3 className="poppins-font text-[24px] font-semibold my-6">
                 Add your review
