@@ -38,7 +38,7 @@ const SideBar = () => {
           User Profile
         </NavLink>
       </li>
-      <li className="dashLi">
+      {/* <li className="dashLi">
         <NavLink
           to="/dashboard/profile"
           className="dashNav flex items-center gap-2"
@@ -46,7 +46,7 @@ const SideBar = () => {
           <FaUserCircle className="dashIcon text-[#64707d]"></FaUserCircle>
           Profile
         </NavLink>
-      </li>
+      </li> */}
       <li className="dashLi">
         <NavLink
           to="/dashboard/my-requests"

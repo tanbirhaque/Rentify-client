@@ -4,11 +4,11 @@
     padding: 94px .75rem 1.5rem !important;
 }
 
-.profileanm::after {
+.blogAfter::after {
     content: "";
     width: 0%;
     height: 1px;
-    background-color: #10A34A80;
+    background-color: #002172;
     position: absolute;
     left: 0;
     bottom: 0;
@@ -16,10 +16,10 @@
     transition: all linear 0.3s;
 }
 
-.profileanm:hover:after {
+.blogAfter:hover:after {
     width: 100%;
 }
 
-.profileanm:hover {
-    color: #10A34A80;
+.blogAfter:hover {
+    color: #002172;
 }

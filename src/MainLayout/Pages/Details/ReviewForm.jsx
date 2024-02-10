@@ -67,7 +67,7 @@ const ReviewForm = ({ property }) => {
         reviewerImage: photoURL,
         reviewText: data.message,
         reviewImage: imageUrl,
-        reviewRating: data.rating,
+        rating: data.rating,
         date: new Date().toLocaleDateString("en-GB"),
       };
       axiosSecure.post("/reviews", review).then((response) => {
