@@ -21,6 +21,8 @@ const AddProperties = () => {
     "https://api.imgbb.com/1/upload?key=041c88632a7cf1ed57bab64c7c558177";
 
   // This code from line 19 to line 130 is done by [ sojib ] for react select the option and value of the select field for property tags, property featuries and image drag drop.
+
+  // multiple tags and featuries functionality [25 to 78]
   const [tagValue, setTagValue] = useState([]);
   const newTags = [];
   for (let i = 0; i < tagValue.length; i++) {
@@ -47,7 +49,6 @@ const AddProperties = () => {
     { value: "olive grove", label: "Olive grove" },
     { value: "Swimming pool", label: "Swimming pool" },
   ]
-
   const tagsOptions = [
     { value: "Historic", label: "Historic" },
     { value: "Luxury", label: "Luxury" },
@@ -66,7 +67,6 @@ const AddProperties = () => {
     { value: "urban oasis", label: "urban oasis" },
     { value: "high-tech living", label: "high-tech living" }
   ]
-
   const handlevaluetags = (tagValue) => {
     setTagValue(tagValue)
   }
@@ -75,12 +75,13 @@ const AddProperties = () => {
     setFeatureValue(featureValue)
   }
 
+
+  // property adnd floor plan images drop and file input functionality [81 to 139]
   const [images, setImages] = useState([])
   const [showImages, setShowImages] = useState([])
   const [isDraging, setisDreaging] = useState(false)
   const fileInputRef = useRef(null)
   // console.log(images, showImages)
-
   const onFileSelect = (event) => {
     event.preventDefault();
     const files = event.target.files;
@@ -101,7 +102,6 @@ const AddProperties = () => {
       }
     }
   }
-
   function selectFiles() {
     fileInputRef.current.click();
   }
@@ -114,7 +114,6 @@ const AddProperties = () => {
     event.preventDefault();
     setisDreaging(false)
   }
-
   const onDrop = async (event) => {
     event.preventDefault();
     setisDreaging(false)
@@ -135,6 +134,64 @@ const AddProperties = () => {
     }
   }
 
+  const [floorImages, setfloorImages] = useState([])
+  const [showfloorImages, setShowfloorImages] = useState([])
+  const [isFloorDraging, setisFloorDraging] = useState(false)
+  const fileFloorInputRef = useRef(null)
+
+  const onFloorFileSelect = (event) => {
+    event.preventDefault();
+    const files = event.target.files;
+    setfloorImages(files[0])
+    console.log(files)
+    if (files.length === 0) return;
+    for (let i = 0; i < files.length; i++) {
+      if (files[i].type.split('/')[0] !== 'image') continue;
+      if (!showfloorImages.some((e) => e.name === files[i].name)) {
+        setShowfloorImages((prevImages) => [
+          ...prevImages,
+          {
+            name: files[i].name,
+            url: URL.createObjectURL(files[i])
+          }
+        ])
+      }
+    }
+  }
+  function selectFloorFiles() {
+    fileFloorInputRef.current.click();
+  }
+  const onFloorDragOver = (event) => {
+    event.preventDefault();
+    setisFloorDraging(true)
+    event.dataTransfer.dropEffect = "copy"
+  }
+  const onFloorDragLeave = (event) => {
+    event.preventDefault();
+    setisFloorDraging(false)
+  }
+  const onFloorDrop = async (event) => {
+    event.preventDefault();
+    setisFloorDraging(false)
+    const files = event.dataTransfer.files;
+    setImages(files[0])
+    // TODO: This comment by sojib for doing multiple drag and drop  image hosting please dont uncomment it
+    for (let i = 0; i < files.length; i++) {
+      if (files[i].type.split('/')[0] !== 'image') continue;
+      if (!showfloorImages.some((e) => e.name === files[i].name)) {
+        setShowfloorImages((prevImages) => [
+          ...prevImages,
+          {
+            name: files[i].name,
+            url: URL.createObjectURL(files[i])
+          }
+        ])
+      }
+    }
+  }
+
+
+
   // This react hook onsubmit added by sojib and all input file update into react hook file
   const {
     register,
@@ -152,6 +209,17 @@ const AddProperties = () => {
       // console.log(res.data.data)
       setImages(img)
     }
+    const imageFloorFile = { image: floorImages };
+    const resfloor = await axiosPublic.post(image_hosting_api, imageFloorFile, {
+      headers: { "Content-Type": "multipart/form-data" },
+    });
+    const floorplanimg = resfloor.data.data.url;
+    console.log(floorplanimg)
+    if (res.data) {
+      // console.log(res.data.data)
+      setfloorImages(img)
+    }
+
     const newProperty = {
       property_info: {
         owner_details: {
@@ -177,7 +245,7 @@ const AddProperties = () => {
           garages: data.garage,
           sqf: data.sqprice,
           built: data.ate,
-          floor_plans: data.floor,
+          floor_plans: floorplanimg,
           property_video: data.video,
           property_features: newFeaturs,
           property_tags: newTags
@@ -206,8 +274,11 @@ const AddProperties = () => {
 
   const handleReset = () => {
     reset()
+    setShowImages([])
+    setShowfloorImages([])
     refetch()
   }
+
   return (
     <div>
       <section className="py-1 bg-[#f3f3f3] w-full">
@@ -536,17 +607,18 @@ const AddProperties = () => {
                   </label>
                 </div>
 
-                <div className="form-control    ">
+                <div className="form-control w-full mb-5 mt-2">
                   <label className="label ">
                     <span className="label-text text-lg font-semibold">
-                      Zip Code
+                      Property Video
                     </span>
                   </label>
                   <label className="input-group ">
                     <input
+                      {...register("video")}
                       type="text"
-                      placeholder="Enter Zip Code"
-                      // name="price"
+                      placeholder="Add your video url"
+                      name="video"
                       className="input form-border input-bordered w-full"
                     />
                   </label>
@@ -623,7 +695,7 @@ const AddProperties = () => {
                   </label>
                   {/* this feild updated to drag and drop option by sojib [ 632 to 663 line] */}
                   {showImages[0] ?
-                    <div className=" flex justify-center items-center gap-2 border-2 rounded-md p-3 h-[170px]">
+                    <div className=" flex justify-center flex-wrap items-center gap-2 border-2 rounded-md p-3">
                       {
                         showImages.map((item, index) =>
                           <div key={index}>
@@ -639,7 +711,7 @@ const AddProperties = () => {
                           </span>
                         </>)}
                         <div className="">
-                          <p className=" font-bold">Drop here files or click to upload</p>
+                          <p className=" font-bold">Drop here files or click to upload Properties images</p>
                           <input
                             {...register("file")}
                             type="file"
@@ -656,39 +728,46 @@ const AddProperties = () => {
                     </div>
                   }
                 </div>
-                <div className="md:w-1/2 w-full">
-                  <div className="form-control w-full mb-5 mt-2">
-                    <label className="label ">
-                      <span className="label-text text-lg font-semibold">
-                        Property Video
-                      </span>
-                    </label>
-                    <label className="input-group ">
-                      <input
-                        {...register("video")}
-                        type="text"
-                        placeholder="Add your video url"
-                        name="video"
-                        className="input form-border input-bordered w-full"
-                      />
-                    </label>
-                  </div>
-                  <div className="form-control w-full">
-                    <label className="label ">
-                      <span className="label-text text-lg font-semibold">
-                        Property Floor Plan
-                      </span>
-                    </label>
-                    <label className="input-group ">
-                      <input
-                        {...register("floor")}
-                        type="text"
-                        placeholder="Add your floor plan url"
-                        name="floor"
-                        className="input form-border input-bordered w-full"
-                      />
-                    </label>
-                  </div>
+                <div className="form-control md:w-1/2 w-full">
+                  <label className="label ">
+                    <span className="label-text text-lg font-semibold">
+                      Floor plan image
+                    </span>
+                  </label>
+                  {/* this feild updated to drag and drop option by sojib [ 632 to 663 line] */}
+                  {showfloorImages[0] ?
+                    <div className=" flex justify-center flex-wrap items-center gap-2 border-2 rounded-md p-3 ">
+                      {
+                        showfloorImages.map((item, index) =>
+                          <div key={index}>
+                            <img className=" w-[100px] h-[100px]" src={item.url} alt="Drop img" />
+                          </div>)
+                      }
+                    </div> :
+                    <div className=" border-2 rounded-md p-3 flex flex-col justify-center items-center h-[170px]">
+                      <label className="drag-area text-center flex flex-col items-center" onDragOver={onFloorDragOver} onDragLeave={onFloorDragLeave} onDrop={onFloorDrop}>
+                        {isFloorDraging ? (<span>Drop imag here</span>) : (<>
+                          <span role="button" onClick={selectFloorFiles}>
+                            <FaPhotoVideo className="text-7xl font-bold"></FaPhotoVideo>
+                          </span>
+                        </>)}
+                        <div className="">
+                          <p className=" font-bold">Drop here files or click to upload Floor plan images</p>
+                          <input
+                            {...register("file")}
+                            type="file"
+                            placeholder="Drag and drop your image or url"
+                            name="files"
+                            className="file-input w-full h-[140px]"
+                            multiple
+                            ref={fileFloorInputRef}
+                            onChange={onFloorFileSelect}
+                            style={{ display: 'none' }}
+                          />
+                        </div>
+                      </label>
+                    </div>
+                  }
                 </div>
               </div>
               <div className="  mb-2">
