@@ -144,10 +144,10 @@ const RequestedProperty = () => {
             <div className="">
               <TabList>
                 <Tab>
-                    Rent
+                  Rent Requests
                 </Tab>
                 <Tab>
-                  Sale
+                  Sale Requests
                 </Tab>
               </TabList>
             </div>
@@ -169,18 +169,18 @@ const RequestedProperty = () => {
             </TabPanel>
             <TabPanel>
               {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 p-5"> */}
-                <div>
-                  {salesProperties?.map((requestedProperty) => (
-                    <ReqCard_mod
-                      key={requestedProperty._id}
-                      requestedProperties={requestedProperty}
-                    />
-                    // <RequestCard
-                    //   key={requestedProperty._id}
-                    //   requestedProperties={requestedProperty}
-                    // />
-                  ))}
-                </div>
+              <div>
+                {salesProperties?.map((requestedProperty) => (
+                  <ReqCard_mod
+                    key={requestedProperty._id}
+                    requestedProperties={requestedProperty}
+                  />
+                  // <RequestCard
+                  //   key={requestedProperty._id}
+                  //   requestedProperties={requestedProperty}
+                  // />
+                ))}
+              </div>
               {/* </div> */}
             </TabPanel>
           </Tabs>
