@@ -7,16 +7,21 @@ import useRequested from "../../../Hooks/useRequested";
 import useAuth from "../../../Hooks/useAuth";
 import useProperties from "../../../Hooks/useProperties";
 import { useParams } from "react-router-dom";
+import { useRef } from "react";
+import swal from "sweetalert";
 
 
 
-const BookBuy = () => {
+const BookBuy = ({items}) => {
+  console.log(items)
+  const { property } = items;
 
     const properties = useProperties()
    
   
 
-  
+ 
+
 
   const { id } = useParams();
   const item = properties.find((item) => item._id == id);
@@ -80,6 +85,14 @@ const BookBuy = () => {
       }
     };
 
+    const modalRef = useRef(null);
+
+    // const handleBookOrBuy = () => {
+    //   // Open the modal using the showModal() method- Sadia
+   
+    //   modalRef.current.showModal();
+  
+    // };
     return (
         <>
       {/* form */}
@@ -129,6 +142,52 @@ const BookBuy = () => {
           className="textarea h-32 rounded-md px-2 w-full my-4 py-5 bg-[#F9F9F9]"
           placeholder="Enter you message"
         ></textarea>
+       <div className="flex justify-between self-center items-center">
+       <button
+          type="submit"
+          className=" rounded px-8 py-4 mt-3 bg-[#EC3323] hover:bg-[#002172] text-white mb-4"
+        >
+          Send Request
+        </button>
+
+          <div className="modal-action">
+                <form method="dialog">
+              
+                  <button
+                   className="bg-[#002172] py-3  px-8 -mt-4 hover:bg-[#e33226] text-white w-full rounded"
+                    onClick={() => modalRef.current.close()}
+                  >
+                  Close
+
+           {/* <div className="flex justify-start items-start -ml-72">
+           {property?.property_info?.property_for === "rent" ? (
+            <>
+            <div className="flex justify-start items-start">
+            <button
+                className="bg-[#002172] py-3 px-6 hover:bg-[#e33226] text-white w-full"
+                onClick={handleBookOrBuy}
+              >
+                Book Now
+              </button>
+            </div>
+            </>
+          ) : (
+           <div className="flex justify-start items-start"> 
+            <button
+           className="bg-[#002172] py-3 px-6 hover:bg-[#e33226] text-white w-full"
+           onClick={handleBookOrBuy}
+         >
+           Buy Now
+         </button></div>
+      
+          )}
+           </div> */}
+           
+                  </button>
+                </form>
+              </div>
+       </div>
+
        
 
 

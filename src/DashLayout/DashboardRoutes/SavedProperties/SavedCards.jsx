@@ -20,12 +20,13 @@ import swal from "sweetalert";
 
 const SavedCards = ({ items }) => {
 
+  
 
   const modalRef = useRef(null);
 
   const handleBookOrBuy = () => {
     // Open the modal using the showModal() method- Sadia
-    swal("Your Request is Successfully Send", "We will get back to you soon", "success");
+ 
     modalRef.current.showModal();
 
   };
@@ -145,15 +146,15 @@ const SavedCards = ({ items }) => {
               <p className="py-4">
                 Press ESC key or click the button below to close
               </p> */}
-              <BookBuy></BookBuy>
-              <div className="modal-action">
+              <BookBuy items={items}></BookBuy>
+              {/* <div className="modal-action">
                 <form method="dialog">
-                  {/* If there is a button in the form, it will close the modal */}
+              
                   <button
                     className=""
                     onClick={() => modalRef.current.close()}
                   >
-                    {/* Close */}
+                  
 
            <div className="flex justify-start items-start -ml-72">
            {property?.property_info?.property_for === "rent" ? (
@@ -181,7 +182,7 @@ const SavedCards = ({ items }) => {
            
                   </button>
                 </form>
-              </div>
+              </div> */}
             </div>
           </dialog>
         </div>
