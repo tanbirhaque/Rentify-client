@@ -1,3 +1,5 @@
+// Blog writing page is created by Shajib and responsive design implementation by Tanbir
+
 import { useForm } from 'react-hook-form';
 import './Writeblogs.css'
 import useAuth from '../../../Hooks/useAuth';
