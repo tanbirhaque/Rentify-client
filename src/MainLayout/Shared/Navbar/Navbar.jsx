@@ -66,35 +66,46 @@ const Navbar = () => {
         Home
       </NavLink>
       <NavLink
+        to="/all"
+        className="navAfter relative font-medium text-base  text-black mx-3"
+      >
+        All Properties
+      </NavLink>
+      <NavLink
+        to="/owners"
+        className="navAfter relative font-medium text-base  text-black mx-3"
+      >
+        Owners
+      </NavLink>
+      <NavLink
         to="/blogs"
         className="navAfter relative font-medium text-base text-black mx-3"
       >
         Blogs
       </NavLink>
-      {user && (
-        <NavLink
-          to="/dashboard/userProfile"
-          className="navAfter relative font-medium text-base  text-black mx-3"
-        >
-          Dashboard
-        </NavLink>
-      )}
-      <NavLink
-        to="/how-it-works"
-        className="navAfter relative font-medium text-base  text-black mx-3"
-      >
-        How It Works
-      </NavLink>
+
 
       {/* for others */}
       <div className="dropdown dropdown-hover relative">
         <div tabIndex={0} role="button" className="navAfter relative font-medium text-base  text-black mx-3">Others</div>
         <ul className="menu dropdown-content z-[1] bg-white pl-5  w-[250px] border-[#e33226] border-l-[2px] rounded-[5px] py-0 absolute top-8">
           <NavLink
+            to="/how-it-works"
+            className="navAfter relative font-medium text-base text-black my-2"
+          >
+            How it works
+          </NavLink>
+          <NavLink
             to="/testimonials"
             className="navAfter relative font-medium text-base text-black my-2"
           >
             Testimonials
+          </NavLink>
+          <NavLink
+            to="/contact"
+            className="navAfter relative font-medium text-base text-black my-2"
+          >
+            Contact with us
           </NavLink>
           <NavLink
             to="/privacy"
