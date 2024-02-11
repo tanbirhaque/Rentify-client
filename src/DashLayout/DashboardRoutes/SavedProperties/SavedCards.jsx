@@ -1,14 +1,48 @@
-import { FaHeart, FaStar, FaDollarSign, FaWifi, FaBed, FaTv, FaFire, FaPlus } from 'react-icons/fa';
+import { useRef } from "react";
+import {
+
+  FaHeart,
+  FaStar,
+  FaDollarSign,
+  FaWifi,
+  FaBed,
+  FaTv,
+  FaFire,
+  FaPlus,
+} from "react-icons/fa";
 
 
-const SavedCards = ({items}) => {
-  const {property} = items
+import BookBuy from "./BookBuy";
+import swal from "sweetalert";
+
+
+
+
+const SavedCards = ({ items }) => {
+
+
+  const modalRef = useRef(null);
+
+  const handleBookOrBuy = () => {
+    // Open the modal using the showModal() method- Sadia
+    swal("Your Request is Successfully Send", "We will get back to you soon", "success");
+    modalRef.current.showModal();
+
+  };
+
+  
+
+
+
+
+
+  const { property } = items;
   return (
     <div>
       <div className="w-full max-w-[26rem] shadow-lg">
         <div className="bg-blue-gray relative rounded-xl">
           <img
-            src={property.property_info.property_img }
+            src={property.property_info.property_img}
             alt="ui/ux review check"
             className="w-full h-full object-cover"
           />
@@ -19,18 +53,27 @@ const SavedCards = ({items}) => {
         </div>
         <div className="p-6">
           <div className="mb-3 flex items-center justify-between">
-            <h5 className="text-[#002172] font-semibold truncate">{property.property_info. property_title}</h5>
+            <h5 className="text-[#002172] font-semibold truncate">
+              {property.property_info.property_title}
+            </h5>
             <div className="flex items-center gap-1.5 text-blue-gray">
-              <FaStar className="-mt-0.5 h-5 w-5 text-yellow-700" />
-              3
+              <FaStar className="-mt-0.5 h-5 w-5 text-yellow-700" />3
             </div>
           </div>
           <p className="text-gray-500">
-          Indulge in the epitome of urban sophistication with our Stylish Urban Loft, a captivating space meticulously curated to embody the essence of Industrial Chic Vibes.
+            Indulge in the epitome of urban sophistication with our Stylish
+            Urban Loft, a captivating space meticulously curated to embody the
+            essence of Industrial Chic Vibes.
           </p>
-          <div className='flex justify-between mt-2'>
-            <h1><span className='text-[#e33226] font-bold'>Price:</span> {property.property_info.property_details.property_price}</h1>
-            <h1><span className='text-[#e33226] font-bold'>Duration:</span> {property.property_info.ownership_duration}</h1>
+          <div className="flex justify-between mt-2">
+            <h1>
+              <span className="text-[#e33226] font-bold">Price:</span>{" "}
+              {property.property_info.property_details.property_price}
+            </h1>
+            <h1>
+              <span className="text-[#e33226] font-bold">Duration:</span>{" "}
+              {property.property_info.ownership_duration}
+            </h1>
           </div>
           <div className="group mt-8 inline-flex flex-wrap items-center gap-3">
             <span className="cursor-pointer rounded-full border border-gray-900/5 bg-gray-900/5 p-3 text-gray-900 hover:text-[#e33226] transition-colors hover:border-gray-900/10 hover:bg-gray-900/10 hover:!opacity-100 group-hover:opacity-70">
@@ -53,7 +96,10 @@ const SavedCards = ({items}) => {
             </span>
           </div>
         </div>
-        <div className=" ">
+
+        {/* button code */}
+        {/* previous code */}
+        {/* <div className=" ">
         {
              property?.property_info?.property_for === 'rent' ?<>
             
@@ -64,6 +110,80 @@ const SavedCards = ({items}) => {
           :<button className=" bg-[#002172] py-3 px-6 hover:bg-[#e33226] text-white  w-full">Buy Now</button>
           }
         
+        </div> */}
+        
+        {/* code modified by Sadia */}
+        <div className="">
+
+          {property?.property_info?.property_for === "rent" ? (
+            <>
+              <button
+
+                className="bg-[#002172] py-3 px-6 hover:bg-[#e33226] text-white w-full"
+                onClick={handleBookOrBuy}
+              >
+                Book Now
+              </button>
+            </>
+          ) : (
+            <button
+              className="bg-[#002172] py-3 px-6 hover:bg-[#e33226] text-white w-full"
+              onClick={handleBookOrBuy}
+            >
+              Buy Now
+            </button>
+          )}
+
+          {/* Modal */}
+          <dialog
+            id="my_modal_5"
+            className="modal modal-bottom sm:modal-middle"
+            ref={modalRef}
+          >
+            <div className="modal-box">
+              {/* <h3 className="font-bold text-lg">Hello!</h3>
+              <p className="py-4">
+                Press ESC key or click the button below to close
+              </p> */}
+              <BookBuy></BookBuy>
+              <div className="modal-action">
+                <form method="dialog">
+                  {/* If there is a button in the form, it will close the modal */}
+                  <button
+                    className=""
+                    onClick={() => modalRef.current.close()}
+                  >
+                    {/* Close */}
+
+           <div className="flex justify-start items-start -ml-72">
+           {property?.property_info?.property_for === "rent" ? (
+            <>
+            <div className="flex justify-start items-start">
+            <button
+                className="bg-[#002172] py-3 px-6 hover:bg-[#e33226] text-white w-full"
+                onClick={handleBookOrBuy}
+              >
+                Book Now
+              </button>
+            </div>
+            </>
+          ) : (
+           <div className="flex justify-start items-start"> 
+            <button
+           className="bg-[#002172] py-3 px-6 hover:bg-[#e33226] text-white w-full"
+           onClick={handleBookOrBuy}
+         >
+           Buy Now
+         </button></div>
+      
+          )}
+           </div>
+           
+                  </button>
+                </form>
+              </div>
+            </div>
+          </dialog>
         </div>
       </div>
     </div>
