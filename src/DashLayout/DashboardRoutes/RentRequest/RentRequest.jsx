@@ -4,6 +4,7 @@ import RentRequestCard from "./RentRequestCard";
 import { FaUser } from "react-icons/fa";
 import { HiHomeModern } from "react-icons/hi2";
 import { FcHome } from "react-icons/fc";
+import { IoMdArrowDropdown } from "react-icons/io";
 
 const RentRequest = () => {
     const [ownerRent, refetch] = useOwnerRent();
@@ -83,20 +84,16 @@ const RentRequest = () => {
 
                 </div>
             </div>
-            <div className="flex items-center justify-end mt-4 ">
+            {/* <div className="flex items-center justify-end mt-4 ">
                 <h1>Sort by:</h1>
                 <div className="dropdown">
-                    {/* Click button */}
-                    <div tabIndex={0} role="button" className="border-2 rounded-lg px-4 py-2 m-1" onClick={toggleDropdown}>Status</div>
-                    {/* Dropdown content */}
-                    <ul tabIndex={0} className={`dropdown-content  bg-white ${dropdownVisible ? 'show' : ''} z-[1] -left-32 menu p-2 shadow bg-base-100 rounded-box w-52`}>
-                        <li><a onClick={() => filterData("pending")}>Pending</a></li>
-                        <li><a onClick={() => filterData("accepted")}>Accept</a></li>
-                        <li><a onClick={() => filterData("rejected")}>Reject</a></li>
-                    </ul>
+                    
+                    <div className="border-2 rounded-lg px-4 py-2 m-1" >Status</div>
+                   
+
                 </div>
-            </div>
-            <div className="">
+            </div> */}
+            <div className="mt-10">
                 <table className="table table-zebra overflow-scroll">
                     {/* head */}
                     <thead className="font-semibold text-lg text-[#002172]">
@@ -107,7 +104,18 @@ const RentRequest = () => {
                             <th>Price</th>
                             <th>Order-ID</th>
                             <th>Type</th>
-                            <th>Status</th>
+                            <th className="flex items-center  gap-2" tabIndex={0} role="button" onClick={toggleDropdown}>
+                                Status <IoMdArrowDropdown />
+                            </th>
+                            {dropdownVisible && (
+                                <ul tabIndex={0} className={`dropdown-content bg-white z-[1]  menu p-2 shadow  rounded-box w-52`}>
+                                    <li><a onClick={() => filterData("pending")}>Pending</a></li>
+                                    <li><a onClick={() => filterData("accepted")}>Accept</a></li>
+                                    <li><a onClick={() => filterData("rejected")}>Reject</a></li>
+                                </ul>
+                            )}
+
+
                             <th>Action</th>
                         </tr>
                     </thead>
