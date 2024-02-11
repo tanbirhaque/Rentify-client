@@ -50,8 +50,8 @@ const RequestedProperty = () => {
 
 
   // filter rent and sales for tabs
-  const rentsProperties = properties.filter((item) => item.property.property_for == "rent");
-  const salesProperties = properties.filter((item) => item.property.property_for === "sale");
+  const rentsProperties = properties.filter((item) => item.property?.property_for == "rent");
+  const salesProperties = properties.filter((item) => item.property?.property_for === "sale");
 
   return (
     <div className="">
@@ -93,7 +93,7 @@ const RequestedProperty = () => {
 
         <div className=" xl:w-[1200px] mx-auto mt-5">
           {/* Here are used to menu class & Navlink for uniq desgin and filter by property status in Accepted, Pending & Rejected..[codded by Sojib] */}
-          <div className="flex flex-row justify-center items-center mb-7 gap-4 hidden">
+          <div className="flex flex-row justify-center items-center mb-7 gap-4 flex-wrap">
             <button
               onClick={handleAll}
             >
