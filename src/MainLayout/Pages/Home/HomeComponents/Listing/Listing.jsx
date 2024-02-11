@@ -22,6 +22,7 @@ const Listing = () => {
     const apartment = properties.filter(
         (item) => item.property_info.property_category === "Apartment"
     );
+    console.log(apartment)
     const Commercial = properties.filter(
         (item) => item.property_info.property_category === "Commercial"
     );

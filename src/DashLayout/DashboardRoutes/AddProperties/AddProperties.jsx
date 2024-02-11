@@ -81,32 +81,27 @@ const AddProperties = () => {
   const [showImages, setShowImages] = useState([])
   const [isDraging, setisDreaging] = useState(false)
   const fileInputRef = useRef(null)
-  console.log(images)
-  const formData = new FormData();
-  console.log(formData)
-  for (let i = 0; i < images.length; i++) {
-    formData.append(`image${i}`, images[i]);
-  }
-  // console.log(images, showImages)
+  console.log(showImages)
+
   const onFileSelect = (event) => {
     event.preventDefault();
     const files = event.target.files;
-    setImages(files)
+    setImages(files[0])
     console.log(files)
 
-    // if (files.length === 0) return;
-    // for (let i = 0; i < files.length; i++) {
-    //   if (files[i].type.split('/')[0] !== 'image') continue;
-    //   if (!showImages.some((e) => e.name === files[i].name)) {
-    //     setShowImages((prevImages) => [
-    //       ...prevImages,
-    //       {
-    //         name: files[i].name,
-    //         url: URL.createObjectURL(files[i])
-    //       }
-    //     ])
-    //   }
-    // }
+    if (files.length === 0) return;
+    for (let i = 0; i < files.length; i++) {
+      if (files[i].type.split('/')[0] !== 'image') continue;
+      if (!showImages.some((e) => e.name === files[i].name)) {
+        setShowImages((prevImages) => [
+          ...prevImages,
+          {
+            name: files[i].name,
+            url: URL.createObjectURL(files[i])
+          }
+        ])
+      }
+    }
   }
   function selectFiles() {
     fileInputRef.current.click();
@@ -144,6 +139,7 @@ const AddProperties = () => {
   const [showfloorImages, setShowfloorImages] = useState([])
   const [isFloorDraging, setisFloorDraging] = useState(false)
   const fileFloorInputRef = useRef(null)
+  console.log(showfloorImages)
 
   const onFloorFileSelect = (event) => {
     event.preventDefault();
@@ -180,7 +176,7 @@ const AddProperties = () => {
     event.preventDefault();
     setisFloorDraging(false)
     const files = event.dataTransfer.files;
-    setImages(files[0])
+    setfloorImages(files[0])
     // TODO: This comment by sojib for doing multiple drag and drop  image hosting please dont uncomment it
     for (let i = 0; i < files.length; i++) {
       if (files[i].type.split('/')[0] !== 'image') continue;
@@ -196,9 +192,7 @@ const AddProperties = () => {
     }
   }
 
-
-
-  // This react hook onsubmit added by sojib and all input file update into react hook file
+  // This react hook onsubmit added by [sojib] and all input file update into react hook file
   const {
     register,
     handleSubmit,
@@ -211,10 +205,12 @@ const AddProperties = () => {
       headers: { "Content-Type": "multipart/form-data" },
     });
     const img = res.data.data.url;
+    console.log(img)
     if (res.data) {
       // console.log(res.data.data)
       setImages(img)
     }
+
     const imageFloorFile = { image: floorImages };
     const resfloor = await axiosPublic.post(image_hosting_api, imageFloorFile, {
       headers: { "Content-Type": "multipart/form-data" },
@@ -223,7 +219,7 @@ const AddProperties = () => {
     console.log(floorplanimg)
     if (res.data) {
       // console.log(res.data.data)
-      setfloorImages(img)
+      setfloorImages(floorplanimg)
     }
 
     const newProperty = {
@@ -266,16 +262,18 @@ const AddProperties = () => {
         }
       }
     };
+    console.log(newProperty);
     axiosPublic.post("/properties", newProperty)
       .then(res => {
         // console.log(res.data)
         if (res.data) {
           Swal.fire(`Hey ${user.displayName}, Your property aded successfully`)
           refetch();
+          setShowImages([])
+          setShowfloorImages([])
           reset()
         }
       })
-    console.log(newProperty);
   }
 
   const handleReset = () => {

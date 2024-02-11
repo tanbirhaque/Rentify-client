@@ -35,6 +35,7 @@ const BookingForm = ({ item }) => {
         children: data.children,
       };
       const title = requested.find((request) => request.propertyID == propertyRequest.propertyID)
+
       if (title) {
         Swal.fire({
           icon: "error",
