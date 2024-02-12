@@ -1,3 +1,4 @@
+import { useRef, useState } from "react";
 import { CiLocationOn } from "react-icons/ci";
 import { HiOutlinePhone } from "react-icons/hi2";
 import { RiMailSendLine } from "react-icons/ri";
@@ -15,6 +16,7 @@ const Modal = ({ owner }) => {
         owner_address,
       } = owner || {};
 
+    
     return (
         <>
       <h2 className="text-3xl font-bold my-5">Agent Information</h2>
@@ -68,11 +70,16 @@ const Modal = ({ owner }) => {
             className="textarea h-32 rounded-md px-2 w-full my-4 py-5 bg-[#F9F9F9]"
             placeholder="Enter you message"
           ></textarea>
-          <button
-            className="rounded p-4 bg-[#002172] hover:bg-[#EC3323] text-white mb-4 w-full"
+         <div className="flex justify-between self-center items-center">
+         <button
+            className="rounded p-4 bg-[#002172] hover:bg-[#EC3323] text-white mb-4 "
           >
             Contact Request
           </button>
+
+     
+       
+         </div>
         </form>
       </div>
     </>

@@ -167,6 +167,9 @@ const {
                             ></ButtonBlue>
                         </div> */}
 
+                  
+
+   
             <div className="flex justify-center my-4">
               <button className="bg-[#002172] py-3 px-6 hover:bg-[#e33226] text-white rounded-md" onClick={openModal}>
                 Contact with owner
@@ -180,9 +183,11 @@ const {
                   <div className="modal-action">
                     <form method="dialog" onSubmit={closeModal}>
                      
-                      <button type="submit" className="btn">
+                      <div className="-mt-20">
+                      <button type="submit" className=" bg-[#e33226] py-3  px-8  hover:bg-[#002172] text-white w-full rounded  ">
                         Close
                       </button>
+                      </div>
                     </form>
                   </div>
                 </div>
