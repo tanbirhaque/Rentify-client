@@ -1,46 +1,4 @@
-/* .active-link {
-    text-decoration: underline;
-    font-size: 18px;
-    margin-left: 24px;
-    transition: color ease-in-out 300ms;
-    color: #e33226;
-    font-weight: 800;
-  }
-
-  .link {
-
-    color: #002172;
-
-    text-decoration: none;
-    font-size: 16px;
-    margin-left: 24px;
-    transition: color ease-in-out 300ms;
-    font-weight: 600;
-  }
-  .link::after {
-    content: "";
-    width: 0%;
-    height: 2px;
-    background-color: #e33226;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    transition: all linear 0.3s;
-  }
-
-  .link:hover {
-    color: #83a3e7;
-  }
-  .link:hover:after {
-    
-    width: 100%;
-  }
-
-  .random a:hover {
- 
-    color: white;
-  }   */
-
+/* Navbar CSS starts here */
 .active {
   font-size: 18px;
   color: #002172 !important;
@@ -59,7 +17,7 @@
   transition: all linear 0.3s;
 }
 
-.navAfter{
+.navAfter {
   min-height: 100%;
 }
 
@@ -124,6 +82,37 @@
     transform: translateY(-20px);
   } */
 
+
+/* Navbar Dropdown [Other] menu animated underline */
+.dropAfter {
+  min-height: 100%;
+}
+
+.dropAfter::after {
+  content: "";
+  width: 0%;
+  height: 1px;
+  background-color: #e33226;
+  position: absolute;
+  left: 0;
+  top: 42px;
+  font-size: 16px;
+  transition: all linear 0.3s;
+}
+
+.dropAfter:hover:after {
+  width: 100%;
+}
+
+.active:hover:after {
+  width: 0%;
+}
+
+.dropAfter:hover {
+  color: #e33226;
+}
+
+/* Navbar Dropdown shadow */
 .dropdown .menu {
   box-shadow: 0px -1px 17px -3px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: 0px -1px 17px -3px rgba(0, 0, 0, 0.75);

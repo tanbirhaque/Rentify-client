@@ -86,9 +86,9 @@ const Navbar = () => {
 
 
       {/* for others */}
-      <div className="dropdown dropdown-hover relative h-full">
-        <div tabIndex={0} role="button" className="navAfter relative font-medium text-base text-black mx-3 flex items-center">Others</div>
-        <ul className="menu dropdown-content z-[1] bg-white pl-5  w-[250px] border-[#e33226] border-l-[2px] rounded-[5px] py-0 absolute">
+      <div className="dropdown dropdown-hover relative h-[65px]">
+        <div tabIndex={0} role="button" className="dropAfter relative font-medium text-base text-black mx-3 flex items-center h-full">Others</div>
+        <ul className="menu dropdown-content z-[1] bg-white pl-5  w-[250px] border-[#e33226] border-l-[2px] rounded-[5px] py-0 absolute top-14">
           <NavLink
             to="/how-it-works"
             className="navAfter relative font-medium text-base text-black my-2"
@@ -175,7 +175,7 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex min-h-full">
-          <ul className="menu menu-horizontal px-1 min-h-[65px] flex items-center">{navLinks}</ul>
+          <ul className="menu menu-horizontal px-1  flex items-center py-0">{navLinks}</ul>
         </div>
 
         {/* for toggle feature for btn -sadia */}
