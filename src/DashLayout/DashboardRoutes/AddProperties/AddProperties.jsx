@@ -231,7 +231,7 @@ const AddProperties = () => {
         },
         ownership_duration: data.ownership,
         property_for: data.status,
-        verify_status: false,  // This object property is added for managing the verification feature from the owner dashboard as [verified or 'Non Verified'] >>> Changed 'property_status' to 'verify_status' status. -by Tanbir
+        verify_status: "pending",  // Ex: [verify_status: "pending" / "verified" / "declined"] => This status is changed from boolean value to string for managing the property verification feature from the admin dashboard. -by Tanbir
         property_img: img,
         property_title: data.title,
         property_category: data.property,
