@@ -19,7 +19,7 @@ const Modal = ({ owner }) => {
     
     return (
         <>
-      <h2 className="text-3xl font-bold my-5">Agent Information</h2>
+      <h2 className="text-3xl font-bold my-5">Owner Information</h2>
       {/* owner information */}
       <div className="flex gap-4 my-3">
         <img
