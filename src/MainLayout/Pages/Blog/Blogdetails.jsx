@@ -157,7 +157,7 @@ const Blogdetails = () => {
               5 Major Facility That We Offer
             </h2>
             <p>
-              {blog?.majorfacility.map((item) => (
+              {blog?.majorFacility.map((item) => (
                 <p key={item}>
                   <div className=" flex items-center gap-2 space-y-2">
                     <IoIosArrowForward className=" text-orange-400 mr-2"></IoIosArrowForward>
@@ -212,15 +212,15 @@ const Blogdetails = () => {
           <div className="border flex md:flex-row flex-col justify-start items-center gap-8 py-6 px-5 my-7">
             <img
               className="h-40 w-40 rounded-full"
-              src={blog?.blogerInfo.blogerImg}
+              src={blog?.bloggerInfo.bloggerImg}
               alt=""
             />
             <div>
               <h2 className=" text-3xl font-bold ">
-                {blog?.blogerInfo.blogerName}
+                {blog?.bloggerInfo.bloggerName}
               </h2>
               <p className=" leading-8 text-xl text-gray-400">
-                {blog?.blogerInfo.blogerDetails}
+                {blog?.bloggerInfo.bloggerDetails}
               </p>
               <div className=" flex items-center gap-5 text-xl">
                 <a
