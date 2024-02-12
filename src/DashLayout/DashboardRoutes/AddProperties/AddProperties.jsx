@@ -1,5 +1,5 @@
-// This AddProperties page desgin by Sadia
-// And AddProperties post crud oparetion added by sojib
+// This AddProperties page design by Sadia
+// And AddProperties post crud operation added by sojib
 import { useContext, useRef, useState } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
@@ -30,11 +30,11 @@ const AddProperties = () => {
   }
   // console.log(newTags)
   const [featureValue, setFeatureValue] = useState([])
-  const newFeaturs = [];
+  const newFeatures = [];
   for (let i = 0; i < featureValue.length; i++) {
-    newFeaturs.push(featureValue[i].value);
+    newFeatures.push(featureValue[i].value);
   }
-  // console.log(newFeaturs)
+  // console.log(newFeatures)
   const featureOptions = [
     { value: "balcony", label: "Balcony" },
     { value: "Modern kitchen", label: "Modern kitchen" },
@@ -79,7 +79,7 @@ const AddProperties = () => {
   // property adnd floor plan images drop and file input functionality [81 to 139]
   const [images, setImages] = useState([])
   const [showImages, setShowImages] = useState([])
-  const [isDraging, setisDreaging] = useState(false)
+  const [isDragging, setIsDragging] = useState(false)
   const fileInputRef = useRef(null)
   console.log(showImages)
 
@@ -108,16 +108,16 @@ const AddProperties = () => {
   }
   const onDragOver = (event) => {
     event.preventDefault();
-    setisDreaging(true)
+    setIsDragging(true)
     event.dataTransfer.dropEffect = "copy"
   }
   const onDragLeave = (event) => {
     event.preventDefault();
-    setisDreaging(false)
+    setIsDragging(false)
   }
   const onDrop = async (event) => {
     event.preventDefault();
-    setisDreaging(false)
+    setIsDragging(false)
     const files = event.dataTransfer.files;
     setImages(files[0])
     // TODO: This comment by sojib for doing multiple drag and drop  image hosting please dont uncomment it
@@ -135,22 +135,22 @@ const AddProperties = () => {
     }
   }
 
-  const [floorImages, setfloorImages] = useState([])
-  const [showfloorImages, setShowfloorImages] = useState([])
-  const [isFloorDraging, setisFloorDraging] = useState(false)
+  const [floorImages, setFloorImages] = useState([])
+  const [showFloorImages, setShowFloorImages] = useState([])
+  const [isFloorDragging, setIsFloorDragging] = useState(false)
   const fileFloorInputRef = useRef(null)
-  console.log(showfloorImages)
+  console.log(showFloorImages)
 
   const onFloorFileSelect = (event) => {
     event.preventDefault();
     const files = event.target.files;
-    setfloorImages(files[0])
+    setFloorImages(files[0])
     console.log(files)
     if (files.length === 0) return;
     for (let i = 0; i < files.length; i++) {
       if (files[i].type.split('/')[0] !== 'image') continue;
-      if (!showfloorImages.some((e) => e.name === files[i].name)) {
-        setShowfloorImages((prevImages) => [
+      if (!showFloorImages.some((e) => e.name === files[i].name)) {
+        setShowFloorImages((prevImages) => [
           ...prevImages,
           {
             name: files[i].name,
@@ -165,23 +165,23 @@ const AddProperties = () => {
   }
   const onFloorDragOver = (event) => {
     event.preventDefault();
-    setisFloorDraging(true)
+    setIsFloorDragging(true)
     event.dataTransfer.dropEffect = "copy"
   }
   const onFloorDragLeave = (event) => {
     event.preventDefault();
-    setisFloorDraging(false)
+    setIsFloorDragging(false)
   }
   const onFloorDrop = async (event) => {
     event.preventDefault();
-    setisFloorDraging(false)
+    setIsFloorDragging(false)
     const files = event.dataTransfer.files;
-    setfloorImages(files[0])
+    setFloorImages(files[0])
     // TODO: This comment by sojib for doing multiple drag and drop  image hosting please dont uncomment it
     for (let i = 0; i < files.length; i++) {
       if (files[i].type.split('/')[0] !== 'image') continue;
-      if (!showfloorImages.some((e) => e.name === files[i].name)) {
-        setShowfloorImages((prevImages) => [
+      if (!showFloorImages.some((e) => e.name === files[i].name)) {
+        setShowFloorImages((prevImages) => [
           ...prevImages,
           {
             name: files[i].name,
@@ -215,11 +215,11 @@ const AddProperties = () => {
     const resfloor = await axiosPublic.post(image_hosting_api, imageFloorFile, {
       headers: { "Content-Type": "multipart/form-data" },
     });
-    const floorplanimg = resfloor.data.data.url;
-    console.log(floorplanimg)
+    const floorPlanIMG = resfloor.data.data.url;
+    console.log(floorPlanIMG)
     if (res.data) {
       // console.log(res.data.data)
-      setfloorImages(floorplanimg)
+      setFloorImages(floorPlanIMG)
     }
 
     const newProperty = {
@@ -240,16 +240,16 @@ const AddProperties = () => {
           property_id: data.id,
           property_price: data.price,
           property_type: data.property,
-          property_status: data.prostatus,
+          property_status: data.propertyStatus,
           bedroom: data.rooms,
           bath: data.baths,
           balcony: data.balcony,
           garages: data.garage,
-          sqf: data.sqprice,
+          sqf: data.squareFeet,
           built: data.ate,
-          floor_plans: floorplanimg,
+          floor_plans: floorPlanIMG,
           property_video: data.video,
-          property_features: newFeaturs,
+          property_features: newFeatures,
           property_tags: newTags
         },
         property_location: {
@@ -267,10 +267,10 @@ const AddProperties = () => {
       .then(res => {
         // console.log(res.data)
         if (res.data) {
-          Swal.fire(`Hey ${user.displayName}, Your property aded successfully`)
+          Swal.fire(`Hey ${user.displayName}, Your property added successfully`)
           refetch();
           setShowImages([])
-          setShowfloorImages([])
+          setShowFloorImages([])
           reset()
         }
       })
@@ -279,7 +279,7 @@ const AddProperties = () => {
   const handleReset = () => {
     reset()
     setShowImages([])
-    setShowfloorImages([])
+    setShowFloorImages([])
     refetch()
   }
 
@@ -424,8 +424,8 @@ const AddProperties = () => {
                   </label>
                   <label className="">
                     <select
-                      {...register("prostatus")}
-                      name="prostatus"
+                      {...register("propertyStatus")}
+                      name="propertyStatus"
                       required
                       className="select select-bordered w-full"
                     >
@@ -541,10 +541,10 @@ const AddProperties = () => {
                   </label>
                   <label className="input-group ">
                     <input
-                      {...register("sqprice")}
+                      {...register("squareFeet")}
                       type="number"
                       placeholder="2500"
-                      name="sqprice"
+                      name="squareFeet"
                       className="input form-border input-bordered w-full"
                     />
                   </label>
@@ -611,7 +611,7 @@ const AddProperties = () => {
                   </label>
                 </div>
 
-                <div className="form-control w-full mb-5 mt-2">
+                <div className="form-control w-full mb-5">
                   <label className="label ">
                     <span className="label-text text-lg font-semibold">
                       Property Video
@@ -709,7 +709,7 @@ const AddProperties = () => {
                     </div> :
                     <div className=" border-2 rounded-md p-3 flex flex-col justify-center items-center h-[170px]">
                       <label className="drag-area text-center flex flex-col items-center" onDragOver={onDragOver} onDragLeave={onDragLeave} onDrop={onDrop}>
-                        {isDraging ? (<span>Drop imag here</span>) : (<>
+                        {isDragging ? (<span>Drop imag here</span>) : (<>
                           <span role="button" onClick={selectFiles}>
                             <FaPhotoVideo className="text-7xl font-bold"></FaPhotoVideo>
                           </span>
@@ -738,11 +738,11 @@ const AddProperties = () => {
                       Floor plan image
                     </span>
                   </label>
-                  {/* this feild updated to drag and drop option by sojib [ 632 to 663 line] */}
-                  {showfloorImages[0] ?
+                  {/* this field updated to drag and drop option by sojib [ 632 to 663 line] */}
+                  {showFloorImages[0] ?
                     <div className=" flex justify-center flex-wrap items-center gap-2 border-2 rounded-md p-3 ">
                       {
-                        showfloorImages.map((item, index) =>
+                        showFloorImages.map((item, index) =>
                           <div key={index}>
                             <img className=" w-[100px] h-[100px]" src={item.url} alt="Drop img" />
                           </div>)
@@ -750,7 +750,7 @@ const AddProperties = () => {
                     </div> :
                     <div className=" border-2 rounded-md p-3 flex flex-col justify-center items-center h-[170px]">
                       <label className="drag-area text-center flex flex-col items-center" onDragOver={onFloorDragOver} onDragLeave={onFloorDragLeave} onDrop={onFloorDrop}>
-                        {isFloorDraging ? (<span>Drop imag here</span>) : (<>
+                        {isFloorDragging ? (<span>Drop imag here</span>) : (<>
                           <span role="button" onClick={selectFloorFiles}>
                             <FaPhotoVideo className="text-7xl font-bold"></FaPhotoVideo>
                           </span>
