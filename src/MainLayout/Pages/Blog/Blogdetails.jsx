@@ -17,6 +17,7 @@ import useAuth from "../../../Hooks/useAuth";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 import useBlogsComment from "../../../Hooks/useBlogsComment";
+import CommentForm from "./CommentForm";
 
 const Blogdetails = () => {
   const { user } = useAuth();
@@ -155,7 +156,7 @@ const Blogdetails = () => {
               5 Major Facility That We Offer
             </h2>
             <p>
-              {blog?.majorfacility.map((item) => (
+              {blog?.majorFacility.map((item) => (
                 <p key={item}>
                   <div className=" flex items-center gap-2 space-y-2">
                     <IoIosArrowForward className=" text-orange-400 mr-2"></IoIosArrowForward>
@@ -204,21 +205,21 @@ const Blogdetails = () => {
               </div>
             </div>
           </div>
-          {/* Bloger & Comment section */}
-          {/* DO: this time i creat just desgin so i would used direct picture.after when we work backend then used dynamic and who add the blog we see his details */}
-          {/* bloger section */}
+          {/* Blogger & Comment section */}
+          {/* DO: this time i created just design so i would used direct picture.after when we work backend then used dynamic and who add the blog we see his details */}
+          {/* blogger section */}
           <div className="border flex md:flex-row flex-col justify-start items-center gap-8 py-6 px-5 my-7">
             <img
               className="h-40 w-40 rounded-full"
-              src={blog?.blogerInfo.blogerImg}
+              src={blog?.bloggerInfo.bloggerImg}
               alt=""
             />
             <div>
               <h2 className=" text-3xl font-bold ">
-                {blog?.blogerInfo.blogerName}
+                {blog?.bloggerInfo.bloggerName}
               </h2>
               <p className=" leading-8 text-xl text-gray-400">
-                {blog?.blogerInfo.blogerDetails}
+                {blog?.bloggerInfo.bloggerDetails}
               </p>
               <div className=" flex items-center gap-5 text-xl">
                 <a
@@ -281,55 +282,15 @@ const Blogdetails = () => {
                 </div>
               </div>
             ))}
-            {/* From section */}
+            {/* Form section */}
             <div>
               <h2 className=" text-3xl font-bold my-3">Leave A Comment</h2>
               <p className=" text-xl text-gray-400">
                 Your email address will not be published. Required fields are
                 marked.
               </p>
-              <form onSubmit={handleSubmit(onSubmit)}>
-                {/* register your input into the hook by invoking the "register" function */}
-                <input
-                  {...register("name")}
-                  placeholder="Name*"
-                  defaultValue={user?.displayName}
-                  // readOnly
-                  className=" w-full py-5 bg-[#F9F9F9] rounded-md px-2 my-5"
-                />
-                {/* include validation with required or other standard HTML validation rules */}
-                <input
-                  {...register("email")}
-                  placeholder="Email Address*"
-                  defaultValue={user?.email}
-                  readOnly
-                  className="py-5 bg-[#F9F9F9] rounded-md px-2 w-full"
-                />
-                {/* errors will return when field validation fails  */}
-                <input
-                  {...register("subject", { required: true })}
-                  placeholder="Subject*"
-                  className="py-5 bg-[#F9F9F9] rounded-md px-2 w-full my-4"
-                />
-                <textarea
-                  {...register("message", { required: true })}
-                  className="textarea bg-[#F9F9F9] h-40 w-full mt-3 mb-4"
-                  placeholder="Please enter your comment"
-                  minLength={"10"}
-                ></textarea>
-                <div className=" my-4 flex justify-start items-center gap-3">
-                  <input type="checkbox" className="checkbox" />
-                  <p className=" text-xl text-gray-400">
-                    Save my name,email,website address in this browser for the
-                    next time I comment.
-                  </p>
-                </div>
-                <input
-                  type="submit"
-                  value="Post a comment"
-                  className=" rounded px-8 py-4 mt-3 bg-[#EC3323] hover:bg-[#002172] text-white mb-4"
-                />
-              </form>
+              {/* comment form */}
+              <CommentForm blog={blog}/>
             </div>
           </div>
         </div>
