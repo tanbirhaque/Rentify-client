@@ -97,7 +97,7 @@ const BookBuy = ({items}) => {
         <>
       {/* form */}
       <form onSubmit={handleSubmit(onSubmit)} className="mx-auto">
-        <h2 className=" text-3xl font-bold pt-5">Book This Apartment</h2>
+        <h2 className=" text-3xl font-bold pt-5">Send request for this property</h2>
         {/* register your input into the hook by invoking the "register" function */}
         <input
           {...register("name")}
