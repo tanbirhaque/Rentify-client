@@ -1,4 +1,4 @@
-// This user profile routs ful desgined and functionality made by [sojib]
+// These routes are fully designed and functional featuries  worked by [ sojib ]
 import { useContext } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import './UserProfile.css'
@@ -13,6 +13,7 @@ const UserProfile = () => {
     const [blogs] = useBlogs();
     return (
         <div className="">
+            {/* Profile banner section */}
             <div className=" grid grid-cols-1 w-[97%] mx-auto mt-5">
                 <div className=" relative text-transparent rounded-md shadow dark:shadow-gray-700 overflow-hidden">
                     <div className="">
@@ -24,31 +25,22 @@ const UserProfile = () => {
                         />
                         <div className="absolute inset-0 bg-black/70"></div>
                     </div>
-                    {/* <div
-                        className="hero h-80"
-                        style={{
-                            backgroundImage: "url(https://i.ibb.co/S5vvBYj/download.webp)",
-                        }}
-                    >
-                        <div className="hero-overlay bg-black/80 inset-0 opacity-100 p-28">
-
-                        </div>
-                    </div> */}
                 </div>
             </div>
+            {/* Profile main layouts */}
             <div className=" grid md:grid-cols-12 grid-cols-1 w-[97%] mx-auto mt-5">
                 <div className="xl:col-span-3 lg:col-span-4 md:col-span-4 mx-6">
+                    {/* Profile card details */}
                     <div className="p-6 relative rounded-md shadow dark:shadow-gray-700 bg-white dark:bg-slate-900 -mt-48">
                         <div className=" flex flex-col justify-center items-center">
                             <div className="relative mx-auto">
                                 <img className="h-24 w-24 rounded-full" src={user?.photoURL} alt="" />
                             </div>
                             <div className="mt-4 text-center">
-                                <h5 className="text-lg font-semibold">Calvin Carlo</h5>
-                                <p className="text-slate-400">calvin@hotmail.com</p>
+                                <h5 className="text-lg font-semibold">{user?.displayName}</h5>
+                                <p className="text-slate-400">{user?.email}</p>
                             </div>
                         </div>
-                        {/* <div className="divider"></div> */}
                         <div className=" border-t-2 mt-5 border-gray-100 dark:border-gray-700">
                             <h5 className="text-xl font-semibold mt-4">
                                 Personal Details :</h5>
@@ -60,7 +52,7 @@ const UserProfile = () => {
                                     <div className="flex-1">
                                         <h6 className="text-[#002172] dark:text-white font-medium mb-0">Email :
                                         </h6>
-                                        <a className="text-slate-400" href="">calvin@hotmail.com</a>
+                                        <a className="text-slate-400" href="">{user?.email}</a>
                                     </div>
                                 </div>
                                 <div className="flex items-center mt-3">
@@ -119,9 +111,10 @@ const UserProfile = () => {
                     </div>
                 </div>
                 <div className="xl:col-span-9 lg:col-span-8 md:col-span-8 my-6">
+                    {/* Description area */}
                     <div className="grid grid-cols-1 gap-6">
                         <div className="p-6 border-2 relative rounded-md dark:shadow-gray-700 bg-white dark:bg-slate-900">
-                            <h5 className="text-xl font-semibold">Calvin Carlo</h5><p className="text-slate-400 mt-3">I have started my career as a trainee and prove my self and achieve all the milestone with good guidance and reach up to the project manager. In this journey, I understand all the procedure which make me a good developer, team leader, and a project manager.</p>
+                            <h5 className="text-xl font-semibold">{user?.displayName}</h5><p className="text-slate-400 mt-3">I have started my career as a trainee and prove my self and achieve all the milestone with good guidance and reach up to the project manager. In this journey, I understand all the procedure which make me a good developer, team leader, and a project manager.</p>
                         </div>
                         <div className="p-6 relative border-2 rounded-md dark:shadow-gray-700 bg-white dark:bg-slate-900">
                             <h5 className="text-xl font-semibold">All Blogs :</h5>
@@ -154,7 +147,7 @@ const UserProfile = () => {
                                                     <div className="mt-3">
                                                         <div className=" overflow-hidden">
                                                             <Link to={`/blogs/${item._id}`}>
-                                                                <div className="hover:text-[#002172] after:bg-green-600 duration-500 ease-in-out flex items-center blogAfter">
+                                                                <div className="hover:text-[#002172] after:bg-[#002172] duration-500 ease-in-out flex items-center blogAfter">
                                                                     <p>Read more
                                                                     </p>
                                                                     <p><IoIosArrowForward /></p>
