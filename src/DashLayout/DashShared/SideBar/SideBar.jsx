@@ -4,7 +4,6 @@ import {
   FaBookmark,
   FaHome,
   FaUserCircle,
-  FaRegClone,
   FaBlogger,
 } from "react-icons/fa";
 import { IoAddCircleSharp, IoBookmarksSharp } from "react-icons/io5";
@@ -16,7 +15,6 @@ import { MdOutlineDashboardCustomize } from "react-icons/md";
 import { MdManageHistory } from "react-icons/md";
 import { HiCubeTransparent } from "react-icons/hi2";
 import { CiShoppingTag } from "react-icons/ci";
-import { FaChevronDown } from "react-icons/fa6";
 import { VscRequestChanges } from "react-icons/vsc";
 import useGetRole from "../../../Hooks/useGetRole";
 
@@ -29,7 +27,7 @@ const SideBar = () => {
 
   const sideLinks = (
     <>
-      <li className="dashLi">
+      <li className="dashLi xl:text-[20px]">
         <NavLink
           to="/dashboard/userProfile"
           className="dashNav flex items-center gap-2"
@@ -38,16 +36,7 @@ const SideBar = () => {
           Profile
         </NavLink>
       </li>
-      {/* <li className="dashLi">
-        <NavLink
-          to="/dashboard/profile"
-          className="dashNav flex items-center gap-2"
-        >
-          <FaUserCircle className="dashIcon text-[#64707d]"></FaUserCircle>
-          Profile
-        </NavLink>
-      </li> */}
-      <li className="dashLi">
+      <li className="dashLi xl:text-[20px]">
         <NavLink
           to="/dashboard/my-requests"
           className="dashNav flex items-center gap-2"
@@ -56,7 +45,7 @@ const SideBar = () => {
           Requested Properties
         </NavLink>
       </li>
-      <li className="dashLi">
+      <li className="dashLi xl:text-[20px]">
         <NavLink
           to="/dashboard/saved"
           className="dashNav flex items-center gap-2"
@@ -65,7 +54,7 @@ const SideBar = () => {
           Saved Properties
         </NavLink>
       </li>
-      <li className="dashLi">
+      <li className="dashLi xl:text-[20px]">
         <NavLink
           to="/dashboard/writeBlogs"
           className="dashNav flex items-center gap-2"
@@ -75,7 +64,7 @@ const SideBar = () => {
         </NavLink>
       </li>
       {role === "User" && (
-        <li className="dashLi">
+        <li className="dashLi xl:text-[20px]">
           <NavLink
             to="/dashboard/ownerRequest"
             className="dashNav flex items-center gap-2"
@@ -89,7 +78,7 @@ const SideBar = () => {
   );
   const ownerRoutes = (
     <>
-      <li className="dashLi">
+      <li className="dashLi xl:text-[20px]">
         <NavLink
           to="/dashboard/add"
           className="dashNav flex items-center gap-2"
@@ -98,7 +87,7 @@ const SideBar = () => {
           Add Properties
         </NavLink>
       </li>
-      <li className="dashLi pt-2">
+      <li className="dashLi xl:text-[20px] pt-2">
         <NavLink
           to="/dashboard/manage"
           className="dashNav flex items-center gap-2"
@@ -107,7 +96,7 @@ const SideBar = () => {
           Manage Properties
         </NavLink>
       </li>
-      <li className="dashLi pt-2">
+      <li className="dashLi xl:text-[20px] pt-2">
         <NavLink
           to="/dashboard/rentReq"
           className="dashNav flex items-center gap-2"
@@ -118,7 +107,7 @@ const SideBar = () => {
           Rent Request
         </NavLink>
       </li>
-      <li className="dashLi pt-2">
+      <li className="dashLi xl:text-[20px] pt-2">
         <NavLink
           to="/dashboard/buyReq"
           className="dashNav flex items-center gap-2"
@@ -127,7 +116,7 @@ const SideBar = () => {
           Buy Request
         </NavLink>
       </li>
-      <li className="dashLi pt-2">
+      <li className="dashLi xl:text-[20px] pt-2">
         <NavLink
           to="/dashboard/soldProperties"
           className="dashNav flex items-center gap-2"
@@ -136,7 +125,7 @@ const SideBar = () => {
           Sold Out Properties
         </NavLink>
       </li>
-      <li className="dashLi pt-2">
+      <li className="dashLi xl:text-[20px] pt-2">
         <NavLink
           to="/dashboard/rentOutProperties"
           className="dashNav flex items-center gap-2"
@@ -150,7 +139,7 @@ const SideBar = () => {
 
   return (
     <div>
-      <div className="w-64 min-h-screen">
+      <div className="w-64 xl:min-w-[300px] min-h-screen">
         <div className="flex justify-center items-center my-6">
           <Link to="/">
             <div className="flex  items-center">
@@ -186,7 +175,7 @@ const SideBar = () => {
           {role === "Owner" && (
             <>
               <ul className="flex flex-col gap-2">{sideLinks}</ul>
-              <h3 className="poppins-font font-semibold text-xl mt-5 text-gray-400">
+              <h3 className="poppins-font font-semibold text-xl xl:text-2xl mt-5 text-gray-400">
                 Owner Routes
               </h3>
               <hr className="mb-3" />
