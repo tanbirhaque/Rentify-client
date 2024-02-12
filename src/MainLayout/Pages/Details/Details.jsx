@@ -13,6 +13,8 @@ import ReviewForm from "./ReviewForm.jsx";
 import OwnerInfo from "./OwnerInfo.jsx";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic.jsx";
 import useSavedProperties from "../../../Hooks/useSavedProperties.jsx";
+import Reviews from "./Reviews.jsx";
+
 
 
 const Details = () => {
@@ -23,7 +25,7 @@ const Details = () => {
   const item = properties.find((item) => item._id == id);
   const [saved, refetch] = useSavedProperties();
   console.log(saved)
-  // saved properties find for bookmark desgin and So that the user cannot add a property more than once this function added by sojib
+  // saved properties find for bookmark design and So that the user cannot add a property more than once this function added by sojib
   const findSaved = saved.find(save => save.property._id == item._id)
   console.log(findSaved)
 
@@ -304,67 +306,8 @@ const Details = () => {
               </div>
             </div>
             {/* Property Review section */}
-            <div>
-              <h3 className="poppins-font text-[24px] font-semibold my-6">
-                3 Reviews
-              </h3>
-              <div>
-                <div className="flex gap-5">
-                  <div className="min-w-[100px]">
-                    <img
-                      className="rounded-full w-[100px] h-[100px]"
-                      src="https://angular.hibootstrap.com/enuf/assets/img/clients/client-1.jpg"
-                      alt="Reviewer image"
-                    />
-                  </div>
-                  <div>
-                    <div className="flex items-center justify-between">
-                      <h3 className="poppins-font text-[18px] font-semibold">
-                        Josef Haris
-                      </h3>
-                      <div>
-                        <Rating
-                          style={{ maxWidth: 80 }}
-                          value={5}
-                        // onChange={setRating}
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <p className="text-[14px] text-[#666666] mt-[12px] mb-[8px]">
-                        15/04/2024
-                      </p>
-                      <p className="text-[#666666]">
-                        Nulla porttitor accumsan tincidunt. Praesent sapien
-                        massa, convallis a pellentesque nec, egestas non nisi.
-                        Cras ultricies ligula sed magna dictum porta. Vestibulum
-                        ante ipsum primis in faucibus orci luctus et ultrices
-                        posuere cubilia Curae; Donec velit neque, auctor sit
-                        amet aliquam vel.
-                      </p>
-                    </div>
-                    <div className="flex gap-5 mt-6">
-                      <div>
-                        <img
-                          className="rounded-md"
-                          src="https://angular.hibootstrap.com/enuf/assets/img/property/property-1.jpg"
-                          alt=""
-                        />
-                      </div>
-                      <div>
-                        <img
-                          className="rounded-md"
-                          src="https://angular.hibootstrap.com/enuf/assets/img/property/property-2.jpg"
-                          alt=""
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <hr className="mt-5" />
-              </div>
-            </div>
-            {/* Review submition form starts */}
+            <Reviews property_title={property_title}/>
+            {/* Review submission form starts */}
             <div>
               <h3 className="poppins-font text-[24px] font-semibold my-6">
                 Add your review
