@@ -83,7 +83,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/all",
-        element: <AllProperties></AllProperties>
+        element: <AllProperties></AllProperties>,
       },
       {
         path: "/blogs",
@@ -178,7 +178,11 @@ const router = createBrowserRouter([
   // Dashboard routes here
   {
     path: "dashboard",
-    element: <Private><DashLayout></DashLayout></Private>,
+    element: (
+      <Private>
+        <DashLayout></DashLayout>
+      </Private>
+    ),
     children: [
       {
         path: "profile",
@@ -192,7 +196,7 @@ const router = createBrowserRouter([
       },
       {
         path: "userProfile",
-        element: <UserProfile></UserProfile>
+        element: <UserProfile></UserProfile>,
       },
       // {
       //   path: 'settings',

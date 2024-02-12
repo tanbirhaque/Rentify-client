@@ -38,6 +38,7 @@ const Blogdetails = () => {
         name: data.name,
         email: data.email,
         img: user?.photoURL,
+        blogTitle: blog?.title,
         subject: data.subject,
         message: data.message,
         blogId: blog._id,
@@ -290,7 +291,7 @@ const Blogdetails = () => {
                 marked.
               </p>
               {/* comment form */}
-              <CommentForm blog={blog}/>
+              <CommentForm blog={blog} />
             </div>
           </div>
         </div>
