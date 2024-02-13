@@ -14,7 +14,7 @@ const AllPropertiesMod = () => {
   const [property, setProperty] = useState([]);
   const [tabIndex, setTabIndex] = useState(0);
 
-  const [countData, setCountData] = useState(null)
+  const [countData, setCountData] = useState(properties.length)
 
   const sortByPriceLowToHigh = () => {
     const sorted = [...properties].sort(
@@ -66,8 +66,18 @@ const AllPropertiesMod = () => {
     setCountData(count)
   }
 
-  const handleapartmentProperties = () => {
+  const handleApartmentProperties = () => {
     const count = apartment.length
+    setCountData(count)
+  }
+
+  const handleCommercialProperties = () => {
+    const count = Commercial.length
+    setCountData(count)
+  }
+
+  const handleResidentialProperties = () => {
+    const count = Residential.length
     setCountData(count)
   }
 
@@ -193,7 +203,7 @@ const AllPropertiesMod = () => {
 
       <div className="max-w-[1296px] mx-auto mt-32 mb-[100px]">
 
-        <p>hiiiiiiiiiiii{countData}</p>
+        <p className="pb-10 font-bold text-lg text-gray-700">{countData} Results Found</p>
        
         <div className="">
          
@@ -204,9 +214,9 @@ const AllPropertiesMod = () => {
           >
             <TabList className="ml-[2px]">
               <Tab onClick={handleAllProperties}>All Properties</Tab>
-              <Tab>Residential</Tab>
-              <Tab>Commercial</Tab>
-              <Tab onClick={handleapartmentProperties}>Apartment</Tab>
+              <Tab onClick={handleResidentialProperties}>Residential</Tab>
+              <Tab onClick={handleCommercialProperties}>Commercial</Tab>
+              <Tab onClick={handleApartmentProperties}>Apartment</Tab>
             </TabList>
             <TabPanel>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-3 xl:px-0">
@@ -257,13 +267,7 @@ const AllPropertiesMod = () => {
           </Tabs>
         </div>
 
-        <div className="w-[180px] mx-auto mt-7 flex md:hidden">
-          <ButtonBlue
-            titleBlue={"View All Property"}
-            padX={"px-8"}
-            padY={"py-4"}
-          ></ButtonBlue>
-        </div>
+       
       </div>
     </div>
   );
