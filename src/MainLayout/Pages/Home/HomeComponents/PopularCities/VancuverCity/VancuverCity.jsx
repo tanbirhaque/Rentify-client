@@ -1,3 +1,4 @@
+// this section is entirely made by sadia
 import { NavLink } from "react-router-dom";
 import DynamicCards from "../DynamicCards";
 import useProperties from "../../../../../../Hooks/useProperties";
