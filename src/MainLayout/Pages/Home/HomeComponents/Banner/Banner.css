@@ -1,4 +1,32 @@
-.banner {
+
+@media screen and (min-width: 576px) {
+  .swiper-container {
+    width: 576px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .swiper-container {
+    width: 768px;
+  }
+}
+
+@media (min-width: 992px) {
+  .swiper .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+  }
+}
+
+
+
+
+
+/* This code comment by sojib if you need you uncomment it And first make sure that the design is correct or not */
+/* .banner {
     position: relative;
     overflow: hidden;
     height: 500px;
@@ -18,4 +46,4 @@
     50% {
       transform: translateY(-40px);
     }
-  }
+  } */

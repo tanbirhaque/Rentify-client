@@ -119,6 +119,7 @@ const ReviewForm = ({ property }) => {
                 Upload Image
                 <input
                   type="file"
+                  required
                   className="hidden"
                   {...register("image")}
                   // multiple

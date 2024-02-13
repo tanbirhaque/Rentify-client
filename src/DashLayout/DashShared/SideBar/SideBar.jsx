@@ -35,7 +35,7 @@ const SideBar = () => {
           className="dashNav flex items-center gap-2"
         >
           <FaUserCircle className="dashIcon text-[#64707d]"></FaUserCircle>
-          User Profile
+          Profile
         </NavLink>
       </li>
       {/* <li className="dashLi">

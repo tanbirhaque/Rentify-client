@@ -1,3 +1,5 @@
+// Blog writing page is created by Shajib and responsive design implementation by Tanbir
+
 import { useForm } from 'react-hook-form';
 import './Writeblogs.css'
 import useAuth from '../../../Hooks/useAuth';
@@ -24,14 +26,14 @@ const WriteBlogs = () => {
             commodoviverra: [
                 data.commodoviverra
             ],
-            majorfacility: [
+            majorFacility: [
                 data.facility
             ],
             bloggerInfo: {
                 bloggerName: user?.displayName,
                 bloggerEmail: user?.email,
                 bloggerImg: user?.photoURL,
-                bloggerDetails: data.blogerdetails
+                bloggerDetails: data.bloggerDetails
             }
         }
         console.log(newBlog)
@@ -45,19 +47,19 @@ const WriteBlogs = () => {
 
     return (
         <div>
-            <div className="writeblogbg">
+            <div className="writeBlogBG">
                 <div className=" bg-[#000000B2] rounded-lg">
-                    <div className=" max-w-screen-2xl mx-auto py-24 w-[1350px] ">
+                    <div className="max-w-full lg:w-fit xl:max-w-screen-2xl mx-auto lg:ml-5 xl:ml-12 py-24 w-[1350px] ">
                         <h2 className="text-6xl font-bold text-white font-serif pl-4">Write Blogs</h2>
                         <p className="text-lg font-normal text-gray-200 font-serif pl-4 pt-4">Your blogs Added here</p>
                     </div>
                 </div>
             </div>
-            <div className=' w-11/12 mx-auto'>
+            <div className=' w-11/12 mx-auto mt-8 mb-20'>
                 <h2 className=' text-4xl font-bold my-5'>Write your blog</h2>
                 <div className=' bg-gray-200 p-8 rounded'>
                     <form onSubmit={handleSubmit(onSubmit)} className="mx-auto">
-                        <div className=' flex justify-between items-center gap-3'>
+                        <div className='flex flex-col lg:flex-row justify-between items-center gap-3'>
                             <div className=' w-full'>
                                 <label className="label ">
                                     <span className="label-text text-lg font-semibold">
@@ -83,7 +85,7 @@ const WriteBlogs = () => {
                                 />
                             </div>
                         </div>
-                        <div className=' flex justify-between items-center gap-3'>
+                        <div className='flex flex-col lg:flex-row justify-between items-center gap-3'>
                             <div className=' w-full'>
                                 <label className="label ">
                                     <span className="label-text text-lg font-semibold">
@@ -109,7 +111,7 @@ const WriteBlogs = () => {
                                 />
                             </div>
                         </div>
-                        <div className='flex justify-between items-center gap-3'>
+                        <div className='flex flex-col lg:flex-row justify-between items-center gap-3'>
                             <div className='w-full'>
                                 <label className="label">
                                     <span className="label-text text-lg font-semibold">
@@ -117,7 +119,7 @@ const WriteBlogs = () => {
                                     </span>
                                 </label>
                                 <textarea
-                                    {...register("blogerdetails", { required: true })}
+                                    {...register("bloggerDetails", { required: true })}
                                     className="textarea h-32 rounded-md px-2 w-full mb-4 py-5 bg-[#F9F9F9]"
                                     placeholder="Write yourself"
                                 ></textarea>

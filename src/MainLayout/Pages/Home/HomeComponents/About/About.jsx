@@ -10,8 +10,8 @@ const About = () => {
         <div className="bg-[#f9f9f9] pt-[100px] pb-[100px] lg:pb-[150px] xl:pb-[250px] px-8 xl:px-0">
             <div className='max-w-[1296px] mx-auto flex flex-col lg:flex-row lg:justify-center xl:justify-between gap-[170px]'>
                 <div className='relative px-3 md:px-8 lg:px-0'>
-                    <img className='max-w-[361px] min-h-[361px] md:min-w-[574px] lg:min-w-[324px] xl:min-w-[504px] xl:min-h-[504px] rounded-[5px] z-10' src="https://i.ibb.co/sgQWNHX/download.jpg" alt="" />
-                    <div className='absolute left-[180px] top-[250px] md:left-[325px] md:top-[380px] lg:left-[200px] lg:top-[250px] xl:left-[225px]  xl:top-[305px] min-w-[210px] lg:min-w-[300px] xl:min-w-[400px] min-h-[350px]'>
+                    <img className='lg:max-w-[361px] md:min-w-[574px] lg:min-w-[324px] xl:min-w-[504px] xl:min-h-[504px] rounded-[5px] z-10' src="https://i.ibb.co/sgQWNHX/download.jpg" alt="" />
+                    <div className='absolute left-[180px] top-[250px] md:left-[325px] md:top-[380px] lg:left-[200px] lg:top-[250px] xl:left-[225px]  xl:top-[305px] min-w-[160px] lg:min-w-[300px] xl:min-w-[400px] min-h-[350px]'>
                         <img className="min-w-full min-h-full rounded-[5px]" src="https://i.ibb.co/CPXqSN1/download.jpg" alt="" />
                     </div>
                     {/* Added by Tanbir */}

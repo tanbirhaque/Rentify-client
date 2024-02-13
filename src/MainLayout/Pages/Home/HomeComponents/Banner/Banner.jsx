@@ -13,7 +13,7 @@ import img5 from "../../../../../assets/Template_files/client-2.jpg";
 import img6 from "../../../../../assets/Template_files/client-3.jpg";
 import img7 from "../../../../../assets/Template_files/client-4.jpg";
 import { useRef } from 'react';
-// import './Banner.css'
+import './Banner.css'
 
 const Banner = () => {
 
@@ -108,6 +108,16 @@ const Banner = () => {
                             <div className="absolute top-24 md:top-12 xl:top-[250px] w-full h-[325px] overflow-hidden bg-fixed px-3 gap-3 lg:gap-6 lg:px-0 shadow-md">
                                 {/* This swiper code added by sojib */}
                                 <Swiper
+                                    breakpoints={{
+                                        576: {
+                                            width: 576,
+                                            slidesPerView: 2,
+                                        },
+                                        768: {
+                                            width: 768,
+                                            slidesPerView: 2,
+                                        },
+                                    }}
                                     slidesPerView={2}
                                     autoplay={{
                                         delay: 2500,

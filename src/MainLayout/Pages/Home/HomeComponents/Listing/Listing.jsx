@@ -59,7 +59,7 @@ const Listing = () => {
                         defaultIndex={tabIndex}
                         onSelect={(index) => setTabIndex(index)}
                     >
-                        <TabList>
+                        <TabList className="ml-[2px]">
                             <Tab>
                                 Residential
                             </Tab>

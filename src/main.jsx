@@ -54,6 +54,7 @@ import WriteBlogs from "./DashLayout/DashboardRoutes/WriteBlogs/WriteBlogs.jsx";
 import UserProfile from "./DashLayout/DashboardRoutes/UserProfile/UserProfile.jsx";
 import OwnerRequestForm from "./DashLayout/DashboardRoutes/Owner Request/OwnerRequestForm.jsx";
 import AllProperties from "./MainLayout/Pages/Home/HomeComponents/AllProperties/AllProperties.jsx";
+import Contact from "./MainLayout/Pages/Contact/Contact.jsx";
 
 const queryClient = new QueryClient();
 
@@ -82,7 +83,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/all",
-        element: <AllProperties></AllProperties>
+        element: <AllProperties></AllProperties>,
       },
       {
         path: "/blogs",
@@ -105,6 +106,10 @@ const router = createBrowserRouter([
       {
         path: "/testimonials",
         element: <Testimonials></Testimonials>,
+      },
+      {
+        path: "/contact",
+        element: <Contact></Contact>,
       },
       {
         path: "/privacy",
@@ -153,19 +158,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/owners",
-        element: (
-          <Private>
-            <OwnerList />
-          </Private>
-        ),
+        element: <OwnerList />
       },
       {
         path: "/owner-details",
-        element: (
-          <Private>
-            <OwnerDetail />
-          </Private>
-        ),
+        element: <OwnerDetail />
       },
     ],
   },
@@ -181,7 +178,11 @@ const router = createBrowserRouter([
   // Dashboard routes here
   {
     path: "dashboard",
-    element: <Private><DashLayout></DashLayout></Private>,
+    element: (
+      <Private>
+        <DashLayout></DashLayout>
+      </Private>
+    ),
     children: [
       {
         path: "profile",
@@ -195,7 +196,7 @@ const router = createBrowserRouter([
       },
       {
         path: "userProfile",
-        element: <UserProfile></UserProfile>
+        element: <UserProfile></UserProfile>,
       },
       // {
       //   path: 'settings',

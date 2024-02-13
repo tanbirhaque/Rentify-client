@@ -32,36 +32,37 @@ const Blogdetails = () => {
 
   //condition of user needed to comment
 
-  // const onSubmit = (data) => {
-  //   if (user) {
-  //     const newComment = {
-  //       name: data.name,
-  //       email: data.email,
-  //       img: user?.photoURL,
-  //       subject: data.subject,
-  //       message: data.message,
-  //       blogId: blog._id,
-  //       date: new Date().toLocaleDateString("en-GB"),
-  //     };
-  //     console.log(newComment);
-  //     axiosPublic.post("/comments", newComment).then((res) => {
-  //       console.log(res.data);
-  //       if (res.data) {
-  //         Swal.fire(`Hey ${user?.displayName} your comment Successfully send`);
-  //         reset();
-  //       }
-  //     });
-  //   } else {
-  //     // this login will allow user to add booking for their desired property only if they are user.
-  //     Swal.fire({
-  //       icon: "error",
-  //       title: "Oops...",
-  //       text: "Looks like you're not logged in!",
-  //       footer: `<a href='/login' className='font-bold underline'>Please Log In</a>`,
-  //       showConfirmButton: false,
-  //     });
-  //   }
-  // };
+  const onSubmit = (data) => {
+    if (user) {
+      const newComment = {
+        name: data.name,
+        email: data.email,
+        img: user?.photoURL,
+        blogTitle: blog?.title,
+        subject: data.subject,
+        message: data.message,
+        blogId: blog._id,
+        date: new Date().toLocaleDateString("en-GB"),
+      };
+      console.log(newComment);
+      axiosPublic.post("/comments", newComment).then((res) => {
+        console.log(res.data);
+        if (res.data) {
+          Swal.fire(`Hey ${user?.displayName} your comment Successfully send`);
+          reset();
+        }
+      });
+    } else {
+      // this login will allow user to add booking for their desired property only if they are user.
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Looks like you're not logged in!",
+        footer: `<a href='/login' className='font-bold underline'>Please Log In</a>`,
+        showConfirmButton: false,
+      });
+    }
+  };
 
   return (
     <div>
@@ -156,7 +157,7 @@ const Blogdetails = () => {
               5 Major Facility That We Offer
             </h2>
             <p>
-              {blog?.majorFacility?.map((item) => (
+              {blog?.majorFacility.map((item) => (
                 <p key={item}>
                   <div className=" flex items-center gap-2 space-y-2">
                     <IoIosArrowForward className=" text-orange-400 mr-2"></IoIosArrowForward>
@@ -211,15 +212,15 @@ const Blogdetails = () => {
           <div className="border flex md:flex-row flex-col justify-start items-center gap-8 py-6 px-5 my-7">
             <img
               className="h-40 w-40 rounded-full"
-              src={blog?.bloggerInfo?.bloggerImg}
+              src={blog?.bloggerInfo.bloggerImg}
               alt=""
             />
             <div>
               <h2 className=" text-3xl font-bold ">
-                {blog?.bloggerInfo?.bloggerName}
+                {blog?.bloggerInfo.bloggerName}
               </h2>
               <p className=" leading-8 text-xl text-gray-400">
-                {blog?.bloggerInfo?.bloggerDetails}
+                {blog?.bloggerInfo.bloggerDetails}
               </p>
               <div className=" flex items-center gap-5 text-xl">
                 <a
