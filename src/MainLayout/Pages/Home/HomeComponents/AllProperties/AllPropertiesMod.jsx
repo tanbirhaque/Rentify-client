@@ -90,7 +90,7 @@ const AllPropertiesMod = () => {
         <div className=" bg-[#000000B2]">
           <div className=" max-w-screen-2xl mx-auto py-24">
             <h2 className="md:text-6xl text-2xl font-bold text-white font-serif">
-              All Properties Mod
+              All Properties 
             </h2>
             <div className="mt-2">
               <NavLink
@@ -111,7 +111,7 @@ const AllPropertiesMod = () => {
       </div>
 
       {/* search field */}
-      <div className="flex md:justify-between flex-col max-w-[1296px] mx-auto   ">
+      <div className="md:flex  md:justify-between lg:justify-between  max-w-[1296px] mx-auto   ">
         {/* search field */}
         <div className=" md:w-2/3 w-full mt-16 md:ml-3 mx-auto">
           <form onSubmit={handleSearch}>
