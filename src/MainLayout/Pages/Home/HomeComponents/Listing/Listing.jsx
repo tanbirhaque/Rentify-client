@@ -45,11 +45,11 @@ const Listing = () => {
                     </div>
                     <div className="w-[180px] hidden md:flex">
                         <Link to='/all'>
-                        <ButtonBlue
-                            titleBlue={"View All Property"}
-                            padX={"px-8"}
-                            padY={"py-4"}
-                        ></ButtonBlue>
+                            <ButtonBlue
+                                titleBlue={"View All Property"}
+                                padX={"px-8"}
+                                padY={"py-4"}
+                            ></ButtonBlue>
                         </Link>
                     </div>
                 </div>
@@ -76,7 +76,6 @@ const Listing = () => {
                                     <div key={index}>
                                         <PropertyCard
                                             property={property}
-                                            details_path={"/details"}
                                         />
                                     </div>
                                 ))}
@@ -88,7 +87,6 @@ const Listing = () => {
                                     <div key={index}>
                                         <PropertyCard
                                             property={property}
-                                            details_path={"/details"}
                                         />
                                     </div>
                                 ))}
@@ -100,7 +98,6 @@ const Listing = () => {
                                     <div key={index}>
                                         <PropertyCard
                                             property={property}
-                                            details_path={"/details"}
                                         />
                                     </div>
                                 ))}
@@ -108,18 +105,16 @@ const Listing = () => {
                         </TabPanel>
                     </Tabs>
                 </div>
-                
+
                 <div className="w-[180px] mx-auto mt-7 flex md:hidden">
-           
-                    <ButtonBlue
-                        titleBlue={"View All Property"}
-                        padX={"px-8"}
-                        padY={"py-4"}
-                    ></ButtonBlue>
-                 
-        
+                    <Link to='/all'>
+                        <ButtonBlue
+                            titleBlue={"View All Property"}
+                            padX={"px-8"}
+                            padY={"py-4"}
+                        ></ButtonBlue>
+                    </Link>
                 </div>
-                
             </div>
         </>
     );
