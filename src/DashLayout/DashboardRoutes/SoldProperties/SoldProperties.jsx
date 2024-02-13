@@ -3,7 +3,7 @@ import useSoldProperties from '../../../Hooks/useSoldProperties';
 
 const SoldProperties = () => {
     const [soldOutProperties] =useSoldProperties()
-    return (
+    return ( 
         <>
          <div className="overflow-x-auto">
                 <table className="table table-zebra">

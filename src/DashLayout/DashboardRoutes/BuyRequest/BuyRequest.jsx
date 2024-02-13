@@ -3,7 +3,7 @@ import useOwnerSale from "../../../Hooks/useOwnerSale";
 import BuyReqCard from "./BuyReqCard";
 const BuyRequest = () => {
     const [ownerSale, refetch] = useOwnerSale()
-    
+
     console.log(ownerSale);
     return (
         <>
@@ -12,11 +12,13 @@ const BuyRequest = () => {
                     {/* head */}
                     <thead className="font-semibold text-lg text-[#002172]">
                         <tr >
-                            
+
                             <th>Property Info.</th>
-                            <th>Requester Name</th>
-                            <th>Requester E-mail</th>
-                            <th>Requester Number</th>
+                            <th>Location</th>
+                            <th>Customer Info</th>
+                            <th>Price</th>
+                            <th>Order-ID</th>
+                            <th>Type</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
