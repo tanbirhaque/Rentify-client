@@ -49,7 +49,7 @@ const Prauge = () => {
   };
 
   const sortByPriceLowToHigh = () => {
-    const sorted = [...properties].sort(
+    const sorted = [...cityProperties].sort(
       (a, b) =>
         a.property_info.property_details.property_price -
         b.property_info.property_details.property_price
@@ -58,7 +58,7 @@ const Prauge = () => {
   };
 
   const sortByPriceHighToLow = () => {
-    const sorted = [...properties].sort(
+    const sorted = [...cityProperties].sort(
       (a, b) =>
         b.property_info.property_details.property_price -
         a.property_info.property_details.property_price
