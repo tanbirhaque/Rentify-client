@@ -1,5 +1,5 @@
 // These routes are fully designed and functional featuries  worked by [ sojib ]
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import './UserProfile.css'
 import { IoIosArrowForward } from "react-icons/io";
@@ -7,10 +7,14 @@ import { MdDateRange } from "react-icons/md";
 import useBlogs from "../../../Hooks/useBlogs";
 import { Link } from "react-router-dom";
 import { FaComment } from "react-icons/fa";
+import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
+
 
 const UserProfile = () => {
     const { user } = useContext(AuthContext)
     const [blogs] = useBlogs();
+    const [tabIndex, setTabIndex] = useState(0);
+
     return (
         <div className="">
             {/* Profile banner section */}
@@ -116,6 +120,21 @@ const UserProfile = () => {
                         <div className="p-6 border-2 relative rounded-md dark:shadow-gray-700 bg-white dark:bg-slate-900">
                             <h5 className="text-xl font-semibold">{user?.displayName}</h5><p className="text-slate-400 mt-3">I have started my career as a trainee and prove my self and achieve all the milestone with good guidance and reach up to the project manager. In this journey, I understand all the procedure which make me a good developer, team leader, and a project manager.</p>
                         </div>
+                           {/* This tab part make by konika */}
+                    <Tabs
+                        defaultIndex={tabIndex}
+                        onSelect={(index) => setTabIndex(index)}
+                    >
+                        <TabList className="ml-[2px]">
+                            <Tab>
+                                All Blogs
+                            </Tab>
+                            <Tab>
+                                Properties
+                            </Tab>
+                            
+                        </TabList>
+                        <TabPanel>
                         <div className="p-6 relative border-2 rounded-md dark:shadow-gray-700 bg-white dark:bg-slate-900">
                             <h5 className="text-xl font-semibold">All Blogs :</h5>
                             {/* blogs card section */}
@@ -162,6 +181,60 @@ const UserProfile = () => {
                                 }
                             </div>
                         </div>
+                            
+                        </TabPanel>
+                        <TabPanel>
+                        <div className="p-6 relative border-2 rounded-md dark:shadow-gray-700 bg-white dark:bg-slate-900">
+                            <h5 className="text-xl font-semibold">Recent Properties :</h5>
+                            {/* blogs card section */}
+                            <div className="grid lg:grid-cols-3 md:grid-cols-2 mt-6 gap-6">
+                                {
+                                    blogs.map(item => <div key={item._id}>
+                                        <div className="group relative h-fit hover:-mt-[5px] overflow-hidden bg-white dark:bg-slate-900 rounded-xl shadow dark:shadow-gray-700 transition-all duration-500">
+                                            <div className="relative overflow-hidden">
+                                                <img className=" h-[230px] w-full" src={item.img} alt="" />
+                                                <div className="absolute end-4 top-4">
+                                                    <span className="bg-[#002172] text-white text-[14px] px-2.5 py-1 font-medium rounded-full h-5">Residential</span>
+                                                </div>
+                                            </div>
+                                            <div className="relative p-6">
+                                                <div className="">
+                                                    <div className="flex justify-between mb-4">
+                                                        <span className="text-slate-400 text-sm flex items-center gap-1">
+                                                            <span className=" text-slate-900">
+                                                                <MdDateRange />
+                                                            </span>
+                                                            {item.date}</span>
+                                                        <span className="text-slate-400 text-sm ms-3 flex items-center gap-1">
+                                                            <span>
+                                                                <FaComment></FaComment>
+                                                            </span>
+                                                            {item.comment} Comment</span>
+                                                    </div>
+                                                    <a className="title text-xl font-medium hover:text-[#002172] duration-500 ease-in-out" href="/blog-detail/1">{item.title}</a>
+                                                    <div className="mt-3">
+                                                        <div className=" overflow-hidden">
+                                                            <Link to={`/blogs/${item._id}`}>
+                                                                <div className="hover:text-[#002172] after:bg-[#002172] duration-500 ease-in-out flex items-center blogAfter">
+                                                                    <p>Read more
+                                                                    </p>
+                                                                    <p><IoIosArrowForward /></p>
+                                                                </div>
+                                                            </Link>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>)
+                                }
+                            </div>
+                        </div>
+                        </TabPanel>
+                        
+                        
+                    </Tabs>
+                       
                     </div>
                 </div>
             </div>

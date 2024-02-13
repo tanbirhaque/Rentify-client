@@ -60,7 +60,8 @@ const RentOutProperties = () => {
 
                 </div>
             </div>
-            <div className="overflow-x-auto">
+           <div className="mx-8 mt-10">
+           <div className="overflow-x-auto">
                 <Tabs
                     defaultIndex={tabIndex}
                     onSelect={(index) => setTabIndex(index)}
@@ -264,6 +265,7 @@ const RentOutProperties = () => {
                 </Tabs>
 
             </div>
+           </div>
         </>
     );
 };

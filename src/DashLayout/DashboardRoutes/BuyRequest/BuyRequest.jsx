@@ -58,23 +58,15 @@ const BuyRequest = () => {
         <>
          {/* Top-Context */}
          <div className=" flex gap-8 ml-10 mt-10">
-                <div className="flex bg-slate-200 text-lg shadow-md  py-77 px-5 items-center justify-between gap-6 w-80 rounded-2xl">
-                    <div>
-                        <h1 className="font-bold">{ownerSale.length}</h1>
-                        <h1>Total Customers</h1>
+                
+         <div className="flex bg-slate-200 shadow-md text-lg py-7 px-5 items-center justify-between gap-6 w-[40%] rounded-2xl">
+                    <div >
+                        <h1 className="font-bold text-xl">Rent Request List</h1>
+                        <h3 className="text-base text-[#e33226]">Customer <span className="text-[#002172]">/ Order list</span></h3>
                     </div>
-                    <div className="bg-[#002172] text-white rounded-xl p-4">
-                        <FaUser />
-                    </div>
-                </div>
-                <div className="flex bg-slate-200 shadow-md text-lg py-7 px-5 items-center justify-between gap-6 w-80 rounded-2xl">
-                    <div className="">
-                        <h1 className="font-bold">564</h1>
-                        <h1>Total Transactions</h1>
-                    </div>
-                    <div className="bg-[#002172] text-white rounded-xl p-4">
-                        <HiHomeModern />
-                    </div>
+                    <button className="bg-[#002172] text-white rounded-xl px-4 py-2">
+                        refresh
+                    </button>
                 </div>
                 <div className="flex bg-slate-200 py-7 shadow-md  px-10 items-center justify-between gap-20 w-[880px] rounded-2xl">
                     <div className="text-6xl">
