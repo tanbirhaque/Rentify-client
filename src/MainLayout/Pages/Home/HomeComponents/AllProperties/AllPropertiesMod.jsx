@@ -14,7 +14,7 @@ const AllPropertiesMod = () => {
   const [property, setProperty] = useState([]);
   const [tabIndex, setTabIndex] = useState(0);
 
-  const [countData, setCountData] = useState(properties.length)
+  const [countData, setCountData] = useState(properties.length);
 
   const sortByPriceLowToHigh = () => {
     const sorted = [...properties].sort(
@@ -62,26 +62,24 @@ const AllPropertiesMod = () => {
   );
 
   const handleAllProperties = () => {
-    const count = properties.length
-    setCountData(count)
-  }
+    const count = properties.length;
+    setCountData(count);
+  };
 
   const handleApartmentProperties = () => {
-    const count = apartment.length
-    setCountData(count)
-  }
+    const count = apartment.length;
+    setCountData(count);
+  };
 
   const handleCommercialProperties = () => {
-    const count = Commercial.length
-    setCountData(count)
-  }
+    const count = Commercial.length;
+    setCountData(count);
+  };
 
   const handleResidentialProperties = () => {
-    const count = Residential.length
-    setCountData(count)
-  }
-
-  
+    const count = Residential.length;
+    setCountData(count);
+  };
 
   return (
     <div>
@@ -90,7 +88,7 @@ const AllPropertiesMod = () => {
         <div className=" bg-[#000000B2]">
           <div className=" max-w-screen-2xl mx-auto py-24">
             <h2 className="md:text-6xl text-2xl font-bold text-white font-serif">
-              All Properties 
+              All Properties
             </h2>
             <div className="mt-2">
               <NavLink
@@ -110,7 +108,7 @@ const AllPropertiesMod = () => {
         </div>
       </div>
 
-      {/* search field */}
+      {/* search field and sort section */}
       <div className="md:flex  md:justify-between lg:justify-between  max-w-[1296px] mx-auto   ">
         {/* search field */}
         <div className=" md:w-2/3 w-full mt-16 md:ml-3 mx-auto">
@@ -202,15 +200,14 @@ const AllPropertiesMod = () => {
         </div> */}
 
       <div className="max-w-[1296px] mx-auto  mb-[100px]">
+        <p className="pb-10 font-bold text-lg text-gray-700">
+          {countData} Results Found
+        </p>
 
-        <p className="pb-10 font-bold text-lg text-gray-700">{countData} Results Found</p>
-       
         <div className="">
-         
           <Tabs
             defaultIndex={tabIndex}
             onSelect={(index) => setTabIndex(index)}
-
           >
             <TabList className="ml-[2px]">
               <Tab onClick={handleAllProperties}>All Properties</Tab>
@@ -220,54 +217,111 @@ const AllPropertiesMod = () => {
             </TabList>
             <TabPanel>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-3 xl:px-0">
-                {properties.map((property) => (
+                {/* {properties.map((property) => (
                   <DynamicCards
                     key={property._id}
                     property={property}
                   ></DynamicCards>
-                ))}
+                ))} */}
+
+                {property.length > 0
+                  ? property.map((property) => (
+                      <DynamicCards
+                        key={property._id}
+                        property={property}
+                      ></DynamicCards>
+                    ))
+                  : properties.map((property) => (
+                      <DynamicCards
+                        key={property._id}
+                        property={property}
+                      ></DynamicCards>
+                    ))}
               </div>
             </TabPanel>
             <TabPanel>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-3 xl:px-0">
-                {Residential.map((property, index) => (
+                {/* {Residential.map((property, index) => (
                   <div key={index}>
                     <PropertyCard
                       property={property}
                       details_path={"/details"}
                     />
                   </div>
-                ))}
+                ))} */}
+                 {property.length > 0
+          ? property.map((property) => (
+              <DynamicCards
+                key={property._id}
+                property={property}
+              ></DynamicCards>
+            ))
+          : Residential.map((property, index) => (
+            <div key={index}>
+              <PropertyCard
+                property={property}
+                details_path={"/details"}
+              />
+            </div>
+          ))}
               </div>
             </TabPanel>
             <TabPanel>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-3 xl:px-0">
-                {Commercial.map((property, index) => (
+                {/* {Commercial.map((property, index) => (
                   <div key={index}>
                     <PropertyCard
                       property={property}
                       details_path={"/details"}
                     />
                   </div>
-                ))}
+                ))} */}
+                 {property.length > 0
+          ? property.map((property) => (
+              <DynamicCards
+                key={property._id}
+                property={property}
+              ></DynamicCards>
+            ))
+          : Commercial.map((property, index) => (
+            <div key={index}>
+              <PropertyCard
+                property={property}
+                details_path={"/details"}
+              />
+            </div>
+          ))}
               </div>
             </TabPanel>
             <TabPanel>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-3 xl:px-0">
-                {apartment.map((property, index) => (
+                {/* {apartment.map((property, index) => (
                   <div key={index}>
                     <PropertyCard
                       property={property}
                       details_path={"/details"}
                     />
                   </div>
-                ))}
+                ))} */}
+                 {property.length > 0
+          ? property.map((property) => (
+              <DynamicCards
+                key={property._id}
+                property={property}
+              ></DynamicCards>
+            ))
+          : apartment.map((property, index) => (
+            <div key={index}>
+              <PropertyCard
+                property={property}
+                details_path={"/details"}
+              />
+            </div>
+          ))}
               </div>
             </TabPanel>
           </Tabs>
         </div>
-
-       
       </div>
     </div>
   );
