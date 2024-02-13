@@ -14,6 +14,8 @@ const AllPropertiesMod = () => {
   const [property, setProperty] = useState([]);
   const [tabIndex, setTabIndex] = useState(0);
 
+  const [countData, setCountData] = useState(null)
+
   const sortByPriceLowToHigh = () => {
     const sorted = [...properties].sort(
       (a, b) =>
@@ -59,6 +61,18 @@ const AllPropertiesMod = () => {
     (item) => item.property_info.property_category === "Residential"
   );
 
+  const handleAllProperties = () => {
+    const count = properties.length
+    setCountData(count)
+  }
+
+  const handleapartmentProperties = () => {
+    const count = apartment.length
+    setCountData(count)
+  }
+
+  
+
   return (
     <div>
       {/* banner section */}
@@ -87,7 +101,7 @@ const AllPropertiesMod = () => {
       </div>
 
       {/* search field */}
-      <div className="flex justify-between max-w-screen-2xl mx-auto   ">
+      <div className="flex justify-between max-w-[1296px] mx-auto   ">
         {/* search field */}
         <div className=" w-2/3 mt-16 ml-3">
           <form onSubmit={handleSearch}>
@@ -178,18 +192,21 @@ const AllPropertiesMod = () => {
         </div> */}
 
       <div className="max-w-[1296px] mx-auto mt-32 mb-[100px]">
+
+        <p>hiiiiiiiiiiii{countData}</p>
        
         <div className="">
          
           <Tabs
             defaultIndex={tabIndex}
             onSelect={(index) => setTabIndex(index)}
+
           >
             <TabList className="ml-[2px]">
-              <Tab>All Properties</Tab>
+              <Tab onClick={handleAllProperties}>All Properties</Tab>
               <Tab>Residential</Tab>
               <Tab>Commercial</Tab>
-              <Tab>Apartment</Tab>
+              <Tab onClick={handleapartmentProperties}>Apartment</Tab>
             </TabList>
             <TabPanel>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-3 xl:px-0">
@@ -215,7 +232,7 @@ const AllPropertiesMod = () => {
             </TabPanel>
             <TabPanel>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-3 xl:px-0">
-                {Commercial.slice(0, 6).map((property, index) => (
+                {Commercial.map((property, index) => (
                   <div key={index}>
                     <PropertyCard
                       property={property}
@@ -227,7 +244,7 @@ const AllPropertiesMod = () => {
             </TabPanel>
             <TabPanel>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-3 xl:px-0">
-                {apartment.slice(0, 6).map((property, index) => (
+                {apartment.map((property, index) => (
                   <div key={index}>
                     <PropertyCard
                       property={property}
