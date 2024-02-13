@@ -93,13 +93,13 @@ const NewYork = () => {
           </div>
         </div>
       </div>
-      {/* tab card section */}
+
       {/* <div className="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-16">
               {
                 cityProperties?.map((property) => <DynamicCards key={property._id} property={property}></DynamicCards>)
               }
             </div> */}
-
+      {/* tab card section */}
       <div className="max-w-[1296px] mx-auto  mb-[100px]">
         <div className="flex justify-between ">
           <p className="pt-16 font-bold text-lg text-gray-700">
@@ -238,13 +238,13 @@ const NewYork = () => {
                       ></DynamicCards>
                     ))
                   : apartment.map((property, index) => (
-                    <div key={index}>
-                      <PropertyCard
-                        property={property}
-                        details_path={"/details"}
-                      />
-                    </div>
-                  ))}
+                      <div key={index}>
+                        <PropertyCard
+                          property={property}
+                          details_path={"/details"}
+                        />
+                      </div>
+                    ))}
               </div>
             </TabPanel>
           </Tabs>
