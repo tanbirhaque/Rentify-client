@@ -160,7 +160,7 @@ const AllPropertiesMod = () => {
 
         {/* sort  */}
 
-        <div className=" flex justify-center  mt-16 mr-3">
+        <div className=" flex justify-center  mt-16 md:mr-3">
           <details className="dropdown mb-10 ">
             <summary className="m-1 btn bg-[#002172] text-white hover:bg-[#e33226]">
               Sort By Price{" "}
@@ -201,7 +201,7 @@ const AllPropertiesMod = () => {
               ))}
         </div> */}
 
-      <div className="max-w-[1296px] mx-auto mt-32 mb-[100px]">
+      <div className="max-w-[1296px] mx-auto  mb-[100px]">
 
         <p className="pb-10 font-bold text-lg text-gray-700">{countData} Results Found</p>
        
