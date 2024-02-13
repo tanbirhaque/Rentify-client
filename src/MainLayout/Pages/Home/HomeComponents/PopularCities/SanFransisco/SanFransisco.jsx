@@ -1,3 +1,4 @@
+// this section is entirely made by sadia
 import { NavLink } from "react-router-dom";
 import DynamicCards from "../DynamicCards";
 import useProperties from "../../../../../../Hooks/useProperties";
@@ -80,13 +81,13 @@ const SanFransisco = () => {
                     </div>
                 </div>
             </div>
-            <div className="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-16">
+            {/* <div className="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-16">
               {
                 cityProperties?.map((property) => <DynamicCards key={property._id} property={property}></DynamicCards>)
               }
-            </div>
+            </div> */}
             {/* tab card section */}
-      {/* <div className="max-w-[1296px] mx-auto  mb-[100px]">
+      <div className="max-w-[1296px] mx-auto  mb-[100px]">
         <div className="flex justify-between ">
           <p className="pt-16 font-bold text-lg text-gray-700">
             {countData} Results Found
@@ -209,7 +210,7 @@ const SanFransisco = () => {
             </TabPanel>
           </Tabs>
         </div>
-      </div> */}
+      </div>
         </div>
     );
 };
