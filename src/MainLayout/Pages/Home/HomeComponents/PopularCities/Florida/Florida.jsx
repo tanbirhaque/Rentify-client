@@ -91,13 +91,13 @@ const Florida = () => {
           </div>
         </div>
       </div>
-      {/* <div className="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-16">
+      <div className="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-16">
               {
                 cityProperties?.map((property) => <DynamicCards key={property._id} property={property}></DynamicCards>)
               }
-            </div> */}
+            </div>
       {/* tab card section */}
-      <div className="max-w-[1296px] mx-auto  mb-[100px]">
+      {/* <div className="max-w-[1296px] mx-auto  mb-[100px]">
         <div className="flex justify-between ">
           <p className="pt-16 font-bold text-lg text-gray-700">
             {countData} Results Found
@@ -138,12 +138,7 @@ const Florida = () => {
             </TabList>
             <TabPanel>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-3 xl:px-0">
-                {/* {cityProperties?.map((property) => (
-                  <DynamicCards
-                    key={property._id}
-                    property={property}
-                  ></DynamicCards>
-                ))} */}
+               
 
                 {property.length > 0
                   ? property.map((property) => (
@@ -162,14 +157,7 @@ const Florida = () => {
             </TabPanel>
             <TabPanel>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-3 xl:px-0">
-                {/* {Residential.map((property, index) => (
-                  <div key={index}>
-                    <PropertyCard
-                      property={property}
-                      details_path={"/details"}
-                    />
-                  </div>
-                ))} */}
+               
 
                 {property.length > 0
                   ? property.map((property) => (
@@ -190,14 +178,7 @@ const Florida = () => {
             </TabPanel>
             <TabPanel>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-3 xl:px-0">
-                {/* {Commercial.map((property, index) => (
-                  <div key={index}>
-                    <PropertyCard
-                      property={property}
-                      details_path={"/details"}
-                    />
-                  </div>
-                ))} */}
+               
 
                 {property.length > 0
                   ? property.map((property) => (
@@ -218,14 +199,7 @@ const Florida = () => {
             </TabPanel>
             <TabPanel>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-3 xl:px-0">
-                {/* {apartment.map((property, index) => (
-                  <div key={index}>
-                    <PropertyCard
-                      property={property}
-                      details_path={"/details"}
-                    />
-                  </div>
-                ))} */}
+                
 
                 {property.length > 0
                   ? property.map((property) => (
@@ -246,7 +220,7 @@ const Florida = () => {
             </TabPanel>
           </Tabs>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

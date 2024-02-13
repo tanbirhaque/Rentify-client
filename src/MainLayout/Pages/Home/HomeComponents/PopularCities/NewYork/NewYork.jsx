@@ -141,12 +141,7 @@ const NewYork = () => {
             </TabList>
             <TabPanel>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-3 xl:px-0">
-                {/* {cityProperties?.map((property) => (
-                  <DynamicCards
-                    key={property._id}
-                    property={property}
-                  ></DynamicCards>
-                ))} */}
+              
 
                 {property.length > 0
                   ? property.map((property) => (
@@ -155,24 +150,12 @@ const NewYork = () => {
                         property={property}
                       ></DynamicCards>
                     ))
-                  : cityProperties?.map((property) => (
-                      <DynamicCards
-                        key={property._id}
-                        property={property}
-                      ></DynamicCards>
-                    ))}
+                  :  cityProperties?.map((property) => <DynamicCards key={property._id} property={property}></DynamicCards>)}
               </div>
             </TabPanel>
             <TabPanel>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-3 xl:px-0">
-                {/* {Residential.map((property, index) => (
-                  <div key={index}>
-                    <PropertyCard
-                      property={property}
-                      details_path={"/details"}
-                    />
-                  </div>
-                ))} */}
+               
 
                 {property.length > 0
                   ? property.map((property) => (
@@ -193,14 +176,7 @@ const NewYork = () => {
             </TabPanel>
             <TabPanel>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-3 xl:px-0">
-                {/* {Commercial.map((property, index) => (
-                  <div key={index}>
-                    <PropertyCard
-                      property={property}
-                      details_path={"/details"}
-                    />
-                  </div>
-                ))} */}
+               
 
                 {property.length > 0
                   ? property.map((property) => (
@@ -221,14 +197,8 @@ const NewYork = () => {
             </TabPanel>
             <TabPanel>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-3 xl:px-0">
-                {/* {apartment.map((property, index) => (
-                  <div key={index}>
-                    <PropertyCard
-                      property={property}
-                      details_path={"/details"}
-                    />
-                  </div>
-                ))} */}
+                
+                  
 
                 {property.length > 0
                   ? property.map((property) => (
