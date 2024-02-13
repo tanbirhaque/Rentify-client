@@ -5,6 +5,8 @@ import {
   FaHome,
   FaUserCircle,
   FaBlogger,
+  FaRegClone,
+  FaChevronDown,
 } from "react-icons/fa";
 import { IoAddCircleSharp, IoBookmarksSharp } from "react-icons/io5";
 import {
@@ -184,7 +186,7 @@ const SideBar = () => {
           )}
           {/* <ul>{ownerRoutes}</ul> */}
           {/* drop-down -1*/}
-          {/* <div className="collapse ">
+          <div className="collapse ">
             <input type="checkbox" />
             <div className="text-[919EAB] hover:text-white collapse-title font-medium flex gap-1.5 items-center">
               <FaRegClone />
@@ -192,44 +194,26 @@ const SideBar = () => {
               <FaChevronDown />
             </div>
             <div className="collapse-content">
-              <p>
-                <Link>One</Link>
-              </p>
-              <p>
-                <Link>Two</Link>
-              </p>
-              <p>
-                <Link>Three</Link>
-              </p>
-              <p>
-                <Link>Four</Link>
-              </p>
+              <li className="dashLi dashdrop xl:text-[20px]">
+                <NavLink
+                  to="/dashboard/userProfile"
+                  className="dashNav flex items-center gap-2"
+                >
+                  <FaUserCircle className="dashIcon text-[#64707d]"></FaUserCircle>
+                  Profile
+                </NavLink>
+              </li>
+              <li className="dashLi xl:text-[20px]">
+                <NavLink
+                  to="/dashboard/my-requests"
+                  className="dashNav flex items-center gap-2"
+                >
+                  <MdOutlinePendingActions className="dashIcon text-[#64707d]"></MdOutlinePendingActions>
+                  Requested Properties
+                </NavLink>
+              </li>
             </div>
-          </div> */}
-          {/* drop-down -2*/}
-          {/* <div className="collapse ">
-            <input type="checkbox" />
-            <div className="text-[919EAB] hover:text-white collapse-title font-medium flex gap-1.5 items-center">
-              <FaRegClone />
-              Drop-down 2
-              <FaChevronDown />
-            </div>
-            <div className="collapse-content">
-              <p>
-                <Link>One</Link>
-              </p>
-              <p>
-                <Link>Two</Link>
-              </p>
-              <p>
-                <Link>Three</Link>
-              </p>
-              <p>
-                <Link>Four</Link>
-              </p>
-            </div>
-          </div> */}
-          {/* drop-down*/}
+          </div>
         </div>
       </div>
     </div>

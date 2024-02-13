@@ -136,7 +136,7 @@ const Navbar = () => {
       className={` bg-base-100  sticky top-0 left-0 z-[99999] ${isNavbarJumping ? "animate-jump shadow-md" : ""
         }`}
     >
-      <div className="navbar max-w-screen-2xl mx-auto bg-base-100 px-0 py-0">
+      <div className="navbar max-w-screen-2xl mx-auto bg-base-100 px-0 py-2">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">

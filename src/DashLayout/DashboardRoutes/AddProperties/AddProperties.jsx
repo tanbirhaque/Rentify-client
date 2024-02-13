@@ -67,7 +67,7 @@ const AddProperties = () => {
     { value: "urban oasis", label: "urban oasis" },
     { value: "high-tech living", label: "high-tech living" }
   ]
-  const handlevaluetags = (tagValue) => {
+  const handleValueTags = (tagValue) => {
     setTagValue(tagValue)
   }
 
@@ -265,7 +265,7 @@ const AddProperties = () => {
     console.log(newProperty);
     axiosPublic.post("/properties", newProperty)
       .then(res => {
-        // console.log(res.data)
+        console.log(res.data)
         if (res.data) {
           Swal.fire(`Hey ${user.displayName}, Your property added successfully`)
           refetch();
@@ -511,7 +511,7 @@ const AddProperties = () => {
                     >
                       <option value="Weekly">Weekly</option>
                       <option value="Monthly">Monthly</option>
-                      <option value="Annualy">Annualy</option>
+                      <option value="Annually">Annually</option>
                       <option value="Permanent">Permanent</option>
                     </select>
                   </label>
@@ -556,11 +556,11 @@ const AddProperties = () => {
                     </span>
                   </label>
                   <label className="input-group ">
-                    {/* This select field impleamented by sojib for find multiple tags*/}
+                    {/* This select field implemented by sojib for find multiple tags*/}
                     <Select
                       {...register("tags")}
                       value={tagValue}
-                      onChange={handlevaluetags}
+                      onChange={handleValueTags}
                       placeholder={`Select your property tags`}
                       isMulti
                       name="tags"
@@ -604,7 +604,7 @@ const AddProperties = () => {
                     <input
                       {...register("city")}
                       type="text"
-                      placeholder="ex. Anytown"
+                      placeholder="ex. Any Town"
                       name="city"
                       className="input form-border input-bordered w-full"
                     />
@@ -669,7 +669,7 @@ const AddProperties = () => {
                     </span>
                   </label>
                   <label className="input-group ">
-                    {/* This select field impleamented by sojib for find multiple proprty featuries */}
+                    {/* This select field implemented by sojib for find multiple property features */}
                     <Select
                       {...register("feature")}
                       value={featureValue}
@@ -691,13 +691,14 @@ const AddProperties = () => {
                 </div>
               </div>
               <div className=" flex md:flex-row flex-col justify-between items-start mb-5 gap-5">
+                {/* Property Image input field must be required */}
                 <div className="form-control md:w-1/2 w-full">
                   <label className="label ">
                     <span className="label-text text-lg font-semibold">
                       Property Image
                     </span>
                   </label>
-                  {/* this feild updated to drag and drop option by sojib [ 632 to 663 line] */}
+                  {/* this field updated to drag and drop option by sojib [ 632 to 663 line] */}
                   {showImages[0] ?
                     <div className=" flex justify-center flex-wrap items-center gap-2 border-2 rounded-md p-3">
                       {
@@ -732,6 +733,7 @@ const AddProperties = () => {
                     </div>
                   }
                 </div>
+                {/* Property Floor plans image input Field */}
                 <div className="form-control md:w-1/2 w-full">
                   <label className="label ">
                     <span className="label-text text-lg font-semibold">
@@ -758,7 +760,7 @@ const AddProperties = () => {
                         <div className="">
                           <p className=" font-bold">Drop here files or click to upload Floor plan images</p>
                           <input
-                            {...register("filesfloor")}
+                            {...register("filesFloor")}
                             type="file"
                             placeholder="Drag and drop your image or url"
                             name="files"
@@ -767,6 +769,7 @@ const AddProperties = () => {
                             ref={fileFloorInputRef}
                             onChange={onFloorFileSelect}
                             style={{ display: 'none' }}
+                            required={true}
                           />
                         </div>
                       </label>
