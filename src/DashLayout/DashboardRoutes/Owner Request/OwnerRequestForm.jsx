@@ -38,27 +38,30 @@ const OwnerRequestForm = () => {
       status: "pending",
     };
     console.log(ownerRequest);
-    axiosSecure.post("/ownerRequest", ownerRequest).then((response) => {
-      console.log(response.data);
-      if (response.data.insertedId) {
-        Swal.fire({
-          title: `Your application will be reviewed soon.`,
-          timer: 2000,
-          color: "#002172",
-          showConfirmButton: false,
-          icon: "success",
-        });
-      } else {
-        Swal.fire({
-          title:
-            "Can not request more than once. Please wait for admin approval.",
-          timer: 2000,
-          color: "#002172",
-          showConfirmButton: false,
-          icon: "error",
-        });
-      }
-    });
+    axiosSecure.post("/ownerRequest", ownerRequest)
+      .then((response) => {
+        console.log(response);
+        // This extra condition was added by [Sajib] because _id comes from Mongoose
+        if (response.data.insertedId || response.data._id) {
+          Swal.fire({
+            title: `Your application will be reviewed soon.`,
+            timer: 2000,
+            color: "#002172",
+            showConfirmButton: true,
+            icon: "success",
+          });
+        } 
+        else {
+          Swal.fire({
+            title:
+              "Can not request more than once. Please wait for admin approval.",
+            timer: 2000,
+            color: "#002172",
+            showConfirmButton: false,
+            icon: "error",
+          });
+        }
+      });
   };
   //
 

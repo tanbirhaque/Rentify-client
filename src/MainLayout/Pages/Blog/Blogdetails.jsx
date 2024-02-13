@@ -20,48 +20,48 @@ import useBlogsComment from "../../../Hooks/useBlogsComment";
 import CommentForm from "./CommentForm";
 
 const Blogdetails = () => {
-  const { user } = useAuth();
-  const axiosPublic = useAxiosPublic();
+  // const { user } = useAuth();
+  // const axiosPublic = useAxiosPublic();
   const blogs = useLoaderData();
   const [comments] = useBlogsComment();
   const { id } = useParams();
   const blog = blogs.find((item) => item._id == id);
   const newComments = comments.filter((item) => item.blogId == blog._id);
 
-  const { register, handleSubmit, reset } = useForm();
+  // const { register, handleSubmit, reset } = useForm();
 
   //condition of user needed to comment
 
-  const onSubmit = (data) => {
-    if (user) {
-      const newComment = {
-        name: data.name,
-        email: data.email,
-        img: user?.photoURL,
-        subject: data.subject,
-        message: data.message,
-        blogId: blog._id,
-        date: new Date().toLocaleDateString("en-GB"),
-      };
-      console.log(newComment);
-      axiosPublic.post("/comments", newComment).then((res) => {
-        console.log(res.data);
-        if (res.data) {
-          Swal.fire(`Hey ${user?.displayName} your comment Successfully send`);
-          reset();
-        }
-      });
-    } else {
-      // this login will allow user to add booking for their desired property only if they are user.
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Looks like you're not logged in!",
-        footer: `<a href='/login' className='font-bold underline'>Please Log In</a>`,
-        showConfirmButton: false,
-      });
-    }
-  };
+  // const onSubmit = (data) => {
+  //   if (user) {
+  //     const newComment = {
+  //       name: data.name,
+  //       email: data.email,
+  //       img: user?.photoURL,
+  //       subject: data.subject,
+  //       message: data.message,
+  //       blogId: blog._id,
+  //       date: new Date().toLocaleDateString("en-GB"),
+  //     };
+  //     console.log(newComment);
+  //     axiosPublic.post("/comments", newComment).then((res) => {
+  //       console.log(res.data);
+  //       if (res.data) {
+  //         Swal.fire(`Hey ${user?.displayName} your comment Successfully send`);
+  //         reset();
+  //       }
+  //     });
+  //   } else {
+  //     // this login will allow user to add booking for their desired property only if they are user.
+  //     Swal.fire({
+  //       icon: "error",
+  //       title: "Oops...",
+  //       text: "Looks like you're not logged in!",
+  //       footer: `<a href='/login' className='font-bold underline'>Please Log In</a>`,
+  //       showConfirmButton: false,
+  //     });
+  //   }
+  // };
 
   return (
     <div>
@@ -70,7 +70,7 @@ const Blogdetails = () => {
         <div className=" bg-[#000000B2]">
           <div className=" max-w-screen-2xl mx-auto py-24">
             <h2 className="text-6xl font-bold text-white font-serif">
-              Blog Grid
+              Blog
             </h2>
             <div className="mt-2">
               <NavLink
@@ -156,7 +156,7 @@ const Blogdetails = () => {
               5 Major Facility That We Offer
             </h2>
             <p>
-              {blog?.majorfacility.map((item) => (
+              {blog?.majorFacility?.map((item) => (
                 <p key={item}>
                   <div className=" flex items-center gap-2 space-y-2">
                     <IoIosArrowForward className=" text-orange-400 mr-2"></IoIosArrowForward>
@@ -211,15 +211,15 @@ const Blogdetails = () => {
           <div className="border flex md:flex-row flex-col justify-start items-center gap-8 py-6 px-5 my-7">
             <img
               className="h-40 w-40 rounded-full"
-              src={blog?.blogerInfo.blogerImg}
+              src={blog?.bloggerInfo?.bloggerImg}
               alt=""
             />
             <div>
               <h2 className=" text-3xl font-bold ">
-                {blog?.blogerInfo.blogerName}
+                {blog?.bloggerInfo?.bloggerName}
               </h2>
               <p className=" leading-8 text-xl text-gray-400">
-                {blog?.blogerInfo.blogerDetails}
+                {blog?.bloggerInfo?.bloggerDetails}
               </p>
               <div className=" flex items-center gap-5 text-xl">
                 <a
@@ -290,7 +290,7 @@ const Blogdetails = () => {
                 marked.
               </p>
               {/* comment form */}
-              <CommentForm blog={blog}/>
+              <CommentForm blog={blog} />
             </div>
           </div>
         </div>

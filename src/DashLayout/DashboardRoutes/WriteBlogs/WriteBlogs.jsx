@@ -27,11 +27,11 @@ const WriteBlogs = () => {
             majorfacility: [
                 data.facility
             ],
-            blogerInfo: {
-                blogerName: user?.displayName,
-                blogerEmail: user?.email,
-                blogerImg: user?.photoURL,
-                blogerDetails: data.blogerdetails
+            bloggerInfo: {
+                bloggerName: user?.displayName,
+                bloggerEmail: user?.email,
+                bloggerImg: user?.photoURL,
+                bloggerDetails: data.blogerdetails
             }
         }
         console.log(newBlog)

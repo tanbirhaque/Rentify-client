@@ -50,8 +50,8 @@ const RequestedProperty = () => {
 
 
   // filter rent and sales for tabs
-  const rentsProperties = properties.filter((item) => item.property.property_for == "rent");
-  const salesProperties = properties.filter((item) => item.property.property_for === "sale");
+  const rentsProperties = properties.filter((item) => item?.property?.property_for == "rent");
+  const salesProperties = properties.filter((item) => item?.property?.property_for === "sale");
 
   return (
     <div className="">
