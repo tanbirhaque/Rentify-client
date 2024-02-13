@@ -118,3 +118,17 @@
   -webkit-box-shadow: 0px -1px 17px -3px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px -1px 17px -3px rgba(0, 0, 0, 0.75);
 }
+
+
+.navMarker{
+  width: 40px !important;
+  border: none !important;
+}
+
+summary{
+  max-height: 48px !important;
+}
+
+.navMarker img{
+  max-height: 48px !important;
+}

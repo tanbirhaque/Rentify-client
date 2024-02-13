@@ -5,10 +5,15 @@ import ButtonBlue from "../buttons/Blue/ButtonBlue";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import useGetRole from "../../../Hooks/useGetRole";
+import { MdOutlineAdminPanelSettings, MdOutlineEmail } from "react-icons/md";
+import { LuLayoutDashboard } from "react-icons/lu";
+import { TbLogout } from "react-icons/tb";
 
 const Navbar = () => {
   const [isNavbarJumping, setIsNavbarJumping] = useState(false);
   const { userSignOut, user, setUser } = useContext(AuthContext);
+  const [userRole] = useGetRole()
   const navigate = useNavigate();
 
   // for logout user -Sadia
@@ -178,47 +183,46 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1  flex items-center py-0">{navLinks}</ul>
         </div>
 
-        {/* for toggle feature for btn -sadia */}
+        {/* for toggle feature for profile button -sadia || Remake by -Tanbir */}
         <div className="navbar-end gap-5 lg:gap-0">
           {user && (
-            <div className="dropdown dropdown-end">
-              <div>
-                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                  <div className="w-10 rounded-full">
-                    <img
-                      // src={user?.photoURL}
-                      src={`${user?.photoURL ? user?.photoURL : defaultImg}`}
-                    />
-                  </div>
-                </label>
-
-                <ul
-                  tabIndex={0}
-                  className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
-                >
-                  <li>
-                    <a className="justify-between">
-                      {user.displayName ? user.displayName : "anonymous"}
-                    </a>
-                  </li>
-                  <li>
-                    <a>{user.email ? user.email : "anonymous@example.com"}</a>
-                  </li>
-                  {/* {console.log("js diye aslm", user.photoURL)} */}
-                  <li>
-                    <Link to="/dashboard/userProfile">Dashboard</Link>
-                  </li>
-                  <li>
-                    <a href="http://localhost:5174/" target="blank">Admin Panel</a>
-                  </li>
-                  <li>
-                    <Link onClick={handleLogOut}>Logout</Link>
-                  </li>
-                </ul>
+            <>
+              <div className="flex items-center">
+                <div className="flex flex-col items-end mr-4 h-full">
+                  <h3 className="capitalize poppins-font text-[16px] font-semibold">{user?.displayName}</h3>
+                  <p className="capitalize poppins-font text-[12px] text-[#464a53]">{userRole?.role}</p>
+                </div>
+                <details className="dropdown dropdown-end w-[43px]">
+                  <summary tabIndex={0} className="btn w-[43px] min-h-[30px] max-h-[40px] navMarker px-0 py-0 ">
+                    <div className="min-w-[43px]">
+                      <img
+                        className="rounded-lg w-[43px]"
+                        src={`${user?.photoURL ? user?.photoURL : defaultImg}`}
+                      />
+                    </div>
+                  </summary>
+                  <ul
+                    tabIndex={0}
+                    className="menu menu-sm dropdown-content mt-3 z-[1] py-2 px-0 shadow  rounded-lg bg-[#ffffff] "
+                  >
+                    <li className="hover:bg-[#002172] transition-all ease-out duration-300 hover:text-white">
+                        <p className="text-[17px]"><span><MdOutlineEmail className=""></MdOutlineEmail></span>{user?.email}</p>
+                    </li>
+                    <li className="hover:bg-[#002172] transition-all ease-out duration-300 hover:text-white">
+                      <Link to="/dashboard/userProfile" className="text-[17px]"><span><LuLayoutDashboard></LuLayoutDashboard></span>Dashboard</Link>
+                    </li>
+                    <li className="hover:bg-[#002172] transition-all ease-out duration-300 hover:text-white">
+                      <a href="http://localhost:5174/" target="blank" className="text-[17px]"><span><MdOutlineAdminPanelSettings></MdOutlineAdminPanelSettings></span>Admin Panel</a>
+                    </li>
+                    <li className="hover:bg-[#002172] transition-all ease-out duration-300 hover:text-white">
+                      <Link onClick={handleLogOut} className="text-[17px]"><span><TbLogout className="text-[#e33226]"></TbLogout></span>Logout</Link>
+                    </li>
+                  </ul>
+                </details>
               </div>
-            </div>
+            </>
           )}
-
+          {/* Login button conditional if the user is not logged in yet */}
           <div>
             {user ? (
               ""
@@ -234,7 +238,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 
