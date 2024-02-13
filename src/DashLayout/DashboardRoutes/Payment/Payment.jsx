@@ -15,6 +15,8 @@ const Payment = () => {
         propertyId: params.get('propertyId'),
         property_img: params.get("property_img"),
         property_title: params.get("property_title"),
+        property_location: params.get("property_location"),
+        property_category: params.get('property_category'),
         property_status: params.get('property_status')
     }
     console.log(queryParams)

@@ -86,15 +86,7 @@ const RentRequest = () => {
 
                 </div>
             </div>
-            {/* <div className="flex items-center justify-end mt-4 ">
-                <h1>Sort by:</h1>
-                <div className="dropdown">
-                    
-                    <div className="border-2 rounded-lg px-4 py-2 m-1" >Status</div>
-                   
-
-                </div>
-            </div> */}
+           
             <div className="mt-10">
                 <table className="table table-zebra overflow-scroll">
                     {/* head */}
@@ -111,16 +103,16 @@ const RentRequest = () => {
                                 Status <IoMdArrowDropdown />
                             </th>
                             {dropdownVisible && (
-                            <tr>
-                                <th colSpan="7" className="relative">
+                            <div>
+                                <div colSpan="7" className="relative">
                                     <ul className={`dropdown-content bg-white z-[1] menu p-2 shadow rounded-box w-52 absolute top-full left-0`}>
                                         <li><a onClick={() => filterData("ownerRent")}>All</a></li>
                                         <li><a onClick={() => filterData("pending")}>Pending</a></li>
                                         <li><a onClick={() => filterData("accepted")}>Accept</a></li>
                                         <li><a onClick={() => filterData("rejected")}>Reject</a></li>
                                     </ul>
-                                </th>
-                            </tr>
+                                </div>
+                            </div>
                         )}
 
 

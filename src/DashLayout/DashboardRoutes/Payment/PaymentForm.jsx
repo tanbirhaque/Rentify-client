@@ -16,7 +16,7 @@ const PaymentForm = ({ queryParams }) => {
   const stripe = useStripe();
   const elements = useElements();
   const axiosSecure = useAxiosSecure();
-  const { price, requestId, propertyId, owner, property_status, property_img, property_title, } = queryParams;
+  const { price, requestId, propertyId, owner, property_img, property_title, property_location, property_category, property_status} = queryParams;
 
   useEffect(() => {
     axiosSecure
@@ -73,6 +73,10 @@ const PaymentForm = ({ queryParams }) => {
           requestId,
           price,
           owner,
+          property_img,
+          property_title,
+          property_location, 
+          property_category,
           property_status,
           date: new Date().toLocaleDateString("en-GB"),
           transactionId: paymentIntent.id,
