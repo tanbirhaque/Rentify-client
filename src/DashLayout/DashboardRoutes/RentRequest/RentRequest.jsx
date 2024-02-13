@@ -11,6 +11,7 @@ const RentRequest = () => {
     const [dropdownVisible, setDropdownVisible] = useState(false);
     const [tableData, setTableData] = useState([]);
     const [filteredData, setFilteredData] = useState([]);
+    const [selectedStatus, setSelectedStatus] = useState("all");
 
     const accepted = ownerRent.filter(
         (item) => item.requestStatus == "accepted"
@@ -21,6 +22,7 @@ const RentRequest = () => {
     const rejected = ownerRent.filter(
         (item) => item.requestStatus == "rejected"
     );
+    
 
 
 
@@ -53,11 +55,11 @@ const RentRequest = () => {
 
     return (
         <>
-
+             {/* Top-Context */}
             <div className=" flex gap-8 ml-10 mt-10">
                 <div className="flex bg-slate-200 text-lg shadow-md  py-77 px-5 items-center justify-between gap-6 w-80 rounded-2xl">
                     <div>
-                        <h1 className="font-bold">245</h1>
+                        <h1 className="font-bold">{ownerRent.length}</h1>
                         <h1>Total Customers</h1>
                     </div>
                     <div className="bg-[#002172] text-white rounded-xl p-4">
@@ -104,16 +106,22 @@ const RentRequest = () => {
                             <th>Price</th>
                             <th>Order-ID</th>
                             <th>Type</th>
+                            {/* dropdown */}
                             <th className="flex items-center  gap-2" tabIndex={0} role="button" onClick={toggleDropdown}>
                                 Status <IoMdArrowDropdown />
                             </th>
                             {dropdownVisible && (
-                                <ul tabIndex={0} className={`dropdown-content bg-white z-[1]  menu p-2 shadow  rounded-box w-52`}>
-                                    <li><a onClick={() => filterData("pending")}>Pending</a></li>
-                                    <li><a onClick={() => filterData("accepted")}>Accept</a></li>
-                                    <li><a onClick={() => filterData("rejected")}>Reject</a></li>
-                                </ul>
-                            )}
+                            <tr>
+                                <th colSpan="7" className="relative">
+                                    <ul className={`dropdown-content bg-white z-[1] menu p-2 shadow rounded-box w-52 absolute top-full left-0`}>
+                                        <li><a onClick={() => filterData("ownerRent")}>All</a></li>
+                                        <li><a onClick={() => filterData("pending")}>Pending</a></li>
+                                        <li><a onClick={() => filterData("accepted")}>Accept</a></li>
+                                        <li><a onClick={() => filterData("rejected")}>Reject</a></li>
+                                    </ul>
+                                </th>
+                            </tr>
+                        )}
 
 
                             <th>Action</th>
