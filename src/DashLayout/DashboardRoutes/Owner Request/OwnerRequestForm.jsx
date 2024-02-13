@@ -1,3 +1,4 @@
+// This ownerRequestForm full make and All functionality also responsive added by [sojib]
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
@@ -10,22 +11,15 @@ import { useState } from "react";
 const OwnerRequestForm = () => {
   const [profileNext, setProfileNext] = useState(true)
   const [uploadForm, setUploadForm] = useState(true)
-  //   const [selectedFile, setSelectedFile] = useState(null);
 
-  //   const handleFileChange = (event) => {
-  //     const file = event.target.files[0];
-  //     setSelectedFile(file);
-  //   };
-  //
-
-  // handleGoProfileInfo, handleGoUploadFile, handleGoStartForm, handleBackProfileInfo These four functions are functions of moving from one form to another by [sojib]
+  // handleGoProfileInfo, handleGoUploadFile, handleBackStartForm, handleBackProfileInfo These four functions are functions of moving from one form to another by [sojib]
   const handleGoProfileInfo = () => {
     setProfileNext(false)
   }
   const handleGoUploadFile = () => {
     setUploadForm(false)
   }
-  const handleGoStartForm = () => {
+  const handleBackStartForm = () => {
     setProfileNext(true)
   }
   const handleBackProfileInfo = () => {
@@ -33,54 +27,39 @@ const OwnerRequestForm = () => {
     setProfileNext(false)
   }
 
-  const { register, handleSubmit } = useForm();
+  const { register, reset, handleSubmit } = useForm();
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
-  //const axiosPublic = useAxiosPublic();
-  //images hosting to imgbb
-  //   const image_hosting_api =
-  //     "https://api.imgbb.com/1/upload?key=bd58c2cacfaf8bbacf4ee63a9bafe25c";
+
   const onSubmit = async (data) => {
     console.log(data);
-    // const imageFile = { image: data.image[0] };
-    // const res = await axiosPublic.post(image_hosting_api, imageFile, {
-    //   headers: { "Content-Type": "multipart/form-data" },
-    // });
-    // const imageUrl = res.data.data.display_url;
 
-    //for saving property data to backend
-    const ownerRequest = {
-      ownerEmail: user?.email,
-      ownerName: user?.displayName,
-      ownerImage: user?.photoURL,
-      ownerProfession: data.profession,
-      status: "pending",
-    };
-    console.log(ownerRequest);
-    // axiosSecure.post("/ownerRequest", ownerRequest)
-    //   .then((response) => {
-    //     console.log(response);
-    //     // This extra condition was added by [Sajib] because _id comes from Mongoose
-    //     if (response.data.insertedId || response.data._id) {
-    //       Swal.fire({
-    //         title: `Your application will be reviewed soon.`,
-    //         timer: 2000,
-    //         color: "#002172",
-    //         showConfirmButton: true,
-    //         icon: "success",
-    //       });
-    //     }
-    //     else {
-    //       Swal.fire({
-    //         title:
-    //           "Can not request more than once. Please wait for admin approval.",
-    //         timer: 2000,
-    //         color: "#002172",
-    //         showConfirmButton: false,
-    //         icon: "error",
-    //       });
-    //     }
-    //   });
+    // TO DO : now this time i direct passed data if after we need add to owner then we will change it
+    axiosSecure.post("/ownerRequest", data)
+      .then((response) => {
+        console.log(response);
+        // This extra condition was added by [Sajib] because _id comes from Mongoose
+        if (response.data.insertedId || response.data._id) {
+          Swal.fire({
+            title: `Your application will be reviewed soon.`,
+            timer: 2000,
+            color: "#002172",
+            showConfirmButton: true,
+            icon: "success",
+          });
+          reset()
+        }
+        else {
+          Swal.fire({
+            title:
+              "Can not request more than once. Please wait for admin approval.",
+            timer: 2000,
+            color: "#002172",
+            showConfirmButton: false,
+            icon: "error",
+          });
+        }
+      });
   };
   //
 
@@ -104,7 +83,8 @@ const OwnerRequestForm = () => {
                 </div>
               </div>
               <hr className="mb-7"></hr>
-              <div className=" mb-7 flex justify-start items-center gap-8">
+              {/* Form heading section */}
+              <div className=" mb-7 flex md:flex-row flex-col justify-start md:items-center items-start gap-8">
                 {
                   profileNext && uploadForm ?
                     <div className=" flex items-center gap-4">
@@ -161,6 +141,7 @@ const OwnerRequestForm = () => {
                 }
               </div>
               <hr className="mb-5"></hr>
+              {/* Form section */}
               <form className="px-4" onSubmit={handleSubmit(onSubmit)}>
                 <div>
                   {
@@ -168,6 +149,7 @@ const OwnerRequestForm = () => {
                       <div>
                         {
                           profileNext ?
+                          // This is get started field section
                             < div >
                               <div className="grid md:grid-cols-3 grid-cols-1 gap-4  mb-5">
                                 <div className="form-control">
@@ -209,6 +191,7 @@ const OwnerRequestForm = () => {
                                   <label className="input-group ">
                                     <input
                                       {...register("email")}
+                                      defaultValue={user?.email}
                                       type="text"
                                       placeholder="Add your email"
                                       className="input form-border input-bordered w-full"
@@ -240,13 +223,14 @@ const OwnerRequestForm = () => {
                                   </label>
                                   <label className="input-group ">
                                     <input
-                                      {...register("dateBirth")}
+                                      {...register("dateofBirth")}
                                       type="date"
                                       className="input form-border input-bordered w-full"
                                     />
                                   </label>
                                 </div>
                               </div>
+                              {/* This is button part of ProfileInfo section for go to ProfileInfo form */}
                               <div className=" flex flex-row justify-end items-center mb-4" onClick={handleGoProfileInfo}>
                                 <ButtonBlue
                                   titleBlue={`Next`}
@@ -255,6 +239,7 @@ const OwnerRequestForm = () => {
                               </div>
                             </div>
                             :
+                            // This is profile Info field section
                             <div>
                               <div>
                                 <div className="flex lg:flex-row md:flex-col flex-col items-center gap-4  mb-5">
@@ -356,8 +341,9 @@ const OwnerRequestForm = () => {
                                   </div>
                                 </div>
                               </div>
+                              {/* This is button part of ProfileInfo section for back start form and go to uplad form request */}
                               <div className=" flex flex-row justify-between items-center mb-4">
-                                <div onClick={handleGoStartForm}>
+                                <div onClick={handleBackStartForm}>
                                   <ButtonBlue
                                     titleBlue={`Previous`}
                                   ></ButtonBlue>
@@ -373,6 +359,7 @@ const OwnerRequestForm = () => {
                         }
                       </div>
                       :
+                      // This is upload field section
                       <div>
                         <div className="form-control">
                           <label className="label ">
@@ -382,14 +369,15 @@ const OwnerRequestForm = () => {
                           </label>
                           <label className="input-group ">
                             <input
-                              {...register("imgUrl")}
+                              {...register("img")}
                               type="text"
                               placeholder="Add your image url"
                               className="input form-border input-bordered w-full h-36"
                             />
                           </label>
                         </div>
-                        <div className=" flex flex-row justify-between items-center mb-4" type="submit">
+                        {/* This is button part of upload field section for back profile form and submit request */}
+                        <div className=" flex flex-row justify-between items-center my-4" type="submit">
                           <div onClick={handleBackProfileInfo}>
                             <ButtonBlue
                               titleBlue={`Previous`}
@@ -397,7 +385,7 @@ const OwnerRequestForm = () => {
                           </div>
                           <div type="submit">
                             <ButtonBlue
-                              titleBlue={`Next`}
+                              titleBlue={`Submit`}
                             >
                             </ButtonBlue>
                           </div>
