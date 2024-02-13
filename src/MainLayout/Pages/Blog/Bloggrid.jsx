@@ -9,7 +9,7 @@ import useBlogs from "../../../Hooks/useBlogs";
 const Bloggrid = () => {
     const [blogs] = useBlogs() 
     const [currentpage, Setcurrentpage] = useState(0);
-    console.assert(blogs)
+    // console.logo(blogs)
     // TODO: blogs data pagination on page 
     const count = blogs?.length;
     // now this time itemper page static.after when we will do backed in then we will do it's daynamic

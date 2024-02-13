@@ -66,68 +66,77 @@ const Navbar = () => {
         Home
       </NavLink>
       <NavLink
+        to="/all"
+        className="navAfter relative font-medium text-base  text-black mx-3"
+      >
+        All Properties
+      </NavLink>
+      <NavLink
+        to="/owners"
+        className="navAfter relative font-medium text-base  text-black mx-3"
+      >
+        Owners
+      </NavLink>
+      <NavLink
         to="/blogs"
         className="navAfter relative font-medium text-base text-black mx-3"
       >
         Blogs
       </NavLink>
-      <NavLink
-        to="/dashboard/profile"
-        className="navAfter relative font-medium text-base  text-black mx-3"
-      >
-        Dashboard
-      </NavLink>
 
-      <NavLink
-        to="/how-it-works"
-        className="navAfter relative font-medium text-base  text-black mx-3"
-      >
-        How It Works
-      </NavLink>
 
       {/* for others */}
-      <details className="dropdown">
-        <summary className="navAfter relative font-medium text-base  text-black mx-3">
-          Others
-        </summary>
-        <ul className=" p-2  menu dropdown-content z-[1] bg-base-100 rounded-box w-52 border-[#e33226] border-l-[3px]">
+      <div className="dropdown dropdown-hover relative h-[65px]">
+        <div tabIndex={0} role="button" className="dropAfter relative font-medium text-base text-black mx-3 flex items-center h-full">Others</div>
+        <ul className="menu dropdown-content z-[1] bg-white pl-5  w-[250px] border-[#e33226] border-l-[2px] rounded-[5px] py-0 absolute top-14">
+          <NavLink
+            to="/how-it-works"
+            className="navAfter relative font-medium text-base text-black my-2"
+          >
+            How it works
+          </NavLink>
           <NavLink
             to="/testimonials"
-            className="navAfter relative font-medium text-base text-black mx-3"
+            className="navAfter relative font-medium text-base text-black my-2"
           >
             Testimonials
           </NavLink>
           <NavLink
+            to="/contact"
+            className="navAfter relative font-medium text-base text-black my-2"
+          >
+            Contact with us
+          </NavLink>
+          <NavLink
             to="/privacy"
-            className="navAfter relative font-medium text-base text-black mx-3"
+            className="navAfter relative font-medium text-base text-black my-2"
           >
             Our Privacy
           </NavLink>
           <NavLink
             to="/conditions"
-            className="navAfter relative font-medium text-base text-black mx-3"
+            className="navAfter relative font-medium text-base text-black my-2"
           >
             Terms & Conditions
           </NavLink>
           <NavLink
             to="/faq"
-            className="navAfter relative font-medium text-base text-black  mx-3"
+            className="navAfter relative font-medium text-base text-black  my-2"
           >
             FAQ
           </NavLink>
         </ul>
-      </details>
+      </div>
     </>
   );
 
   return (
     // Please don't change the z-index, added by -Tanbir
     <div
-      className={` bg-base-100  sticky top-0 left-0 z-[99999] ${
-        isNavbarJumping ? "animate-jump shadow-md" : ""
-      }`}
+      className={` bg-base-100  sticky top-0 left-0 z-[99999] ${isNavbarJumping ? "animate-jump shadow-md" : ""
+        }`}
     >
-      <div className="navbar max-w-screen-2xl mx-auto bg-base-100 px-0">
+      <div className="navbar max-w-screen-2xl mx-auto bg-base-100 px-0 py-0">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -159,14 +168,14 @@ const Navbar = () => {
                 className="w-[60px] md:w-full"
                 src="https://i.ibb.co/GsQpf2D/logo.png"
               />
-              <h4 className="font-bold poppins-font text-2xl lg:text-[38px] ml-2">
-                Renti<span className="text-[#002172]">fy</span>
+              <h4 className="font-bold poppins-font text-2xl lg:text-[38px] ml-2 text-[#002172]">
+                Renti<span className="text-[#e33226]">fy</span>
               </h4>
             </div>
           </Link>
         </div>
-        <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">{navLinks}</ul>
+        <div className="navbar-center hidden lg:flex min-h-full">
+          <ul className="menu menu-horizontal px-1  flex items-center py-0">{navLinks}</ul>
         </div>
 
         {/* for toggle feature for btn -sadia */}
@@ -197,10 +206,10 @@ const Navbar = () => {
                   </li>
                   {/* {console.log("js diye aslm", user.photoURL)} */}
                   <li>
-                    <Link to="/dashboard/profile">Dashboard</Link>
+                    <Link to="/dashboard/userProfile">Dashboard</Link>
                   </li>
                   <li>
-                    <a href="http://localhost:5174/">Admin Panel</a>
+                    <a href="http://localhost:5174/" target="blank">Admin Panel</a>
                   </li>
                   <li>
                     <Link onClick={handleLogOut}>Logout</Link>
@@ -230,3 +239,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+// comment for checking

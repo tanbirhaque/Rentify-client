@@ -91,8 +91,9 @@ const AllProperties = () => {
         </div>
       </div>
 
-      {/* search field */}
-      <div className="max-w-screen-xl mx-auto gap-4 mt-16">
+   <div className="flex justify-between max-w-screen-2xl mx-auto   ">
+       {/* search field */}
+       <div className=" w-2/3 mt-16 ml-3">
         <form onSubmit={handleSearch}>
           <label
             htmlFor="default-search"
@@ -139,7 +140,7 @@ const AllProperties = () => {
 
       {/* sort  */}
 
-      <div className="max-w-screen-xl flex justify-center mx-auto gap-4 mt-16">
+      <div className=" flex justify-center  mt-16 mr-3">
         <details className="dropdown mb-10 ">
           <summary className="m-1 btn bg-[#002172] text-white hover:bg-[#e33226]">
             Sort By Price{" "}
@@ -159,9 +160,10 @@ const AllProperties = () => {
           </ul>
         </details>
       </div>
+   </div>
 
       {/* cards section */}
-      <div className="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-16">
+      <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-16">
         {/* {properties.map((property) => (
           <DynamicCards key={property._id} property={property}></DynamicCards>
         ))} */}

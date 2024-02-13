@@ -51,8 +51,10 @@ import RentRequest from "./DashLayout/DashboardRoutes/RentRequest/RentRequest.js
 import SoldProperties from "./DashLayout/DashboardRoutes/SoldProperties/SoldProperties.jsx";
 import RentOutProperties from "./DashLayout/DashboardRoutes/RentOutProperties/RentOutProperties.jsx";
 import WriteBlogs from "./DashLayout/DashboardRoutes/WriteBlogs/WriteBlogs.jsx";
+import UserProfile from "./DashLayout/DashboardRoutes/UserProfile/UserProfile.jsx";
 import OwnerRequestForm from "./DashLayout/DashboardRoutes/Owner Request/OwnerRequestForm.jsx";
 import AllProperties from "./MainLayout/Pages/Home/HomeComponents/AllProperties/AllProperties.jsx";
+import Contact from "./MainLayout/Pages/Contact/Contact.jsx";
 
 const queryClient = new QueryClient();
 
@@ -106,6 +108,10 @@ const router = createBrowserRouter([
         element: <Testimonials></Testimonials>,
       },
       {
+        path: "/contact",
+        element: <Contact></Contact>,
+      },
+      {
         path: "/privacy",
         element: <Privacy></Privacy>,
       },
@@ -152,19 +158,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/owners",
-        element: (
-          <Private>
-            <OwnerList />
-          </Private>
-        ),
+        element: <OwnerList />
       },
       {
         path: "/owner-details",
-        element: (
-          <Private>
-            <OwnerDetail />
-          </Private>
-        ),
+        element: <OwnerDetail />
       },
     ],
   },
@@ -180,7 +178,7 @@ const router = createBrowserRouter([
   // Dashboard routes here
   {
     path: "dashboard",
-    element: <DashLayout></DashLayout>,
+    element: <Private><DashLayout></DashLayout></Private>,
     children: [
       {
         path: "profile",
@@ -191,6 +189,10 @@ const router = createBrowserRouter([
         //     element: <Overview></Overview>,
         //   }
         // ]
+      },
+      {
+        path: "userProfile",
+        element: <UserProfile></UserProfile>
       },
       // {
       //   path: 'settings',
