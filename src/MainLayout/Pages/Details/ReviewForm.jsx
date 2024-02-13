@@ -5,11 +5,13 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import { useState } from "react";
+import useReviews from "../../../Hooks/useReviews";
 
 const ReviewForm = ({ property }) => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
   const axiosPublic = useAxiosPublic();
+  const [,refetch] = useReviews();
 
   //destructuring
   const { _id, property_info } = property || {};
@@ -49,7 +51,7 @@ const ReviewForm = ({ property }) => {
   //
 
   //review form
-  const { register, handleSubmit } = useForm();
+  const { register, reset, handleSubmit } = useForm();
   const onSubmit = async (data) => {
     console.log(data);
     const imageFile = { image: data.image[0] };
@@ -67,9 +69,10 @@ const ReviewForm = ({ property }) => {
         reviewerImage: photoURL,
         reviewText: data.message,
         reviewImage: imageUrl,
-        rating: data.rating,
+        reviewRating: data.rating,
         date: new Date().toLocaleDateString("en-GB"),
       };
+      console.log(review)
       axiosSecure.post("/reviews", review).then((response) => {
         Swal.fire({
           title: `Thanks for your valuable review`,
@@ -78,6 +81,8 @@ const ReviewForm = ({ property }) => {
           showConfirmButton: false,
           icon: "success",
         });
+        reset();
+        refetch();
       });
       console.log(review);
     } else {
@@ -114,6 +119,7 @@ const ReviewForm = ({ property }) => {
                 Upload Image
                 <input
                   type="file"
+                  required
                   className="hidden"
                   {...register("image")}
                   // multiple
@@ -142,19 +148,17 @@ const ReviewForm = ({ property }) => {
           <input
             {...register("name")}
             placeholder="Name*"
-            defaultValue={displayName}
+            // defoultvalue change by sojib for mongoose
             className=" w-full py-5 rounded-md px-2 my-4"
             required
-            readOnly
           />
           {/* include validation with required or other standard HTML validation rules */}
           <input
             {...register("email")}
             placeholder="Email Address*"
-            defaultValue={email}
+            // defoultvalue change by sojib for mongoose
             className="py-5 rounded-md px-2 w-full"
             required
-            readOnly
           />
           {/* errors will return when field validation fails  */}
           {/* <input

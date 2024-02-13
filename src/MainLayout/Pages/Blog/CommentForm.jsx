@@ -4,18 +4,20 @@ import { useForm } from "react-hook-form";
 import useAuth from "../../../Hooks/useAuth";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
+import useBlogsComment from "../../../Hooks/useBlogsComment";
 
-const CommentForm = ({blog}) => {
+const CommentForm = ({ blog }) => {
+  const [, refetch] = useBlogsComment()
   const { register, handleSubmit, reset } = useForm();
-  const {user}=useAuth()
-  const axiosPublic=useAxiosPublic()
+  const { user } = useAuth()
+  const axiosPublic = useAxiosPublic()
   //condition of user needed to comment
 
   const onSubmit = (data) => {
     if (user) {
       const newComment = {
-        name: data.name,
-        email: data.email,
+        name: user?.displayName,
+        email: user?.email,
         img: user?.photoURL,
         subject: data.subject,
         message: data.message,
@@ -28,6 +30,7 @@ const CommentForm = ({blog}) => {
         if (res.data) {
           Swal.fire(`Hey ${user?.displayName} your comment Successfully send`);
           reset();
+          refetch();
         }
       });
     } else {
