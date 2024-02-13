@@ -11,6 +11,7 @@ const RentRequest = () => {
     const [dropdownVisible, setDropdownVisible] = useState(false);
     const [tableData, setTableData] = useState([]);
     const [filteredData, setFilteredData] = useState([]);
+    const [selectedStatus, setSelectedStatus] = useState("all");
 
     const accepted = ownerRent.filter(
         (item) => item.requestStatus == "accepted"
@@ -21,6 +22,7 @@ const RentRequest = () => {
     const rejected = ownerRent.filter(
         (item) => item.requestStatus == "rejected"
     );
+    
 
 
 
@@ -53,25 +55,17 @@ const RentRequest = () => {
 
     return (
         <>
-
+             {/* Top-Context */}
             <div className=" flex gap-8 ml-10 mt-10">
-                <div className="flex bg-slate-200 text-lg shadow-md  py-77 px-5 items-center justify-between gap-6 w-80 rounded-2xl">
-                    <div>
-                        <h1 className="font-bold">245</h1>
-                        <h1>Total Customers</h1>
+                
+                <div className="flex bg-slate-200 shadow-md text-lg py-7 px-5 items-center justify-between gap-6 w-[40%] rounded-2xl">
+                    <div >
+                        <h1 className="font-bold text-xl">Rent Request List</h1>
+                        <h3 className="text-base text-[#e33226]">Customer <span className="text-[#002172]">/ Order list</span></h3>
                     </div>
-                    <div className="bg-[#002172] text-white rounded-xl p-4">
-                        <FaUser />
-                    </div>
-                </div>
-                <div className="flex bg-slate-200 shadow-md text-lg py-7 px-5 items-center justify-between gap-6 w-80 rounded-2xl">
-                    <div className="">
-                        <h1 className="font-bold">564</h1>
-                        <h1>Total Transactions</h1>
-                    </div>
-                    <div className="bg-[#002172] text-white rounded-xl p-4">
-                        <HiHomeModern />
-                    </div>
+                    <button className="bg-[#002172] text-white rounded-xl px-4 py-2">
+                        refresh
+                    </button>
                 </div>
                 <div className="flex bg-slate-200 py-7 shadow-md  px-10 items-center justify-between gap-20 w-[880px] rounded-2xl">
                     <div className="text-6xl">
@@ -84,15 +78,7 @@ const RentRequest = () => {
 
                 </div>
             </div>
-            {/* <div className="flex items-center justify-end mt-4 ">
-                <h1>Sort by:</h1>
-                <div className="dropdown">
-                    
-                    <div className="border-2 rounded-lg px-4 py-2 m-1" >Status</div>
-                   
-
-                </div>
-            </div> */}
+           
             <div className="mt-10">
                 <table className="table table-zebra overflow-scroll">
                     {/* head */}
@@ -104,16 +90,22 @@ const RentRequest = () => {
                             <th>Price</th>
                             <th>Order-ID</th>
                             <th>Type</th>
+                            {/* dropdown */}
                             <th className="flex items-center  gap-2" tabIndex={0} role="button" onClick={toggleDropdown}>
                                 Status <IoMdArrowDropdown />
                             </th>
                             {dropdownVisible && (
-                                <ul tabIndex={0} className={`dropdown-content bg-white z-[1]  menu p-2 shadow  rounded-box w-52`}>
-                                    <li><a onClick={() => filterData("pending")}>Pending</a></li>
-                                    <li><a onClick={() => filterData("accepted")}>Accept</a></li>
-                                    <li><a onClick={() => filterData("rejected")}>Reject</a></li>
-                                </ul>
-                            )}
+                            <div>
+                                <div colSpan="7" className="relative">
+                                    <ul className={`dropdown-content bg-white z-[1] menu p-2 shadow rounded-box w-52 absolute top-full left-0`}>
+                                        <li><a onClick={() => filterData("ownerRent")}>All</a></li>
+                                        <li><a onClick={() => filterData("pending")}>Pending</a></li>
+                                        <li><a onClick={() => filterData("accepted")}>Accept</a></li>
+                                        <li><a onClick={() => filterData("rejected")}>Reject</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        )}
 
 
                             <th>Action</th>

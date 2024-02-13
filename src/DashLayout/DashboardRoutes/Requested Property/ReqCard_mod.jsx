@@ -13,8 +13,10 @@ const ReqCard_mod = ({ requestedProperties }) => {
     const { _id, property, requestStatus, propertyID } = requestedProperties || {};
     const { owner_img, owner_name, owner_email, owner_phone } = property.owner_details || {}
     const { address } = property.property_location || {}
-    const { property_img, property_title, property_for, property_details, ownership_duration } = property || {}
+    console.log(address);
+    const { property_img, property_title,property_category,property_for, property_details, ownership_duration } = property || {}
     // console.log(requestedProperties);
+    console.log(property_category);
     const { property_status } = property_details || {}
     console.log('This prop', property_status);
 
@@ -135,7 +137,7 @@ const ReqCard_mod = ({ requestedProperties }) => {
                                 {/* <button className="w-full text-center bg-[#002172] text-white py-3 mt-[23px] rounded-br-md">
                                     Pay Now
                                 </button> */}
-                                <Link to={`/dashboard/payment?price=${property_details?.property_price}&requestId=${_id}&propertyId=${propertyID}&owner=${owner_email}&property_status=${property_for == 'sale' ? 'Sold' : 'Rented'}&property_img=${property_img}&property_title=${property_title}`}
+                                <Link to={`/dashboard/payment?price=${property_details?.property_price}&requestId=${_id}&propertyId=${propertyID}&owner=${owner_email}&property_status=${property_for == 'sale' ? 'Sold' : 'Rented'}&property_img=${property_img}&property_title=${property_title}&property_location=${address}&property_category=${property_category}`}
                                     className={`w-full text-center text-white py-3 mt-[24px] rounded-br-md hover:text-green-500 transition-all duration-300 font-bold
                                 ${requestStatus == 'pending' ? 'bg-gray-400 btn-disabled' : 'bg-[#002172]'} 
                                 ${requestStatus == 'rejected' ? 'bg-gray-400 btn-disabled' : 'bg-[#002172]'} 
