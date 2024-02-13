@@ -101,32 +101,32 @@ const NewYork = () => {
             </div> */}
 
       <div className="max-w-[1296px] mx-auto  mb-[100px]">
-       <div>
-       <p className="py-10 font-bold text-lg text-gray-700">
-          {countData} Results Found
-        </p>
+        <div className="flex justify-between ">
+          <p className="pt-16 font-bold text-lg text-gray-700">
+            {countData} Results Found
+          </p>
 
-        <div className=" flex justify-center  mt-16 md:mr-3">
-          <details className="dropdown mb-10 ">
-            <summary className="m-1 btn bg-[#002172] text-white hover:bg-[#e33226]">
-              Sort By Price{" "}
-              <MdKeyboardArrowDown className="text-xl"></MdKeyboardArrowDown>
-            </summary>
-            <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
-              <li>
-                <a className="font-bold" onClick={sortByPriceHighToLow}>
-                  High to Low
-                </a>
-              </li>
-              <li>
-                <a className="font-bold" onClick={sortByPriceLowToHigh}>
-                  Low to High
-                </a>
-              </li>
-            </ul>
-          </details>
+          <div className=" py-10   ">
+            <details className="dropdown mb-10 ">
+              <summary className="m-1 btn bg-[#002172] text-white hover:bg-[#e33226]">
+                Sort By Price{" "}
+                <MdKeyboardArrowDown className="text-xl"></MdKeyboardArrowDown>
+              </summary>
+              <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+                <li>
+                  <a className="font-bold" onClick={sortByPriceHighToLow}>
+                    High to Low
+                  </a>
+                </li>
+                <li>
+                  <a className="font-bold" onClick={sortByPriceLowToHigh}>
+                    Low to High
+                  </a>
+                </li>
+              </ul>
+            </details>
+          </div>
         </div>
-       </div>
 
         <div className="">
           <Tabs
@@ -141,48 +141,110 @@ const NewYork = () => {
             </TabList>
             <TabPanel>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-3 xl:px-0">
-                {cityProperties?.map((property) => (
+                {/* {cityProperties?.map((property) => (
                   <DynamicCards
                     key={property._id}
                     property={property}
                   ></DynamicCards>
-                ))}
+                ))} */}
+
+                {property.length > 0
+                  ? property.map((property) => (
+                      <DynamicCards
+                        key={property._id}
+                        property={property}
+                      ></DynamicCards>
+                    ))
+                  : cityProperties?.map((property) => (
+                      <DynamicCards
+                        key={property._id}
+                        property={property}
+                      ></DynamicCards>
+                    ))}
               </div>
             </TabPanel>
             <TabPanel>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-3 xl:px-0">
-                {Residential.map((property, index) => (
+                {/* {Residential.map((property, index) => (
                   <div key={index}>
                     <PropertyCard
                       property={property}
                       details_path={"/details"}
                     />
                   </div>
-                ))}
+                ))} */}
+
+                {property.length > 0
+                  ? property.map((property) => (
+                      <DynamicCards
+                        key={property._id}
+                        property={property}
+                      ></DynamicCards>
+                    ))
+                  : Residential.map((property, index) => (
+                      <div key={index}>
+                        <PropertyCard
+                          property={property}
+                          details_path={"/details"}
+                        />
+                      </div>
+                    ))}
               </div>
             </TabPanel>
             <TabPanel>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-3 xl:px-0">
-                {Commercial.map((property, index) => (
+                {/* {Commercial.map((property, index) => (
                   <div key={index}>
                     <PropertyCard
                       property={property}
                       details_path={"/details"}
                     />
                   </div>
-                ))}
+                ))} */}
+
+                {property.length > 0
+                  ? property.map((property) => (
+                      <DynamicCards
+                        key={property._id}
+                        property={property}
+                      ></DynamicCards>
+                    ))
+                  : Commercial.map((property, index) => (
+                      <div key={index}>
+                        <PropertyCard
+                          property={property}
+                          details_path={"/details"}
+                        />
+                      </div>
+                    ))}
               </div>
             </TabPanel>
             <TabPanel>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-3 xl:px-0">
-                {apartment.map((property, index) => (
+                {/* {apartment.map((property, index) => (
                   <div key={index}>
                     <PropertyCard
                       property={property}
                       details_path={"/details"}
                     />
                   </div>
-                ))}
+                ))} */}
+
+                {property.length > 0
+                  ? property.map((property) => (
+                      <DynamicCards
+                        key={property._id}
+                        property={property}
+                      ></DynamicCards>
+                    ))
+                  : apartment.map((property, index) => (
+                    <div key={index}>
+                      <PropertyCard
+                        property={property}
+                        details_path={"/details"}
+                      />
+                    </div>
+                  ))}
               </div>
             </TabPanel>
           </Tabs>
