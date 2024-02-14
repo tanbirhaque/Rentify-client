@@ -63,7 +63,7 @@ const RentRequestCard = ({ items, refetch }) => {
     };
 
     return (
-        <tr className=""> 
+        <tr className="text-lg"> 
             <td>
                 <div className="flex items-center gap-3">
                     <div className="avatar">
@@ -83,7 +83,7 @@ const RentRequestCard = ({ items, refetch }) => {
                     <div className="dropdown">
                         <button onClick={toggleDropdown} className="dropbtn "><HiOutlineDotsVertical /></button>
                         {/* Dropdown content */}
-                        <div className={`dropdown-content bg-white px-3 py-4 w-60 shadow-xl -left-40 ${dropdownVisible ? 'show' : ''}`}>
+                        <div className={`dropdown-content bg-white shadow-xl py-2 px-2 w-64 rounded-lg -left-40 ${dropdownVisible ? 'show' : ''}`}>
                             {/* Dropdown options */}
                             <h1><span className="text-[#002172] font-semibold">E-mail:</span>{requesterEmail}</h1>
                             <h1><span className="text-[#002172] font-semibold">Phone: </span> {requesterNumber}</h1>
@@ -101,12 +101,12 @@ const RentRequestCard = ({ items, refetch }) => {
                 <div className="dropdown">
                     <button onClick={toggleDropdown} className="dropbtn"><HiOutlineDotsHorizontal /></button>
                     {/* Dropdown content */}
-                    <div className={`dropdown-content bg-white shadow-2xl  -left-16  ${dropdownVisible ? 'show' : ''}`}>
+                    <div className={`dropdown-content menu menu-sm -left-12 py-0   px-0 w-32  rounded-lg bg-[#ffffff]  text-center  ${dropdownVisible ? 'show' : ''}`}>
                         {/* Dropdown options */}
-                        <ul className="p-4">
-                            <li><button onClick={() => setAccept(_id)} disabled={buttonDisabled}>Accept</button>
+                        <ul >
+                            <li className="hover:bg-[#002172] hover:rounded-t-md transition-all ease-out duration-300 hover:text-white"><button onClick={() => setAccept(_id)} disabled={buttonDisabled}>Accept</button>
                         </li>
-                        <li><button onClick={() => setReject(_id)} disabled={buttonDisabled}>Reject</button></li>
+                        <li className="hover:bg-[#002172] hover:rounded-b-md transition-all ease-out duration-300 hover:text-white"><button onClick={() => setReject(_id)} disabled={buttonDisabled}>Reject</button></li>
                         </ul>
                     </div>
                 </div>

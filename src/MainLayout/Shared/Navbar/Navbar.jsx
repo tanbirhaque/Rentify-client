@@ -13,7 +13,7 @@ import { TbLogout } from "react-icons/tb";
 const Navbar = () => {
   const [isNavbarJumping, setIsNavbarJumping] = useState(false);
   const { userSignOut, user, setUser } = useContext(AuthContext);
-  const [userRole] = useGetRole()
+  const [userRole] = useGetRole();
   const navigate = useNavigate();
 
   // for logout user -Sadia
@@ -64,6 +64,7 @@ const Navbar = () => {
 
   const navLinks = (
     <>
+    
       <NavLink
         to="/"
         className="navAfter relative font-medium text-base text-black mx-3"
@@ -89,10 +90,15 @@ const Navbar = () => {
         Blogs
       </NavLink>
 
-
       {/* for others */}
       <div className="dropdown dropdown-hover relative h-[65px]">
-        <div tabIndex={0} role="button" className="dropAfter relative font-medium text-base text-black mx-3 flex items-center h-full">Others</div>
+        <div
+          tabIndex={0}
+          role="button"
+          className="dropAfter relative font-medium text-base text-black mx-3 flex items-center h-full"
+        >
+          Others
+        </div>
         <ul className="menu dropdown-content z-[1] bg-white pl-5  w-[250px] border-[#e33226] border-l-[2px] rounded-[5px] py-0 absolute top-14">
           <NavLink
             to="/how-it-works"
@@ -137,9 +143,11 @@ const Navbar = () => {
 
   return (
     // Please don't change the z-index, added by -Tanbir
+    
     <div
-      className={` bg-base-100  sticky top-0 left-0 z-[99999] ${isNavbarJumping ? "animate-jump shadow-md" : ""
-        }`}
+      className={` bg-base-100  sticky top-0 left-0 z-[99999] ${
+        isNavbarJumping ? "animate-jump shadow-md" : ""
+      }`}
     >
       <div className="navbar max-w-screen-2xl mx-auto bg-base-100 px-0 py-2">
         <div className="navbar-start">
@@ -180,7 +188,9 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex min-h-full">
-          <ul className="menu menu-horizontal px-1  flex items-center py-0">{navLinks}</ul>
+          <ul className="menu menu-horizontal px-1  flex items-center py-0">
+            {navLinks}
+          </ul>
         </div>
 
         {/* for toggle feature for profile button -sadia || Remake by -Tanbir */}
@@ -189,11 +199,18 @@ const Navbar = () => {
             <>
               <div className="flex items-center">
                 <div className="flex flex-col items-end mr-4 h-full">
-                  <h3 className="capitalize poppins-font text-[16px] font-semibold">{user?.displayName}</h3>
-                  <p className="capitalize poppins-font text-[12px] text-[#464a53]">{userRole?.role}</p>
+                  <h3 className="capitalize poppins-font text-[16px] font-semibold">
+                    {user?.displayName}
+                  </h3>
+                  <p className="capitalize poppins-font text-[12px] text-[#464a53]">
+                    {userRole?.role}
+                  </p>
                 </div>
                 <details className="dropdown dropdown-end w-[43px]">
-                  <summary tabIndex={0} className="btn w-[43px] min-h-[30px] max-h-[40px] navMarker px-0 py-0 ">
+                  <summary
+                    tabIndex={0}
+                    className="btn w-[43px] min-h-[30px] max-h-[40px] navMarker px-0 py-0 "
+                  >
                     <div className="min-w-[43px]">
                       <img
                         className="rounded-lg w-[43px]"
@@ -206,16 +223,40 @@ const Navbar = () => {
                     className="menu menu-sm dropdown-content mt-3 z-[1] py-2 px-0 shadow  rounded-lg bg-[#ffffff] "
                   >
                     <li className="hover:bg-[#002172] transition-all ease-out duration-300 hover:text-white">
-                        <p className="text-[17px]"><span><MdOutlineEmail className=""></MdOutlineEmail></span>{user?.email}</p>
+                      <p className="text-[17px]">
+                        <span>
+                          <MdOutlineEmail className=""></MdOutlineEmail>
+                        </span>
+                        {user?.email}
+                      </p>
                     </li>
                     <li className="hover:bg-[#002172] transition-all ease-out duration-300 hover:text-white">
-                      <Link to="/dashboard/userProfile" className="text-[17px]"><span><LuLayoutDashboard></LuLayoutDashboard></span>Dashboard</Link>
+                      <Link to="/dashboard/userProfile" className="text-[17px]">
+                        <span>
+                          <LuLayoutDashboard></LuLayoutDashboard>
+                        </span>
+                        Dashboard
+                      </Link>
                     </li>
                     <li className="hover:bg-[#002172] transition-all ease-out duration-300 hover:text-white">
-                      <a href="http://localhost:5174/" target="blank" className="text-[17px]"><span><MdOutlineAdminPanelSettings></MdOutlineAdminPanelSettings></span>Admin Panel</a>
+                      <a
+                        href="http://localhost:5174/"
+                        target="blank"
+                        className="text-[17px]"
+                      >
+                        <span>
+                          <MdOutlineAdminPanelSettings></MdOutlineAdminPanelSettings>
+                        </span>
+                        Admin Panel
+                      </a>
                     </li>
                     <li className="hover:bg-[#002172] transition-all ease-out duration-300 hover:text-white">
-                      <Link onClick={handleLogOut} className="text-[17px]"><span><TbLogout className="text-[#e33226]"></TbLogout></span>Logout</Link>
+                      <Link onClick={handleLogOut} className="text-[17px]">
+                        <span>
+                          <TbLogout className="text-[#e33226]"></TbLogout>
+                        </span>
+                        Logout
+                      </Link>
                     </li>
                   </ul>
                 </details>
@@ -238,7 +279,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-    </div >
+    </div>
   );
 };
 

@@ -109,6 +109,7 @@ const AddProperties = () => {
   const onDragOver = (event) => {
     event.preventDefault();
     setIsDragging(true)
+    
     event.dataTransfer.dropEffect = "copy"
   }
   const onDragLeave = (event) => {

@@ -57,6 +57,7 @@ import AllProperties from "./MainLayout/Pages/Home/HomeComponents/AllProperties/
 import Contact from "./MainLayout/Pages/Contact/Contact.jsx";
 import AllPropertiesMod from "./MainLayout/Pages/Home/HomeComponents/AllProperties/AllPropertiesMod.jsx";
 
+
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
@@ -84,7 +85,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/all",
-        element: <AllPropertiesMod></AllPropertiesMod>
+        element: <AllPropertiesMod></AllPropertiesMod>,
       },
       {
         path: "/blogs",
@@ -159,11 +160,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/owners",
-        element: <OwnerList />
+        element: <OwnerList />,
       },
       {
         path: "/owner-details",
-        element: <OwnerDetail />
+        element: <OwnerDetail />,
       },
     ],
   },
@@ -258,11 +259,13 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <AuthProvider>
-        <Toaster />
-        <RouterProvider router={router} />
-      </AuthProvider>
-    </QueryClientProvider>
+    
+      <QueryClientProvider client={queryClient}>
+        <AuthProvider>
+          <Toaster />
+          <RouterProvider router={router} />
+        </AuthProvider>
+      </QueryClientProvider>
+    
   </React.StrictMode>
 );
