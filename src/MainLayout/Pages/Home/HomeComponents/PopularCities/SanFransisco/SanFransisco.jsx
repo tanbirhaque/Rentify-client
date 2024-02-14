@@ -72,7 +72,7 @@ const SanFransisco = () => {
         <div className="img4">
                 <div className=" bg-[#000000B2]">
                     <div className=" max-w-screen-2xl mx-auto py-24">
-                        <h2 className="text-6xl font-bold text-white font-serif">All Properties in San Fransisco</h2>
+                        <h2 className="md:text-6xl text-2xl font-bold text-white font-serif">All Properties in San Fransisco</h2>
                         <div className="mt-2">
                             <NavLink to='/' className='navAfter relative font-medium text-base text-white mx-3'>Home</NavLink>
                             <NavLink to='/blogs' className='navAfter relative font-medium text-base text-white mx-3'>Blogs</NavLink>
@@ -132,16 +132,16 @@ const SanFransisco = () => {
 
                 {property.length > 0
                   ? property.map((property) => (
-                      <DynamicCards
+                      <PropertyCard
                         key={property._id}
                         property={property}
-                      ></DynamicCards>
+                      ></PropertyCard>
                     ))
                   : cityProperties?.map((property) => (
-                      <DynamicCards
+                      <PropertyCard
                         key={property._id}
                         property={property}
-                      ></DynamicCards>
+                      ></PropertyCard>
                     ))}
               </div>
             </TabPanel>
@@ -151,10 +151,10 @@ const SanFransisco = () => {
 
                 {property.length > 0
                   ? property.map((property) => (
-                      <DynamicCards
+                      <PropertyCard
                         key={property._id}
                         property={property}
-                      ></DynamicCards>
+                      ></PropertyCard>
                     ))
                   : Residential.map((property, index) => (
                       <div key={index}>
@@ -172,10 +172,10 @@ const SanFransisco = () => {
 
                 {property.length > 0
                   ? property.map((property) => (
-                      <DynamicCards
+                      <PropertyCard
                         key={property._id}
                         property={property}
-                      ></DynamicCards>
+                      ></PropertyCard>
                     ))
                   : Commercial.map((property, index) => (
                       <div key={index}>
@@ -193,10 +193,10 @@ const SanFransisco = () => {
 
                 {property.length > 0
                   ? property.map((property) => (
-                      <DynamicCards
+                      <PropertyCard
                         key={property._id}
                         property={property}
-                      ></DynamicCards>
+                      ></PropertyCard>
                     ))
                   : apartment.map((property, index) => (
                       <div key={index}>
