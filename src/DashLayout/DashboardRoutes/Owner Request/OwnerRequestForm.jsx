@@ -243,6 +243,7 @@ const OwnerRequestForm = () => {
                             // This is get started field section
                             < div >
                               <div className="grid md:grid-cols-3 grid-cols-1 gap-4  mb-5">
+                                {/* first name field */}
                                 <div className="form-control">
                                   <label className="label ">
                                     <span className="label-text text-lg font-semibold">
@@ -258,6 +259,7 @@ const OwnerRequestForm = () => {
                                     />
                                   </label>
                                 </div>
+                                {/* last name field */}
                                 <div className="form-control">
                                   <label className="label ">
                                     <span className="label-text text-lg font-semibold">
@@ -273,6 +275,7 @@ const OwnerRequestForm = () => {
                                     />
                                   </label>
                                 </div>
+                                {/* email field */}
                                 <div className="form-control">
                                   <label className="label ">
                                     <span className="label-text text-lg font-semibold">
@@ -292,6 +295,7 @@ const OwnerRequestForm = () => {
                                 </div>
                               </div>
                               <div className="grid md:grid-cols-2 grid-cols-1 gap-4  mb-5">
+                                {/* phone number field */}
                                 <div className="form-control">
                                   <label className="label ">
                                     <span className="label-text text-lg font-semibold">
@@ -307,6 +311,7 @@ const OwnerRequestForm = () => {
                                     />
                                   </label>
                                 </div>
+                                {/* date of birth field*/}
                                 <div className="form-control">
                                   <label className="label ">
                                     <span className="label-text text-lg font-semibold">
@@ -336,6 +341,7 @@ const OwnerRequestForm = () => {
                               <div>
                                 <div className="flex lg:flex-row md:flex-col flex-col items-center gap-4  mb-5">
                                   <div className=" flex md:flex-row flex-col items-center gap-4 lg:w-[67%] md:w-full w-full">
+                                    {/* facebook link */}
                                     <div className="form-control  w-full">
                                       <label className="label ">
                                         <span className="label-text text-lg font-semibold">
@@ -351,6 +357,7 @@ const OwnerRequestForm = () => {
                                         />
                                       </label>
                                     </div>
+                                    {/* twitter link */}
                                     <div className="form-control w-full">
                                       <label className="label ">
                                         <span className="label-text text-lg font-semibold">
@@ -367,6 +374,7 @@ const OwnerRequestForm = () => {
                                       </label>
                                     </div>
                                   </div>
+                                  {/* linkedin link */}
                                   <div className="form-control lg:w-[33%] md:w-full w-full">
                                     <label className="label ">
                                       <span className="label-text text-lg font-semibold">
@@ -384,6 +392,7 @@ const OwnerRequestForm = () => {
                                   </div>
                                 </div>
                                 <div>
+                                  {/* description filed */}
                                   <div className="form-control">
                                     <label className="label">
                                       <span className="label-text text-lg font-semibold">
@@ -401,6 +410,7 @@ const OwnerRequestForm = () => {
                                   </div>
                                 </div>
                                 <div className="grid md:grid-cols-2 grid-cols-1 gap-4 ">
+                                  {/* address filed */}
                                   <div className="form-control">
                                     <label className="label ">
                                       <span className="label-text text-lg font-semibold">
@@ -416,6 +426,7 @@ const OwnerRequestForm = () => {
                                       />
                                     </label>
                                   </div>
+                                  {/* zipCode filed */}
                                   <div className="form-control">
                                     <label className="label ">
                                       <span className="label-text text-lg font-semibold">
@@ -453,10 +464,11 @@ const OwnerRequestForm = () => {
                       :
                       // This is upload field section
                       <div>
+                        {/* Image upload field */}
                         <div className="form-control">
                           <label className="label ">
                             <span className="label-text text-lg font-semibold">
-                              Media *
+                              Your image *
                             </span>
                           </label>
                           {showImages[0] ?
@@ -476,7 +488,7 @@ const OwnerRequestForm = () => {
                                   </span>
                                 </>)}
                                 <div className="">
-                                  <p className=" font-bold">Drop here files or click to upload Properties images</p>
+                                  <p className=" font-bold">Drop here files or click to upload your images</p>
                                   <input
                                     {...register("files")}
                                     type="file"
