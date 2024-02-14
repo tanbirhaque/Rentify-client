@@ -8,6 +8,7 @@ import { Link, NavLink } from "react-router-dom";
 import ButtonBlue from "../../../../Shared/buttons/Blue/ButtonBlue";
 import PropertyCard from "../../../../Shared/PropertyCards/PropertyCard";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
+import './all.css'
 
 const AllPropertiesMod = () => {
   const [properties] = useProperties();
@@ -110,7 +111,7 @@ const AllPropertiesMod = () => {
       </div>
 
       {/* search field and sort section */}
-      <div className="md:flex  md:justify-between lg:justify-between  max-w-[1296px] mx-auto   ">
+      <div className="md:flex  md:justify-between lg:justify-between  max-w-[1296px] mx-auto   mb-12">
         {/* search field */}
         <div className=" md:w-2/3 w-full mt-16 md:ml-3 mx-auto">
           <form 
@@ -161,7 +162,7 @@ const AllPropertiesMod = () => {
 
         {/* sort  */}
 
-        <div className=" flex justify-center  mt-16 md:mr-3">
+        <div className=" flex justify-center mx-auto mt-16 md:mr-3">
           <details className="dropdown mb-10 ">
             <summary className="m-1 btn bg-[#002172] text-white hover:bg-[#e33226]">
               Sort By Price{" "}
@@ -203,21 +204,25 @@ const AllPropertiesMod = () => {
         </div> */}
 
       <div className="max-w-[1296px] mx-auto  mb-[100px]">
-        <p className="pb-10 font-bold text-lg text-gray-700">
-          {countData} Results Found
-        </p>
+        
 
         <div className="">
           <Tabs
             defaultIndex={tabIndex}
             onSelect={(index) => setTabIndex(index)}
           >
-            <TabList className="ml-[2px]">
+          <div className="md:flex justify-between items-center mx-3 md:mx-0">
+          <TabList className="ml-[2px]">
               <Tab onClick={handleAllProperties}>All Properties</Tab>
               <Tab onClick={handleResidentialProperties}>Residential</Tab>
               <Tab onClick={handleCommercialProperties}>Commercial</Tab>
               <Tab onClick={handleApartmentProperties}>Apartment</Tab>
             </TabList>
+
+            <p className="mr-[2px] font-bold md:text-lg text-gray-700 text-xs">
+          {countData} Results Found
+        </p>
+          </div>
             <TabPanel>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-3 xl:px-0">
                 {/* {properties.map((property) => (
