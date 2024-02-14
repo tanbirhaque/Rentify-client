@@ -229,16 +229,16 @@ const AllPropertiesMod = () => {
 
                 {property.length > 0
                   ? property.map((property) => (
-                      <DynamicCards
+                      <PropertyCard
                         key={property._id}
                         property={property}
-                      ></DynamicCards>
+                      ></PropertyCard>
                     ))
                   : properties.map((property) => (
-                      <DynamicCards
+                      <PropertyCard
                         key={property._id}
                         property={property}
-                      ></DynamicCards>
+                      ></PropertyCard>
                     ))}
               </div>
             </TabPanel>
@@ -254,10 +254,10 @@ const AllPropertiesMod = () => {
                 ))} */}
                  {property.length > 0
           ? property.map((property) => (
-              <DynamicCards
+              <PropertyCard
                 key={property._id}
                 property={property}
-              ></DynamicCards>
+              ></PropertyCard>
             ))
           : Residential.map((property, index) => (
             <div key={index}>
@@ -281,10 +281,10 @@ const AllPropertiesMod = () => {
                 ))} */}
                  {property.length > 0
           ? property.map((property) => (
-              <DynamicCards
+              <PropertyCard
                 key={property._id}
                 property={property}
-              ></DynamicCards>
+              ></PropertyCard>
             ))
           : Commercial.map((property, index) => (
             <div key={index}>
@@ -308,10 +308,10 @@ const AllPropertiesMod = () => {
                 ))} */}
                  {property.length > 0
           ? property.map((property) => (
-              <DynamicCards
+              <PropertyCard
                 key={property._id}
                 property={property}
-              ></DynamicCards>
+              ></PropertyCard>
             ))
           : apartment.map((property, index) => (
             <div key={index}>
