@@ -145,12 +145,12 @@ const NewYork = () => {
 
                 {property.length > 0
                   ? property.map((property) => (
-                      <DynamicCards
+                      <PropertyCard
                         key={property._id}
                         property={property}
-                      ></DynamicCards>
+                      ></PropertyCard>
                     ))
-                  :  cityProperties?.map((property) => <DynamicCards key={property._id} property={property}></DynamicCards>)}
+                  :  cityProperties?.map((property) => <PropertyCard key={property._id} property={property}></PropertyCard>)}
               </div>
             </TabPanel>
             <TabPanel>
@@ -159,10 +159,10 @@ const NewYork = () => {
 
                 {property.length > 0
                   ? property.map((property) => (
-                      <DynamicCards
+                      <PropertyCard
                         key={property._id}
                         property={property}
-                      ></DynamicCards>
+                      ></PropertyCard>
                     ))
                   : Residential.map((property, index) => (
                       <div key={index}>
@@ -180,10 +180,10 @@ const NewYork = () => {
 
                 {property.length > 0
                   ? property.map((property) => (
-                      <DynamicCards
+                      <PropertyCard
                         key={property._id}
                         property={property}
-                      ></DynamicCards>
+                      ></PropertyCard>
                     ))
                   : Commercial.map((property, index) => (
                       <div key={index}>
@@ -202,10 +202,10 @@ const NewYork = () => {
 
                 {property.length > 0
                   ? property.map((property) => (
-                      <DynamicCards
+                      <PropertyCard
                         key={property._id}
                         property={property}
-                      ></DynamicCards>
+                      ></PropertyCard>
                     ))
                   : apartment.map((property, index) => (
                       <div key={index}>
