@@ -5,10 +5,12 @@ import useAuth from "../../../Hooks/useAuth";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 
+
 const CommentForm = ({ blog, refetch }) => {
   const { register, handleSubmit, reset } = useForm();
   const { user } = useAuth();
   const axiosPublic = useAxiosPublic();
+
   //condition of user needed to comment
 
   const onSubmit = (data) => {

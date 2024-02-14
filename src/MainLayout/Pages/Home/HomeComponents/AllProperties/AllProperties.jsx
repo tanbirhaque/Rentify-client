@@ -11,21 +11,23 @@ const AllProperties = () => {
   const [property, setProperty] = useState([]);
   // const [sortedProperties, setSortedProperties] = useState(properties);
 
-
   const sortByPriceLowToHigh = () => {
-    const sorted = [...properties].sort((a, b) => a.property_info.property_details.property_price - b.property_info.property_details.property_price);
+    const sorted = [...properties].sort(
+      (a, b) =>
+        a.property_info.property_details.property_price -
+        b.property_info.property_details.property_price
+    );
     setProperty(sorted);
   };
 
- 
   const sortByPriceHighToLow = () => {
-    const sorted = [...properties].sort((a, b) => b.property_info.property_details.property_price - a.property_info.property_details.property_price);
+    const sorted = [...properties].sort(
+      (a, b) =>
+        b.property_info.property_details.property_price -
+        a.property_info.property_details.property_price
+    );
     setProperty(sorted);
   };
-
-
-
-
 
   // const handleSearch = e => {
   //   e.preventDefault();
@@ -89,8 +91,9 @@ const AllProperties = () => {
         </div>
       </div>
 
-      {/* search field */}
-      <div className="max-w-screen-xl mx-auto gap-4 mt-16">
+   <div className="flex justify-between max-w-screen-2xl mx-auto   ">
+       {/* search field */}
+       <div className=" w-2/3 mt-16 ml-3">
         <form onSubmit={handleSearch}>
           <label
             htmlFor="default-search"
@@ -137,22 +140,30 @@ const AllProperties = () => {
 
       {/* sort  */}
 
-      <div className="max-w-screen-xl flex justify-center mx-auto gap-4 mt-16">
+      <div className=" flex justify-center  mt-16 mr-3">
         <details className="dropdown mb-10 ">
-          <summary className="m-1 btn bg-[#002172] text-white hover:bg-[#e33226]">Sort By Price <MdKeyboardArrowDown className="text-xl"></MdKeyboardArrowDown></summary>
+          <summary className="m-1 btn bg-[#002172] text-white hover:bg-[#e33226]">
+            Sort By Price{" "}
+            <MdKeyboardArrowDown className="text-xl"></MdKeyboardArrowDown>
+          </summary>
           <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
             <li>
-              <a className="font-bold"  onClick={sortByPriceHighToLow}>High to Low</a>
+              <a className="font-bold" onClick={sortByPriceHighToLow}>
+                High to Low
+              </a>
             </li>
             <li>
-              <a className="font-bold"  onClick={sortByPriceLowToHigh}>Low to High</a>
+              <a className="font-bold" onClick={sortByPriceLowToHigh}>
+                Low to High
+              </a>
             </li>
           </ul>
         </details>
       </div>
+   </div>
 
       {/* cards section */}
-      <div className="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-16">
+      <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-16">
         {/* {properties.map((property) => (
           <DynamicCards key={property._id} property={property}></DynamicCards>
         ))} */}

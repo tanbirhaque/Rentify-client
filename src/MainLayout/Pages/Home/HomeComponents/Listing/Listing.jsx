@@ -20,99 +20,105 @@ const Listing = () => {
   // const [properties, Setproperties] = useState([]);
   const [tabIndex, setTabIndex] = useState(0);
 
-  const apartment = properties.filter(
-    (item) => item.property_info.property_category === "Apartment"
-  );
-  const Commercial = properties.filter(
-    (item) => item.property_info.property_category === "Commercial"
-  );
-  const Residential = properties.filter(
-    (item) => item.property_info.property_category === "Residential"
-  );
-  // console.log(apartment)
+    const apartment = properties.filter(
+        (item) => item.property_info.property_category === "Apartment"
+    );
+    console.log(apartment)
+    const Commercial = properties.filter(
+        (item) => item.property_info.property_category === "Commercial"
+    );
+    const Residential = properties.filter(
+        (item) => item.property_info.property_category === "Residential"
+    );
+    // console.log(apartment)
 
-  return (
-    <>
-      <div className="max-w-[1296px] mx-auto mt-32 mb-[100px]">
-        <div className="md:flex justify-between items-end mb-8 px-3 xl:px-0">
-          <div>
-            <h1 className="text-[#e33226] font-semibold text-base">
-              Our Properties
-            </h1>
-            <p className="text-[40px] poppins-font font-bold">
-              Latest House Listings
-            </p>
-          </div>
-          <div className="w-[180px] hidden md:flex">
-            <Link to="/all">
-              <ButtonBlue
-                titleBlue={"View All Property"}
-                padX={"px-8"}
-                padY={"py-4"}
-              ></ButtonBlue>
-            </Link>
-          </div>
-        </div>
-        <div>
-          {/* This tab part make by raknuzzaman sojib */}
-          <Tabs
-            defaultIndex={tabIndex}
-            onSelect={(index) => setTabIndex(index)}
-          >
-            <TabList className="ml-[2px]">
-              <Tab>Residential</Tab>
-              <Tab>Commercial</Tab>
-              <Tab>Apartment</Tab>
-            </TabList>
-            <TabPanel>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-3 xl:px-0">
-                {Residential.map((property, index) => (
-                  <div key={index}>
-                    <PropertyCard
-                      property={property}
-                      details_path={"/details"}
-                    />
-                  </div>
-                ))}
-              </div>
-            </TabPanel>
-            <TabPanel>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-3 xl:px-0">
-                {Commercial.slice(0, 6).map((property, index) => (
-                  <div key={index}>
-                    <PropertyCard
-                      property={property}
-                      details_path={"/details"}
-                    />
-                  </div>
-                ))}
-              </div>
-            </TabPanel>
-            <TabPanel>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-3 xl:px-0">
-                {apartment.slice(0, 6).map((property, index) => (
-                  <div key={index}>
-                    <PropertyCard
-                      property={property}
-                      details_path={"/details"}
-                    />
-                  </div>
-                ))}
-              </div>
-            </TabPanel>
-          </Tabs>
-        </div>
+    return (
+        <>
+            <div className="max-w-[1296px] mx-auto mt-32 mb-[100px]">
+                <div className="md:flex justify-between items-end mb-8 px-3 xl:px-0">
+                    <div>
+                        <h1 className="text-[#e33226] font-semibold text-base">
+                            Our Properties
+                        </h1>
+                        <p className="text-[40px] poppins-font font-bold">
+                            Latest House Listings
+                        </p>
+                    </div>
+                    <div className="w-[180px] hidden md:flex">
+                        <Link to='/all'>
+                            <ButtonBlue
+                                titleBlue={"View All Property"}
+                                padX={"px-8"}
+                                padY={"py-4"}
+                            ></ButtonBlue>
+                        </Link>
+                    </div>
+                </div>
+                <div>
+                    {/* This tab part make by raknuzzaman sojib */}
+                    <Tabs
+                        defaultIndex={tabIndex}
+                        onSelect={(index) => setTabIndex(index)}
+                    >
+                        <TabList className="ml-[2px]">
+                            <Tab>
+                                Residential
+                            </Tab>
+                            <Tab>
+                                Commercial
+                            </Tab>
+                            <Tab>
+                                Apartment
+                            </Tab>
+                        </TabList>
+                        <TabPanel>
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-3 xl:px-0">
+                                {Residential.map((property, index) => (
+                                    <div key={index}>
+                                        <PropertyCard
+                                            property={property}
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+                        </TabPanel>
+                        <TabPanel>
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-3 xl:px-0">
+                                {Commercial.slice(0, 6).map((property, index) => (
+                                    <div key={index}>
+                                        <PropertyCard
+                                            property={property}
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+                        </TabPanel>
+                        <TabPanel>
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-3 xl:px-0">
+                                {apartment.slice(0, 6).map((property, index) => (
+                                    <div key={index}>
+                                        <PropertyCard
+                                            property={property}
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+                        </TabPanel>
+                    </Tabs>
+                </div>
 
-        <div className="w-[180px] mx-auto mt-7 flex md:hidden">
-          <ButtonBlue
-            titleBlue={"View All Property"}
-            padX={"px-8"}
-            padY={"py-4"}
-          ></ButtonBlue>
-        </div>
-      </div>
-    </>
-  );
+                <div className="w-[180px] mx-auto mt-7 flex md:hidden">
+                    <Link to='/all'>
+                        <ButtonBlue
+                            titleBlue={"View All Property"}
+                            padX={"px-8"}
+                            padY={"py-4"}
+                        ></ButtonBlue>
+                    </Link>
+                </div>
+            </div>
+        </>
+    );
 };
 
 export default Listing;

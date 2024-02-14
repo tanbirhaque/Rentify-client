@@ -20,15 +20,15 @@ import useBlogsComment from "../../../Hooks/useBlogsComment";
 import CommentForm from "./CommentForm";
 
 const Blogdetails = () => {
-  const { user } = useAuth();
-  const axiosPublic = useAxiosPublic();
+  // const { user } = useAuth();
+  // const axiosPublic = useAxiosPublic();
   const blogs = useLoaderData();
   const [comments, refetch] = useBlogsComment();
   const { id } = useParams();
   const blog = blogs.find((item) => item._id == id);
   const newComments = comments.filter((item) => item.blogId == blog._id);
 
-  const { register, handleSubmit, reset } = useForm();
+  // const { register, handleSubmit, reset } = useForm();
 
   //condition of user needed to comment
 
@@ -71,7 +71,7 @@ const Blogdetails = () => {
         <div className=" bg-[#000000B2]">
           <div className=" max-w-screen-2xl mx-auto py-24">
             <h2 className="text-6xl font-bold text-white font-serif">
-              Blog Grid
+              Blog
             </h2>
             <div className="mt-2">
               <NavLink
