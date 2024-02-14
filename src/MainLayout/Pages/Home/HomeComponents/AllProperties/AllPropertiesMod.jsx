@@ -16,6 +16,7 @@ const AllPropertiesMod = () => {
 
   const [countData, setCountData] = useState(properties.length);
 
+  // sorting functions starts here
   const sortByPriceLowToHigh = () => {
     const sorted = [...properties].sort(
       (a, b) =>
@@ -33,25 +34,7 @@ const AllPropertiesMod = () => {
     );
     setProperty(sorted);
   };
-
-  // search function
-  // const handleSearch = (e) => {
-  //   e.preventDefault();
-
-  //   const searchbar = e.target.searchbar.value.trim().toLowerCase();
-
-  //   if (!searchbar) {
-  //     setProperty([]);
-  //     return;
-  //   }
-
-  //   const filterProperty = properties.filter((item) =>
-  //     item.property_info.property_title.toLowerCase().includes(searchbar)
-  //   );
-
-  //   setProperty(filterProperty);
-  // };
-
+  // sorting functions starts ends here
 
   // this handleSearch function added by [sojib] for onchange functionality
   const handleSearch = (e) => {
@@ -65,6 +48,8 @@ const AllPropertiesMod = () => {
       return titleMatches;
     });
     setProperty(filteredProperties);
+    const count = property.length;
+    setCountData(count);
   };
 
   const apartment = properties.filter(
