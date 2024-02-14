@@ -12,7 +12,6 @@ import ButtonRed from "../../../MainLayout/Shared/buttons/Red/ButtonRed";
 import ButtonBlue from "../../../MainLayout/Shared/buttons/Blue/ButtonBlue";
 // import { colourOptions } from '../data';
 
-
 const AddProperties = () => {
   const [, refetch] = useProperties();
   const axiosPublic = useAxiosPublic();
@@ -26,7 +25,7 @@ const AddProperties = () => {
   const [tagValue, setTagValue] = useState([]);
   const newTags = [];
   for (let i = 0; i < tagValue.length; i++) {
-    newTags.push(tagValue[i].value)
+    newTags.push(tagValue[i].value);
   }
   // console.log(newTags)
   const [featureValue, setFeatureValue] = useState([])
@@ -45,7 +44,10 @@ const AddProperties = () => {
     { value: "Pool", label: "Pool" },
     { value: "Fireplace", label: "Fireplace" },
     { value: "Garden", label: "Garden" },
-    { value: "Walking distance to village", label: "Walking distance to village" },
+    {
+      value: "Walking distance to village",
+      label: "Walking distance to village",
+    },
     { value: "olive grove", label: "Olive grove" },
     { value: "Swimming pool", label: "Swimming pool" },
   ]
@@ -72,8 +74,8 @@ const AddProperties = () => {
   }
 
   const handleValueFeature = (featureValue) => {
-    setFeatureValue(featureValue)
-  }
+    setFeatureValue(featureValue);
+  };
 
 
   // property adnd floor plan images drop and file input functionality [81 to 139]
@@ -108,19 +110,19 @@ const AddProperties = () => {
   }
   const onDragOver = (event) => {
     event.preventDefault();
-    setIsDragging(true)
-    event.dataTransfer.dropEffect = "copy"
-  }
-  const onDragLeave = (event) => {
-    event.preventDefault();
-    setIsDragging(false)
-  }
-  const onDrop = async (event) => {
-    event.preventDefault();
-    setIsDragging(false)
-    const files = event.dataTransfer.files;
-    setImages(files[0])
-    // TODO: This comment by sojib for doing multiple drag and drop  image hosting please dont uncomment it
+    // for (let i = 0; i < files.length; i++) {
+    //   if (files[i].type.split('/')[0] !== 'image') continue;
+    //   if (!images.some((e) => e.name === files[i].name)) {
+    //     setImages((prevImages) => [
+    //       ...prevImages,
+    //       {
+    //         name: files[i].name,
+    //         url: URL.createObjectURL(files[i])
+    //       }
+    //     ])
+    //   }
+    // }
+  };
     for (let i = 0; i < files.length; i++) {
       if (files[i].type.split('/')[0] !== 'image') continue;
       if (!showImages.some((e) => e.name === files[i].name)) {
@@ -133,7 +135,6 @@ const AddProperties = () => {
         ])
       }
     }
-  }
 
   const [floorImages, setFloorImages] = useState([])
   const [showFloorImages, setShowFloorImages] = useState([])

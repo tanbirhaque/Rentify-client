@@ -9,15 +9,16 @@ import PropertyCard from "../../../../Shared/PropertyCards/PropertyCard";
 import ButtonBlue from "../../../../Shared/buttons/Blue/ButtonBlue";
 import ButtonRed from "../../../../Shared/buttons/Red/ButtonRed";
 import useProperties from "../../../../../Hooks/useProperties";
-import "./Listing.css"
-import { Link } from 'react-router-dom';
+import "./Listing.css";
+import { Link } from "react-router-dom";
+
 
 const Listing = () => {
-    // properties data get from database
-    const [properties] = useProperties();
-    console.log(properties)
-    // const [properties, Setproperties] = useState([]);
-    const [tabIndex, setTabIndex] = useState(0);
+  // properties data get from database
+  const [properties] = useProperties();
+  console.log(properties);
+  // const [properties, Setproperties] = useState([]);
+  const [tabIndex, setTabIndex] = useState(0);
 
     const apartment = properties.filter(
         (item) => item.property_info.property_category === "Apartment"
@@ -123,7 +124,7 @@ const Listing = () => {
 export default Listing;
 
 {
-    /* <PropertyCard
+  /* <PropertyCard
   img={"https://angular.hibootstrap.com/enuf/assets/img/property/property-2.jpg"}
   details_path={'/details'}
   />

@@ -5,91 +5,90 @@ import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import useAuth from "../../../Hooks/useAuth";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import ButtonBlue from "../../../MainLayout/Shared/buttons/Blue/ButtonBlue";
-import { FaArrowRight, FaPhotoVideo } from "react-icons/fa";
+import { FaArrowRight, FaPhotoVideo, FaArrowLeft } from "react-icons/fa";
 import { useRef, useState } from "react";
 
 const OwnerRequestForm = () => {
-  const [profileNext, setProfileNext] = useState(true)
-  const [uploadForm, setUploadForm] = useState(true)
+  const [profileNext, setProfileNext] = useState(true);
+  const [uploadForm, setUploadForm] = useState(true);
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
   const axiosPublic = useAxiosPublic();
   const image_hosting_api =
     "https://api.imgbb.com/1/upload?key=041c88632a7cf1ed57bab64c7c558177";
-  const [images, setImages] = useState([])
-  const [showImages, setShowImages] = useState([])
-  const [isDragging, setIsDragging] = useState(false)
-  const fileInputRef = useRef(null)
-  console.log(showImages)
-
+  const [images, setImages] = useState([]);
+  const [showImages, setShowImages] = useState([]);
+  const [isDragging, setIsDragging] = useState(false);
+  const fileInputRef = useRef(null);
+  console.log(showImages);
 
   // onFileSelect, SelectFiles, OnDragOver, OnDragLeave, onDrop this functions are used for input fils , drag and drop features
   const onFileSelect = (event) => {
     event.preventDefault();
     const files = event.target.files;
-    setImages(files[0])
-    console.log(files)
+    setImages(files[0]);
+    console.log(files);
 
     if (files.length === 0) return;
     for (let i = 0; i < files.length; i++) {
-      if (files[i].type.split('/')[0] !== 'image') continue;
+      if (files[i].type.split("/")[0] !== "image") continue;
       if (!showImages.some((e) => e.name === files[i].name)) {
         setShowImages((prevImages) => [
           ...prevImages,
           {
             name: files[i].name,
-            url: URL.createObjectURL(files[i])
-          }
-        ])
+            url: URL.createObjectURL(files[i]),
+          },
+        ]);
       }
     }
-  }
+  };
   function selectFiles() {
     fileInputRef.current.click();
   }
   const onDragOver = (event) => {
     event.preventDefault();
-    setIsDragging(true)
-    event.dataTransfer.dropEffect = "copy"
-  }
+    setIsDragging(true);
+    event.dataTransfer.dropEffect = "copy";
+  };
   const onDragLeave = (event) => {
     event.preventDefault();
-    setIsDragging(false)
-  }
+    setIsDragging(false);
+  };
   const onDrop = async (event) => {
     event.preventDefault();
-    setIsDragging(false)
+    setIsDragging(false);
     const files = event.dataTransfer.files;
-    setImages(files[0])
+    setImages(files[0]);
     // DO: This comment by sojib for doing multiple drag and drop  image hosting please dont uncomment it
     for (let i = 0; i < files.length; i++) {
-      if (files[i].type.split('/')[0] !== 'image') continue;
+      if (files[i].type.split("/")[0] !== "image") continue;
       if (!showImages.some((e) => e.name === files[i].name)) {
         setShowImages((prevImages) => [
           ...prevImages,
           {
             name: files[i].name,
-            url: URL.createObjectURL(files[i])
-          }
-        ])
+            url: URL.createObjectURL(files[i]),
+          },
+        ]);
       }
     }
-  }
+  };
 
   // handleGoProfileInfo, handleGoUploadFile, handleBackStartForm, handleBackProfileInfo This four functions are functions of moving from one form to another by [sojib]
   const handleGoProfileInfo = () => {
-    setProfileNext(false)
-  }
+    setProfileNext(false);
+  };
   const handleGoUploadFile = () => {
-    setUploadForm(false)
-  }
+    setUploadForm(false);
+  };
   const handleBackStartForm = () => {
-    setProfileNext(true)
-  }
+    setProfileNext(true);
+  };
   const handleBackProfileInfo = () => {
-    setUploadForm(true)
-    setProfileNext(false)
-  }
+    setUploadForm(true);
+    setProfileNext(false);
+  };
 
   const { register, reset, handleSubmit } = useForm();
   const onSubmit = async (data) => {
@@ -102,15 +101,15 @@ const OwnerRequestForm = () => {
     const ownerImg = res.data.data.url;
     // console.log(img)
     if (res.data) {
-      console.log(res.data.data)
-      setImages(ownerImg)
+      console.log(res.data.data);
+      setImages(ownerImg);
     }
 
     const ownerData = {
       firstName: data.firstName,
       lastName: data.lastName,
       number: data.number,
-      email: data.email,
+      ownerEmail: data.email,
       dateOfBirth: data.dateOfBirth,
       facebook: data.facebook,
       twitter: data.twitter,
@@ -118,35 +117,33 @@ const OwnerRequestForm = () => {
       description: data.description,
       address: data.address,
       zipCode: data.zipCode,
-      ownerImg: ownerImg
-    }
+      ownerImg: ownerImg,
+    };
     // console.log("ownerform data", ownerData)
     // TO DO : now this time i direct passed data if after we need add to owner then we will change it
-    axiosSecure.post("/ownerRequest", ownerData)
-      .then((response) => {
-        console.log(response);
-        // This extra condition was added by [Sajib] because _id comes from Mongoose
-        if (response.data.insertedId || response.data._id) {
-          Swal.fire({
-            title: `Your application will be reviewed soon.`,
-            timer: 2000,
-            color: "#002172",
-            showConfirmButton: true,
-            icon: "success",
-          });
-          reset();
-        }
-        else {
-          Swal.fire({
-            title:
-              "Can not request more than once. Please wait for admin approval.",
-            timer: 2000,
-            color: "#002172",
-            showConfirmButton: false,
-            icon: "error",
-          });
-        }
-      });
+    axiosSecure.post("/ownerRequest", ownerData).then((response) => {
+      console.log(response);
+      // This extra condition was added by [Sajib] because _id comes from Mongoose
+      if (response.data.insertedId || response.data._id) {
+        Swal.fire({
+          title: `Your application will be reviewed soon.`,
+          timer: 2000,
+          color: "#002172",
+          showConfirmButton: true,
+          icon: "success",
+        });
+        reset();
+      } else {
+        Swal.fire({
+          title:
+            "Can not request more than once. Please wait for admin approval.",
+          timer: 2000,
+          color: "#002172",
+          showConfirmButton: false,
+          icon: "error",
+        });
+      }
+    });
   };
   //
 
@@ -174,359 +171,397 @@ const OwnerRequestForm = () => {
               {/* Form heading section */}
               <div className=" my-9 flex md:flex-row flex-col justify-start md:items-center items-start gap-8">
                 {/* get started heading */}
-                {
-                  profileNext && uploadForm ?
-                    <div className=" flex items-center gap-4">
-                      <p className=" text-3xl font-bold h-16 w-16 rounded-full items-center justify-center flex flex-col bg-[#002172] text-center text-white">1</p>
-                      <div>
-                        <h2 className=" text-xl font-bold text-[#002172]">Get Started</h2>
-                        <p className=" font-bold text-[#002172]">Account information</p>
-                      </div>
+                {profileNext && uploadForm ? (
+                  <div className=" flex items-center gap-4">
+                    <p className=" text-3xl font-bold h-16 w-16 rounded-full items-center justify-center flex flex-col bg-[#002172] text-center text-white">
+                      1
+                    </p>
+                    <div>
+                      <h2 className=" text-xl font-bold text-[#002172]">
+                        Get Started
+                      </h2>
+                      <p className=" font-bold text-[#002172]">
+                        Account information
+                      </p>
                     </div>
-                    :
-                    <div className=" flex items-center gap-4">
-                      <p className=" text-3xl font-bold h-16 w-16 rounded-full items-center justify-center flex flex-col bg-[#f3f3f3] text-center">1</p>
-                      <div>
-                        <h2 className=" text-xl font-bold">Get Started</h2>
-                        <p className=" font-bold text-[#a8a2a2]">Account information</p>
-                      </div>
+                  </div>
+                ) : (
+                  <div className=" flex items-center gap-4">
+                    <p className=" text-3xl font-bold h-16 w-16 rounded-full items-center justify-center flex flex-col bg-[#f3f3f3] text-center">
+                      1
+                    </p>
+                    <div>
+                      <h2 className=" text-xl font-bold">Get Started</h2>
+                      <p className=" font-bold text-[#a8a2a2]">
+                        Account information
+                      </p>
                     </div>
-                }
+                  </div>
+                )}
                 {
                   // Profile Info heading
-                  !profileNext && uploadForm ?
+                  !profileNext && uploadForm ? (
                     <div className=" flex items-center gap-4">
-                      <p className=" text-3xl font-bold h-16 w-16 rounded-full items-center justify-center flex flex-col bg-[#002172] text-center text-white">2</p>
+                      <p className=" text-3xl font-bold h-16 w-16 rounded-full items-center justify-center flex flex-col bg-[#002172] text-center text-white">
+                        2
+                      </p>
                       <div>
-                        <h2 className=" text-xl font-bold text-[#002172]">Profile Info</h2>
-                        <p className=" font-bold text-[#002172]">Add profile info</p>
+                        <h2 className=" text-xl font-bold text-[#002172]">
+                          Profile Info
+                        </h2>
+                        <p className=" font-bold text-[#002172]">
+                          Add profile info
+                        </p>
                       </div>
                     </div>
-                    :
+                  ) : (
                     <div className=" flex items-center gap-4">
-                      <p className=" text-3xl font-bold h-16 w-16 rounded-full items-center justify-center flex flex-col bg-[#f3f3f3] text-center">2</p>
+                      <p className=" text-3xl font-bold h-16 w-16 rounded-full items-center justify-center flex flex-col bg-[#f3f3f3] text-center">
+                        2
+                      </p>
                       <div>
                         <h2 className=" text-xl font-bold">Profile Info</h2>
-                        <p className=" font-bold text-[#a8a2a2]">Add profile info</p>
+                        <p className=" font-bold text-[#a8a2a2]">
+                          Add profile info
+                        </p>
                       </div>
                     </div>
+                  )
                 }
                 {
                   // Upload heading
-                  uploadForm ?
+                  uploadForm ? (
                     <div className=" flex items-center gap-4">
-                      <p className=" text-3xl font-bold h-16 w-16 rounded-full items-center justify-center flex flex-col bg-[#f3f3f3] text-center">3</p>
+                      <p className=" text-3xl font-bold h-16 w-16 rounded-full items-center justify-center flex flex-col bg-[#f3f3f3] text-center">
+                        3
+                      </p>
                       <div>
                         <h2 className=" text-xl font-bold">Upload files</h2>
-                        <p className=" font-bold text-[#a8a2a2]">Successfully submitted</p>
+                        <p className=" font-bold text-[#a8a2a2]">
+                          Successfully submitted
+                        </p>
                       </div>
                     </div>
-                    :
+                  ) : (
                     <div className=" flex items-center gap-4">
-                      <p className=" text-3xl font-bold h-16 w-16 rounded-full items-center justify-center flex flex-col bg-[#002172] text-center text-white">3</p>
+                      <p className=" text-3xl font-bold h-16 w-16 rounded-full items-center justify-center flex flex-col bg-[#002172] text-center text-white">
+                        3
+                      </p>
                       <div>
-                        <h2 className=" text-xl font-bold text-[#002172]">Upload files</h2>
-                        <p className=" font-bold text-[#002172]">Successfully submitted</p>
+                        <h2 className=" text-xl font-bold text-[#002172]">
+                          Upload files
+                        </h2>
+                        <p className=" font-bold text-[#002172]">
+                          Successfully submitted
+                        </p>
                       </div>
                     </div>
+                  )
                 }
               </div>
               <hr className="mb-10"></hr>
               {/* Form section */}
               <form className="px-4" onSubmit={handleSubmit(onSubmit)}>
                 <div>
-                  {
-                    uploadForm ?
-                      <div>
-                        {
-                          profileNext ?
-                            // This is get started field section
-                            < div >
-                              <div className="grid md:grid-cols-3 grid-cols-1 gap-4  mb-5">
-                                {/* first name field */}
-                                <div className="form-control">
+                  {uploadForm ? (
+                    <div>
+                      {profileNext ? (
+                        // This is get started field section
+                        <div>
+                          <div className="grid md:grid-cols-3 grid-cols-1 gap-4  mb-5">
+                            {/* first name field */}
+                            <div className="form-control">
+                              <label className="label ">
+                                <span className="label-text text-lg font-semibold">
+                                  First Name
+                                </span>
+                              </label>
+                              <label className="input-group ">
+                                <input
+                                  {...register("firstName")}
+                                  type="text"
+                                  placeholder="Add your first name"
+                                  className="input form-border input-bordered w-full"
+                                />
+                              </label>
+                            </div>
+                            {/* last name field */}
+                            <div className="form-control">
+                              <label className="label ">
+                                <span className="label-text text-lg font-semibold">
+                                  Last Name
+                                </span>
+                              </label>
+                              <label className="input-group ">
+                                <input
+                                  {...register("lastName")}
+                                  type="text"
+                                  placeholder="Add your last name"
+                                  className="input form-border input-bordered w-full"
+                                />
+                              </label>
+                            </div>
+                            {/* email field */}
+                            <div className="form-control">
+                              <label className="label ">
+                                <span className="label-text text-lg font-semibold">
+                                  Email Address
+                                </span>
+                              </label>
+                              <label className="input-group ">
+                                <input
+                                  {...register("email")}
+                                  defaultValue={user?.email}
+                                  readOnly
+                                  type="text"
+                                  placeholder="Add your email"
+                                  className="input form-border input-bordered w-full"
+                                />
+                              </label>
+                            </div>
+                          </div>
+                          <div className="grid md:grid-cols-2 grid-cols-1 gap-4  mb-5">
+                            {/* phone number field */}
+                            <div className="form-control">
+                              <label className="label ">
+                                <span className="label-text text-lg font-semibold">
+                                  Phone Number
+                                </span>
+                              </label>
+                              <label className="input-group ">
+                                <input
+                                  {...register("number")}
+                                  type="text"
+                                  placeholder="Add your phone number"
+                                  className="input form-border input-bordered w-full"
+                                />
+                              </label>
+                            </div>
+                            {/* date of birth field*/}
+                            <div className="form-control">
+                              <label className="label ">
+                                <span className="label-text text-lg font-semibold">
+                                  Date of birth
+                                </span>
+                              </label>
+                              <label className="input-group ">
+                                <input
+                                  {...register("dateOfBirth")}
+                                  type="date"
+                                  className="input form-border input-bordered w-full"
+                                />
+                              </label>
+                            </div>
+                          </div>
+                          {/* This is button part of ProfileInfo section for go to ProfileInfo form */}
+                          <div
+                            className=" flex flex-row justify-end items-center mb-8"
+                            onClick={handleGoProfileInfo}
+                          >
+                            <ButtonBlue titleBlue={`Next`} />
+                          </div>
+                        </div>
+                      ) : (
+                        // This is profile Info field section
+                        <div>
+                          <div>
+                            <div className="flex lg:flex-row md:flex-col flex-col items-center gap-4  mb-5">
+                              <div className=" flex md:flex-row flex-col items-center gap-4 lg:w-[67%] md:w-full w-full">
+                                {/* facebook link */}
+                                <div className="form-control  w-full">
                                   <label className="label ">
                                     <span className="label-text text-lg font-semibold">
-                                      First Name
+                                      Facebook link
                                     </span>
                                   </label>
                                   <label className="input-group ">
                                     <input
-                                      {...register("firstName")}
+                                      {...register("facebook")}
                                       type="text"
-                                      placeholder="Add your first name"
+                                      placeholder="Add your facebook link"
                                       className="input form-border input-bordered w-full"
                                     />
                                   </label>
                                 </div>
-                                {/* last name field */}
-                                <div className="form-control">
+                                {/* twitter link */}
+                                <div className="form-control w-full">
                                   <label className="label ">
                                     <span className="label-text text-lg font-semibold">
-                                      Last Name
+                                      Twitter link
                                     </span>
                                   </label>
                                   <label className="input-group ">
                                     <input
-                                      {...register("lastName")}
+                                      {...register("twitter")}
                                       type="text"
-                                      placeholder="Add your last name"
-                                      className="input form-border input-bordered w-full"
-                                    />
-                                  </label>
-                                </div>
-                                {/* email field */}
-                                <div className="form-control">
-                                  <label className="label ">
-                                    <span className="label-text text-lg font-semibold">
-                                      Email Address
-                                    </span>
-                                  </label>
-                                  <label className="input-group ">
-                                    <input
-                                      {...register("email")}
-                                      defaultValue={user?.email}
-                                      readOnly
-                                      type="text"
-                                      placeholder="Add your email"
+                                      placeholder="Add your twitter id link"
                                       className="input form-border input-bordered w-full"
                                     />
                                   </label>
                                 </div>
                               </div>
-                              <div className="grid md:grid-cols-2 grid-cols-1 gap-4  mb-5">
-                                {/* phone number field */}
-                                <div className="form-control">
-                                  <label className="label ">
-                                    <span className="label-text text-lg font-semibold">
-                                      Phone Number
-                                    </span>
-                                  </label>
-                                  <label className="input-group ">
-                                    <input
-                                      {...register("number")}
-                                      type="text"
-                                      placeholder="Add your phone number"
-                                      className="input form-border input-bordered w-full"
-                                    />
-                                  </label>
-                                </div>
-                                {/* date of birth field*/}
-                                <div className="form-control">
-                                  <label className="label ">
-                                    <span className="label-text text-lg font-semibold">
-                                      Date of birth
-                                    </span>
-                                  </label>
-                                  <label className="input-group ">
-                                    <input
-                                      {...register("dateOfBirth")}
-                                      type="date"
-                                      className="input form-border input-bordered w-full"
-                                    />
-                                  </label>
-                                </div>
-                              </div>
-                              {/* This is button part of ProfileInfo section for go to ProfileInfo form */}
-                              <div className=" flex flex-row justify-end items-center mb-8" onClick={handleGoProfileInfo}>
-                                <ButtonBlue
-                                  titleBlue={`Next`}
-                                >
-                                </ButtonBlue>
+                              {/* linkedin link */}
+                              <div className="form-control lg:w-[33%] md:w-full w-full">
+                                <label className="label ">
+                                  <span className="label-text text-lg font-semibold">
+                                    Linkedin link
+                                  </span>
+                                </label>
+                                <label className="input-group ">
+                                  <input
+                                    {...register("linkedin")}
+                                    type="text"
+                                    placeholder="Add your linkedin id link"
+                                    className="input form-border input-bordered w-full"
+                                  />
+                                </label>
                               </div>
                             </div>
-                            :
-                            // This is profile Info field section
                             <div>
-                              <div>
-                                <div className="flex lg:flex-row md:flex-col flex-col items-center gap-4  mb-5">
-                                  <div className=" flex md:flex-row flex-col items-center gap-4 lg:w-[67%] md:w-full w-full">
-                                    {/* facebook link */}
-                                    <div className="form-control  w-full">
-                                      <label className="label ">
-                                        <span className="label-text text-lg font-semibold">
-                                          Facebook link
-                                        </span>
-                                      </label>
-                                      <label className="input-group ">
-                                        <input
-                                          {...register("facebook")}
-                                          type="text"
-                                          placeholder="Add your facebook link"
-                                          className="input form-border input-bordered w-full"
-                                        />
-                                      </label>
-                                    </div>
-                                    {/* twitter link */}
-                                    <div className="form-control w-full">
-                                      <label className="label ">
-                                        <span className="label-text text-lg font-semibold">
-                                          Twitter link
-                                        </span>
-                                      </label>
-                                      <label className="input-group ">
-                                        <input
-                                          {...register("twitter")}
-                                          type="text"
-                                          placeholder="Add your twitter id link"
-                                          className="input form-border input-bordered w-full"
-                                        />
-                                      </label>
-                                    </div>
-                                  </div>
-                                  {/* linkedin link */}
-                                  <div className="form-control lg:w-[33%] md:w-full w-full">
-                                    <label className="label ">
-                                      <span className="label-text text-lg font-semibold">
-                                        Linkedin link
-                                      </span>
-                                    </label>
-                                    <label className="input-group ">
-                                      <input
-                                        {...register("linkedin")}
-                                        type="text"
-                                        placeholder="Add your linkedin id link"
-                                        className="input form-border input-bordered w-full"
-                                      />
-                                    </label>
-                                  </div>
-                                </div>
-                                <div>
-                                  {/* description filed */}
-                                  <div className="form-control">
-                                    <label className="label">
-                                      <span className="label-text text-lg font-semibold">
-                                        Description
-                                      </span>
-                                    </label>
-                                    <label className="input-group">
-                                      <textarea
-                                        {...register("description")}
-                                        required
-                                        name="description"
-                                        className="textarea py-10 form-border textarea-bordered w-full"
-                                      ></textarea>
-                                    </label>
-                                  </div>
-                                </div>
-                                <div className="grid md:grid-cols-2 grid-cols-1 gap-4 ">
-                                  {/* address filed */}
-                                  <div className="form-control">
-                                    <label className="label ">
-                                      <span className="label-text text-lg font-semibold">
-                                        Address
-                                      </span>
-                                    </label>
-                                    <label className="input-group ">
-                                      <input
-                                        {...register("address")}
-                                        type="text"
-                                        placeholder="Add your address"
-                                        className="input form-border input-bordered w-full"
-                                      />
-                                    </label>
-                                  </div>
-                                  {/* zipCode filed */}
-                                  <div className="form-control">
-                                    <label className="label ">
-                                      <span className="label-text text-lg font-semibold">
-                                        Zip code *
-                                      </span>
-                                    </label>
-                                    <label className="input-group ">
-                                      <input
-                                        {...register("zipCode")}
-                                        type="text"
-                                        placeholder="Add your zip code"
-                                        className="input form-border input-bordered w-full"
-                                      />
-                                    </label>
-                                  </div>
-                                </div>
-                              </div>
-                              {/* This is button part of ProfileInfo section for back start form and go to uplad form request */}
-                              <div className=" flex flex-row justify-between items-center mt-6 mb-8">
-                                <div onClick={handleBackStartForm}>
-                                  <ButtonBlue
-                                    titleBlue={`Previous`}
-                                  ></ButtonBlue>
-                                </div>
-                                <div onClick={handleGoUploadFile}>
-                                  <ButtonBlue
-                                    titleBlue={`Next`}
-                                  >
-                                  </ButtonBlue>
-                                </div>
+                              {/* description filed */}
+                              <div className="form-control">
+                                <label className="label">
+                                  <span className="label-text text-lg font-semibold">
+                                    Description
+                                  </span>
+                                </label>
+                                <label className="input-group">
+                                  <textarea
+                                    {...register("description")}
+                                    required
+                                    name="description"
+                                    className="textarea py-10 form-border textarea-bordered w-full"
+                                    minLength={20}
+                                  ></textarea>
+                                </label>
                               </div>
                             </div>
-                        }
-                      </div>
-                      :
-                      // This is upload field section
-                      <div>
-                        {/* Image upload field */}
-                        <div className="form-control">
-                          <label className="label ">
-                            <span className="label-text text-lg font-semibold">
-                              Your image *
-                            </span>
-                          </label>
-                          {showImages[0] ?
-                            <div className=" flex justify-center flex-wrap items-center gap-2 border-2 rounded-md py-6">
-                              {
-                                showImages.map((item, index) =>
-                                  <div key={index}>
-                                    <img className=" w-[100px] h-[100px]" src={item.url} alt="Drop img" />
-                                  </div>)
-                              }
-                            </div> :
-                            <div className=" border-2 rounded-md p-3 flex flex-col justify-center items-center h-[170px]" onDragOver={onDragOver} onDragLeave={onDragLeave} onDrop={onDrop}>
-                              <label className="drag-area text-center flex flex-col items-center">
-                                {isDragging ? (<span>Drop imag here</span>) : (<>
+                            <div className="grid md:grid-cols-2 grid-cols-1 gap-4 ">
+                              {/* address filed */}
+                              <div className="form-control">
+                                <label className="label ">
+                                  <span className="label-text text-lg font-semibold">
+                                    Address
+                                  </span>
+                                </label>
+                                <label className="input-group ">
+                                  <input
+                                    {...register("address")}
+                                    type="text"
+                                    placeholder="Add your address"
+                                    className="input form-border input-bordered w-full"
+                                  />
+                                </label>
+                              </div>
+                              {/* zipCode filed */}
+                              <div className="form-control">
+                                <label className="label ">
+                                  <span className="label-text text-lg font-semibold">
+                                    Zip code *
+                                  </span>
+                                </label>
+                                <label className="input-group ">
+                                  <input
+                                    {...register("zipCode")}
+                                    type="number"
+                                    placeholder="Add your zip code"
+                                    className="input form-border input-bordered w-full"
+                                  />
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                          {/* This is button part of ProfileInfo section for back start form and go to uplad form request */}
+                          <div className=" flex flex-row justify-between items-center mt-6 mb-8">
+                            <div onClick={handleBackStartForm}>
+                              <ButtonBlue titleBlue={`Previous`}></ButtonBlue>
+                            </div>
+                            <div onClick={handleGoUploadFile}>
+                              <ButtonBlue titleBlue={`Next`}></ButtonBlue>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    // This is upload field section
+                    <div>
+                      {/* Image upload field */}
+                      <div className="form-control">
+                        <label className="label ">
+                          <span className="label-text text-lg font-semibold">
+                            Your image *
+                          </span>
+                        </label>
+                        {showImages[0] ? (
+                          <div className=" flex justify-center flex-wrap items-center gap-2 border-2 rounded-md py-6">
+                            {showImages.map((item, index) => (
+                              <div key={index}>
+                                <img
+                                  className=" w-[100px] h-[100px]"
+                                  src={item.url}
+                                  alt="Drop img"
+                                />
+                              </div>
+                            ))}
+                          </div>
+                        ) : (
+                          <div
+                            className=" border-2 rounded-md p-3 flex flex-col justify-center items-center h-[170px]"
+                            onDragOver={onDragOver}
+                            onDragLeave={onDragLeave}
+                            onDrop={onDrop}
+                          >
+                            <label className="drag-area text-center flex flex-col items-center">
+                              {isDragging ? (
+                                <span>Drop imag here</span>
+                              ) : (
+                                <>
                                   <span role="button" onClick={selectFiles}>
                                     <FaPhotoVideo className="text-7xl font-bold"></FaPhotoVideo>
                                   </span>
-                                </>)}
-                                <div className="">
-                                  <p className=" font-bold">Drop here files or click to upload your images</p>
-                                  <input
-                                    {...register("files")}
-                                    type="file"
-                                    placeholder="Drag and drop your image or url"
-                                    name="files"
-                                    className="file-input w-full h-[140px]"
-                                    multiple
-                                    ref={fileInputRef}
-                                    onChange={onFileSelect}
-                                    style={{ display: 'none' }}
-                                  />
-                                </div>
-                              </label>
-                            </div>
-                          }
+                                </>
+                              )}
+                              <div className="">
+                                <p className=" font-bold">
+                                  Drop here files or click to upload your images
+                                </p>
+                                <input
+                                  {...register("files")}
+                                  type="file"
+                                  placeholder="Drag and drop your image or url"
+                                  name="files"
+                                  className="file-input w-full h-[140px]"
+                                  multiple
+                                  ref={fileInputRef}
+                                  onChange={onFileSelect}
+                                  style={{ display: "none" }}
+                                />
+                              </div>
+                            </label>
+                          </div>
+                        )}
+                      </div>
+                      {/* This is button part of upload field section for back profileInfo form and submit request */}
+                      <div
+                        className=" flex flex-row justify-between items-center my-6"
+                        type="submit"
+                      >
+                        <div onClick={handleBackProfileInfo}>
+                          <ButtonBlue titleBlue={`Previous`}></ButtonBlue>
                         </div>
-                        {/* This is button part of upload field section for back profileInfo form and submit request */}
-                        <div className=" flex flex-row justify-between items-center my-6" type="submit">
-                          <div onClick={handleBackProfileInfo}>
-                            <ButtonBlue
-                              titleBlue={`Previous`}
-                            ></ButtonBlue>
-                          </div>
-                          <div type="submit">
-                            <ButtonBlue
-                              titleBlue={`Submit`}
-                            >
-                            </ButtonBlue>
-                          </div>
+                        <div type="submit">
+                          <ButtonBlue titleBlue={`Submit`}></ButtonBlue>
                         </div>
                       </div>
-                  }
+                    </div>
+                  )}
                 </div>
               </form>
             </div>
-          </div >
-        </section >
-      </div >
+          </div>
+        </section>
+      </div>
     </>
   );
 };
