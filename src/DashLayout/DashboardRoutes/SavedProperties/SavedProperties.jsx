@@ -9,7 +9,7 @@ import { AuthContext } from "../../../Provider/AuthProvider";
 const SavedProperties = () => {
     const { user, loading } = useContext(AuthContext)
     const [saved, refetch] = useSavedProperties()
-    console.log(saved);
+    // console.log(saved);
 
     if(loading){
         return <progress className="progress w-56"></progress>
@@ -28,7 +28,7 @@ const SavedProperties = () => {
                 {
                     saved.map(item => (
 
-                        <SavedCards key={item._id} items={item}></SavedCards>
+                        <SavedCards key={item._id} item={item}></SavedCards>
                     ))
                 }
             </div>

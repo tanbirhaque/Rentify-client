@@ -55,6 +55,7 @@ import UserProfile from "./DashLayout/DashboardRoutes/UserProfile/UserProfile.js
 import OwnerRequestForm from "./DashLayout/DashboardRoutes/Owner Request/OwnerRequestForm.jsx";
 import AllProperties from "./MainLayout/Pages/Home/HomeComponents/AllProperties/AllProperties.jsx";
 import Contact from "./MainLayout/Pages/Contact/Contact.jsx";
+import AllPropertiesMod from "./MainLayout/Pages/Home/HomeComponents/AllProperties/AllPropertiesMod.jsx";
 
 const queryClient = new QueryClient();
 
@@ -83,7 +84,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/all",
-        element: <AllProperties></AllProperties>,
+        element: <AllPropertiesMod></AllPropertiesMod>
       },
       {
         path: "/blogs",

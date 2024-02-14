@@ -24,10 +24,10 @@ const Details = () => {
   const { id } = useParams();
   const item = properties.find((item) => item._id == id);
   const [saved, refetch] = useSavedProperties();
-  console.log(saved)
+  // console.log(saved)
   // saved properties find for bookmark design and So that the user cannot add a property more than once this function added by sojib
   const findSaved = saved.find(save => save.property._id == item._id)
-  console.log(findSaved)
+  // console.log(findSaved)
 
   //destructure
   const { property_info } = item || {};
