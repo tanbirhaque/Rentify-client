@@ -1,6 +1,7 @@
 import { useRef } from "react";
+import BookBuy from "./BookBuy";
+import swal from "sweetalert";
 import {
-
   FaHeart,
   FaStar,
   FaDollarSign,
@@ -10,37 +11,23 @@ import {
   FaFire,
   FaPlus,
 } from "react-icons/fa";
+import { IoBedOutline } from "react-icons/io5";
+import { LuTriangleRight } from "react-icons/lu";
+import { PiBathtub } from "react-icons/pi";
 
-
-import BookBuy from "./BookBuy";
-import swal from "sweetalert";
-
-
-
-
-const SavedCards = ({ items }) => {
-
-  
-
+const SavedCards = ({ item }) => {
+  const { property } = item;
   const modalRef = useRef(null);
 
   const handleBookOrBuy = () => {
     // Open the modal using the showModal() method- Sadia
- 
-    modalRef.current.showModal();
 
+    modalRef.current.showModal();
   };
 
-  
-
-
-
-
-
-  const { property } = items;
   return (
     <div>
-      <div className="w-full max-w-[26rem] shadow-lg">
+      <div className="w-full max-w-[24rem] shadow-lg">
         <div className="bg-blue-gray relative rounded-xl">
           <img
             src={property.property_info.property_img}
@@ -48,143 +35,87 @@ const SavedCards = ({ items }) => {
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-black/60" />
-          <button className="absolute top-4 right-4 text-red-500 rounded-full">
+          <button className="absolute top-4 left-4 text-red-500 rounded-full">
             <FaHeart className="h-6 w-6" />
           </button>
+          {/* <button className="absolute top-4 right-4 text-red-500 font-bold text-xl rounded-full">
+            <div className="rating flex gap-1">
+              <input type="radio" name="rating-1" className="mask mask-star bg-[#fbbd38]" />
+              <span>3</span>
+
+
+            </div>
+          </button> */}
+
+          <div className="absolute bottom-4 right-4  ">
+            {property?.property_info?.property_for === "rent" ? (
+              <>
+                <button className=" bg-[#002172]  py-2 px-4 text-sm  hover:bg-[#e33226] text-white">
+                  Rent Now
+                </button>
+              </>
+            ) : (
+              <button className="bg-[#002172] py-2 px-4 text-sm  hover:bg-[#e33226] text-white">
+                Buy Now
+              </button>
+            )}
+          </div>
         </div>
         <div className="p-6">
           <div className="mb-3 flex items-center justify-between">
-            <h5 className="text-[#002172] font-semibold truncate">
+            <h1 className="text-[#002172] text-xl font-semibold ">
               {property.property_info.property_title}
-            </h5>
-            <div className="flex items-center gap-1.5 text-blue-gray">
-              <FaStar className="-mt-0.5 h-5 w-5 text-yellow-700" />3
-            </div>
+            </h1>
           </div>
-          <p className="text-gray-500">
-            Indulge in the epitome of urban sophistication with our Stylish
-            Urban Loft, a captivating space meticulously curated to embody the
-            essence of Industrial Chic Vibes.
-          </p>
-          <div className="flex justify-between mt-2">
+          {/* <p className="text-gray-500">
+          Indulge in the epitome of urban sophistication with our Stylish Urban Loft, a captivating space meticulously curated to embody the essence of Industrial Chic Vibes.
+          </p> */}
+          <div className="card-actions text-lg flex items-center justify-center border-t-2 border-b-2 py-4 gap-10 border-[#00000016]   mt-5 text-md">
+            <p className="flex items-center justify-center gap-2 ">
+              <IoBedOutline className="text-[#666666]" />
+              {property.property_info.property_details?.bedroom}
+            </p>
+            <p className="flex items-center justify-center gap-2 ">
+              <PiBathtub className="text-[#666666]" />
+              {property.property_info.property_details?.bath}
+            </p>
+            <p className="flex items-center justify-center gap-2 ">
+              <LuTriangleRight className="text-[#666666]" />
+              {property.property_info.property_details?.sqf} sqft
+            </p>
+          </div>
+          <div className="flex justify-between py-3 items-center mt-2">
             <h1>
-              <span className="text-[#e33226] font-bold">Price:</span>{" "}
+              <span className="text-[#e33226] text-xl font-bold">Price: </span>{" "}
               {property.property_info.property_details.property_price}
             </h1>
             <h1>
-              <span className="text-[#e33226] font-bold">Duration:</span>{" "}
-              {property.property_info.ownership_duration}
+              <span className="text-[#e33226] text-xl font-bold">Review: </span>
+              3
             </h1>
           </div>
-          <div className="group mt-8 inline-flex flex-wrap items-center gap-3">
-            <span className="cursor-pointer rounded-full border border-gray-900/5 bg-gray-900/5 p-3 text-gray-900 hover:text-[#e33226] transition-colors hover:border-gray-900/10 hover:bg-gray-900/10 hover:!opacity-100 group-hover:opacity-70">
-              <FaDollarSign className="h-5 w-5" />
-            </span>
-            <span className="cursor-pointer rounded-full border border-gray-900/5 bg-gray-900/5 p-3 text-gray-900 hover:text-[#e33226] transition-colors hover:border-gray-900/10 hover:bg-gray-900/10 hover:!opacity-100 group-hover:opacity-70">
-              <FaWifi className="h-5 w-5" />
-            </span>
-            <span className="cursor-pointer rounded-full border border-gray-900/5 bg-gray-900/5 p-3 text-gray-900 hover:text-[#e33226] transition-colors hover:border-gray-900/10 hover:bg-gray-900/10 hover:!opacity-100 group-hover:opacity-70">
-              <FaBed className="h-5 w-5" />
-            </span>
-            <span className="cursor-pointer rounded-full border border-gray-900/5 bg-gray-900/5 p-3 text-gray-900 hover:text-[#e33226] transition-colors hover:border-gray-900/10 hover:bg-gray-900/10 hover:!opacity-100 group-hover:opacity-70">
-              <FaTv className="h-5 w-5" />
-            </span>
-            <span className="cursor-pointer rounded-full border border-gray-900/5 bg-gray-900/5 p-3 text-gray-900 hover:text-[#e33226] transition-colors hover:border-gray-900/10 hover:bg-gray-900/10 hover:!opacity-100 group-hover:opacity-70">
-              <FaFire className="h-5 w-5" />
-            </span>
-            <span className="cursor-pointer rounded-full border border-gray-900/5 bg-gray-900/5 p-3 text-gray-900 hover:text-[#e33226] transition-colors hover:border-gray-900/10 hover:bg-gray-900/10 hover:!opacity-100 group-hover:opacity-70">
-              <FaPlus />
-            </span>
-          </div>
-        </div>
 
-        {/* button code */}
-        {/* previous code */}
-        {/* <div className=" ">
-        {
-             property?.property_info?.property_for === 'rent' ?<>
-            
-            <button className=" bg-[#002172] py-3 px-6  hover:bg-[#e33226] text-white  w-full">Booked Now</button>
-             
-           
-            </>
-          :<button className=" bg-[#002172] py-3 px-6 hover:bg-[#e33226] text-white  w-full">Buy Now</button>
-          }
-        
-        </div> */}
-        
-        {/* code modified by Sadia */}
-        <div className="">
-
-          {property?.property_info?.property_for === "rent" ? (
+          {/* code modified by Sadia */}
+          <div className="">
             <>
               <button
-
                 className="bg-[#002172] py-3 px-6 hover:bg-[#e33226] text-white w-full"
                 onClick={handleBookOrBuy}
               >
                 Book Now
               </button>
             </>
-          ) : (
-            <button
-              className="bg-[#002172] py-3 px-6 hover:bg-[#e33226] text-white w-full"
-              onClick={handleBookOrBuy}
+            {/* Modal */}
+            <dialog
+              id="my_modal_5"
+              className="modal modal-bottom sm:modal-middle"
+              ref={modalRef}
             >
-              Buy Now
-            </button>
-          )}
-
-          {/* Modal */}
-          <dialog
-            id="my_modal_5"
-            className="modal modal-bottom sm:modal-middle"
-            ref={modalRef}
-          >
-            <div className="modal-box">
-              {/* <h3 className="font-bold text-lg">Hello!</h3>
-              <p className="py-4">
-                Press ESC key or click the button below to close
-              </p> */}
-              <BookBuy items={items}></BookBuy>
-              {/* <div className="modal-action">
-                <form method="dialog">
-              
-                  <button
-                    className=""
-                    onClick={() => modalRef.current.close()}
-                  >
-                  
-
-           <div className="flex justify-start items-start -ml-72">
-           {property?.property_info?.property_for === "rent" ? (
-            <>
-            <div className="flex justify-start items-start">
-            <button
-                className="bg-[#002172] py-3 px-6 hover:bg-[#e33226] text-white w-full"
-                onClick={handleBookOrBuy}
-              >
-                Book Now
-              </button>
-            </div>
-            </>
-          ) : (
-           <div className="flex justify-start items-start"> 
-            <button
-           className="bg-[#002172] py-3 px-6 hover:bg-[#e33226] text-white w-full"
-           onClick={handleBookOrBuy}
-         >
-           Buy Now
-         </button></div>
-      
-          )}
-           </div>
-           
-                  </button>
-                </form>
-              </div> */}
-            </div>
-          </dialog>
+              <div className="modal-box">
+                <BookBuy item={item}></BookBuy>
+              </div>
+            </dialog>
+          </div>
         </div>
       </div>
     </div>
