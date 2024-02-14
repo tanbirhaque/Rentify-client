@@ -48,6 +48,7 @@ const LosAngeles = () => {
       setCountData(count);
     };
   
+    // sort section
     const sortByPriceLowToHigh = () => {
       const sorted = [...cityProperties].sort(
         (a, b) =>
