@@ -113,7 +113,9 @@ const AllPropertiesMod = () => {
       <div className="md:flex  md:justify-between lg:justify-between  max-w-[1296px] mx-auto   ">
         {/* search field */}
         <div className=" md:w-2/3 w-full mt-16 md:ml-3 mx-auto">
-          <form onSubmit={handleSearch}>
+          <form 
+          onSubmit={handleSearch}
+          >
             <label
               htmlFor="default-search"
               className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
