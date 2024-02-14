@@ -120,12 +120,18 @@ const SanFransisco = () => {
             defaultIndex={tabIndex}
             onSelect={(index) => setTabIndex(index)}
           >
-            <TabList className="ml-[2px]">
+            <div className="md:flex justify-between items-center mx-3 md:mx-0">
+          <TabList className="ml-[2px]">
               <Tab onClick={handleAllProperties}>All Properties</Tab>
               <Tab onClick={handleResidentialProperties}>Residential</Tab>
               <Tab onClick={handleCommercialProperties}>Commercial</Tab>
               <Tab onClick={handleApartmentProperties}>Apartment</Tab>
             </TabList>
+
+            <p className="mr-[2px] font-bold md:text-lg text-gray-700 text-xs">
+          {countData} Results Found
+        </p>
+          </div>
             <TabPanel>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-3 xl:px-0">
                 
