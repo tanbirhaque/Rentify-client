@@ -34,6 +34,7 @@ const AllPropertiesMod = () => {
     setProperty(sorted);
   };
 
+  // search function
   const handleSearch = (e) => {
     e.preventDefault();
 
