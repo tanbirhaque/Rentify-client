@@ -189,7 +189,6 @@ const SideBar = () => {
           <div className="collapse ">
             <input type="checkbox" />
             <div className="text-[919EAB] hover:text-white collapse-title font-medium flex gap-1.5 items-center">
-              <FaRegClone />
               Drop-down 1
               <FaChevronDown />
             </div>
