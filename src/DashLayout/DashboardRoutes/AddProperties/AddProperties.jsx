@@ -5,9 +5,8 @@ import { AuthContext } from "../../../Provider/AuthProvider";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 import useProperties from "../../../Hooks/useProperties";
-import Select from 'react-select';
+import Select from "react-select";
 // import { colourOptions } from '../data';
-
 
 const AddProperties = () => {
   const [, refetch] = useProperties();
@@ -20,10 +19,10 @@ const AddProperties = () => {
   const [tagValue, setTagValue] = useState([]);
   const newTags = [];
   for (let i = 0; i < tagValue.length; i++) {
-    newTags.push(tagValue[i].value)
+    newTags.push(tagValue[i].value);
   }
   // console.log(newTags)
-  const [featureValue, setFeatureValue] = useState([])
+  const [featureValue, setFeatureValue] = useState([]);
   const newFeaturs = [];
   for (let i = 0; i < featureValue.length; i++) {
     newFeaturs.push(featureValue[i].value);
@@ -39,10 +38,13 @@ const AddProperties = () => {
     { value: "Pool", label: "Pool" },
     { value: "Fireplace", label: "Fireplace" },
     { value: "Garden", label: "Garden" },
-    { value: "Walking distance to village", label: "Walking distance to village" },
+    {
+      value: "Walking distance to village",
+      label: "Walking distance to village",
+    },
     { value: "olive grove", label: "Olive grove" },
     { value: "Swimming pool", label: "Swimming pool" },
-  ]
+  ];
 
   const tagsOptions = [
     { value: "Historic", label: "Historic" },
@@ -60,26 +62,26 @@ const AddProperties = () => {
     { value: "tech-savvy", label: "tech-savvy" },
     { value: "modern", label: "modern" },
     { value: "urban oasis", label: "urban oasis" },
-    { value: "high-tech living", label: "high-tech living" }
-  ]
+    { value: "high-tech living", label: "high-tech living" },
+  ];
 
   const handlevaluetags = (tagValue) => {
-    setTagValue(tagValue)
-  }
+    setTagValue(tagValue);
+  };
 
   const handleValueFeature = (featureValue) => {
-    setFeatureValue(featureValue)
-  }
+    setFeatureValue(featureValue);
+  };
 
-  const [images, setImages] = useState([])
-  const [isDraging, setisDreaging] = useState(false)
-  const fileInputRef = useRef(null)
-  console.log(typeof images)
+  const [images, setImages] = useState([]);
+  const [isDraging, setisDreaging] = useState(false);
+  const fileInputRef = useRef(null);
+  console.log(typeof images);
 
   const onFileSelect = (event) => {
     event.preventDefault();
     const files = event.target.files;
-    setImages(files[0])
+    setImages(files[0]);
     // console.log(files)
     // if (files.length === 0) return;
     // for (let i = 0; i < files.length; i++) {
@@ -94,26 +96,26 @@ const AddProperties = () => {
     //     ])
     //   }
     // }
-  }
+  };
 
   function selectFiles() {
     fileInputRef.current.click();
   }
   const onDragOver = (event) => {
     event.preventDefault();
-    setisDreaging(true)
-    event.dataTransfer.dropEffect = "copy"
-  }
+    setisDreaging(true);
+    event.dataTransfer.dropEffect = "copy";
+  };
   const onDragLeave = (event) => {
     event.preventDefault();
-    setisDreaging(false)
-  }
+    setisDreaging(false);
+  };
 
   const onDrop = async (event) => {
     event.preventDefault();
-    setisDreaging(false)
+    setisDreaging(false);
     const files = event.dataTransfer.files;
-    setImages(files[0])
+    setImages(files[0]);
     // TODO: This comment by sojib for doing multiple drag and drop  image hosting please dont uncomment it
     // for (let i = 0; i < files.length; i++) {
     //   if (files[i].type.split('/')[0] !== 'image') continue;
@@ -127,7 +129,7 @@ const AddProperties = () => {
     //     ])
     //   }
     // }
-  }
+  };
 
   const handleAddProperty = async (e) => {
     e.preventDefault();
@@ -160,10 +162,10 @@ const AddProperties = () => {
     });
     const img = res.data.data.url;
     if (res.data) {
-      console.log(res.data.data)
-      setImages(img)
+      console.log(res.data.data);
+      setImages(img);
     }
-    console.log(res.data, img)
+    console.log(res.data, img);
     const newProperty = {
       property_info: {
         owner_details: {
@@ -173,7 +175,7 @@ const AddProperties = () => {
         },
         ownership_duration: ownership,
         property_for: status,
-        verify_status: false,  // This object property is added for managing the verification feature from the owner dashboard as [verified or 'Non Verified'] >>> Changed 'property_status' to 'verify_status' status. -by Tanbir
+        verify_status: false, // This object property is added for managing the verification feature from the owner dashboard as [verified or 'Non Verified'] >>> Changed 'property_status' to 'verify_status' status. -by Tanbir
         property_img: img,
         property_title: title,
         property_category: property,
@@ -192,26 +194,25 @@ const AddProperties = () => {
           floor_plans: floor,
           property_video: video,
           property_features: feature,
-          property_tags: tags
+          property_tags: tags,
         },
         property_location: {
           address: {
             street: area,
             city: city,
             state: state,
-            country: country
-          }
-        }
-      }
+            country: country,
+          },
+        },
+      },
     };
-    axiosPublic.post("/properties", newProperty)
-      .then(res => {
-        // console.log(res.data)
-        if (res.data) {
-          Swal.fire(`Hey ${user.displayName}, Your property aded successfully`)
-          refetch();
-        }
-      })
+    axiosPublic.post("/properties", newProperty).then((res) => {
+      // console.log(res.data)
+      if (res.data) {
+        Swal.fire(`Hey ${user.displayName}, Your property added successfully`);
+        refetch();
+      }
+    });
     console.log(newProperty);
   };
 
@@ -481,7 +482,9 @@ const AddProperties = () => {
                       options={tagsOptions}
                       classNames={{
                         control: (state) =>
-                          state.isFocused ? 'border-red-600' : 'border-grey-300',
+                          state.isFocused
+                            ? "border-red-600"
+                            : "border-grey-300",
                       }}
                       className="basic-multi-select w-full"
                     />
@@ -600,13 +603,22 @@ const AddProperties = () => {
                   </label>
                   {/* this feild updated to drag and drop option by sojib */}
                   <div className=" border-2 rounded-md p-3">
-                    <label className="drag-area" onDragOver={onDragOver} onDragLeave={onDragLeave} onDrop={onDrop}>
-                      {isDraging ? (<span>Drop imag here</span>) : (<>
-                        Drag & Drop image here or {""}
-                        <span role="button" onClick={selectFiles}>
-                          Browser
-                        </span>
-                      </>)}
+                    <label
+                      className="drag-area"
+                      onDragOver={onDragOver}
+                      onDragLeave={onDragLeave}
+                      onDrop={onDrop}
+                    >
+                      {isDraging ? (
+                        <span>Drop imag here</span>
+                      ) : (
+                        <>
+                          Drag & Drop image here or {""}
+                          <span role="button" onClick={selectFiles}>
+                            Browser
+                          </span>
+                        </>
+                      )}
                       <input
                         type="file"
                         placeholder="Drag and drop your image or url"
@@ -617,12 +629,17 @@ const AddProperties = () => {
                         onChange={onFileSelect}
                       />
                     </label>
-                    {
-                      images ?
-                        <div>
-                          <img className=" w-[100px] h-[100px]" src={images} alt="Drop img" />
-                        </div> : ""
-                    }
+                    {images ? (
+                      <div>
+                        <img
+                          className=" w-[100px] h-[100px]"
+                          src={images}
+                          alt="Drop img"
+                        />
+                      </div>
+                    ) : (
+                      ""
+                    )}
                   </div>
                 </div>
                 <div className=" w-1/2">

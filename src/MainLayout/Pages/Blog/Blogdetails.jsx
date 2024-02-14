@@ -23,7 +23,7 @@ const Blogdetails = () => {
   const { user } = useAuth();
   const axiosPublic = useAxiosPublic();
   const blogs = useLoaderData();
-  const [comments] = useBlogsComment();
+  const [comments, refetch] = useBlogsComment();
   const { id } = useParams();
   const blog = blogs.find((item) => item._id == id);
   const newComments = comments.filter((item) => item.blogId == blog._id);
@@ -286,12 +286,12 @@ const Blogdetails = () => {
             {/* Form section */}
             <div>
               <h2 className=" text-3xl font-bold my-3">Leave A Comment</h2>
-              <p className=" text-xl text-gray-400">
+              {/* <p className=" text-xl text-gray-400">
                 Your email address will not be published. Required fields are
                 marked.
-              </p>
+              </p> */}
               {/* comment form */}
-              <CommentForm blog={blog} />
+              <CommentForm blog={blog} refetch={refetch} />
             </div>
           </div>
         </div>

@@ -139,23 +139,23 @@ const ReviewForm = ({ property }) => {
           </div>
           {/* div for rating and image upload */}
           {/* register your input into the hook by invoking the "register" function */}
-          <input
+          {/* <input
             {...register("name")}
             placeholder="Name*"
             defaultValue={displayName}
             className=" w-full py-5 rounded-md px-2 my-4"
             required
             readOnly
-          />
+          /> */}
           {/* include validation with required or other standard HTML validation rules */}
-          <input
+          {/* <input
             {...register("email")}
             placeholder="Email Address*"
             defaultValue={email}
             className="py-5 rounded-md px-2 w-full"
             required
             readOnly
-          />
+          /> */}
           {/* errors will return when field validation fails  */}
           {/* <input
             {...register("subject", { required: true })}

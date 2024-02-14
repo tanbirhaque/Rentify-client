@@ -5,17 +5,17 @@ import useAuth from "../../../Hooks/useAuth";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 
-const CommentForm = ({blog}) => {
+const CommentForm = ({ blog, refetch }) => {
   const { register, handleSubmit, reset } = useForm();
-  const {user}=useAuth()
-  const axiosPublic=useAxiosPublic()
+  const { user } = useAuth();
+  const axiosPublic = useAxiosPublic();
   //condition of user needed to comment
 
   const onSubmit = (data) => {
     if (user) {
       const newComment = {
-        name: data.name,
-        email: data.email,
+        name: user?.displayName,
+        email: user?.email,
         img: user?.photoURL,
         subject: data.subject,
         message: data.message,
@@ -26,8 +26,9 @@ const CommentForm = ({blog}) => {
       axiosPublic.post("/comments", newComment).then((res) => {
         console.log(res.data);
         if (res.data) {
-          Swal.fire(`Hey ${user?.displayName} your comment Successfully send`);
+          Swal.fire(`Hey ${user?.displayName}! Your comment is successfully send`);
           reset();
+          refetch();
         }
       });
     } else {
@@ -46,27 +47,27 @@ const CommentForm = ({blog}) => {
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
         {/* register your input into the hook by invoking the "register" function */}
-        <input
+        {/* <input
           {...register("name")}
           placeholder="Name*"
           defaultValue={user?.displayName}
           // readOnly
           className=" w-full py-5 bg-[#F9F9F9] rounded-md px-2 my-5"
-        />
+        /> */}
         {/* include validation with required or other standard HTML validation rules */}
-        <input
+        {/* <input
           {...register("email")}
           placeholder="Email Address*"
           defaultValue={user?.email}
           readOnly
           className="py-5 bg-[#F9F9F9] rounded-md px-2 w-full"
-        />
+        /> */}
         {/* errors will return when field validation fails  */}
-        <input
+        {/* <input
           {...register("subject", { required: true })}
           placeholder="Subject*"
           className="py-5 bg-[#F9F9F9] rounded-md px-2 w-full my-4"
-        />
+        /> */}
         <textarea
           {...register("message", { required: true })}
           className="textarea bg-[#F9F9F9] h-40 w-full mt-3 mb-4"
