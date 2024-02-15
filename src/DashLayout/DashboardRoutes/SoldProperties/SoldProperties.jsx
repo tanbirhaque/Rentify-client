@@ -23,7 +23,7 @@ const SoldProperties = () => {
     const Apartment = soldOutProperties.filter(
         (item) => item.property_category == "Apartment"
     );
-    console.log(Residential);
+    // console.log(Residential);
 
     const totalTransactions = soldOutProperties.reduce(
         (total, property) => total + Number(property.price),
