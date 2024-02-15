@@ -101,12 +101,9 @@ const NewYork = () => {
             </div> */}
       {/* tab card section */}
       <div className="max-w-[1296px] mx-auto  mb-[100px]">
-        <div className="flex justify-between ">
-          <p className="pt-16 font-bold text-lg text-gray-700">
-            {countData} Results Found
-          </p>
+     
 
-          <div className=" py-10   ">
+          <div className=" py-10   flex justify-end">
             <details className="dropdown mb-10 ">
               <summary className="m-1 btn bg-[#002172] text-white hover:bg-[#e33226]">
                 Sort By Price{" "}
@@ -126,7 +123,7 @@ const NewYork = () => {
               </ul>
             </details>
           </div>
-        </div>
+   
 
         <div className="">
           <Tabs
