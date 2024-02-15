@@ -19,8 +19,10 @@ import { HiCubeTransparent } from "react-icons/hi2";
 import { CiShoppingTag } from "react-icons/ci";
 import { VscRequestChanges } from "react-icons/vsc";
 import useGetRole from "../../../Hooks/useGetRole";
+import { useState } from "react";
 
 const SideBar = () => {
+  const [isDropDownOpen, setIsDropDownOpen] = useState(false)
   //roles
   const [userRole] = useGetRole();
   const { role } = userRole || {};
@@ -139,6 +141,11 @@ const SideBar = () => {
     </>
   );
 
+  const handleDropDownClick = () => {
+    setIsDropDownOpen(!isDropDownOpen);
+    console.log(isDropDownOpen);
+  }
+
   return (
     <div>
       <div className="w-64 xl:min-w-[300px] min-h-screen">
@@ -187,13 +194,19 @@ const SideBar = () => {
           {/* <ul>{ownerRoutes}</ul> */}
           {/* drop-down -1*/}
           <div className="collapse ">
-            <input type="checkbox" />
-            <div className="text-[919EAB] hover:text-white collapse-title font-medium flex gap-1.5 items-center">
+            <input
+              type="checkbox"
+              onClick={handleDropDownClick}
+            />
+            <div
+              className="collapse-title dashLi dashdrop xl:text-[20px] flex justify-between gap-1.5 items-center"
+            >
               Drop-down 1
-              <FaChevronDown />
+              {isDropDownOpen ? <></> : <FaChevronDown />}
+
             </div>
             <div className="collapse-content">
-              <li className="dashLi dashdrop xl:text-[20px]">
+              <li className="dashLi dashdrop xl:text-[20px] list-none mb-2">
                 <NavLink
                   to="/dashboard/userProfile"
                   className="dashNav flex items-center gap-2"
@@ -202,7 +215,7 @@ const SideBar = () => {
                   Profile
                 </NavLink>
               </li>
-              <li className="dashLi xl:text-[20px]">
+              <li className="dashLi xl:text-[20px] list-none">
                 <NavLink
                   to="/dashboard/my-requests"
                   className="dashNav flex items-center gap-2"

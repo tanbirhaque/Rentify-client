@@ -199,7 +199,7 @@ const Navbar = () => {
         className={` bg-base-100  sticky top-0 left-0 z-[99999] ${isNavbarJumping ? "animate-jump shadow-md" : ""
           }`}
       >
-        <div className="navbar max-w-screen-2xl mx-auto bg-base-100 px-8 xl:px-0 py-2">
+        <div className="navbar max-w-screen-2xl mx-auto bg-base-100 pl-6 md:px-5 lg:px-8 xl:px-0 py-2">
           <div className="navbar-start">
             {/* Navbar ham-berger icon to open and close the responsive drop-down navbar */}
             <div className="pr-5 lg:hidden" onClick={handleNavbarDropDown}>
@@ -290,23 +290,23 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-      </div >
-      {/* Responsive navbar for small devices */}
-      <div className={`bg-[#f9f9f9] max-h-[410px] overflow-y-scroll ${isNavBarOpen ? 'lg:hidden' : "hidden"}`}>
-        <div className="p-4">
-          <ul className="flex flex-col bg-white border-l-[2px] border-red-500 resNavCSS py-2 rounded-md">
-            {navLinks}
-          </ul>
-          <details className="dropdown w-full mt-3">
-            <summary className="w-full text-right marker:bg-none relative py-2 bg-white border-l-[2px] border-red-500 rounded-t-md ">
-              <span className="mt-5 absolute left-3 bottom-2">Others</span>
-            </summary>
-            <ul className="flex flex-col bg-white border-l-[2px] border-red-500 resNavCSS resNavDrop py-2 pl-3 rounded-md rounded-t-none">
-              {otherDropDownLinks}
+        {/* Responsive navbar for small devices */}
+        <div className={`bg-[#f9f9f9] max-h-[410px] overflow-y-scroll ${isNavBarOpen ? 'lg:hidden' : "hidden"}`}>
+          <div className="p-4">
+            <ul className="flex flex-col bg-white border-l-[2px] border-red-500 resNavCSS py-2 rounded-md">
+              {navLinks}
             </ul>
-          </details>
+            <details className="dropdown w-full mt-3">
+              <summary className="w-full text-right marker:bg-none relative py-2 bg-white border-l-[2px] border-red-500 rounded-t-md ">
+                <span className="mt-5 absolute left-3 bottom-2">Others</span>
+              </summary>
+              <ul className="flex flex-col bg-white border-l-[2px] border-red-500 resNavCSS resNavDrop py-2 pl-3 rounded-md rounded-t-none">
+                {otherDropDownLinks}
+              </ul>
+            </details>
+          </div>
         </div>
-      </div>
+      </div >
     </>
   );
 };
