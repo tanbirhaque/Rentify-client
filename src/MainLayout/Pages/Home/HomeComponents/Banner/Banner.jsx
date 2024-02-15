@@ -34,7 +34,7 @@ const Banner = () => {
                             <img className="w-10 " src={img3} alt="" />
                             <div className="floatingImgArrow">
                                 <img
-                                    className="md:ml-60 lg:ml-[650px]"
+                                    className="md:ml-60 xl:ml-[650px] lg:ml-96"
                                     src="https://i.ibb.co/TYpJMmw/413824751-1821545304957822-2518450752563921897-n.png"
                                     alt=""
                                 />
