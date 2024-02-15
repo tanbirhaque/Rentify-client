@@ -9,6 +9,7 @@ import ButtonBlue from "../../../../Shared/buttons/Blue/ButtonBlue";
 import PropertyCard from "../../../../Shared/PropertyCards/PropertyCard";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import './all.css'
+import { Helmet } from "react-helmet";
 
 const AllPropertiesMod = () => {
   const [properties] = useProperties();
@@ -84,6 +85,11 @@ const AllPropertiesMod = () => {
   };
 
   return (
+    <>
+    <Helmet>
+        <title>Rentify | All Properties</title>
+        
+    </Helmet>
     <div>
       {/* banner section */}
       <div className="allimg">
@@ -332,6 +338,7 @@ const AllPropertiesMod = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

@@ -7,6 +7,7 @@ import { MdOutlineEmail } from "react-icons/md";
 import { LuPhoneCall } from "react-icons/lu";
 import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { useForm } from "react-hook-form"
+import { Helmet } from "react-helmet";
 
 
 const Contact = () => {
@@ -20,6 +21,11 @@ const Contact = () => {
     const onSubmit = (data) => console.log(data)
 
     return (
+       <>
+         <Helmet>
+        <title>Rentify | Contact</title>
+        
+    </Helmet>
         <div>
             {/* banner background part */}
             <div className="contactbgimg">
@@ -105,6 +111,7 @@ const Contact = () => {
                 </div>
             </div>
         </div>
+       </>
     );
 };
 
