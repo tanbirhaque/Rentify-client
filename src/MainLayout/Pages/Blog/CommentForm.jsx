@@ -5,7 +5,6 @@ import useAuth from "../../../Hooks/useAuth";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 
-
 const CommentForm = ({ blog, refetch }) => {
   const { register, handleSubmit, reset } = useForm();
   const { user } = useAuth();
@@ -22,13 +21,16 @@ const CommentForm = ({ blog, refetch }) => {
         subject: data.subject,
         message: data.message,
         blogId: blog._id,
+        blogName: blog.title,
         date: new Date().toLocaleDateString("en-GB"),
       };
       console.log(newComment);
       axiosPublic.post("/comments", newComment).then((res) => {
         console.log(res.data);
         if (res.data) {
-          Swal.fire(`Hey ${user?.displayName}! Your comment is successfully send`);
+          Swal.fire(
+            `Hey ${user?.displayName}! Your comment is successfully send`
+          );
           reset();
           refetch();
         }
