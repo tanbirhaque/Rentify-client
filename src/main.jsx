@@ -84,7 +84,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/all",
-        element: <AllPropertiesMod></AllPropertiesMod>
+        element: <AllPropertiesMod></AllPropertiesMod>,
       },
       {
         path: "/blogs",
@@ -159,11 +159,16 @@ const router = createBrowserRouter([
       },
       {
         path: "/owners",
-        element: <OwnerList />
+        element: <OwnerList />,
       },
+      // {
+      //   path: "/owner-details",
+      //   element: <OwnerDetail />,
+      // },
       {
-        path: "/owner-details",
-        element: <OwnerDetail />
+        path: "/owner-details/:id",
+        element: <OwnerDetail />,
+        loader: () => fetch("http://localhost:5000/ownerRequest"),
       },
     ],
   },
