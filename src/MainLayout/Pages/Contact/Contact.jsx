@@ -31,7 +31,7 @@ const Contact = () => {
             <div className="contactbgimg">
                 <div className=" bg-[#000000B2]">
                     <div className=" max-w-screen-2xl mx-auto py-24">
-                        <h2 className="text-6xl font-bold text-white font-serif">Bog Grid</h2>
+                        <h2 className="md:text-6xl text-2xl font-bold text-white font-serif">Contact With Us</h2>
                         <div className="mt-2">
                             <NavLink to='/' className='navAfter relative font-medium text-base text-white mx-3'>Home</NavLink>
                             <NavLink to='/contact' className='navAfter relative font-medium text-base text-white mx-3 '>Privacy Policy</NavLink>

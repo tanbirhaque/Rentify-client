@@ -14,6 +14,7 @@ import OwnerInfo from "./OwnerInfo.jsx";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic.jsx";
 import useSavedProperties from "../../../Hooks/useSavedProperties.jsx";
 import Reviews from "./Reviews.jsx";
+import { Helmet } from "react-helmet";
 
 
 
@@ -103,6 +104,11 @@ const Details = () => {
   // const
 
   return (
+   <>
+    <Helmet>
+        <title>Rentify | Property Details</title>
+        
+    </Helmet>
     <div>
       <div className="gridbgimg">
         <div className=" bg-[#000000B2]">
@@ -377,6 +383,7 @@ const Details = () => {
         </div>
       </div>
     </div>
+   </>
   );
 };
 

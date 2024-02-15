@@ -6,6 +6,7 @@ import { useState } from "react";
 import PropertyCard from "../../../../../Shared/PropertyCards/PropertyCard";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import { MdKeyboardArrowDown } from "react-icons/md";
+import { Helmet } from "react-helmet";
 
 const Florida = () => {
   const [properties] = useProperties();
@@ -67,6 +68,11 @@ const Florida = () => {
   };
 
   return (
+    <>
+    <Helmet>
+        <title>Rentify | Florida</title>
+      
+    </Helmet>
     <div>
       {/* banner section */}
       <div className="img3">
@@ -227,6 +233,7 @@ const Florida = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

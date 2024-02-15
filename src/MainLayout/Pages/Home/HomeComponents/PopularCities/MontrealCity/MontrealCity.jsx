@@ -6,6 +6,7 @@ import { useState } from "react";
 import PropertyCard from "../../../../../Shared/PropertyCards/PropertyCard";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import { MdKeyboardArrowDown } from "react-icons/md";
+import { Helmet } from "react-helmet";
 
 
 const MontrealCity = () => {
@@ -66,6 +67,11 @@ const MontrealCity = () => {
     };
 
     return (
+      <>
+       <Helmet>
+        <title>Rentify | Montereal</title>
+      
+    </Helmet>
         <div>
         {/* banner section */}
         <div className="img7">
@@ -210,6 +216,7 @@ const MontrealCity = () => {
         </div>
       </div>
         </div>
+      </>
     );
 };
 
