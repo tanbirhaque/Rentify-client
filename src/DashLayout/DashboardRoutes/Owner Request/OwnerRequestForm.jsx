@@ -5,7 +5,7 @@ import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import useAuth from "../../../Hooks/useAuth";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import ButtonBlue from "../../../MainLayout/Shared/buttons/Blue/ButtonBlue";
-import { FaArrowRight, FaPhotoVideo, FaArrowLeft } from "react-icons/fa";
+import { FaPhotoVideo } from "react-icons/fa";
 import { useRef, useState } from "react";
 
 const OwnerRequestForm = () => {
@@ -110,14 +110,16 @@ const OwnerRequestForm = () => {
       lastName: data.lastName,
       number: data.number,
       ownerEmail: data.email,
-      dateOfBirth: data.dateOfBirth,
+      ownerImg: ownerImg,
+      profession: data.profession,
       facebook: data.facebook,
       twitter: data.twitter,
       linkedin: data.linkedin,
       description: data.description,
       address: data.address,
       zipCode: data.zipCode,
-      ownerImg: ownerImg,
+
+      ownerStatus: false,
     };
     // console.log("ownerform data", ownerData)
     // TO DO : now this time i direct passed data if after we need add to owner then we will change it
@@ -280,6 +282,7 @@ const OwnerRequestForm = () => {
                                 <input
                                   {...register("firstName")}
                                   type="text"
+                                  required
                                   placeholder="Add your first name"
                                   className="input form-border input-bordered w-full"
                                 />
@@ -296,6 +299,7 @@ const OwnerRequestForm = () => {
                                 <input
                                   {...register("lastName")}
                                   type="text"
+                                  required
                                   placeholder="Add your last name"
                                   className="input form-border input-bordered w-full"
                                 />
@@ -332,22 +336,24 @@ const OwnerRequestForm = () => {
                                 <input
                                   {...register("number")}
                                   type="text"
+                                  required
                                   placeholder="Add your phone number"
                                   className="input form-border input-bordered w-full"
                                 />
                               </label>
                             </div>
-                            {/* date of birth field*/}
+                            {/* profession field*/}
                             <div className="form-control">
                               <label className="label ">
                                 <span className="label-text text-lg font-semibold">
-                                  Date of birth
+                                  Profession
                                 </span>
                               </label>
                               <label className="input-group ">
                                 <input
-                                  {...register("dateOfBirth")}
-                                  type="date"
+                                  {...register("profession")}
+                                  type="text"
+                                  required
                                   className="input form-border input-bordered w-full"
                                 />
                               </label>
