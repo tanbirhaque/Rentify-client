@@ -19,12 +19,15 @@ import { HiCubeTransparent } from "react-icons/hi2";
 import { CiShoppingTag } from "react-icons/ci";
 import { VscRequestChanges } from "react-icons/vsc";
 import useGetRole from "../../../Hooks/useGetRole";
+import { useState } from "react";
 
 const SideBar = () => {
+  const [isDropDownOpen, setIsDropDownOpen] = useState(false)
+  const [isDropDownOpen2, setIsDropDownOpen2] = useState(false)
   //roles
   const [userRole] = useGetRole();
   const { role } = userRole || {};
-  console.log(role);
+  // console.log(role);
   //roles
 
   const sideLinks = (
@@ -65,7 +68,7 @@ const SideBar = () => {
           Write Blogs
         </NavLink>
       </li>
-      {role === "User" && (
+      {role === "user" && (
         <li className="dashLi xl:text-[20px]">
           <NavLink
             to="/dashboard/ownerRequest"
@@ -89,7 +92,7 @@ const SideBar = () => {
           Add Properties
         </NavLink>
       </li>
-      <li className="dashLi xl:text-[20px] pt-2">
+      {/* <li className="dashLi xl:text-[20px] pt-2">
         <NavLink
           to="/dashboard/manage"
           className="dashNav flex items-center gap-2"
@@ -97,8 +100,8 @@ const SideBar = () => {
           <MdManageHistory className="dashIcon text-[#64707d]"></MdManageHistory>
           Manage Properties
         </NavLink>
-      </li>
-      <li className="dashLi xl:text-[20px] pt-2">
+      </li> */}
+      {/* <li className="dashLi xl:text-[20px] pt-2">
         <NavLink
           to="/dashboard/rentReq"
           className="dashNav flex items-center gap-2"
@@ -117,8 +120,8 @@ const SideBar = () => {
           <CiShoppingTag className="dashIcon text-[#64707d]"></CiShoppingTag>
           Buy Request
         </NavLink>
-      </li>
-      <li className="dashLi xl:text-[20px] pt-2">
+      </li> */}
+      {/* <li className="dashLi xl:text-[20px] pt-2">
         <NavLink
           to="/dashboard/soldProperties"
           className="dashNav flex items-center gap-2"
@@ -135,10 +138,19 @@ const SideBar = () => {
           <IoBookmarksSharp className="dashIcon text-[#64707d]"></IoBookmarksSharp>
           Rent Out Properties
         </NavLink>
-      </li>
+      </li> */}
     </>
   );
 
+  const handleDropDownClick = () => {
+    setIsDropDownOpen(!isDropDownOpen);
+    // console.log(isDropDownOpen);
+  }
+  const handleDropDownClick2 = () => {
+    setIsDropDownOpen2(!isDropDownOpen2);
+    // console.log(isDropDownOpen2);
+  }
+  
   return (
     <div>
       <div className="w-64 xl:min-w-[300px] min-h-screen">
@@ -170,11 +182,11 @@ const SideBar = () => {
           </span>
           <hr className="mb-3" />
           {/* user routes */}
-          {role === "User" && (
+          {role === "user" && (
             <ul className="flex flex-col gap-2">{sideLinks}</ul>
           )}
           {/* owner routes */}
-          {role === "Owner" && (
+          {role === "owner" && (
             <>
               <ul className="flex flex-col gap-2">{sideLinks}</ul>
               <h3 className="poppins-font font-semibold text-xl xl:text-2xl mt-5 text-gray-400">
@@ -182,38 +194,95 @@ const SideBar = () => {
               </h3>
               <hr className="mb-3" />
               <ul>{ownerRoutes}</ul>
+              {/* Requests routes dropdown starts here */}
+              <div className={`collapse mt-2 ${isDropDownOpen ? "" : "h-[35px]" }`}>
+                <input
+                  className="max-h-[30px] min-h-[30px]"
+                  type="checkbox"
+                  onClick={handleDropDownClick}
+                />
+                <div
+                  className="collapse-title max-h-[30px] min-h-[30px] dashLi dashdrop xl:text-[20px] text-[#919eab] font-semibold flex justify-between gap-1.5 items-center p-0"
+                >
+                  Property Requests
+                  {isDropDownOpen ? <FaChevronDown className="-rotate-90 text-[16px]" /> : <FaChevronDown className="text-[16px]" />}
+
+                </div>
+                <div className="collapse-content bg-[#1d2739] pt-5">
+                  <ul>
+                    <li className="dashLi xl:text-[20px] pt-2">
+                      <NavLink
+                        to="/dashboard/rentReq"
+                        className="dashNav flex items-center gap-2"
+                      >
+                        <HiCubeTransparent className="dashIcon text-[#64707d]">
+                          {" "}
+                        </HiCubeTransparent>
+                        Rent Request
+                      </NavLink>
+                    </li>
+                    <li className="dashLi xl:text-[20px] pt-2">
+                      <NavLink
+                        to="/dashboard/buyReq"
+                        className="dashNav flex items-center gap-2"
+                      >
+                        <CiShoppingTag className="dashIcon text-[#64707d]"></CiShoppingTag>
+                        Buy Request
+                      </NavLink>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              {/* Requests routes dropdown ends here */}
+              {/* Property Management routes dropdown starts here */}
+              <div className={`collapse ${isDropDownOpen2 ? "" : "h-[35px]" }`}>
+                <input
+                  className="max-h-[30px] min-h-[30px]"
+                  type="checkbox"
+                  onClick={handleDropDownClick2}
+                />
+                <div
+                  className="collapse-title max-h-[30px] min-h-[30px] dashLi dashdrop xl:text-[20px] text-[#919eab] font-semibold flex justify-between gap-1.5 items-center p-0"
+                >
+                  Property Management
+                  {isDropDownOpen2 ? <FaChevronDown className="-rotate-90 text-[16px]" /> : <FaChevronDown className="text-[16px]" />}
+
+                </div>
+                <div className="collapse-content bg-[#1d2739] pt-5">
+                  <ul>
+                    <li className="dashLi xl:text-[20px] pt-2">
+                      <NavLink
+                        to="/dashboard/manage"
+                        className="dashNav flex items-center gap-2"
+                      >
+                        <MdManageHistory className="dashIcon text-[#64707d]"></MdManageHistory>
+                        Manage Properties
+                      </NavLink>
+                    </li>
+                    <li className="dashLi xl:text-[20px] pt-2">
+                      <NavLink
+                        to="/dashboard/soldProperties"
+                        className="dashNav flex items-center gap-2"
+                      >
+                        <MdOutlineRemoveShoppingCart className="dashIcon text-[#64707d]"></MdOutlineRemoveShoppingCart>
+                        Sold Out Properties
+                      </NavLink>
+                    </li>
+                    <li className="dashLi xl:text-[20px] pt-2">
+                      <NavLink
+                        to="/dashboard/rentOutProperties"
+                        className="dashNav flex items-center gap-2"
+                      >
+                        <IoBookmarksSharp className="dashIcon text-[#64707d]"></IoBookmarksSharp>
+                        Rent Out Properties
+                      </NavLink>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              {/* Property Management routes dropdown ends here */}
             </>
           )}
-          {/* <ul>{ownerRoutes}</ul> */}
-          {/* drop-down -1*/}
-          <div className="collapse ">
-            <input type="checkbox" />
-            <div className="text-[919EAB] hover:text-white collapse-title font-medium flex gap-1.5 items-center">
-              <FaRegClone />
-              Drop-down 1
-              <FaChevronDown />
-            </div>
-            <div className="collapse-content">
-              <li className="dashLi dashdrop xl:text-[20px]">
-                <NavLink
-                  to="/dashboard/userProfile"
-                  className="dashNav flex items-center gap-2"
-                >
-                  <FaUserCircle className="dashIcon text-[#64707d]"></FaUserCircle>
-                  Profile
-                </NavLink>
-              </li>
-              <li className="dashLi xl:text-[20px]">
-                <NavLink
-                  to="/dashboard/my-requests"
-                  className="dashNav flex items-center gap-2"
-                >
-                  <MdOutlinePendingActions className="dashIcon text-[#64707d]"></MdOutlinePendingActions>
-                  Requested Properties
-                </NavLink>
-              </li>
-            </div>
-          </div>
         </div>
       </div>
     </div>

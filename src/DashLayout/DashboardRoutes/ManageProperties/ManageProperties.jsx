@@ -11,10 +11,10 @@ const ManageProperties = () => {
   const { user } = useAuth();
 
   const Pending = properties?.filter(
-    (item) => item?.property_info.verify_status === false && user?.email ==item?.property_info?.owner_details?.owner_email
+    (item) => item?.property_info.verify_status === "pending" && user?.email ==item?.property_info?.owner_details?.owner_email
   );
   const Verified = properties?.filter(
-    (item) => item.property_info.verify_status === true && user?.email ==item?.property_info?.owner_details?.owner_email
+    (item) => item.property_info.verify_status === "verified" && user?.email ==item?.property_info?.owner_details?.owner_email
   );
 
   return (

@@ -6,28 +6,27 @@ import VideoModal from "../Home/HomeComponents/Virtual Apartments/VideoModal";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import Swal from "sweetalert2";
-import { FaBookmark, FaRegBookmark, } from "react-icons/fa";
+import { FaBookmark, FaRegBookmark } from "react-icons/fa";
 import BookingForm from "./BookingForm.jsx";
 import useAuth from "../../../Hooks/useAuth.jsx";
 import ReviewForm from "./ReviewForm.jsx";
 import OwnerInfo from "./OwnerInfo.jsx";
-import useAxiosPublic from "../../../Hooks/useAxiosPublic.jsx";
 import useSavedProperties from "../../../Hooks/useSavedProperties.jsx";
 import Reviews from "./Reviews.jsx";
-
-
+import useAxiosSecure from "../../../Hooks/useAxiosSecure.jsx";
 
 const Details = () => {
-  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
   const properties = useLoaderData();
   const { id } = useParams();
   const item = properties.find((item) => item._id == id);
   const [saved, refetch] = useSavedProperties();
-  console.log(saved)
+  // console.log(saved);
+
   // saved properties find for bookmark design and So that the user cannot add a property more than once this function added by sojib
-  const findSaved = saved.find(save => save.property._id == item._id)
-  console.log(findSaved)
+  const findSaved = saved.find((save) => save.property._id == item._id);
+  // console.log(findSaved);
 
   //destructure
   const { property_info } = item || {};
@@ -69,12 +68,11 @@ const Details = () => {
           icon: "error",
           title: "Oops...",
           text: "Your already have this property Saved done!",
-          footer: `<a href='/login' className='font-bold underline'>Please saved onther property</a>`,
+          footer: `<a href='/all' className='font-bold underline'>Please saved another property</a>`,
           showConfirmButton: false,
-        })
-      }
-      else {
-        axiosPublic.post("/saved-properties", savedProperties).then((res) => {
+        });
+      } else {
+        axiosSecure.post("/saved-properties", savedProperties).then((res) => {
           console.log(res.data);
           Swal.fire({
             title: `Added to saved properties.`,
@@ -100,7 +98,25 @@ const Details = () => {
       });
     }
   };
-  // const
+  // remove property from saved properties feature added by Fahima
+  const handleRemoveProperty = (id) => {
+    console.log(id);
+    axiosSecure.delete(`/saved-properties/${id}`).then((res) => {
+      if (res.data.deletedCount > 0) {
+        refetch();
+        Swal.fire({
+          title: `Removed from saved properties.`,
+          timer: 2000,
+          color: "#002172",
+          showConfirmButton: false,
+          icon: "success",
+        });
+      }
+    });
+
+
+    
+  };
 
   return (
     <div>
@@ -149,15 +165,25 @@ const Details = () => {
                   {property_location?.address?.state},{" "}
                   {property_location?.address?.country}
                 </p>
-                {/* wishlist icon */}
-                <button onClick={handleSaveProperty}>
-                  {/* this conditon added sojib */}
-                  {findSaved ?
-                    <FaBookmark className="text-xl text-[#ec3323]" />
-                    :
-                    <FaRegBookmark className="text-xl" />
-                  }
-                </button>
+                {/* wishlist icon functionality added by Fahima */}
+                {/* <button onClick={handleSaveProperty}> */}
+                {/* this condition added by Sojib */}
+                {findSaved ? (
+                  <button>
+                    <FaBookmark
+                      onClick={() => handleRemoveProperty(findSaved._id)}
+                      className="text-xl text-[#ec3323]"
+                    />
+                  </button>
+                ) : (
+                  <>
+                    {/* this condition is used for removing the property from saved properties */}
+                    <button onClick={handleSaveProperty}>
+                      <FaRegBookmark className="text-xl" />
+                    </button>
+                  </>
+                )}
+                {/* </button> */}
               </div>
             </div>
             <div>
@@ -306,14 +332,14 @@ const Details = () => {
               </div>
             </div>
             {/* Property Review section */}
-            <Reviews property_title={property_title}/>
+            <Reviews property_title={property_title} />
             {/* Review submission form starts */}
             <div>
               <h3 className="poppins-font text-[24px] font-semibold my-6">
                 Add your review
               </h3>
               {/* review form designed by Sojib modified by Fahima */}
-              <ReviewForm property={item}/>
+              <ReviewForm property={item} />
             </div>
             {/* similar property section starts */}
             {/* <div>
@@ -340,7 +366,7 @@ const Details = () => {
             <div
               className="md:w-[416px] max-w-[416px] h-fit p-5"
               style={{
-                boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.09)'
+                boxShadow: "0px 0px 10px 0px rgba(0,0,0,0.09)",
               }}
             >
               <BookingForm item={item} />
@@ -349,7 +375,7 @@ const Details = () => {
             <div
               className="h-auto p-5 md:w-[416px] max-w-[416px] mt-3"
               style={{
-                boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.09)'
+                boxShadow: "0px 0px 10px 0px rgba(0,0,0,0.09)",
               }}
             >
               <OwnerInfo owner={owner_details} />
@@ -358,7 +384,7 @@ const Details = () => {
             <div
               className="h-auto p-5 md:w-[416px] max-w-[416px] mt-3"
               style={{
-                boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.09)'
+                boxShadow: "0px 0px 10px 0px rgba(0,0,0,0.09)",
               }}
             >
               <h2 className="text-3xl font-bold my-5">Popular Tags</h2>

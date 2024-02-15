@@ -52,7 +52,7 @@ const Reviews = ({ property_title }) => {
                 <div className="flex gap-5 mt-6">
                   <div>
                     <img
-                      className="rounded-md"
+                      className="rounded-md w-[275px]"
                       src={review?.reviewImage}
                       alt={`${review?.propertyTitle} image`}
                     />

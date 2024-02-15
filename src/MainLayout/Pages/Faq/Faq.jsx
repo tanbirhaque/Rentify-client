@@ -10,6 +10,7 @@ import "swiper/css/autoplay";
 import { Link } from "react-router-dom";
 
 const Faq = () => {
+ 
   return (
     <div className="max-w-screen-2xl mx-auto">
       <div
@@ -40,12 +41,11 @@ const Faq = () => {
             Frequently Asked <br />
             Questions
           </h2>
-
           {/* accordion */}
           <div className="my-5 w-full">
             {/* question-1  */}
             <div className="mb-5 bg-white">
-              <details className="collapse ">
+              <details className="collapse">
                 <summary className="collapse-title text-xl font-medium">
                   How do I search for available rental properties on your
                   website?
@@ -115,6 +115,7 @@ const Faq = () => {
               </details>
             </div>
           </div>
+        
         </div>
       </div>
       {/* slider */}
