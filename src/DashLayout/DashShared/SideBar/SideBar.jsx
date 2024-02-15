@@ -67,7 +67,7 @@ const SideBar = () => {
           Write Blogs
         </NavLink>
       </li>
-      {role === "User" && (
+      {role === "user" && (
         <li className="dashLi xl:text-[20px]">
           <NavLink
             to="/dashboard/ownerRequest"
@@ -177,11 +177,11 @@ const SideBar = () => {
           </span>
           <hr className="mb-3" />
           {/* user routes */}
-          {role === "User" && (
+          {role === "user" && (
             <ul className="flex flex-col gap-2">{sideLinks}</ul>
           )}
           {/* owner routes */}
-          {role === "Owner" && (
+          {role === "owner" && (
             <>
               <ul className="flex flex-col gap-2">{sideLinks}</ul>
               <h3 className="poppins-font font-semibold text-xl xl:text-2xl mt-5 text-gray-400">
