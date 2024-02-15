@@ -81,7 +81,7 @@ const AddProperties = () => {
   const [showImages, setShowImages] = useState([])
   const [isDragging, setIsDragging] = useState(false)
   const fileInputRef = useRef(null)
-  console.log(showImages)
+  // console.log(showImages)
 
   const onFileSelect = (event) => {
     event.preventDefault();
@@ -139,7 +139,7 @@ const AddProperties = () => {
   const [showFloorImages, setShowFloorImages] = useState([])
   const [isFloorDragging, setIsFloorDragging] = useState(false)
   const fileFloorInputRef = useRef(null)
-  console.log(showFloorImages)
+  // console.log(showFloorImages)
 
   const onFloorFileSelect = (event) => {
     event.preventDefault();

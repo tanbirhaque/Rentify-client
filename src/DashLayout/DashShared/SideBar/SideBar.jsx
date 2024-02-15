@@ -27,7 +27,7 @@ const SideBar = () => {
   //roles
   const [userRole] = useGetRole();
   const { role } = userRole || {};
-  console.log(role);
+  // console.log(role);
   //roles
 
   const sideLinks = (
@@ -144,11 +144,11 @@ const SideBar = () => {
 
   const handleDropDownClick = () => {
     setIsDropDownOpen(!isDropDownOpen);
-    console.log(isDropDownOpen);
+    // console.log(isDropDownOpen);
   }
   const handleDropDownClick2 = () => {
     setIsDropDownOpen2(!isDropDownOpen2);
-    console.log(isDropDownOpen2);
+    // console.log(isDropDownOpen2);
   }
   
   return (

@@ -39,8 +39,4 @@
 }
 
 
-.collapse[open] {
-    visibility: visible;
-    max-height: 20px !important;
-}
 
