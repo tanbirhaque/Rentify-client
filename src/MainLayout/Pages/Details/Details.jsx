@@ -13,6 +13,7 @@ import ReviewForm from "./ReviewForm.jsx";
 import OwnerInfo from "./OwnerInfo.jsx";
 import useSavedProperties from "../../../Hooks/useSavedProperties.jsx";
 import Reviews from "./Reviews.jsx";
+import { Helmet } from "react-helmet";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure.jsx";
 
 const Details = () => {
@@ -22,11 +23,11 @@ const Details = () => {
   const { id } = useParams();
   const item = properties.find((item) => item._id == id);
   const [saved, refetch] = useSavedProperties();
-  console.log(saved);
+  // console.log(saved);
 
   // saved properties find for bookmark design and So that the user cannot add a property more than once this function added by sojib
   const findSaved = saved.find((save) => save.property._id == item._id);
-  console.log(findSaved);
+  // console.log(findSaved);
 
   //destructure
   const { property_info } = item || {};
@@ -119,6 +120,11 @@ const Details = () => {
   };
 
   return (
+   <>
+    <Helmet>
+        <title>Rentify | Property Details</title>
+        
+    </Helmet>
     <div>
       <div className="gridbgimg">
         <div className=" bg-[#000000B2]">
@@ -403,6 +409,7 @@ const Details = () => {
         </div>
       </div>
     </div>
+   </>
   );
 };
 

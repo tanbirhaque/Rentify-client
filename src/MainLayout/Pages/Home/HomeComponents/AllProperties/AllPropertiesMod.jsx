@@ -8,6 +8,8 @@ import { Link, NavLink } from "react-router-dom";
 import ButtonBlue from "../../../../Shared/buttons/Blue/ButtonBlue";
 import PropertyCard from "../../../../Shared/PropertyCards/PropertyCard";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
+import './all.css'
+import { Helmet } from "react-helmet";
 
 const AllPropertiesMod = () => {
   const [properties] = useProperties();
@@ -16,6 +18,7 @@ const AllPropertiesMod = () => {
 
   const [countData, setCountData] = useState(properties.length);
 
+  // sorting functions starts here
   const sortByPriceLowToHigh = () => {
     const sorted = [...properties].sort(
       (a, b) =>
@@ -33,23 +36,22 @@ const AllPropertiesMod = () => {
     );
     setProperty(sorted);
   };
+  // sorting functions starts ends here
 
-  // search function
+  // this handleSearch function added by [sojib] for onchange functionality
   const handleSearch = (e) => {
     e.preventDefault();
+    const searchValue = e.target.value;
+    console.log(searchValue)
 
-    const searchbar = e.target.searchbar.value.trim().toLowerCase();
-
-    if (!searchbar) {
-      setProperty([]);
-      return;
-    }
-
-    const filterProperty = properties.filter((item) =>
-      item.property_info.property_title.toLowerCase().includes(searchbar)
-    );
-
-    setProperty(filterProperty);
+    // filter title by search value
+    const filteredProperties = properties.filter((data) => {
+      const titleMatches = data.property_info.property_title.toLowerCase().includes(searchValue.toLowerCase());
+      return titleMatches;
+    });
+    setProperty(filteredProperties);
+    const count = property.length;
+    setCountData(count);
   };
 
   const apartment = properties.filter(
@@ -83,6 +85,11 @@ const AllPropertiesMod = () => {
   };
 
   return (
+    <>
+    <Helmet>
+        <title>Rentify | All Properties</title>
+        
+    </Helmet>
     <div>
       {/* banner section */}
       <div className="allimg">
@@ -110,10 +117,10 @@ const AllPropertiesMod = () => {
       </div>
 
       {/* search field and sort section */}
-      <div className="md:flex  md:justify-between lg:justify-between  max-w-[1296px] mx-auto   ">
+      <div className="md:flex  md:justify-between lg:justify-between  max-w-[1296px] mx-auto   mb-12">
         {/* search field */}
         <div className=" md:w-2/3 w-full mt-16 md:ml-3 mx-auto">
-          <form onSubmit={handleSearch}>
+          <form >
             <label
               htmlFor="default-search"
               className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
@@ -142,7 +149,7 @@ const AllPropertiesMod = () => {
                 type="text"
                 id="default-search"
                 name="searchbar"
-                // onChange={() => handleSearch()}
+                onChange={handleSearch}
                 className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Please search by property title"
                 required
@@ -159,7 +166,7 @@ const AllPropertiesMod = () => {
 
         {/* sort  */}
 
-        <div className=" flex justify-center  mt-16 md:mr-3">
+        <div className=" flex justify-center mx-auto mt-16 md:mr-3">
           <details className="dropdown mb-10 ">
             <summary className="m-1 btn bg-[#002172] text-white hover:bg-[#e33226]">
               Sort By Price{" "}
@@ -201,21 +208,25 @@ const AllPropertiesMod = () => {
         </div> */}
 
       <div className="max-w-[1296px] mx-auto  mb-[100px]">
-        <p className="pb-10 font-bold text-lg text-gray-700">
-          {countData} Results Found
-        </p>
+        
 
         <div className="">
           <Tabs
             defaultIndex={tabIndex}
             onSelect={(index) => setTabIndex(index)}
           >
-            <TabList className="ml-[2px]">
+          <div className="md:flex justify-between items-center mx-3 md:mx-0">
+          <TabList className="ml-[2px]">
               <Tab onClick={handleAllProperties}>All Properties</Tab>
               <Tab onClick={handleResidentialProperties}>Residential</Tab>
               <Tab onClick={handleCommercialProperties}>Commercial</Tab>
               <Tab onClick={handleApartmentProperties}>Apartment</Tab>
             </TabList>
+
+            <p className="mr-[2px] font-bold md:text-lg text-gray-700 text-xs">
+          {countData} Results Found
+        </p>
+          </div>
             <TabPanel>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-3 xl:px-0">
                 {/* {properties.map((property) => (
@@ -227,16 +238,16 @@ const AllPropertiesMod = () => {
 
                 {property.length > 0
                   ? property.map((property) => (
-                      <DynamicCards
+                      <PropertyCard
                         key={property._id}
                         property={property}
-                      ></DynamicCards>
+                      ></PropertyCard>
                     ))
                   : properties.map((property) => (
-                      <DynamicCards
+                      <PropertyCard
                         key={property._id}
                         property={property}
-                      ></DynamicCards>
+                      ></PropertyCard>
                     ))}
               </div>
             </TabPanel>
@@ -252,10 +263,10 @@ const AllPropertiesMod = () => {
                 ))} */}
                  {property.length > 0
           ? property.map((property) => (
-              <DynamicCards
+              <PropertyCard
                 key={property._id}
                 property={property}
-              ></DynamicCards>
+              ></PropertyCard>
             ))
           : Residential.map((property, index) => (
             <div key={index}>
@@ -279,10 +290,10 @@ const AllPropertiesMod = () => {
                 ))} */}
                  {property.length > 0
           ? property.map((property) => (
-              <DynamicCards
+              <PropertyCard
                 key={property._id}
                 property={property}
-              ></DynamicCards>
+              ></PropertyCard>
             ))
           : Commercial.map((property, index) => (
             <div key={index}>
@@ -306,10 +317,10 @@ const AllPropertiesMod = () => {
                 ))} */}
                  {property.length > 0
           ? property.map((property) => (
-              <DynamicCards
+              <PropertyCard
                 key={property._id}
                 property={property}
-              ></DynamicCards>
+              ></PropertyCard>
             ))
           : apartment.map((property, index) => (
             <div key={index}>
@@ -325,6 +336,7 @@ const AllPropertiesMod = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
