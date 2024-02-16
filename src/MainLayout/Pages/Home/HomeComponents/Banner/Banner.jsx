@@ -13,6 +13,7 @@ import img5 from "../../../../../assets/Template_files/client-2.jpg";
 import img6 from "../../../../../assets/Template_files/client-3.jpg";
 import img7 from "../../../../../assets/Template_files/client-4.jpg";
 import { useRef } from 'react';
+// for banner animation
 import './BannerAnimation.css'
 import useProperties from '../../../../../Hooks/useProperties';
 
