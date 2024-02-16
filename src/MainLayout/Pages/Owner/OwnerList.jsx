@@ -7,9 +7,15 @@ import {
   FaLinkedinIn,
   FaTwitter,
 } from "react-icons/fa";
+import { Helmet } from "react-helmet";
 
 const OwnerList = () => {
   return (
+   <>
+   <Helmet>
+        <title>Rentify | Owners</title>
+        
+    </Helmet>
     <div className="max-w-screen-2xl mx-auto">
       <div
         className="hero min-h-56"
@@ -218,6 +224,7 @@ const OwnerList = () => {
         </div>
       </div>
     </div>
+   </>
   );
 };
 

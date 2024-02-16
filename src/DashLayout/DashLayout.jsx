@@ -6,6 +6,7 @@ import DashNav from "./DashShared/DashNav/DashNav";
 import './DashShared/SideBar/SideBar.css'
 import SideBar from "./DashShared/SideBar/SideBar";
 import ToTop from "../MainLayout/Shared/ToTop/ToTop";
+import { Helmet } from "react-helmet";
 
 
 const DashLayout = () => {
@@ -16,6 +17,10 @@ const DashLayout = () => {
   };
   return (
     <>
+    <Helmet>
+        <title>Rentify | Dashboard</title>
+      
+    </Helmet>
       <div className="flex">
         {/* Sidebar of dashboard starts here */}
         <div
