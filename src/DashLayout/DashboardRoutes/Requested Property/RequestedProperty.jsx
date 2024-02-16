@@ -1,5 +1,5 @@
 //coded by Fahima
-// Tabs by rent & sale and property status filter accepted,pending & rejectted add by sojib 
+// Tabs by rent & sale and property status filter accepted,pending & rejected add by sojib 
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import RequestCard from "./RequestCard";
@@ -15,7 +15,7 @@ const RequestedProperty = () => {
   const { user } = useAuth();
   const [properties, setProperties] = useState([]);
   const [tabIndex, setTabIndex] = useState(0);
-  // Requested data fetched by useffect becouse usestate data direct not defiend
+  // Requested data fetched by useEffect because useState data direct not defined
   const url = `http://localhost:5000/all_requested?email=${user?.email}`;
   useEffect(() => {
     fetch(url)
@@ -24,16 +24,16 @@ const RequestedProperty = () => {
   }, [url])
 
   // filter part
-  // filter dropdoen for accepted,pending and Rejected
+  // filter dropdown for accepted,pending and Rejected
   const handleAll = () => {
     // console.log(`This is accepted`)
     setProperties(requested)
   }
 
   const handleAccepted = () => {
-    const acchepted = requested.filter(item => item.requestStatus == "accepted")
-    // console.log(acchepted)
-    setProperties(acchepted)
+    const accepted = requested.filter(item => item.requestStatus == "accepted")
+    // console.log(accepted)
+    setProperties(accepted)
   }
 
   const handlePending = () => {
@@ -50,9 +50,8 @@ const RequestedProperty = () => {
 
 
   // filter rent and sales for tabs
-  
-  const rentsProperties = properties.filter((item) => item?.property?.property_for == "rent");
-  const salesProperties = properties.filter((item) => item?.property?.property_for === "sale");
+  const rentsProperties = properties.filter((item) => item.property?.property_for == "rent");
+  const salesProperties = properties.filter((item) => item.property?.property_for === "sale");
 
   return (
     <div className="">
@@ -79,7 +78,7 @@ const RequestedProperty = () => {
 
       {/* Requested properties section */}
       <div className=" mx-8 mt-10">
-        {/*TODO:Dropdown filter by property status in Accepted, Pending & Rejected.. [now it's commented,, just created desgin.. If you need this you uncomment it] */}
+        {/*TODO:Dropdown filter by property status in Accepted, Pending & Rejected.. [now it's commented,, just created design. If you need this you uncomment it] */}
         {/* <div className=" flex justify-end my-5 mr-5">
           <div className="dropdown dropdown-hover">
             <div tabIndex={0} role="button" className="btn btn-neutral mr-10 font-bold">Propery Status</div>
@@ -93,7 +92,7 @@ const RequestedProperty = () => {
         </div> */}
 
         <div className=" xl:w-[1200px] mx-auto mt-5">
-          {/* Here are used to menu class & Navlink for uniq desgin and filter by property status in Accepted, Pending & Rejected..[codded by Sojib] */}
+          {/* Here are used to menu class & Navlink for uniq design and filter by property status in Accepted, Pending & Rejected..[codded by Sojib] */}
           <div className="flex flex-row justify-center items-center mb-7 gap-4 flex-wrap">
             <button
               onClick={handleAll}

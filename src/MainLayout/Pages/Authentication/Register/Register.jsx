@@ -43,7 +43,7 @@ const Register = () => {
           name: data.name,
           email: data.email,
           image: imageUrl,
-          role: "User",
+          role: "user",
         };
         userProfile(data.name, imageUrl)
           .then(() => {

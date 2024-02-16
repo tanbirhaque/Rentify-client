@@ -53,7 +53,7 @@ const BuyRequest = () => {
     };
 
 
-    console.log(ownerSale);
+    // console.log(ownerSale);
     return (
         <>
          {/* Top-Context */}

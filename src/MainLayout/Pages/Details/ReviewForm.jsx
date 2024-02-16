@@ -144,28 +144,7 @@ const ReviewForm = ({ property }) => {
             </div>
           </div>
           {/* div for rating and image upload */}
-          {/* register your input into the hook by invoking the "register" function */}
-          <input
-            {...register("name")}
-            placeholder="Name*"
-            // defoultvalue change by sojib for mongoose
-            className=" w-full py-5 rounded-md px-2 my-4"
-            required
-          />
-          {/* include validation with required or other standard HTML validation rules */}
-          <input
-            {...register("email")}
-            placeholder="Email Address*"
-            // defoultvalue change by sojib for mongoose
-            className="py-5 rounded-md px-2 w-full"
-            required
-          />
           {/* errors will return when field validation fails  */}
-          {/* <input
-            {...register("subject", { required: true })}
-            placeholder="Website*"
-            className="py-5 rounded-md px-2 w-full my-3"
-          /> */}
           <textarea
             {...register("message")}
             className="textarea h-40 w-full mt-3 mb-4"

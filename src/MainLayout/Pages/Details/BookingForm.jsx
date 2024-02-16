@@ -25,7 +25,7 @@ const BookingForm = ({ item }) => {
       const propertyRequest = {
         property: item.property_info,
         propertyID: item._id,
-        requestStatus: 'pending', // Added this object property to manage requested property status as ['pending' || 'accepted' || 'rejected'] -by Tanbir
+        requestStatus: "pending", // Added this object property to manage requested property status as ['pending' || 'accepted' || 'rejected'] -by Tanbir
         requesterName: data.name,
         requesterNumber: data.number,
         requesterEmail: user.email,
@@ -41,17 +41,18 @@ const BookingForm = ({ item }) => {
           icon: "error",
           title: "Oops...",
           text: "Your already have this property requested!",
-          footer: `<a href='/login' className='font-bold underline'>Please requsted more onther property</a>`,
+          footer: `<a href='/all' className='font-bold underline'>Please request for another property</a>`,
           showConfirmButton: false,
-        })
-      }
-      else {
-        axiosPublic.post("/requested-properties", propertyRequest).then((res) => {
-          console.log(res.data);
-          Swal.fire(`Hey ${data.name} Your Request is Successfully Send`);
-          refetch();
-          reset();
         });
+      } else {
+        axiosPublic
+          .post("/requested-properties", propertyRequest)
+          .then((res) => {
+            console.log(res.data);
+            Swal.fire(`Hey ${data.name} Your Request is Successfully Send`);
+            refetch();
+            reset();
+          });
       }
       console.log(propertyRequest);
       // reset();

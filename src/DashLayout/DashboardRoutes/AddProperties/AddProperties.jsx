@@ -22,7 +22,7 @@ const AddProperties = () => {
 
   // This code from line 19 to line 130 is done by [ sojib ] for react select the option and value of the select field for property tags, property featuries and image drag drop.
 
-  // multiple tags and featuries functionality [25 to 78]
+  // multiple tags and features functionality [25 to 78]
   const [tagValue, setTagValue] = useState([]);
   const newTags = [];
   for (let i = 0; i < tagValue.length; i++) {
@@ -81,7 +81,7 @@ const AddProperties = () => {
   const [showImages, setShowImages] = useState([])
   const [isDragging, setIsDragging] = useState(false)
   const fileInputRef = useRef(null)
-  console.log(showImages)
+  // console.log(showImages)
 
   const onFileSelect = (event) => {
     event.preventDefault();
@@ -120,7 +120,7 @@ const AddProperties = () => {
     setIsDragging(false)
     const files = event.dataTransfer.files;
     setImages(files[0])
-    // TODO: This comment by sojib for doing multiple drag and drop  image hosting please dont uncomment it
+    // TODO: This comment by sojib for doing multiple drag and drop  image hosting please don't uncomment it
     for (let i = 0; i < files.length; i++) {
       if (files[i].type.split('/')[0] !== 'image') continue;
       if (!showImages.some((e) => e.name === files[i].name)) {
@@ -139,7 +139,7 @@ const AddProperties = () => {
   const [showFloorImages, setShowFloorImages] = useState([])
   const [isFloorDragging, setIsFloorDragging] = useState(false)
   const fileFloorInputRef = useRef(null)
-  console.log(showFloorImages)
+  // console.log(showFloorImages)
 
   const onFloorFileSelect = (event) => {
     event.preventDefault();
@@ -177,7 +177,7 @@ const AddProperties = () => {
     setIsFloorDragging(false)
     const files = event.dataTransfer.files;
     setFloorImages(files[0])
-    // TODO: This comment by sojib for doing multiple drag and drop  image hosting please dont uncomment it
+    // TODO: This comment by sojib for doing multiple drag and drop  image hosting please don't uncomment it
     for (let i = 0; i < files.length; i++) {
       if (files[i].type.split('/')[0] !== 'image') continue;
       if (!showFloorImages.some((e) => e.name === files[i].name)) {
