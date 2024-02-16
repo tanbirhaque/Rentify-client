@@ -12,16 +12,16 @@ import useProperties from "../../../Hooks/useProperties";
 import Modal from "./Modal";
 
 const ReqCard_mod = ({ requestedProperties }) => {
-    console.log(requestedProperties);
+    // console.log(requestedProperties);
     const { _id, property, requestStatus, propertyID } = requestedProperties || {};
     const { owner_img, owner_name, owner_email, owner_phone } = property.owner_details || {}
     const { address } = property.property_location || {}
-    console.log(address);
+    // console.log(address);
     const { property_img, property_title,property_category,property_for, property_details, ownership_duration } = property || {}
     // console.log(requestedProperties);
-    console.log(property_category);
+    // console.log(property_category);
     const { property_status } = property_details || {}
-    console.log('This prop', property_status);
+    // console.log('This prop', property_status);
 
   const defaultImg =
     "https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?w=740&t=st=1696786604~exp=1696787204~hmac=c10645727b8724eecda4984ef1d8fbfba92a9c9072a57b851c28c9b1d8d62b81";

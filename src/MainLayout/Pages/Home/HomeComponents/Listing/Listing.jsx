@@ -16,14 +16,14 @@ import { Link } from "react-router-dom";
 const Listing = () => {
   // properties data get from database
   const [properties] = useProperties();
-  console.log(properties);
+//   console.log(properties);
   // const [properties, Setproperties] = useState([]);
   const [tabIndex, setTabIndex] = useState(0);
 
     const apartment = properties.filter(
         (item) => item.property_info.property_category === "Apartment"
     );
-    console.log(apartment)
+    // console.log(apartment)
     const Commercial = properties.filter(
         (item) => item.property_info.property_category === "Commercial"
     );

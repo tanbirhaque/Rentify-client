@@ -7,7 +7,7 @@ import { FaArrowLeft, FaArrowRight, FaStar } from "react-icons/fa";
 
 const Testimonials = () => {
     const [testimonials, Settestimonials] = useState([]);
-    console.log(testimonials)
+    // console.log(testimonials)
 
     // Done: make pagination 
     const [currentpage, Setcurrentpage] = useState(0);
@@ -16,7 +16,7 @@ const Testimonials = () => {
     // now this time itemper page static.after when we will do backed in then we will do it's daynamic
     const itemsperPage = 6;
     const numberofPages = Math.ceil(count / itemsperPage)
-    console.log(numberofPages)
+    // console.log(numberofPages)
 
     const pages = [];
     for (let i = 0; i < numberofPages; i++) {
