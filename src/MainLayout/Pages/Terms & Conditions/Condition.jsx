@@ -3,15 +3,21 @@
 import { NavLink } from "react-router-dom";
 import './condition.css'
 import { LuCopyCheck } from "react-icons/lu";
+import { Helmet } from "react-helmet";
 
 const Condition = () => {
     return (
+       <>
+        <Helmet>
+        <title>Rentify | Condition</title>
+        
+    </Helmet>
         <div>
             {/* Banner section */}
             <div className="conditiontbgimg">
                 <div className=" bg-[#000000B2]">
                     <div className=" max-w-screen-2xl mx-auto py-24">
-                        <h2 className="text-6xl font-bold text-white font-serif">Bog Grid</h2>
+                        <h2 className="md:text-6xl text-2xl font-bold text-white font-serif">Our Terms and Condition</h2>
                         <div className="mt-2">
                             <NavLink to='/' className='navAfter relative font-medium text-base text-white mx-3'>Home</NavLink>
                             <NavLink to='/conditions' className='navAfter relative font-medium text-base text-white mx-3 '>Terms & Conditions</NavLink>
@@ -96,6 +102,7 @@ const Condition = () => {
                 </div>
             </div>
         </div>
+       </>
     );
 };
 

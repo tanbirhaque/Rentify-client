@@ -97,14 +97,25 @@ const SavedCards = ({ item }) => {
 
           {/* code modified by Sadia */}
           <div className="">
-            <>
+          {property?.property_info?.property_for === "rent" ? (
+              <>
+                <button onClick={handleBookOrBuy} className=" bg-[#002172] py-3 px-6 hover:bg-[#e33226] text-white w-full">
+                  Book Now
+                </button>
+              </>
+            ) : (
+              <button onClick={handleBookOrBuy} className="bg-[#002172] py-3 px-6 hover:bg-[#e33226] text-white w-full">
+                Buy Now
+              </button>
+            )}
+            {/* <>
               <button
                 className="bg-[#002172] py-3 px-6 hover:bg-[#e33226] text-white w-full"
                 onClick={handleBookOrBuy}
               >
                 Book Now
               </button>
-            </>
+            </> */}
             {/* Modal */}
             <dialog
               id="my_modal_5"

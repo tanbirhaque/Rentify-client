@@ -13,6 +13,7 @@ import ReviewForm from "./ReviewForm.jsx";
 import OwnerInfo from "./OwnerInfo.jsx";
 import useSavedProperties from "../../../Hooks/useSavedProperties.jsx";
 import Reviews from "./Reviews.jsx";
+import { Helmet } from "react-helmet";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure.jsx";
 
 const Details = () => {
@@ -119,6 +120,11 @@ const Details = () => {
   };
 
   return (
+   <>
+    <Helmet>
+        <title>Rentify | Property Details</title>
+        
+    </Helmet>
     <div>
       <div className="gridbgimg">
         <div className=" bg-[#000000B2]">
@@ -403,6 +409,7 @@ const Details = () => {
         </div>
       </div>
     </div>
+   </>
   );
 };
 
