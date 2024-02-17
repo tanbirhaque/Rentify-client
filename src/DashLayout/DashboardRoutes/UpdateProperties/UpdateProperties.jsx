@@ -313,6 +313,8 @@ const UpdateProperties = () => {
     });
   };
 
+
+
   const handleReset = () => {
     reset();
     setShowImages([]);

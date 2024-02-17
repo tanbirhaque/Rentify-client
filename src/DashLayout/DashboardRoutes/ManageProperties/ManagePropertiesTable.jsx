@@ -2,6 +2,7 @@ import { useState } from "react";
 import { HiOutlineDotsHorizontal } from "react-icons/hi";
 import { Link, useLoaderData, useParams } from "react-router-dom";
 import useProperties from "../../../Hooks/useProperties";
+import Swal from "sweetalert2";
 
 const ManagePropertiesTable = ({ property }) => {
   const { property_info, _id } = property || {};
@@ -21,6 +22,41 @@ const ManagePropertiesTable = ({ property }) => {
   const toggleDropdown = () => {
     setDropdownVisible((prevState) => !prevState);
   };
+  const [delProperty, setDelProperty] = useState();
+
+  //   for delete a product code by sadia
+const handleDelete = (id) => {
+  Swal.fire({
+    title: "Are you sure?",
+    text: "You won't be able to revert this!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, delete it!",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      fetch(`http://localhost:5000/properties/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.deletedCount > 0) {
+            console.log(data);
+            Swal.fire(
+              "Deleted!",
+              "Your posted property has been deleted.",
+              "success"
+            );
+
+            const remaining = delProperty.filter((item) => item._id !== id);
+            setDelProperty(remaining);
+          }
+        });
+    }
+  });
+};
 
   return (
     <>
@@ -58,7 +94,7 @@ const ManagePropertiesTable = ({ property }) => {
                 </Link>
               </li>
               <li>
-                <button className="text-red-500 font-semibold text-sm">
+                <button onClick={() => handleDelete(property._id)} className="text-red-500 font-semibold text-sm">
                   Delete
                 </button>
               </li>
