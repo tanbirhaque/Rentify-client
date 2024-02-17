@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { HiOutlineDotsHorizontal } from "react-icons/hi";
+import { Link, useLoaderData, useParams } from "react-router-dom";
 import useProperties from "../../../Hooks/useProperties";
-import useAuth from "../../../Hooks/useAuth";
-import { Link } from "react-router-dom";
 
 const ManagePropertiesTable = ({ property }) => {
-  const { property_info } = property || {};
+  const { property_info, _id } = property || {};
+  // console.log(_id)
   const {
     property_details,
     property_img,
@@ -17,7 +17,6 @@ const ManagePropertiesTable = ({ property }) => {
     verify_status,
   } = property_info || {};
   const [dropdownVisible, setDropdownVisible] = useState(false);
- 
 
   const toggleDropdown = () => {
     setDropdownVisible((prevState) => !prevState);
@@ -40,29 +39,35 @@ const ManagePropertiesTable = ({ property }) => {
       <td>{ownership_duration}</td>
       <td>{owner_details?.owner_email}</td>
       <td>{verify_status ? "True" : "False"}</td>
-      {/* from this line to 63 is done by [ sadia ] */}
-
-      {
-        verify_status == 'verified' ? <td>
-        {/* Dropdown button */}
-        <div className="dropdown">
-          <button onClick={toggleDropdown} className="dropbtn">
-            <HiOutlineDotsHorizontal className="text-xl" />
-          </button>
-          {/* Dropdown content */}
-          <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box -ml-6">
-            <li>
-              <Link to={`/update-property/${property._id}`} className="text-green-500 font-semibold">Update</Link>
-            </li>
-            <li>
-              <button className="text-red-500 font-semibold">Delete</button>
-            </li>
-          </ul>
-        </div>
-      </td> : <></>
-      }
-      
-      
+      {/* from this line to last line is done by [ sadia ] */}
+      {verify_status == "verified" ? (
+        <td>
+          {/* Dropdown button */}
+          <div className="dropdown">
+            <button onClick={toggleDropdown} className="dropbtn">
+              <HiOutlineDotsHorizontal className="text-xl" />
+            </button>
+            {/* Dropdown content */}
+            <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box -ml-6">
+              <li>
+                <Link
+                  to={`/dashboard/update-property/${_id}`}
+                  className="text-green-500 text-sm font-semibold"
+                >
+                  Update
+                </Link>
+              </li>
+              <li>
+                <button className="text-red-500 font-semibold text-sm">
+                  Delete
+                </button>
+              </li>
+            </ul>
+          </div>
+        </td>
+      ) : (
+        <></>
+      )}
     </>
   );
 };

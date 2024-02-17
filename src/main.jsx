@@ -56,6 +56,7 @@ import OwnerRequestForm from "./DashLayout/DashboardRoutes/Owner Request/OwnerRe
 
 import Contact from "./MainLayout/Pages/Contact/Contact.jsx";
 import AllPropertiesMod from "./MainLayout/Pages/Home/HomeComponents/AllProperties/AllPropertiesMod.jsx";
+import UpdateProperties from "./DashLayout/DashboardRoutes/UpdateProperties/UpdateProperties.jsx";
 
 const queryClient = new QueryClient();
 
@@ -251,6 +252,11 @@ const router = createBrowserRouter([
       {
         path: "ownerRequest",
         element: <OwnerRequestForm />,
+      },
+      {
+        path: "update-property/:id",
+        element: <UpdateProperties />,
+        loader: ({ params }) => fetch (`http://localhost:5000/properties/${params.id}`),
       },
     ],
   },
