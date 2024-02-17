@@ -9,6 +9,7 @@ import {
 } from "react-icons/fa";
 import useOwners from "../../../Hooks/useOwners";
 import OwnerCard from "./OwnerCard";
+import { Helmet } from "react-helmet";
 
 const OwnerList = () => {
   //get owner data
@@ -16,6 +17,11 @@ const OwnerList = () => {
   console.log(owners);
 
   return (
+   <>
+   <Helmet>
+        <title>Rentify | Owners</title>
+        
+    </Helmet>
     <div className="max-w-screen-2xl mx-auto">
       <div
         className="hero"
@@ -40,6 +46,7 @@ const OwnerList = () => {
         ))}
       </div>
     </div>
+   </>
   );
 };
 

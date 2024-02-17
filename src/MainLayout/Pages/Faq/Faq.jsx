@@ -8,9 +8,15 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const Faq = () => {
   return (
+    <>
+     <Helmet>
+        <title>Rentify | FAQ</title>
+        
+    </Helmet>
     <div className="max-w-screen-2xl mx-auto">
       <div
         className="hero min-h-56"
@@ -177,6 +183,7 @@ const Faq = () => {
         </Swiper>
       </div>
     </div>
+    </>
   );
 };
 
