@@ -115,8 +115,6 @@ const Details = () => {
       }
     });
 
-
-    
   };
 
   return (

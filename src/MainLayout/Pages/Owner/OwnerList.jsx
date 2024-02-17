@@ -24,7 +24,7 @@ const OwnerList = () => {
     </Helmet>
     <div className="max-w-screen-2xl mx-auto">
       <div
-        className="hero min-h-56"
+        className="hero"
         style={{
           backgroundImage: "url(https://i.ibb.co/Zdk0mLj/breadcrumb-4.jpg)",
         }}

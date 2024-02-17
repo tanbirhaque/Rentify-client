@@ -13,15 +13,11 @@ const OwnerCard = ({ owner }) => {
     _id,
     firstName,
     lastName,
-    number,
-    ownerEmail,
     ownerImg,
     profession,
     facebook,
     twitter,
     linkedin,
-    description,
-    address,
   } = owner || {};
   return (
     <div className="card w-96 bg-base-100 shadow-xl hover:-mt-1 hover:border-b-8 hover:border-blue-700">
