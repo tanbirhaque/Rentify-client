@@ -10,7 +10,6 @@ import "swiper/css/autoplay";
 import { Link } from "react-router-dom";
 
 const Faq = () => {
- 
   return (
     <div className="max-w-screen-2xl mx-auto">
       <div
@@ -37,7 +36,7 @@ const Faq = () => {
         </div>
         <div className="flex-1">
           <p className="text-[#ec3323] font-medium">Have Questions?</p>
-          <h2 className=" text-[40px] font-bold">
+          <h2 className="text-[40px] font-bold">
             Frequently Asked <br />
             Questions
           </h2>
@@ -70,9 +69,9 @@ const Faq = () => {
                 <div className="collapse-content">
                   <p>
                     Property listings on our website include essential
-                    information such as the property's address, rental price,
+                    information such as the property&#39;s address, rental price,
                     number of bedrooms and bathrooms, amenities, and a detailed
-                    description. You'll also find high-quality photos to give
+                    description. You&#39;ll also find high-quality photos to give
                     you a comprehensive view of the property.
                   </p>
                 </div>
@@ -115,7 +114,6 @@ const Faq = () => {
               </details>
             </div>
           </div>
-        
         </div>
       </div>
       {/* slider */}
