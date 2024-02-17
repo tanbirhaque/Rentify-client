@@ -7,7 +7,7 @@ import ManagePropertiesTable from "./ManagePropertiesTable";
 
 const ManageProperties = () => {
   const [tabIndex, setTabIndex] = useState(0);
-  const [properties] = useProperties();
+  const [properties, refetch] = useProperties();
   const { user } = useAuth();
 
   const Pending = properties?.filter(
@@ -101,6 +101,7 @@ const ManageProperties = () => {
                     >
                       <ManagePropertiesTable
                         property={property}
+                        refetch={refetch}
                       ></ManagePropertiesTable>
                     </tr>
                   ))}

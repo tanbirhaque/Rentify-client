@@ -299,18 +299,18 @@ const UpdateProperties = () => {
       },
     };
     console.log(newProperty);
-    axiosPublic.post("/properties", newProperty).then((res) => {
-      console.log(res.data);
-      if (res.data) {
-        Swal.fire(
-          `Hey ${user.displayName}, Your property updated successfully`
-        );
-        refetch();
-        setShowImages([]);
-        setShowFloorImages([]);
-        reset();
-      }
-    });
+    // axiosPublic.patch("/properties", newProperty).then((res) => {
+    //   console.log(res.data);
+    //   if (res.data) {
+    //     Swal.fire(
+    //       `Hey ${user.displayName}, Your property updated successfully`
+    //     );
+    //     refetch();
+    //     setShowImages([]);
+    //     setShowFloorImages([]);
+    //     reset();
+    //   }
+    // });
   };
 
 

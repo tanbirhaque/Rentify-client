@@ -4,7 +4,7 @@ import { Link, useLoaderData, useParams } from "react-router-dom";
 import useProperties from "../../../Hooks/useProperties";
 import Swal from "sweetalert2";
 
-const ManagePropertiesTable = ({ property }) => {
+const ManagePropertiesTable = ({ property, refetch }) => {
   const { property_info, _id } = property || {};
   // console.log(_id)
   const {
@@ -50,8 +50,9 @@ const handleDelete = (id) => {
               "success"
             );
 
-            const remaining = delProperty.filter((item) => item._id !== id);
-            setDelProperty(remaining);
+            // const remaining = delProperty.filter((item) => item._id !== id);
+            // setDelProperty(remaining);
+            refetch()
           }
         });
     }
