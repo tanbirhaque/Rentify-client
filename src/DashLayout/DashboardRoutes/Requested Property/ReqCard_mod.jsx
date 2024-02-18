@@ -1,6 +1,7 @@
 // Requested Property card designed and implemented by Tanbir
 
 import { CiLocationOn } from "react-icons/ci";
+import { MdOutlineCancel } from "react-icons/md";
 // import { IoBedOutline } from "react-icons/io5";
 // import { LuTriangleRight } from "react-icons/lu";
 // import { PiBathtub } from "react-icons/pi";
@@ -10,18 +11,29 @@ import ButtonBlue from "../../../MainLayout/Shared/buttons/Blue/ButtonBlue";
 import { useState } from "react";
 import useProperties from "../../../Hooks/useProperties";
 import Modal from "./Modal";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
-const ReqCard_mod = ({ requestedProperties }) => {
-    console.log(requestedProperties);
-    const { _id, property, requestStatus, propertyID } = requestedProperties || {};
-    const { owner_img, owner_name, owner_email, owner_phone } = property.owner_details || {}
-    const { address } = property.property_location || {}
-    console.log(address);
-    const { property_img, property_title,property_category,property_for, property_details, ownership_duration } = property || {}
-    // console.log(requestedProperties);
-    console.log(property_category);
-    const { property_status } = property_details || {}
-    console.log('This prop', property_status);
+const ReqCard_mod = ({ requestedProperties, refetch }) => {
+  // console.log(requestedProperties);
+  const { _id, property, requestStatus, propertyID } =
+    requestedProperties || {};
+  const { owner_img, owner_name, owner_email, owner_phone } =
+    property.owner_details || {};
+  const { address } = property.property_location || {};
+  // console.log(address);
+  const {
+    property_img,
+    property_title,
+    property_category,
+    property_for,
+    property_details,
+    ownership_duration,
+  } = property || {};
+  // console.log(requestedProperties);
+  // console.log(property_category);
+  const { property_status } = property_details || {};
+  // console.log('This prop', property_status);
 
   const defaultImg =
     "https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?w=740&t=st=1696786604~exp=1696787204~hmac=c10645727b8724eecda4984ef1d8fbfba92a9c9072a57b851c28c9b1d8d62b81";
@@ -36,15 +48,44 @@ const ReqCard_mod = ({ requestedProperties }) => {
     setIsModalOpen(false);
   };
 
-
-  const properties = useProperties()
+  const properties = useProperties();
   const { id } = useParams();
-const item = properties.find((item) => item._id == id);
+  const item = properties.find((item) => item._id == id);
 
-const { property_info } = item || {};
-const {
-  owner_details,
-} = property_info || {};
+  const { property_info } = item || {};
+  const { owner_details } = property_info || {};
+
+  //button for cancelling booking request
+
+  const axiosSecure = useAxiosSecure();
+  const handleCancel = (id) => {
+    // console.log(id);
+    Swal.fire({
+      title: `Do you want to cancel your booking request?`,
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: "Yes",
+      denyButtonText: `No`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        axiosSecure.delete(`/requested-properties/${id}`).then((res) => {
+          if (res.data.deletedCount > 0) {
+            refetch();
+            Swal.fire({
+              position: "top",
+              icon: "success",
+              title: `Booking request cancelled successfully!!`,
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          }
+        });
+      } else if (result.isDenied) {
+        Swal.fire(`Booking request is not cancelled..`, "", "info");
+      }
+    });
+  };
 
   return (
     <>
@@ -131,8 +172,15 @@ const {
                     alt="requester-image"
                   />
                 </div>
-                <div className="badge badge-primary badge-outline absolute top-0 right-2">
+                <div className="badge badge-primary badge-outline absolute top-0 left-2">
                   Owner
+                </div>
+                {/* button for cancelling request */}
+                <div className="text-2xl text-red-600 absolute top-0 right-2">
+                  <MdOutlineCancel
+                    className="cursor-pointer"
+                    onClick={() => handleCancel(_id)}
+                  />
                 </div>
               </div>
               <div className="text-center">
@@ -161,11 +209,11 @@ const {
                             ></ButtonBlue>
                         </div> */}
 
-                  
-
-   
             <div className="flex justify-center my-4">
-              <button className="bg-[#002172] py-3 px-6 hover:bg-[#e33226] text-white rounded-md" onClick={openModal}>
+              <button
+                className="bg-[#002172] py-3 px-6 hover:bg-[#e33226] text-white rounded-md"
+                onClick={openModal}
+              >
                 Contact with owner
               </button>
             </div>
@@ -173,14 +221,16 @@ const {
             {isModalOpen && (
               <dialog id="my_modal_1" className="modal" open>
                 <div className="modal-box">
-                 <Modal owner={owner_details}></Modal>
+                  <Modal owner={owner_details}></Modal>
                   <div className="modal-action">
                     <form method="dialog" onSubmit={closeModal}>
-                     
                       <div className="-mt-20">
-                      <button type="submit" className=" bg-[#e33226] py-3  px-8  hover:bg-[#002172] text-white w-full rounded  ">
-                        Close
-                      </button>
+                        <button
+                          type="submit"
+                          className=" bg-[#e33226] py-3  px-8  hover:bg-[#002172] text-white w-full rounded  "
+                        >
+                          Close
+                        </button>
                       </div>
                     </form>
                   </div>
@@ -218,10 +268,23 @@ const {
                 {/* <button className="w-full text-center bg-[#002172] text-white py-3 mt-[23px] rounded-br-md">
                                     Pay Now
                                 </button> */}
-                                <Link to={`/dashboard/payment?price=${property_details?.property_price}&requestId=${_id}&propertyId=${propertyID}&owner=${owner_email}&property_status=${property_for == 'sale' ? 'Sold' : 'Rented'}&property_img=${property_img}&property_title=${property_title}&property_location=${address}&property_category=${property_category}`}
-                                    className={`w-full text-center text-white py-3 mt-[24px] rounded-br-md hover:text-green-500 transition-all duration-300 font-bold
-                                ${requestStatus == 'pending' ? 'bg-gray-400 btn-disabled' : 'bg-[#002172]'} 
-                                ${requestStatus == 'rejected' ? 'bg-gray-400 btn-disabled' : 'bg-[#002172]'} 
+                <Link
+                  to={`/dashboard/payment?price=${
+                    property_details?.property_price
+                  }&requestId=${_id}&propertyId=${propertyID}&owner=${owner_email}&property_status=${
+                    property_for == "sale" ? "Sold" : "Rented"
+                  }&property_img=${property_img}&property_title=${property_title}&property_location=${address}&property_category=${property_category}`}
+                  className={`w-full text-center text-white py-3 mt-[24px] rounded-br-md hover:text-green-500 transition-all duration-300 font-bold
+                                ${
+                                  requestStatus == "pending"
+                                    ? "bg-gray-400 btn-disabled"
+                                    : "bg-[#002172]"
+                                } 
+                                ${
+                                  requestStatus == "rejected"
+                                    ? "bg-gray-400 btn-disabled"
+                                    : "bg-[#002172]"
+                                } 
                                 `}
                 >
                   <button>Pay Now</button>

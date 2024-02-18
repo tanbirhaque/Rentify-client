@@ -8,9 +8,18 @@ import PopularCities from "./HomeComponents/PopularCities/PopularCities";
 import EditReview from "./HomeComponents/Review/EditReview";
 // import Review from "./HomeComponents/Review/Review";
 import Virtual from "./HomeComponents/Virtual Apartments/Virtual";
+import { Helmet } from "react-helmet";
 
 const Home = () => {
+
+ 
+
   return (
+    <>
+    <Helmet>
+        <title>Rentify</title>
+      
+    </Helmet>
     <div>
       <Banner></Banner>
       <Reach></Reach>
@@ -22,6 +31,7 @@ const Home = () => {
       <PopularCities></PopularCities>
       <EditReview></EditReview>
     </div>
+    </>
   );
 };
 

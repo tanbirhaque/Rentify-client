@@ -4,10 +4,11 @@ import { NavLink } from "react-router-dom";
 import './Testimonials.css'
 import { useEffect, useState } from "react";
 import { FaArrowLeft, FaArrowRight, FaStar } from "react-icons/fa";
+import { Helmet } from "react-helmet";
 
 const Testimonials = () => {
     const [testimonials, Settestimonials] = useState([]);
-    console.log(testimonials)
+    // console.log(testimonials)
 
     // Done: make pagination 
     const [currentpage, Setcurrentpage] = useState(0);
@@ -16,7 +17,7 @@ const Testimonials = () => {
     // now this time itemper page static.after when we will do backed in then we will do it's daynamic
     const itemsperPage = 6;
     const numberofPages = Math.ceil(count / itemsperPage)
-    console.log(numberofPages)
+    // console.log(numberofPages)
 
     const pages = [];
     for (let i = 0; i < numberofPages; i++) {
@@ -54,11 +55,16 @@ const Testimonials = () => {
 
 
     return (
+        <>
+        <Helmet>
+        <title>Rentify | Testimonials</title>
+        
+    </Helmet>
         <div>
             <div className="testbgimg">
                 <div className=" bg-[#000000B2]">
                     <div className=" max-w-screen-2xl mx-auto py-24">
-                        <h2 className="text-6xl font-bold text-white font-serif">Bog Grid</h2>
+                        <h2 className="md:text-6xl text-2xl font-bold text-white font-serif">Testimonials</h2>
                         <div className="mt-2">
                             <NavLink to='/' className='navAfter relative font-medium text-base text-white mx-3'>Home</NavLink>
                             <NavLink to='/testimonials' className='navAfter relative font-medium text-base text-white mx-3 '>Testimonials</NavLink>
@@ -108,6 +114,7 @@ const Testimonials = () => {
                 </div>
             </div>
         </div>
+        </>
     );
 };
 

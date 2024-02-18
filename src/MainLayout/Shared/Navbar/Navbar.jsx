@@ -12,6 +12,7 @@ import { TbLogout } from "react-icons/tb";
 
 const Navbar = () => {
   const [isNavbarJumping, setIsNavbarJumping] = useState(false);
+  const [isNavBarOpen, setIsNavbarOpen] = useState(false)
   const { userSignOut, user, setUser } = useContext(AuthContext);
   const [userRole] = useGetRole();
   const navigate = useNavigate();
@@ -91,14 +92,8 @@ const Navbar = () => {
       </NavLink>
 
       {/* for others */}
-      <div className="dropdown dropdown-hover relative h-[65px]">
-        <div
-          tabIndex={0}
-          role="button"
-          className="dropAfter relative font-medium text-base text-black mx-3 flex items-center h-full"
-        >
-          Others
-        </div>
+      {/* <div className="dropdown dropdown-hover relative h-[65px]">
+        <div tabIndex={0} role="button" className="dropAfter relative font-medium text-base text-black mx-3 flex items-center h-full">Others</div>
         <ul className="menu dropdown-content z-[1] bg-white pl-5  w-[250px] border-[#e33226] border-l-[2px] rounded-[5px] py-0 absolute top-14">
           <NavLink
             to="/how-it-works"
@@ -137,22 +132,77 @@ const Navbar = () => {
             FAQ
           </NavLink>
         </ul>
-      </div>
+      </div> */}
     </>
   );
 
+  const otherDropDownLinks = (
+    <>
+      <NavLink
+        to="/how-it-works"
+        className="navAfter relative font-medium text-base text-black my-2"
+      >
+        How it works
+      </NavLink>
+      <NavLink
+        to="/testimonials"
+        className="navAfter relative font-medium text-base text-black my-2"
+      >
+        Testimonials
+      </NavLink>
+      <NavLink
+        to="/contact"
+        className="navAfter relative font-medium text-base text-black my-2"
+      >
+        Contact with us
+      </NavLink>
+      <NavLink
+        to="/privacy"
+        className="navAfter relative font-medium text-base text-black my-2"
+      >
+        Our Privacy
+      </NavLink>
+      <NavLink
+        to="/conditions"
+        className="navAfter relative font-medium text-base text-black my-2"
+      >
+        Terms & Conditions
+      </NavLink>
+      <NavLink
+        to="/faq"
+        className="navAfter relative font-medium text-base text-black  my-2"
+      >
+        FAQ
+      </NavLink>
+    </>
+  )
+
+  const dropNavLinks = (
+    <>
+      <div className="dropdown dropdown-hover relative h-[65px]">
+        <div tabIndex={0} role="button" className="dropAfter relative font-medium text-base text-black mx-3 flex items-center h-full">Others</div>
+        <ul className="menu dropdown-content z-[1] bg-white pl-5  w-[250px] border-[#e33226] border-l-[2px] rounded-[5px] py-0 absolute top-14">
+          {otherDropDownLinks}
+        </ul>
+      </div>
+    </>
+  )
+
+  const handleNavbarDropDown = () => {
+    setIsNavbarOpen(!isNavBarOpen)
+    console.log(isNavBarOpen);
+  }
   return (
     // Please don't change the z-index, added by -Tanbir
-    
-    <div
-      className={` bg-base-100  sticky top-0 left-0 z-[99999] ${
-        isNavbarJumping ? "animate-jump shadow-md" : ""
-      }`}
-    >
-      <div className="navbar max-w-screen-2xl mx-auto bg-base-100 px-0 py-2">
-        <div className="navbar-start">
-          <div className="dropdown">
-            <label tabIndex={0} className="btn btn-ghost lg:hidden">
+    <>
+      <div
+        className={` bg-base-100  sticky top-0 left-0 z-[99999] ${isNavbarJumping ? "animate-jump shadow-md" : ""
+          }`}
+      >
+        <div className="navbar max-w-screen-2xl mx-auto bg-base-100 pl-6 md:px-5 lg:px-8 xl:px-0 py-2">
+          <div className="navbar-start">
+            {/* Navbar ham-berger icon to open and close the responsive drop-down navbar */}
+            <div className="pr-5 lg:hidden" onClick={handleNavbarDropDown}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -167,119 +217,97 @@ const Navbar = () => {
                   d="M4 6h16M4 12h8m-8 6h16"
                 />
               </svg>
-            </label>
-            <ul
-              tabIndex={0}
-              className="main-nav menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
-            >
-              {navLinks}
-            </ul>
-          </div>
-          <Link to="/">
-            <div className="flex  items-center">
-              <img
-                className="w-[60px] md:w-full"
-                src="https://i.ibb.co/GsQpf2D/logo.png"
-              />
-              <h4 className="font-bold poppins-font text-2xl lg:text-[38px] ml-2 text-[#002172]">
-                Renti<span className="text-[#e33226]">fy</span>
-              </h4>
             </div>
-          </Link>
-        </div>
-        <div className="navbar-center hidden lg:flex min-h-full">
-          <ul className="menu menu-horizontal px-1  flex items-center py-0">
-            {navLinks}
-          </ul>
-        </div>
-
-        {/* for toggle feature for profile button -sadia || Remake by -Tanbir */}
-        <div className="navbar-end gap-5 lg:gap-0">
-          {user && (
-            <>
-              <div className="flex items-center">
-                <div className="flex flex-col items-end mr-4 h-full">
-                  <h3 className="capitalize poppins-font text-[16px] font-semibold">
-                    {user?.displayName}
-                  </h3>
-                  <p className="capitalize poppins-font text-[12px] text-[#464a53]">
-                    {userRole?.role}
-                  </p>
-                </div>
-                <details className="dropdown dropdown-end w-[43px]">
-                  <summary
-                    tabIndex={0}
-                    className="btn w-[43px] min-h-[30px] max-h-[40px] navMarker px-0 py-0 "
-                  >
-                    <div className="min-w-[43px]">
-                      <img
-                        className="rounded-lg w-[43px]"
-                        src={`${user?.photoURL ? user?.photoURL : defaultImg}`}
-                      />
-                    </div>
-                  </summary>
-                  <ul
-                    tabIndex={0}
-                    className="menu menu-sm dropdown-content mt-3 z-[1] py-2 px-0 shadow  rounded-lg bg-[#ffffff] "
-                  >
-                    <li className="hover:bg-[#002172] transition-all ease-out duration-300 hover:text-white">
-                      <p className="text-[17px]">
-                        <span>
-                          <MdOutlineEmail className=""></MdOutlineEmail>
-                        </span>
-                        {user?.email}
-                      </p>
-                    </li>
-                    <li className="hover:bg-[#002172] transition-all ease-out duration-300 hover:text-white">
-                      <Link to="/dashboard/userProfile" className="text-[17px]">
-                        <span>
-                          <LuLayoutDashboard></LuLayoutDashboard>
-                        </span>
-                        Dashboard
-                      </Link>
-                    </li>
-                    <li className="hover:bg-[#002172] transition-all ease-out duration-300 hover:text-white">
-                      <a
-                        href="http://localhost:5174/"
-                        target="blank"
-                        className="text-[17px]"
-                      >
-                        <span>
-                          <MdOutlineAdminPanelSettings></MdOutlineAdminPanelSettings>
-                        </span>
-                        Admin Panel
-                      </a>
-                    </li>
-                    <li className="hover:bg-[#002172] transition-all ease-out duration-300 hover:text-white">
-                      <Link onClick={handleLogOut} className="text-[17px]">
-                        <span>
-                          <TbLogout className="text-[#e33226]"></TbLogout>
-                        </span>
-                        Logout
-                      </Link>
-                    </li>
-                  </ul>
-                </details>
+            {/* Navbar Logo */}
+            <Link to="/">
+              <div className="flex  items-center">
+                <img
+                  className="w-[60px] md:w-full"
+                  src="https://i.ibb.co/GsQpf2D/logo.png"
+                />
+                <h4 className="font-bold poppins-font text-2xl lg:text-[38px] ml-2 text-[#002172]">
+                  Renti<span className="text-[#e33226]">fy</span>
+                </h4>
               </div>
-            </>
-          )}
-          {/* Login button conditional if the user is not logged in yet */}
-          <div>
-            {user ? (
-              ""
-            ) : (
+            </Link>
+          </div>
+          <div className="navbar-center hidden lg:flex min-h-full">
+            <ul className="menu menu-horizontal px-1  flex items-center py-0">{navLinks}{dropNavLinks}</ul>
+          </div>
+
+          {/* for toggle feature for profile button -sadia || Remake by -Tanbir */}
+          <div className="navbar-end gap-5 lg:gap-0">
+            {user && (
               <>
                 <div className="flex items-center">
-                  <Link to="/login">
-                    <ButtonBlue titleBlue={"Log In"} />
-                  </Link>
+                  <div className="flex flex-col items-end mr-4 h-full">
+                    <h3 className="capitalize poppins-font text-[16px] font-semibold">{user?.displayName}</h3>
+                    <p className="capitalize poppins-font text-[12px] text-[#464a53]">{userRole?.role}</p>
+                  </div>
+                  <details className="dropdown dropdown-end w-[43px]">
+                    <summary tabIndex={0} className="btn w-[43px] min-h-[30px] max-h-[40px] navMarker px-0 py-0 ">
+                      <div className="min-w-[43px]">
+                        <img
+                          className="rounded-lg w-[43px]"
+                          src={`${user?.photoURL ? user?.photoURL : defaultImg}`}
+                        />
+                      </div>
+                    </summary>
+                    <ul
+                      tabIndex={0}
+                      className="menu menu-sm dropdown-content mt-3 z-[1] py-2 px-0 shadow  rounded-lg bg-[#ffffff] "
+                    >
+                      <li className="hover:bg-[#002172] transition-all ease-out duration-300 hover:text-white">
+                        <p className="text-[17px]"><span><MdOutlineEmail className=""></MdOutlineEmail></span>{user?.email}</p>
+                      </li>
+                      <li className="hover:bg-[#002172] transition-all ease-out duration-300 hover:text-white">
+                        <Link to="/dashboard/userProfile" className="text-[17px]"><span><LuLayoutDashboard></LuLayoutDashboard></span>Dashboard</Link>
+                      </li>
+                      <li className="hover:bg-[#002172] transition-all ease-out duration-300 hover:text-white">
+                        <a href="http://localhost:5174/" target="blank" className="text-[17px]"><span><MdOutlineAdminPanelSettings></MdOutlineAdminPanelSettings></span>Admin Panel</a>
+                      </li>
+                      <li className="hover:bg-[#002172] transition-all ease-out duration-300 hover:text-white">
+                        <Link onClick={handleLogOut} className="text-[17px]"><span><TbLogout className="text-[#e33226]"></TbLogout></span>Logout</Link>
+                      </li>
+                    </ul>
+                  </details>
                 </div>
               </>
             )}
+            {/* Login button conditional if the user is not logged in yet */}
+            <div>
+              {user ? (
+                ""
+              ) : (
+                <>
+                  <div className="flex items-center">
+                    <Link to="/login">
+                      <ButtonBlue titleBlue={"Log In"} />
+                    </Link>
+                  </div>
+                </>
+              )}
+            </div>
           </div>
         </div>
-      </div>
-    </div>
+        {/* Responsive navbar for small devices */}
+        <div className={`bg-[#f9f9f9] max-h-[410px] overflow-y-scroll ${isNavBarOpen ? 'lg:hidden' : "hidden"}`}>
+          <div className="p-4">
+            <ul className="flex flex-col bg-white border-l-[2px] border-red-500 resNavCSS py-2 rounded-md">
+              {navLinks}
+            </ul>
+            <details className="dropdown w-full mt-3">
+              <summary className="w-full text-right marker:bg-none relative py-2 bg-white border-l-[2px] border-red-500 rounded-t-md ">
+                <span className="mt-5 absolute left-3 bottom-2">Others</span>
+              </summary>
+              <ul className="flex flex-col bg-white border-l-[2px] border-red-500 resNavCSS resNavDrop py-2 pl-3 rounded-md rounded-t-none">
+                {otherDropDownLinks}
+              </ul>
+            </details>
+          </div>
+        </div>
+      </div >
+    </>
   );
 };
 

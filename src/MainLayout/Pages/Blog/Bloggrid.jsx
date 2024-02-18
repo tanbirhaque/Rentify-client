@@ -5,6 +5,7 @@ import { FaArrowLeft, FaArrowRight, FaComment, FaLongArrowAltRight, FaRegCalenda
 import './styles.css'
 import { Link, NavLink } from "react-router-dom";
 import useBlogs from "../../../Hooks/useBlogs";
+import { Helmet } from "react-helmet";
 
 const Bloggrid = () => {
     const [blogs] = useBlogs() 
@@ -46,7 +47,14 @@ const Bloggrid = () => {
     }
 
     return (
+        <>
+        <Helmet>
+        <title>Rentify | Blogs</title>
+      
+    </Helmet>
+        
         <div>
+            
             <div className="gridbgimg">
                 <div className=" bg-[#000000B2]">
                     <div className=" max-w-screen-2xl mx-auto py-24">
@@ -109,6 +117,8 @@ const Bloggrid = () => {
                 </div>
             </div>
         </div>
+
+        </>
     );
 };
 

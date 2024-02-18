@@ -18,7 +18,7 @@ const UserProfile = () => {
   const { user } = useContext(AuthContext);
   const [blogs] = useBlogs();
   const [recentAddProperty] = useRecentAddProperties();
-  console.log(recentAddProperty);
+  // console.log(recentAddProperty);
   const [tabIndex, setTabIndex] = useState(0);
 
   return (

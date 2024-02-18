@@ -6,6 +6,7 @@ import { useState } from "react";
 import PropertyCard from "../../../../../Shared/PropertyCards/PropertyCard";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import { MdKeyboardArrowDown } from "react-icons/md";
+import { Helmet } from "react-helmet";
 
 
 const LosAngeles = () => {
@@ -68,12 +69,17 @@ const LosAngeles = () => {
     };
 
     return (
+        <>
+          <Helmet>
+        <title>Rentify | Los Angels</title>
+      
+    </Helmet>
         <div>
         {/* banner section */}
         <div className="img8">
                 <div className=" bg-[#000000B2]">
                     <div className=" max-w-screen-2xl mx-auto py-24">
-                        <h2 className="text-6xl font-bold text-white font-serif">All Properties in Los Angeles</h2>
+                        <h2 className="md:text-6xl text-2xl font-bold text-white font-serif">All Properties in Los Angeles</h2>
                         <div className="mt-2">
                             <NavLink to='/' className='navAfter relative font-medium text-base text-white mx-3'>Home</NavLink>
                             <NavLink to='/blogs' className='navAfter relative font-medium text-base text-white mx-3'>Blogs</NavLink>
@@ -89,12 +95,9 @@ const LosAngeles = () => {
             </div> */}
              {/* tab card section */}
       <div className="max-w-[1296px] mx-auto  mb-[100px]">
-        <div className="flex justify-between ">
-          <p className="pt-16 font-bold text-lg text-gray-700">
-            {countData} Results Found
-          </p>
+     
 
-          <div className=" py-10   ">
+          <div className=" py-10   flex justify-end">
             <details className="dropdown mb-10 ">
               <summary className="m-1 btn bg-[#002172] text-white hover:bg-[#e33226]">
                 Sort By Price{" "}
@@ -114,31 +117,37 @@ const LosAngeles = () => {
               </ul>
             </details>
           </div>
-        </div>
+
 
         <div className="">
           <Tabs
             defaultIndex={tabIndex}
             onSelect={(index) => setTabIndex(index)}
           >
-            <TabList className="ml-[2px]">
+            <div className="md:flex justify-between items-center mx-3 md:mx-0">
+          <TabList className="ml-[2px]">
               <Tab onClick={handleAllProperties}>All Properties</Tab>
               <Tab onClick={handleResidentialProperties}>Residential</Tab>
               <Tab onClick={handleCommercialProperties}>Commercial</Tab>
               <Tab onClick={handleApartmentProperties}>Apartment</Tab>
             </TabList>
+
+            <p className="mr-[2px] font-bold md:text-lg text-gray-700 text-xs">
+          {countData} Results Found
+        </p>
+          </div>
             <TabPanel>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-3 xl:px-0">
               
 
                 {property.length > 0
                   ? property.map((property) => (
-                      <DynamicCards
+                      <PropertyCard
                         key={property._id}
                         property={property}
-                      ></DynamicCards>
+                      ></PropertyCard>
                     ))
-                  :  cityProperties?.map((property) => <DynamicCards key={property._id} property={property}></DynamicCards>)}
+                  :  cityProperties?.map((property) => <PropertyCard key={property._id} property={property}></PropertyCard>)}
               </div>
             </TabPanel>
             <TabPanel>
@@ -147,10 +156,10 @@ const LosAngeles = () => {
 
                 {property.length > 0
                   ? property.map((property) => (
-                      <DynamicCards
+                      <PropertyCard
                         key={property._id}
                         property={property}
-                      ></DynamicCards>
+                      ></PropertyCard>
                     ))
                   : Residential.map((property, index) => (
                       <div key={index}>
@@ -168,10 +177,10 @@ const LosAngeles = () => {
 
                 {property.length > 0
                   ? property.map((property) => (
-                      <DynamicCards
+                      <PropertyCard
                         key={property._id}
                         property={property}
-                      ></DynamicCards>
+                      ></PropertyCard>
                     ))
                   : Commercial.map((property, index) => (
                       <div key={index}>
@@ -190,10 +199,10 @@ const LosAngeles = () => {
 
                 {property.length > 0
                   ? property.map((property) => (
-                      <DynamicCards
+                      <PropertyCard
                         key={property._id}
                         property={property}
-                      ></DynamicCards>
+                      ></PropertyCard>
                     ))
                   : apartment.map((property, index) => (
                       <div key={index}>
@@ -209,6 +218,7 @@ const LosAngeles = () => {
         </div>
       </div>
         </div>
+        </>
     );
 };
 

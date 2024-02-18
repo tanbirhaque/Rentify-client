@@ -10,7 +10,7 @@ const useOwnerSale = () => {
         queryFn: async () => {
             // when data import from database then change the url & use axios public 
             const res = await axiospublic.get(`/ownerSaleReq?email=${user.email}`)
-            console.log(res.data)
+            // console.log(res.data)
             return res.data;
         }
     })

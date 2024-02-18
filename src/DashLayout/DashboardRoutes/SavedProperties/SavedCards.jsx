@@ -1,6 +1,7 @@
 import { useRef } from "react";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure.jsx";
 import BookBuy from "./BookBuy";
-import swal from "sweetalert";
+import Swal from "sweetalert2";
 import {
   FaHeart,
   FaStar,
@@ -15,14 +16,33 @@ import { IoBedOutline } from "react-icons/io5";
 import { LuTriangleRight } from "react-icons/lu";
 import { PiBathtub } from "react-icons/pi";
 
-const SavedCards = ({ item }) => {
-  const { property } = item;
+const SavedCards = ({ item, refetch }) => {
+  const axiosSecure = useAxiosSecure();
+
+  const { property } = item || {};
   const modalRef = useRef(null);
 
   const handleBookOrBuy = () => {
     // Open the modal using the showModal() method- Sadia
-
     modalRef.current.showModal();
+  };
+
+  
+  //unsave button added by Fahima
+  const handleUnSave = (id) => {
+    console.log(id);
+    axiosSecure.delete(`/saved-properties/${id}`).then((res) => {
+      if (res.data.deletedCount > 0) {
+        refetch();
+        Swal.fire({
+          title: `Removed from saved properties.`,
+          timer: 2000,
+          color: "#002172",
+          showConfirmButton: false,
+          icon: "success",
+        });
+      }
+    });
   };
 
   return (
@@ -36,7 +56,10 @@ const SavedCards = ({ item }) => {
           />
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-black/60" />
           <button className="absolute top-4 left-4 text-red-500 rounded-full">
-            <FaHeart className="h-6 w-6" />
+            <FaHeart
+              onClick={() => handleUnSave(item._id)}
+              className="h-6 w-6"
+            />
           </button>
           {/* <button className="absolute top-4 right-4 text-red-500 font-bold text-xl rounded-full">
             <div className="rating flex gap-1">
@@ -97,14 +120,25 @@ const SavedCards = ({ item }) => {
 
           {/* code modified by Sadia */}
           <div className="">
-            <>
+          {property?.property_info?.property_for === "rent" ? (
+              <>
+                <button onClick={handleBookOrBuy} className=" bg-[#002172] py-3 px-6 hover:bg-[#e33226] text-white w-full">
+                  Book Now
+                </button>
+              </>
+            ) : (
+              <button onClick={handleBookOrBuy} className="bg-[#002172] py-3 px-6 hover:bg-[#e33226] text-white w-full">
+                Buy Now
+              </button>
+            )}
+            {/* <>
               <button
                 className="bg-[#002172] py-3 px-6 hover:bg-[#e33226] text-white w-full"
                 onClick={handleBookOrBuy}
               >
                 Book Now
               </button>
-            </>
+            </> */}
             {/* Modal */}
             <dialog
               id="my_modal_5"

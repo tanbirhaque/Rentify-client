@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLoaderData, useParams } from "react-router-dom";
 import {
   FaFacebookF,
   FaInstagram,
@@ -8,6 +8,25 @@ import {
 import PropertyCard from "../../Shared/PropertyCards/PropertyCard";
 
 const OwnerDetail = () => {
+  const owners = useLoaderData();
+  const { id } = useParams();
+
+  const owner = owners.find((owner) => owner._id == id);
+
+  const {
+    firstName,
+    lastName,
+    number,
+    ownerEmail,
+    ownerImg,
+    profession,
+    facebook,
+    twitter,
+    linkedin,
+    description,
+    address,
+  } = owner || {};
+
   return (
     <div className="max-w-screen-2xl mx-auto">
       <div
@@ -33,14 +52,16 @@ const OwnerDetail = () => {
           <div className="flex flex-col md:flex-row">
             <figure className="flex-1">
               <img
-                className="rounded-lg"
-                src="https://i.ibb.co/KbLv3yq/agent-1.jpg"
-                alt="Agent-1"
+                className="rounded-lg w-[484px] h-[513px]"
+                src={ownerImg}
+                alt={`image of ${firstName}`}
               />
             </figure>
             <div className="flex-1 p-7 space-y-5">
-              <h2 className="text-black text-4xl font-bold">Erik Ondricka</h2>
-              <p className="text-[#666666]">Real Estate Agent</p>
+              <h2 className="text-black text-4xl font-bold">
+                {firstName} {lastName}{" "}
+              </h2>
+              <p className="text-[#666666]">{profession}</p>
               <hr />
               <div className="space-y-5">
                 <p>
@@ -55,7 +76,7 @@ const OwnerDetail = () => {
                   <span className="text-lg items-center font-bold inline-block">
                     Address:
                   </span>{" "}
-                  77 Morris St. Ridgewood, NJ 67655
+                  {address}
                 </p>
                 <p>
                   {" "}
@@ -63,14 +84,14 @@ const OwnerDetail = () => {
                     {" "}
                     Phone:
                   </span>{" "}
-                  +1 719-504-1984
+                  {number}
                 </p>
                 <p>
                   {" "}
                   <span className="text-lg items-center font-bold inline-block">
                     Email:
                   </span>{" "}
-                  info@erik.com
+                  {ownerEmail}
                 </p>
                 <p>
                   {" "}
@@ -88,11 +109,15 @@ const OwnerDetail = () => {
                 </h1>
                 {/* facebook */}
                 <div className="btn btn-circle text-lg bg-[#f9f9f9] text-[#002172] shadow-xl hover:text-white hover:bg-[#ec3323] hover:-mt-1">
-                  <FaFacebookF />
+                  <a href={facebook}>
+                    <FaFacebookF />
+                  </a>
                 </div>
                 {/* twitter */}
                 <div className="btn btn-circle text-lg bg-[#f9f9f9] text-[#002172] shadow-xl hover:text-white hover:bg-[#ec3323] hover:-mt-1">
-                  <FaTwitter />
+                  <a href={twitter}>
+                    <FaTwitter />
+                  </a>
                 </div>
                 {/* insta */}
                 <div className="btn btn-circle text-lg bg-[#f9f9f9] text-[#002172] shadow-xl hover:text-white hover:bg-[#ec3323] hover:-mt-1">
@@ -100,7 +125,9 @@ const OwnerDetail = () => {
                 </div>
                 {/* linkedin */}
                 <div className="btn btn-circle text-lg bg-[#f9f9f9] text-[#002172] shadow-xl hover:text-white hover:bg-[#ec3323] hover:-mt-1">
-                  <FaLinkedinIn />
+                  <a href={linkedin}>
+                    <FaLinkedinIn />
+                  </a>
                 </div>
               </div>
             </div>
@@ -108,27 +135,17 @@ const OwnerDetail = () => {
           {/* info */}
           <div className="mt-5 space-y-3">
             <h2 className="text-black text-2xl font-bold">
-              About Erik Ondricka
+              About {firstName} {lastName}
             </h2>
-            <p>
-              {" "}
-              Erik Ondricka is a real estate professional boasting a rich and
-              diverse background with a commendable five years of experience in
-              the industry. Currently calling New Jersey home, Erik has honed
-              his expertise in various facets of real estate, from assisting
-              clients in the intricacies of property transactions to navigating
-              the complexities of the rental market. As a dedicated real estate
-              agent, Erik&lsquo;s comprehensive understanding of the dynamic New
-              Jersey real estate landscape positions him as a reliable source of
-              knowledge and guidance for his clients.
-            </p>
+            <p>{description}</p>
           </div>
           {/* properties */}
           <div className="">
             <p className="text-[#ec3323] font-semibold text-xl border-b-2 border-[#ec3323] w-fit my-5">
               Listed Properties
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-3 xl:px-0">
+            <p className="text-red-700 text-4xl">Not added yet</p>
+            {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-3 xl:px-0">
               <PropertyCard
                 img={"https://i.ibb.co/7bRXHhS/property-2.jpg"}
                 details_path={"/details"}
@@ -141,7 +158,7 @@ const OwnerDetail = () => {
                 img={"https://i.ibb.co/QcDcJjZ/property-4.jpg"}
                 details_path={"/details"}
               />
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
