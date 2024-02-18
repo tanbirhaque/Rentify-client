@@ -12,7 +12,7 @@ import { Helmet } from "react-helmet";
 const VancuverCity = () => {
 
     const [properties] = useProperties();
-    const cityProperties = properties.filter(property => property?.property_info.property_location.address.city === 'Vancuver City')
+    const cityProperties = properties.filter(property => property?.property_info.property_location.address.city === 'Vancouver City')
     const [property, setProperty] = useState([]);
     const [tabIndex, setTabIndex] = useState(0);
   

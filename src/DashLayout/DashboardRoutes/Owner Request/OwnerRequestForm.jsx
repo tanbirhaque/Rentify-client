@@ -121,7 +121,7 @@ const OwnerRequestForm = () => {
 
       ownerStatus: false,
     };
-    // console.log("ownerform data", ownerData)
+    // console.log("ownerForm data", ownerData)
     // TO DO : now this time i direct passed data if after we need add to owner then we will change it
     axiosSecure.post("/ownerRequest", ownerData).then((response) => {
       console.log(response);
@@ -135,6 +135,7 @@ const OwnerRequestForm = () => {
           icon: "success",
         });
         reset();
+        setShowImages([])
       } else {
         Swal.fire({
           title:
