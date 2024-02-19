@@ -15,6 +15,7 @@ import { useLoaderData } from "react-router-dom";
 const UpdateProperties = () => {
   const [properties, refetch] = useProperties();
   const loaderProperty = useLoaderData();
+  console.log(loaderProperty)
 //   const { property_info, _id } = properties || {};
   // console.log(_id)
   const {
@@ -48,10 +49,10 @@ const UpdateProperties = () => {
   } = loaderProperty[0]?.property_info.property_location.address || {};
   
 
-    console.log(property_title);
+    // console.log(property_title);
 
 
-  console.log(loaderProperty[0]);
+  // console.log(loaderProperty[0]);
   
 
   const axiosPublic = useAxiosPublic();
@@ -126,7 +127,7 @@ const UpdateProperties = () => {
     event.preventDefault();
     const files = event.target.files;
     setImages(files[0]);
-    console.log(files);
+    // console.log(files);
 
     if (files.length === 0) return;
     for (let i = 0; i < files.length; i++) {
@@ -184,7 +185,7 @@ const UpdateProperties = () => {
     event.preventDefault();
     const files = event.target.files;
     setFloorImages(files[0]);
-    console.log(files);
+    // console.log(files);
     if (files.length === 0) return;
     for (let i = 0; i < files.length; i++) {
       if (files[i].type.split("/")[0] !== "image") continue;
@@ -235,13 +236,13 @@ const UpdateProperties = () => {
 
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = async (data) => {
-    console.log(data);
+    // console.log(data);
     const imageFile = { image: images };
     const res = await axiosPublic.post(image_hosting_api, imageFile, {
       headers: { "Content-Type": "multipart/form-data" },
     });
     const img = res.data.data.url;
-    console.log(img);
+    // console.log(img);
     if (res.data) {
       // console.log(res.data.data)
       setImages(img);
@@ -252,7 +253,7 @@ const UpdateProperties = () => {
       headers: { "Content-Type": "multipart/form-data" },
     });
     const floorPlanIMG = resfloor.data.data.url;
-    console.log(floorPlanIMG);
+    // console.log(floorPlanIMG);
     if (res.data) {
       // console.log(res.data.data)
       setFloorImages(floorPlanIMG);
@@ -299,18 +300,18 @@ const UpdateProperties = () => {
       },
     };
     console.log(newProperty);
-    // axiosPublic.patch("/properties", newProperty).then((res) => {
-    //   console.log(res.data);
-    //   if (res.data) {
-    //     Swal.fire(
-    //       `Hey ${user.displayName}, Your property updated successfully`
-    //     );
-    //     refetch();
-    //     setShowImages([]);
-    //     setShowFloorImages([]);
-    //     reset();
-    //   }
-    // });
+    axiosPublic.patch(`/properties/${loaderProperty[0]._id}`, newProperty).then((res) => {
+      console.log(res.data);
+      if (res.data) {
+        Swal.fire(
+          `Hey ${user.displayName}, Your property updated successfully`
+        );
+        refetch();
+        setShowImages([]);
+        setShowFloorImages([]);
+        reset();
+      }
+    });
   };
 
 
