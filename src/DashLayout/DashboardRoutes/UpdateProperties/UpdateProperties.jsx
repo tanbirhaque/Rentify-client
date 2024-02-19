@@ -268,7 +268,8 @@ const UpdateProperties = () => {
         },
         ownership_duration: data.ownership,
         property_for: data.status,
-        verify_status: "pending",
+        // I'm adding verify_status "verified" by deafault but if u need the current verified status u can use loaderProperty for current verify_status - [Sadia]
+        verify_status: "verified",
         property_img: img,
         property_title: data.title,
         property_category: data.property,
@@ -301,7 +302,7 @@ const UpdateProperties = () => {
     };
     console.log(newProperty);
     axiosPublic.patch(`/properties/${loaderProperty[0]._id}`, newProperty).then((res) => {
-      console.log(res.data);
+      // console.log(res.data);
       if (res.data) {
         Swal.fire(
           `Hey ${user.displayName}, Your property updated successfully`
