@@ -18,7 +18,7 @@ const SocialLogin = () => {
           name: response.user.displayName,
           email: response.user.email,
           image: response.user.photoURL,
-          role: "User",
+          role: "user",
         };
         console.log(response.user);
         Swal.fire({
