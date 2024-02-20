@@ -17,7 +17,7 @@ import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 import useBlogsComment from "../../../Hooks/useBlogsComment";
 import CommentForm from "./CommentForm";
-import ButtonBlue from "../../Shared/buttons/Blue/ButtonBlue";
+import ButtonRed from "../../Shared/buttons/Red/ButtonRed";
 import CommentReplyForm from "./CommentReplyForm";
 import { useState } from "react";
 import useCommentsReply from "../../../Hooks/useCommentsReply";
@@ -223,11 +223,13 @@ const Blogdetails = () => {
                 <div>
                   {/* main comment part */}
                   <div className=" flex md:flex-row flex-col justify-start items-center gap-8 mb-2">
+                    {/* main comment photo part */}
                     <img
                       className="h-28 w-28 rounded-full"
                       src={comment?.img}
                       alt=""
                     />
+                    {/* main comments name, date and message part */}
                     <div className=" w-full">
                       <div className=" flex justify-between">
                         <div>
@@ -237,8 +239,8 @@ const Blogdetails = () => {
                           <p className=" text-gray-400 mb-3">{comment?.date}</p>
                         </div>
                         <div>
-                          <button onClick={() => setShowReply(comment._id)} className=" rounded px-7 py-2 mt-3 bg-[#EC3323] hover:bg-[#002172] text-white">
-                            Reply
+                          <button onClick={() => setShowReply(comment._id)}>
+                            <ButtonRed titleRed={`Reply`}></ButtonRed>
                           </button>
                         </div>
                       </div>
@@ -251,10 +253,41 @@ const Blogdetails = () => {
                 {/* comments reply part */}
                 <div className=" w-[80%] mx-auto">
                   {
-                    commentsReply.map((item) => {
+                    commentsReply.map((item) => (
                       <div key={item._id}>
+                        {/* total replays get*/}
+                        {
+                          item.commentId == comment._id ?
+                            <div>
+                              <h2 className=" text-xl font-bold mb-3 mt-1">Reply Comments</h2>
+                              <div className=" flex md:flex-row flex-col justify-start items-center gap-3 mb-2">
+                                {/* reply photo part */}
+                                <img
+                                  className="h-12 w-12 rounded-full"
+                                  src={item?.replierPhoto}
+                                  alt=""
+                                />
+                                {/* name, date and message part */}
+                                <div className=" w-full">
+                                  <div className=" flex justify-between">
+                                    <div>
+                                      <h2 className=" font-bold">
+                                        {item?.replierName}
+                                      </h2>
+                                      <p className=" text-gray-400 text-sm">{item?.date}</p>
+                                    </div>
+                                  </div>
+                                  <p className="leading-5 text-sm text-gray-400">
+                                    {item?.message}
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            :
+                            ""
+                        }
                       </div>
-                    })
+                    ))
                   }
                 </div>
                 {/* CommentReplyForm section */}

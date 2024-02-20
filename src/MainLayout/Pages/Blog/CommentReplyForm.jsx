@@ -3,8 +3,10 @@ import ButtonBlue from "../../Shared/buttons/Blue/ButtonBlue";
 import useAuth from "../../../Hooks/useAuth";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
+import useCommentsReply from "../../../Hooks/useCommentsReply";
 
-const CommentReplyForm = ({ comment, refetch }) => {
+const CommentReplyForm = ({ comment }) => {
+    const [, refetch] = useCommentsReply();
     const axiosPublic = useAxiosPublic()
     const { user } = useAuth()
     console.log(comment)
@@ -13,6 +15,7 @@ const CommentReplyForm = ({ comment, refetch }) => {
         console.log(data)
         if (user) {
             const commentsReply = {
+                commentId: comment._id,
                 replierName: user?.displayName,
                 replierEmail: user?.email,
                 replierPhoto: user?.photoURL,
@@ -23,11 +26,11 @@ const CommentReplyForm = ({ comment, refetch }) => {
             axiosPublic.post("/commentsReply", commentsReply).then((res) => {
                 console.log(res.data);
                 if (res.data) {
+                    refetch();
                     Swal.fire(
                         `Hey ${user?.displayName}! Your comment Reply is successfully send`
                     );
                     reset();
-                    refetch();
                 }
             });
         } else {
@@ -49,6 +52,7 @@ const CommentReplyForm = ({ comment, refetch }) => {
                     <input
                         {...register("message")}
                         placeholder="type your reply*"
+                        required
                         className="py-3 bg-[#f1f0f0] rounded-md px-5 w-[70%]"
                     />
                     <ButtonBlue titleBlue={`send reply`}></ButtonBlue>
