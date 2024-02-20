@@ -1,6 +1,5 @@
 // This page make by Roknuzzaman sajib
 // all fixed & full page created been responsive
-
 import {
   FaComment,
   FaFacebook,
@@ -18,51 +17,23 @@ import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 import useBlogsComment from "../../../Hooks/useBlogsComment";
 import CommentForm from "./CommentForm";
+import ButtonBlue from "../../Shared/buttons/Blue/ButtonBlue";
+import CommentReplyForm from "./CommentReplyForm";
+import { useState } from "react";
+import useCommentsReply from "../../../Hooks/useCommentsReply";
 
 const Blogdetails = () => {
   // const { user } = useAuth();
   // const axiosPublic = useAxiosPublic();
+  const [showReply, setShowReply] = useState("")
+  // console.log(showReply)
   const blogs = useLoaderData();
   const [comments, refetch] = useBlogsComment();
+  const [commentsReply] = useCommentsReply();
+  console.log(commentsReply)
   const { id } = useParams();
   const blog = blogs.find((item) => item._id == id);
   const newComments = comments.filter((item) => item.blogId == blog._id);
-
-  // const { register, handleSubmit, reset } = useForm();
-
-  //condition of user needed to comment
-
-  const onSubmit = (data) => {
-    if (user) {
-      const newComment = {
-        name: data.name,
-        email: data.email,
-        img: user?.photoURL,
-        blogTitle: blog?.title,
-        subject: data.subject,
-        message: data.message,
-        blogId: blog._id,
-        date: new Date().toLocaleDateString("en-GB"),
-      };
-      console.log(newComment);
-      axiosPublic.post("/comments", newComment).then((res) => {
-        console.log(res.data);
-        if (res.data) {
-          Swal.fire(`Hey ${user?.displayName} your comment Successfully send`);
-          reset();
-        }
-      });
-    } else {
-      // this login will allow user to add booking for their desired property only if they are user.
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Looks like you're not logged in!",
-        footer: `<a href='/login' className='font-bold underline'>Please Log In</a>`,
-        showConfirmButton: false,
-      });
-    }
-  };
 
   return (
     <div>
@@ -81,12 +52,6 @@ const Blogdetails = () => {
                 Home
               </NavLink>
               <NavLink
-                to="/blogs"
-                className="navAfter relative font-medium text-base text-white mx-3"
-              >
-                Blogs
-              </NavLink>
-              <NavLink
                 to={`/blogs/${blog._id}`}
                 className="navAfter relative font-medium text-base text-white mx-3 "
               >
@@ -98,7 +63,7 @@ const Blogdetails = () => {
       </div>
       <div className="max-w-screen-2xl mx-auto">
         <div className=" w-[80%] mx-auto my-28">
-          {/* Detais part */}
+          {/* Details part */}
           <img
             className="w-full md:h-[600px] h-[400px]"
             src={blog?.img}
@@ -254,32 +219,54 @@ const Blogdetails = () => {
             </h2>
             {/* Comment */}
             {newComments.map((comment) => (
-              <div
-                key={comment._id}
-                className="border-b flex md:flex-row flex-col justify-start items-center gap-8 py-6 px-5 my-7"
-              >
-                <img
-                  className="h-28 w-28 rounded-full"
-                  src={comment?.img}
-                  alt=""
-                />
+              <div key={comment._id} className="border-b py-6 px-5 my-7">
                 <div>
-                  <div className=" flex justify-between">
-                    <div>
-                      <h2 className=" text-3xl font-bold mb-1">
-                        {comment?.name}
-                      </h2>
-                      <p className=" text-gray-400 mb-3">{comment?.date}</p>
-                    </div>
-                    <div>
-                      <button className=" rounded px-7 py-2 mt-3 bg-[#EC3323] hover:bg-[#002172] text-white">
-                        Reply
-                      </button>
+                  {/* main comment part */}
+                  <div className=" flex md:flex-row flex-col justify-start items-center gap-8 mb-2">
+                    <img
+                      className="h-28 w-28 rounded-full"
+                      src={comment?.img}
+                      alt=""
+                    />
+                    <div className=" w-full">
+                      <div className=" flex justify-between">
+                        <div>
+                          <h2 className=" text-3xl font-bold mb-1">
+                            {comment?.name}
+                          </h2>
+                          <p className=" text-gray-400 mb-3">{comment?.date}</p>
+                        </div>
+                        <div>
+                          <button onClick={() => setShowReply(comment._id)} className=" rounded px-7 py-2 mt-3 bg-[#EC3323] hover:bg-[#002172] text-white">
+                            Reply
+                          </button>
+                        </div>
+                      </div>
+                      <p className=" leading-8 text-xl text-gray-400">
+                        {comment?.message}
+                      </p>
                     </div>
                   </div>
-                  <p className=" leading-8 text-xl text-gray-400">
-                    {comment?.message}
-                  </p>
+                </div>
+                {/* comments reply part */}
+                <div className=" w-[80%] mx-auto">
+                  {
+                    commentsReply.map((item) => {
+                      <div key={item._id}>
+                      </div>
+                    })
+                  }
+                </div>
+                {/* CommentReplyForm section */}
+                < div >
+                  {
+                    showReply == comment._id ?
+                      <CommentReplyForm
+                        comment={comment}
+                        refetch={refetch}>
+                      </CommentReplyForm>
+                      : ""
+                  }
                 </div>
               </div>
             ))}
@@ -295,8 +282,8 @@ const Blogdetails = () => {
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      </div >
+    </div >
   );
 };
 
