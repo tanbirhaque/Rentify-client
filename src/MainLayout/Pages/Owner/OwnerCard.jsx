@@ -6,6 +6,7 @@ import {
   FaLinkedinIn,
   FaTwitter,
 } from "react-icons/fa";
+import { IoChatbubbleEllipsesOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
 const OwnerCard = ({ owner }) => {
@@ -57,6 +58,12 @@ const OwnerCard = ({ owner }) => {
           <div className="btn btn-circle text-lg bg-white text-[#002172] shadow-xl hover:text-white hover:bg-[#ec3323] hover:-mt-1">
             <a href={linkedin}>
               <FaLinkedinIn />
+            </a>
+          </div>
+          {/* Chatting */}
+          <div className="btn btn-circle text-lg bg-white text-[#002172] shadow-xl hover:text-white hover:bg-[#ec3323] hover:-mt-1">
+            <a>
+              <IoChatbubbleEllipsesOutline className="w-5"/>
             </a>
           </div>
         </div>
