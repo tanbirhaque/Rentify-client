@@ -1,5 +1,4 @@
-// This AddProperties page design by Sadia
-// And AddProperties post crud operation added by sojib
+// This AddProperties page is designed by Sadia
 import { useContext, useRef, useState } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
@@ -20,7 +19,7 @@ const AddProperties = () => {
   const image_hosting_api =
     "https://api.imgbb.com/1/upload?key=041c88632a7cf1ed57bab64c7c558177";
 
-  // This code from line 19 to line 130 is done by [ sojib ] for react select the option and value of the select field for property tags, property featuries and image drag drop.
+  // This code from line 19 to line 130 for react select the option and value of the select field for property tags, property featuries and image drag drop.
 
   // multiple tags and features functionality [25 to 78]
   const [tagValue, setTagValue] = useState([]);
@@ -120,7 +119,7 @@ const AddProperties = () => {
     setIsDragging(false)
     const files = event.dataTransfer.files;
     setImages(files[0])
-    // TODO: This comment by sojib for doing multiple drag and drop  image hosting please don't uncomment it
+
     for (let i = 0; i < files.length; i++) {
       if (files[i].type.split('/')[0] !== 'image') continue;
       if (!showImages.some((e) => e.name === files[i].name)) {
@@ -177,7 +176,7 @@ const AddProperties = () => {
     setIsFloorDragging(false)
     const files = event.dataTransfer.files;
     setFloorImages(files[0])
-    // TODO: This comment by sojib for doing multiple drag and drop  image hosting please don't uncomment it
+
     for (let i = 0; i < files.length; i++) {
       if (files[i].type.split('/')[0] !== 'image') continue;
       if (!showFloorImages.some((e) => e.name === files[i].name)) {
@@ -192,7 +191,6 @@ const AddProperties = () => {
     }
   }
 
-  // This react hook onsubmit added by [sojib] and all input file update into react hook file
   const {
     register,
     handleSubmit,
@@ -231,7 +229,7 @@ const AddProperties = () => {
         },
         ownership_duration: data.ownership,
         property_for: data.status,
-        verify_status: "pending",  // Ex: [verify_status: "pending" / "verified" / "declined"] => This status is changed from boolean value to string for managing the property verification feature from the admin dashboard. -by Tanbir
+        verify_status: "pending",  // Ex: [verify_status: "pending" / "verified" / "declined"] => This status is changed from boolean value to string for managing the property verification feature from the admin dashboard. 
         property_img: img,
         property_title: data.title,
         property_category: data.property,
@@ -556,7 +554,7 @@ const AddProperties = () => {
                     </span>
                   </label>
                   <label className="input-group ">
-                    {/* This select field implemented by sojib for find multiple tags*/}
+                    {/* This select field for find multiple tags*/}
                     <Select
                       {...register("tags")}
                       value={tagValue}
@@ -669,7 +667,7 @@ const AddProperties = () => {
                     </span>
                   </label>
                   <label className="input-group ">
-                    {/* This select field implemented by sojib for find multiple property features */}
+                    {/* This select field for find multiple property features */}
                     <Select
                       {...register("feature")}
                       value={featureValue}
@@ -698,7 +696,7 @@ const AddProperties = () => {
                       Property Image
                     </span>
                   </label>
-                  {/* this field updated to drag and drop option by sojib [ 632 to 663 line] */}
+                  {/* this field updated to drag and drop option */}
                   {showImages[0] ?
                     <div className=" flex justify-center flex-wrap items-center gap-2 border-2 rounded-md p-3">
                       {
@@ -740,7 +738,7 @@ const AddProperties = () => {
                       Floor plan image
                     </span>
                   </label>
-                  {/* this field updated to drag and drop option by sojib [ 632 to 663 line] */}
+                  {/* this field updated to drag and drop option */}
                   {showFloorImages[0] ?
                     <div className=" flex justify-center flex-wrap items-center gap-2 border-2 rounded-md p-3 ">
                       {

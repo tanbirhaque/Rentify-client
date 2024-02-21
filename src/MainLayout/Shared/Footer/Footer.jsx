@@ -1,22 +1,25 @@
 import './Footer.css'
+import logo from '../../../assets/Template_files/logo twoo.png'
 
 const Footer = () => {
     return (
-        <div className="bg-[#f9f9f9]">
-        <footer className="text-gray-600 body-font">
+        <div className="bg-[#f9f9f9]"
+        style={{
+            background: "url('https://angular.hibootstrap.com/enuf/assets/img/shape-2.png')",
+            backgroundColor: "#002172",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover"
+          }}>
+        <footer className="text-white body-font">
           <div className="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
             <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
-              <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
-                <img
-                  className="mr-3"
-                  src="https://i.ibb.co/GsQpf2D/logo.png"
-                  alt="Website Logo Png from imgbb"
-                />
-                <span className="font-bold poppins-font text-[38px]">
-                  Renti<span className="text-[#002172]">fy</span>
+              <a className="flex title-font font-medium items-center md:justify-start justify-center text-white-900">
+                <img src={logo} alt="" />
+                <span className="font-bold text-white poppins-font text-[38px]">
+                  Renti<span className="">fy</span>
                 </span>
               </a>
-              <p className="mt-2 lg:text-lg text-sm font-medium text-gray-700">
+              <p className="mt-2 lg:text-lg text-sm font-medium text-white">
                 Rentify is one of the best and trusted real estate service provider for rent and sale property. 
               </p>
               <h2 className="pt-5 text-2xl font-bold">Language</h2>
@@ -28,22 +31,22 @@ const Footer = () => {
                 </h2>
                 <nav className="list-none mb-10">
                   <li>
-                    <a className="text-gray-600 hover:text-gray-800 text-sm font-medium">
+                    <a className="text-white-600 hover:text-white-800 text-sm font-medium">
                     New York
                     </a>
                   </li>
                   <li>
-                    <a className="text-gray-600 hover:text-gray-800 text-sm font-medium">
+                    <a className="text-white-600 hover:text-white-800 text-sm font-medium">
                     Sydney
                     </a>
                   </li>
                   <li>
-                    <a className="text-gray-600 hover:text-gray-800 text-sm font-medium">
+                    <a className="text-white-600 hover:text-white-800 text-sm font-medium">
                     Dubai
                     </a>
                   </li>
                   <li>
-                    <a className="text-gray-600 hover:text-gray-800 text-sm font-medium">
+                    <a className="text-white-600 hover:text-white-800 text-sm font-medium">
                     Florida
                     </a>
                   </li>
@@ -55,22 +58,22 @@ const Footer = () => {
                 </h2>
                 <nav className="list-none mb-10">
                   <li>
-                    <a className="text-gray-600 hover:text-gray-800 text-sm font-medium">
+                    <a className="text-white-600 hover:text-white-800 text-sm font-medium">
                       How We Work
                     </a>
                   </li>
                   <li>
-                    <a className="text-gray-600 hover:text-gray-800 text-sm font-medium">
+                    <a className="text-white-600 hover:text-white-800 text-sm font-medium">
                       Our Team
                     </a>
                   </li>
                   <li>
-                    <a className="text-gray-600 hover:text-gray-800 text-sm font-medium">
+                    <a className="text-white-600 hover:text-white-800 text-sm font-medium">
                       Help Center
                     </a>
                   </li>
                   <li>
-                    <a className="text-gray-600 hover:text-gray-800 text-sm font-medium">
+                    <a className="text-white-600 hover:text-white-800 text-sm font-medium">
                       Privacy Policy
                     </a>
                   </li>
@@ -82,22 +85,22 @@ const Footer = () => {
                 </h2>
                 <nav className="list-none mb-10">
                   <li>
-                    <a className="text-gray-600 hover:text-gray-800 text-sm font-medium">
+                    <a className="text-white-600 hover:text-white-800 text-sm font-medium">
                       Phone: +1 123-456-7890
                     </a>
                   </li>
                   <li>
-                    <a className="text-gray-600 hover:text-gray-800 text-sm font-medium">
+                    <a className="text-white-600 hover:text-white-800 text-sm font-medium">
                       Email: @rentify.com
                     </a>
                   </li>
                   <li>
-                    <a className="text-gray-600 hover:text-gray-800 text-sm font-medium">
+                    <a className="text-white-600 hover:text-white-800 text-sm font-medium">
                       Address: 123 Main Street
                     </a>
                   </li>
                   <li>
-                    <a className="text-gray-600 hover:text-gray-800 text-sm font-medium">
+                    <a className="text-white-600 hover:text-white-800 text-sm font-medium">
                       Bussiness Hours: 24/7
                     </a>
                   </li>
@@ -109,22 +112,22 @@ const Footer = () => {
                 </h2>
                 <nav className="list-none mb-10">
                   <li>
-                    <a className="text-gray-600 hover:text-gray-800 text-sm font-medium">
+                    <a className="text-white-600 hover:text-white-800 text-sm font-medium">
                       Buildings
                     </a>
                   </li>
                   <li>
-                    <a className="text-gray-600 hover:text-gray-800 text-sm font-medium">
+                    <a className="text-white-600 hover:text-white-800 text-sm font-medium">
                       Office Space
                     </a>
                   </li>
                   <li>
-                    <a className="text-gray-600 hover:text-gray-800 text-sm font-medium">
+                    <a className="text-white-600 hover:text-white-800 text-sm font-medium">
                       Apartments
                     </a>
                   </li>
                   <li>
-                    <a className="text-gray-600 hover:text-gray-800 text-sm font-medium">
+                    <a className="text-white-600 hover:text-white-800 text-sm font-medium">
                       Houses
                     </a>
                   </li>
@@ -132,7 +135,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className="bg-gray-100">
+          <div className="bg-white-100">
             <div className="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
               <p className="text-black text-sm text-center sm:text-left font-semibold">
                 © 2024 Rentify —
