@@ -26,7 +26,7 @@ const Details = () => {
   // console.log(saved);
 
   // saved properties find for bookmark design and So that the user cannot add a property more than once this function added by sojib
-  const findSaved = saved.find((save) => save.property._id == item._id);
+  const findSaved = saved.find((save) => save.property._id == item?._id);
   // console.log(findSaved);
 
   //destructure

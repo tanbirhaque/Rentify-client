@@ -252,6 +252,7 @@ const Blogdetails = () => {
                 </div>
                 {/* comments reply part */}
                 <div className=" w-[80%] mx-auto">
+                  <h2 className=" text-xl font-bold mb-3 mt-1">Reply Comments</h2>
                   {
                     commentsReply.map((item) => (
                       <div key={item._id}>
@@ -259,7 +260,6 @@ const Blogdetails = () => {
                         {
                           item.commentId == comment._id ?
                             <div>
-                              <h2 className=" text-xl font-bold mb-3 mt-1">Reply Comments</h2>
                               <div className=" flex md:flex-row flex-col justify-start items-center gap-3 mb-2">
                                 {/* reply photo part */}
                                 <img

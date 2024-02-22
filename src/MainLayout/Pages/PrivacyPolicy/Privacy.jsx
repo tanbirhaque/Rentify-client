@@ -13,6 +13,7 @@ const Privacy = () => {
         
     </Helmet>
         <div>
+            {/* banner section */}
             <div className="privacybgimg">
                 <div className=" bg-[#000000B2]">
                     <div className=" max-w-screen-2xl mx-auto py-24">
@@ -24,9 +25,10 @@ const Privacy = () => {
                     </div>
                 </div>
             </div>
+            {/* body section */}
             <div className="lg:max-w-screen-2xl w-11/12 mx-auto my-32">
                 <div>
-                    {/* Informaion Collection */}
+                    {/* Information Collection */}
                     <h3 className=" text-3xl font-bold mb-6">Information Collection</h3>
                     <p className="text-xl space-y-5 text-gray-500"> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maxime nulla minus quasi. Voluptatem, company name saepe ullam autem magni quod sint tempore, eius molestias aliquam debitis. Neque saepe dignissimos repudiandae fuga.
                         <br /> <br />
