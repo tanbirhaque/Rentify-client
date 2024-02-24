@@ -62,15 +62,15 @@ const Blogdetails = () => {
         </div>
       </div>
       <div className="max-w-screen-2xl mx-auto">
-        <div className=" w-[80%] mx-auto my-28">
+        <div className=" w-[70%] mx-auto my-28">
           {/* Details part */}
           <img
-            className="w-full md:h-[600px] h-[400px]"
+            className="w-full md:h-[650px] h-[400px]"
             src={blog?.img}
             alt=""
           />
           <div>
-            <div className=" flex items-center justify-start gap-7 mt-7">
+            <div className=" flex flex-row justify-start items-center gap-7 mt-7">
               <p className=" text-xl flex items-center justify-center gap-2">
                 <FaRegCalendarAlt className=" text-red-500"></FaRegCalendarAlt>
                 <span className=" hover:text-red-500">{blog?.date}</span>
