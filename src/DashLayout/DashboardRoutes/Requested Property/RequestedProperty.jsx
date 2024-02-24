@@ -158,7 +158,6 @@ const RequestedProperty = () => {
                   <ReqCard_mod
                     key={requestedProperty._id}
                     requestedProperties={requestedProperty}
-                    refetch={refetch}
                   />
                   // <RequestCard
                   //   key={requestedProperty._id}
