@@ -6,14 +6,22 @@ import InputEmoji from 'react-input-emoji'
 import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 
-const Chatbox = ({ chat, currentUserId, setSendMessage }) => {
+const Chatbox = ({ chat, currentUserId, setSendMessage, receiveMessage }) => {
     const axiosPublic = useAxiosPublic();
     const [userData, setUserData] = useState([])
     const [messages, setMessages] = useState(null)
     const [newMessage, setNewMessage] = useState("")
-    console.log(currentUserId);
+    // console.log(currentUserId);
     const userId = chat?.members?.find((id) => id !== currentUserId)
     // console.log(userId);
+
+    useEffect(() => {
+        if (receiveMessage !== null && receiveMessage.chatId === chat._id) {
+            console.log(receiveMessage);
+            setMessages([...messages, receiveMessage])
+        }
+    }, [receiveMessage])
+
     // get user by use fetch
     const url = `http://localhost:5000/users/find/${userId}`;
     useEffect(() => {
@@ -36,6 +44,7 @@ const Chatbox = ({ chat, currentUserId, setSendMessage }) => {
         }
         if (chat !== null) fetchMessages();
     }, [chat])
+
     const handleChange = (newMessage) => {
         setNewMessage(newMessage)
     }
@@ -57,8 +66,9 @@ const Chatbox = ({ chat, currentUserId, setSendMessage }) => {
                 })
         }
         const receiverId = chat?.members?.find((id) => id !== currentUserId)
-        setMessages({ ...message, receiverId })
+        setSendMessage({ ...message, receiverId })
     }
+
 
     return (
         <div>
@@ -81,7 +91,9 @@ const Chatbox = ({ chat, currentUserId, setSendMessage }) => {
                     <div className="chat-body">
                         {
                             messages?.map((message) => (
-                                <div key={message._id} className={message.senderId === currentUserId ? "message own" : "message"}>
+                                <div
+                                    key={message._id}
+                                    className={message.senderId === currentUserId ? "message own" : "message"}>
                                     <span>{message?.text}</span>
                                     <span>{format(message?.createdAt)}</span>
                                 </div>

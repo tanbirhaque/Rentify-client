@@ -16,12 +16,14 @@ const Chat = () => {
     const [currentChat, setCurrentChat] = useState(null)
     const [onlineUsers, setOnlineUsers] = useState([])
     const [sendMessage, setSendMessage] = useState(null)
+    const [receiveMessage, setReceiveMessage] = useState(null)
     const [users] = useAllUser();
     const { user } = useAuth();
     const socket = useRef();
     const currentUser = users.find((item) => item.email === user?.email)
     console.log(currentUser?._id);
 
+    // data send on socket io
     useEffect(() => {
         if (sendMessage !== null) {
             socket.current.emit("send-message", sendMessage)
@@ -37,6 +39,7 @@ const Chat = () => {
     }, [url])
     console.log(chats);
 
+    
     // socket io ref
     useEffect(() => {
         socket.current = io('http://localhost:8800')
@@ -45,7 +48,20 @@ const Chat = () => {
             setOnlineUsers(users)
         })
     }, [currentUser])
-    console.log(onlineUsers)
+
+    // received data on socket io
+    useEffect(() => {
+        socket.current.on("receive-message", (data) => {
+            console.log("data receive in parent chat.jsx", data);
+            setReceiveMessage(data)
+        })
+    }, [])
+
+    const checkOnlineStatus = (chat) => {
+        const chatMember = chat.members.find((member) => member !== currentUser?._id)
+        const online = onlineUsers.find((user) => user.userId === chatMember)
+        return online ? true : false
+    }
 
     return (
         <div className=' w-[86%] mx-auto my-10'>
@@ -62,6 +78,7 @@ const Chat = () => {
                                         <Conversation
                                             data={chat}
                                             currentUserId={currentUser?._id}
+                                            online={checkOnlineStatus(chat)}
                                         ></Conversation>
                                     </div>
                                 ))
@@ -90,6 +107,7 @@ const Chat = () => {
                             chat={currentChat}
                             currentUserId={currentUser?._id}
                             setSendMessage={setSendMessage}
+                            receiveMessage={receiveMessage}
                         ></Chatbox> :
                         <div className=' text-3xl font-bold text-center mt-5'>
                             Tap on a chat to start conversation
