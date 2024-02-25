@@ -1,28 +1,51 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import useAuth from '../../../Hooks/useAuth';
 import LogoSearch from '../../Shared/logoSearch/LogoSearch';
 import './Chat.css'
 import useAxiosPublic from '../../../Hooks/useAxiosPublic';
-import { useQuery } from '@tanstack/react-query';
 import useAllUser from '../../../Hooks/useAllUser';
 import Conversation from './Conversation';
+import { Link } from 'react-router-dom';
+import { CiSettings } from 'react-icons/ci';
+import Chatbox from './Chatbox/Chatbox';
+import { io } from "socket.io-client"
 
 const Chat = () => {
     const axiosPublic = useAxiosPublic()
+    const [chats, setChats] = useState([]);
+    const [currentChat, setCurrentChat] = useState(null)
+    const [onlineUsers, setOnlineUsers] = useState([])
+    const [sendMessage, setSendMessage] = useState(null)
     const [users] = useAllUser();
     const { user } = useAuth();
+    const socket = useRef();
     const currentUser = users.find((item) => item.email === user?.email)
     console.log(currentUser?._id);
-    const { data: chats = [], refetch } = useQuery({
-        queryKey: ['chats'],
-        queryFn: async () => {
-            // when data import from database then chage the url & use axios public 
-            const res = await axiosPublic.get(`/chat/${currentUser?._id}`)
-            console.log(res.data)
-            return res.data;
+
+    useEffect(() => {
+        if (sendMessage !== null) {
+            socket.current.emit("send-message", sendMessage)
         }
-    })
+    }, [sendMessage])
+
+    // get current users data by use fetch
+    const url = `http://localhost:5000/chat/${currentUser?._id}`;
+    useEffect(() => {
+        fetch(url)
+            .then(res => res.json())
+            .then(data => setChats(data))
+    }, [url])
     console.log(chats);
+
+    // socket io ref
+    useEffect(() => {
+        socket.current = io('http://localhost:8800')
+        socket.current.emit("new-user-add", currentUser?._id)
+        socket.current.on("get-users", (users) => {
+            setOnlineUsers(users)
+        })
+    }, [currentUser])
+    console.log(onlineUsers)
 
     return (
         <div className=' w-[86%] mx-auto my-10'>
@@ -35,7 +58,7 @@ const Chat = () => {
                         <div className="Chat-List">
                             {
                                 chats?.map((chat) => (
-                                    <div key={chat._id}>
+                                    <div key={chat._id} onClick={() => setCurrentChat(chat)}>
                                         <Conversation
                                             data={chat}
                                             currentUserId={currentUser?._id}
@@ -48,7 +71,30 @@ const Chat = () => {
                 </div>
                 {/* Right side */}
                 <div className="Right-side-chat">
-                    <h3>Right chats</h3>
+                    {/* Navbar in right side */}
+                    <div className=' flex justify-end'>
+                        <div className="navIcons flex justify-center items-center gap-10">
+                            <Link to="../home">
+                                <img src="https://i.ibb.co/n1Vkx0F/home.png" alt="" />
+                            </Link>
+                            <CiSettings className=' text-4xl from-bold' />
+                            <img src="https://i.ibb.co/HDSYmVM/noti.png" alt="" />
+                            <Link to="../chat">
+                                <img src="https://i.ibb.co/qswp6SB/comment.png" alt="" />
+                            </Link>
+                        </div>
+                    </div>
+                    {/* Chatbox */}
+                    {currentChat ?
+                        <Chatbox
+                            chat={currentChat}
+                            currentUserId={currentUser?._id}
+                            setSendMessage={setSendMessage}
+                        ></Chatbox> :
+                        <div className=' text-3xl font-bold text-center mt-5'>
+                            Tap on a chat to start conversation
+                        </div>
+                    }
                 </div>
             </div>
         </div>
