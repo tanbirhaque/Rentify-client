@@ -1,3 +1,4 @@
+// this is entirely made by Sadia
 import "./Footer.css";
 import logo from "../../../assets/Template_files/logo twoo.png";
 import { IoIosArrowDown } from "react-icons/io";
