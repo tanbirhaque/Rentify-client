@@ -62,7 +62,6 @@ const Chatbox = ({ chat, currentUserId, setSendMessage, receiveMessage }) => {
                     setMessages([...messages, res.data])
                     setNewMessage("")
                     console.log(res.data)
-                    Swal.fire("message send")
                 })
         }
         const receiverId = chat?.members?.find((id) => id !== currentUserId)

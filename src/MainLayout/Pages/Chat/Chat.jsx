@@ -48,7 +48,7 @@ const Chat = () => {
             setOnlineUsers(users)
         })
     }, [currentUser])
-
+    
     // received data on socket io
     useEffect(() => {
         socket.current.on("receive-message", (data) => {
