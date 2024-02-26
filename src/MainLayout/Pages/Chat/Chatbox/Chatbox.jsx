@@ -5,6 +5,7 @@ import { format } from "timeago.js";
 import InputEmoji from 'react-input-emoji'
 import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
+import ButtonRed from "../../../Shared/buttons/Red/ButtonRed";
 
 const Chatbox = ({ chat, currentUserId, setSendMessage, receiveMessage }) => {
     const axiosPublic = useAxiosPublic();
@@ -56,7 +57,7 @@ const Chatbox = ({ chat, currentUserId, setSendMessage, receiveMessage }) => {
             senderId: currentUserId,
             text: newMessage
         }
-        if (message) {
+        if (message.text) {
             axiosPublic.post("/message", message)
                 .then(res => {
                     setMessages([...messages, res.data])
@@ -79,7 +80,7 @@ const Chatbox = ({ chat, currentUserId, setSendMessage, receiveMessage }) => {
                             <div className="flex items-center gap-2">
                                 <img className="followerImage rounded-full h-[80px] w-[80px]" src={userData[0]?.image} alt="" />
                                 <div className="name flex flex-col" style={{ fontSize: "0.8rem" }}>
-                                    <span className=" text-2xl font-bold">{userData[0]?.name}</span>
+                                    <span className=" text-2xl text-white font-bold">{userData[0]?.name}</span>
                                 </div>
                             </div>
                         </div>
@@ -93,8 +94,8 @@ const Chatbox = ({ chat, currentUserId, setSendMessage, receiveMessage }) => {
                                 <div
                                     key={message._id}
                                     className={message.senderId === currentUserId ? "message own" : "message"}>
-                                    <span>{message?.text}</span>
-                                    <span>{format(message?.createdAt)}</span>
+                                    <span className=" font-bold cursor-default">{message?.text}</span>
+                                    <span className=" cursor-auto">{format(message?.createdAt)}</span>
                                 </div>
                             ))
                         }
@@ -105,9 +106,15 @@ const Chatbox = ({ chat, currentUserId, setSendMessage, receiveMessage }) => {
                         <InputEmoji
                             value={newMessage}
                             onChange={handleChange}
+                            placeholder="Type a message"
+                            fontSize={20}
+                            height={80}
                         ></InputEmoji>
-                        <div className=" btn btn-warning btn-outline" onClick={handleSend}>
-                            Send
+                        <div className=" btn" onClick={handleSend}>
+                        <ButtonRed
+                        titleRed={`Send`}
+                        >
+                        </ButtonRed>
                         </div>
                     </div>
                 </>

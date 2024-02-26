@@ -39,7 +39,7 @@ const Chat = () => {
     }, [url])
     console.log(chats);
 
-    
+
     // socket io ref
     useEffect(() => {
         socket.current = io('http://localhost:8800')
@@ -48,7 +48,7 @@ const Chat = () => {
             setOnlineUsers(users)
         })
     }, [currentUser])
-    
+
     // received data on socket io
     useEffect(() => {
         socket.current.on("receive-message", (data) => {
@@ -65,13 +65,13 @@ const Chat = () => {
 
     return (
         <div className=' w-[86%] mx-auto my-10'>
-            <div className="Chat">
+            <div className="flex md:flex-row flex-col justify-start items-start gap-8">
                 {/* left side */}
-                <div className="Left-side-chat">
-                    <LogoSearch></LogoSearch>
+                <div className="Left-side-chat w-[18%] h-screen p-4 rounded-xl bg-[#bd3226]">
+                    {/* <LogoSearch></LogoSearch> */}
                     <div className="Chat-container">
-                        <h2>Left chats</h2>
-                        <div className="Chat-List">
+                        <h2 className=' text-2xl font-bold mt-4 mb-2 text-center font-mono'>Users</h2>
+                        <div className="Chat-list conversation">
                             {
                                 chats?.map((chat) => (
                                     <div key={chat._id} onClick={() => setCurrentChat(chat)}>
@@ -87,9 +87,9 @@ const Chat = () => {
                     </div>
                 </div>
                 {/* Right side */}
-                <div className="Right-side-chat">
+                <div className="Right-side-chat w-[80%] h-screen p-8 rounded-xl bg-[#002172]">
                     {/* Navbar in right side */}
-                    <div className=' flex justify-end'>
+                    {/* <div className=' flex justify-end'>
                         <div className="navIcons flex justify-center items-center gap-10">
                             <Link to="../home">
                                 <img src="https://i.ibb.co/n1Vkx0F/home.png" alt="" />
@@ -100,7 +100,7 @@ const Chat = () => {
                                 <img src="https://i.ibb.co/qswp6SB/comment.png" alt="" />
                             </Link>
                         </div>
-                    </div>
+                    </div> */}
                     {/* Chatbox */}
                     {currentChat ?
                         <Chatbox
@@ -109,8 +109,19 @@ const Chat = () => {
                             setSendMessage={setSendMessage}
                             receiveMessage={receiveMessage}
                         ></Chatbox> :
-                        <div className=' text-3xl font-bold text-center mt-5'>
-                            Tap on a chat to start conversation
+                        <div className=' flex flex-col justify-center items-center gap-5 text-3xl font-bold mt-60 text-white'>
+                            <div className="flex items-center bg-white p-4  w-60 rounded-md">
+                                <img
+                                    className="w-[60px]"
+                                    src="https://i.ibb.co/GsQpf2D/logo.png"
+                                />
+                                <h4 className="font-bold poppins-font text-2xl lg:text-[38px] ml-2 text-[#002172]">
+                                    Renti<span className="text-[#e33226]">fy</span>
+                                </h4>
+                            </div>
+                            <div>
+                                Tap on a users to start conversation
+                            </div>
                         </div>
                     }
                 </div>
