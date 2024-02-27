@@ -1,4 +1,4 @@
-/* .Chat {
+.Chat {
   position: relative;
   display: grid;
   grid-template-columns: 22% auto;
@@ -49,7 +49,16 @@
 }
 
 .online-dot {
-  background-color: greenyellow;
+  background-color: rgb(169, 253, 43);
+  border-radius: 50%;
+  position: absolute;
+  left: 2rem;
+  width: 1rem;
+  height: 1rem;
+}
+
+.offline-dot {
+  background-color: rgb(247, 14, 14);
   border-radius: 50%;
   position: absolute;
   left: 2rem;
@@ -74,4 +83,4 @@
   .follower.conversation>div>.name {
     display: none;
   }
-} */
+}

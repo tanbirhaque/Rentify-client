@@ -7,18 +7,38 @@ import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 import ButtonRed from "../../../Shared/buttons/Red/ButtonRed";
 
-const Chatbox = ({ chat, currentUserId, setSendMessage, receiveMessage }) => {
+const Chatbox = ({ chat, currentUserId, setSendMessage, receiveMessage, chats, onlineUsers }) => {
     const axiosPublic = useAxiosPublic();
     const [userData, setUserData] = useState([])
+    const [online, setOnline] = useState(false)
     const [messages, setMessages] = useState(null)
     const [newMessage, setNewMessage] = useState("")
     // console.log(currentUserId);
     const userId = chat?.members?.find((id) => id !== currentUserId)
     // console.log(userId);
+    console.log(online);
+
+    // online offline condition
+    // const chatMember = chat.members.find((member) => member !== currentUser?._id)
+    // const online = onlineUsers.find((user) => user.userId === chatMember)
+    // return online ? true : false
+
+    const checkOnlineStatus = (chat) => {
+        const chatMember = chat.members.find((member) => member !== currentUserId)
+        const online = onlineUsers.find((user) => user.userId === chatMember)
+        setOnline(online)
+    }
+
+    useEffect(() => {
+        chats.map((chat) => (
+            checkOnlineStatus(chat)
+        ))
+    }, [chats])
+
 
     useEffect(() => {
         if (receiveMessage !== null && receiveMessage.chatId === chat._id) {
-            console.log(receiveMessage);
+            // console.log(receiveMessage)
             setMessages([...messages, receiveMessage])
         }
     }, [receiveMessage])
@@ -78,13 +98,23 @@ const Chatbox = ({ chat, currentUserId, setSendMessage, receiveMessage }) => {
                         {/* Chatbox header */}
                         <div className="follower">
                             <div className="flex items-center gap-2">
-                                <img className="followerImage rounded-full h-[80px] w-[80px]" src={userData[0]?.image} alt="" />
+                                <img className="followerImage rounded-full h-[50px] w-[50px]" src={userData[0]?.image} alt="" />
                                 <div className="name flex flex-col" style={{ fontSize: "0.8rem" }}>
-                                    <span className=" text-2xl text-white font-bold">{userData[0]?.name}</span>
+                                    <span className="text-xl font-bold">{userData[0]?.name}</span>
+                                    {online ?
+                                        <div className=" flex items-center gap-1">
+                                            <div className=" bg-[#A9FD2B] h-[15px] w-[15px] rounded-full"></div>
+                                            <h2 className=" font-bold ">online</h2>
+                                        </div>
+                                        : <div className="flex items-center gap-1">
+                                            <div className=" bg-red-500 h-[15px] w-[15px] rounded-full"></div>
+                                            <h2 className=" font-bold">offline</h2>
+                                        </div>
+                                    }
                                 </div>
                             </div>
                         </div>
-                        <hr className=" w-[85%] mx-auto border-2 mt-2" />
+                        <hr className=" mx-auto mt-2" />
                     </div>
                     {/* Chat message */}
                     {/* own chat */}
@@ -93,13 +123,14 @@ const Chatbox = ({ chat, currentUserId, setSendMessage, receiveMessage }) => {
                             messages?.map((message) => (
                                 <div
                                     key={message._id}
-                                    className={message.senderId === currentUserId ? "message own" : "message"}>
+                                    className={message?.senderId === currentUserId ? "message own" : "message"}>
                                     <span className=" font-bold cursor-default">{message?.text}</span>
                                     <span className=" cursor-auto">{format(message?.createdAt)}</span>
                                 </div>
                             ))
                         }
                     </div>
+
                     {/* chat sender */}
                     <div className="chat-sender">
                         <div>+</div>
@@ -111,10 +142,10 @@ const Chatbox = ({ chat, currentUserId, setSendMessage, receiveMessage }) => {
                             height={80}
                         ></InputEmoji>
                         <div className=" btn" onClick={handleSend}>
-                        <ButtonRed
-                        titleRed={`Send`}
-                        >
-                        </ButtonRed>
+                            <ButtonRed
+                                titleRed={`Send`}
+                            >
+                            </ButtonRed>
                         </div>
                     </div>
                 </>

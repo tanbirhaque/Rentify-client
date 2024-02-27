@@ -9,6 +9,8 @@ import { Link } from 'react-router-dom';
 import { CiSettings } from 'react-icons/ci';
 import Chatbox from './Chatbox/Chatbox';
 import { io } from "socket.io-client"
+import { FaFacebookMessenger } from 'react-icons/fa';
+import useGetRole from '../../../Hooks/useGetRole';
 
 const Chat = () => {
     const axiosPublic = useAxiosPublic()
@@ -18,6 +20,8 @@ const Chat = () => {
     const [sendMessage, setSendMessage] = useState(null)
     const [receiveMessage, setReceiveMessage] = useState(null)
     const [users] = useAllUser();
+    const [userRole] = useGetRole();
+    const { role } = userRole || {};
     const { user } = useAuth();
     const socket = useRef();
     const currentUser = users.find((item) => item.email === user?.email)
@@ -64,14 +68,20 @@ const Chat = () => {
     }
 
     return (
-        <div className=' w-[86%] mx-auto my-10'>
+        <div className=' w-[95%] mx-auto my-10'>
+            <h2 className=' text-xl font-bold ml-3 my-3'>Chat box</h2>
             <div className="flex md:flex-row flex-col justify-start items-start gap-8">
                 {/* left side */}
-                <div className="Left-side-chat w-[18%] h-screen p-4 rounded-xl bg-[#bd3226]">
+                <div className="Left-side-chat border-2 w-[25%] h-screen p-4 rounded-xl">
                     {/* <LogoSearch></LogoSearch> */}
                     <div className="Chat-container">
-                        <h2 className=' text-2xl font-bold mt-4 mb-2 text-center font-mono'>Users</h2>
-                        <div className="Chat-list conversation">
+                        {/* current user profile */}
+                        <div className=' flex flex-col items-center justify-center border-b-'>
+                            <img className=' h-[90px] w-[90px] rounded-full' src={user?.photoURL} alt="" />
+                            <h2 className=' font-bold my-2'>{user?.displayName}</h2>
+                            <h3 className=' text-slate-400'>{role}</h3>
+                        </div>
+                        <div className="Chat-list mt-2">
                             {
                                 chats?.map((chat) => (
                                     <div key={chat._id} onClick={() => setCurrentChat(chat)}>
@@ -87,7 +97,7 @@ const Chat = () => {
                     </div>
                 </div>
                 {/* Right side */}
-                <div className="Right-side-chat w-[80%] h-screen p-8 rounded-xl bg-[#002172]">
+                <div className="Right-side-chat border-2 w-[75%] h-screen p-8 rounded-xl">
                     {/* Navbar in right side */}
                     {/* <div className=' flex justify-end'>
                         <div className="navIcons flex justify-center items-center gap-10">
@@ -108,11 +118,17 @@ const Chat = () => {
                             currentUserId={currentUser?._id}
                             setSendMessage={setSendMessage}
                             receiveMessage={receiveMessage}
+                            onlineUsers={onlineUsers}
+                            chats={chats}
                         ></Chatbox> :
                         <div className=' flex flex-col justify-center items-center gap-5 text-3xl font-bold mt-60 text-white'>
-                            <div className="flex items-center bg-white p-4  w-60 rounded-md">
+                            <div className="flex items-center bg-white p-4  w-70 rounded-md">
+                                <FaFacebookMessenger
+                                    className=' text-5xl font-bold text-[#002172]'
+                                ></FaFacebookMessenger>
+                                <h2 className="font-bold poppins-font text-2xl lg:text-[38px] ml-2 text-[#002172]"> <span className='text-[#e33226]'>Chat</span> with</h2>
                                 <img
-                                    className="w-[60px]"
+                                    className="w-[60px] ml-2"
                                     src="https://i.ibb.co/GsQpf2D/logo.png"
                                 />
                                 <h4 className="font-bold poppins-font text-2xl lg:text-[38px] ml-2 text-[#002172]">
