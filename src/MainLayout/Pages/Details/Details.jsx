@@ -101,7 +101,7 @@ const Details = () => {
   };
   // remove property from saved properties feature added by Fahima
   const handleRemoveProperty = (id) => {
-    console.log(id);
+    // console.log(id);
     axiosSecure.delete(`/saved-properties/${id}`).then((res) => {
       if (res.data.deletedCount > 0) {
         refetch();
