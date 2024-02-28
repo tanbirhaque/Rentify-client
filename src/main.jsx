@@ -174,8 +174,8 @@ const router = createBrowserRouter([
         loader: () => fetch("http://localhost:5000/ownerRequest"),
       },
       {
-        path: "/chat",
-        element: <Chat></Chat>
+        path: "/chat/:email",
+        element: <Chat></Chat>,
       }
     ],
   },
