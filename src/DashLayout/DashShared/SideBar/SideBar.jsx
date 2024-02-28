@@ -287,6 +287,7 @@ const SideBar = () => {
                         Rent Out Properties
                       </NavLink>
                     </li>
+                    
                   </ul>
                 </div>
               </div>

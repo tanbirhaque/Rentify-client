@@ -20,7 +20,7 @@ const OwnerCard = ({ owner }) => {
     linkedin,
   } = owner || {};
   return (
-    <div className="card w-96 bg-base-100 shadow-xl hover:-mt-1 hover:border-b-8 hover:border-blue-700">
+    <div className="card w-full h-full bg-base-100 shadow-xl hover:-mt-1 hover:border-b-8 hover:border-blue-700">
       <figure>
         <img className="h-[410px]" src={ownerImg} alt={firstName} />
       </figure>
