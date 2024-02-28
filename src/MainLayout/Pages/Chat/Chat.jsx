@@ -2,10 +2,10 @@ import { useEffect, useRef, useState } from 'react';
 import useAuth from '../../../Hooks/useAuth';
 import LogoSearch from '../../Shared/logoSearch/LogoSearch';
 import './Chat.css'
-import useAxiosPublic from '../../../Hooks/useAxiosPublic';
+import useAxiosPublic from '../../../Hooks/useAxiospublic';
 import useAllUser from '../../../Hooks/useAllUser';
 import Conversation from './Conversation';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { CiSettings } from 'react-icons/ci';
 import Chatbox from './Chatbox/Chatbox';
 import { io } from "socket.io-client"
@@ -16,6 +16,8 @@ const Chat = () => {
     const axiosPublic = useAxiosPublic()
     const [chats, setChats] = useState([]);
     const [currentChat, setCurrentChat] = useState(null)
+    console.log("look after ONLY chat:", chats);
+    console.log("look after current chat:", currentChat);
     const [onlineUsers, setOnlineUsers] = useState([])
     const [sendMessage, setSendMessage] = useState(null)
     const [receiveMessage, setReceiveMessage] = useState(null)
@@ -24,7 +26,10 @@ const Chat = () => {
     const { role } = userRole || {};
     const { user } = useAuth();
     const socket = useRef();
-    const currentUser = users.find((item) => item.email === user?.email)
+    const currentUserEmail = useParams();
+    console.log("Get current user: " , currentUserEmail);
+    // const currentUser = users.find((item) => item.email === user?.email)
+    const currentUser = users.find((item) => item.email === currentUserEmail.email)
     console.log(currentUser?._id);
 
     // data send on socket io
@@ -41,7 +46,7 @@ const Chat = () => {
             .then(res => res.json())
             .then(data => setChats(data))
     }, [url])
-    console.log(chats);
+    // console.log(chats);
 
 
     // socket io ref
