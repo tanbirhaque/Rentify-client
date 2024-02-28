@@ -29,7 +29,7 @@ const Details = () => {
   const findSaved = saved.find((save) => save.property._id == item._id);
   // console.log(findSaved);
 
-  //destructure
+  //destructure here
   const { property_info } = item || {};
   const {
     property_details,
