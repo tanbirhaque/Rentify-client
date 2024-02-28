@@ -21,6 +21,7 @@ const AddProperties = () => {
 
   // This code from line 19 to line 130 for react select the option and value of the select field for property tags, property featuries and image drag drop.
 
+
   // multiple tags and features functionality [25 to 78]
   const [tagValue, setTagValue] = useState([]);
   const newTags = [];
@@ -108,6 +109,7 @@ const AddProperties = () => {
   const onDragOver = (event) => {
     event.preventDefault();
     setIsDragging(true)
+    
     event.dataTransfer.dropEffect = "copy"
   }
   const onDragLeave = (event) => {
@@ -198,6 +200,7 @@ const AddProperties = () => {
   } = useForm()
   const onSubmit = async (data) => {
     console.log(data)
+    // property image host post api
     const imageFile = { image: images };
     const res = await axiosPublic.post(image_hosting_api, imageFile, {
       headers: { "Content-Type": "multipart/form-data" },
@@ -208,18 +211,19 @@ const AddProperties = () => {
       // console.log(res.data.data)
       setImages(img)
     }
-
+    // floorPlan Image host post api 
     const imageFloorFile = { image: floorImages };
-    const resfloor = await axiosPublic.post(image_hosting_api, imageFloorFile, {
+    const resFloor = await axiosPublic.post(image_hosting_api, imageFloorFile, {
       headers: { "Content-Type": "multipart/form-data" },
     });
-    const floorPlanIMG = resfloor.data.data.url;
+    const floorPlanIMG = resFloor.data.data.url;
     console.log(floorPlanIMG)
     if (res.data) {
       // console.log(res.data.data)
       setFloorImages(floorPlanIMG)
     }
 
+    // properties data structure create
     const newProperty = {
       property_info: {
         owner_details: {
@@ -261,6 +265,7 @@ const AddProperties = () => {
       }
     };
     console.log(newProperty);
+    // post properties api
     axiosPublic.post("/properties", newProperty)
       .then(res => {
         console.log(res.data)
@@ -274,6 +279,7 @@ const AddProperties = () => {
       })
   }
 
+  // reset function
   const handleReset = () => {
     reset()
     setShowImages([])
@@ -300,6 +306,7 @@ const AddProperties = () => {
               </div>
             </div>
             <hr className="mb-5"></hr>
+            {/* form section */}
             <form className="px-4" onSubmit={handleSubmit(onSubmit)}>
               <div className="md:grid grid-cols-2 gap-4  mb-5">
                 <div className="form-control">
@@ -598,14 +605,23 @@ const AddProperties = () => {
                       City
                     </span>
                   </label>
-                  <label className="input-group ">
-                    <input
+                  <label className="">
+                    {/* this city field converted to select option by sojib*/}
+                  <select
                       {...register("city")}
-                      type="text"
-                      placeholder="ex. Any Town"
                       name="city"
-                      className="input form-border input-bordered w-full"
-                    />
+                      required
+                      className="select select-bordered w-full"
+                    >
+                      <option value="New York City"> New York City</option>
+                      <option value="Prague"> Prague</option>
+                      <option value="Florida"> Florida</option>
+                      <option value="San Francisco"> San Francisco</option>
+                      <option value="Toronto City"> Toronto City</option>
+                      <option value="Vancouver City"> Vancouver City</option>
+                      <option value="Montreal City"> Montreal City</option>
+                      <option value="Los Angeles"> Los Angeles</option>
+                    </select>
                   </label>
                 </div>
 
@@ -697,6 +713,7 @@ const AddProperties = () => {
                     </span>
                   </label>
                   {/* this field updated to drag and drop option */}
+
                   {showImages[0] ?
                     <div className=" flex justify-center flex-wrap items-center gap-2 border-2 rounded-md p-3">
                       {
@@ -739,6 +756,7 @@ const AddProperties = () => {
                     </span>
                   </label>
                   {/* this field updated to drag and drop option */}
+
                   {showFloorImages[0] ?
                     <div className=" flex justify-center flex-wrap items-center gap-2 border-2 rounded-md p-3 ">
                       {

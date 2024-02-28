@@ -1,5 +1,5 @@
 // The banner is made by "Sadia Afrin" and updated with more responsive design by Tanbir
-// swiper featuries impleamented by sojib
+// swiper features implemented by sojib
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/css/navigation';
@@ -130,20 +130,20 @@ const Banner = () => {
                                     <div>
                                         {/* This swiper dynamic by sojib and added img height*/}
                                         {
-                                            properties.slice(0, 5)?.map(item =>
+                                            properties?.slice(0, 5)?.map(item =>
                                                 <div key={item._id}>
                                                     <SwiperSlide>
                                                         <div className="max-w-[300px] max-h-[380px] bg-white border-[2px] border-white rounded-[5px] dark:bg-gray-800 dark:border-gray-700 md:w-[300px] lg:w-[400px]">
                                                             <a href="#">
-                                                                <img className="rounded-t-[5px] h-[167px] w-full" src={item.property_info.property_img} alt />
+                                                                <img className="rounded-t-[5px] h-[167px] w-full" src={item?.property_info?.property_img} alt />
                                                             </a>
                                                             <div className="p-5">
                                                                 <a href="#">
                                                                     <h5 className="mb-1 font-bold tracking-tight text-gray-900 dark:text-white">
-                                                                        {item.property_info.property_title.slice(0, 50)}
+                                                                        {item?.property_info?.property_title?.slice(0, 50)}
                                                                     </h5>
                                                                     <p className="text-sm text-gray-700 font-normal">
-                                                                        {item.property_info.property_description.slice(0, 90)}.{" "}
+                                                                        {item?.property_info?.property_description?.slice(0, 90)}
                                                                     </p>
                                                                     <div className="rating rating-sm mt-1 flex  items-center">
                                                                         <input
