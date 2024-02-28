@@ -56,6 +56,7 @@ import OwnerRequestForm from "./DashLayout/DashboardRoutes/Owner Request/OwnerRe
 
 import Contact from "./MainLayout/Pages/Contact/Contact.jsx";
 import AllPropertiesMod from "./MainLayout/Pages/Home/HomeComponents/AllProperties/AllPropertiesMod.jsx";
+import Chat from "./MainLayout/Pages/Chat/Chat.jsx";
 import UpdateProperties from "./DashLayout/DashboardRoutes/UpdateProperties/UpdateProperties.jsx";
 
 
@@ -172,6 +173,10 @@ const router = createBrowserRouter([
         element: <OwnerDetail />,
         loader: () => fetch("http://localhost:5000/ownerRequest"),
       },
+      {
+        path: "/chat",
+        element: <Chat></Chat>
+      }
     ],
   },
   {

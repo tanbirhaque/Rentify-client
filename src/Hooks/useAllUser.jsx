@@ -1,19 +1,18 @@
-// first import tanstact query
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "./useAxiosPublic";
 
-const useBlogs = () => {
+const useAllUser = () => {
     const axiosPublic = useAxiosPublic();
-    const { data: blogs = [], refetch } = useQuery({
-        queryKey: ['blog'],
+    const { data: users = [], refetch } = useQuery({
+        queryKey: ['users'],
         queryFn: async () => {
             // when data import from database then chage the url & use axios public 
-            const res = await axiosPublic.get(`/blogs`)
+            const res = await axiosPublic.get(`/users`)
             // console.log(res.data)
             return res.data;
         }
     })
-    return [blogs, refetch]
+    return [users, refetch]
 };
 
-export default useBlogs;
+export default useAllUser;

@@ -1,4 +1,4 @@
-import { NavLink, useLoaderData, useParams } from "react-router-dom";
+import { Link, NavLink, useLoaderData, useParams } from "react-router-dom";
 import { CiLocationOn } from "react-icons/ci";
 import { RiCheckboxMultipleLine } from "react-icons/ri";
 import { IoMdPlay } from "react-icons/io";
@@ -6,7 +6,7 @@ import VideoModal from "../Home/HomeComponents/Virtual Apartments/VideoModal";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import Swal from "sweetalert2";
-import { FaBookmark, FaRegBookmark } from "react-icons/fa";
+import { FaBookmark, FaFacebookMessenger, FaRegBookmark } from "react-icons/fa";
 import BookingForm from "./BookingForm.jsx";
 import useAuth from "../../../Hooks/useAuth.jsx";
 import ReviewForm from "./ReviewForm.jsx";
@@ -15,6 +15,8 @@ import useSavedProperties from "../../../Hooks/useSavedProperties.jsx";
 import Reviews from "./Reviews.jsx";
 import { Helmet } from "react-helmet";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure.jsx";
+import { useEffect, useState } from "react";
+import useGetRole from "../../../Hooks/useGetRole.jsx";
 
 const Details = () => {
   const axiosSecure = useAxiosSecure();
@@ -116,6 +118,49 @@ const Details = () => {
     });
   };
 
+
+  // chat functionality
+  const [ownerUser, setOwnerUser] = useState([])
+  const [chatsMembers, setChatMembers] = useState([])
+  const [userRole] = useGetRole();
+  // get ownerUser by use fetch
+  const url = `http://localhost:5000/users/${owner_details?.owner_email}`;
+  useEffect(() => {
+    fetch(url)
+      .then(res => res.json())
+      .then(data => setOwnerUser(data))
+  }, [url])
+  console.log(ownerUser, userRole);
+  const firstMember = ownerUser?._id;
+  const secondMember = userRole?._id;
+
+  // get chatMembers by use fetch
+  const memberUrl = `http://localhost:5000/chat/find/${firstMember}/${secondMember}`;
+  useEffect(() => {
+    fetch(memberUrl)
+      .then(res => res.json())
+      .then(data => setChatMembers(data))
+  }, [memberUrl])
+
+  console.log(chatsMembers);
+
+  const handleSendChats = () => {
+    const newMembers = {
+      members: [firstMember, secondMember]
+    }
+    console.log(newMembers);
+    if (!chatsMembers) {
+      axiosSecure.post("/chat", newMembers)
+        .then(res => {
+          console.log(res.data)
+          Swal.fire("Now You connected With this owner")
+        })
+    }
+    else {
+      Swal.fire("Already you have connected with owner")
+    }
+  }
+
   return (
     <>
       <Helmet>
@@ -210,26 +255,26 @@ const Details = () => {
                   ) : (
                     <span>
                       Indulge in the epitome of urban sophistication with our
-                      Stylish Urban Loft, a captivating space meticulously
-                      curated to embody the essence of Industrial Chic Vibes.
-                      This loft is a harmonious fusion of contemporary allure
-                      and industrial aesthetics, where every element is
-                      carefully chosen to create an environment that is not only
-                      stylish but also exceptionally comfortable. As you enter,
-                      be greeted by the alluring play of textures - exposed
-                      brick walls that tell a story of the building&#39;s
-                      history, polished concrete floors providing a sleek
-                      foundation, and strategically placed metal accents that
-                      add an industrial edge to the overall design. The open
-                      layout enhances the loft&#39;s spacious feel, inviting you
-                      to explore each carefully appointed corner. The carefully
-                      selected furnishings and decor seamlessly integrate modern
-                      elegance with industrial elements. Statement pieces, such
-                      as artisanal light fixtures and bespoke furniture, elevate
-                      the space, offering both functionality and aesthetic
-                      appeal. The color palette, a blend of muted tones and bold
-                      contrasts, complements the loft&#39;s overall ambiance,
-                      creating a cozy yet stylish retreat.
+                      Stylish Urban Loft, a captivating space meticulously curated
+                      to embody the essence of Industrial Chic Vibes. This loft is
+                      a harmonious fusion of contemporary allure and industrial
+                      aesthetics, where every element is carefully chosen to
+                      create an environment that is not only stylish but also
+                      exceptionally comfortable. As you enter, be greeted by the
+                      alluring play of textures - exposed brick walls that tell a
+                      story of the building&#39;s history, polished concrete
+                      floors providing a sleek foundation, and strategically
+                      placed metal accents that add an industrial edge to the
+                      overall design. The open layout enhances the loft&#39;s
+                      spacious feel, inviting you to explore each carefully
+                      appointed corner. The carefully selected furnishings and
+                      decor seamlessly integrate modern elegance with industrial
+                      elements. Statement pieces, such as artisanal light fixtures
+                      and bespoke furniture, elevate the space, offering both
+                      functionality and aesthetic appeal. The color palette, a
+                      blend of muted tones and bold contrasts, complements the
+                      loft&#39;s overall ambiance, creating a cozy yet stylish
+                      retreat.
                     </span>
                   )}
                 </p>
@@ -399,6 +444,16 @@ const Details = () => {
                       {tag}
                     </button>
                   ))}
+                </div>
+              </div>
+              <div className=" ml-5 mt-5">
+                <div className=" flex items-center gap-2">
+                  <Link to="/chat">
+                    <div onClick={handleSendChats}>
+                      <FaFacebookMessenger className=" text-5xl font-bold text-[#002172]"></FaFacebookMessenger>
+                    </div>
+                  </Link>
+                  <h2 className=" text-3xl font-bold">Chat with owner</h2>
                 </div>
               </div>
             </div>
