@@ -22,18 +22,18 @@ const OwnerList = () => {
         <title>Rentify | Owners</title>
         
     </Helmet>
-    <div className="max-w-screen-2xl mx-auto">
+    <div>
       <div
         className="hero"
         style={{
           backgroundImage: "url(https://i.ibb.co/Zdk0mLj/breadcrumb-4.jpg)",
         }}
       >
-        <div className="hero-overlay bg-[#000000c2] p-28">
-          <h2 className="mb-5 text-[40px] font-bold text-white">Owner List</h2>
+        <div className="hero-overlay bg-[#000000c2] p-20">
+          <h2 className="mb-5 text-2xl md:text-[40px] font-bold text-white">Owner List</h2>
           <p className="text-white">
             <Link to="/" className="hover:text-[#ec3323] cursor-pointer">
-              Home{" "}
+              Home
             </Link>
             / <span className="text-[#ec3323]"> Owners</span>
           </p>

@@ -1,14 +1,8 @@
 //component added by "Fahima"
 
-// Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/autoplay";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import SliderPartner from "../../Shared/Slider/SliderPartner";
 
 const HowItWorks = () => {
   return (
@@ -17,15 +11,15 @@ const HowItWorks = () => {
         <title>Rentify | How It Works</title>
         
     </Helmet>
-    <div className="max-w-screen-2xl mx-auto">
+    <div>
       <div
         className="hero min-h-56"
         style={{
           backgroundImage: "url(https://i.ibb.co/sgWv0Bd/breadcrumb-1.jpg)",
         }}
       >
-        <div className="hero-overlay bg-[#000000c2] p-28">
-          <h2 className="mb-5 text-xl md:text-[40px] font-bold text-white">
+        <div className="hero-overlay bg-[#000000c2] p-20">
+          <h2 className="mb-5 text-2xl md:text-[40px] font-bold text-white">
             How It Works
           </h2>
           <p className="text-white">
@@ -36,9 +30,9 @@ const HowItWorks = () => {
           </p>
         </div>
       </div>
-      <div className="p-28 bg-[#f9f9f9] flex-col md:flex-row text-center items-center justify-center space-y-7">
-        <h1 className="text-[40px] font-bold">3 Steps To Book Your Home</h1>
-        <p className="text-[17px] text-[#666666] text-center">
+      <div className="p-16 bg-[#f9f9f9] flex-col md:flex-row text-center items-center justify-center space-y-7">
+        <h1 className="text-2xl md:text-[40px] font-bold">Booking Your Home in 3 Simple Steps</h1>
+        <p className="text-sm md:text-lg text-[#666666] text-center">
           Secure your dream home effortlessly in just 3 simple steps. Explore
           listings, <br />
           take virtual tours, and book with ease. Your new home journey starts
@@ -105,65 +99,7 @@ const HowItWorks = () => {
         </div>
       </div>
       {/* slider */}
-      <div className="p-20">
-        <Swiper
-          modules={[Autoplay]}
-          autoplay={{
-            delay: 3000,
-            disableOnInteraction: false,
-          }}
-          loop={true}
-          slidesPerView={4}
-          spaceBetween={30}
-          pagination={{
-            clickable: true,
-          }}
-          className="mySwiper"
-        >
-          <SwiperSlide>
-            <img
-              className="grayscale hover:grayscale-0"
-              src="https://i.ibb.co/JR4FJDp/partner-1.png"
-              alt=""
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img
-              className=" grayscale hover:grayscale-0"
-              src="https://i.ibb.co/3RrTwFv/partner-2.png"
-              alt=""
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img
-              className=" grayscale hover:grayscale-0"
-              src="https://i.ibb.co/68z9RZ7/partner-3.png"
-              alt=""
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img
-              className=" grayscale hover:grayscale-0"
-              src="https://i.ibb.co/PzsKKjs/partner-5.png"
-              alt=""
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img
-              className=" grayscale hover:grayscale-0"
-              src="https://i.ibb.co/TYxQwsZ/partner-6.png"
-              alt=""
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img
-              className=" grayscale hover:grayscale-0"
-              src="https://i.ibb.co/cDhb0Pg/partner-4.png"
-              alt=""
-            />
-          </SwiperSlide>
-        </Swiper>
-      </div>
+     <SliderPartner/>
     </div>
     </>
   );
