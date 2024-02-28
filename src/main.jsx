@@ -56,6 +56,7 @@ import OwnerRequestForm from "./DashLayout/DashboardRoutes/Owner Request/OwnerRe
 
 import Contact from "./MainLayout/Pages/Contact/Contact.jsx";
 import AllPropertiesMod from "./MainLayout/Pages/Home/HomeComponents/AllProperties/AllPropertiesMod.jsx";
+import Chat from "./MainLayout/Pages/Chat/Chat.jsx";
 
 const queryClient = new QueryClient();
 
@@ -84,7 +85,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/all",
-        element: <AllPropertiesMod></AllPropertiesMod>
+        element: <AllPropertiesMod></AllPropertiesMod>,
       },
       {
         path: "/blogs",
@@ -159,12 +160,21 @@ const router = createBrowserRouter([
       },
       {
         path: "/owners",
-        element: <OwnerList />
+        element: <OwnerList />,
+      },
+      // {
+      //   path: "/owner-details",
+      //   element: <OwnerDetail />,
+      // },
+      {
+        path: "/owner-details/:id",
+        element: <OwnerDetail />,
+        loader: () => fetch("http://localhost:5000/ownerRequest"),
       },
       {
-        path: "/owner-details",
-        element: <OwnerDetail />
-      },
+        path: "/chat",
+        element: <Chat></Chat>
+      }
     ],
   },
   {

@@ -11,7 +11,7 @@ import ButtonBlue from "../../../MainLayout/Shared/buttons/Blue/ButtonBlue";
 import ButtonRed from "../../../MainLayout/Shared/buttons/Red/ButtonRed";
 
 const RequestedProperty = () => {
-  const [requested] = useRequested();
+  const [requested,refetch] = useRequested();
   const { user } = useAuth();
   const [properties, setProperties] = useState([]);
   const [tabIndex, setTabIndex] = useState(0);
