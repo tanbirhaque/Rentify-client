@@ -13,7 +13,7 @@ const Prauge = () => {
   const [properties] = useProperties();
   const cityProperties = properties.filter(
     (property) =>
-      property?.property_info.property_location.address.city === "Prauge"
+      property?.property_info.property_location.address.city === "Prague"
   );
   const [property, setProperty] = useState([]);
   const [tabIndex, setTabIndex] = useState(0);

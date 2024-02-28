@@ -14,7 +14,7 @@ const Navbar = () => {
   const [isNavbarJumping, setIsNavbarJumping] = useState(false);
   const [isNavBarOpen, setIsNavbarOpen] = useState(false)
   const { userSignOut, user, setUser } = useContext(AuthContext);
-  const [userRole] = useGetRole()
+  const [userRole] = useGetRole();
   const navigate = useNavigate();
 
   // for logout user -Sadia
@@ -65,6 +65,7 @@ const Navbar = () => {
 
   const navLinks = (
     <>
+    
       <NavLink
         to="/"
         className="navAfter relative font-medium text-base text-black mx-3"
@@ -89,7 +90,6 @@ const Navbar = () => {
       >
         Blogs
       </NavLink>
-
 
       {/* for others */}
       {/* <div className="dropdown dropdown-hover relative h-[65px]">

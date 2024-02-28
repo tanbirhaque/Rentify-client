@@ -27,7 +27,7 @@ const SideBar = () => {
   //roles
   const [userRole] = useGetRole();
   const { role } = userRole || {};
-  // console.log(role);
+  console.log(userRole);
   //roles
 
   const sideLinks = (
