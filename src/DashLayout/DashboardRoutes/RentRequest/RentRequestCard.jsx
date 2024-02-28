@@ -103,7 +103,7 @@ const RentRequestCard = ({ items, refetch }) => {
                     {/* Dropdown content */}
                     <div className={`dropdown-content menu menu-sm -left-12 py-0   px-0 w-32  rounded-lg bg-[#ffffff]  text-center  ${dropdownVisible ? 'show' : ''}`}>
                         {/* Dropdown options */}
-                        <ul >
+                        <ul>
                             <li className="hover:bg-[#002172] hover:rounded-t-md transition-all ease-out duration-300 hover:text-white"><button onClick={() => setAccept(_id)} disabled={buttonDisabled}>Accept</button>
                         </li>
                         <li className="hover:bg-[#002172] hover:rounded-b-md transition-all ease-out duration-300 hover:text-white"><button onClick={() => setReject(_id)} disabled={buttonDisabled}>Reject</button></li>

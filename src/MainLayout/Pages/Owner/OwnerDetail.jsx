@@ -5,7 +5,7 @@ import {
   FaLinkedinIn,
   FaTwitter,
 } from "react-icons/fa";
-import PropertyCard from "../../Shared/PropertyCards/PropertyCard";
+import PageBanner from "../../Shared/banner for pages/PageBanner";
 
 const OwnerDetail = () => {
   const owners = useLoaderData();
@@ -29,24 +29,11 @@ const OwnerDetail = () => {
 
   return (
     <div className="max-w-screen-2xl mx-auto">
-      <div
-        className="hero min-h-56"
-        style={{
-          backgroundImage: "url(https://i.ibb.co/Zdk0mLj/breadcrumb-4.jpg)",
-        }}
-      >
-        <div className="hero-overlay bg-[#000000c2] p-28">
-          <h2 className="mb-5 text-[40px] font-bold text-white">
-            Owner Details
-          </h2>
-          <p className="text-white">
-            <Link to="/" className="hover:text-[#ec3323] cursor-pointer">
-              Home{" "}
-            </Link>
-            / <span className="text-[#ec3323]"> Owner Details</span>
-          </p>
-        </div>
-      </div>
+      <PageBanner
+        img={"https://i.ibb.co/Zdk0mLj/breadcrumb-4.jpg"}
+        heading={"Owner Details"}
+        title={"Owner Details"}
+      />
       <div className="p-24">
         <div className="shadow-2xl p-14 ">
           <div className="flex flex-col md:flex-row">
