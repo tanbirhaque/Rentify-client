@@ -55,10 +55,12 @@ const RentRequest = () => {
 
     return (
         <>
-             {/* Top-Context */}
-            <div className=" flex gap-8 ml-10 mt-10">
+             
+        <section className="py-1 bg-[#f3f3f3] w-full min-h-screen">
+            {/* Top-Context */}
+        <div className=" flex gap-8 mx-auto py-5 w-[93%]">
                 
-                <div className="flex bg-slate-200 shadow-md text-lg py-7 px-5 items-center justify-between gap-6 w-[40%] rounded-2xl">
+                <div className="flex bg-white shadow-md text-lg py-7 px-5 items-center justify-between gap-6 w-[40%] rounded-2xl">
                     <div >
                         <h1 className="font-bold text-xl">Rent Request List</h1>
                         <h3 className="text-base text-[#e33226]">Customer <span className="text-[#002172]">/ Order list</span></h3>
@@ -67,7 +69,7 @@ const RentRequest = () => {
                         refresh
                     </button>
                 </div>
-                <div className="flex bg-slate-200 py-7 shadow-md  px-10 items-center justify-between gap-20 w-[880px] rounded-2xl">
+                <div className="flex bg-white py-7 shadow-md  px-10 items-center justify-between gap-20 w-[880px] rounded-2xl">
                     <div className="text-6xl">
                         <FcHome />
                     </div>
@@ -79,7 +81,7 @@ const RentRequest = () => {
                 </div>
             </div>
            
-            <div className="mt-10">
+            <div className="mt-10 w-[93%] bg-white px-6 mx-auto mb-20 shadow-lg rounded-lg">
                 <table className="table table-zebra overflow-scroll">
                     {/* head */}
                     <thead className="font-semibold text-lg text-[#002172]">
@@ -118,6 +120,7 @@ const RentRequest = () => {
                     </tbody>
                 </table>
             </div>
+        </section>
         </>
     );
 };

@@ -116,7 +116,6 @@ const Details = () => {
         });
       }
     });
-
   };
 
 
@@ -166,7 +165,6 @@ const Details = () => {
     <>
       <Helmet>
         <title>Rentify | Property Details</title>
-
       </Helmet>
       <div>
         <div className="gridbgimg">
