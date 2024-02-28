@@ -11,10 +11,6 @@ node_modules
 dist
 dist-ssr
 *.local
-steps
-stepper
-addowner.jsx
-PageBanner.jsx
 
 # Editor directories and files
 .vscode/*
