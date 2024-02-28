@@ -5,7 +5,7 @@ import './Chat.css'
 import useAxiosPublic from '../../../Hooks/useAxiosPublic';
 import useAllUser from '../../../Hooks/useAllUser';
 import Conversation from './Conversation';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { CiSettings } from 'react-icons/ci';
 import Chatbox from './Chatbox/Chatbox';
 import { io } from "socket.io-client"
@@ -18,6 +18,8 @@ const Chat = () => {
     const [currentChat, setCurrentChat] = useState(null)
     const [onlineUsers, setOnlineUsers] = useState([])
     const [sendMessage, setSendMessage] = useState(null)
+    const params = useParams();
+    console.log("get current chat",currentChat)
     const [receiveMessage, setReceiveMessage] = useState(null)
     const [users] = useAllUser();
     const [userRole] = useGetRole();
@@ -25,7 +27,6 @@ const Chat = () => {
     const { user } = useAuth();
     const socket = useRef();
     const currentUser = users.find((item) => item.email === user?.email)
-    console.log(currentUser?._id);
 
     // data send on socket io
     useEffect(() => {
@@ -42,6 +43,15 @@ const Chat = () => {
             .then(data => setChats(data))
     }, [url])
     console.log(chats);
+
+
+    // redirect useEffect
+    const memberUrl = `http://localhost:5000/chat/find/${params?.id}/${currentUser?._id}`;
+    useEffect(() => {
+        fetch(memberUrl)
+            .then(res => res.json())
+            .then(data => setCurrentChat(data))
+    }, [memberUrl])
 
 
     // socket io ref
@@ -97,7 +107,7 @@ const Chat = () => {
                     </div>
                 </div>
                 {/* Right side */}
-                <div className="Right-side-chat border-2 w-[75%] h-screen p-8 rounded-xl">
+                <div className="Right-side-chat border-2 w-[75%] h-screen rounded-xl">
                     {/* Navbar in right side */}
                     {/* <div className=' flex justify-end'>
                         <div className="navIcons flex justify-center items-center gap-10">
@@ -119,6 +129,7 @@ const Chat = () => {
                             setSendMessage={setSendMessage}
                             receiveMessage={receiveMessage}
                             onlineUsers={onlineUsers}
+                            params={params}
                             chats={chats}
                         ></Chatbox> :
                         <div className=' flex flex-col justify-center items-center gap-5 text-3xl font-bold mt-60 text-white'>

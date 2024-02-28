@@ -143,11 +143,12 @@ const Details = () => {
       .then(data => setChatMembers(data))
   }, [memberUrl])
 
-  console.log(chatsMembers);
+  console.log("chatsMEmbers", chatsMembers);
 
   const handleSendChats = () => {
     const newMembers = {
-      members: [firstMember, secondMember]
+      members: [firstMember, secondMember],
+      emails: [firstEmail, secondEmail]
     }
     console.log(newMembers);
     if (!chatsMembers) {
@@ -450,7 +451,7 @@ const Details = () => {
               </div>
               <div className=" ml-5 mt-5">
                 <div className=" flex items-center gap-2">
-                  <Link to="/chat">
+                  <Link to={`/chat/${firstMember}`}>
                     <div onClick={handleSendChats}>
                       <FaFacebookMessenger className=" text-5xl font-bold text-[#002172]"></FaFacebookMessenger>
                     </div>

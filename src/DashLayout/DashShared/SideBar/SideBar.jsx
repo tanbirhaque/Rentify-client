@@ -7,6 +7,7 @@ import {
   FaBlogger,
   FaRegClone,
   FaChevronDown,
+  FaFacebookMessenger,
 } from "react-icons/fa";
 import { IoAddCircleSharp, IoBookmarksSharp } from "react-icons/io5";
 import {
@@ -66,6 +67,15 @@ const SideBar = () => {
         >
           <FaBlogger className="dashIcon text-[#64707d]"></FaBlogger>
           Write Blogs
+        </NavLink>
+      </li>
+      <li className="dashLi xl:text-[20px]">
+        <NavLink
+          to="/dashboard/writeBlogs"
+          className="dashNav flex items-center gap-2"
+        >
+          <FaFacebookMessenger className="dashIcon text-[#64707d]"></FaFacebookMessenger>
+          Inbox
         </NavLink>
       </li>
       {role === "user" && (
@@ -150,7 +160,7 @@ const SideBar = () => {
     setIsDropDownOpen2(!isDropDownOpen2);
     // console.log(isDropDownOpen2);
   }
-  
+
   return (
     <div>
       <div className="w-64 xl:min-w-[300px] min-h-screen">
@@ -195,7 +205,7 @@ const SideBar = () => {
               <hr className="mb-3" />
               <ul>{ownerRoutes}</ul>
               {/* Requests routes dropdown starts here */}
-              <div className={`collapse mt-2 ${isDropDownOpen ? "" : "h-[35px]" }`}>
+              <div className={`collapse mt-2 ${isDropDownOpen ? "" : "h-[35px]"}`}>
                 <input
                   className="max-h-[30px] min-h-[30px]"
                   type="checkbox"
@@ -235,7 +245,7 @@ const SideBar = () => {
               </div>
               {/* Requests routes dropdown ends here */}
               {/* Property Management routes dropdown starts here */}
-              <div className={`collapse ${isDropDownOpen2 ? "" : "h-[35px]" }`}>
+              <div className={`collapse ${isDropDownOpen2 ? "" : "h-[35px]"}`}>
                 <input
                   className="max-h-[30px] min-h-[30px]"
                   type="checkbox"

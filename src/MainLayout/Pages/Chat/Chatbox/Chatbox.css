@@ -20,9 +20,9 @@
 }
 
 .message {
-    background: linear-gradient(98.63deg, #94870e 0%, #e0691a 100%);
-    color: white;
+    color: black;
     padding: 0.7rem;
+    border: 1px solid blac;
     border-radius: 1rem 1rem 1rem 0;
     max-width: 28rem;
     width: fit-content;

@@ -172,8 +172,9 @@ const router = createBrowserRouter([
         loader: () => fetch("http://localhost:5000/ownerRequest"),
       },
       {
-        path: "/chat",
-        element: <Chat></Chat>
+        path: "/chat/:id",
+        element: <Chat></Chat>,
+        loader: ({ params }) => fetch(`http://localhost:5000/${params.firstMember}`),
       }
     ],
   },

@@ -50,6 +50,8 @@ const Chatbox = ({ chat, currentUserId, setSendMessage, receiveMessage, chats, o
             .then(res => res.json())
             .then(data => setUserData(data))
     }, [url])
+
+
     // console.log(userData);
 
     // get message data by use useEffect
@@ -94,7 +96,7 @@ const Chatbox = ({ chat, currentUserId, setSendMessage, receiveMessage, chats, o
         <div>
             <div className="ChatBox-container">
                 <>
-                    <div className="Chat-header">
+                    <div className="Chat-header p-3">
                         {/* Chatbox header */}
                         <div className="follower">
                             <div className="flex items-center gap-2">
@@ -134,13 +136,15 @@ const Chatbox = ({ chat, currentUserId, setSendMessage, receiveMessage, chats, o
                     {/* chat sender */}
                     <div className="chat-sender">
                         <div>+</div>
-                        <InputEmoji
-                            value={newMessage}
-                            onChange={handleChange}
-                            placeholder="Type a message"
-                            fontSize={20}
-                            height={80}
-                        ></InputEmoji>
+                        <div className=" h-[300px] w-full">
+                            <InputEmoji
+                                value={newMessage}
+                                onChange={handleChange}
+                                placeholder="Type a message"
+                                fontSize={20}
+                                height={80}
+                            ></InputEmoji>
+                        </div>
                         <div className=" btn" onClick={handleSend}>
                             <ButtonRed
                                 titleRed={`Send`}
