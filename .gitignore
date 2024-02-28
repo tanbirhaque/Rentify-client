@@ -14,6 +14,7 @@ dist-ssr
 steps
 stepper
 addowner.jsx
+PageBanner.jsx
 
 # Editor directories and files
 .vscode/*
