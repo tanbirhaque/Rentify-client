@@ -71,7 +71,7 @@ const SideBar = () => {
       </li>
       <li className="dashLi xl:text-[20px]">
         <NavLink
-          to="/dashboard/writeBlogs"
+          to="/dashboard/chat"
           className="dashNav flex items-center gap-2"
         >
           <FaFacebookMessenger className="dashIcon text-[#64707d]"></FaFacebookMessenger>
@@ -287,7 +287,7 @@ const SideBar = () => {
                         Rent Out Properties
                       </NavLink>
                     </li>
-                    
+
                   </ul>
                 </div>
               </div>

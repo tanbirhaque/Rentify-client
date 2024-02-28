@@ -20,9 +20,11 @@ const Conversation = ({ data, currentUserId, online }) => {
     return (
         <div>
             <div className="follower-conversation">
-                <div className=" flex items-center gap-2">
-                    {online ? <div className="online-dot ml-12 mb-12"></div>
-                        : <div className="offline-dot ml-12 mb-12"></div>
+                <div className=" flex items-center gap-2  relative cursor-pointer">
+                    {online ?
+                        <div className=" bg-[#A9FD2B] h-[15px] w-[15px] rounded-full absolute mb-9"></div>
+                        :
+                        <div className=" bg-red-500 absolute h-[15px] w-[15px] rounded-full mb-9"></div>
                     }
                     <img className="followerImage rounded-full h-[60px] w-[60px]" src={userData?.image} alt="" />
                     <div className="name flex flex-col" style={{ fontSize: "0.8rem" }}>

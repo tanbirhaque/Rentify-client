@@ -172,11 +172,6 @@ const router = createBrowserRouter([
         path: "/owner-details/:id",
         element: <OwnerDetail />,
         loader: () => fetch("http://localhost:5000/ownerRequest"),
-      },
-      {
-        path: "/chat/:id",
-        element: <Chat></Chat>,
-        loader: ({ params }) => fetch(`http://localhost:5000/${params.firstMember}`),
       }
     ],
   },
@@ -268,21 +263,30 @@ const router = createBrowserRouter([
       {
         path: "update-property/:id",
         element: <UpdateProperties />,
-        loader: ({ params }) => fetch (`http://localhost:5000/properties/${params.id}`),
+        loader: ({ params }) => fetch(`http://localhost:5000/properties/${params.id}`),
       },
+      {
+        path: "chat/:id",
+        element: <Chat></Chat>,
+        loader: ({ params }) => fetch(`http://localhost:5000/${params.firstMember}`),
+      },
+      {
+        path: "chat",
+        element: <Chat></Chat>
+      }
     ],
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    
-      <QueryClientProvider client={queryClient}>
-        <AuthProvider>
-          <Toaster />
-          <RouterProvider router={router} />
-        </AuthProvider>
-      </QueryClientProvider>
-    
+
+    <QueryClientProvider client={queryClient}>
+      <AuthProvider>
+        <Toaster />
+        <RouterProvider router={router} />
+      </AuthProvider>
+    </QueryClientProvider>
+
   </React.StrictMode>
 );

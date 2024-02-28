@@ -78,8 +78,8 @@ const Chat = () => {
     }
 
     return (
-        <div className=' w-[95%] mx-auto my-10'>
-            <h2 className=' text-xl font-bold ml-3 my-3'>Chat box</h2>
+        <div className=' w-[97%] mx-auto mt-5'>
+            <h2 className=' text-xl font-bold ml-3 my-5'>Chat box</h2>
             <div className="flex md:flex-row flex-col justify-start items-start gap-3">
                 {/* left side */}
                 <div className="Left-side-chat border-2 w-[25%] h-screen p-4 rounded-xl">
@@ -117,7 +117,7 @@ const Chat = () => {
                             receiveMessage={receiveMessage}
                             onlineUsers={onlineUsers}
                         ></Chatbox> :
-                        <div className=' flex flex-col justify-center items-center gap-5 text-3xl font-bold mt-60 text-white'>
+                        <div className=' flex flex-col justify-center items-center gap-2 text-3xl font-bold mt-72 text-white'>
                             <div className="flex items-center bg-white p-4  w-70 rounded-md">
                                 <FaFacebookMessenger
                                     className=' text-5xl font-bold text-[#002172]'
@@ -131,7 +131,7 @@ const Chat = () => {
                                     Renti<span className="text-[#e33226]">fy</span>
                                 </h4>
                             </div>
-                            <div>
+                            <div className=' text-slate-600'>
                                 Tap on a users to start conversation
                             </div>
                         </div>
