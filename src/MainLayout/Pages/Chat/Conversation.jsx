@@ -4,7 +4,7 @@ import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import { useEffect, useState } from "react";
 
 const Conversation = ({ data, currentUserId, online }) => {
-    console.log(online);
+    // console.log(currentUserId);
     const axiosPublic = useAxiosPublic()
     const [userData, setUserData] = useState(null)
     const userId = data.members.find((id) => id !== currentUserId)
@@ -15,7 +15,7 @@ const Conversation = ({ data, currentUserId, online }) => {
             .then(res => res.json())
             .then(data => setUserData(data))
     }, [url])
-    console.log(userData);
+    // console.log("fahima apu pic gayeb",userData);
 
     return (
         <div>

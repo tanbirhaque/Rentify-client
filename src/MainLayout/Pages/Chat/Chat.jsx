@@ -1,7 +1,6 @@
 // chat all routes designed and functionality all worked done by sajib 
 import { useEffect, useRef, useState } from 'react';
 import useAuth from '../../../Hooks/useAuth';
-import LogoSearch from '../../Shared/logoSearch/LogoSearch';
 import './Chat.css'
 import useAxiosPublic from '../../../Hooks/useAxiosPublic';
 import useAllUser from '../../../Hooks/useAllUser';
@@ -43,7 +42,7 @@ const Chat = () => {
             .then(res => res.json())
             .then(data => setChats(data))
     }, [url])
-    console.log(chats);
+    // console.log(chats);
 
 
     // Chatbox redirect  useEffect chats data get by use fetch
@@ -109,19 +108,6 @@ const Chat = () => {
                 </div>
                 {/* Right side */}
                 <div className="Right-side-chat border-2 w-[75%] h-screen rounded-xl">
-                    {/* Navbar in right side */}
-                    {/* <div className=' flex justify-end'>
-                        <div className="navIcons flex justify-center items-center gap-10">
-                            <Link to="../home">
-                                <img src="https://i.ibb.co/n1Vkx0F/home.png" alt="" />
-                            </Link>
-                            <CiSettings className=' text-4xl from-bold' />
-                            <img src="https://i.ibb.co/HDSYmVM/noti.png" alt="" />
-                            <Link to="../chat">
-                                <img src="https://i.ibb.co/qswp6SB/comment.png" alt="" />
-                            </Link>
-                        </div>
-                    </div> */}
                     {/* Chatbox */}
                     {currentChat ?
                         <Chatbox
@@ -130,7 +116,6 @@ const Chat = () => {
                             setSendMessage={setSendMessage}
                             receiveMessage={receiveMessage}
                             onlineUsers={onlineUsers}
-                            chats={chats}
                         ></Chatbox> :
                         <div className=' flex flex-col justify-center items-center gap-5 text-3xl font-bold mt-60 text-white'>
                             <div className="flex items-center bg-white p-4  w-70 rounded-md">

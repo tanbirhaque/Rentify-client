@@ -10,30 +10,19 @@ import ButtonRed from "../../../Shared/buttons/Red/ButtonRed";
 import { FaRegClock } from "react-icons/fa";
 import useAuth from "../../../../Hooks/useAuth";
 
-const Chatbox = ({ chat, currentUserId, setSendMessage, receiveMessage, chats, onlineUsers }) => {
+const Chatbox = ({ chat, currentUserId, setSendMessage, receiveMessage, onlineUsers }) => {
     const axiosPublic = useAxiosPublic();
     const [userData, setUserData] = useState(null)
-    const [online, setOnline] = useState(false)
     const [messages, setMessages] = useState(null)
     const [newMessage, setNewMessage] = useState("")
     const { user } = useAuth();
-    // console.log("current owner", currentOwner);
+    // console.log("current chat", chat);
     const userId = chat?.members?.find((id) => id !== currentUserId)
     // console.log(userId);
     // console.log(online);
-
-
-
-    const checkOnlineStatus = (chat) => {
-        const chatMember = chat.members.find((member) => member !== currentUserId)
-        const online = onlineUsers.find((user) => user.userId === chatMember)
-        setOnline(online)
-    }
-    useEffect(() => {
-        chats.map((chat) => (
-            checkOnlineStatus(chat)
-        ))
-    }, [chats])
+    const chatMember = chat.members.find((member) => member !== currentUserId)
+    const online = onlineUsers.find((user) => user.userId === chatMember)
+    console.log("", online);
 
     // receiveMessage useEffect
     useEffect(() => {
@@ -60,7 +49,7 @@ const Chatbox = ({ chat, currentUserId, setSendMessage, receiveMessage, chats, o
             try {
                 const { data } = await getMessages(chat?._id)
                 setMessages(data)
-                console.log(data);
+                // console.log(data);
             } catch (error) {
                 console.log(error);
             }
@@ -132,7 +121,7 @@ const Chatbox = ({ chat, currentUserId, setSendMessage, receiveMessage, chats, o
                                         {message?.senderId === currentUserId ?
                                             <div>
                                                 <div className="flex flex-row-reverse items-start gap-2">
-                                                    <img className=" h-[38px] w-[38px] rounded-full " src={user?.photoURL} alt="" />
+                                                    <img className=" h-[42px] w-[42px] rounded-full " src={user?.photoURL} alt="" />
                                                     <div className=" flex flex-col justify-end items-end gap-1">
                                                         <span className=" p-2 cursor-default border text-center rounded text-slate-400 ">{message?.text}</span>
                                                         <span className=" cursor-auto text-slate-400 text-xs flex items-center gap-1"> <FaRegClock></FaRegClock> {format(message?.createdAt)}</span>
@@ -142,7 +131,7 @@ const Chatbox = ({ chat, currentUserId, setSendMessage, receiveMessage, chats, o
                                             :
                                             <div>
                                                 <div className="flex items-start gap-2">
-                                                    <img className=" h-[38px] w-[38px] rounded-full " src={userData?.image} alt="" />
+                                                    <img className=" h-[42px] w-[42px] rounded-full " src={userData?.image} alt="" />
                                                     <div className="flex flex-col justify-start items-start gap-1">
                                                         <span className=" p-2 cursor-default border text-center rounded text-slate-400">{message?.text}</span>
                                                         <span className=" cursor-auto text-slate-400 text-xs flex items-center gap-1"> <FaRegClock></FaRegClock> {format(message?.createdAt)}</span>
@@ -157,18 +146,17 @@ const Chatbox = ({ chat, currentUserId, setSendMessage, receiveMessage, chats, o
                     </div>
 
                     {/* chat sender */}
-                    <div className="chat-sender">
-                        <div>+</div>
-                        <div className=" h-[300px] w-full">
+                    <div className=" flex items-center mt-7 mx-4">
+                        <div className=" w-full">
                             <InputEmoji
                                 value={newMessage}
                                 onChange={handleChange}
                                 placeholder="Type a message"
                                 fontSize={20}
-                                height={80}
+                                borderRadius={8}
                             ></InputEmoji>
                         </div>
-                        <div className=" btn" onClick={handleSend}>
+                        <div className="" onClick={handleSend}>
                             <ButtonRed
                                 titleRed={`Send`}
                             >
