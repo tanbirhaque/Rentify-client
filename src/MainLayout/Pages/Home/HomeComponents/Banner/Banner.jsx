@@ -140,7 +140,7 @@ const Banner = () => {
                                                             <div className="p-5">
                                                                 <a href="#">
                                                                     <h5 className="mb-1 font-bold tracking-tight text-gray-900 dark:text-white">
-                                                                        {item?.property_info?.property_title?.slice(0, 30)}
+                                                                        {item?.property_info?.property_title?.slice(0, 50)}
                                                                     </h5>
                                                                     <p className="text-sm text-gray-700 font-normal">
                                                                         {item?.property_info?.property_description?.slice(0, 90)}

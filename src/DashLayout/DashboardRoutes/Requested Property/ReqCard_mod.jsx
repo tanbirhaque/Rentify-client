@@ -13,8 +13,10 @@ import useProperties from "../../../Hooks/useProperties";
 import Modal from "./Modal";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import useRequested from "../../../Hooks/useRequested";
 
-const ReqCard_mod = ({ requestedProperties, refetch }) => {
+const ReqCard_mod = ({ requestedProperties }) => {
+  const [, refetch] = useRequested();
   // console.log(requestedProperties);
   const { _id, property, requestStatus, propertyID } =
     requestedProperties || {};
@@ -71,7 +73,6 @@ const ReqCard_mod = ({ requestedProperties, refetch }) => {
       if (result.isConfirmed) {
         axiosSecure.delete(`/requested-properties/${id}`).then((res) => {
           if (res.data.deletedCount > 0) {
-            refetch();
             Swal.fire({
               position: "top",
               icon: "success",
@@ -79,6 +80,7 @@ const ReqCard_mod = ({ requestedProperties, refetch }) => {
               showConfirmButton: false,
               timer: 1500,
             });
+            refetch();
           }
         });
       } else if (result.isDenied) {
@@ -244,21 +246,18 @@ const ReqCard_mod = ({ requestedProperties, refetch }) => {
                 <p className="text-[18px] font-semibold">Request Status:</p>
                 <span
                   className={`capitalize text-[18px] font-semibold 
-                                ${
-                                  requestStatus == "pending"
-                                    ? "text-purple-600"
-                                    : ""
-                                }
-                                ${
-                                  requestStatus == "accepted"
-                                    ? "text-green-600"
-                                    : ""
-                                }
-                                ${
-                                  requestStatus == "rejected"
-                                    ? "text-red-500"
-                                    : ""
-                                }
+                                ${requestStatus == "pending"
+                      ? "text-purple-600"
+                      : ""
+                    }
+                                ${requestStatus == "accepted"
+                      ? "text-green-600"
+                      : ""
+                    }
+                                ${requestStatus == "rejected"
+                      ? "text-red-500"
+                      : ""
+                    }
                                 `}
                 >
                   {requestStatus}
@@ -269,22 +268,18 @@ const ReqCard_mod = ({ requestedProperties, refetch }) => {
                                     Pay Now
                                 </button> */}
                 <Link
-                  to={`/dashboard/payment?price=${
-                    property_details?.property_price
-                  }&requestId=${_id}&propertyId=${propertyID}&owner=${owner_email}&property_status=${
-                    property_for == "sale" ? "Sold" : "Rented"
-                  }&property_img=${property_img}&property_title=${property_title}&property_location=${address}&property_category=${property_category}`}
+                  to={`/dashboard/payment?price=${property_details?.property_price
+                    }&requestId=${_id}&propertyId=${propertyID}&owner=${owner_email}&property_status=${property_for == "sale" ? "Sold" : "Rented"
+                    }&property_img=${property_img}&property_title=${property_title}&property_location=${address}&property_category=${property_category}`}
                   className={`w-full text-center text-white py-3 mt-[24px] rounded-br-md hover:text-green-500 transition-all duration-300 font-bold
-                                ${
-                                  requestStatus == "pending"
-                                    ? "bg-gray-400 btn-disabled"
-                                    : "bg-[#002172]"
-                                } 
-                                ${
-                                  requestStatus == "rejected"
-                                    ? "bg-gray-400 btn-disabled"
-                                    : "bg-[#002172]"
-                                } 
+                                ${requestStatus == "pending"
+                      ? "bg-gray-400 btn-disabled"
+                      : "bg-[#002172]"
+                    } 
+                                ${requestStatus == "rejected"
+                      ? "bg-gray-400 btn-disabled"
+                      : "bg-[#002172]"
+                    } 
                                 `}
                 >
                   <button>Pay Now</button>

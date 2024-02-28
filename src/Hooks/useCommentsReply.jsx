@@ -1,18 +1,19 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "./useAxiosPublic";
 
-const useBlogsComment = () => {
+
+const useCommentsReply = () => {
     const axiosPublic = useAxiosPublic();
-    const { data: comments = [], refetch } = useQuery({
-        queryKey: ['comments'],
+    const { data: commentsReply = [], refetch } = useQuery({
+        queryKey: ['commentsReply'],
         queryFn: async () => {
             // when data import from database then chage the url & use axios public 
-            const res = await axiosPublic.get(`/comments`)
-            // console.log(res.data)
+            const res = await axiosPublic.get(`/commentsReply`)
+            console.log(res.data)
             return res.data;
         }
     })
-    return [comments, refetch]
+    return [commentsReply, refetch]
 };
 
-export default useBlogsComment;
+export default useCommentsReply;
