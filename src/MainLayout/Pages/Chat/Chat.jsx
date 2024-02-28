@@ -1,3 +1,4 @@
+// chat all routes designed and functionality all worked done by sajib 
 import { useEffect, useRef, useState } from 'react';
 import useAuth from '../../../Hooks/useAuth';
 import LogoSearch from '../../Shared/logoSearch/LogoSearch';
@@ -19,7 +20,7 @@ const Chat = () => {
     const [onlineUsers, setOnlineUsers] = useState([])
     const [sendMessage, setSendMessage] = useState(null)
     const params = useParams();
-    console.log("get current chat",currentChat)
+    // console.log("get current chat",currentChat)
     const [receiveMessage, setReceiveMessage] = useState(null)
     const [users] = useAllUser();
     const [userRole] = useGetRole();
@@ -45,7 +46,7 @@ const Chat = () => {
     console.log(chats);
 
 
-    // redirect useEffect
+    // Chatbox redirect  useEffect chats data get by use fetch
     const memberUrl = `http://localhost:5000/chat/find/${params?.id}/${currentUser?._id}`;
     useEffect(() => {
         fetch(memberUrl)
@@ -80,13 +81,13 @@ const Chat = () => {
     return (
         <div className=' w-[95%] mx-auto my-10'>
             <h2 className=' text-xl font-bold ml-3 my-3'>Chat box</h2>
-            <div className="flex md:flex-row flex-col justify-start items-start gap-8">
+            <div className="flex md:flex-row flex-col justify-start items-start gap-3">
                 {/* left side */}
                 <div className="Left-side-chat border-2 w-[25%] h-screen p-4 rounded-xl">
                     {/* <LogoSearch></LogoSearch> */}
                     <div className="Chat-container">
                         {/* current user profile */}
-                        <div className=' flex flex-col items-center justify-center border-b-'>
+                        <div className=' w-full flex flex-col items-center justify-center border-b pb-2'>
                             <img className=' h-[90px] w-[90px] rounded-full' src={user?.photoURL} alt="" />
                             <h2 className=' font-bold my-2'>{user?.displayName}</h2>
                             <h3 className=' text-slate-400'>{role}</h3>
@@ -129,7 +130,6 @@ const Chat = () => {
                             setSendMessage={setSendMessage}
                             receiveMessage={receiveMessage}
                             onlineUsers={onlineUsers}
-                            params={params}
                             chats={chats}
                         ></Chatbox> :
                         <div className=' flex flex-col justify-center items-center gap-5 text-3xl font-bold mt-60 text-white'>

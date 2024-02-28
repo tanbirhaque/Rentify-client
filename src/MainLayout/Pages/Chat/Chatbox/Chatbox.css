@@ -22,7 +22,7 @@
 .message {
     color: black;
     padding: 0.7rem;
-    border: 1px solid blac;
+    border: 1px solid;
     border-radius: 1rem 1rem 1rem 0;
     max-width: 28rem;
     width: fit-content;
@@ -42,7 +42,6 @@
     justify-content: end;
     align-self: flex-end;
     border-radius: 1rem 1rem 0 1rem;
-    background: linear-gradient(98.63deg, #24e4f0 0%, #358ff9 100%);
 }
 
 

@@ -1,3 +1,4 @@
+// conversation all routes designed and functionality all worked done by sajib 
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import { useEffect, useState } from "react";
@@ -5,7 +6,7 @@ import { useEffect, useState } from "react";
 const Conversation = ({ data, currentUserId, online }) => {
     console.log(online);
     const axiosPublic = useAxiosPublic()
-    const [userData, setUserData] = useState([])
+    const [userData, setUserData] = useState(null)
     const userId = data.members.find((id) => id !== currentUserId)
     // console.log(userId);
     const url = `http://localhost:5000/users/find/${userId}`;
@@ -23,9 +24,9 @@ const Conversation = ({ data, currentUserId, online }) => {
                     {online ? <div className="online-dot ml-12 mb-12"></div>
                         : <div className="offline-dot ml-12 mb-12"></div>
                     }
-                    <img className="followerImage rounded-full h-[60px] w-[60px]" src={userData[0]?.image} alt="" />
+                    <img className="followerImage rounded-full h-[60px] w-[60px]" src={userData?.image} alt="" />
                     <div className="name flex flex-col" style={{ fontSize: "0.8rem" }}>
-                        <span className=" text-xl font-bold ">{userData[0]?.name}</span>
+                        <span className=" text-xl font-bold ">{userData?.name}</span>
                         <span className=" font-bold">{online ? " Online" : " Offline"}</span>
                     </div>
                 </div>
