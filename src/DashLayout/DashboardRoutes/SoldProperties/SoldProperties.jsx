@@ -56,8 +56,7 @@ const SoldProperties = () => {
             <div className="text-lg">
               <h1 className="font-bold">INFORMATION</h1>
               <h1>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt
+              This section offers a personalized viewing experience for property owners, providing access to exclusive listings and detailed insights tailored to your ownership status. Discover sold properties and market trends relevant to your portfolio. Contact us for a private consultation to explore your real estate opportunities further.
               </h1>
             </div>
           </div>

@@ -1,6 +1,6 @@
+// chat all routes designed and functionality all worked done by sajib 
 import { useEffect, useRef, useState } from 'react';
 import useAuth from '../../../Hooks/useAuth';
-import LogoSearch from '../../Shared/logoSearch/LogoSearch';
 import './Chat.css'
 import useAxiosPublic from '../../../Hooks/useAxiospublic';
 import useAllUser from '../../../Hooks/useAllUser';
@@ -20,17 +20,15 @@ const Chat = () => {
     console.log("look after current chat:", currentChat);
     const [onlineUsers, setOnlineUsers] = useState([])
     const [sendMessage, setSendMessage] = useState(null)
+    const params = useParams();
+    // console.log("get current chat",currentChat)
     const [receiveMessage, setReceiveMessage] = useState(null)
     const [users] = useAllUser();
     const [userRole] = useGetRole();
     const { role } = userRole || {};
     const { user } = useAuth();
     const socket = useRef();
-    const currentUserEmail = useParams();
-    console.log("Get current user: " , currentUserEmail);
-    // const currentUser = users.find((item) => item.email === user?.email)
-    const currentUser = users.find((item) => item.email === currentUserEmail.email)
-    console.log(currentUser?._id);
+    const currentUser = users.find((item) => item.email === user?.email)
 
     // data send on socket io
     useEffect(() => {
@@ -47,6 +45,14 @@ const Chat = () => {
             .then(data => setChats(data))
     }, [url])
     // console.log(chats);
+
+    // Chatbox redirect  useEffect chats data get by use fetch
+    const memberUrl = `http://localhost:5000/chat/find/${params?.id}/${currentUser?._id}`;
+    useEffect(() => {
+        fetch(memberUrl)
+            .then(res => res.json())
+            .then(data => setCurrentChat(data))
+    }, [memberUrl])
 
 
     // socket io ref
@@ -73,15 +79,15 @@ const Chat = () => {
     }
 
     return (
-        <div className=' w-[95%] mx-auto my-10'>
-            <h2 className=' text-xl font-bold ml-3 my-3'>Chat box</h2>
-            <div className="flex md:flex-row flex-col justify-start items-start gap-8">
+        <div className=' w-[97%] mx-auto mt-5'>
+            <h2 className=' text-xl font-bold ml-3 my-5'>Chat box</h2>
+            <div className=" flex md:flex-row flex-col justify-start items-start gap-3">
                 {/* left side */}
-                <div className="Left-side-chat border-2 w-[25%] h-screen p-4 rounded-xl">
+                <div className="Left-side-chat border-2 md:w-[25%] w-full md:h-screen h-[600px] p-4 rounded-xl">
                     {/* <LogoSearch></LogoSearch> */}
                     <div className="Chat-container">
                         {/* current user profile */}
-                        <div className=' flex flex-col items-center justify-center border-b-'>
+                        <div className=' w-full flex flex-col items-center justify-center border-b pb-2'>
                             <img className=' h-[90px] w-[90px] rounded-full' src={user?.photoURL} alt="" />
                             <h2 className=' font-bold my-2'>{user?.displayName}</h2>
                             <h3 className=' text-slate-400'>{role}</h3>
@@ -102,20 +108,7 @@ const Chat = () => {
                     </div>
                 </div>
                 {/* Right side */}
-                <div className="Right-side-chat border-2 w-[75%] h-screen p-8 rounded-xl">
-                    {/* Navbar in right side */}
-                    {/* <div className=' flex justify-end'>
-                        <div className="navIcons flex justify-center items-center gap-10">
-                            <Link to="../home">
-                                <img src="https://i.ibb.co/n1Vkx0F/home.png" alt="" />
-                            </Link>
-                            <CiSettings className=' text-4xl from-bold' />
-                            <img src="https://i.ibb.co/HDSYmVM/noti.png" alt="" />
-                            <Link to="../chat">
-                                <img src="https://i.ibb.co/qswp6SB/comment.png" alt="" />
-                            </Link>
-                        </div>
-                    </div> */}
+                <div className="Right-side-chat border-2 md:w-[75%] w-full h-screen rounded-xl">
                     {/* Chatbox */}
                     {currentChat ?
                         <Chatbox
@@ -124,9 +117,8 @@ const Chat = () => {
                             setSendMessage={setSendMessage}
                             receiveMessage={receiveMessage}
                             onlineUsers={onlineUsers}
-                            chats={chats}
                         ></Chatbox> :
-                        <div className=' flex flex-col justify-center items-center gap-5 text-3xl font-bold mt-60 text-white'>
+                        <div className=' flex flex-col justify-center items-center gap-2 text-3xl font-bold mt-72 text-white'>
                             <div className="flex items-center bg-white p-4  w-70 rounded-md">
                                 <FaFacebookMessenger
                                     className=' text-5xl font-bold text-[#002172]'
@@ -140,7 +132,7 @@ const Chat = () => {
                                     Renti<span className="text-[#e33226]">fy</span>
                                 </h4>
                             </div>
-                            <div>
+                            <div className=' text-slate-600 text-center'>
                                 Tap on a users to start conversation
                             </div>
                         </div>

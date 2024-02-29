@@ -1,6 +1,6 @@
 import { Link, NavLink, useLoaderData, useParams } from "react-router-dom";
 import { CiLocationOn } from "react-icons/ci";
-import { RiCheckboxMultipleLine } from "react-icons/ri";
+import { RiCheckboxMultipleLine, RiMailSendLine } from "react-icons/ri";
 import { IoMdPlay } from "react-icons/io";
 import VideoModal from "../Home/HomeComponents/Virtual Apartments/VideoModal";
 import { Rating } from "@smastrom/react-rating";
@@ -18,6 +18,7 @@ import useAxiosSecure from "../../../Hooks/useAxiosSecure.jsx";
 import { useEffect, useState } from "react";
 import useGetRole from "../../../Hooks/useGetRole.jsx";
 import PageBanner from "../../Shared/banner for pages/PageBanner.jsx";
+import { HiOutlinePhone } from "react-icons/hi2";
 
 const Details = () => {
   const axiosSecure = useAxiosSecure();
@@ -57,6 +58,15 @@ const Details = () => {
     balcony,
     garages,
   } = property_details || {};
+  const {
+    owner_name,
+    owner_img,
+    owner_phone,
+    owner_email,
+    owner_profession,
+    owner_address,
+  } = owner_details || {};
+  console.log("owner image", owner_img);
   //destructure
 
   //save property feature added by Fahima
@@ -127,15 +137,14 @@ const Details = () => {
   const url = `http://localhost:5000/users/${owner_details?.owner_email}`;
   useEffect(() => {
     fetch(url)
-      .then((res) => res.json())
-      .then((data) => setOwnerUser(data));
-  }, [url]);
-  console.log(ownerUser, userRole);
+      .then(res => res.json())
+      .then(data => setOwnerUser(data))
+  }, [url])
+
   // First member is the owner of the property
   const firstMember = ownerUser?._id;
   // Second Member is the current user
   const secondMember = userRole?._id;
-
   // get chatMembers by use fetch
   const memberUrl = `http://localhost:5000/chat/find/${firstMember}/${secondMember}`;
   useEffect(() => {
@@ -144,20 +153,23 @@ const Details = () => {
       .then((data) => setChatMembers(data));
   }, [memberUrl]);
 
-  console.log(chatsMembers);
+  // console.log("MEmbers", firstMember, secondMember);
+  // console.log("chtMembers", chatsMembers);
 
-  const handleSendChats = () => {
+  const handleSendChats = async () => {
     const newMembers = {
       members: [firstMember, secondMember],
     };
     console.log(newMembers);
-    if (!chatsMembers) {
-      axiosSecure.post("/chat", newMembers).then((res) => {
-        console.log(res.data);
-        Swal.fire("Now You connected With this owner");
-      });
-    } else {
-      Swal.fire("Already you have connected with owner");
+    const existingOwner = owner_email === user?.email;
+    console.log("existing email", existingOwner);
+
+    if (!chatsMembers && !existingOwner) {
+      await axiosSecure.post("/chat", newMembers)
+        .then(res => {
+          console.log(res.data)
+          Swal.fire("Now You connected With this owner")
+        })
     }
   };
 
@@ -407,7 +419,47 @@ const Details = () => {
                   boxShadow: "0px 0px 10px 0px rgba(0,0,0,0.09)",
                 }}
               >
-                <OwnerInfo owner={owner_details} />
+                {/* this owner form commented by sojib please Don't uncomment it without telling him */}
+                {/* <OwnerInfo owner={owner_details} /> */}
+                <div className="flex gap-4 my-3">
+                  <img
+                    className="rounded-full h-[70px] w-[70px]"
+                    src={owner_img}
+                    alt="owner-image"
+                  />
+                  <div className="flex flex-col ">
+                    <h2 className="text-black text-lg font-bold">{owner_name} </h2>
+                    <p className="text-[#666666] text-sm">{owner_profession} </p>
+                  </div>
+                </div>
+                <hr />
+                {/* contact information */}
+                <div className="my-3 space-y-4">
+                  <p className="flex gap-2 text-base">
+                    <CiLocationOn className="text-[#ec3323] text-base" />
+                    {owner_address}
+                  </p>
+                  <p className="flex gap-2 text-base">
+                    <HiOutlinePhone className="text-[#ec3323] text-base" />
+                    {owner_phone}
+                  </p>
+                  <p className="flex gap-2 text-base">
+                    <RiMailSendLine className="text-[#ec3323] text-base" />
+                    {owner_email}
+                  </p>
+                </div>
+                <hr />
+                <div className="my-3">
+                  <Link to={`/dashboard/chat/${firstMember}`}>
+                    <div onClick={handleSendChats}>
+                      <button
+                        className="rounded p-4 bg-[#002172] hover:bg-[#EC3323] text-white mb-4 w-full flex justify-center items-center gap-2"
+                      >
+                        <FaFacebookMessenger className=" text-2xl font-bold"></FaFacebookMessenger> Chat with owner
+                      </button>
+                    </div>
+                  </Link>
+                </div>
               </div>
               {/* popular tags */}
               <div
@@ -429,14 +481,14 @@ const Details = () => {
                 </div>
               </div>
               <div className=" ml-5 mt-5">
-                <div className=" flex items-center gap-2">
-                  <Link to="/chat">
+                {/* <div className=" flex items-center gap-2">
+                  <Link to={`/dashboard/chat/${firstMember}`}>
                     <div onClick={handleSendChats}>
-                      <FaFacebookMessenger className=" text-5xl font-bold text-[#002172]"></FaFacebookMessenger>
+                    <FaFacebookMessenger className=" text-5xl font-bold text-[#002172]"></FaFacebookMessenger>
                     </div>
                   </Link>
                   <h2 className=" text-3xl font-bold">Chat with owner</h2>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

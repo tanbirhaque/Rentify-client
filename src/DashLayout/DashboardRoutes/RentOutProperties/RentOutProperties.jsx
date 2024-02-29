@@ -56,8 +56,7 @@ const RentOutProperties = () => {
             <div className="text-lg">
               <h1 className="font-bold">INFORMATION</h1>
               <h1>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt
+              Rent Out transforms real estate transactions by connecting buyers and sellers seamlessly, facilitating personalized property matches based on preferences and requirements.
               </h1>
             </div>
           </div>

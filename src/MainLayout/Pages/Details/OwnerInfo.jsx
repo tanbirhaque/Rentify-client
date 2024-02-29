@@ -12,6 +12,7 @@ const OwnerInfo = ({ owner }) => {
     owner_profession,
     owner_address,
   } = owner || {};
+  console.log("owner image",owner_img);
 
   return (
     <>
