@@ -9,7 +9,7 @@ const useRentRequest = () => {
     const { data: rentrequest = [], refetch } = useQuery({
         queryKey: ['rentrequest'],
         queryFn: async () => {
-            // when data import from database then chage the url & use axios public 
+            // when data import from database then change the url & use axios public 
             const res = await axiosPublic.get(`/requested-rent?email=${user.email}`)
             console.log(res.data)
             return res.data;
