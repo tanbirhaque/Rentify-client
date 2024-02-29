@@ -8,7 +8,7 @@ import { LuPhoneCall } from "react-icons/lu";
 import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { useForm } from "react-hook-form"
 import { Helmet } from "react-helmet";
-
+import PageBanner from "../../Shared/banner for pages/PageBanner";
 
 const Contact = () => {
 
@@ -28,7 +28,7 @@ const Contact = () => {
     </Helmet>
         <div>
             {/* banner background part */}
-            <div className="contactbgimg">
+            {/* <div className="contactbgimg">
                 <div className=" bg-[#000000B2]">
                     <div className=" max-w-screen-2xl mx-auto py-24">
                         <h2 className="md:text-6xl text-2xl font-bold text-white font-serif">Contact With Us</h2>
@@ -38,10 +38,12 @@ const Contact = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
+            {/* banner using component */}
+            <PageBanner heading={'Contact With Us'} title={'Privacy Policy'} img={'https://i.ibb.co/y46DtNC/breadcrumb-2.jpg'}/>
             {/* page section */}
             <div className="lg:max-w-screen-2xl w-11/12 mx-auto my-32">
-                {/* use extra div for change any desgin or any problem */}
+                {/* use extra div for change any design or any problem */}
                 <div>
                     <div className="mb-24 flex md:flex-row flex-col justify-center items-center gap-5">
                         <div className=" md:w-full w-11/12 mx-auto h-[200px] shadow-2xl flex flex-col justify-center items-center relative
@@ -49,7 +51,7 @@ const Contact = () => {
                             <p className=" bg-red-600 hover:bg-purple-900 h-20 w-20 rounded-full flex flex-col justify-center items-center absolute -top-9"><CiLocationOn className="text-5xl font-bold text-white"></CiLocationOn></p>
                             <h2 className=" text-2xl font-bold">Visit Us Anytime</h2>
                             <p className=" text-gray-500 text-center">
-                                342/A Brooklyn St, Milson Avenue,<br />
+                                342/A Brooklyn St, Milton Avenue,<br />
                                 New York, USA
                             </p>
                         </div>
@@ -57,7 +59,7 @@ const Contact = () => {
                             <p className=" bg-red-600 hover:bg-purple-900 h-20 w-20 rounded-full flex flex-col justify-center items-center absolute -top-9"><MdOutlineEmail className="text-5xl font-bold text-white"></MdOutlineEmail></p>
                             <h2 className=" text-2xl font-bold">Visit Us Anytime</h2>
                             <p className=" text-gray-500 text-center">
-                                342/A Brooklyn St, Milson Avenue,<br />
+                                342/A Brooklyn St, Milton Avenue,<br />
                                 New York, USA
                             </p>
                         </div>
@@ -65,7 +67,7 @@ const Contact = () => {
                             <p className=" bg-red-600 hover:bg-purple-900 h-20 w-20 rounded-full flex flex-col justify-center items-center absolute -top-9"><LuPhoneCall className="text-5xl font-bold text-white"></LuPhoneCall></p>
                             <h2 className=" text-2xl font-bold">Visit Us Anytime</h2>
                             <p className=" text-gray-500 text-center">
-                                342/A Brooklyn St, Milson Avenue,<br />
+                                342/A Brooklyn St, Milton Avenue,<br />
                                 New York, USA
                             </p>
                         </div>
@@ -74,7 +76,7 @@ const Contact = () => {
                         <div className=" w-1/2">
                             <p className=" text-red-500">Contact Us</p>
                             <h2 className=" text-4xl font-extrabold my-4">How Can We Help You?</h2>
-                            <p className=" leading-10 text-gray-500 mb-7 text-left text-xl">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores pariatur a eius ea similique quod dicta ipsa vel quidem repellendus, beatae nulla veniam, quaerat veritatis architecto. Aliquid doloremque nesciunt nobis, debitis, quas veniam dolore culpa corrupti maxime cum similique.</p>
+                            <p className=" leading-10 text-gray-500 mb-7 text-left text-xl">We aim to provide personalized assistance for all your real estate needs. Whether you&#39;re looking for property listings, seeking guidance on the buying or selling process, or have general inquiries, our team is here to support you every step of the way. With our expertise and dedication, we&#39;re committed to helping you find your dream home.</p>
                             <div className=" flex items-center gap-5 text-xl">
                                 <a target="blank" href="https://www.facebook.com/roknujjamansajib" className=" bg-gray-200  rounded-full text-[#002172] text-xl p-2"><FaFacebook></FaFacebook></a>
                                 <a target="blank" href="https://twitter.com/Roknuzzaman5546" className="bg-gray-200 text-xl  rounded-full text-[#002172] p-2"><FaTwitter></FaTwitter></a>
