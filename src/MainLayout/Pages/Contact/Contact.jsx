@@ -44,7 +44,7 @@ const Contact = () => {
           img={"https://i.ibb.co/y46DtNC/breadcrumb-2.jpg"}
         />
         {/* page section */}
-        <div className="lg:max-w-screen-2xl w-11/12 mx-auto my-32">
+        <div className="lg:max-w-screen-2xl w-11/12 mx-auto my-20">
           {/* use extra div for change any design or any problem */}
           <div>
             <div className="mb-24 flex md:flex-row flex-col justify-center items-center gap-5">

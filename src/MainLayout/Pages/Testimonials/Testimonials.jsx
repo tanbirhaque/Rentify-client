@@ -66,7 +66,7 @@ const Testimonials = () => {
           img={"https://i.ibb.co/yqkYvBM/breadcrumb-3.jpg"}
         />
         {/* it's cart part */}
-        <div className="max-w-screen-2xl mx-auto my-32">
+        <div className="max-w-screen-2xl mx-auto my-14">
           <div className=" grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8">
             {currentItems?.map((item, index) => (
               <div key={index}>

@@ -19,7 +19,7 @@ const Privacy = () => {
           img={"https://i.ibb.co/y46DtNC/breadcrumb-2.jpg"}
         />
         {/* body section */}
-        <div className="lg:max-w-screen-2xl w-11/12 mx-auto my-32">
+        <div className="lg:max-w-screen-2xl w-11/12 mx-auto my-14">
           <div>
             {/* Information Collection */}
             <h3 className=" text-3xl font-bold mb-6">Information Collection</h3>
