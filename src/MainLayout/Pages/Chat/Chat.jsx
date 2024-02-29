@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from 'react';
 import useAuth from '../../../Hooks/useAuth';
 import './Chat.css'
-import useAxiosPublic from '../../../Hooks/useAxiosPublic';
+import useAxiosPublic from '../../../Hooks/useAxiospublic';
 import useAllUser from '../../../Hooks/useAllUser';
 import Conversation from './Conversation';
 import { Link, useParams } from 'react-router-dom';
@@ -16,6 +16,8 @@ const Chat = () => {
     const axiosPublic = useAxiosPublic()
     const [chats, setChats] = useState([]);
     const [currentChat, setCurrentChat] = useState(null)
+    console.log("look after ONLY chat:", chats);
+    console.log("look after current chat:", currentChat);
     const [onlineUsers, setOnlineUsers] = useState([])
     const [sendMessage, setSendMessage] = useState(null)
     const params = useParams();
@@ -43,7 +45,6 @@ const Chat = () => {
             .then(data => setChats(data))
     }, [url])
     // console.log(chats);
-
 
     // Chatbox redirect  useEffect chats data get by use fetch
     const memberUrl = `http://localhost:5000/chat/find/${params?.id}/${currentUser?._id}`;

@@ -1,6 +1,7 @@
 import React from 'react';
 import CommonHeading from '../../../../Shared/CommonHeading/CommonHeading';
 import ButtonBlue from '../../../../Shared/buttons/Blue/ButtonBlue';
+import { Link } from 'react-router-dom';
 
 const OurAdvantage = () => {
     return (
@@ -22,14 +23,14 @@ const OurAdvantage = () => {
                         <img className='mx-auto h-[233px]' src="https://i.ibb.co/wdj5Sjb/download-removebg-preview-2-1.png" alt="" />
                         <h1 className='text-[22px] poppins-font font-semibold text-black mt-5 mb-3'>Complete 24/7 Support</h1>
                         <p className='leading-7 text-[#666666]'>Lorem ipsum dolor sit amet, cons ectetur adip isci ngelit, sed do eiusmod tem.</p>
-                    </div>\
+                    </div>
                 </div>
-                <ButtonBlue
+                <Link to='/all'><ButtonBlue
                     titleBlue={"Explore Properties"}
                     padX={"px-8"}
                     padY={"py-[16px]"}
                     textSize={'text-[16px]'}
-                ></ButtonBlue>
+                ></ButtonBlue></Link>
             </div>
         </>
     );

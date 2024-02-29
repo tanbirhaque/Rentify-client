@@ -1,4 +1,6 @@
-import { Link, useLoaderData, useParams } from "react-router-dom";
+//component added by "Fahima"
+
+import { useLoaderData, useParams } from "react-router-dom";
 import {
   FaFacebookF,
   FaInstagram,
@@ -6,12 +8,21 @@ import {
   FaTwitter,
 } from "react-icons/fa";
 import PageBanner from "../../Shared/banner for pages/PageBanner";
+import OwnerProperty from "./OwnerProperty";
+import useProperties from "../../../Hooks/useProperties";
 
 const OwnerDetail = () => {
   const owners = useLoaderData();
+  const [properties] = useProperties();
   const { id } = useParams();
 
   const owner = owners.find((owner) => owner._id == id);
+
+  const ownerProperties = properties.filter(
+    (item) => item.property_info.owner_details.owner_email === owner.ownerEmail
+  );
+
+  // console.log(ownerProperties);
 
   const {
     firstName,
@@ -131,21 +142,19 @@ const OwnerDetail = () => {
             <p className="text-[#ec3323] font-semibold text-xl border-b-2 border-[#ec3323] w-fit my-5">
               Listed Properties
             </p>
-            <p className="text-red-700 text-4xl">Not added yet</p>
-            {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-3 xl:px-0">
-              <PropertyCard
-                img={"https://i.ibb.co/7bRXHhS/property-2.jpg"}
-                details_path={"/details"}
-              />
-              <PropertyCard
-                img={"https://i.ibb.co/1LKG3cv/property-3.jpg"}
-                details_path={"/details"}
-              />
-              <PropertyCard
-                img={"https://i.ibb.co/QcDcJjZ/property-4.jpg"}
-                details_path={"/details"}
-              />
-            </div> */}
+            {ownerProperties.length <= 0 ? (
+              <p className="text-red-700 text-4xl">No properties to show.</p>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-3 xl:px-0">
+                {ownerProperties.map((property) => (
+                  <OwnerProperty
+                    key={ownerProperties._id}
+                    property={property}
+                    owner={owner}
+                  />
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </div>

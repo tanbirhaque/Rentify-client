@@ -140,8 +140,10 @@ const Details = () => {
       .then(res => res.json())
       .then(data => setOwnerUser(data))
   }, [url])
-  // console.log(ownerUser, userRole);
+  
+  // First member is the owner of the property
   const firstMember = ownerUser?._id;
+  // Second Member is the current user
   const secondMember = userRole?._id;
   // get chatMembers by use fetch
   const memberUrl = `http://localhost:5000/chat/find/${firstMember}/${secondMember}`;

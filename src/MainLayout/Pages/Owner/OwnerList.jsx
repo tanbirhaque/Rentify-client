@@ -1,12 +1,5 @@
 //component added by "Fahima"
 
-import { Link } from "react-router-dom";
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaLinkedinIn,
-  FaTwitter,
-} from "react-icons/fa";
 import useOwners from "../../../Hooks/useOwners";
 import OwnerCard from "./OwnerCard";
 import { Helmet } from "react-helmet";
@@ -28,7 +21,7 @@ const OwnerList = () => {
           heading={"Owner List"}
           title={"Owners"}
         />
-        <div className="p-20 grid grid-rows-1 sm:grid-cols-2 md:grid-cols-3 gap-5 justify-center items-center">
+        <div className="grid grid-rows-1 sm:grid-cols-2 md:grid-cols-3 gap-5 justify-center items-center max-w-[1296px] mx-auto my-20">
           {/* agents */}
           {owners.map((owner) => (
             <OwnerCard owner={owner} key={owner._id} />
