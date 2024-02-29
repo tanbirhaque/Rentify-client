@@ -140,7 +140,7 @@ const Details = () => {
       .then(res => res.json())
       .then(data => setOwnerUser(data))
   }, [url])
-  console.log();
+  // console.log(ownerUser, userRole);
   const firstMember = ownerUser?._id;
   const secondMember = userRole?._id;
   // get chatMembers by use fetch
@@ -151,8 +151,8 @@ const Details = () => {
       .then(data => setChatMembers(data))
   }, [memberUrl])
 
-  console.log("MEmbers", firstMember, secondMember);
-  console.log("chtMembers", chatsMembers);
+  // console.log("MEmbers", firstMember, secondMember);
+  // console.log("chtMembers", chatsMembers);
 
   const handleSendChats = () => {
     const newMembers = {
