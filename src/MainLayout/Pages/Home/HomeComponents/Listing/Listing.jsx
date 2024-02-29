@@ -73,7 +73,7 @@ const Listing = () => {
                         </TabList>
                         <TabPanel>
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-3 xl:px-0">
-                                {Residential.map((property, index) => (
+                                {Residential.slice(0, 6).map((property, index) => (
                                     <div key={index}>
                                         <PropertyCard
                                             property={property}

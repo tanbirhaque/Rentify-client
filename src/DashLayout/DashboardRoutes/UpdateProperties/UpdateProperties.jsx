@@ -1,39 +1,73 @@
-// This AddProperties page is designed by Sadia
-import { useContext, useRef, useState } from "react";
-import { AuthContext } from "../../../Provider/AuthProvider";
-import useAxiosPublic from "../../../Hooks/useAxiosPublic";
+// this code is entirely coded by Sadia
+
 import Swal from "sweetalert2";
-import useProperties from "../../../Hooks/useProperties";
-import Select from 'react-select';
-import { FaPhotoVideo } from "react-icons/fa";
-import { useForm } from "react-hook-form";
-import ButtonRed from "../../../MainLayout/Shared/buttons/Red/ButtonRed";
 import ButtonBlue from "../../../MainLayout/Shared/buttons/Blue/ButtonBlue";
-import useOwners from "../../../Hooks/useOwners";
-// import { colourOptions } from '../data';
+import ButtonRed from "../../../MainLayout/Shared/buttons/Red/ButtonRed";
+import { useForm } from "react-hook-form";
+import { useContext, useRef, useState } from "react";
+import useProperties from "../../../Hooks/useProperties";
+import useAxiosPublic from "../../../Hooks/useAxiosPublic";
+import { AuthContext } from "../../../Provider/AuthProvider";
+import { FaPhotoVideo } from "react-icons/fa";
+import Select from "react-select";
+import { useLoaderData } from "react-router-dom";
+
+const UpdateProperties = () => {
+  const [properties, refetch] = useProperties();
+  const loaderProperty = useLoaderData();
+  console.log(loaderProperty)
+//   const { property_info, _id } = properties || {};
+  // console.log(_id)
+  const {
+    property_title,
+    property_for,
+    ownership_duration,
+    property_category,
+    property_description,
+  } = loaderProperty[0]?.property_info || {};
+
+  const {
+    property_id,
+    property_price,
+    bedroom,
+    property_status,
+    bath,
+    balcony,
+    garages,
+    built,
+    sqf,
+    property_tags,
+    property_video,
+    property_features,
+  } = loaderProperty[0]?.property_info.property_details || {};
+
+  const {
+    street,
+    city,
+    state,
+    country,
+  } = loaderProperty[0]?.property_info.property_location.address || {};
+  
+
+    // console.log(property_title);
 
 
-const AddProperties = () => {
-  const [, refetch] = useProperties();
+  // console.log(loaderProperty[0]);
+  
+
   const axiosPublic = useAxiosPublic();
   const { user } = useContext(AuthContext);
-  const [owners] = useOwners();
   const image_hosting_api =
     "https://api.imgbb.com/1/upload?key=041c88632a7cf1ed57bab64c7c558177";
-  const findOwner = owners.find((owner) => owner.ownerEmail == user?.email)
-  // console.log("find Owner", findOwner);
-
-  // This code from line 19 to line 130 for react select the option and value of the select field for property tags, property featuries and image drag drop.
-
 
   // multiple tags and features functionality [25 to 78]
   const [tagValue, setTagValue] = useState([]);
   const newTags = [];
   for (let i = 0; i < tagValue.length; i++) {
-    newTags.push(tagValue[i].value)
+    newTags.push(tagValue[i].value);
   }
   // console.log(newTags)
-  const [featureValue, setFeatureValue] = useState([])
+  const [featureValue, setFeatureValue] = useState([]);
   const newFeatures = [];
   for (let i = 0; i < featureValue.length; i++) {
     newFeatures.push(featureValue[i].value);
@@ -49,10 +83,13 @@ const AddProperties = () => {
     { value: "Pool", label: "Pool" },
     { value: "Fireplace", label: "Fireplace" },
     { value: "Garden", label: "Garden" },
-    { value: "Walking distance to village", label: "Walking distance to village" },
+    {
+      value: "Walking distance to village",
+      label: "Walking distance to village",
+    },
     { value: "olive grove", label: "Olive grove" },
     { value: "Swimming pool", label: "Swimming pool" },
-  ]
+  ];
   const tagsOptions = [
     { value: "Historic", label: "Historic" },
     { value: "Luxury", label: "Luxury" },
@@ -69,178 +106,170 @@ const AddProperties = () => {
     { value: "tech-savvy", label: "tech-savvy" },
     { value: "modern", label: "modern" },
     { value: "urban oasis", label: "urban oasis" },
-    { value: "high-tech living", label: "high-tech living" }
-  ]
+    { value: "high-tech living", label: "high-tech living" },
+  ];
   const handleValueTags = (tagValue) => {
-    setTagValue(tagValue)
-  }
+    setTagValue(tagValue);
+  };
 
   const handleValueFeature = (featureValue) => {
-    setFeatureValue(featureValue)
-  }
-
+    setFeatureValue(featureValue);
+  };
 
   // property adnd floor plan images drop and file input functionality [81 to 139]
-  const [images, setImages] = useState([])
-  const [showImages, setShowImages] = useState([])
-  const [isDragging, setIsDragging] = useState(false)
-  const fileInputRef = useRef(null)
+  const [images, setImages] = useState([]);
+  const [showImages, setShowImages] = useState([]);
+  const [isDragging, setIsDragging] = useState(false);
+  const fileInputRef = useRef(null);
   // console.log(showImages)
 
   const onFileSelect = (event) => {
     event.preventDefault();
     const files = event.target.files;
-    setImages(files[0])
-    console.log(files)
+    setImages(files[0]);
+    // console.log(files);
 
     if (files.length === 0) return;
     for (let i = 0; i < files.length; i++) {
-      if (files[i].type.split('/')[0] !== 'image') continue;
+      if (files[i].type.split("/")[0] !== "image") continue;
       if (!showImages.some((e) => e.name === files[i].name)) {
         setShowImages((prevImages) => [
           ...prevImages,
           {
             name: files[i].name,
-            url: URL.createObjectURL(files[i])
-          }
-        ])
+            url: URL.createObjectURL(files[i]),
+          },
+        ]);
       }
     }
-  }
+  };
   function selectFiles() {
     fileInputRef.current.click();
   }
   const onDragOver = (event) => {
     event.preventDefault();
-    setIsDragging(true)
-
-    event.dataTransfer.dropEffect = "copy"
-  }
+    setIsDragging(true);
+    event.dataTransfer.dropEffect = "copy";
+  };
   const onDragLeave = (event) => {
     event.preventDefault();
-    setIsDragging(false)
-  }
+    setIsDragging(false);
+  };
   const onDrop = async (event) => {
     event.preventDefault();
-    setIsDragging(false)
+    setIsDragging(false);
     const files = event.dataTransfer.files;
-    setImages(files[0])
+    setImages(files[0]);
 
     for (let i = 0; i < files.length; i++) {
-      if (files[i].type.split('/')[0] !== 'image') continue;
+      if (files[i].type.split("/")[0] !== "image") continue;
       if (!showImages.some((e) => e.name === files[i].name)) {
         setShowImages((prevImages) => [
           ...prevImages,
           {
             name: files[i].name,
-            url: URL.createObjectURL(files[i])
-          }
-        ])
+            url: URL.createObjectURL(files[i]),
+          },
+        ]);
       }
     }
-  }
+  };
 
-  const [floorImages, setFloorImages] = useState([])
-  const [showFloorImages, setShowFloorImages] = useState([])
-  const [isFloorDragging, setIsFloorDragging] = useState(false)
-  const fileFloorInputRef = useRef(null)
+  const [floorImages, setFloorImages] = useState([]);
+  const [showFloorImages, setShowFloorImages] = useState([]);
+  const [isFloorDragging, setIsFloorDragging] = useState(false);
+  const fileFloorInputRef = useRef(null);
   // console.log(showFloorImages)
 
   const onFloorFileSelect = (event) => {
     event.preventDefault();
     const files = event.target.files;
-    setFloorImages(files[0])
-    console.log(files)
+    setFloorImages(files[0]);
+    // console.log(files);
     if (files.length === 0) return;
     for (let i = 0; i < files.length; i++) {
-      if (files[i].type.split('/')[0] !== 'image') continue;
+      if (files[i].type.split("/")[0] !== "image") continue;
       if (!showFloorImages.some((e) => e.name === files[i].name)) {
         setShowFloorImages((prevImages) => [
           ...prevImages,
           {
             name: files[i].name,
-            url: URL.createObjectURL(files[i])
-          }
-        ])
+            url: URL.createObjectURL(files[i]),
+          },
+        ]);
       }
     }
-  }
+  };
   function selectFloorFiles() {
     fileFloorInputRef.current.click();
   }
   const onFloorDragOver = (event) => {
     event.preventDefault();
-    setIsFloorDragging(true)
-    event.dataTransfer.dropEffect = "copy"
-  }
+    setIsFloorDragging(true);
+    event.dataTransfer.dropEffect = "copy";
+  };
   const onFloorDragLeave = (event) => {
     event.preventDefault();
-    setIsFloorDragging(false)
-  }
+    setIsFloorDragging(false);
+  };
   const onFloorDrop = async (event) => {
     event.preventDefault();
-    setIsFloorDragging(false)
+    setIsFloorDragging(false);
     const files = event.dataTransfer.files;
-    setFloorImages(files[0])
+    setFloorImages(files[0]);
 
     for (let i = 0; i < files.length; i++) {
-      if (files[i].type.split('/')[0] !== 'image') continue;
+      if (files[i].type.split("/")[0] !== "image") continue;
       if (!showFloorImages.some((e) => e.name === files[i].name)) {
         setShowFloorImages((prevImages) => [
           ...prevImages,
           {
             name: files[i].name,
-            url: URL.createObjectURL(files[i])
-          }
-        ])
+            url: URL.createObjectURL(files[i]),
+          },
+        ]);
       }
     }
-  }
+  };
 
-  const {
-    register,
-    handleSubmit,
-    reset,
-  } = useForm()
+ 
+
+  const { register, handleSubmit, reset } = useForm();
   const onSubmit = async (data) => {
-    console.log(data)
-    // property image host post api
+    // console.log(data);
     const imageFile = { image: images };
     const res = await axiosPublic.post(image_hosting_api, imageFile, {
       headers: { "Content-Type": "multipart/form-data" },
     });
     const img = res.data.data.url;
-    console.log(img)
+    // console.log(img);
     if (res.data) {
       // console.log(res.data.data)
-      setImages(img)
-    }
-    // floorPlan Image host post api 
-    const imageFloorFile = { image: floorImages };
-    const resFloor = await axiosPublic.post(image_hosting_api, imageFloorFile, {
-      headers: { "Content-Type": "multipart/form-data" },
-    });
-    const floorPlanIMG = resFloor.data.data.url;
-    console.log(floorPlanIMG)
-    if (res.data) {
-      // console.log(res.data.data)
-      setFloorImages(floorPlanIMG)
+      setImages(img);
     }
 
-    // properties data structure create
+    const imageFloorFile = { image: floorImages };
+    const resfloor = await axiosPublic.post(image_hosting_api, imageFloorFile, {
+      headers: { "Content-Type": "multipart/form-data" },
+    });
+    const floorPlanIMG = resfloor.data.data.url;
+    // console.log(floorPlanIMG);
+    if (res.data) {
+      // console.log(res.data.data)
+      setFloorImages(floorPlanIMG);
+    }
+
     const newProperty = {
       property_info: {
         owner_details: {
-          owner_name: findOwner?.firstName + " " + findOwner?.lastName,
-          owner_img: findOwner?.ownerImg,
-          owner_phone: findOwner?.number,
-          owner_email: findOwner?.ownerEmail,
-          owner_profession: findOwner?.profession,
-          owner_address: findOwner?.address
+          owner_name: user.displayName,
+          owner_img: user.photoURL,
+          owner_email: user.email,
         },
         ownership_duration: data.ownership,
         property_for: data.status,
-        verify_status: "pending",  // Ex: [verify_status: "pending" / "verified" / "declined"] => This status is changed from boolean value to string for managing the property verification feature from the admin dashboard. 
+        // I'm adding verify_status "verified" by deafault but if u need the current verified status u can use loaderProperty for current verify_status - [Sadia]
+        verify_status: "verified",
         property_img: img,
         property_title: data.title,
         property_category: data.property,
@@ -259,40 +288,41 @@ const AddProperties = () => {
           floor_plans: floorPlanIMG,
           property_video: data.video,
           property_features: newFeatures,
-          property_tags: newTags
+          property_tags: newTags,
         },
         property_location: {
           address: {
             street: data.area,
             city: data.city,
             state: data.state,
-            country: data.country
-          }
-        }
-      }
+            country: data.country,
+          },
+        },
+      },
     };
     console.log(newProperty);
-    // post properties api
-    axiosPublic.post("/properties", newProperty)
-      .then(res => {
-        console.log(res.data)
-        if (res.data) {
-          Swal.fire(`Hey ${user.displayName}, Your property added successfully`)
-          refetch();
-          setShowImages([])
-          setShowFloorImages([])
-          reset()
-        }
-      })
-  }
+    axiosPublic.patch(`/properties/${loaderProperty[0]._id}`, newProperty).then((res) => {
+      // console.log(res.data);
+      if (res.data) {
+        Swal.fire(
+          `Hey ${user.displayName}, Your property updated successfully`
+        );
+        refetch();
+        setShowImages([]);
+        setShowFloorImages([]);
+        reset();
+      }
+    });
+  };
 
-  // reset function
+
+
   const handleReset = () => {
-    reset()
-    setShowImages([])
-    setShowFloorImages([])
-    refetch()
-  }
+    reset();
+    setShowImages([]);
+    setShowFloorImages([]);
+    refetch();
+  };
 
   return (
     <div>
@@ -300,7 +330,7 @@ const AddProperties = () => {
         <div className=" bg-white w-[93%] mx-auto shadow-md pl-6 py-3 mt-4 rounded-lg">
           <ol className=" flex items-center gap-1">
             <p>Property</p>
-            <p className=" font-bold text-[#002172]">/ Add property</p>
+            <p className=" font-bold text-[#002172]">/ Update property</p>
           </ol>
         </div>
         <div className="w-[93%] bg-white  px-6 mx-auto mt-6 mb-20 shadow-lg rounded-lg">
@@ -308,12 +338,11 @@ const AddProperties = () => {
             <div className="rounded-t bg-white mb-0 px-6 py-6">
               <div className="text-center flex justify-between">
                 <h6 className="text-blueGray-700 text-xl font-bold">
-                  Add Property
+                  Update Property
                 </h6>
               </div>
             </div>
             <hr className="mb-5"></hr>
-            {/* form section */}
             <form className="px-4" onSubmit={handleSubmit(onSubmit)}>
               <div className="md:grid grid-cols-2 gap-4  mb-5">
                 <div className="form-control">
@@ -326,7 +355,8 @@ const AddProperties = () => {
                     <input
                       {...register("title")}
                       type="text"
-                      placeholder="Add your property title"
+                      defaultValue={property_title}
+                  
                       className="input form-border input-bordered w-full"
                     />
                   </label>
@@ -342,6 +372,7 @@ const AddProperties = () => {
                       {...register("id")}
                       type="text"
                       placeholder="Add your property id"
+                      defaultValue={property_id}
                       name="id"
                       className="input form-border input-bordered w-full"
                     />
@@ -359,6 +390,7 @@ const AddProperties = () => {
                     <select
                       {...register("property")}
                       name="property"
+                      defaultValue={property_category}
                       required
                       className="select select-bordered w-full"
                     >
@@ -379,6 +411,7 @@ const AddProperties = () => {
                     <select
                       {...register("status")}
                       name="status"
+                      defaultValue={property_for}
                       required
                       className="select select-bordered w-full"
                     >
@@ -400,6 +433,7 @@ const AddProperties = () => {
                       type="number"
                       placeholder="$"
                       name="price"
+                      defaultValue={property_price}
                       className="input form-border input-bordered w-full"
                     />
                   </label>
@@ -417,6 +451,7 @@ const AddProperties = () => {
                       {...register("rooms")}
                       name="rooms"
                       required
+                      defaultValue={bedroom}
                       className="select select-bordered w-full"
                     >
                       <option value="1">1</option>
@@ -438,6 +473,7 @@ const AddProperties = () => {
                     <select
                       {...register("propertyStatus")}
                       name="propertyStatus"
+                      defaultValue={property_status}
                       required
                       className="select select-bordered w-full"
                     >
@@ -457,6 +493,7 @@ const AddProperties = () => {
                       {...register("baths")}
                       name="baths"
                       required
+                      defaultValue={bath}
                       className="select select-bordered w-full"
                     >
                       <option value="1">1</option>
@@ -481,6 +518,7 @@ const AddProperties = () => {
                       {...register("balcony")}
                       name="balcony"
                       required
+                      defaultValue={balcony}
                       className="select select-bordered w-full"
                     >
                       <option value="1">1</option>
@@ -500,6 +538,7 @@ const AddProperties = () => {
                       {...register("garage")}
                       name="garage"
                       required
+                      defaultValue={garages}
                       className="select select-bordered w-full"
                     >
                       <option value="1">1</option>
@@ -519,6 +558,7 @@ const AddProperties = () => {
                       {...register("ownership")}
                       name="ownership"
                       required
+                      defaultValue={ownership_duration}
                       className="select select-bordered w-full"
                     >
                       <option value="Weekly">Weekly</option>
@@ -541,6 +581,7 @@ const AddProperties = () => {
                       {...register("date")}
                       type="date"
                       name="date"
+                      defaultValue={built}
                       className="input form-border input-bordered w-full"
                     />
                   </label>
@@ -556,6 +597,7 @@ const AddProperties = () => {
                       {...register("squareFeet")}
                       type="number"
                       placeholder="2500"
+                      defaultValue={sqf}
                       name="squareFeet"
                       className="input form-border input-bordered w-full"
                     />
@@ -568,7 +610,7 @@ const AddProperties = () => {
                     </span>
                   </label>
                   <label className="input-group ">
-                    {/* This select field for find multiple tags*/}
+                    {/* This select field implemented by sojib for find multiple tags*/}
                     <Select
                       {...register("tags")}
                       value={tagValue}
@@ -576,13 +618,14 @@ const AddProperties = () => {
                       placeholder={`Select your property tags`}
                       isMulti
                       name="tags"
+                      defaultInputValue={  property_tags}
                       options={tagsOptions}
                       className="basic-multi-select w-full"
                       styles={{
                         control: (baseStyles) => ({
                           ...baseStyles,
                           padding: "5px",
-                          borderRadius: "8px"
+                          borderRadius: "8px",
                         }),
                       }}
                     />
@@ -600,6 +643,7 @@ const AddProperties = () => {
                     <input
                       {...register("area")}
                       type="text"
+                      defaultValue={street}
                       placeholder="ex. 123 Main Street"
                       name="area"
                       className="input form-border input-bordered w-full"
@@ -612,23 +656,15 @@ const AddProperties = () => {
                       City
                     </span>
                   </label>
-                  <label className="">
-                    {/* this city field converted to select option by sojib*/}
-                    <select
+                  <label className="input-group ">
+                    <input
                       {...register("city")}
+                      type="text"
+                      defaultValue={city}
+                      placeholder="ex. Any Town"
                       name="city"
-                      required
-                      className="select select-bordered w-full"
-                    >
-                      <option value="New York City"> New York City</option>
-                      <option value="Prague"> Prague</option>
-                      <option value="Florida"> Florida</option>
-                      <option value="San Francisco"> San Francisco</option>
-                      <option value="Toronto City"> Toronto City</option>
-                      <option value="Vancouver City"> Vancouver City</option>
-                      <option value="Montreal City"> Montreal City</option>
-                      <option value="Los Angeles"> Los Angeles</option>
-                    </select>
+                      className="input form-border input-bordered w-full"
+                    />
                   </label>
                 </div>
 
@@ -642,6 +678,7 @@ const AddProperties = () => {
                     <input
                       {...register("video")}
                       type="text"
+                      defaultValue={property_video}
                       placeholder="Add your video url"
                       name="video"
                       className="input form-border input-bordered w-full"
@@ -662,6 +699,7 @@ const AddProperties = () => {
                       type="text"
                       placeholder="ex. CA"
                       name="state"
+                      defaultValue={state}
                       className="input form-border input-bordered w-full"
                     />
                   </label>
@@ -676,6 +714,7 @@ const AddProperties = () => {
                     <input
                       {...register("country")}
                       type="text"
+                      defaultValue={country}
                       placeholder="ex. USA"
                       name="country"
                       className="input input-bordered w-full"
@@ -690,7 +729,7 @@ const AddProperties = () => {
                     </span>
                   </label>
                   <label className="input-group ">
-                    {/* This select field for find multiple property features */}
+                    {/* This select field implemented by sojib for find multiple property features */}
                     <Select
                       {...register("feature")}
                       value={featureValue}
@@ -698,13 +737,14 @@ const AddProperties = () => {
                       placeholder={`Select your property tags`}
                       isMulti
                       name="feature"
+                      defaultInputValue={property_features}
                       options={featureOptions}
                       className="basic-multi-select w-full"
                       styles={{
                         control: (baseStyles) => ({
                           ...baseStyles,
                           padding: "5px",
-                          borderRadius: "8px"
+                          borderRadius: "8px",
                         }),
                       }}
                     />
@@ -719,41 +759,57 @@ const AddProperties = () => {
                       Property Image
                     </span>
                   </label>
-                  {/* this field updated to drag and drop option */}
-
-                  {showImages[0] ?
+                  {/* this field updated to drag and drop option by sojib [ 632 to 663 line] */}
+                  {showImages[0] ? (
                     <div className=" flex justify-center flex-wrap items-center gap-2 border-2 rounded-md p-3">
-                      {
-                        showImages.map((item, index) =>
-                          <div key={index}>
-                            <img className=" w-[100px] h-[100px]" src={item.url} alt="Drop img" />
-                          </div>)
-                      }
-                    </div> :
+                      {showImages.map((item, index) => (
+                        <div key={index}>
+                          <img
+                            className=" w-[100px] h-[100px]"
+                           
+                            src={item.url}
+                            alt="Drop img"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
                     <div className=" border-2 rounded-md p-3 flex flex-col justify-center items-center h-[170px]">
-                      <label className="drag-area text-center flex flex-col items-center" onDragOver={onDragOver} onDragLeave={onDragLeave} onDrop={onDrop}>
-                        {isDragging ? (<span>Drop imag here</span>) : (<>
-                          <span role="button" onClick={selectFiles}>
-                            <FaPhotoVideo className="text-7xl font-bold"></FaPhotoVideo>
-                          </span>
-                        </>)}
+                      <label
+                        className="drag-area text-center flex flex-col items-center"
+                        onDragOver={onDragOver}
+                        onDragLeave={onDragLeave}
+                        onDrop={onDrop}
+                      >
+                        {isDragging ? (
+                          <span>Drop imag here</span>
+                        ) : (
+                          <>
+                            <span role="button" onClick={selectFiles}>
+                              <FaPhotoVideo className="text-7xl font-bold"></FaPhotoVideo>
+                            </span>
+                          </>
+                        )}
                         <div className="">
-                          <p className=" font-bold">Drop here files or click to upload Properties images</p>
+                          <p className=" font-bold">
+                            Drop here files or click to upload Properties images
+                          </p>
                           <input
                             {...register("files")}
                             type="file"
                             placeholder="Drag and drop your image or url"
                             name="files"
                             className="file-input w-full h-[140px]"
+                         
                             multiple
                             ref={fileInputRef}
                             onChange={onFileSelect}
-                            style={{ display: 'none' }}
+                            style={{ display: "none" }}
                           />
                         </div>
                       </label>
                     </div>
-                  }
+                  )}
                 </div>
                 {/* Property Floor plans image input Field */}
                 <div className="form-control md:w-1/2 w-full">
@@ -762,26 +818,41 @@ const AddProperties = () => {
                       Floor plan image
                     </span>
                   </label>
-                  {/* this field updated to drag and drop option */}
-
-                  {showFloorImages[0] ?
+                  {/* this field updated to drag and drop option by sojib [ 632 to 663 line] */}
+                  {showFloorImages[0] ? (
                     <div className=" flex justify-center flex-wrap items-center gap-2 border-2 rounded-md p-3 ">
-                      {
-                        showFloorImages.map((item, index) =>
-                          <div key={index}>
-                            <img className=" w-[100px] h-[100px]" src={item.url} alt="Drop img" />
-                          </div>)
-                      }
-                    </div> :
+                      {showFloorImages.map((item, index) => (
+                        <div key={index}>
+                          <img
+                            className=" w-[100px] h-[100px]"
+                            src={item.url}
+                            alt="Drop img"
+                           
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
                     <div className=" border-2 rounded-md p-3 flex flex-col justify-center items-center h-[170px]">
-                      <label className="drag-area text-center flex flex-col items-center" onDragOver={onFloorDragOver} onDragLeave={onFloorDragLeave} onDrop={onFloorDrop}>
-                        {isFloorDragging ? (<span>Drop imag here</span>) : (<>
-                          <span role="button" onClick={selectFloorFiles}>
-                            <FaPhotoVideo className="text-7xl font-bold"></FaPhotoVideo>
-                          </span>
-                        </>)}
+                      <label
+                        className="drag-area text-center flex flex-col items-center"
+                        onDragOver={onFloorDragOver}
+                        onDragLeave={onFloorDragLeave}
+                        onDrop={onFloorDrop}
+                      >
+                        {isFloorDragging ? (
+                          <span>Drop imag here</span>
+                        ) : (
+                          <>
+                            <span role="button" onClick={selectFloorFiles}>
+                              <FaPhotoVideo className="text-7xl font-bold"></FaPhotoVideo>
+                            </span>
+                          </>
+                        )}
                         <div className="">
-                          <p className=" font-bold">Drop here files or click to upload Floor plan images</p>
+                          <p className=" font-bold">
+                            Drop here files or click to upload Floor plan images
+                          </p>
                           <input
                             {...register("filesFloor")}
                             type="file"
@@ -791,13 +862,13 @@ const AddProperties = () => {
                             multiple
                             ref={fileFloorInputRef}
                             onChange={onFloorFileSelect}
-                            style={{ display: 'none' }}
+                            style={{ display: "none" }}
                             required={true}
                           />
                         </div>
                       </label>
                     </div>
-                  }
+                  )}
                 </div>
               </div>
               <div className="  mb-2">
@@ -812,23 +883,18 @@ const AddProperties = () => {
                       {...register("description")}
                       required
                       name="description"
+                      defaultValue={property_description}
                       className="textarea py-8 form-border textarea-bordered w-full"
                     ></textarea>
                   </label>
                 </div>
               </div>
               <div className=" flex items-center mb-8 mt-5 gap-2">
-                <button
-                  type="submit"
-                >
-                  <ButtonBlue
-                    titleBlue={`Submit`}
-                  ></ButtonBlue>
+                <button type="submit">
+                  <ButtonBlue titleBlue={`Submit`}></ButtonBlue>
                 </button>
                 <button onClick={handleReset}>
-                  <ButtonRed
-                    titleRed={`Clear`}>
-                  </ButtonRed>
+                  <ButtonRed titleRed={`Clear`}></ButtonRed>
                 </button>
               </div>
             </form>
@@ -839,4 +905,4 @@ const AddProperties = () => {
   );
 };
 
-export default AddProperties;
+export default UpdateProperties;

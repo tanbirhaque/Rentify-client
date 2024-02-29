@@ -1,0 +1,11 @@
+/* .LineBold{
+    height: 2px !important;
+} */
+
+hr.linel {
+    border: none;
+    height: 3px;
+    /* Set the hr color */
+    color: white;  /* old IE */
+    background-color: white;  /* Modern Browsers */
+  }

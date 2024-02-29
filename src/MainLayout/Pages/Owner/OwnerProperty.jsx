@@ -1,23 +1,33 @@
-// List card is developed by "Konika khan", Design Improvement by "Tanbir" & data fetch and adding using tanStack query by "Fahima"
+//component added by "Fahima"
+
 import { Link } from "react-router-dom";
 import { IoBedOutline } from "react-icons/io5";
 import { PiBathtub } from "react-icons/pi";
 import { LuTriangleRight } from "react-icons/lu";
 import { CiLocationOn } from "react-icons/ci";
-import "./PropertyCards.css";
 
-const PropertyCard = ({ property, details_path }) => {
+const OwnerProperty = ({ property }) => {
   const { property_info, _id } = property || {};
-  const { property_img, property_title, property_location, property_details, property_for, ownership_duration } =
-    property_info || {};
-
+  const {
+    property_img,
+    property_title,
+    property_location,
+    property_details,
+    property_for,
+    ownership_duration,
+  } = property_info || {};
 
   return (
-    <>
+    <div>
+      {/* card design added from property Card */}
       <Link to={`/details/${_id}`}>
         <div className="card card-compact max-w-[414px] rounded-none bg-base-100 shadow-md mx-auto mb-1">
           <figure className="w-full h-[294px]">
-            <img className="w-full h-full" src={property_img} alt={property_title} />
+            <img
+              className="w-full h-full"
+              src={property_img}
+              alt={property_title}
+            />
           </figure>
           <div className="card-body">
             <div className="flex justify-between items-center mb-2">
@@ -25,8 +35,10 @@ const PropertyCard = ({ property, details_path }) => {
                 For {property_for}
               </button>
               <p className="text-right text-[#666666]">
-                <span className="text-[#002172] text-[16px] font-bold ">$  {property_info?.property_details?.property_price}</span>
-                /{ownership_duration}
+                <span className="text-[#002172] text-[16px] font-bold ">
+                  $ {property_info?.property_details?.property_price}
+                </span>
+                / {ownership_duration}
               </p>
             </div>
             <Link to={`/details/${_id}`}>
@@ -60,8 +72,8 @@ const PropertyCard = ({ property, details_path }) => {
           </div>
         </div>
       </Link>
-    </>
+    </div>
   );
 };
 
-export default PropertyCard;
+export default OwnerProperty;

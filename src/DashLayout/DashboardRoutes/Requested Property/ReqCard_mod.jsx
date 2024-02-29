@@ -2,21 +2,15 @@
 
 import { CiLocationOn } from "react-icons/ci";
 import { MdOutlineCancel } from "react-icons/md";
-// import { IoBedOutline } from "react-icons/io5";
-// import { LuTriangleRight } from "react-icons/lu";
-// import { PiBathtub } from "react-icons/pi";
 import { Link, useParams } from "react-router-dom";
 import { Scrollbars } from "react-custom-scrollbars";
-import ButtonBlue from "../../../MainLayout/Shared/buttons/Blue/ButtonBlue";
 import { useState } from "react";
 import useProperties from "../../../Hooks/useProperties";
 import Modal from "./Modal";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
-import useRequested from "../../../Hooks/useRequested";
 
-const ReqCard_mod = ({ requestedProperties }) => {
-  const [, refetch] = useRequested();
+const ReqCard_mod = ({ requestedProperties,refetch }) => {
   // console.log(requestedProperties);
   const { _id, property, requestStatus, propertyID } =
     requestedProperties || {};

@@ -1,8 +1,7 @@
 //coded by Fahima
-// Tabs by rent & sale and property status filter accepted,pending & rejected add by sojib 
+// Tabs by rent & sale and property status filter accepted,pending & rejected add by sojib
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
-import RequestCard from "./RequestCard";
 import { useEffect, useState } from "react";
 import useRequested from "../../../Hooks/useRequested";
 import useAuth from "../../../Hooks/useAuth";
@@ -11,47 +10,56 @@ import ButtonBlue from "../../../MainLayout/Shared/buttons/Blue/ButtonBlue";
 import ButtonRed from "../../../MainLayout/Shared/buttons/Red/ButtonRed";
 
 const RequestedProperty = () => {
-  const [requested,refetch] = useRequested();
-  const { user } = useAuth();
+  const [requested, refetch] = useRequested();
   const [properties, setProperties] = useState([]);
   const [tabIndex, setTabIndex] = useState(0);
   // Requested data fetched by useEffect because useState data direct not defined
-  const url = `http://localhost:5000/all_requested?email=${user?.email}`;
+  // const url = `http://localhost:5000/all_requested?email=${user?.email}`;
+  // useEffect(() => {
+  //   fetch(url)
+  //     .then((res) => res.json())
+  //     .then((data) => setProperties(data));
+  // }, [url]);
   useEffect(() => {
-    fetch(url)
-      .then(res => res.json())
-      .then(data => setProperties(data))
-  }, [url])
+    setProperties(requested);
+  }, [requested]);
 
   // filter part
   // filter dropdown for accepted,pending and Rejected
   const handleAll = () => {
     // console.log(`This is accepted`)
-    setProperties(requested)
-  }
+    setProperties(requested);
+  };
 
   const handleAccepted = () => {
-    const accepted = requested.filter(item => item.requestStatus == "accepted")
+    const accepted = requested.filter(
+      (item) => item.requestStatus == "accepted"
+    );
     // console.log(accepted)
-    setProperties(accepted)
-  }
+    setProperties(accepted);
+  };
 
   const handlePending = () => {
-    const pending = requested.filter(item => item.requestStatus == "pending")
-    console.log(pending)
-    setProperties(pending)
-  }
+    const pending = requested.filter((item) => item.requestStatus == "pending");
+    console.log(pending);
+    setProperties(pending);
+  };
 
   const handleRejected = () => {
-    const rejected = requested.filter(item => item.requestStatus == "rejected")
-    console.log(rejected)
-    setProperties(rejected)
-  }
-
+    const rejected = requested.filter(
+      (item) => item.requestStatus == "rejected"
+    );
+    console.log(rejected);
+    setProperties(rejected);
+  };
 
   // filter rent and sales for tabs
-  const rentsProperties = properties.filter((item) => item.property?.property_for == "rent");
-  const salesProperties = properties.filter((item) => item.property?.property_for === "sale");
+  const rentsProperties = properties.filter(
+    (item) => item.property?.property_for == "rent"
+  );
+  const salesProperties = properties.filter(
+    (item) => item.property?.property_for === "sale"
+  );
 
   return (
     <div className="">
@@ -94,47 +102,35 @@ const RequestedProperty = () => {
         <div className=" xl:w-[1200px] mx-auto mt-5">
           {/* Here are used to menu class & Navlink for uniq design and filter by property status in Accepted, Pending & Rejected..[codded by Sojib] */}
           <div className="flex flex-row justify-center items-center mb-7 gap-4 flex-wrap">
-            <button
-              onClick={handleAll}
-            >
+            <button onClick={handleAll}>
               <ButtonBlue
                 titleBlue={`All`}
                 padX={"px-5"}
                 padY={"py-3"}
-              >
-              </ButtonBlue>
+              ></ButtonBlue>
             </button>
 
-            <button
-              onClick={handleAccepted}
-            >
+            <button onClick={handleAccepted}>
               <ButtonBlue
                 titleBlue={`Accepted`}
                 padX={"px-5"}
                 padY={"py-3"}
-              >
-              </ButtonBlue>
+              ></ButtonBlue>
             </button>
 
-            <button
-              onClick={handlePending}
-            >
+            <button onClick={handlePending}>
               <ButtonBlue
                 titleBlue={`Pending`}
                 padX={"px-5"}
                 padY={"py-3"}
-              >
-              </ButtonBlue>
+              ></ButtonBlue>
             </button>
-            <button
-              onClick={handleRejected}
-            >
+            <button onClick={handleRejected}>
               <ButtonBlue
                 titleBlue={`Rejected`}
                 padX={"px-5"}
                 padY={"py-3"}
-              >
-              </ButtonBlue>
+              ></ButtonBlue>
             </button>
           </div>
           <Tabs
@@ -143,12 +139,8 @@ const RequestedProperty = () => {
           >
             <div className="">
               <TabList>
-                <Tab>
-                  Rent Requests
-                </Tab>
-                <Tab>
-                  Sale Requests
-                </Tab>
+                <Tab>Rent Requests</Tab>
+                <Tab>Sale Requests</Tab>
               </TabList>
             </div>
             <TabPanel>
@@ -158,6 +150,7 @@ const RequestedProperty = () => {
                   <ReqCard_mod
                     key={requestedProperty._id}
                     requestedProperties={requestedProperty}
+                    refetch={refetch}
                   />
                   // <RequestCard
                   //   key={requestedProperty._id}
@@ -174,6 +167,7 @@ const RequestedProperty = () => {
                   <ReqCard_mod
                     key={requestedProperty._id}
                     requestedProperties={requestedProperty}
+                    refetch={refetch}
                   />
                   // <RequestCard
                   //   key={requestedProperty._id}
@@ -187,7 +181,7 @@ const RequestedProperty = () => {
         </div>
       </div>
       {/* infos */}
-    </div >
+    </div>
   );
 };
 

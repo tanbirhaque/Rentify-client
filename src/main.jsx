@@ -57,6 +57,8 @@ import OwnerRequestForm from "./DashLayout/DashboardRoutes/Owner Request/OwnerRe
 import Contact from "./MainLayout/Pages/Contact/Contact.jsx";
 import AllPropertiesMod from "./MainLayout/Pages/Home/HomeComponents/AllProperties/AllPropertiesMod.jsx";
 import Chat from "./MainLayout/Pages/Chat/Chat.jsx";
+import UpdateProperties from "./DashLayout/DashboardRoutes/UpdateProperties/UpdateProperties.jsx";
+
 
 const queryClient = new QueryClient();
 
@@ -170,10 +172,6 @@ const router = createBrowserRouter([
         path: "/owner-details/:id",
         element: <OwnerDetail />,
         loader: () => fetch("http://localhost:5000/ownerRequest"),
-      },
-      {
-        path: "/chat",
-        element: <Chat></Chat>
       }
     ],
   },
@@ -262,17 +260,33 @@ const router = createBrowserRouter([
         path: "ownerRequest",
         element: <OwnerRequestForm />,
       },
+      {
+        path: "update-property/:id",
+        element: <UpdateProperties />,
+        loader: ({ params }) => fetch(`http://localhost:5000/properties/${params.id}`),
+      },
+      {
+        path: "chat/:id",
+        element: <Chat></Chat>,
+        loader: ({ params }) => fetch(`http://localhost:5000/${params.firstMember}`),
+      },
+      {
+        path: "chat",
+        element: <Chat></Chat>
+      }
     ],
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
+
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
         <Toaster />
         <RouterProvider router={router} />
       </AuthProvider>
     </QueryClientProvider>
+
   </React.StrictMode>
 );

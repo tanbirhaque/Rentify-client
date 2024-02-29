@@ -1,4 +1,4 @@
-//component by "Fahima"
+//component added by "Fahima"
 
 import {
   FaFacebookF,
@@ -20,9 +20,9 @@ const OwnerCard = ({ owner }) => {
     linkedin,
   } = owner || {};
   return (
-    <div className="card w-96 bg-base-100 shadow-xl hover:-mt-1 hover:border-b-8 hover:border-blue-700">
+    <div className="card w-[414px] h-full bg-base-100 shadow-xl hover:-mt-1 hover:border-b-8 hover:border-blue-700 rounded-md">
       <figure>
-        <img className="h-[410px]" src={ownerImg} alt={firstName} />
+        <img className="w-full h-[410px]" src={ownerImg} alt={firstName} />
       </figure>
       <div className="flex flex-col text-center p-7 items-center space-y-3">
         <h2 className="text-[#002172] hover:text-[#ec3323] text-2xl font-bold">

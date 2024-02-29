@@ -27,7 +27,6 @@ const SavedCards = ({ item, refetch }) => {
     modalRef.current.showModal();
   };
 
-  
   //unsave button added by Fahima
   const handleUnSave = (id) => {
     console.log(id);
@@ -120,14 +119,20 @@ const SavedCards = ({ item, refetch }) => {
 
           {/* code modified by Sadia */}
           <div className="">
-          {property?.property_info?.property_for === "rent" ? (
+            {property?.property_info?.property_for === "rent" ? (
               <>
-                <button onClick={handleBookOrBuy} className=" bg-[#002172] py-3 px-6 hover:bg-[#e33226] text-white w-full">
+                <button
+                  onClick={handleBookOrBuy}
+                  className=" bg-[#002172] py-3 px-6 hover:bg-[#e33226] text-white w-full"
+                >
                   Book Now
                 </button>
               </>
             ) : (
-              <button onClick={handleBookOrBuy} className="bg-[#002172] py-3 px-6 hover:bg-[#e33226] text-white w-full">
+              <button
+                onClick={handleBookOrBuy}
+                className="bg-[#002172] py-3 px-6 hover:bg-[#e33226] text-white w-full"
+              >
                 Buy Now
               </button>
             )}
