@@ -1,10 +1,10 @@
 // This page make by Roknuzzaman sajib
 // all fixed & full page created been responsive
 import { NavLink } from "react-router-dom";
-import "./Testimonials.css";
 import { useEffect, useState } from "react";
 import { FaArrowLeft, FaArrowRight, FaStar } from "react-icons/fa";
 import { Helmet } from "react-helmet";
+import PageBanner from "../../Shared/banner for pages/PageBanner";
 
 const Testimonials = () => {
   const [testimonials, Settestimonials] = useState([]);
@@ -59,32 +59,14 @@ const Testimonials = () => {
         <title>Rentify | Testimonials</title>
       </Helmet>
       <div>
-        <div className="testbgimg">
-          <div className=" bg-[#000000B2]">
-            <div className=" max-w-screen-2xl mx-auto py-24">
-              <h2 className="md:text-6xl text-2xl font-bold text-white font-serif">
-                Testimonials
-              </h2>
-              <div className="mt-2">
-                <NavLink
-                  to="/"
-                  className="navAfter relative font-medium text-base text-white mx-3"
-                >
-                  Home
-                </NavLink>
-                <NavLink
-                  to="/testimonials"
-                  className="navAfter relative font-medium text-base text-white mx-3 "
-                >
-                  Testimonials
-                </NavLink>
-              </div>
-            </div>
-          </div>
-        </div>
-
+        {/* banner component added */}
+        <PageBanner
+          heading={"Testimonials"}
+          title={"Testimonials"}
+          img={"https://i.ibb.co/yqkYvBM/breadcrumb-3.jpg"}
+        />
         {/* it's cart part */}
-        <div className="max-w-screen-2xl mx-auto my-32">
+        <div className="max-w-screen-2xl mx-auto my-14">
           <div className=" grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8">
             {currentItems?.map((item, index) => (
               <div key={index}>
