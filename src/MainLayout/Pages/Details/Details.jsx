@@ -156,7 +156,7 @@ const Details = () => {
   // console.log("MEmbers", firstMember, secondMember);
   // console.log("chtMembers", chatsMembers);
 
-  const handleSendChats = () => {
+  const handleSendChats = async () => {
     const newMembers = {
       members: [firstMember, secondMember]
     }
@@ -165,7 +165,7 @@ const Details = () => {
     console.log("existing email", existingOwner);
 
     if (!chatsMembers && !existingOwner) {
-      axiosSecure.post("/chat", newMembers)
+      await axiosSecure.post("/chat", newMembers)
         .then(res => {
           console.log(res.data)
           Swal.fire("Now You connected With this owner")
