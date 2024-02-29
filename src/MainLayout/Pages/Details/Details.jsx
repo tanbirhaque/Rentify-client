@@ -17,6 +17,7 @@ import { Helmet } from "react-helmet";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure.jsx";
 import { useEffect, useState } from "react";
 import useGetRole from "../../../Hooks/useGetRole.jsx";
+import PageBanner from "../../Shared/banner for pages/PageBanner.jsx";
 import { HiOutlinePhone } from "react-icons/hi2";
 
 const Details = () => {
@@ -128,10 +129,9 @@ const Details = () => {
     });
   };
 
-
   // chat functionality
-  const [ownerUser, setOwnerUser] = useState([])
-  const [chatsMembers, setChatMembers] = useState([])
+  const [ownerUser, setOwnerUser] = useState([]);
+  const [chatsMembers, setChatMembers] = useState([]);
   const [userRole] = useGetRole();
   // get ownerUser by use fetch
   const url = `http://localhost:5000/users/${owner_details?.owner_email}`;
@@ -149,17 +149,17 @@ const Details = () => {
   const memberUrl = `http://localhost:5000/chat/find/${firstMember}/${secondMember}`;
   useEffect(() => {
     fetch(memberUrl)
-      .then(res => res.json())
-      .then(data => setChatMembers(data))
-  }, [memberUrl])
+      .then((res) => res.json())
+      .then((data) => setChatMembers(data));
+  }, [memberUrl]);
 
   // console.log("MEmbers", firstMember, secondMember);
   // console.log("chtMembers", chatsMembers);
 
   const handleSendChats = async () => {
     const newMembers = {
-      members: [firstMember, secondMember]
-    }
+      members: [firstMember, secondMember],
+    };
     console.log(newMembers);
     const existingOwner = owner_email === user?.email;
     console.log("existing email", existingOwner);
@@ -171,10 +171,7 @@ const Details = () => {
           Swal.fire("Now You connected With this owner")
         })
     }
-    else {
-      Swal.fire("Already you have connected with owner")
-    }
-  }
+  };
 
   return (
     <>
@@ -182,30 +179,12 @@ const Details = () => {
         <title>Rentify | Property Details</title>
       </Helmet>
       <div>
-        <div className="gridbgimg">
-          <div className=" bg-[#000000B2]">
-            <div className=" md:max-w-screen-2xl mx-auto p-24">
-              <h2 className="text-6xl font-bold text-white font-serif">
-                Property Details
-              </h2>
-              <div className="mt-2">
-                <NavLink
-                  to="/"
-                  className="navAfter relative font-medium text-base text-white mx-3"
-                >
-                  Home
-                </NavLink>
-                <NavLink
-                  to="/blogs"
-                  className="navAfter relative font-medium text-base text-white mx-3"
-                >
-                  Property Details
-                </NavLink>
-                {/* <NavLink to={`/blogs/${blog._id}`} className='navAfter relative font-medium text-base text-white mx-3 '>Blogs details no slider</NavLink> */}
-              </div>
-            </div>
-          </div>
-        </div>
+        {/* page banner component added */}
+        <PageBanner
+          heading={"Property Details"}
+          title={"Property Details"}
+          img={"https://i.ibb.co/Zdk0mLj/breadcrumb-4.jpg"}
+        />
         {/* details sections starts */}
         <div className="max-w-7xl mx-auto mt-16 md:p-10">
           <div className="flex flex-col md:flex-row gap-6">
@@ -270,26 +249,26 @@ const Details = () => {
                   ) : (
                     <span>
                       Indulge in the epitome of urban sophistication with our
-                      Stylish Urban Loft, a captivating space meticulously curated
-                      to embody the essence of Industrial Chic Vibes. This loft is
-                      a harmonious fusion of contemporary allure and industrial
-                      aesthetics, where every element is carefully chosen to
-                      create an environment that is not only stylish but also
-                      exceptionally comfortable. As you enter, be greeted by the
-                      alluring play of textures - exposed brick walls that tell a
-                      story of the building&#39;s history, polished concrete
-                      floors providing a sleek foundation, and strategically
-                      placed metal accents that add an industrial edge to the
-                      overall design. The open layout enhances the loft&#39;s
-                      spacious feel, inviting you to explore each carefully
-                      appointed corner. The carefully selected furnishings and
-                      decor seamlessly integrate modern elegance with industrial
-                      elements. Statement pieces, such as artisanal light fixtures
-                      and bespoke furniture, elevate the space, offering both
-                      functionality and aesthetic appeal. The color palette, a
-                      blend of muted tones and bold contrasts, complements the
-                      loft&#39;s overall ambiance, creating a cozy yet stylish
-                      retreat.
+                      Stylish Urban Loft, a captivating space meticulously
+                      curated to embody the essence of Industrial Chic Vibes.
+                      This loft is a harmonious fusion of contemporary allure
+                      and industrial aesthetics, where every element is
+                      carefully chosen to create an environment that is not only
+                      stylish but also exceptionally comfortable. As you enter,
+                      be greeted by the alluring play of textures - exposed
+                      brick walls that tell a story of the building&#39;s
+                      history, polished concrete floors providing a sleek
+                      foundation, and strategically placed metal accents that
+                      add an industrial edge to the overall design. The open
+                      layout enhances the loft&#39;s spacious feel, inviting you
+                      to explore each carefully appointed corner. The carefully
+                      selected furnishings and decor seamlessly integrate modern
+                      elegance with industrial elements. Statement pieces, such
+                      as artisanal light fixtures and bespoke furniture, elevate
+                      the space, offering both functionality and aesthetic
+                      appeal. The color palette, a blend of muted tones and bold
+                      contrasts, complements the loft&#39;s overall ambiance,
+                      creating a cozy yet stylish retreat.
                     </span>
                   )}
                 </p>
