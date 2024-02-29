@@ -264,7 +264,7 @@ const Navbar = () => {
                         <Link to="/dashboard/userProfile" className="text-[17px]"><span><LuLayoutDashboard></LuLayoutDashboard></span>Dashboard</Link>
                       </li>
                       <li className="hover:bg-[#002172] transition-all ease-out duration-300 hover:text-white">
-                        <a href="http://localhost:5174/" target="blank" className="text-[17px]"><span><MdOutlineAdminPanelSettings></MdOutlineAdminPanelSettings></span>Admin Panel</a>
+                        <a href="http:/localhost:5174/dashboard/profile" target="blank" className="text-[17px]"><span><MdOutlineAdminPanelSettings></MdOutlineAdminPanelSettings></span>Admin Panel</a>
                       </li>
                       <li className="hover:bg-[#002172] transition-all ease-out duration-300 hover:text-white">
                         <Link onClick={handleLogOut} className="text-[17px]"><span><TbLogout className="text-[#e33226]"></TbLogout></span>Logout</Link>

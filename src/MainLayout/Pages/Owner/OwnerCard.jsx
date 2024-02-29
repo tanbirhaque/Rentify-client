@@ -1,4 +1,4 @@
-//component by "Fahima"
+//component added by "Fahima"
 
 import {
   FaFacebookF,
