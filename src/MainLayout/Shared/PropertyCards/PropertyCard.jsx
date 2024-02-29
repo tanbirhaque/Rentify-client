@@ -25,7 +25,7 @@ const PropertyCard = ({ property, details_path }) => {
                 For {property_for}
               </button>
               <p className="text-right text-[#666666]">
-                <span className="text-[#002172] text-[16px] font-bold ">{property_info?.property_details?.property_price}</span>
+                <span className="text-[#002172] text-[16px] font-bold ">$  {property_info?.property_details?.property_price}</span>
                 /{ownership_duration}
               </p>
             </div>
