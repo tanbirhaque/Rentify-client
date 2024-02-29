@@ -81,9 +81,9 @@ const Chat = () => {
     return (
         <div className=' w-[97%] mx-auto mt-5'>
             <h2 className=' text-xl font-bold ml-3 my-5'>Chat box</h2>
-            <div className="flex md:flex-row flex-col justify-start items-start gap-3">
+            <div className=" flex md:flex-row flex-col justify-start items-start gap-3">
                 {/* left side */}
-                <div className="Left-side-chat border-2 w-[25%] h-screen p-4 rounded-xl">
+                <div className="Left-side-chat border-2 md:w-[25%] w-full md:h-screen h-[600px] p-4 rounded-xl">
                     {/* <LogoSearch></LogoSearch> */}
                     <div className="Chat-container">
                         {/* current user profile */}
@@ -108,7 +108,7 @@ const Chat = () => {
                     </div>
                 </div>
                 {/* Right side */}
-                <div className="Right-side-chat border-2 w-[75%] h-screen rounded-xl">
+                <div className="Right-side-chat border-2 md:w-[75%] w-full h-screen rounded-xl">
                     {/* Chatbox */}
                     {currentChat ?
                         <Chatbox
@@ -132,7 +132,7 @@ const Chat = () => {
                                     Renti<span className="text-[#e33226]">fy</span>
                                 </h4>
                             </div>
-                            <div className=' text-slate-600'>
+                            <div className=' text-slate-600 text-center'>
                                 Tap on a users to start conversation
                             </div>
                         </div>

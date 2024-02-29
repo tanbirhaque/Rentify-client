@@ -9,6 +9,7 @@ import useGetRole from "../../../Hooks/useGetRole";
 import { MdOutlineAdminPanelSettings, MdOutlineEmail } from "react-icons/md";
 import { LuLayoutDashboard } from "react-icons/lu";
 import { TbLogout } from "react-icons/tb";
+import useCurrentOwner from "../../../Hooks/useCurrentOwner";
 
 const Navbar = () => {
   const [isNavbarJumping, setIsNavbarJumping] = useState(false);
@@ -16,6 +17,8 @@ const Navbar = () => {
   const { userSignOut, user, setUser } = useContext(AuthContext);
   const [userRole] = useGetRole();
   const navigate = useNavigate();
+  const [currentOwner] = useCurrentOwner();
+  // console.log(currentOwner);
 
   // for logout user -Sadia
   const handleLogOut = () => {
@@ -65,7 +68,7 @@ const Navbar = () => {
 
   const navLinks = (
     <>
-    
+
       <NavLink
         to="/"
         className="navAfter relative font-medium text-base text-black mx-3"
@@ -220,7 +223,7 @@ const Navbar = () => {
             </div>
             {/* Navbar Logo */}
             <Link to="/">
-              <div className="flex  items-center">   
+              <div className="flex  items-center">
                 <img
                   className="w-[60px] md:w-full"
                   src="https://i.ibb.co/GsQpf2D/logo.png"
@@ -237,7 +240,8 @@ const Navbar = () => {
 
           {/* for toggle feature for profile button -sadia || Remake by -Tanbir */}
           <div className="navbar-end gap-5 lg:gap-0">
-            {user && (
+            {/* this user role condition added by sojib */}
+            {user && userRole?.role === "user" ? (
               <>
                 <div className="flex items-center">
                   <div className="flex flex-col items-end mr-4 h-full">
@@ -273,7 +277,48 @@ const Navbar = () => {
                   </details>
                 </div>
               </>
-            )}
+            ) : ""
+            }
+            {/* this owner role condition added by sojib */}
+            {user && userRole?.role === "owner" ?
+              (
+                <>
+                  <div className="flex items-center">
+                    <div className="flex flex-col items-end mr-4 h-full">
+                      <h3 className="capitalize poppins-font text-[16px] font-semibold">{currentOwner?.firstName + " " + currentOwner?.lastName}</h3>
+                      <p className="capitalize poppins-font text-[12px] text-[#464a53]">{userRole?.role}</p>
+                    </div>
+                    <details className="dropdown dropdown-end w-[43px]">
+                      <summary tabIndex={0} className="btn w-[43px] min-h-[30px] max-h-[40px] navMarker px-0 py-0 ">
+                        <div className="min-w-[43px]">
+                          <img
+                            className="rounded-lg w-[43px]"
+                            src={`${currentOwner?.ownerImg ? currentOwner?.ownerImg : defaultImg}`}
+                          />
+                        </div>
+                      </summary>
+                      <ul
+                        tabIndex={0}
+                        className="menu menu-sm dropdown-content mt-3 z-[1] py-2 px-0 shadow  rounded-lg bg-[#ffffff] "
+                      >
+                        <li className="hover:bg-[#002172] transition-all ease-out duration-300 hover:text-white">
+                          <p className="text-[17px]"><span><MdOutlineEmail className=""></MdOutlineEmail></span>{currentOwner?.ownerEmail}</p>
+                        </li>
+                        <li className="hover:bg-[#002172] transition-all ease-out duration-300 hover:text-white">
+                          <Link to="/dashboard/userProfile" className="text-[17px]"><span><LuLayoutDashboard></LuLayoutDashboard></span>Dashboard</Link>
+                        </li>
+                        <li className="hover:bg-[#002172] transition-all ease-out duration-300 hover:text-white">
+                          <a href="http:/localhost:5174/dashboard/profile" target="blank" className="text-[17px]"><span><MdOutlineAdminPanelSettings></MdOutlineAdminPanelSettings></span>Admin Panel</a>
+                        </li>
+                        <li className="hover:bg-[#002172] transition-all ease-out duration-300 hover:text-white">
+                          <Link onClick={handleLogOut} className="text-[17px]"><span><TbLogout className="text-[#e33226]"></TbLogout></span>Logout</Link>
+                        </li>
+                      </ul>
+                    </details>
+                  </div>
+                </>
+              )
+              : ""}
             {/* Login button conditional if the user is not logged in yet */}
             <div>
               {user ? (
