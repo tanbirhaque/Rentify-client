@@ -1,12 +1,5 @@
 //component added by "Fahima"
 
-import { Link } from "react-router-dom";
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaLinkedinIn,
-  FaTwitter,
-} from "react-icons/fa";
 import useOwners from "../../../Hooks/useOwners";
 import OwnerCard from "./OwnerCard";
 import { Helmet } from "react-helmet";
