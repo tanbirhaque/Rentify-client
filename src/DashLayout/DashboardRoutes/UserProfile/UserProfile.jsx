@@ -6,7 +6,7 @@ import { IoIosArrowForward } from "react-icons/io";
 import { MdDateRange, MdOutlineEmail, MdOutlineWork } from "react-icons/md";
 import useBlogs from "../../../Hooks/useBlogs";
 import { Link } from "react-router-dom";
-import { FaComment, FaFacebook, FaLinkedin } from "react-icons/fa";
+import { FaComment, FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import useRecentAddProperties from "../../../Hooks/useRecentAddProperties";
 import { IoBedOutline } from "react-icons/io5";
@@ -44,8 +44,8 @@ const UserProfile = () => {
       </div>
       {/* Profile main layouts */}
       <div className=" grid md:grid-cols-12 grid-cols-1 w-[97%] mx-auto mt-5">
+        {/* Profile card details */}
         <div className="xl:col-span-3 lg:col-span-4 md:col-span-4 mx-6">
-          {/* Profile card details */}
           {/* user condition */}
           {userRole?.role === "user" ?
             <div className="p-6 relative rounded-md shadow dark:shadow-gray-700 bg-white dark:bg-slate-900 -mt-48">
@@ -105,6 +105,15 @@ const UserProfile = () => {
                         Facebook :
                       </h6>
                       <a className="text-slate-400" href="">Not added</a>
+                    </div>
+                  </div>
+                  <div className="flex items-center mt-3 gap-4">
+                    <FaTwitter className=" text-2xl text-slate-400"></FaTwitter>
+                    <div className="flex-1">
+                      <h6 className="text-[#002172] dark:text-white font-medium mb-0">
+                        Twitter :
+                      </h6>
+                      <a className="text-slate-400 hover:underline" target="_blank" href={currentOwner?.linkedin} rel="noreferrer">Not added</a>
                     </div>
                   </div>
                   {/* location */}
@@ -193,7 +202,7 @@ const UserProfile = () => {
                   </div>
                   {/* profession */}
                   <div className="flex items-center mt-3 gap-4">
-                    <FaPersonRifle className=" text-2xl text-slate-400"></FaPersonRifle>
+                    <MdOutlineWork className=" text-2xl text-slate-400"></MdOutlineWork>
                     <div className="flex-1">
                       <h6 className="text-[#002172] dark:text-white font-medium mb-0">
                         Profession :
@@ -208,7 +217,7 @@ const UserProfile = () => {
                       <h6 className="text-[#002172] dark:text-white font-medium mb-0">
                         Linkedin :
                       </h6>
-                      <a className="text-slate-400 hover:underline" target="_blank" href={currentOwner?.linkedin} rel="noreferrer">{currentOwner?.linkedin}</a>
+                      <a className="text-slate-400 hover:underline" target="_blank" href={currentOwner?.linkedin} rel="noreferrer">{currentOwner?.linkedin?.slice(8, 20)}</a>
                     </div>
                   </div>
                   {/* facebook */}
@@ -218,7 +227,17 @@ const UserProfile = () => {
                       <h6 className="text-[#002172] dark:text-white font-medium mb-0">
                         Facebook :
                       </h6>
-                      <a className="text-slate-400 hover:underline" target="_blank" href={currentOwner?.linkedin} rel="noreferrer">{currentOwner?.facebook}</a>
+                      <a className="text-slate-400 hover:underline" target="_blank" href={currentOwner?.linkedin} rel="noreferrer">{currentOwner?.facebook?.slice(8, 20)}</a>
+                    </div>
+                  </div>
+                  {/* twitter */}
+                  <div className="flex items-center mt-3 gap-4">
+                    <FaTwitter className=" text-2xl text-slate-400"></FaTwitter>
+                    <div className="flex-1">
+                      <h6 className="text-[#002172] dark:text-white font-medium mb-0">
+                        Twitter :
+                      </h6>
+                      <a className="text-slate-400 hover:underline" target="_blank" href={currentOwner?.linkedin} rel="noreferrer">{currentOwner?.twitter?.slice(0, 19)}</a>
                     </div>
                   </div>
                   {/* location */}
@@ -278,16 +297,27 @@ const UserProfile = () => {
         <div className="xl:col-span-9 lg:col-span-8 md:col-span-8 my-6">
           {/* Description area */}
           <div className="grid grid-cols-1 gap-6">
-            <div className="p-6 border-2 relative rounded-md dark:shadow-gray-700 bg-white dark:bg-slate-900">
-              <h5 className="text-xl font-semibold">{user?.displayName}</h5>
-              <p className="text-slate-400 mt-3">
-                I have started my career as a trainee and prove my self and
-                achieve all the milestone with good guidance and reach up to the
-                project manager. In this journey, I understand all the procedure
-                which make me a good developer, team leader, and a project
-                manager.
-              </p>
-            </div>
+            {userRole?.role === "user" ?
+              <div className="p-6 border-2 relative rounded-md dark:shadow-gray-700 bg-white dark:bg-slate-900">
+                <h5 className="text-xl font-semibold">{user?.displayName}</h5>
+                <p className="text-slate-400 mt-3">
+                  I have started my career as a trainee and prove my self and
+                  achieve all the milestone with good guidance and reach up to the
+                  project manager. In this journey, I understand all the procedure
+                  which make me a good developer, team leader, and a project
+                  manager.
+                </p>
+              </div> :
+              ""
+            }
+            {userRole?.role === "owner" ?
+              <div className="p-6 border-2 relative rounded-md dark:shadow-gray-700 bg-white dark:bg-slate-900">
+                <h5 className="text-xl font-semibold">{currentOwner?.firstName + " " + currentOwner?.lastName}</h5>
+                <p className="text-slate-400 mt-3">{currentOwner?.description}</p>
+              </div>
+              :
+              ""
+            }
             {/* This tab part make by konika */}
             <Tabs
               defaultIndex={tabIndex}
