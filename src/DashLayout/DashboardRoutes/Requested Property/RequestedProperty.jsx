@@ -8,6 +8,7 @@ import useAuth from "../../../Hooks/useAuth";
 import ReqCard_mod from "./ReqCard_mod";
 import ButtonBlue from "../../../MainLayout/Shared/buttons/Blue/ButtonBlue";
 import ButtonRed from "../../../MainLayout/Shared/buttons/Red/ButtonRed";
+import PageBanner from "../../../MainLayout/Shared/banner for pages/PageBanner";
 
 const RequestedProperty = () => {
   const [requested, refetch] = useRequested();
