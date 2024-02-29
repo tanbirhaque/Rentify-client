@@ -7,12 +7,14 @@ import { Link, Navigate } from "react-router-dom";
 import { TbLogout } from "react-icons/tb";
 import Swal from "sweetalert2";
 import useGetRole from "../../../Hooks/useGetRole";
+import useCurrentOwner from "../../../Hooks/useCurrentOwner";
 
 
 const DashNav = ({ toggleSidebar }) => {
 
     const { userSignOut, user, setUser } = useContext(AuthContext);
     const [userRole] = useGetRole()
+    const [currentOwner] = useCurrentOwner()
     const handleLogOut = () => {
         userSignOut()
             .then(() => {
@@ -48,39 +50,78 @@ const DashNav = ({ toggleSidebar }) => {
                 </button>
             </div>
             <div className="dropdown dropdown-end">
-                <div className="flex items-center">
-                    <div className="flex flex-col items-end mr-4 h-full">
-                        <h3 className="capitalize poppins-font text-[16px] font-semibold">{user?.displayName}</h3>
-                        <p className="capitalize poppins-font text-[12px] text-[#464a53]">{userRole?.role}</p>
-                    </div>
-                    <details className="dropdown dropdown-end">
-                        <summary tabIndex={0} className="btn min-h-[30px] max-h-[40px] navMarker px-0 py-0 flex items-center">
-                            <div>
-                                <img
-                                    className="rounded-lg min-w-[48px] max-h-[48]"
-                                    src={`${user?.photoURL ? user?.photoURL : defaultImg}`}
-                                />
-                            </div>
-                        </summary>
-                        <ul
-                            tabIndex={0}
-                            className="menu menu-sm dropdown-content mt-3 z-[1] py-2 px-0 shadow  rounded-lg bg-[#ffffff] "
-                        >
-                            <li className="hover:bg-[#002172] transition-all ease-out duration-300 hover:text-white">
-                                <p className="text-[17px]"><span><MdOutlineEmail className=""></MdOutlineEmail></span>{user?.email}</p>
-                            </li>
-                            <li className="hover:bg-[#002172] transition-all ease-out duration-300 hover:text-white">
-                                <Link to="/dashboard/userProfile" className="text-[17px]"><span><HiOutlineHome></HiOutlineHome></span>Home</Link>
-                            </li>
-                            <li className="hover:bg-[#002172] transition-all ease-out duration-300 hover:text-white">
-                                <a href="http://localhost:5174/" target="blank" className="text-[17px]"><span><MdOutlineAdminPanelSettings></MdOutlineAdminPanelSettings></span>Admin Panel</a>
-                            </li>
-                            <li className="hover:bg-[#002172] transition-all ease-out duration-300 hover:text-white">
-                                <Link onClick={handleLogOut} className="text-[17px]"><span><TbLogout className="text-[#e33226]"></TbLogout></span>Logout</Link>
-                            </li>
-                        </ul>
-                    </details>
-                </div>
+                {userRole?.role === "user" ?
+                    <div className="flex items-center">
+                        <div className="flex flex-col items-end mr-4 h-full">
+                            <h3 className="capitalize poppins-font text-[16px] font-semibold">{user?.displayName}</h3>
+                            <p className="capitalize poppins-font text-[12px] text-[#464a53]">{userRole?.role}</p>
+                        </div>
+                        <details className="dropdown dropdown-end">
+                            <summary tabIndex={0} className="btn min-h-[30px] max-h-[40px] navMarker px-0 py-0 flex items-center">
+                                <div>
+                                    <img
+                                        className="rounded-lg min-w-[48px] max-h-[48]"
+                                        src={`${user?.photoURL ? user?.photoURL : defaultImg}`}
+                                    />
+                                </div>
+                            </summary>
+                            <ul
+                                tabIndex={0}
+                                className="menu menu-sm dropdown-content mt-3 z-[1] py-2 px-0 shadow  rounded-lg bg-[#ffffff] "
+                            >
+                                <li className="hover:bg-[#002172] transition-all ease-out duration-300 hover:text-white">
+                                    <p className="text-[17px]"><span><MdOutlineEmail className=""></MdOutlineEmail></span>{user?.email}</p>
+                                </li>
+                                <li className="hover:bg-[#002172] transition-all ease-out duration-300 hover:text-white">
+                                    <Link to="/dashboard/userProfile" className="text-[17px]"><span><HiOutlineHome></HiOutlineHome></span>Home</Link>
+                                </li>
+                                <li className="hover:bg-[#002172] transition-all ease-out duration-300 hover:text-white">
+                                    <a href="http://localhost:5174/" target="blank" className="text-[17px]"><span><MdOutlineAdminPanelSettings></MdOutlineAdminPanelSettings></span>Admin Panel</a>
+                                </li>
+                                <li className="hover:bg-[#002172] transition-all ease-out duration-300 hover:text-white">
+                                    <Link onClick={handleLogOut} className="text-[17px]"><span><TbLogout className="text-[#e33226]"></TbLogout></span>Logout</Link>
+                                </li>
+                            </ul>
+                        </details>
+                    </div> :
+                    ""
+                }
+                {userRole?.role === "owner" ?
+                    <div className="flex items-center">
+                        <div className="flex flex-col items-end mr-4 h-full">
+                            <h3 className="capitalize poppins-font text-[16px] font-semibold">{currentOwner?.firstName + " " + currentOwner?.lastName}</h3>
+                            <p className="capitalize poppins-font text-[12px] text-[#464a53]">{userRole?.role}</p>
+                        </div>
+                        <details className="dropdown dropdown-end">
+                            <summary tabIndex={0} className="btn min-h-[30px] max-h-[40px] navMarker px-0 py-0 flex items-center">
+                                <div>
+                                    <img
+                                        className="rounded-lg min-w-[48px] max-h-[48]"
+                                        src={`${currentOwner?.ownerImg ? currentOwner?.ownerImg : defaultImg}`}
+                                    />
+                                </div>
+                            </summary>
+                            <ul
+                                tabIndex={0}
+                                className="menu menu-sm dropdown-content mt-3 z-[1] py-2 px-0 shadow  rounded-lg bg-[#ffffff] "
+                            >
+                                <li className="hover:bg-[#002172] transition-all ease-out duration-300 hover:text-white">
+                                    <p className="text-[17px]"><span><MdOutlineEmail className=""></MdOutlineEmail></span>{currentOwner?.ownerEmail}</p>
+                                </li>
+                                <li className="hover:bg-[#002172] transition-all ease-out duration-300 hover:text-white">
+                                    <Link to="/dashboard/userProfile" className="text-[17px]"><span><HiOutlineHome></HiOutlineHome></span>Home</Link>
+                                </li>
+                                <li className="hover:bg-[#002172] transition-all ease-out duration-300 hover:text-white">
+                                    <a href="http://localhost:5174/" target="blank" className="text-[17px]"><span><MdOutlineAdminPanelSettings></MdOutlineAdminPanelSettings></span>Admin Panel</a>
+                                </li>
+                                <li className="hover:bg-[#002172] transition-all ease-out duration-300 hover:text-white">
+                                    <Link onClick={handleLogOut} className="text-[17px]"><span><TbLogout className="text-[#e33226]"></TbLogout></span>Logout</Link>
+                                </li>
+                            </ul>
+                        </details>
+                    </div> :
+                    ""
+                }
             </div>
             <div className="flex lg:hidden">
                 <button className="" onClick={toggleSidebar}>
