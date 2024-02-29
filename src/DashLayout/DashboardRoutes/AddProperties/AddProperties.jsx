@@ -9,6 +9,7 @@ import { FaPhotoVideo } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import ButtonRed from "../../../MainLayout/Shared/buttons/Red/ButtonRed";
 import ButtonBlue from "../../../MainLayout/Shared/buttons/Blue/ButtonBlue";
+import useOwners from "../../../Hooks/useOwners";
 // import { colourOptions } from '../data';
 
 
@@ -16,8 +17,11 @@ const AddProperties = () => {
   const [, refetch] = useProperties();
   const axiosPublic = useAxiosPublic();
   const { user } = useContext(AuthContext);
+  const [owners] = useOwners();
   const image_hosting_api =
     "https://api.imgbb.com/1/upload?key=041c88632a7cf1ed57bab64c7c558177";
+  const findOwner = owners.find((owner) => owner.ownerEmail == user?.email)
+  // console.log("find Owner", findOwner);
 
   // This code from line 19 to line 130 for react select the option and value of the select field for property tags, property featuries and image drag drop.
 
@@ -109,7 +113,7 @@ const AddProperties = () => {
   const onDragOver = (event) => {
     event.preventDefault();
     setIsDragging(true)
-    
+
     event.dataTransfer.dropEffect = "copy"
   }
   const onDragLeave = (event) => {
@@ -227,9 +231,12 @@ const AddProperties = () => {
     const newProperty = {
       property_info: {
         owner_details: {
-          owner_name: user.displayName,
-          owner_img: user.photoURL,
-          owner_email: user.email,
+          owner_name: findOwner?.firstName + " " + findOwner?.lastName,
+          owner_img: findOwner?.ownerImg,
+          owner_phone: findOwner?.number,
+          owner_email: findOwner?.ownerEmail,
+          owner_profession: findOwner?.profession,
+          owner_address: findOwner?.address
         },
         ownership_duration: data.ownership,
         property_for: data.status,
@@ -607,7 +614,7 @@ const AddProperties = () => {
                   </label>
                   <label className="">
                     {/* this city field converted to select option by sojib*/}
-                  <select
+                    <select
                       {...register("city")}
                       name="city"
                       required

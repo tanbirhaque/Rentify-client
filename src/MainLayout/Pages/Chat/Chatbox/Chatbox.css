@@ -2,7 +2,7 @@
     background: var(--cardColor);
     border-radius: 1rem;
     display: grid;
-    grid-template-rows: 14vh 60vh 13vh;
+    grid-template-rows: 16vh 75vh 5vh;
 }
 
 .chat-header {
@@ -20,9 +20,9 @@
 }
 
 .message {
-    background: linear-gradient(98.63deg, #94870e 0%, #e0691a 100%);
-    color: white;
+    color: black;
     padding: 0.7rem;
+    border: 1px solid;
     border-radius: 1rem 1rem 1rem 0;
     max-width: 28rem;
     width: fit-content;
@@ -42,13 +42,12 @@
     justify-content: end;
     align-self: flex-end;
     border-radius: 1rem 1rem 0 1rem;
-    background: linear-gradient(98.63deg, #24e4f0 0%, #358ff9 100%);
 }
 
 
 
-.chat-sender {
-    background: white;
+/* .chat-sender {
+    background: rgb(127, 110, 110);
     display: flex;
     justify-content: space-between;
     height: 3.5rem;
@@ -70,17 +69,8 @@
     padding: 0px 15px 0px 15px;
 }
 
-.chat-sender>div:nth-of-type(1) {
-    background: rgb(233, 233, 233);
-    border-radius: 0.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    cursor: pointer
-}
 
 .chat-sender>div {
-    height: 70%;
+    height: 50%;
     padding: 0px 15px 0px 15px;
-}
+} */
