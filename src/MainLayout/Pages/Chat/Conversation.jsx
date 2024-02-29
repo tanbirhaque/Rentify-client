@@ -2,6 +2,7 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import { useEffect, useState } from "react";
+import { getUser } from "./ChatApi/MessageRequest";
 
 const Conversation = ({ data, currentUserId, online }) => {
     // console.log(currentUserId);
@@ -9,12 +10,13 @@ const Conversation = ({ data, currentUserId, online }) => {
     const [userData, setUserData] = useState(null)
     const userId = data.members.find((id) => id !== currentUserId)
     console.log(userId);
+
     const url = `http://localhost:5000/users/find/${userId}`;
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
             .then(data => setUserData(data))
-    }, [url])
+    }, [url]) 
     console.log("fahima apu pic gayeb",userData);
 
     return (

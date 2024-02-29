@@ -20,9 +20,9 @@ const Chatbox = ({ chat, currentUserId, setSendMessage, receiveMessage, onlineUs
     const userId = chat?.members?.find((id) => id !== currentUserId)
     // console.log(userId);
     // console.log(online);
-    const chatMember = chat.members.find((member) => member !== currentUserId)
+    const chatMember = chat?.members?.find((member) => member !== currentUserId)
     const online = onlineUsers.find((user) => user.userId === chatMember)
-    console.log("", online);
+    // console.log("", online);
 
     // receiveMessage useEffect
     useEffect(() => {

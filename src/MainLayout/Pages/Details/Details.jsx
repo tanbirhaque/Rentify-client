@@ -151,16 +151,18 @@ const Details = () => {
       .then(data => setChatMembers(data))
   }, [memberUrl])
 
-  console.log("chatsMEmbers", chatsMembers);
+  console.log("MEmbers", firstMember, secondMember);
+  console.log("chtMembers", chatsMembers);
 
   const handleSendChats = () => {
     const newMembers = {
-      members: [firstMember, secondMember],
-      emails: [owner_details?.owner_email, user?.email]
+      members: [firstMember, secondMember]
     }
     console.log(newMembers);
+    const existingOwner = owner_email === user?.email;
+    console.log("existing email", existingOwner);
 
-    if (!chatsMembers) {
+    if (!chatsMembers && !existingOwner) {
       axiosSecure.post("/chat", newMembers)
         .then(res => {
           console.log(res.data)
