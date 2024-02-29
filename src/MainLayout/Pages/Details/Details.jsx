@@ -140,7 +140,7 @@ const Details = () => {
       .then(res => res.json())
       .then(data => setOwnerUser(data))
   }, [url])
-  
+
   // First member is the owner of the property
   const firstMember = ownerUser?._id;
   // Second Member is the current user
