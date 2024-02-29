@@ -208,7 +208,7 @@ const UserProfile = () => {
                       <h6 className="text-[#002172] dark:text-white font-medium mb-0">
                         Linkedin :
                       </h6>
-                      <a className="text-slate-400" href="">{currentOwner?.linkedin}</a>
+                      <a className="text-slate-400 hover:underline" target="_blank" href={currentOwner?.linkedin} rel="noreferrer">{currentOwner?.linkedin}</a>
                     </div>
                   </div>
                   {/* facebook */}
@@ -218,7 +218,7 @@ const UserProfile = () => {
                       <h6 className="text-[#002172] dark:text-white font-medium mb-0">
                         Facebook :
                       </h6>
-                      <a className="text-slate-400" href="">{currentOwner?.facebook}</a>
+                      <a className="text-slate-400 hover:underline" target="_blank" href={currentOwner?.linkedin} rel="noreferrer">{currentOwner?.facebook}</a>
                     </div>
                   </div>
                   {/* location */}
