@@ -140,7 +140,7 @@ const Details = () => {
       .then(res => res.json())
       .then(data => setOwnerUser(data))
   }, [url])
-  console.log(ownerUser, userRole);
+  console.log();
   const firstMember = ownerUser?._id;
   const secondMember = userRole?._id;
   // get chatMembers by use fetch
