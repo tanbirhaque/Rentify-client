@@ -102,53 +102,6 @@ const SideBar = () => {
           Add Properties
         </NavLink>
       </li>
-      {/* <li className="dashLi xl:text-[20px] pt-2">
-        <NavLink
-          to="/dashboard/manage"
-          className="dashNav flex items-center gap-2"
-        >
-          <MdManageHistory className="dashIcon text-[#64707d]"></MdManageHistory>
-          Manage Properties
-        </NavLink>
-      </li> */}
-      {/* <li className="dashLi xl:text-[20px] pt-2">
-        <NavLink
-          to="/dashboard/rentReq"
-          className="dashNav flex items-center gap-2"
-        >
-          <HiCubeTransparent className="dashIcon text-[#64707d]">
-            {" "}
-          </HiCubeTransparent>
-          Rent Request
-        </NavLink>
-      </li>
-      <li className="dashLi xl:text-[20px] pt-2">
-        <NavLink
-          to="/dashboard/buyReq"
-          className="dashNav flex items-center gap-2"
-        >
-          <CiShoppingTag className="dashIcon text-[#64707d]"></CiShoppingTag>
-          Buy Request
-        </NavLink>
-      </li> */}
-      {/* <li className="dashLi xl:text-[20px] pt-2">
-        <NavLink
-          to="/dashboard/soldProperties"
-          className="dashNav flex items-center gap-2"
-        >
-          <MdOutlineRemoveShoppingCart className="dashIcon text-[#64707d]"></MdOutlineRemoveShoppingCart>
-          Sold Out Properties
-        </NavLink>
-      </li>
-      <li className="dashLi xl:text-[20px] pt-2">
-        <NavLink
-          to="/dashboard/rentOutProperties"
-          className="dashNav flex items-center gap-2"
-        >
-          <IoBookmarksSharp className="dashIcon text-[#64707d]"></IoBookmarksSharp>
-          Rent Out Properties
-        </NavLink>
-      </li> */}
     </>
   );
 
