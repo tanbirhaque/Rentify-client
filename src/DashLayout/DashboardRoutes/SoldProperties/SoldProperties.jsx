@@ -79,7 +79,7 @@ const SoldProperties = () => {
                 <Tab>Apartment</Tab>
               </TabList>
               <TabPanel>
-                <table className="table table-zebra">
+                <table className="table text-lg">
                   {/* head */}
                   <thead className="font-semibold text-lg text-[#002172]">
                     <tr>
@@ -94,19 +94,19 @@ const SoldProperties = () => {
                   <tbody>
                     {soldOutProperties.map((item, index) => (
                       <tr key={index}>
-                        <td>
-                          {/* redesign by Rana */}
-                          <div className="flex flex-col lg:flex-row gap-2 items-center">
-                            <img
-                              className="w-[100px] h-[75px] rounded"
-                              src={item.property_img}
-                              alt=""
-                            />
-                            <h2 className="font-bold text-sm">
-                              {item.property_title}
-                            </h2>
+                        <td className="w-[19rem]">
+                          <div className="flex gap-4 items-center w-auto">
+                            <div>
+                              <img
+                                className="w-[100px] h-[75px] rounded"
+                                src={item.property_img}
+                                alt=""
+                              />
+                            </div>
+                            <h2 className="w-36">{item.property_title}</h2>
                           </div>
                         </td>
+
                         <td>{item.paymentUser}</td>
                         <td>{item.price}</td>
                         <td>{item.date}</td>
@@ -122,7 +122,7 @@ const SoldProperties = () => {
               <TabPanel>
                 <div className="">
                   <div>
-                    <table className="table table-zebra">
+                    <table className="table text-lg">
                       {/* head */}
                       <thead className="font-semibold text-lg text-[#002172]">
                         <tr>
@@ -137,14 +137,16 @@ const SoldProperties = () => {
                       <tbody>
                         {Residential.map((property, index) => (
                           <tr key={index}>
-                            <td>
-                              <div className="flex flex-col lg:flex-row gap-2 items-center">
-                                <img
-                                  className="w-[100px] h-[75px] rounded"
-                                  src={property.property_img}
-                                  alt=""
-                                />
-                                <h2 className="font-bold text-sm">
+                            <td className="w-[19rem]">
+                              <div className="flex gap-4 items-center w-auto">
+                                <div>
+                                  <img
+                                    className="w-[100px] h-[75px] rounded"
+                                    src={property.property_img}
+                                    alt=""
+                                  />
+                                </div>
+                                <h2 className="w-36">
                                   {property.property_title}
                                 </h2>
                               </div>
@@ -166,7 +168,7 @@ const SoldProperties = () => {
               <TabPanel>
                 <div className="">
                   <div>
-                    <table className="table table-zebra">
+                    <table className="table text-lg">
                       {/* head */}
                       <thead className="font-semibold text-lg text-[#002172]">
                         <tr>
@@ -180,14 +182,16 @@ const SoldProperties = () => {
                       <tbody>
                         {Commercial.slice(0, 6).map((property, index) => (
                           <tr key={index}>
-                            <td>
-                              <div className="flex flex-col lg:flex-row gap-2 items-center">
-                                <img
-                                  className="w-[100px] h-[75px] rounded"
-                                  src={property.property_img}
-                                  alt=""
-                                />
-                                <h2 className="font-bold text-sm">
+                            <td className="w-[19rem]">
+                              <div className="flex gap-4 items-center w-auto">
+                                <div>
+                                  <img
+                                    className="w-[100px] h-[75px] rounded"
+                                    src={property.property_img}
+                                    alt=""
+                                  />
+                                </div>
+                                <h2 className="w-36">
                                   {property.property_title}
                                 </h2>
                               </div>
@@ -209,7 +213,7 @@ const SoldProperties = () => {
               <TabPanel>
                 <div className="">
                   <div>
-                    <table className="table table-zebra">
+                    <table className="table text-lg">
                       {/* head */}
                       <thead className="font-semibold text-lg text-[#002172]">
                         <tr>
@@ -223,14 +227,16 @@ const SoldProperties = () => {
                       <tbody>
                         {Apartment.slice(0, 6).map((property, index) => (
                           <tr key={index}>
-                            <td>
-                              <div className="flex flex-col lg:flex-row gap-2 items-center">
-                                <img
-                                  className="w-[100px] h-[75px] rounded"
-                                  src={property.property_img}
-                                  alt=""
-                                />
-                                <h2 className="font-bold text-sm">
+                            <td className="w-[19rem]">
+                              <div className="flex gap-4 items-center w-auto">
+                                <div>
+                                  <img
+                                    className="w-[100px] h-[75px] rounded"
+                                    src={property.property_img}
+                                    alt=""
+                                  />
+                                </div>
+                                <h2 className="w-36">
                                   {property.property_title}
                                 </h2>
                               </div>

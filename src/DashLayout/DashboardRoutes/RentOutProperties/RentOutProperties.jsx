@@ -56,7 +56,9 @@ const RentOutProperties = () => {
             <div className="text-lg">
               <h1 className="font-bold">INFORMATION</h1>
               <h1>
-              Rent Out transforms real estate transactions by connecting buyers and sellers seamlessly, facilitating personalized property matches based on preferences and requirements.
+                Rent Out transforms real estate transactions by connecting
+                buyers and sellers seamlessly, facilitating personalized
+                property matches based on preferences and requirements.
               </h1>
             </div>
           </div>
@@ -74,7 +76,7 @@ const RentOutProperties = () => {
                 <Tab>Apartment</Tab>
               </TabList>
               <TabPanel>
-                <table className="table table-zebra">
+                <table className="table text-lg">
                   {/* head */}
                   <thead className="font-semibold text-lg text-[#002172]">
                     <tr>
@@ -89,17 +91,16 @@ const RentOutProperties = () => {
                   <tbody>
                     {rentOutProperties.map((item, index) => (
                       <tr key={index}>
-                        <td>
-                          <div className="flex items-center gap-3">
-                            <div className="avatar">
-                              <div className="mask mask-squircle w-12 h-12">
-                                <img src={item.property_img} />
-                              </div>
+                        <td className="w-[19rem]">
+                          <div className="flex gap-4 items-center w-auto">
+                            <div>
+                              <img
+                                className="w-[100px] h-[75px] rounded"
+                                src={item.property_img}
+                                alt=""
+                              />
                             </div>
-
-                            <div className="font-bold">
-                              {item.property_title}
-                            </div>
+                            <h2 className="w-36">{item.property_title}</h2>
                           </div>
                         </td>
                         <td>{item.paymentUser}</td>
@@ -117,7 +118,7 @@ const RentOutProperties = () => {
               <TabPanel>
                 <div className="">
                   <div>
-                    <table className="table table-zebra">
+                    <table className="table text-lg">
                       <thead className="font-semibold text-lg text-[#002172]">
                         <tr>
                           <th>Property Info</th>
@@ -131,17 +132,18 @@ const RentOutProperties = () => {
                       <tbody>
                         {Residential.map((property, index) => (
                           <tr key={index}>
-                            <td>
-                              <div className="flex items-center gap-3">
-                                <div className="avatar">
-                                  <div className="mask mask-squircle w-12 h-12">
-                                    <img src={property.property_img} />
-                                  </div>
+                            <td className="w-[19rem]">
+                              <div className="flex gap-4 items-center w-auto">
+                                <div>
+                                  <img
+                                    className="w-[100px] h-[75px] rounded"
+                                    src={property.property_img}
+                                    alt=""
+                                  />
                                 </div>
-
-                                <div className="font-bold">
+                                <h2 className="w-36">
                                   {property.property_title}
-                                </div>
+                                </h2>
                               </div>
                             </td>
                             <td>{property.paymentUser}</td>
@@ -161,7 +163,7 @@ const RentOutProperties = () => {
               <TabPanel>
                 <div className="">
                   <div>
-                    <table className="table table-zebra">
+                    <table className="table text-lg">
                       {/* head */}
                       <thead className="font-semibold text-lg text-[#002172]">
                         <tr>
@@ -175,17 +177,18 @@ const RentOutProperties = () => {
                       <tbody>
                         {Commercial.slice(0, 6).map((property, index) => (
                           <tr key={index}>
-                            <td>
-                              <div className="flex items-center gap-3">
-                                <div className="avatar">
-                                  <div className="mask mask-squircle w-12 h-12">
-                                    <img src={property.property_img} />
-                                  </div>
+                            <td className="w-[19rem]">
+                              <div className="flex gap-4 items-center w-auto">
+                                <div>
+                                  <img
+                                    className="w-[100px] h-[75px] rounded"
+                                    src={property.property_img}
+                                    alt=""
+                                  />
                                 </div>
-
-                                <div className="font-bold">
+                                <h2 className="w-36">
                                   {property.property_title}
-                                </div>
+                                </h2>
                               </div>
                             </td>
                             <td>{property.paymentUser}</td>
@@ -205,7 +208,7 @@ const RentOutProperties = () => {
               <TabPanel>
                 <div className="">
                   <div>
-                    <table className="table table-zebra">
+                    <table className="table text-lg">
                       {/* head */}
                       <thead className="font-semibold text-lg text-[#002172]">
                         <tr>
@@ -219,17 +222,18 @@ const RentOutProperties = () => {
                       <tbody>
                         {Apartment.slice(0, 6).map((property, index) => (
                           <tr key={index}>
-                            <td>
-                              <div className="flex items-center gap-3">
-                                <div className="avatar">
-                                  <div className="mask mask-squircle w-12 h-12">
-                                    <img src={property.property_img} />
-                                  </div>
+                            <td className="w-[19rem]">
+                              <div className="flex gap-4 items-center w-auto">
+                                <div>
+                                  <img
+                                    className="w-[100px] h-[75px] rounded"
+                                    src={property.property_img}
+                                    alt=""
+                                  />
                                 </div>
-
-                                <div className="font-bold">
+                                <h2 className="w-36">
                                   {property.property_title}
-                                </div>
+                                </h2>
                               </div>
                             </td>
                             <td>{property.paymentUser}</td>
