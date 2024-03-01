@@ -12,6 +12,7 @@ const ManagePropertiesTable = ({ property, refetch }) => {
     property_img,
     property_title,
     property_location,
+    property_category,
     property_for,
     ownership_duration,
     owner_details,
@@ -68,6 +69,7 @@ const handleDelete = (id) => {
           </div>       
       </td>
       <td>{property_location?.address?.city}</td>
+      <td>{property_category}</td>
       <td className="capitalize">{property_for}</td>
       <td>
         <span className="text-base">$</span>

@@ -58,7 +58,8 @@ const ManageProperties = () => {
                   <tr>
                     <th>Property Info</th>
                     <th>Location</th>
-                    <th>For</th>
+                    <th>Category</th>
+                    <th>Type</th>
                     <th>Price</th>
                     <th>Duration</th>
                     <th>Owner Email</th>
@@ -85,7 +86,7 @@ const ManageProperties = () => {
                   <tr>
                     <th>Property Info</th>
                     <th>Location</th>
-                    <th>For</th>
+                    <th>Category</th>
                     <th>Price</th>
                     <th>Duration</th>
                     <th>Owner Email</th>
