@@ -5,12 +5,12 @@ import "./Journey.css";
 const Journey = () => {
   return (
     <>
-      <div className="max-w-screen-xl mx-auto mb-[80px]">
+      <div className="max-w-screen-xl mx-auto md:mb-20">
         <div className="md:px-44 xl:px-80">
           <CommonHeading
             small={"Your Journey with us"}
             big={"What Kind Of Place You Are Looking For?"}
-          ></CommonHeading>
+          />
         </div>
         <div className="grid justify-center md:grid-cols-2 lg:grid-cols-3 gap-4 xl:gap-6 mt-9 px-6  xl:px-0">
           <div className="max-w-96 xl:min-w-[416px] bg-base-100 shadow-xl mb-10 advance_card relative transition-transform duration-300 ease-linear transform translate-y-0 hover:-translate-y-2">
@@ -28,9 +28,9 @@ const Journey = () => {
                 dwellers seeking comfort and connection in bustling
                 environments.
               </p>
-              <button className="text-[#e33226] text-[16px] capitalize font-semibold card-actions justify-start">
+              {/* <button className="text-[#e33226] text-[16px] capitalize font-semibold card-actions justify-start">
                 View More
-              </button>
+              </button> */}
             </div>
           </div>
           <div className="max-w-96 xl:min-w-[416px] bg-base-100 shadow-xl mb-10 advance_card relative transition-transform duration-300 ease-linear transform translate-y-0 hover:-translate-y-2">
@@ -47,9 +47,9 @@ const Journey = () => {
                 sense of home, promoting happiness for both pets and owners
                 while creating a welcoming environment within communities.
               </p>
-              <button className="text-[#e33226] text-[16px] capitalize font-semibold card-actions justify-start">
+              {/* <button className="text-[#e33226] text-[16px] capitalize font-semibold card-actions justify-start">
                 View More
-              </button>
+              </button> */}
             </div>
           </div>
           <div className="max-w-96 xl:min-w-[416px] bg-base-100 shadow-xl mb-10 advance_card relative transition-transform duration-300 ease-linear transform translate-y-0 hover:-translate-y-2">
@@ -66,9 +66,9 @@ const Journey = () => {
                 mind, saving time and hassle while ensuring safe storage for
                 vehicles, enhancing accessibility and comfort for residents.
               </p>
-              <button className="text-[#e33226] text-[16px] capitalize font-semibold card-actions justify-start">
+              {/* <button className="text-[#e33226] text-[16px] capitalize font-semibold card-actions justify-start">
                 View More
-              </button>
+              </button> */}
             </div>
           </div>
         </div>
