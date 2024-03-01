@@ -65,12 +65,17 @@ const BuyReqCard = ({ items, refetch }) => {
     };
 
     return (
-        <tr className="text-lg"> {/* Center align all table rows */}
+        <tr className="font-bold"> {/* Center align all table rows */}
             <td>
+                {/* redesign by Rana */}
+            <div className="flex flex-col lg:flex-row gap-1 items-center">
+          <img className="w-[100px] rounded" src={property.property_img} alt="" />
+          <h2 className="font-medium text-sm">{property.property_title}</h2>
+        </div>
                 <div className="flex items-center gap-3">
                     <div className="avatar">
                         <div className="mask mask-squircle w-20 h-20">
-                            <img className="w-[80px] rounded" src={property.property_img} alt="Avatar Tailwind CSS Component" />
+                            <img src={property.property_img} alt="Avatar Tailwind CSS Component" />
                         </div>
                     </div>
                     <div>
