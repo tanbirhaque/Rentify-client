@@ -9,7 +9,7 @@ const Conversation = ({ data, currentUserId, online }) => {
     const axiosPublic = useAxiosPublic()
     const [userData, setUserData] = useState(null)
     const userId = data.members.find((id) => id !== currentUserId)
-    console.log(userId);
+    // console.log(userId);
 
     const url = `http://localhost:5000/users/find/${userId}`;
     useEffect(() => {
@@ -17,7 +17,7 @@ const Conversation = ({ data, currentUserId, online }) => {
             .then(res => res.json())
             .then(data => setUserData(data))
     }, [url]) 
-    console.log("fahima apu pic gayeb",userData);
+    // console.log("fahima apu pic gayeb",userData);
 
     return (
         <div>

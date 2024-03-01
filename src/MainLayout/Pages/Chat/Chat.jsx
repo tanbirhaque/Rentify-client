@@ -57,7 +57,7 @@ const Chat = () => {
 
     // socket io ref
     useEffect(() => {
-        socket.current = io('http://localhost:8800')
+        socket.current = io('https://test-socket-repo.onrender.com')
         socket.current.emit("new-user-add", currentUser?._id)
         socket.current.on("get-users", (users) => {
             setOnlineUsers(users)
