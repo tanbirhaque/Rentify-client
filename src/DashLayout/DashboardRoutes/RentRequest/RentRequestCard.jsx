@@ -65,9 +65,10 @@ const RentRequestCard = ({ items, refetch }) => {
     return (
         <tr className="font-semibold"> 
             <td>
-            <div className="flex flex-col lg:flex-row gap-1 items-center">
+                {/* Redesign by Rana */}
+            <div className="flex flex-col lg:flex-row gap-2 items-center">
           <img className="w-[100px] rounded" src={property.property_img} alt="" />
-          <h2 className="font-medium text-sm">{property.property_title}</h2>
+          <h2 className="font-bold text-sm">{property.property_title}</h2>
         </div>
                 {/* <div className="flex items-center gap-3">
                     <div className="avatar">
