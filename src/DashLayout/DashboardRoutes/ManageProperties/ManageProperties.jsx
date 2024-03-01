@@ -44,16 +44,17 @@ const ManageProperties = () => {
         </div>
       </div>
       {/* manage properties section */}
+      <section className="py-1 bg-[#f3f3f3] w-full min-h-screen">
       <div className="mx-8 mt-10">
         <Tabs defaultIndex={tabIndex} onSelect={(i) => setTabIndex(i)}>
-          <TabList>
+          <TabList >
             <Tab>Pending Properties</Tab>
             <Tab>Verified Properties</Tab>
           </TabList>
           {/* Pending properties */}
           <TabPanel>
-            <div className="overflow-x-auto">
-              <table className="table table-zebra">
+            <div className="">
+              <table className="table bg-white rounded-lg overflow-x-auto">
                 <thead className="font-semibold text-lg text-[#002172]">
                   <tr>
                     <th>Property Info</th>
@@ -80,7 +81,7 @@ const ManageProperties = () => {
           {/* Verified properties */}
           <TabPanel>
             <div className="">
-              <table className="table">
+              <table className="table bg-white rounded-lg">
                 <thead className="font-semibold text-lg text-[#002172]">
                   <tr>
                     <th>Property Info</th>
@@ -96,7 +97,7 @@ const ManageProperties = () => {
                 <tbody>
                   {Verified?.map((property, index) => (
                     <tr
-                      className="bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 text-white"
+                      className=""
                       key={index}
                     >
                       <ManagePropertiesTable
@@ -111,6 +112,7 @@ const ManageProperties = () => {
           </TabPanel>
         </Tabs>
       </div>
+      </section>
     </>
   );
 };

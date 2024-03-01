@@ -65,9 +65,14 @@ const BuyReqCard = ({ items, refetch }) => {
     };
 
     return (
-        <tr className="text-lg"> {/* Center align all table rows */}
+        <tr className="font-bold"> {/* Center align all table rows */}
             <td>
-                <div className="flex items-center gap-3">
+                {/* redesign by Rana */}
+            <div className="flex flex-col lg:flex-row gap-2 items-center">
+          <img className="w-[100px] rounded" src={property.property_img} alt="" />
+          <h2 className="font-bold text-sm">{property.property_title}</h2>
+        </div>
+                {/* <div className="flex items-center gap-3">
                     <div className="avatar">
                         <div className="mask mask-squircle w-20 h-20">
                             <img src={property.property_img} alt="Avatar Tailwind CSS Component" />
@@ -76,7 +81,7 @@ const BuyReqCard = ({ items, refetch }) => {
                     <div>
                         <div className="font-bold truncate overflow-hidden">{property.property_title}</div>
                     </div>
-                </div>
+                </div> */}
             </td>
             <td >{property.property_location.address.street}</td>
             <td className="flex mt-7 justify-between ">

@@ -82,7 +82,7 @@ const RentRequest = () => {
             </div>
            
             <div className="mt-10 w-[93%] bg-white px-6 mx-auto mb-20 shadow-lg rounded-lg">
-                <table className="table table-zebra overflow-scroll">
+                <table className="table table-zebra overflow-x-auto">
                     {/* head */}
                     <thead className="font-semibold text-lg text-[#002172]">
                         <tr>
