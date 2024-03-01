@@ -96,7 +96,6 @@ const ManageProperties = () => {
                 <tbody>
                   {Verified?.map((property, index) => (
                     <tr
-                      className="bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 text-white"
                       key={index}
                     >
                       <ManagePropertiesTable
