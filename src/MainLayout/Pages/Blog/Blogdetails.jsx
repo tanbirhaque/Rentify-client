@@ -21,16 +21,17 @@ import ButtonRed from "../../Shared/buttons/Red/ButtonRed";
 import CommentReplyForm from "./CommentReplyForm";
 import { useState } from "react";
 import useCommentsReply from "../../../Hooks/useCommentsReply";
+import PageBanner from "../../Shared/banner for pages/PageBanner";
 
 const Blogdetails = () => {
   // const { user } = useAuth();
   // const axiosPublic = useAxiosPublic();
-  const [showReply, setShowReply] = useState("")
+  const [showReply, setShowReply] = useState("");
   // console.log(showReply)
   const blogs = useLoaderData();
   const [comments, refetch] = useBlogsComment();
   const [commentsReply] = useCommentsReply();
-  console.log(commentsReply)
+  console.log(commentsReply);
   const { id } = useParams();
   const blog = blogs.find((item) => item._id == id);
   const newComments = comments.filter((item) => item.blogId == blog._id);
@@ -38,29 +39,11 @@ const Blogdetails = () => {
   return (
     <div>
       {/* banner section */}
-      <div className="gridbgimg">
-        <div className=" bg-[#000000B2]">
-          <div className=" max-w-screen-2xl mx-auto py-24">
-            <h2 className="text-6xl font-bold text-white font-serif">
-              Blog
-            </h2>
-            <div className="mt-2">
-              <NavLink
-                to="/"
-                className="navAfter relative font-medium text-base text-white mx-3"
-              >
-                Home
-              </NavLink>
-              <NavLink
-                to={`/blogs/${blog._id}`}
-                className="navAfter relative font-medium text-base text-white mx-3 "
-              >
-                Blogs details no slider
-              </NavLink>
-            </div>
-          </div>
-        </div>
-      </div>
+      <PageBanner
+        heading={"Blog Details"}
+        title={"Blog Details"}
+        img={"https://i.ibb.co/M6r72CP/breadcrumb-4.jpg"}
+      />
       <div className="max-w-screen-2xl mx-auto">
         <div className=" w-[70%] mx-auto my-28">
           {/* Details part */}
@@ -252,54 +235,55 @@ const Blogdetails = () => {
                 </div>
                 {/* comments reply part */}
                 <div className=" w-[80%] mx-auto">
-                  <h2 className=" text-xl font-bold mb-3 mt-1">Reply Comments</h2>
-                  {
-                    commentsReply.map((item) => (
-                      <div key={item._id}>
-                        {/* total replays get*/}
-                        {
-                          item.commentId == comment._id ?
-                            <div>
-                              <div className=" flex md:flex-row flex-col justify-start items-center gap-3 mb-2">
-                                {/* reply photo part */}
-                                <img
-                                  className="h-12 w-12 rounded-full"
-                                  src={item?.replierPhoto}
-                                  alt=""
-                                />
-                                {/* name, date and message part */}
-                                <div className=" w-full">
-                                  <div className=" flex justify-between">
-                                    <div>
-                                      <h2 className=" font-bold">
-                                        {item?.replierName}
-                                      </h2>
-                                      <p className=" text-gray-400 text-sm">{item?.date}</p>
-                                    </div>
-                                  </div>
-                                  <p className="leading-5 text-sm text-gray-400">
-                                    {item?.message}
+                  <h2 className=" text-xl font-bold mb-3 mt-1">
+                    Reply Comments
+                  </h2>
+                  {commentsReply.map((item) => (
+                    <div key={item._id}>
+                      {/* total replays get*/}
+                      {item.commentId == comment._id ? (
+                        <div>
+                          <div className=" flex md:flex-row flex-col justify-start items-center gap-3 mb-2">
+                            {/* reply photo part */}
+                            <img
+                              className="h-12 w-12 rounded-full"
+                              src={item?.replierPhoto}
+                              alt=""
+                            />
+                            {/* name, date and message part */}
+                            <div className=" w-full">
+                              <div className=" flex justify-between">
+                                <div>
+                                  <h2 className=" font-bold">
+                                    {item?.replierName}
+                                  </h2>
+                                  <p className=" text-gray-400 text-sm">
+                                    {item?.date}
                                   </p>
                                 </div>
                               </div>
+                              <p className="leading-5 text-sm text-gray-400">
+                                {item?.message}
+                              </p>
                             </div>
-                            :
-                            ""
-                        }
-                      </div>
-                    ))
-                  }
+                          </div>
+                        </div>
+                      ) : (
+                        ""
+                      )}
+                    </div>
+                  ))}
                 </div>
                 {/* CommentReplyForm section */}
-                < div >
-                  {
-                    showReply == comment._id ?
-                      <CommentReplyForm
-                        comment={comment}
-                        refetch={refetch}>
-                      </CommentReplyForm>
-                      : ""
-                  }
+                <div>
+                  {showReply == comment._id ? (
+                    <CommentReplyForm
+                      comment={comment}
+                      refetch={refetch}
+                    ></CommentReplyForm>
+                  ) : (
+                    ""
+                  )}
                 </div>
               </div>
             ))}
@@ -315,8 +299,8 @@ const Blogdetails = () => {
             </div>
           </div>
         </div>
-      </div >
-    </div >
+      </div>
+    </div>
   );
 };
 

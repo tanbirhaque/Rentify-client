@@ -11,16 +11,18 @@ import ButtonRed from "../../../MainLayout/Shared/buttons/Red/ButtonRed";
 
 const RequestedProperty = () => {
   const [requested, refetch] = useRequested();
-  const { user } = useAuth();
   const [properties, setProperties] = useState([]);
   const [tabIndex, setTabIndex] = useState(0);
   // Requested data fetched by useEffect because useState data direct not defined
-  const url = `http://localhost:5000/all_requested?email=${user?.email}`;
+  // const url = `http://localhost:5000/all_requested?email=${user?.email}`;
+  // useEffect(() => {
+  //   fetch(url)
+  //     .then((res) => res.json())
+  //     .then((data) => setProperties(data));
+  // }, [url]);
   useEffect(() => {
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => setProperties(data));
-  }, [url]);
+    setProperties(requested);
+  }, [requested]);
 
   // filter part
   // filter dropdown for accepted,pending and Rejected
@@ -165,6 +167,7 @@ const RequestedProperty = () => {
                   <ReqCard_mod
                     key={requestedProperty._id}
                     requestedProperties={requestedProperty}
+                    refetch={refetch}
                   />
                   // <RequestCard
                   //   key={requestedProperty._id}

@@ -75,14 +75,14 @@ const RentRequest = () => {
                     </div>
                     <div className="text-lg">
                         <h1 className="font-bold">INFORMATION</h1>
-                        <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</h1>
+                        <h1>Rent Request transforms real estate transactions by connecting buyers and sellers seamlessly, facilitating personalized property matches based on preferences and requirements.</h1>
                     </div>
 
                 </div>
             </div>
            
             <div className="mt-10 w-[93%] bg-white px-6 mx-auto mb-20 shadow-lg rounded-lg">
-                <table className="table table-zebra overflow-scroll">
+                <table className="table table-zebra overflow-x-auto">
                     {/* head */}
                     <thead className="font-semibold text-lg text-[#002172]">
                         <tr>
