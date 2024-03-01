@@ -25,7 +25,6 @@ const ManageProperties = () => {
     <>
       {/* banner section */}
       <div
-        className="w-full"
         style={{
           backgroundImage: "url(https://i.ibb.co/Zdk0mLj/breadcrumb-4.jpg)",
           backgroundRepeat: "no-repeat",
@@ -33,7 +32,7 @@ const ManageProperties = () => {
         }}
       >
         <div className=" bg-[#000000B2] rounded-lg">
-          <div className="w-full lg:max-w-screen-2xl lg:mx-auto py-24 xl:w-[1350px] ">
+          <div className="w-full lg:max-w-screen-2xl lg:mx-auto py-24">
             <h2 className="text-[36px] lg:text-6xl font-bold text-white font-serif pl-4">
               Manage Properties
             </h2>
@@ -44,7 +43,7 @@ const ManageProperties = () => {
         </div>
       </div>
       {/* manage properties section */}
-      <section className="py-1 bg-[#f3f3f3] w-full min-h-screen">
+      <section className="py-1 bg-[#f3f3f3] min-h-screen">
       <div className="mx-8 mt-10">
         <Tabs defaultIndex={tabIndex} onSelect={(i) => setTabIndex(i)}>
           <TabList >
@@ -53,8 +52,8 @@ const ManageProperties = () => {
           </TabList>
           {/* Pending properties */}
           <TabPanel>
-            <div>
-              <table className="table bg-white rounded-lg overflow-x-auto">
+            <div className="">
+              <table className="table bg-white rounded-lg overflow-x-auto text-lg">
                 <thead className="font-semibold text-lg text-[#002172]">
                   <tr>
                     <th>Property Info</th>
@@ -81,7 +80,7 @@ const ManageProperties = () => {
           {/* Verified properties */}
           <TabPanel>
             <div>
-              <table className="table bg-white rounded-lg">
+              <table className="table bg-white rounded-lg text-lg">
                 <thead className="font-semibold text-lg text-[#002172]">
                   <tr>
                     <th>Property Info</th>

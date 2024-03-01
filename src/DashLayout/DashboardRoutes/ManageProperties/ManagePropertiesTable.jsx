@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { HiOutlineDotsHorizontal } from "react-icons/hi";
-import { Link, useLoaderData, useParams } from "react-router-dom";
-import useProperties from "../../../Hooks/useProperties";
+import { Link } from "react-router-dom";
+
 import Swal from "sweetalert2";
 
 const ManagePropertiesTable = ({ property, refetch }) => {
@@ -17,12 +17,12 @@ const ManagePropertiesTable = ({ property, refetch }) => {
     owner_details,
     verify_status,
   } = property_info || {};
-  const [dropdownVisible, setDropdownVisible] = useState(false);
+  const [, setDropdownVisible] = useState(false);
 
   const toggleDropdown = () => {
     setDropdownVisible((prevState) => !prevState);
   };
-  const [delProperty, setDelProperty] = useState();
+  // const [delProperty, setDelProperty] = useState();
 
   //   for delete a product code by sadia
 const handleDelete = (id) => {
@@ -61,11 +61,11 @@ const handleDelete = (id) => {
 
   return (
     <>
-      <td>
-        <div className="flex flex-col lg:flex-row gap-2 items-center">
-          <img className="w-[80px] h-[60px] rounded" src={property_img} alt="" />
-          <h2 className="font-bold">{property_title}</h2>
-        </div>
+      <td className="w-[19rem]">
+          <div className="flex gap-4 items-center w-auto">
+          <div><img className="w-[100px] h-[75px] rounded" src={property_img} alt="" /></div>
+          <h2 className="w-36">{property_title}</h2>
+          </div>       
       </td>
       <td>{property_location?.address?.city}</td>
       <td className="capitalize">{property_for}</td>
