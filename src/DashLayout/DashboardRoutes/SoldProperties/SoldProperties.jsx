@@ -1,5 +1,5 @@
 //This code by konika
-import React from "react";
+// Redesign image format by Rana
 import useSoldProperties from "../../../Hooks/useSoldProperties";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import { useState } from "react";
@@ -56,7 +56,12 @@ const SoldProperties = () => {
             <div className="text-lg">
               <h1 className="font-bold">INFORMATION</h1>
               <h1>
-              This section offers a personalized viewing experience for property owners, providing access to exclusive listings and detailed insights tailored to your ownership status. Discover sold properties and market trends relevant to your portfolio. Contact us for a private consultation to explore your real estate opportunities further.
+                This section offers a personalized viewing experience for
+                property owners, providing access to exclusive listings and
+                detailed insights tailored to your ownership status. Discover
+                sold properties and market trends relevant to your portfolio.
+                Contact us for a private consultation to explore your real
+                estate opportunities further.
               </h1>
             </div>
           </div>
@@ -90,16 +95,16 @@ const SoldProperties = () => {
                     {soldOutProperties.map((item, index) => (
                       <tr key={index}>
                         <td>
-                          <div className="flex items-center gap-3">
-                            <div className="avatar">
-                              <div className="mask mask-squircle w-12 h-12">
-                                <img src={item.property_img} />
-                              </div>
-                            </div>
-
-                            <div className="font-bold">
+                          {/* redesign by Rana */}
+                          <div className="flex flex-col lg:flex-row gap-2 items-center">
+                            <img
+                              className="w-[100px] h-[75px] rounded"
+                              src={item.property_img}
+                              alt=""
+                            />
+                            <h2 className="font-bold text-sm">
                               {item.property_title}
-                            </div>
+                            </h2>
                           </div>
                         </td>
                         <td>{item.paymentUser}</td>
@@ -133,16 +138,15 @@ const SoldProperties = () => {
                         {Residential.map((property, index) => (
                           <tr key={index}>
                             <td>
-                              <div className="flex items-center gap-3">
-                                <div className="avatar">
-                                  <div className="mask mask-squircle w-12 h-12">
-                                    <img src={property.property_img} />
-                                  </div>
-                                </div>
-
-                                <div className="font-bold">
+                              <div className="flex flex-col lg:flex-row gap-2 items-center">
+                                <img
+                                  className="w-[100px] h-[75px] rounded"
+                                  src={property.property_img}
+                                  alt=""
+                                />
+                                <h2 className="font-bold text-sm">
                                   {property.property_title}
-                                </div>
+                                </h2>
                               </div>
                             </td>
                             <td>{property.paymentUser}</td>
@@ -177,16 +181,15 @@ const SoldProperties = () => {
                         {Commercial.slice(0, 6).map((property, index) => (
                           <tr key={index}>
                             <td>
-                              <div className="flex items-center gap-3">
-                                <div className="avatar">
-                                  <div className="mask mask-squircle w-12 h-12">
-                                    <img src={property.property_img} />
-                                  </div>
-                                </div>
-
-                                <div className="font-bold">
+                              <div className="flex flex-col lg:flex-row gap-2 items-center">
+                                <img
+                                  className="w-[100px] h-[75px] rounded"
+                                  src={property.property_img}
+                                  alt=""
+                                />
+                                <h2 className="font-bold text-sm">
                                   {property.property_title}
-                                </div>
+                                </h2>
                               </div>
                             </td>
                             <td>{property.paymentUser}</td>
@@ -221,16 +224,15 @@ const SoldProperties = () => {
                         {Apartment.slice(0, 6).map((property, index) => (
                           <tr key={index}>
                             <td>
-                              <div className="flex items-center gap-3">
-                                <div className="avatar">
-                                  <div className="mask mask-squircle w-12 h-12">
-                                    <img src={property.property_img} />
-                                  </div>
-                                </div>
-
-                                <div className="font-bold">
+                              <div className="flex flex-col lg:flex-row gap-2 items-center">
+                                <img
+                                  className="w-[100px] h-[75px] rounded"
+                                  src={property.property_img}
+                                  alt=""
+                                />
+                                <h2 className="font-bold text-sm">
                                   {property.property_title}
-                                </div>
+                                </h2>
                               </div>
                             </td>
                             <td>{property.paymentUser}</td>

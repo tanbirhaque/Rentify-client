@@ -53,7 +53,7 @@ const ManageProperties = () => {
           </TabList>
           {/* Pending properties */}
           <TabPanel>
-            <div className="">
+            <div>
               <table className="table bg-white rounded-lg overflow-x-auto">
                 <thead className="font-semibold text-lg text-[#002172]">
                   <tr>
@@ -80,7 +80,7 @@ const ManageProperties = () => {
           </TabPanel>
           {/* Verified properties */}
           <TabPanel>
-            <div className="">
+            <div>
               <table className="table bg-white rounded-lg">
                 <thead className="font-semibold text-lg text-[#002172]">
                   <tr>

@@ -69,7 +69,7 @@ const UserProfile = () => {
                 <div className="mt-4">
                   {/* Email */}
                   <div className="flex items-center gap-4">
-                    <MdOutlineEmail className=" text-4xl text-slate-400"></MdOutlineEmail>
+                    <MdOutlineEmail className="text-4xl text-slate-400"></MdOutlineEmail>
                     <div className="flex-1">
                       <h6 className="text-[#002172] dark:text-white font-medium mb-0">
                         Email :
@@ -190,7 +190,7 @@ const UserProfile = () => {
                 <div className="mt-4">
                   {/* Email */}
                   <div className="flex items-center gap-4">
-                    <MdOutlineEmail className=" text-2xl text-slate-400"></MdOutlineEmail>
+                    <MdOutlineEmail className="text-2xl text-slate-400"></MdOutlineEmail>
                     <div className="flex-1">
                       <h6 className="text-[#002172] dark:text-white font-medium mb-0">
                         Email :
