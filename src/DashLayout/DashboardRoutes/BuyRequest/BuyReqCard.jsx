@@ -70,7 +70,7 @@ const BuyReqCard = ({ items, refetch }) => {
                 <div className="flex items-center gap-3">
                     <div className="avatar">
                         <div className="mask mask-squircle w-20 h-20">
-                            <img src={property.property_img} alt="Avatar Tailwind CSS Component" />
+                            <img className="w-[80px] rounded" src={property.property_img} alt="Avatar Tailwind CSS Component" />
                         </div>
                     </div>
                     <div>
