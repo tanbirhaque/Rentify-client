@@ -66,7 +66,7 @@ const Bloggrid = () => {
           img={"https://i.ibb.co/M6r72CP/breadcrumb-4.jpg"}
         />
         <div className=" max-w-screen-2xl mx-auto my-32">
-          <div className=" grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-7">
+          <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-7">
             {currentItems.map((item) => (
               <div key={item._id}>
                 {/* animation bg fixed */}
@@ -76,17 +76,17 @@ const Bloggrid = () => {
                     <img
                       className="imghover img hover:shadow-2xl"
                       src={item.img}
-                      alt="Shoes"
+                      alt="blog-image"
                     />
                   </div>
                   <div className="pl-6 mt-5">
                     <div className="flex items-center justify-start gap-7">
                       <p className=" text-xl flex items-center justify-center gap-2">
-                        <FaRegCalendarAlt className=" text-red-500"></FaRegCalendarAlt>
+                        <FaRegCalendarAlt className=" text-red-500"/>
                         <span className=" hover:text-red-500">{item.date}</span>
                       </p>
                       <p className=" text-xl flex justify-center items-center gap-2">
-                        <FaComment className=" text-red-500"></FaComment>
+                        <FaComment className=" text-red-500"/>
                         <span className=" hover:text-red-500">
                           {item.comment} Comment
                         </span>
@@ -94,11 +94,9 @@ const Bloggrid = () => {
                     </div>
                     <h2 className=" text-3xl font-bold mt-4">{item.title}</h2>
                     <Link to={`/blogs/${item._id}`}>
-                      <button className=" text-2xl font-blod text-red-500 pop-h2 flex items-center gap-2 navAfter mt-4">
-                        <span>Read more</span>
-                        <span>
-                          <FaLongArrowAltRight></FaLongArrowAltRight>
-                        </span>
+                      <button className=" text-2xl font-bold text-red-500 flex items-center gap-2 navAfter mt-4">
+                        Read more
+                        <FaLongArrowAltRight />
                       </button>
                     </Link>
                   </div>
@@ -113,7 +111,7 @@ const Bloggrid = () => {
                   className="mr-5 items-center flex justify-center btn-circle text-gray-400 hover:bg-[#EC3323]"
                   onClick={handlePrev}
                 >
-                  <FaArrowLeft></FaArrowLeft>
+                  <FaArrowLeft />
                 </button>
                 {pages.map((page) => (
                   <button
@@ -132,7 +130,7 @@ const Bloggrid = () => {
                   className="ml-5 btn-circle items-center flex justify-center hover:bg-[#EC3323] text-gray-400"
                   onClick={handleNext}
                 >
-                  <FaArrowRight></FaArrowRight>
+                  <FaArrowRight />
                 </button>
               </div>
             </div>

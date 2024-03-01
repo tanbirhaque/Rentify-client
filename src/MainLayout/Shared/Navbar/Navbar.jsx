@@ -177,6 +177,12 @@ const Navbar = () => {
       >
         FAQ
       </NavLink>
+      <NavLink
+        to="/about"
+        className="navAfter relative font-medium text-base text-black  my-2"
+      >
+        About Us
+      </NavLink>
     </>
   )
 
