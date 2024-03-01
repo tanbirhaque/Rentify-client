@@ -63,7 +63,7 @@ const handleDelete = (id) => {
     <>
       <td>
         <div className="flex flex-col lg:flex-row gap-2 items-center">
-          <img className="w-[80px] rounded" src={property_img} alt="" />
+          <img className="w-[80px] h-[60px] rounded" src={property_img} alt="" />
           <h2 className="font-bold">{property_title}</h2>
         </div>
       </td>
