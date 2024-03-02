@@ -24,12 +24,12 @@ const Home = () => {
       <Banner></Banner>
       <Reach></Reach>
       <Listing />
-      <About />
-      <OurAdvantage />
+      <PopularCities></PopularCities>
+      {/* <OurAdvantage /> */}
       {/* <Virtual /> */}
       <Journey />
-      <PopularCities></PopularCities>
-      <EditReview></EditReview>
+      <About />
+      {/* <EditReview></EditReview> */}
     </div>
     </>
   );

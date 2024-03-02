@@ -11,7 +11,7 @@ const Conversation = ({ data, currentUserId, online }) => {
     const userId = data.members.find((id) => id !== currentUserId)
     // console.log(userId);
 
-    const url = `http://localhost:5000/users/find/${userId}`;
+    const url = `https://rentify-server-drab.vercel.app/users/find/${userId}`;
     useEffect(() => {
         fetch(url)
             .then(res => res.json())

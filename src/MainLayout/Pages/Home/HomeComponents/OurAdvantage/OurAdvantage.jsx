@@ -1,4 +1,3 @@
-import React from "react";
 import CommonHeading from "../../../../Shared/CommonHeading/CommonHeading";
 import ButtonBlue from "../../../../Shared/buttons/Blue/ButtonBlue";
 import { Link } from "react-router-dom";
@@ -6,7 +5,7 @@ import { Link } from "react-router-dom";
 const OurAdvantage = () => {
   return (
     <>
-      <div className="text-center max-w-screen-xl mx-auto my-[80px]">
+      <div className="text-center max-w-screen-xl mx-auto my-5">
         <CommonHeading
           small={"Advantages"}
           big={"Our Best Advantages"}
