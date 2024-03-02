@@ -38,7 +38,7 @@ const Chat = () => {
     }, [sendMessage])
 
     // get current users data by use fetch
-    const url = `https://rentify-server-drab.vercel.app/chat/${currentUser?._id}`;
+    const url = `http://localhost:5000/chat/${currentUser?._id}`;
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
@@ -47,7 +47,7 @@ const Chat = () => {
     // console.log(chats);
 
     // Chatbox redirect  useEffect chats data get by use fetch
-    const memberUrl = `https://rentify-server-drab.vercel.app/chat/find/${params?.id}/${currentUser?._id}`;
+    const memberUrl = `http://localhost:5000/chat/find/${params?.id}/${currentUser?._id}`;
     useEffect(() => {
         fetch(memberUrl)
             .then(res => res.json())

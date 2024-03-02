@@ -36,7 +36,7 @@ const handleDelete = (id) => {
     confirmButtonText: "Yes, delete it!",
   }).then((result) => {
     if (result.isConfirmed) {
-      fetch(`https://rentify-server-drab.vercel.app/properties/${id}`, {
+      fetch(`http://localhost:5000/properties/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
