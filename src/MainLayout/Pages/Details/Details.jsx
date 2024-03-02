@@ -134,7 +134,7 @@ const Details = () => {
   const [chatsMembers, setChatMembers] = useState([]);
   const [userRole] = useGetRole();
   // get ownerUser by use fetch
-  const url = `http://localhost:5000/users/${owner_details?.owner_email}`;
+  const url = `https://rentify-server-drab.vercel.app/users/${owner_details?.owner_email}`;
   useEffect(() => {
     fetch(url)
       .then(res => res.json())
@@ -146,7 +146,7 @@ const Details = () => {
   // Second Member is the current user
   const secondMember = userRole?._id;
   // get chatMembers by use fetch
-  const memberUrl = `http://localhost:5000/chat/find/${firstMember}/${secondMember}`;
+  const memberUrl = `https://rentify-server-drab.vercel.app/chat/find/${firstMember}/${secondMember}`;
   useEffect(() => {
     fetch(memberUrl)
       .then((res) => res.json())

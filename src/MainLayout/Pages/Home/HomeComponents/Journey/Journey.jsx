@@ -5,7 +5,7 @@ import "./Journey.css";
 const Journey = () => {
   return (
     <>
-      <div className="max-w-screen-xl mx-auto md:mb-20">
+      <div className="max-w-screen-xl mx-auto md:mb-20 pt-[80px]">
         <div className="md:px-44 xl:px-80">
           <CommonHeading
             small={"Your Journey with us"}

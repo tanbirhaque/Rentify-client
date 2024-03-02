@@ -4,6 +4,7 @@ import SliderPartner from "../../Shared/Slider/SliderPartner";
 import PageBanner from "../../Shared/banner for pages/PageBanner";
 import Journey from "../Home/HomeComponents/Journey/Journey";
 import OurAdvantage from "../Home/HomeComponents/OurAdvantage/OurAdvantage";
+import EditReview from "../Home/HomeComponents/Review/EditReview";
 import Story from "./Story";
 
 const AboutUs = () => {
@@ -19,6 +20,7 @@ const AboutUs = () => {
         <Story />
         <OurAdvantage />
         <Journey />
+        <EditReview></EditReview>
         <SliderPartner />
       </div>
     </div>
