@@ -14,7 +14,7 @@ const RequestedProperty = () => {
   const [properties, setProperties] = useState([]);
   const [tabIndex, setTabIndex] = useState(0);
   // Requested data fetched by useEffect because useState data direct not defined
-  // const url = `https://rentify-server-drab.vercel.app/all_requested?email=${user?.email}`;
+  // const url = `http://localhost:5000/all_requested?email=${user?.email}`;
   // useEffect(() => {
   //   fetch(url)
   //     .then((res) => res.json())
