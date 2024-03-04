@@ -332,7 +332,7 @@ const UserProfile = () => {
                   <h5 className="text-xl font-semibold">All Blogs :</h5>
                   {/* blogs card section */}
                   <div className="grid lg:grid-cols-3 md:grid-cols-2 mt-6 gap-6">
-                    {blogs.map((item) => (
+                    {blogs?.map((item) => (
                       <div key={item._id}>
                         <div className="group relative h-fit hover:-mt-[5px] overflow-hidden bg-white dark:bg-slate-900 rounded-xl shadow dark:shadow-gray-700 transition-all duration-500">
                           <div className="relative overflow-hidden">

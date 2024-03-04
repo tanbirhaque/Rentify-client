@@ -16,40 +16,40 @@ import PageBanner from "../../Shared/banner for pages/PageBanner";
 
 const Bloggrid = () => {
   const [blogs] = useBlogs();
-  const [currentpage, Setcurrentpage] = useState(0);
+  const [currentPage, SetCurrentPage] = useState(0);
   // console.logo(blogs)
   // TODO: blogs data pagination on page
   const count = blogs?.length;
-  // now this time itemper page static.after when we will do backed in then we will do it's daynamic
-  const itemsperPage = 6;
-  const numberofPages = Math.ceil(count / itemsperPage);
-  // console.log(numberofPages)
+  // now this time temper page static.after when we will do backed in then we will do it's dynamic
+  const itemsPerPage = 6;
+  const numberOfPages = Math.ceil(count / itemsPerPage);
+  // console.log(numberOfPages)
 
   const pages = [];
-  for (let i = 0; i < numberofPages; i++) {
+  for (let i = 0; i < numberOfPages; i++) {
     pages.push(i);
   }
 
-  //DO: CurentpageITems..If you want currentpagesdata be able to bring backedin by pass through by currentpage and itemsperPages after implement backedin
+  //DO: CurrentPageItems..If you want currentPagesData be able to bring backend by pass through by currentPage and itemsPerPages after implement backend
   // Calculate the index range for the current page
-  const startIndex = currentpage * itemsperPage;
-  const endIndex = startIndex + itemsperPage;
+  const startIndex = currentPage * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
   // Slice the data to get the items for the current page
   const currentItems = blogs.slice(startIndex, endIndex);
 
-  const handlechangepage = (page) => {
-    Setcurrentpage(page);
+  const handleChangePage = (page) => {
+    SetCurrentPage(page);
   };
 
   const handlePrev = () => {
-    if (currentpage > 0) {
-      Setcurrentpage(currentpage - 1);
+    if (currentPage > 0) {
+      SetCurrentPage(currentPage - 1);
     }
   };
 
   const handleNext = () => {
-    if (currentpage < pages.length - 1) {
-      Setcurrentpage(currentpage + 1);
+    if (currentPage < pages.length - 1) {
+      SetCurrentPage(currentPage + 1);
     }
   };
 
@@ -116,9 +116,9 @@ const Bloggrid = () => {
                 {pages.map((page) => (
                   <button
                     key={page}
-                    onClick={() => handlechangepage(page)}
+                    onClick={() => handleChangePage(page)}
                     className={
-                      currentpage == page
+                      currentPage == page
                         ? " btn btn-circle bg-[#EC3323] mr-5"
                         : "btn btn-circle hover:bg-[#EC3323] mr-5"
                     }
