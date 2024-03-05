@@ -55,7 +55,7 @@ const Banner = () => {
               experience effortlessly with Rentify.
             </p>
 
-            <div>
+            {/* <div>
               <form className="lg:w-[470px] md:w-[300px] hidden sm:flex justify-center items-center   text-center ">
                 <input
                   className="py-2.5 px-3 text-black rounded-l-lg md:w-[470px] border-gray-300 border"
@@ -71,7 +71,7 @@ const Banner = () => {
                   Search
                 </button>
               </form>
-            </div>
+            </div> */}
 
             <div className="avatar-group -space-x-6 rtl:space-x-reverse my-5 ml-28 md:ml-0">
               <div className="avatar">
