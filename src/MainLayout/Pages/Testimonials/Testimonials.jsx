@@ -99,10 +99,10 @@ const Testimonials = () => {
             <div className="join">
               <div className=" flex items-center">
                 <button
-                  className="mr-5 items-center flex justify-center btn-circle text-gray-400 hover:bg-[#EC3323]"
+                  className="mr-5 btn-circle items-center flex justify-center hover:bg-[#002172] text-gray-400 hover:text-white"
                   onClick={handlePrev}
                 >
-                  <FaArrowLeft></FaArrowLeft>
+                  <FaArrowLeft />
                 </button>
                 {pages.map((page) => (
                   <button
@@ -110,18 +110,18 @@ const Testimonials = () => {
                     onClick={() => handleChangePage(page)}
                     className={
                       currentPage == page
-                        ? " btn btn-circle bg-[#EC3323] mr-5"
-                        : "btn btn-circle hover:bg-[#EC3323] mr-5"
+                        ? " h-12 w-12 text-white rounded-full bg-[#EC3323] hover:bg-[#002172] mr-5"
+                        : "h-12 w-12 rounded-full hover:text-white bg-gray-200  hover:bg-[#EC3323] mr-5"
                     }
                   >
                     {page}
                   </button>
                 ))}
                 <button
-                  className="ml-5 btn-circle items-center flex justify-center hover:bg-[#EC3323] text-gray-400"
+                  className="ml-5 btn-circle items-center flex justify-center hover:bg-[#002172] text-gray-400 hover:text-white"
                   onClick={handleNext}
                 >
-                  <FaArrowRight></FaArrowRight>
+                  <FaArrowRight />
                 </button>
               </div>
             </div>

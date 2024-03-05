@@ -125,10 +125,18 @@ const ReviewForm = ({ property }) => {
 
   return (
     <>
-      <div className="shadow-xl h-auto w-fit p-10 bg-[#F9F9F9]">
+      <div className="shadow-xl h-auto w-full p-10 bg-[#F9F9F9]">
         <form onSubmit={handleSubmit(onSubmit)}>
           {/* div for rating and image upload */}
-          <div className="flex justify-between mb-5">
+          {/* errors will return when field validation fails  */}
+          <textarea
+            {...register("message")}
+            className="textarea h-40 w-full mt-3 mb-4"
+            placeholder="Please enter your review"
+            required
+          ></textarea>
+          {/* div for rating and image upload */}
+          <div className="flex justify-between items-center my-5">
             <div className="text-[#666666] flex flex-col">
               <p className="mb-2">Your ratings for this property</p>
               {/* rating select felid updated by sojib */}
@@ -169,7 +177,9 @@ const ReviewForm = ({ property }) => {
                     />
                   </label>
               }
-              {/* <div className="my-3">
+              {
+              /* 
+              <div className="my-3">
                 <p>Selected Images:</p>
                 {uploadedImages.map((imageUrl, index) => (
                   <img
@@ -183,24 +193,17 @@ const ReviewForm = ({ property }) => {
                     }}
                   />
                 ))}
-              </div> */}
+              </div> */
+              }
             </div>
           </div>
-          {/* div for rating and image upload */}
-          {/* errors will return when field validation fails  */}
-          <textarea
-            {...register("message")}
-            className="textarea h-40 w-full mt-3 mb-4"
-            placeholder="Please enter your review"
-            required
-          ></textarea>
-          <div className=" my-3 flex justify-start items-center gap-3">
+          {/* <div className=" my-3 flex justify-start items-center gap-3">
             <input type="checkbox" className="checkbox" />
             <p className=" text-xl text-gray-400">
               Save my name, email, website address in this browser for the next
               time I comment.
             </p>
-          </div>
+          </div> */}
           <input
             type="submit"
             value="Submit Review"

@@ -30,23 +30,23 @@ const NewBlogsDetails = () => {
                 <title>Rentify | Blogs Details</title>
             </Helmet>
             <div>
-                {/* <PageBanner
+                <PageBanner
                     heading={"Blogs"}
                     title={"Blogs Details"}
                     img={"https://i.ibb.co/M6r72CP/breadcrumb-4.jpg"}
-                /> */}
+                />
             </div>
             <div className=" w-[95%] mx-auto mb-5">
                 {/* blogs title */}
                 <div>
-                    <h2 className=" text-2xl font-bold my-2">{blog?.title}</h2>
+                    <h2 className=" text-2xl font-bold my-4">{blog?.title}</h2>
                 </div>
-                <div className=" flex justify-center items-start gap-7">
+                <div className=" flex md:flex-row flex-col justify-center items-start gap-7">
                     {/* Left site */}
                     <div className=" md:w-[65%] w-full">
                         {/* blog details */}
                         <div className=" border shadow-xl rounded" >
-                            <img className=" rounded-t-md h-[700px] w-full" src={blog?.img} alt="" />
+                            <img className=" rounded-t-md md:h-[700px] h-[500px] w-full" src={blog?.img} alt="" />
                             <div className=" p-5 text-slate-400">
                                 <h2>{blog?.details.slice(0, 310)}</h2>
                                 <p className="text-slate-400 italic border-x-4 border-[#002172] rounded-ss-xl rounded-ee-xl my-3 p-3">{blog?.details.slice(310, 504)}</p>

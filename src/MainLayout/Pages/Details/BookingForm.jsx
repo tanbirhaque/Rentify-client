@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 import useAuth from "../../../Hooks/useAuth";
 import useRequested from "../../../Hooks/useRequested";
 
-const BookingForm = ({ item }) => {
+const BookingForm = ({ item, property_for }) => {
   const axiosPublic = useAxiosPublic();
   const [requested, refetch] = useRequested();
   const { user } = useAuth();
@@ -56,7 +56,8 @@ const BookingForm = ({ item }) => {
       }
       console.log(propertyRequest);
       // reset();
-    } else {
+    }
+    else {
       // this login will allow user to add booking for their desired property only if they are user.
       Swal.fire({
         icon: "error",
@@ -72,7 +73,9 @@ const BookingForm = ({ item }) => {
     <>
       {/* form */}
       <form onSubmit={handleSubmit(onSubmit)} className="mx-auto">
-        <h2 className=" text-3xl font-bold pt-5">Book This Apartment</h2>
+        <h2 className=" text-3xl font-bold pt-5">{
+          property_for == "sale" ? "Sale " : "Rent "
+        } This Property</h2>
         {/* register your input into the hook by invoking the "register" function */}
         <input
           {...register("name")}
@@ -87,10 +90,9 @@ const BookingForm = ({ item }) => {
           className="py-5 bg-[#F9F9F9] rounded-md px-2 mb-4 w-full"
         />
         <input
-          {...register("email", { required: true })}
+          {...register("email",)}
           placeholder="Email Address*"
           defaultValue={user?.email}
-          readOnly
           className="py-5 bg-[#F9F9F9] rounded-md px-2 w-full text-gray-400"
         />
         {/* errors will return when field validation fails  */}
@@ -124,7 +126,9 @@ const BookingForm = ({ item }) => {
           type="submit"
           className=" rounded px-8 py-4 mt-3 bg-[#EC3323] hover:bg-[#002172] text-white mb-4"
         >
-          Request Booking
+          {
+            property_for == "sale" ? "Sale " : "Rent "
+          } Request
         </button>
       </form>
     </>
