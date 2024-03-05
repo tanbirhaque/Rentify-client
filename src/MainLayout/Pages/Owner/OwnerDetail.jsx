@@ -117,7 +117,7 @@ const OwnerDetail = () => {
                     <FaTwitter />
                   </a>
                 </div>
-                {/* insta */}
+                {/* instagram */}
                 <div className="btn btn-circle text-lg bg-[#f9f9f9] text-[#002172] shadow-xl hover:text-white hover:bg-[#ec3323] hover:-mt-1">
                   <FaInstagram />
                 </div>
@@ -129,7 +129,7 @@ const OwnerDetail = () => {
                 </div>
               </div>
             </div>
-          </div>{" "}
+          </div>
           {/* info */}
           <div className="mt-5 space-y-3">
             <h2 className="text-black text-2xl font-bold">

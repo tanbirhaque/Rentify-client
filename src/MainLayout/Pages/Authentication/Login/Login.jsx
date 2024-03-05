@@ -7,11 +7,21 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../../../Hooks/useAuth";
 import Swal from "sweetalert2";
 import SocialLogin from "../Social/SocialLogin";
+import { IoMdEye, IoMdEyeOff } from "react-icons/io";
+import { useState } from "react";
 
 const Login = () => {
   const { loginUser } = useAuth();
   const currentLocation = useLocation();
   const destinedLocation = useNavigate();
+
+  //for password visibility
+  const [passwordVisible, setPasswordVisible] = useState(true);
+
+  const handleTogglePassword = () => {
+    setPasswordVisible(!passwordVisible);
+  };
+
   //form data
   const {
     register,
@@ -63,22 +73,27 @@ const Login = () => {
               placeholder="Enter your email address"
               className="max-w-full md:w-[558px] bg-[#F3F3F3] h-14 pl-5 focus:ring-red-500 focus:border-red-500"
             />
-            
+
             {errors.email && (
               <span className="text-xs text-red-600">
                 Email is required to login.
-              
               </span>
             )}
-          
+
             <h3 className="text-xl font-semibold my-3">Password</h3>
             <input
               {...register("password", { required: true })}
-              type="password"
+              type={passwordVisible ? "text" : "password"}
               name="password"
               placeholder="Enter your password"
               className="max-w-full md:w-[558px] bg-[#F3F3F3] h-14 pl-5 mb-7"
             />
+            <span
+              className="cursor-pointer text-xl absolute -ml-8 mt-4"
+              onClick={handleTogglePassword}
+            >
+              {passwordVisible ? <IoMdEye /> : <IoMdEyeOff />}
+            </span>
             {errors.password && (
               <span className="text-xs text-red-600">
                 Password is required to login.
