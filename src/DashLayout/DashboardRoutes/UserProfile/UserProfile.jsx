@@ -25,6 +25,7 @@ const UserProfile = () => {
   const [currentOwner] = useCurrentOwner()
   console.log(currentOwner);
   const [tabIndex, setTabIndex] = useState(0);
+  const currentUserBlogs = blogs.filter((item) => item.bloggerInfo.bloggerEmail == user?.email)
 
   return (
     <div className="">
@@ -332,7 +333,7 @@ const UserProfile = () => {
                   <h5 className="text-xl font-semibold">All Blogs :</h5>
                   {/* blogs card section */}
                   <div className="grid lg:grid-cols-3 md:grid-cols-2 mt-6 gap-6">
-                    {blogs.map((item) => (
+                    {currentUserBlogs?.map((item) => (
                       <div key={item._id}>
                         <div className="group relative h-fit hover:-mt-[5px] overflow-hidden bg-white dark:bg-slate-900 rounded-xl shadow dark:shadow-gray-700 transition-all duration-500">
                           <div className="relative overflow-hidden">
@@ -341,11 +342,6 @@ const UserProfile = () => {
                               src={item.img}
                               alt=""
                             />
-                            <div className="absolute end-4 top-4">
-                              <span className="bg-[#002172] text-white text-[14px] px-2.5 py-1 font-medium rounded-full h-5">
-                                Residential
-                              </span>
-                            </div>
                           </div>
                           <div className="relative p-6">
                             <div className="">
@@ -396,56 +392,6 @@ const UserProfile = () => {
                   <div className="grid lg:grid-cols-3 md:grid-cols-2 mt-6 gap-6">
                     {recentAddProperty.map((item) => (
                       <div key={item._id}>
-                        {/* <div className="group relative h-fit hover:-mt-[5px] overflow-hidden bg-white dark:bg-slate-900 rounded-xl shadow dark:shadow-gray-700 transition-all duration-500">
-                          <div className="relative overflow-hidden">
-                            <img
-                              className=" h-[230px] w-full"
-                              src={item.img}
-                              alt=""
-                            />
-                            <div className="absolute end-4 top-4">
-                              <span className="bg-[#002172] text-white text-[14px] px-2.5 py-1 font-medium rounded-full h-5">
-                                Residential
-                              </span>
-                            </div>
-                          </div>
-                          <div className="relative p-6">
-                            <div className="">
-                              <div className="flex justify-between mb-4">
-                                <span className="text-slate-400 text-sm flex items-center gap-1">
-                                  <span className=" text-slate-900">
-                                    <MdDateRange />
-                                  </span>
-                                  {item.date}
-                                </span>
-                                <span className="text-slate-400 text-sm ms-3 flex items-center gap-1">
-                                  <span>
-                                    <FaComment></FaComment>
-                                  </span>
-                                  {item.comment} Comment
-                                </span>
-                              </div>
-                              <a
-                                className="title text-xl font-medium hover:text-[#002172] duration-500 ease-in-out"
-                                href="/blog-detail/1"
-                              >
-                                {item.title}
-                              </a>
-                              <div className="mt-3">
-                                <div className=" overflow-hidden">
-                                  <Link to={`/blogs/${item._id}`}>
-                                    <div className="hover:text-[#002172] after:bg-[#002172] duration-500 ease-in-out flex items-center blogAfter">
-                                      <p>Read more</p>
-                                      <p>
-                                        <IoIosArrowForward />
-                                      </p>
-                                    </div>
-                                  </Link>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div> */}
                         <div className="card card-compact max-w-[414px] rounded-none bg-base-100 shadow-md mx-auto mb-1">
                           <figure className="w-full h-[294px]">
                             <img

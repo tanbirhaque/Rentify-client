@@ -54,8 +54,7 @@ const Chat = () => {
             .then(data => setCurrentChat(data))
     }, [memberUrl])
 
-
-    // socket io ref
+    // socket io connected ref
     useEffect(() => {
         socket.current = io('https://test-socket-repo.onrender.com')
         socket.current.emit("new-user-add", currentUser?._id)

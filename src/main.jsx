@@ -59,6 +59,8 @@ import AllPropertiesMod from "./MainLayout/Pages/Home/HomeComponents/AllProperti
 import Chat from "./MainLayout/Pages/Chat/Chat.jsx";
 import UpdateProperties from "./DashLayout/DashboardRoutes/UpdateProperties/UpdateProperties.jsx";
 import AboutUs from "./MainLayout/Pages/About Us/AboutUs.jsx";
+import NewBLog from "./MainLayout/Pages/Blog/Newblog/Newblog.jsx";
+import NewBlogsDetails from "./MainLayout/Pages/Blog/NewBlog/NewBlogsDetails.jsx";
 
 
 const queryClient = new QueryClient();
@@ -90,13 +92,22 @@ const router = createBrowserRouter([
         path: "/all",
         element: <AllPropertiesMod></AllPropertiesMod>,
       },
+      // {
+      //   path: "/blogs",
+      //   element: <Bloggrid></Bloggrid>,
+      // },
       {
         path: "/blogs",
-        element: <Bloggrid></Bloggrid>,
+        element: <NewBLog></NewBLog>
       },
+      // {
+      //   path: "/blogs/:id",
+      //   element: <Blogdetails></Blogdetails>,
+      //   loader: () => fetch("http://localhost:5000/blogs"),
+      // },
       {
         path: "/blogs/:id",
-        element: <Blogdetails></Blogdetails>,
+        element: <NewBlogsDetails></NewBlogsDetails>,
         loader: () => fetch("http://localhost:5000/blogs"),
       },
       {
@@ -177,7 +188,7 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <AboutUs />
-       
+
       }
     ],
   },
