@@ -10,6 +10,7 @@ import { MdOutlineAdminPanelSettings, MdOutlineEmail } from "react-icons/md";
 import { LuLayoutDashboard } from "react-icons/lu";
 import { TbLogout } from "react-icons/tb";
 import useCurrentOwner from "../../../Hooks/useCurrentOwner";
+import { HiOutlineHome } from "react-icons/hi2";
 
 const Navbar = () => {
   const [isNavbarJumping, setIsNavbarJumping] = useState(false);
@@ -247,89 +248,51 @@ const Navbar = () => {
           {/* for toggle feature for profile button -sadia || Remake by -Tanbir */}
           <div className="navbar-end gap-5 lg:gap-0">
             {/* this user role condition added by sojib */}
-            {user && userRole?.role === "user" ? (
-              <>
-                <div className="flex items-center">
-                  <div className="flex flex-col items-end mr-4 h-full">
-                    <h3 className="capitalize poppins-font text-[16px] font-semibold">{user?.displayName}</h3>
-                    <p className="capitalize poppins-font text-[12px] text-[#464a53]">{userRole?.role}</p>
-                  </div>
-                  <details className="dropdown dropdown-end w-[43px]">
-                    <summary tabIndex={0} className="btn w-[43px] min-h-[30px] max-h-[40px] navMarker px-0 py-0 ">
-                      <div className="min-w-[43px]">
-                        <img
-                          className="rounded-lg w-[43px]"
-                          src={`${user?.photoURL ? user?.photoURL : defaultImg}`}
-                        />
-                      </div>
-                    </summary>
-                    <ul
-                      tabIndex={0}
-                      className="menu menu-sm dropdown-content mt-3 z-[1] py-2 px-0 shadow  rounded-lg bg-[#ffffff] "
-                    >
-                      <li className="hover:bg-[#002172] transition-all ease-out duration-300 hover:text-white">
-                        <p className="text-[17px]"><span><MdOutlineEmail className=""></MdOutlineEmail></span>{user?.email}</p>
-                      </li>
-                      <li className="hover:bg-[#002172] transition-all ease-out duration-300 hover:text-white">
-                        <Link to="/dashboard/userProfile" className="text-[17px]"><span><LuLayoutDashboard></LuLayoutDashboard></span>Dashboard</Link>
-                      </li>
-                      <li className="hover:bg-[#002172] transition-all ease-out duration-300 hover:text-white">
-                        <a href="https://rentify-admin.firebaseapp.com/dashboard/profile" target="blank" className="text-[17px]"><span><MdOutlineAdminPanelSettings></MdOutlineAdminPanelSettings></span>Admin Panel</a>
-                      </li>
-                      <li className="hover:bg-[#002172] transition-all ease-out duration-300 hover:text-white">
-                        <Link onClick={handleLogOut} className="text-[17px]"><span><TbLogout className="text-[#e33226]"></TbLogout></span>Logout</Link>
-                      </li>
-                    </ul>
-                  </details>
-                </div>
-              </>
-            ) : ""
-            }
-            {/* this owner role condition added by sojib */}
-            {user && userRole?.role === "owner" ?
-              (
+            <div>
+              {user ?
                 <>
-                  <div className="flex items-center">
-                    <div className="flex flex-col items-end mr-4 h-full">
-                      <h3 className="capitalize poppins-font text-[16px] font-semibold">{currentOwner?.firstName + " " + currentOwner?.lastName}</h3>
-                      <p className="capitalize poppins-font text-[12px] text-[#464a53]">{userRole?.role}</p>
-                    </div>
-                    <details className="dropdown dropdown-end w-[43px]">
-                      <summary tabIndex={0} className="btn w-[43px] min-h-[30px] max-h-[40px] navMarker px-0 py-0 ">
-                        <div className="min-w-[43px]">
+                  <div className="dropdown dropdown-end">
+                    <div className="flex items-center">
+                      <div className="flex flex-col items-end lg:mr-3 h-full">
+                        <h3 className="capitalize poppins-font text-[16px] font-semibold">
+                          {/* {user?.displayName} */}
+                          {user && userRole?.role === "user" ? `${user.displayName}` : `${currentOwner?.firstName}`}
+                        </h3>
+                        <p className="capitalize poppins-font text-[12px] text-[#464a53]">{userRole?.role}</p>
+                      </div>
+                      {/* DashNav Profile dropdown */}
+                      <div className="dropdown dropdown-hover relative h-[65px]">
+                        <div tabIndex={0} role="button" className=" relative font-medium text-base text-black mx-3 xl:mx-0 flex items-center h-full">
                           <img
-                            className="rounded-lg w-[43px]"
-                            src={`${currentOwner?.ownerImg ? currentOwner?.ownerImg : defaultImg}`}
+                            className="rounded-lg max-w-[48px] max-h-[48]"
+                            src={user && userRole?.role === "user" ? `${user.photoURL}` : `${currentOwner?.ownerImg}`}
                           />
                         </div>
-                      </summary>
-                      <ul
-                        tabIndex={0}
-                        className="menu menu-sm dropdown-content mt-3 z-[1] py-2 px-0 shadow  rounded-lg bg-[#ffffff] "
-                      >
-                        <li className="hover:bg-[#002172] transition-all ease-out duration-300 hover:text-white">
-                          <p className="text-[17px]"><span><MdOutlineEmail className=""></MdOutlineEmail></span>{currentOwner?.ownerEmail}</p>
-                        </li>
-                        <li className="hover:bg-[#002172] transition-all ease-out duration-300 hover:text-white">
-                          <Link to="/dashboard/userProfile" className="text-[17px]"><span><LuLayoutDashboard></LuLayoutDashboard></span>Dashboard</Link>
-                        </li>
-                        <li className="hover:bg-[#002172] transition-all ease-out duration-300 hover:text-white">
-                          <a href="https://rentify-admin.firebaseapp.com/dashboard/profile" target="blank" className="text-[17px]"><span><MdOutlineAdminPanelSettings></MdOutlineAdminPanelSettings></span>Admin Panel</a>
-                        </li>
-                        <li className="hover:bg-[#002172] transition-all ease-out duration-300 hover:text-white">
-                          <Link onClick={handleLogOut} className="text-[17px]"><span><TbLogout className="text-[#e33226]"></TbLogout></span>Logout</Link>
-                        </li>
-                      </ul>
-                    </details>
+                        <ul className="menu dropdown-content z-[1] bg-white w-fit rounded-[5px] px-0 absolute top-16"
+                          style={{
+                            boxShadow: '0px 2px 20px 0px rgba(0,0,0,0.68)',
+                            WebkitBoxShadow: '0px 2px 20px 0px rgba(0,0,0,0.68)',
+                            MozBoxShadow: '0px 2px 20px 0px rgba(0,0,0,0.68)'
+                          }}
+                        >
+                          <li className="hover:bg-[#002172] transition-all ease-out duration-300 hover:text-white">
+                            <p className="text-[17px]"><span><MdOutlineEmail className=""></MdOutlineEmail></span>{currentOwner?.ownerEmail}</p>
+                          </li>
+                          <li className="hover:bg-[#002172] transition-all ease-out duration-300 hover:text-white">
+                            <Link to="/dashboard/userProfile" className="text-[17px]"><span><LuLayoutDashboard></LuLayoutDashboard></span>Dashboard</Link>
+                          </li>
+                          <li className="hover:bg-[#002172] transition-all ease-out duration-300 hover:text-white">
+                            <a href="https://rentify-admin.firebaseapp.com/dashboard/profile" target="blank" className="text-[17px]"><span><MdOutlineAdminPanelSettings></MdOutlineAdminPanelSettings></span>Admin Panel</a>
+                          </li>
+                          <li className="hover:bg-[#002172] transition-all ease-out duration-300 hover:text-white">
+                            <Link onClick={handleLogOut} className="text-[17px]"><span><TbLogout className="text-[#e33226]"></TbLogout></span>Logout</Link>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
                   </div>
                 </>
-              )
-              : ""}
-            {/* Login button conditional if the user is not logged in yet */}
-            <div>
-              {user ? (
-                ""
-              ) : (
+                :
                 <>
                   <div className="flex items-center">
                     <Link to="/login">
@@ -337,7 +300,7 @@ const Navbar = () => {
                     </Link>
                   </div>
                 </>
-              )}
+              }
             </div>
           </div>
         </div>
