@@ -32,13 +32,13 @@ const About = () => {
               alt="Red cube png for rotating animation"
             />
           </div>
-          <div className="absolute top-12 -right-16 z-0">
+          {/* <div className="absolute top-12 -right-16 z-0">
             <img
               className="upnd-anim"
               src="https://i.ibb.co/VN6ZhGC/shape-2.png"
               alt="Red cube png for rotating animation"
             />
-          </div>
+          </div> */}
         </div>
         <div className="xl:pt-[80px]">
           <CommonHeading
