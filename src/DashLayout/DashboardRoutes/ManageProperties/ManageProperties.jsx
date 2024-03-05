@@ -87,6 +87,7 @@ const ManageProperties = () => {
                     <th>Property Info</th>
                     <th>Location</th>
                     <th>Category</th>
+                    <th>Type</th>
                     <th>Price</th>
                     <th>Duration</th>
                     <th>Owner Email</th>

@@ -62,7 +62,7 @@ const handleDelete = (id) => {
 
   return (
     <>
-      <td className="w-[19rem]">
+      <td className="w-[18rem]">
           <div className="flex gap-4 items-center w-auto">
           <div><img className="w-[100px] h-[75px] rounded" src={property_img} alt="" /></div>
           <h2 className="w-36">{property_title}</h2>
