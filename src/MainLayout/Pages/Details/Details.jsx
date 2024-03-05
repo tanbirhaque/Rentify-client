@@ -239,7 +239,7 @@ const Details = () => {
                 </div>
               </div>
               <div>
-                <span className=" px-3 py-3 rounded bg-[#ec3323] border-none text-white w-fit h-fit relative ml-7 text-lg">
+                <span className=" px-3 py-3 rounded bg-[#ec3323] border-none text-white w-fit h-fit relative ml-7 text-lg capitalize">
                   For {property_for}
                 </span>
                 <img
@@ -432,7 +432,7 @@ const Details = () => {
               >
                 {/* this owner form commented by sojib please Don't uncomment it without telling him */}
                 {/* <OwnerInfo owner={owner_details} /> */}
-                <h2 className="text-3xl font-bold my-5">Agent Information</h2>
+                <h2 className="text-3xl font-bold my-5">Owner Information</h2>
                 <div className="flex gap-4 my-3">
                   <img
                     className="rounded-full h-[70px] w-[70px]"

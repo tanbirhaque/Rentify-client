@@ -73,7 +73,7 @@ const BookingForm = ({ item, property_for }) => {
     <>
       {/* form */}
       <form onSubmit={handleSubmit(onSubmit)} className="mx-auto">
-        <h2 className=" text-3xl font-bold pt-5">{
+        <h2 className=" text-3xl font-bold pt-2 pb-2">{
           property_for == "sale" ? "Sale " : "Rent "
         } This Property</h2>
         {/* register your input into the hook by invoking the "register" function */}
@@ -126,7 +126,7 @@ const BookingForm = ({ item, property_for }) => {
           type="submit"
           className=" rounded px-8 py-4 mt-3 bg-[#EC3323] hover:bg-[#002172] text-white mb-4"
         >
-          {
+          Send { 
             property_for == "sale" ? "Sale " : "Rent "
           } Request
         </button>
