@@ -67,7 +67,7 @@ const NewBLog = () => {
                     img={"https://i.ibb.co/M6r72CP/breadcrumb-4.jpg"}
                 />
                 <div className=" max-w-screen-2xl mx-auto my-32">
-                    <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1 gap-7">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-7 mx-5">
                         {currentItems.map((item) => (
                             <div key={item._id}>
                                 {/* animation bg fixed */}
@@ -97,7 +97,7 @@ const NewBLog = () => {
                                                 </span>
                                             </div>
                                             <a
-                                                className="title text-xl font-medium hover:text-[#002172] duration-500 ease-in-out"
+                                                className="title text-xl font-medium hover:text-[#002172] duration-500 ease-in-out line-clamp-1"
                                                 href="/blog-detail/1"
                                             >
                                                 {item.title}

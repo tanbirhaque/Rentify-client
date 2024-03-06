@@ -253,9 +253,8 @@ const Navbar = () => {
                 <>
                   <div className="dropdown dropdown-end">
                     <div className="flex items-center">
-                      <div className="flex flex-col items-end lg:mr-3 h-full">
+                      <div className="hidden  md:flex flex-col items-end lg:mr-3 h-full">
                         <h3 className="capitalize poppins-font text-[16px] font-semibold">
-                          {/* {user?.displayName} */}
                           {user && userRole?.role === "user" ? `${user.displayName}` : `${currentOwner?.firstName}`}
                         </h3>
                         <p className="capitalize poppins-font text-[12px] text-[#464a53]">{userRole?.role}</p>

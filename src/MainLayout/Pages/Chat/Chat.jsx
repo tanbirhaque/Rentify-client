@@ -82,12 +82,12 @@ const Chat = () => {
             <h2 className=' text-xl font-bold ml-3 my-5'>Chat box</h2>
             <div className=" flex md:flex-row flex-col justify-start items-start gap-3">
                 {/* left side */}
-                <div className="Left-side-chat border-2 md:w-[25%] w-full md:h-screen h-[600px] p-4 rounded-xl">
+                <div className="border-2 rounded-xl w-full md:w-[40%] lg:w-[20%] pl-4 py-5 h-[750px] max-h-[750px] overflow-y-auto chatScroll">
                     {/* <LogoSearch></LogoSearch> */}
-                    <div className="Chat-container">
+                    <div className="">
                         {/* current user profile */}
                         <div className=' w-full flex flex-col items-center justify-center border-b pb-2'>
-                            <img className=' h-[90px] w-[90px] rounded-full' src={user?.photoURL} alt="" />
+                            <img className='h-[90px] w-[90px] rounded-full' src={user?.photoURL} alt="" />
                             <h2 className=' font-bold my-2'>{user?.displayName}</h2>
                             <h3 className=' text-slate-400'>{role}</h3>
                         </div>
@@ -107,8 +107,7 @@ const Chat = () => {
                     </div>
                 </div>
                 {/* Right side */}
-                <div className="Right-side-chat border-2 md:w-[75%] w-full h-screen rounded-xl">
-                    {/* Chatbox */}
+                <div className="border-2 md:w-[80%] w-full min-h-[750px] max-h-[750px] rounded-xl">
                     {currentChat ?
                         <Chatbox
                             chat={currentChat}

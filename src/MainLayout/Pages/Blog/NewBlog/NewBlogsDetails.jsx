@@ -175,8 +175,8 @@ const NewBlogsDetails = () => {
                             <div>
                                 {
                                     currentUserBlogs?.map((item) => (
-                                        <div key={item._id} className=" flex items-center gap-2">
-                                            <img className=" w-24 h-16 rounded-lg" src={item?.img} alt="" />
+                                        <div key={item._id} className=" flex flex-col items-start lg:flex-row lg:items-center gap-2 my-5">
+                                            <img className=" w-full h-full lg:w-24 lg:h-16 rounded-lg" src={item?.img} alt="" />
                                             <div>
                                                 <h2 className=" font-bold">{item?.title}</h2>
                                                 <h2 className=" text-slate-400">{item?.date}</h2>

@@ -4,3 +4,16 @@
 .react-tabs__tab--selected {
     background: transparent !important;
 }
+
+.chatScroll::-webkit-scrollbar{
+    width: 3px;
+}
+
+.chatScroll::-webkit-scrollbar-thumb{
+    background-color: #adb5bd;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+}
