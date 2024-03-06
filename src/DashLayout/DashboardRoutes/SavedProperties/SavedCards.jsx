@@ -46,13 +46,15 @@ const SavedCards = ({ item, refetch }) => {
 
   return (
     <div>
-      <div className="w-full max-w-[24rem] shadow-lg">
+      <div className="min-w-full shadow-lg bg-white">
         <div className="bg-blue-gray relative rounded-xl">
-          <img
-            src={property.property_info.property_img}
-            alt="ui/ux review check"
-            className="w-full h-full object-cover"
-          />
+          <div className="min-w-full h-[294px]">
+            <img
+              src={property.property_info.property_img}
+              alt="property image"
+              className="w-full h-full object-cover"
+            />
+          </div>
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-black/60" />
           <button className="absolute top-4 left-4 text-red-500 rounded-full">
             <FaHeart
@@ -60,42 +62,32 @@ const SavedCards = ({ item, refetch }) => {
               className="h-6 w-6"
             />
           </button>
-          {/* <button className="absolute top-4 right-4 text-red-500 font-bold text-xl rounded-full">
-            <div className="rating flex gap-1">
-              <input type="radio" name="rating-1" className="mask mask-star bg-[#fbbd38]" />
-              <span>3</span>
-
-
-            </div>
-          </button> */}
-
           <div className="absolute bottom-4 right-4  ">
             {property?.property_info?.property_for === "rent" ? (
               <>
                 <button className=" bg-[#002172]  py-2 px-4 text-sm  hover:bg-[#e33226] text-white">
-                  Rent Now
+                  For Rent
                 </button>
               </>
             ) : (
               <button className="bg-[#002172] py-2 px-4 text-sm  hover:bg-[#e33226] text-white">
-                Buy Now
+                For Buy
               </button>
             )}
           </div>
         </div>
         <div className="p-6">
           <div className="mb-3 flex items-center justify-between">
-            <h1 className="text-[#002172] text-xl font-semibold ">
-              {property.property_info.property_title}
+            <h1 className="text-[#002172] text-xl font-semibold line-clamp-1">
+              <abbr title={property?.property_info?.property_title} className="no-underline">
+                {property?.property_info?.property_title}
+              </abbr>
             </h1>
           </div>
-          {/* <p className="text-gray-500">
-          Indulge in the epitome of urban sophistication with our Stylish Urban Loft, a captivating space meticulously curated to embody the essence of Industrial Chic Vibes.
-          </p> */}
           <div className="card-actions text-lg flex items-center justify-center border-t-2 border-b-2 py-4 gap-10 border-[#00000016]   mt-5 text-md">
             <p className="flex items-center justify-center gap-2 ">
               <IoBedOutline className="text-[#666666]" />
-              {property.property_info.property_details?.bedroom}
+              {property?.property_info?.property_details?.bedroom}
             </p>
             <p className="flex items-center justify-center gap-2 ">
               <PiBathtub className="text-[#666666]" />
@@ -116,7 +108,6 @@ const SavedCards = ({ item, refetch }) => {
               3
             </h1>
           </div>
-
           {/* code modified by Sadia */}
           <div className="">
             {property?.property_info?.property_for === "rent" ? (
@@ -136,15 +127,6 @@ const SavedCards = ({ item, refetch }) => {
                 Buy Now
               </button>
             )}
-            {/* <>
-              <button
-                className="bg-[#002172] py-3 px-6 hover:bg-[#e33226] text-white w-full"
-                onClick={handleBookOrBuy}
-              >
-                Book Now
-              </button>
-            </> */}
-            {/* Modal */}
             <dialog
               id="my_modal_5"
               className="modal modal-bottom sm:modal-middle"

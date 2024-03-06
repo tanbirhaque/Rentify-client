@@ -14,7 +14,7 @@ const RequestedProperty = () => {
   const [properties, setProperties] = useState([]);
   const [tabIndex, setTabIndex] = useState(0);
   // Requested data fetched by useEffect because useState data direct not defined
-  // const url = `https://rentify-server-drab.vercel.app/all_requested?email=${user?.email}`;
+  // const url = `http://localhost:5000/all_requested?email=${user?.email}`;
   // useEffect(() => {
   //   fetch(url)
   //     .then((res) => res.json())
@@ -62,7 +62,7 @@ const RequestedProperty = () => {
   );
 
   return (
-    <div className="">
+    <div className="bg-[#f3f3f3] min-h-screen">
       {/* Background section*/}
       <div
         className="w-full"
@@ -86,19 +86,6 @@ const RequestedProperty = () => {
 
       {/* Requested properties section */}
       <div className=" mx-8 mt-10">
-        {/*TODO:Dropdown filter by property status in Accepted, Pending & Rejected.. [now it's commented,, just created design. If you need this you uncomment it] */}
-        {/* <div className=" flex justify-end my-5 mr-5">
-          <div className="dropdown dropdown-hover">
-            <div tabIndex={0} role="button" className="btn btn-neutral mr-10 font-bold">Propery Status</div>
-            <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-              <li className=" btn font-bold" onClick={handleAll}><a>All</a></li>
-              <li className=" btn font-bold" onClick={handleAccepted}><a>Accepted</a></li>
-              <li className=" btn font-bold" onClick={handlePending}><a>Pending</a></li>
-              <li className=" btn font-bold" onClick={handleRejected}><a>Rejected</a></li>
-            </ul>
-          </div>
-        </div> */}
-
         <div className=" xl:w-[1200px] mx-auto mt-5">
           {/* Here are used to menu class & Navlink for uniq design and filter by property status in Accepted, Pending & Rejected..[codded by Sojib] */}
           <div className="flex flex-row justify-center items-center mb-7 gap-4 flex-wrap">
@@ -144,7 +131,6 @@ const RequestedProperty = () => {
               </TabList>
             </div>
             <TabPanel>
-              {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 p-5"> */}
               <div className="">
                 {rentsProperties?.map((requestedProperty) => (
                   <ReqCard_mod
@@ -152,16 +138,10 @@ const RequestedProperty = () => {
                     requestedProperties={requestedProperty}
                     refetch={refetch}
                   />
-                  // <RequestCard
-                  //   key={requestedProperty._id}
-                  //   requestedProperties={requestedProperty}
-                  // />
                 ))}
               </div>
-              {/* </div> */}
             </TabPanel>
             <TabPanel>
-              {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 p-5"> */}
               <div>
                 {salesProperties?.map((requestedProperty) => (
                   <ReqCard_mod
@@ -169,13 +149,8 @@ const RequestedProperty = () => {
                     requestedProperties={requestedProperty}
                     refetch={refetch}
                   />
-                  // <RequestCard
-                  //   key={requestedProperty._id}
-                  //   requestedProperties={requestedProperty}
-                  // />
                 ))}
               </div>
-              {/* </div> */}
             </TabPanel>
           </Tabs>
         </div>

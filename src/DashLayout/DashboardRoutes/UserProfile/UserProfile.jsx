@@ -15,7 +15,6 @@ import { LuTriangleRight } from "react-icons/lu";
 import { CiLocationOn } from "react-icons/ci";
 import useGetRole from "../../../Hooks/useGetRole";
 import useCurrentOwner from "../../../Hooks/useCurrentOwner";
-import { FaPersonRifle } from "react-icons/fa6";
 
 const UserProfile = () => {
   const { user } = useContext(AuthContext);
@@ -25,6 +24,7 @@ const UserProfile = () => {
   const [currentOwner] = useCurrentOwner()
   console.log(currentOwner);
   const [tabIndex, setTabIndex] = useState(0);
+  const currentUserBlogs = blogs.filter((item) => item.bloggerInfo.bloggerEmail == user?.email)
 
   return (
     <div className="">
@@ -43,9 +43,9 @@ const UserProfile = () => {
         </div>
       </div>
       {/* Profile main layouts */}
-      <div className=" grid md:grid-cols-12 grid-cols-1 w-[97%] mx-auto mt-5">
+      <div className=" grid lg:grid-cols-12 grid-cols-1 w-[97%] mx-auto px-5 lg:px-0 mt-5">
         {/* Profile card details */}
-        <div className="xl:col-span-3 lg:col-span-4 md:col-span-4 mx-6">
+        <div className="xl:col-span-3 lg:col-span-4 lg:mx-6">
           {/* user condition */}
           {userRole?.role === "user" ?
             <div className="p-6 relative rounded-md shadow dark:shadow-gray-700 bg-white dark:bg-slate-900 -mt-48">
@@ -66,7 +66,7 @@ const UserProfile = () => {
               {/* profile card body part */}
               <div className=" border-t-2 mt-5 border-gray-100 dark:border-gray-700">
                 <h5 className="text-xl font-semibold mt-4">Personal Details :</h5>
-                <div className="mt-4">
+                <div className="grid md:grid-cols-3 lg:grid-cols-1 mt-4">
                   {/* Email */}
                   <div className="flex items-center gap-4">
                     <MdOutlineEmail className=" text-4xl text-slate-400"></MdOutlineEmail>
@@ -181,22 +181,24 @@ const UserProfile = () => {
                 </div>
                 <div className="mt-4 text-center">
                   <h5 className="text-lg font-semibold">{currentOwner?.firstName + " " + currentOwner?.lastName}</h5>
-                  <p className="text-slate-400">{currentOwner?.ownerEmail}</p>
+                  <p className="text-slate-400 over">{currentOwner?.ownerEmail}</p>
                 </div>
               </div>
               {/* profile card body part */}
               <div className=" border-t-2 mt-5 border-gray-100 dark:border-gray-700">
                 <h5 className="text-xl font-semibold mt-4">Personal Details :</h5>
-                <div className="mt-4">
+                <div className="grid md:grid-cols-3 lg:grid-cols-1 mt-4">
                   {/* Email */}
                   <div className="flex items-center gap-4">
                     <MdOutlineEmail className=" text-2xl text-slate-400"></MdOutlineEmail>
-                    <div className="flex-1">
+                    <div className="flex-1 truncate">
                       <h6 className="text-[#002172] dark:text-white font-medium mb-0">
                         Email :
                       </h6>
-                      <a className="text-slate-400" href="">
-                        {currentOwner?.ownerEmail}
+                      <a className="text-slate-400">
+                        <abbr title={currentOwner?.ownerEmail} className="no-underline">
+                          {currentOwner?.ownerEmail}
+                        </abbr>
                       </a>
                     </div>
                   </div>
@@ -328,11 +330,11 @@ const UserProfile = () => {
                 <Tab>Properties</Tab>
               </TabList>
               <TabPanel>
-                <div className="p-6 relative border-2 rounded-md dark:shadow-gray-700 bg-white dark:bg-slate-900">
-                  <h5 className="text-xl font-semibold">All Blogs :</h5>
+                <div className="md:p-6 relative md:border-2 rounded-md dark:shadow-gray-700 bg-white dark:bg-slate-900">
+                  <h5 className="text-xl font-semibold hidden md:flex">All Blogs :</h5>
                   {/* blogs card section */}
-                  <div className="grid lg:grid-cols-3 md:grid-cols-2 mt-6 gap-6">
-                    {blogs.map((item) => (
+                  <div className="grid grid-cols-1 xl:grid-cols-3 md:grid-cols-2 md:mt-6 gap-6">
+                    {currentUserBlogs?.map((item) => (
                       <div key={item._id}>
                         <div className="group relative h-fit hover:-mt-[5px] overflow-hidden bg-white dark:bg-slate-900 rounded-xl shadow dark:shadow-gray-700 transition-all duration-500">
                           <div className="relative overflow-hidden">
@@ -341,11 +343,6 @@ const UserProfile = () => {
                               src={item.img}
                               alt=""
                             />
-                            <div className="absolute end-4 top-4">
-                              <span className="bg-[#002172] text-white text-[14px] px-2.5 py-1 font-medium rounded-full h-5">
-                                Residential
-                              </span>
-                            </div>
                           </div>
                           <div className="relative p-6">
                             <div className="">
@@ -364,7 +361,7 @@ const UserProfile = () => {
                                 </span>
                               </div>
                               <a
-                                className="title text-xl font-medium hover:text-[#002172] duration-500 ease-in-out"
+                                className="title text-xl font-medium hover:text-[#002172] duration-500 ease-in-out line-clamp-1"
                                 href="/blog-detail/1"
                               >
                                 {item.title}
@@ -390,62 +387,12 @@ const UserProfile = () => {
                 </div>
               </TabPanel>
               <TabPanel>
-                <div className="p-6 relative border-2 rounded-md dark:shadow-gray-700 bg-white dark:bg-slate-900">
-                  <h5 className="text-xl font-semibold">Recent Properties :</h5>
+                <div className="md:p-6 relative md:border-2 rounded-md dark:shadow-gray-700 bg-white dark:bg-slate-900">
+                  <h5 className="text-xl font-semibold hidden md:flex">Recent Properties :</h5>
                   {/* blogs card section */}
-                  <div className="grid lg:grid-cols-3 md:grid-cols-2 mt-6 gap-6">
+                  <div className="grid grid-cols-1 xl:grid-cols-3 md:grid-cols-2 md:mt-6 gap-6">
                     {recentAddProperty.map((item) => (
                       <div key={item._id}>
-                        {/* <div className="group relative h-fit hover:-mt-[5px] overflow-hidden bg-white dark:bg-slate-900 rounded-xl shadow dark:shadow-gray-700 transition-all duration-500">
-                          <div className="relative overflow-hidden">
-                            <img
-                              className=" h-[230px] w-full"
-                              src={item.img}
-                              alt=""
-                            />
-                            <div className="absolute end-4 top-4">
-                              <span className="bg-[#002172] text-white text-[14px] px-2.5 py-1 font-medium rounded-full h-5">
-                                Residential
-                              </span>
-                            </div>
-                          </div>
-                          <div className="relative p-6">
-                            <div className="">
-                              <div className="flex justify-between mb-4">
-                                <span className="text-slate-400 text-sm flex items-center gap-1">
-                                  <span className=" text-slate-900">
-                                    <MdDateRange />
-                                  </span>
-                                  {item.date}
-                                </span>
-                                <span className="text-slate-400 text-sm ms-3 flex items-center gap-1">
-                                  <span>
-                                    <FaComment></FaComment>
-                                  </span>
-                                  {item.comment} Comment
-                                </span>
-                              </div>
-                              <a
-                                className="title text-xl font-medium hover:text-[#002172] duration-500 ease-in-out"
-                                href="/blog-detail/1"
-                              >
-                                {item.title}
-                              </a>
-                              <div className="mt-3">
-                                <div className=" overflow-hidden">
-                                  <Link to={`/blogs/${item._id}`}>
-                                    <div className="hover:text-[#002172] after:bg-[#002172] duration-500 ease-in-out flex items-center blogAfter">
-                                      <p>Read more</p>
-                                      <p>
-                                        <IoIosArrowForward />
-                                      </p>
-                                    </div>
-                                  </Link>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div> */}
                         <div className="card card-compact max-w-[414px] rounded-none bg-base-100 shadow-md mx-auto mb-1">
                           <figure className="w-full h-[294px]">
                             <img

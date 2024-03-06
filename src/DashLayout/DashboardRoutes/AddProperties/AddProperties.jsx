@@ -107,6 +107,7 @@ const AddProperties = () => {
       }
     }
   }
+  
   function selectFiles() {
     fileInputRef.current.click();
   }

@@ -43,6 +43,7 @@ const Details = () => {
     property_location,
     property_category,
     owner_details,
+    property_description,
   } = property_info || {};
   const {
     property_tags,
@@ -51,7 +52,6 @@ const Details = () => {
     property_price,
     property_type,
     property_status,
-    property_description,
     built,
     bedroom,
     bath,
@@ -134,7 +134,7 @@ const Details = () => {
   const [chatsMembers, setChatMembers] = useState([]);
   const [userRole] = useGetRole();
   // get ownerUser by use fetch
-  const url = `https://rentify-server-drab.vercel.app/users/${owner_details?.owner_email}`;
+  const url = `http://localhost:5000/users/${owner_details?.owner_email}`;
   useEffect(() => {
     fetch(url)
       .then(res => res.json())
@@ -146,7 +146,7 @@ const Details = () => {
   // Second Member is the current user
   const secondMember = userRole?._id;
   // get chatMembers by use fetch
-  const memberUrl = `https://rentify-server-drab.vercel.app/chat/find/${firstMember}/${secondMember}`;
+  const memberUrl = `http://localhost:5000/chat/find/${firstMember}/${secondMember}`;
   useEffect(() => {
     fetch(memberUrl)
       .then((res) => res.json())
@@ -157,19 +157,30 @@ const Details = () => {
   // console.log("chtMembers", chatsMembers);
 
   const handleSendChats = async () => {
-    const newMembers = {
-      members: [firstMember, secondMember],
-    };
-    console.log(newMembers);
-    const existingOwner = owner_email === user?.email;
-    console.log("existing email", existingOwner);
-
-    if (!chatsMembers && !existingOwner) {
-      await axiosSecure.post("/chat", newMembers)
-        .then(res => {
-          console.log(res.data)
-          Swal.fire("Now You connected With this owner")
-        })
+    if (user) {
+      const newMembers = {
+        members: [firstMember, secondMember],
+      };
+      console.log(newMembers);
+      const existingOwner = owner_email === user?.email;
+      console.log("existing email", existingOwner);
+      if (!chatsMembers && !existingOwner) {
+        await axiosSecure.post("/chat", newMembers)
+          .then(res => {
+            console.log(res.data)
+            Swal.fire("Now You connected With this owner")
+          })
+      }
+    } 
+    else {
+      // this login will allow user to save their desired property only if they are user
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Looks like you're not logged in!",
+        footer: `<a href='/login' className='font-bold underline'>Please Log In</a>`,
+        showConfirmButton: false,
+      });
     }
   };
 
@@ -228,8 +239,8 @@ const Details = () => {
                 </div>
               </div>
               <div>
-                <span className="btn bg-[#ec3323] border-none text-white w-fit h-fit relative ml-7 text-lg">
-                  {property_for}
+                <span className=" px-3 py-3 rounded bg-[#ec3323] border-none text-white w-fit h-fit relative ml-7 text-lg capitalize">
+                  For {property_for}
                 </span>
                 <img
                   className="rounded-md w-full h-auto static -mt-20"
@@ -410,7 +421,7 @@ const Details = () => {
                   boxShadow: "0px 0px 10px 0px rgba(0,0,0,0.09)",
                 }}
               >
-                <BookingForm item={item} />
+                <BookingForm item={item} property_for={property_for} />
               </div>
               {/* owner information */}
               <div
@@ -421,6 +432,7 @@ const Details = () => {
               >
                 {/* this owner form commented by sojib please Don't uncomment it without telling him */}
                 {/* <OwnerInfo owner={owner_details} /> */}
+                <h2 className="text-3xl font-bold my-5">Owner Information</h2>
                 <div className="flex gap-4 my-3">
                   <img
                     className="rounded-full h-[70px] w-[70px]"

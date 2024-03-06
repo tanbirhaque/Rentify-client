@@ -59,6 +59,8 @@ import AllPropertiesMod from "./MainLayout/Pages/Home/HomeComponents/AllProperti
 import Chat from "./MainLayout/Pages/Chat/Chat.jsx";
 import UpdateProperties from "./DashLayout/DashboardRoutes/UpdateProperties/UpdateProperties.jsx";
 import AboutUs from "./MainLayout/Pages/About Us/AboutUs.jsx";
+import NewBLog from "./MainLayout/Pages/Blog/Newblog/Newblog.jsx";
+import NewBlogsDetails from "./MainLayout/Pages/Blog/NewBlog/NewBlogsDetails.jsx";
 
 
 const queryClient = new QueryClient();
@@ -90,14 +92,23 @@ const router = createBrowserRouter([
         path: "/all",
         element: <AllPropertiesMod></AllPropertiesMod>,
       },
+      // {
+      //   path: "/blogs",
+      //   element: <Bloggrid></Bloggrid>,
+      // },
       {
         path: "/blogs",
-        element: <Bloggrid></Bloggrid>,
+        element: <NewBLog></NewBLog>
       },
+      // {
+      //   path: "/blogs/:id",
+      //   element: <Blogdetails></Blogdetails>,
+      //   loader: () => fetch("http://localhost:5000/blogs"),
+      // },
       {
         path: "/blogs/:id",
-        element: <Blogdetails></Blogdetails>,
-        loader: () => fetch("https://rentify-server-drab.vercel.app/blogs"),
+        element: <NewBlogsDetails></NewBlogsDetails>,
+        loader: () => fetch("http://localhost:5000/blogs"),
       },
       {
         path: "/faq",
@@ -159,7 +170,7 @@ const router = createBrowserRouter([
       {
         path: "/details/:id",
         element: <Details></Details>,
-        loader: () => fetch(`https://rentify-server-drab.vercel.app/properties`),
+        loader: () => fetch(`http://localhost:5000/properties`),
       },
       {
         path: "/owners",
@@ -172,12 +183,12 @@ const router = createBrowserRouter([
       {
         path: "/owner-details/:id",
         element: <OwnerDetail />,
-        loader: () => fetch("https://rentify-server-drab.vercel.app/ownerRequest"),
+        loader: () => fetch("http://localhost:5000/ownerRequest"),
       },
       {
         path: "/about",
         element: <AboutUs />
-       
+
       }
     ],
   },
@@ -236,7 +247,7 @@ const router = createBrowserRouter([
       {
         path: "my-requests",
         element: <RequestedProperty />,
-        loader: () => fetch(`https://rentify-server-drab.vercel.app/requested-properties`),
+        loader: () => fetch(`http://localhost:5000/requested-properties`),
       },
       {
         path: "payment",
@@ -269,12 +280,12 @@ const router = createBrowserRouter([
       {
         path: "update-property/:id",
         element: <UpdateProperties />,
-        loader: ({ params }) => fetch(`https://rentify-server-drab.vercel.app/properties/${params.id}`),
+        loader: ({ params }) => fetch(`http://localhost:5000/properties/${params.id}`),
       },
       {
         path: "chat/:id",
         element: <Chat></Chat>,
-        loader: ({ params }) => fetch(`https://rentify-server-drab.vercel.app/${params.firstMember}`),
+        loader: ({ params }) => fetch(`http://localhost:5000/${params.firstMember}`),
       },
       {
         path: "chat",
