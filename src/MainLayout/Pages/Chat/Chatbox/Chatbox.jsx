@@ -82,88 +82,84 @@ const Chatbox = ({ chat, currentUserId, setSendMessage, receiveMessage, onlineUs
 
 
     return (
-        <div>
-            <div className="ChatBox-container">
-                <>
-                    <div className="Chat-header p-3">
-                        {/* Chatbox header */}
-                        <div className="follower">
-                            <div className="flex items-center gap-2">
-                                <img className="followerImage rounded-full h-[50px] w-[50px]" src={userData?.image} alt="" />
-                                <div className="name flex flex-col" style={{ fontSize: "0.8rem" }}>
-                                    <span className="text-xl font-bold">{userData?.name}</span>
-                                    {/* header online condition */}
-                                    {online ?
-                                        <div className=" flex items-center gap-1">
-                                            <div className=" bg-[#A9FD2B] h-[15px] w-[15px] rounded-full"></div>
-                                            <h2 className=" font-bold ">online</h2>
-                                        </div>
-                                        : <div className="flex items-center gap-1">
-                                            <div className=" bg-red-500 h-[15px] w-[15px] rounded-full"></div>
-                                            <h2 className=" font-bold">offline</h2>
-                                        </div>
-                                    }
+        <div className="min-h-[750px]">
+            <div className="p-3">
+                {/* Chatbox header */}
+                <div className="follower">
+                    <div className="flex items-center gap-2">
+                        <img className="followerImage rounded-full h-[50px] w-[50px]" src={userData?.image} alt="" />
+                        <div className="name flex flex-col" style={{ fontSize: "0.8rem" }}>
+                            <span className="text-xl font-bold">{userData?.name}</span>
+                            {/* header online condition */}
+                            {online ?
+                                <div className=" flex items-center gap-1">
+                                    <div className=" bg-[#A9FD2B] h-[15px] w-[15px] rounded-full"></div>
+                                    <h2 className=" font-bold ">online</h2>
                                 </div>
+                                : <div className="flex items-center gap-1">
+                                    <div className=" bg-red-500 h-[15px] w-[15px] rounded-full"></div>
+                                    <h2 className=" font-bold">offline</h2>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <hr className=" mx-auto mt-2" />
+            </div>
+            {/* Chat message */}
+            {/* own chat */}
+            <div className="chat-body overflow-y-auto chatScroll">
+                {
+                    messages?.map((message) => (
+                        <div
+                            key={message._id}
+                            className={message?.senderId === currentUserId ? "flex self-end justify-end mt-5" : "flex mt-5"}>
+                            <div className=" flex flex-col gap-3">
+                                {/* user and owner condition */}
+                                {message?.senderId === currentUserId ?
+                                    <div>
+                                        <div className="flex flex-row-reverse items-start gap-2">
+                                            <img className=" h-[42px] w-[42px] rounded-full " src={user?.photoURL} alt="" />
+                                            <div className=" flex flex-col justify-end items-end gap-1">
+                                                <span className=" p-2 cursor-default border text-center rounded text-slate-400 ">{message?.text}</span>
+                                                <span className=" cursor-auto text-slate-400 text-xs flex items-center gap-1"> <FaRegClock></FaRegClock> {format(message?.createdAt)}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    :
+                                    <div>
+                                        <div className="flex items-start gap-2">
+                                            <img className=" h-[42px] w-[42px] rounded-full " src={userData?.image} alt="" />
+                                            <div className="flex flex-col justify-start items-start gap-1">
+                                                <span className=" p-2 cursor-default border text-center rounded text-slate-400">{message?.text}</span>
+                                                <span className=" cursor-auto text-slate-400 text-xs flex items-center gap-1"> <FaRegClock></FaRegClock> {format(message?.createdAt)}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
                             </div>
                         </div>
-                        <hr className=" mx-auto mt-2" />
-                    </div>
-                    {/* Chat message */}
-                    {/* own chat */}
-                    <div className="chat-body">
-                        {
-                            messages?.map((message) => (
-                                <div
-                                    key={message._id}
-                                    className={message?.senderId === currentUserId ? "flex self-end justify-end mt-5" : "flex mt-5"}>
-                                    <div className=" flex flex-col gap-3">
-                                        {/* user and owner condition */}
-                                        {message?.senderId === currentUserId ?
-                                            <div>
-                                                <div className="flex flex-row-reverse items-start gap-2">
-                                                    <img className=" h-[42px] w-[42px] rounded-full " src={user?.photoURL} alt="" />
-                                                    <div className=" flex flex-col justify-end items-end gap-1">
-                                                        <span className=" p-2 cursor-default border text-center rounded text-slate-400 ">{message?.text}</span>
-                                                        <span className=" cursor-auto text-slate-400 text-xs flex items-center gap-1"> <FaRegClock></FaRegClock> {format(message?.createdAt)}</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            :
-                                            <div>
-                                                <div className="flex items-start gap-2">
-                                                    <img className=" h-[42px] w-[42px] rounded-full " src={userData?.image} alt="" />
-                                                    <div className="flex flex-col justify-start items-start gap-1">
-                                                        <span className=" p-2 cursor-default border text-center rounded text-slate-400">{message?.text}</span>
-                                                        <span className=" cursor-auto text-slate-400 text-xs flex items-center gap-1"> <FaRegClock></FaRegClock> {format(message?.createdAt)}</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        }
-                                    </div>
-                                </div>
-                            ))
-                        }
-                    </div>
+                    ))
+                }
+            </div>
 
-                    {/* chat sender */}
-                    <div className=" flex items-center mt-7 mx-4">
-                        <div className=" w-full">
-                            <InputEmoji
-                                value={newMessage}
-                                onChange={handleChange}
-                                placeholder="Type a message"
-                                fontSize={20}
-                                borderRadius={8}
-                            ></InputEmoji>
-                        </div>
-                        <div className="" onClick={handleSend}>
-                            <ButtonRed
-                                titleRed={`Send`}
-                            >
-                            </ButtonRed>
-                        </div>
-                    </div>
-                </>
+            {/* chat sender */}
+            <div className=" flex items-center mt-7 mx-4">
+                <div className=" w-full">
+                    <InputEmoji
+                        value={newMessage}
+                        onChange={handleChange}
+                        placeholder="Type a message"
+                        fontSize={20}
+                        borderRadius={8}
+                    ></InputEmoji>
+                </div>
+                <div className="" onClick={handleSend}>
+                    <ButtonRed
+                        titleRed={`Send`}
+                    >
+                    </ButtonRed>
+                </div>
             </div>
         </div>
     );
