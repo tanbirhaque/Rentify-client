@@ -65,13 +65,13 @@ const Bloggrid = () => {
           title={"Blogs"}
           img={"https://i.ibb.co/M6r72CP/breadcrumb-4.jpg"}
         />
-        <div className=" max-w-screen-2xl mx-auto my-32">
+        <div className="max-w-screen-2xl mx-auto my-32">
           <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-7">
             {currentItems.map((item) => (
               <div key={item._id}>
                 {/* animation bg fixed */}
                 {/* card class, image-container, imghover & img is import by styles.css*/}
-                <div className="cart bg-base-100 shadow-md md:w-full w-11/12  h-[500px] md:mx-0 mx-auto rounded">
+                <div className="cart bg-base-100 shadow-md md:w-full w-11/12  h-[520px] md:mx-0 mx-auto rounded">
                   <div className="image-container">
                     <img
                       className="imghover img hover:shadow-2xl"

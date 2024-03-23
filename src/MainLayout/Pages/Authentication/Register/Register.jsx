@@ -7,12 +7,21 @@ import Swal from "sweetalert2";
 import SocialLogin from "../Social/SocialLogin";
 import useAuth from "../../../../Hooks/useAuth";
 import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
+import { IoMdEye, IoMdEyeOff } from "react-icons/io";
+import { useState } from "react";
 
 const Register = () => {
   const { userRegister, userProfile } = useAuth();
   const currentLocation = useLocation();
   const destinedLocation = useNavigate();
   const axiosPublic = useAxiosPublic();
+
+  //for password visibility
+  const [passwordVisible, setPasswordVisible] = useState(true);
+
+  const handleTogglePassword = () => {
+    setPasswordVisible(!passwordVisible);
+  };
 
   //images hosting to imgbb
   const image_hosting_api =
@@ -30,7 +39,7 @@ const Register = () => {
   const onSubmit = async (data) => {
     //image upload and getting url
     const imageFile = { image: data.image[0] };
-    console.log(imageFile)
+    console.log(imageFile);
     const res = await axiosPublic.post(image_hosting_api, imageFile, {
       headers: { "Content-Type": "multipart/form-data" },
     });
@@ -129,11 +138,17 @@ const Register = () => {
                 minLength: 6,
                 pattern: /^(?=.*[A-Z]).{6,}$/i,
               })}
-              type="password"
+              type={passwordVisible ? "text" : "password"}
               name="password"
               placeholder="Enter your password"
               className="max-w-full md:w-[550px] bg-[#F3F3F3] h-14 pl-5 mb-7"
             />
+            <span
+              className="cursor-pointer text-xl absolute -ml-8 mt-4"
+              onClick={handleTogglePassword}
+            >
+              {passwordVisible ? <IoMdEye /> : <IoMdEyeOff />}
+            </span>
             {errors.password?.type === "minLength" && (
               <span className="text-red-700">
                 Password length should be 6 characters.
