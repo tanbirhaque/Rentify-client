@@ -6,11 +6,11 @@ import ToTop from "./Shared/ToTop/ToTop";
 const MainLayout = () => {
     return (
         <div className="">
-            <Navbar></Navbar>
-            <Outlet></Outlet>
-            <Footer></Footer>
+            <Navbar />
+            <Outlet />
+            <Footer />
             <div className="fixed z-[99999] right-8 bottom-12">
-                <ToTop></ToTop>
+                <ToTop />
             </div>
         </div>
     );

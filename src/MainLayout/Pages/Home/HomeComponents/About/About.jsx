@@ -14,13 +14,13 @@ const About = () => {
         <div className="relative px-3 md:px-8 lg:px-0">
           <img
             className="lg:max-w-[361px] md:min-w-[574px] lg:min-w-[324px] xl:min-w-[504px] xl:min-h-[504px] rounded-[5px] z-10"
-            src="https://i.ibb.co/sgQWNHX/download.jpg"
+            src="https://i.ibb.co.com/SXcnBbw0/about-img-1.jpg"
             alt=""
           />
           <div className="absolute left-[180px] top-[250px] md:left-[325px] md:top-[380px] lg:left-[200px] lg:top-[250px] xl:left-[225px]  xl:top-[305px] min-w-[160px] lg:min-w-[300px] xl:min-w-[400px] min-h-[350px]">
             <img
               className="min-w-full min-h-full rounded-[5px]"
-              src="https://i.ibb.co/CPXqSN1/download.jpg"
+              src="https://i.ibb.co.com/sJm8G7d1/about-img-2.jpg"
               alt=""
             />
           </div>
@@ -28,7 +28,7 @@ const About = () => {
           <div className="absolute left-16 -bottom-38">
             <img
               className="rotate-anim"
-              src="https://i.ibb.co/THwCWwB/shape-1-1.png"
+              src="https://i.ibb.co.com/9m8bBcLH/shape-1.png"
               alt="Red cube png for rotating animation"
             />
           </div>

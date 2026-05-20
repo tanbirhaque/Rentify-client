@@ -171,7 +171,7 @@ const Details = () => {
             Swal.fire("Now You connected With this owner")
           })
       }
-    } 
+    }
     else {
       // this login will allow user to save their desired property only if they are user
       Swal.fire({
@@ -330,7 +330,7 @@ const Details = () => {
                 </h3>
                 <div className="p-[50px] bg-[#f9f9f9]">
                   <img
-                    src="https://angular.hibootstrap.com/enuf/assets/img/property/floor-plan.png"
+                    src="https://i.ibb.co.com/xKVyFVyT/floor-plan.png"
                     // src={item?.property_info.floor_plans}
                     alt="Floor plan image"
                   />

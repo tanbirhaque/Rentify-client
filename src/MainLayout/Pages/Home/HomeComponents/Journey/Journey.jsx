@@ -15,7 +15,7 @@ const Journey = () => {
         <div className="grid justify-center md:grid-cols-2 lg:grid-cols-3 gap-4 xl:gap-6 mt-9 px-6  xl:px-0">
           <div className="max-w-96 xl:min-w-[416px] bg-base-100 shadow-xl mb-10 advance_card relative transition-transform duration-300 ease-linear transform translate-y-0 hover:-translate-y-2">
             <img
-              src="https://angular.hibootstrap.com/enuf/assets/img/about/simple-1.jpg"
+              src="https://i.ibb.co.com/fz6vm9Xj/simple-1.jpg"
               alt=""
             />
             <div className="p-5">
@@ -35,7 +35,7 @@ const Journey = () => {
           </div>
           <div className="max-w-96 xl:min-w-[416px] bg-base-100 shadow-xl mb-10 advance_card relative transition-transform duration-300 ease-linear transform translate-y-0 hover:-translate-y-2">
             <img
-              src="https://angular.hibootstrap.com/enuf/assets/img/about/simple-2.jpg"
+              src="https://i.ibb.co.com/KpFtxFQ9/simple-2.jpg"
               alt=""
             />
             <div className="p-5">

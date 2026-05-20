@@ -6,7 +6,7 @@ import "swiper/css/navigation";
 import "swiper/css";
 import "swiper/css/pagination";
 import img1 from "../../../../../assets/home-2/hero-bg-1.jpg";
-import img2 from "../../../../../assets/home-2/property-14.jpg";
+// import img2 from "../../../../../assets/home-2/property-14.jpg";
 import img3 from "../../../../../assets/home-2/house.png";
 import img4 from "../../../../../assets/Template_files/client-1.jpg";
 import img5 from "../../../../../assets/Template_files/client-2.jpg";
@@ -29,7 +29,7 @@ const Banner = () => {
   return (
     <div className="max-w-screen-2xl mx-auto">
       <div className="mb-10 md:mb-20">
-        <div className="flex justify-center mx-auto flex-col md:flex-row  gap-10 px-8 xl:px-0">
+        <div className="flex justify-center mx-auto flex-col md:flex-row  gap-10 px-8 2xl:px-0">
           <div className="   w-full lg:w-1/2 mt-[20px] md:mt-[100px]">
             <div className="md:flex justify-evenly md:justify-between  hidden">
               <img className="w-10 " src={img3} alt="" />
